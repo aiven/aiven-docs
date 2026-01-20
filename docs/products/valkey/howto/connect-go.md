@@ -1,5 +1,6 @@
 ---
-title: Connect with Go
+title: Connect to Aiven for Valkey™ with Go
+sidebar_label: Go
 ---
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource1 from '!!raw-loader!/code/products/valkey/connect.go';

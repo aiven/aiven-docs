@@ -149,7 +149,7 @@ service.
 
 By enabling these integrations, you can:
 
-- Push service logs into an index in [Aiven for OpenSearch®](/docs/products/opensearch).
+- [Push service logs into an index in Aiven for OpenSearch®](/docs/products/opensearch/howto/opensearch-log-integration).
 - Push service metrics to [Aiven for Metrics](/docs/products/metrics)
   or [PostgreSQL®](/docs/products/postgresql) services on Aiven.
 - Create custom OpenSearch or [Grafana®](/docs/products/grafana) dashboards to

@@ -1,13 +1,12 @@
 ---
 title: Create an Aiven for Apache Kafka® service
-sidebar_label: Create service
+sidebar_label: Create Kafka service
 keywords: [create, kafka, service, byoc, diskless]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import CreateService from "@site/static/includes/create-service-console.md"
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -29,7 +28,7 @@ Choose the configuration that fits your workload:
 - **Kafka service with diskless topics:** Stores data in cloud object storage for
   cost-optimized scaling in Bring Your Own Cloud (BYOC) environments.
 
-Diskless topics are currently supported only for BYOC deployments on AWS.
+Diskless topics are supported for BYOC deployments on AWS and Google Cloud Platform (GCP).
 
 :::note
 You cannot enable diskless topics on an existing Kafka service that was created with
@@ -70,7 +69,7 @@ Make sure you have the following:
 To create a Kafka service with diskless topics, make sure that:
 
 - You have a [BYOC environment](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
-  set up in your cloud account on AWS.
+  set up in your cloud account on AWS or Google Cloud Platform (GCP).
 - Diskless topics are enabled for your organization by Aiven. If the option does not
   appear in the Aiven Console, [contact Aiven support](https://aiven.io/contact).
 
@@ -84,7 +83,7 @@ Create a Kafka service that stores topic data on local disks by default.
 1. In your project, click <ConsoleLabel name="services" />.
 1. Click **Create service**.
 1. Select **Aiven for Apache Kafka®**.
-1. Under **Optimize cost**, keep diskless topics turned off to create a standard
+1. In the **Optimize cost** section, keep diskless topics turned off to create a standard
    Kafka service.
 
    :::tip
@@ -92,24 +91,26 @@ Create a Kafka service that stores topic data on local disks by default.
    [Create a Kafka service with diskless topics (BYOC)](#create-a-kafka-service-with-diskless-topics-byoc).
    :::
 
-1. Under **Add service metadata**, set the following:
-   - **Version:** Select the Kafka version. The latest supported version appears by default.
-   - **Service name:** Enter a name for the service.
-     :::important
-     You cannot change the name after creation.
-     :::
-   - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
-     organize your services.
-
-1. Select the **cloud provider**, **region**, and **plan**.
+1. Select a **Cloud**.
 
    :::note
    Available plans and pricing vary between cloud providers and regions.
    :::
 
+1. Select a **Plan**.
+
 1. Optional: Add [disk storage](/docs/platform/howto/add-storage-space).
    You can also enable [Tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage)
    to offload older data automatically to object storage.
+
+1. In the **Service basics** section, set the following:
+   - **Service name:** Enter a name for the service.
+     :::important
+     You cannot change the name after creation.
+     :::
+   - **Version:** Select the Kafka version. The latest supported version appears by default.
+   - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
+     organize your services.
 
 1. Review the **Service summary**.
    Confirm the version, region, plan, and estimated price.
@@ -220,7 +221,8 @@ Parameters:
 
 - `SERVICE_NAME`: Name of your Kafka service.
 - `PROJECT_NAME`: Your Aiven project name.
-- `CLOUD_NAME`: Custom BYOC cloud region, for example `custom-aws-eu-central-1`.
+- `CLOUD_NAME`: Custom BYOC cloud region, for example `custom-aws-eu-central-1` or
+  `custom-gcp-europe-west3`.
 - `PLAN_NAME`: Diskless-compatible plan, such as `business-8-inkless`. Plans that support
   diskless topics include `-inkless` in the plan name.
 - `kafka_diskless.enabled`: Enables diskless topics. Must be set to `true`.
@@ -312,6 +314,6 @@ To learn more about how diskless topics work, see
 <RelatedPages/>
 
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
-- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/architecture)
+- [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture)
 - [Batching and delivery in diskless topics](/docs/products/kafka/diskless/concepts/batching-and-delivery)
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)

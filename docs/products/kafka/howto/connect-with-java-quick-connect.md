@@ -30,6 +30,14 @@ Topics organize and store the events you stream to Apache Kafka.
 
 1. Select an existing topic or click **Create new topic**. If you create a topic, it is
    auto-selected for the next steps.
+
+   :::note
+   If your Aiven for Apache Kafka® service has **Diskless topics** enabled, you can choose
+   to create a **Classic** or **Diskless** topic, or select an existing topic of
+   either type. To learn more, see
+   [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
+   :::
+
 1. Click **Next**.
 
 ## Step 3: Select an authentication method

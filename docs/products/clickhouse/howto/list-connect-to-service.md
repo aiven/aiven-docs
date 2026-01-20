@@ -1,9 +1,9 @@
 ---
-title: Connect to your Aiven for ClickHouse® service
+title: Connect to Aiven for ClickHouse®
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-Discover the various ways to connect to your Aiven for ClickHouse® service.
+Connect to the Aiven for ClickHouse® service using various programming languages or tools.
 
 <DocCardList />

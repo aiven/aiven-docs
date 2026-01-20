@@ -1,5 +1,6 @@
 ---
-title: Connect with Go
+title: Connect to Aiven for PostgreSQL® with Go
+sidebar_label: Go
 ---
 
 import CodeBlock from '@theme/CodeBlock';

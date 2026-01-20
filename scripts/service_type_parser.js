@@ -7,6 +7,78 @@ const axios = require('axios');
 const fs = require('fs');
 const handlebars = require('handlebars');
 
+// Helper for escaping HTML entities
+handlebars.registerHelper('escapeHtml', function(text) {
+  if (!text) return '';
+  return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+});
+
+// Helper to render title and description intelligently
+handlebars.registerHelper('renderTitleDescription', function(title, description) {
+  if (!title && !description) return '';
+  
+  const titleStr = title ? String(title) : '';
+  const descStr = description ? String(description) : '';
+  
+  if (!titleStr && !descStr) return '';
+  if (!titleStr) {
+    const escaped = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<div className="description"><p>${escaped}</p></div>`);
+  }
+  if (!descStr) {
+    const escaped = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<p className="title">${escaped}</p>`);
+  }
+  
+  // Both exist - check for duplicates or overlap
+  const titleTrimmed = titleStr.trim();
+  const descTrimmed = descStr.trim();
+  
+  // If identical, show only title
+  if (titleTrimmed === descTrimmed) {
+    const escaped = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<p className="title">${escaped}</p>`);
+  }
+  
+  // Check if one contains the other
+  const titleLower = titleTrimmed.toLowerCase();
+  const descLower = descTrimmed.toLowerCase();
+  
+  // If title contains description, use only title
+  if (titleLower.includes(descLower)) {
+    const escaped = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<p className="title">${escaped}</p>`);
+  }
+  
+  // If description contains title, use only description
+  if (descLower.includes(titleLower)) {
+    const escaped = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return new handlebars.SafeString(`<div className="description"><p>${escaped}</p></div>`);
+  }
+  
+  // Check for significant word overlap (more than 50% of title words in description)
+  const titleWords = titleLower.split(/\s+/).filter(w => w.length > 3); // Filter out short words
+  const descWords = descLower.split(/\s+/);
+  
+  if (titleWords.length > 0) {
+    const matchingWords = titleWords.filter(word => descWords.includes(word));
+    const overlapRatio = matchingWords.length / titleWords.length;
+    
+    // If more than 60% overlap, the description is likely an expansion of the title
+    if (overlapRatio > 0.6) {
+      const escaped = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return new handlebars.SafeString(`<div className="description"><p>${escaped}</p></div>`);
+    }
+  }
+  
+  // Both are different and needed
+  const escapedTitle = titleStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const escapedDesc = descStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return new handlebars.SafeString(
+    `<p className="title">${escapedTitle}</p><div className="description"><p>${escapedDesc}</p></div>`
+  );
+});
+
 // Helper for formatting parameter details
 handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var name = options.hash.name;
@@ -18,7 +90,7 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
   var def = options.hash.def;
   var restart_warning = options.hash.restart_warning;
   var fullname = parent + '.' + name;
-  var fullnameid = fullname.replace('.', '_');
+  var fullnameid = fullname.replace(/\./g, '_');
 
   var html = '<div className="param">';
   var nestedParamName = '<strong>' + fullname + '</strong>';
@@ -55,6 +127,47 @@ handlebars.registerHelper('parameterDetailsHelper', function (options) {
       '</ul></div>';
   }
 
+  return new handlebars.SafeString(html);
+});
+
+// Helper to recursively render nested properties
+handlebars.registerHelper('renderNestedProperties', function(properties, parentKey) {
+  if (!properties) return '';
+  
+  let html = '';
+  for (const [key, value] of Object.entries(properties)) {
+    const fullParent = parentKey ? `${parentKey}.${key}` : key;
+    
+    html += '\n          <tr><td>';
+    
+    // Render parameter details
+    const detailsHelper = handlebars.helpers.parameterDetailsHelper;
+    html += detailsHelper({
+      hash: {
+        name: key,
+        parent: parentKey,
+        type: value.type,
+        minimum: value.minimum,
+        maximum: value.maximum,
+        def: value.default,
+        restart_warning: value['x-aiven-change-requires-restart']
+      }
+    });
+    
+    // Render title and description intelligently
+    html += handlebars.helpers.renderTitleDescription(value.title, value.description);
+    
+    // Close the td/tr before nested table
+    html += '</td></tr>';
+    
+    // Recursively render nested properties
+    if (value.properties && Object.keys(value.properties).length > 0) {
+      html += '\n          <tr><td><table className="service-param-children"><tbody>';
+      html += handlebars.helpers.renderNestedProperties(value.properties, fullParent);
+      html += '\n          </tbody></table></td></tr>';
+    }
+  }
+  
   return new handlebars.SafeString(html);
 });
 
@@ -122,21 +235,14 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         {{parameterDetailsHelper name=@key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
-        {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
-        {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
+        {{{renderTitleDescription title description}}}
+        {{#if properties}}
         <table className="service-param-children">
           <tbody>
-          {{#each properties}}
-          <tr>
-            <td>
-              {{parameterDetailsHelper name=@key parent=@../key type=type minimum=minimum maximum=maximum def=default restart_warning=x-aiven-change-requires-restart}}
-              {{#if title~}}<p className="title">{{title}}</p>{{~/if}}
-              {{#if description~}}<div className="description"><p>{{description}}</p></div>{{~/if}}
-            </td>
-          </tr>
-          {{/each}}
+          {{{renderNestedProperties properties @key}}}
           </tbody>
         </table>
+        {{/if}}
       </td>
     </tr>
   {{/each}}

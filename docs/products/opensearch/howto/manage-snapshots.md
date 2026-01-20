@@ -52,10 +52,14 @@ manually.
 
 ## Limitations
 
+See
+[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#snapshot-management)
+for the tool-agnostic list of snapshot management restrictions.
+
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
-Supported storage services are:
+Only the following storage services are supported:
 
 - Amazon S3
 - Google Cloud Storage (GCS)
@@ -64,26 +68,37 @@ Supported storage services are:
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Supported storage services are:
+- You cannot access the `/_snapshot` API directly without configuring
+  [custom repositories](/docs/products/opensearch/howto/custom-repositories).
+- Only the following storage services are supported:
+  - Amazon S3
+  - Google Cloud Storage (GCS)
+  - Microsoft Azure Blob Storage
 
-- Amazon S3
-- Google Cloud Storage (GCS)
-- Microsoft Azure Blob Storage
+See
+[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#api-restrictions)
+for more Aiven for OpenSearch API restrictions.
 
 </TabItem>
 <TabItem value="os-api" label="OpenSearch API">
 
-- Supported storage services are:
+- You cannot access the `/_snapshot` API directly without configuring
+  [custom repositories](/docs/products/opensearch/howto/custom-repositories).
+- Only the following storage services are supported:
   - Amazon S3
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
 - [Restore from snapshot](/docs/products/opensearch/howto/manage-snapshots#restore-from-snapshots)
   has a couple of
-  [security-related restrictions](https://docs.opensearch.org/docs/2.19/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#security-considerations).
+  [security-related restrictions](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#security-considerations).
 - [Create a snapshot](/docs/products/opensearch/howto/manage-snapshots#create-a-snapshot)
   and
   [delete a snapshot](/docs/products/opensearch/howto/manage-snapshots#delete-a-snapshot)
   are not supported for snapshots in Aiven-managed repositories (prefixed with `aiven_repo`).
+
+See
+[Aiven for OpenSearch limits and limitations](/docs/products/opensearch/reference/opensearch-limitations#api-restrictions)
+for more Aiven for OpenSearch API restrictions.
 
 </TabItem>
 </Tabs>

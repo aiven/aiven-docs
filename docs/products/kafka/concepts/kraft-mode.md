@@ -53,22 +53,28 @@ performance.
 Migration from ZooKeeper to KRaft is not yet available for existing
 Aiven for Apache Kafka services. Aiven will notify you when your service becomes eligible.
 
-The migration is included in the upgrade to Apache Kafka 3.9. It is fully automated and
-does not require any manual steps. After the migration is complete, reverting to
-ZooKeeper is not supported.
+The migration is part of the upgrade to Apache Kafka 3.9. It is fully automated and
+does not require manual steps. After the migration completes, reverting to ZooKeeper is
+not supported.
 
 ### How the migration works
 
-- The migration is triggered when you upgrade your service to Apache Kafka 3.9 using the
-  Aiven Console.
+- The migration starts automatically when you upgrade your service to Apache Kafka 3.9
+  in the Aiven Console.
 - The migration runs during your configured
-  [maintenance window](/docs/platform/concepts/maintenance-window), like other major
-  version upgrades.
+  [maintenance window](/docs/platform/concepts/maintenance-window).
 - During the upgrade, the service status changes to **Rebuilding**.
-- Aiven transfers your service’s metadata from ZooKeeper to KRaft and updates the
-  cluster to use KRaft mode.
-- When the migration completes, the service status returns to **Running**, and the
-  service operates in KRaft mode.
+- When the upgrade completes, the service status returns to **Running** and the service
+  runs in KRaft mode.
+
+#### What happens in the background
+
+1. Aiven replaces the Kafka 3.8 nodes with Kafka 3.9 nodes. The new nodes temporarily
+   run on ZooKeeper.
+1. After the old nodes are decommissioned and the new cluster is healthy, Aiven starts
+   the KRaft controllers. The service now runs in dual mode (ZooKeeper + KRaft).
+1. Aiven transfers the cluster metadata from ZooKeeper to KRaft.
+1. The cluster switches to KRaft mode and no longer uses ZooKeeper.
 
 ### Before you migrate
 

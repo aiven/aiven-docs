@@ -1,326 +1,333 @@
 #
 # Redirect file for Cloudflare.
 # See https://developers.cloudflare.com/pages/configuration/redirects/
-# Internal redirects.
+# At the end of the each line redirect, add 301 for permanent redirect.
+# By default, Cloudflare Pages will redirect with 302 for temporary redirect.
 # Make sure to keep the /docs/ prefix in the destination url but leave the source url without it.
 # This is because aiven.io/docs proxy to this site.
 #
 
-/caching                                         /docs/products/valkey
-/category/administrative-tasks                   /docs/get-started
-/category/concepts                               /docs/get-started
-/category/concepts-1                             /docs/get-started
-/category/how-to                                 /docs/platform/howto/list-service
-/category/how-to-1                               /docs/get-started
-/category/integrations                           /docs/platform/concepts/service-integration
-/category/reference                              /docs/get-started
-/category/reference-1                            /docs/get-started
-/category/reference-2                            /docs/get-started
-/category/topic-and-schema-management            /docs/products/kafka/concepts/governance-overview
-/category/troubleshooting                        /docs/products/services
-/category/user-access                            /docs/platform/howto/manage-org-users
-/community/documentation/tips-tricks/renaming-files /docs
-/integrations                                          /docs/platform/concepts/service-integration
-/integrations/cloudwatch/list-cloudwatch-logs          /docs/integrations/cloudwatch/cloudwatch-logs-console
-/integrations/google-bigquery                          /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq
-/kafka-connect/opensearch                              /docs/products/kafka/kafka-connect/howto/opensearch-sink
-/platform/concepts/beta_services                       /docs/platform/concepts/service-and-feature-releases
-/platform/concepts/billing-groups                      /docs/platform/concepts/billing-and-payment
-/platform/concepts/billing-groups-overview             /docs/platform/concepts/billing-and-payment
-/platform/concepts/choosing-timeseries-database        /docs/platform/howto/list-service
-/platform/concepts/corporate-billing                   /docs/platform/concepts/billing-and-payment
-/platform/concepts/corporate-billing.html              /docs/platform/concepts/billing-and-payment
-/platform/concepts/dynamic-disk-sizing                 /docs/platform/howto/add-storage-space
-/platform/concepts/free-plan                           /docs/platform/concepts/service-pricing
-/platform/concepts/free-trial                          /docs/platform/concepts/service-pricing
-/platform/concepts/hourly-billing-model                /docs/platform/concepts/billing-and-payment
-/platform/concepts/hourly-billing-model.html           /docs/platform/concepts/billing-and-payment
-/platform/concepts/list-billing                        /docs/platform/concepts/billing-and-payment
-/platform/concepts/logs-metrics-alerts                 /docs/platform/howto/list-monitoring
-/platform/concepts/orgs-and-units                      /docs/platform/concepts/orgs-units-projects
-/platform/concepts/projects                            /docs/platform/concepts/orgs-units-projects
-/platform/concepts/projects_accounts_access            /docs/platform/howto/manage-project
-/platform/concepts/projects_accounts_access.html  /docs/platform/howto/manage-org-users
-/platform/concepts/service-resources                   /docs/platform/concepts/service-pricing
-/platform/concepts/service-scaling                     /docs/platform/howto/scale-services
-/platform/howto/access-service-log                     /docs/platform/howto/list-monitoring
-/platform/howto/access-service-logs                    /docs/platform/howto/list-monitoring
-/platform/howto/add-groups-projects                    /docs/platform/howto/manage-groups
-/platform/howto/add-project-members                    /docs/platform/howto/manage-permissions
-/platform/howto/billing-assign-projects                /docs/platform/howto/use-billing-groups
-/platform/howto/billing-aws-marketplace-subscription   /docs/marketplace-setup
-/platform/howto/billing-azure-marketplace-subscription /docs/marketplace-setup
-/platform/howto/billing-google-cloud-platform-marketplace-subscription /docs/marketplace-setup
-/platform/howto/byoc/create-custom-cloud               /docs/platform/howto/byoc/create-cloud/create-custom-cloud
-/platform/howto/change-billing-contact                 /docs/platform/howto/use-billing-groups
-/platform/howto/change-support-tier                    /docs/platform/howto/support
-/platform/howto/cleanup-powered-off-services           /docs/platform/concepts/service-power-cycle
-/platform/howto/console-fork-service                   /docs/platform/concepts/service-forking
-/platform/howto/create-billing-groups                  /docs/platform/howto/use-billing-groups
-/platform/howto/download-ca-cert                       /docs/platform/concepts/tls-ssl-certificates
-/platform/howto/enable-aiven-password                  /docs/platform/reference/password-policy
-/platform/howto/list-account                           /docs/platform/howto/list-user
-/platform/howto/list-backup-to-another-region          /docs/platform/concepts/backup-to-another-region
-/platform/howto/list-billing                           /docs/platform/concepts/billing-and-payment
-/platform/howto/list-billing-groups                    /docs/platform/concepts/billing-and-payment
-/platform/howto/list-byoc                              /docs/platform/concepts/byoc
-/platform/howto/list-groups                            /docs/platform/howto/manage-groups
-/platform/howto/list-network                           /docs/platform/concepts/cloud-security
-/platform/howto/list-user                              /docs/platform/howto/manage-org-users
-/platform/howto/make-super-admin                       /docs/platform/howto/manage-permissions
-/platform/howto/manage-org-vpc-peering-upcloud         /docs/platform/howto/list-organization-vpc-peering
-/platform/howto/manage-vpc-peering                     /docs/platform/howto/manage-project-vpc
-/platform/howto/metrics-integrations                   /docs/platform/howto/list-monitoring
-/platform/howto/migrate-services                       /docs/products/postgresql/howto/list-replication-migration
-/platform/howto/monitoring-services                    /docs/platform/howto/list-monitoring
-/platform/howto/move-to-aws-marketplace-billing        /docs/platform/howto/list-marketplace-payments
-/platform/howto/move-to-azure-marketplace-billing      /docs/platform/howto/list-marketplace-payments
-/platform/howto/move-to-gcp-marketplace-billing        /docs/platform/howto/list-marketplace-payments
-/platform/howto/okta-user-provisioning-with-scim       /docs/platform/howto/saml/add-okta-idp
-/platform/howto/pause-from-cli                         /docs/platform/concepts/service-power-cycle
-/platform/howto/payment-issues-plan-upgrades           /docs/platform/concepts/billing-and-payment
-/platform/howto/payment-methods                        /docs/platform/concepts/billing-and-payment
-/platform/howto/project-support-center                 /docs/platform/howto/support
-/platform/howto/project-support-center.html            /docs/platform/howto/support
-/platform/howto/recover-a-deleted-service              /docs/platform/concepts/service_backups
-/platform/howto/rename-a-service                       /docs/platform/concepts/service-forking
-/platform/howto/saml/saml-authentication               /docs/platform/howto/saml/add-identity-providers
-/platform/howto/saml/setup-saml-auth0.html             /docs/platform/howto/saml/add-auth0-idp
-/platform/howto/saml/setup-saml-azure                  /docs/platform/howto/saml/add-azure-idp
-/platform/howto/saml/setup-saml-fusionauth             /docs/platform/howto/saml/add-fusionauth-idp
-/platform/howto/saml/setup-saml-google                 /docs/platform/howto/saml/add-google-idp
-/platform/howto/saml/setup-saml-jumpcloud              /docs/platform/howto/saml/add-jumpcloud-idp
-/platform/howto/saml/setup-saml-okta                   /docs/platform/howto/saml/add-okta-idp
-/platform/howto/saml/setup-saml-onelogin               /docs/platform/howto/saml/add-onelogin-idp
-/platform/howto/service-metrics                        /docs/platform/howto/list-monitoring
-/platform/howto/static-ip-addresses                    /docs/platform/concepts/static-ips
-/platform/howto/update-tax-status                      /docs/platform/concepts/tax-information
-/platform/ip-addresses                                 /docs/platform/reference/service-ip-address
-/platform/privatelink                                  /docs/platform/howto/use-aws-privatelinks
-/platform/reference/project-member-privileges          /docs/platform/concepts/permissions
-/platform/vpc                                          /docs/platform/howto/manage-vpc-peering
-/products/alloydbomni/advanced-params                  /docs/products/alloydbomni/reference/advanced-params
+/caching                                         /docs/products/valkey  301
+/category/administrative-tasks                   /docs/get-started  301
+/category/concepts                               /docs/get-started  301
+/category/concepts-1                             /docs/get-started  301
+/category/how-to                                 /docs/platform/howto/list-service  301
+/category/how-to-1                               /docs/get-started  301
+/category/integrations                           /docs/platform/concepts/service-integration  301
+/category/reference                              /docs/get-started  301
+/category/reference-1                            /docs/get-started  301
+/category/reference-2                            /docs/get-started  301
+/category/topic-and-schema-management            /docs/products/kafka/concepts/governance-overview  301
+/category/troubleshooting                        /docs/products/services  301
+/category/user-access                            /docs/platform/howto/manage-org-users  301
+/community/documentation/tips-tricks/renaming-files /docs  301
+/integrations                                          /docs/platform/concepts/service-integration  301
+/integrations/cloudwatch/list-cloudwatch-logs          /docs/integrations/cloudwatch/cloudwatch-logs-console  301
+/integrations/google-bigquery                          /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  301
+/kafka-connect/opensearch                              /docs/products/kafka/kafka-connect/howto/opensearch-sink  301
+/platform/concepts/beta_services                       /docs/platform/concepts/service-and-feature-releases  301
+/platform/concepts/billing-groups                      /docs/platform/concepts/billing-and-payment  301
+/platform/concepts/billing-groups-overview             /docs/platform/concepts/billing-and-payment  301
+/platform/concepts/choosing-timeseries-database        /docs/platform/howto/list-service  301
+/platform/concepts/corporate-billing                   /docs/platform/concepts/billing-and-payment  301
+/platform/concepts/corporate-billing.html              /docs/platform/concepts/billing-and-payment  301
+/platform/concepts/dynamic-disk-sizing                 /docs/platform/howto/add-storage-space  301
+/platform/concepts/free-plan                           /docs/platform/concepts/service-pricing  301
+/platform/concepts/free-trial                          /docs/platform/concepts/service-pricing  301
+/platform/concepts/hourly-billing-model                /docs/platform/concepts/billing-and-payment  301
+/platform/concepts/hourly-billing-model.html           /docs/platform/concepts/billing-and-payment  301
+/platform/concepts/list-billing                        /docs/platform/concepts/billing-and-payment  301
+/platform/concepts/logs-metrics-alerts                 /docs/platform/howto/list-monitoring  301
+/platform/concepts/orgs-and-units                      /docs/platform/concepts/orgs-units-projects  301
+/platform/concepts/projects                            /docs/platform/concepts/orgs-units-projects  301
+/platform/concepts/projects_accounts_access            /docs/platform/howto/manage-project  301
+/platform/concepts/projects_accounts_access.html  /docs/platform/howto/manage-org-users  301
+/platform/concepts/service-resources                   /docs/platform/concepts/service-pricing  301
+/platform/concepts/service-scaling                     /docs/platform/howto/scale-services  301
+/platform/howto/access-service-log                     /docs/platform/howto/list-monitoring  301
+/platform/howto/access-service-logs                    /docs/platform/howto/list-monitoring  301
+/platform/howto/add-groups-projects                    /docs/platform/howto/manage-groups  301
+/platform/howto/add-project-members                    /docs/platform/howto/manage-permissions  301
+/platform/howto/billing-assign-projects                /docs/platform/howto/use-billing-groups  301
+/platform/howto/billing-aws-marketplace-subscription   /docs/marketplace-setup  301
+/platform/howto/billing-azure-marketplace-subscription /docs/marketplace-setup  301
+/platform/howto/billing-google-cloud-platform-marketplace-subscription /docs/marketplace-setup  301
+/platform/howto/byoc/create-custom-cloud               /docs/platform/howto/byoc/create-cloud/create-custom-cloud  301
+/platform/howto/change-billing-contact                 /docs/platform/howto/use-billing-groups  301
+/platform/howto/change-support-tier                    /docs/platform/howto/support  301
+/platform/howto/cleanup-powered-off-services           /docs/platform/concepts/service-power-cycle  301
+/platform/howto/console-fork-service                   /docs/platform/concepts/service-forking  301
+/platform/howto/create-billing-groups                  /docs/platform/howto/use-billing-groups  301
+/platform/howto/download-ca-cert                       /docs/platform/concepts/tls-ssl-certificates  301
+/platform/howto/enable-aiven-password                  /docs/platform/reference/password-policy  301
+/platform/howto/list-account                           /docs/platform/howto/list-user  301
+/platform/howto/list-backup-to-another-region          /docs/platform/concepts/backup-to-another-region  301
+/platform/howto/list-billing                           /docs/platform/concepts/billing-and-payment  301
+/platform/howto/list-billing-groups                    /docs/platform/concepts/billing-and-payment  301
+/platform/howto/list-byoc                              /docs/platform/concepts/byoc  301
+/platform/howto/list-groups                            /docs/platform/howto/manage-groups  301
+/platform/howto/list-network                           /docs/platform/concepts/cloud-security  301
+/platform/howto/list-user                              /docs/platform/howto/manage-org-users  301
+/platform/howto/make-super-admin                       /docs/platform/howto/manage-permissions  301
+/platform/howto/manage-org-vpc-peering-upcloud         /docs/platform/howto/list-organization-vpc-peering  301
+/platform/howto/manage-vpc-peering                     /docs/platform/howto/manage-project-vpc  301
+/platform/howto/metrics-integrations                   /docs/platform/howto/list-monitoring  301
+/platform/howto/migrate-services                       /docs/products/postgresql/howto/list-replication-migration  301
+/platform/howto/monitoring-services                    /docs/platform/howto/list-monitoring  301
+/platform/howto/move-to-aws-marketplace-billing        /docs/platform/howto/list-marketplace-payments  301
+/platform/howto/move-to-azure-marketplace-billing      /docs/platform/howto/list-marketplace-payments  301
+/platform/howto/move-to-gcp-marketplace-billing        /docs/platform/howto/list-marketplace-payments  301
+/platform/howto/okta-user-provisioning-with-scim       /docs/platform/howto/saml/add-okta-idp  301
+/platform/howto/pause-from-cli                         /docs/platform/concepts/service-power-cycle  301
+/platform/howto/payment-issues-plan-upgrades           /docs/platform/concepts/billing-and-payment  301
+/platform/howto/payment-methods                        /docs/platform/concepts/billing-and-payment  301
+/platform/howto/project-support-center                 /docs/platform/howto/support  301
+/platform/howto/project-support-center.html            /docs/platform/howto/support  301
+/platform/howto/recover-a-deleted-service              /docs/platform/concepts/service_backups  301
+/platform/howto/rename-a-service                       /docs/platform/concepts/service-forking  301
+/platform/howto/saml/saml-authentication               /docs/platform/howto/saml/add-identity-providers  301
+/platform/howto/saml/setup-saml-auth0.html             /docs/platform/howto/saml/add-auth0-idp  301
+/platform/howto/saml/setup-saml-azure                  /docs/platform/howto/saml/add-azure-idp  301
+/platform/howto/saml/setup-saml-fusionauth             /docs/platform/howto/saml/add-fusionauth-idp  301
+/platform/howto/saml/setup-saml-google                 /docs/platform/howto/saml/add-google-idp  301
+/platform/howto/saml/setup-saml-jumpcloud              /docs/platform/howto/saml/add-jumpcloud-idp  301
+/platform/howto/saml/setup-saml-okta                   /docs/platform/howto/saml/add-okta-idp  301
+/platform/howto/saml/setup-saml-onelogin               /docs/platform/howto/saml/add-onelogin-idp  301
+/platform/howto/service-metrics                        /docs/platform/howto/list-monitoring  301
+/platform/howto/static-ip-addresses                    /docs/platform/concepts/static-ips  301
+/platform/howto/update-tax-status                      /docs/platform/concepts/tax-information  301
+/platform/ip-addresses                                 /docs/platform/reference/service-ip-address  301
+/platform/privatelink                                  /docs/platform/howto/use-aws-privatelinks  301
+/platform/reference/project-member-privileges          /docs/platform/concepts/permissions  301
+/platform/vpc                                          /docs/platform/howto/manage-vpc-peering  301
+/products/alloydbomni/advanced-params                  /docs/products/alloydbomni/reference/advanced-params  301
 # Aiven for Caching → Aiven for Valkey redirects
-/products/caching                                                  /docs/products/valkey
-/products/caching/concepts                                         /docs/products/valkey
-/products/caching/concepts/overview                                /docs/products/valkey
-/products/caching/concepts/high-availability-redis                 /docs/products/valkey/concepts/high-availability
-/products/caching/concepts/lua-scripts-caching                     /docs/products/valkey/concepts/lua-scripts
-/products/caching/concepts/memory-usage                            /docs/products/valkey/concepts/memory-usage
-/products/caching/concepts/read-replica                            /docs/products/valkey/concepts/read-replica
-/products/caching/concepts/restricted-redis-commands               /docs/products/valkey/reference/restricted-commands
-/products/caching/get-started                                      /docs/products/valkey/get-started
-/products/caching/howto                                            /docs/products/valkey/get-started
-/products/caching/howto/benchmark-performance                      /docs/products/valkey/howto/benchmark-performance
-/products/caching/howto/configure-acl-permissions                  /docs/products/valkey/howto/configure-acl-permissions
-/products/caching/howto/connect-go                                 /docs/products/valkey/howto/connect-go
-/products/caching/howto/connect-java                               /docs/products/valkey/howto/connect-java
-/products/caching/howto/connect-node                               /docs/products/valkey/howto/connect-node
-/products/caching/howto/connect-php                                /docs/products/valkey/howto/connect-php
-/products/caching/howto/connect-python                             /docs/products/valkey/howto/connect-python
-/products/caching/howto/connect-redis-cli                          /docs/products/valkey/howto/connect-valkey-cli
-/products/caching/howto/connect-services                           /docs/products/valkey/howto/connect-services
-/products/caching/howto/create-redis-read-replica                  /docs/products/valkey/howto/create-valkey-read-replica
-/products/caching/howto/create-valkey-read-replica                 /docs/products/valkey/howto/create-valkey-read-replica
-/products/caching/howto/estimate-max-number-of-connections         /docs/products/valkey/howto/estimate-max-number-of-connections
-/products/caching/howto/list-code-samples                          /docs/products/valkey/get-started
-/products/caching/howto/list-dba-tasks                             /docs/products/valkey
-/products/caching/howto/manage-ssl-connectivity                    /docs/products/valkey/howto/manage-ssl-connectivity
-/products/caching/howto/migrate-aiven-redis.html                   /docs/products/valkey/howto/migrate-redis-aiven-via-console
-/products/caching/howto/migrate-redis-aiven-cli                    /docs/products/valkey/howto/migrate-redis-aiven-cli
-/products/caching/howto/migrate-redis-aiven-via-console            /docs/products/valkey/howto/migrate-redis-aiven-via-console
-/products/caching/howto/migrate-redis-db                           /docs/products/valkey/howto/configure-acl-permissions
-/products/caching/howto/upgrade-aiven-for-caching-to-valkey        /docs/products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey
-/products/caching/howto/warning-overcommit_memory                  /docs/products/valkey/troubleshooting/warning-overcommit_memory
-/products/caching/reference                                        /docs/products/valkey/reference/advanced-params
-/products/caching/reference/advanced-params                        /docs/products/valkey/reference/advanced-params
-/products/caching/troubleshooting                                  /docs/products/valkey/troubleshooting/troubleshoot-connection-issues
-/products/caching/troubleshooting/troubleshoot-redis-connection-issues /docs/products/valkey/troubleshooting/troubleshoot-connection-issues
-/products/cassandra/concepts                           /docs/products/cassandra/concepts/tombstones
-/products/cassandra/howto                              /docs/products/cassandra/howto/list-code-samples
-/products/cassandra/howto/list-get-started             /docs/products/cassandra/get-started
-/products/cassandra/overview                           /docs/products/cassandra
-/products/cassandra/reference                          /docs/products/cassandra/reference/advanced-params
-/products/clickhouse/concepts                          /docs/products/clickhouse/concepts/service-architecture
-/products/clickhouse/concepts/features-overview        /docs/products/clickhouse
-/products/clickhouse/howto                             /docs/products/clickhouse/howto/list-connect-to-service
-/products/clickhouse/howto/list-get-started              /docs/products/clickhouse/get-started
-/products/clickhouse/howto/list-manage-service           /docs/products/clickhouse/howto/manage-users-roles
-/products/clickhouse/howto/load-dataset                  /docs/products/clickhouse/get-started#load-a-dataset
-/products/clickhouse/list-overview                       /docs/products/clickhouse
-/products/clickhouse/reference                           /docs/products/clickhouse/reference/advanced-params
-/products/clickhouse/reference/plans-pricing              /docs/platform/concepts/service-pricing
-/products/diskless                             /docs/products/kafka/diskless/concepts/diskless-overview
-/products/diskless/get-started  /docs/products/kafka/diskless/concepts/diskless-overview
-/products/diskless/concepts/architecture       /docs/products/kafka/diskless/concepts/architecture
-/products/diskless/concepts/batching-and-delivery /docs/products/kafka/diskless/concepts/batching-and-delivery
-/products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects
-/products/diskless/concepts/topics-vs-classic  /docs/products/kafka/diskless/concepts/topics-vs-classic
-/products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-overview
-/products/diskless/howto/create-diskless-topic /docs/products/kafka/howto/create-topics
-/products/dragonfly/concept                              /docs/products/dragonfly
-/products/dragonfly/concepts/overview                    /docs/products/dragonfly
-/products/dragonfly/howto                                /docs/products/dragonfly/howto/list-code-samples
-/products/dragonfly/howto/list-migrate-data              /docs/products/dragonfly/howto/migrate-aiven-caching-df-console
-/products/dragonfly/howto/migrate-aiven-redis-df-console /docs/products/dragonfly/howto/migrate-aiven-caching-df-console
-/products/dragonfly/reference                              /docs/products/dragonfly/reference/advanced-params
-/products/flink/concepts                                   /docs/products/flink/concepts/flink-architecture
-/products/flink/concepts/flink-features                    /docs/products/flink
-/products/flink/concepts/managed-service-features          /docs/products/flink
-/products/flink/concepts/managed-service-features.html     /docs/products/flink
-/products/flink/howto                                      /docs/products/flink/howto/create-integration
-/products/flink/howto/advanced-topics                      /docs/products/flink/howto/timestamps_opensearch
-/products/flink/howto/list-flink-table-integrations        /docs/products/flink/howto/connect-kafka
-/products/flink/howto/list-flink-tables                    /docs/products/flink/howto/list-flink-table-integrations
-/products/flink/howto/list-get-started                     /docs/products/flink/get-started
-/products/flink/howto/list-integrations                    /docs/products/flink/howto/create-integration
-/products/flink/howto/real-time-alerting-solution          /docs/products/flink/howto/list-get-started
-/products/flink/list-overview                              /docs/products/flink
-/products/flink/reference                                  /docs/products/flink/reference/advanced-params
-/products/flink/reference/plans-pricing                     /docs/platform/concepts/service-pricing
-/products/grafana/concepts/grafana-features                /docs/products/grafana
-/products/grafana/howto                                    /docs/products/grafana/howto/log-in
-/products/grafana/howto/list-manage-dashboards             /docs/products/grafana/howto/dashboard-previews
-/products/grafana/list-overview                            /docs/products/grafana
-/products/grafana/reference                                /docs/products/grafana/reference/advanced-params
-/products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing
-/products/grafana/user-access                              /docs/products/grafana/howto/log-in
-/products/influxdb                                         /docs/products/metrics
-/products/kafka/concepts/non-leader-for-partition /docs/products/kafka/troubleshooting/non-leader-for-partition
-/products/kafka/get-started                               /docs/products/kafka/create-kafka-service
-/products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples
-/products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect
-/products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry
-/products/kafka/howto/fake-sample-data                     /docs/products/kafka/howto/generate-sample-data-manually
-/products/kafka/howto/list-admin                           /docs/products/kafka/howto/enable-karapace
-/products/kafka/howto/list-integration                     /docs/products/kafka/howto/integrate-service-logs-into-kafka-topic
-/products/kafka/howto/list-integration.html                /docs/products/kafka
-/products/kafka/howto/list-schema-registry                 /docs/products/kafka/howto/enable-schema-registry
-/products/kafka/howto/list-security                        /docs/products/kafka/howto/keystore-truststore
-/products/kafka/howto/list-tools                           /docs/products/kafka/howto/kafka-tools-config-file
-/products/kafka/howto/list-topic-management                /docs/products/kafka/howto/create-topic
-/products/kafka/howto/use-zookeeper                        /docs/products/kafka
-/products/kafka/index.html                                 /docs/products/kafka
-/products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins
-/products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices
-/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink
-/products/kafka/kafka-connect/howto/list-admin             /docs/products/kafka/kafka-connect/howto/best-practices
-/products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect
-/products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect
-/products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink
-/products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params
-/products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration
-/products/kafka/kafka-mirrormaker/howto                    /docs/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster
-/products/kafka/kafka-mirrormaker/howto/setup-mirrormaker-monitoring   /docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow
-/products/kafka/kafka-mirrormaker/reference                            /docs/products/kafka/kafka-mirrormaker/reference/advanced-params
-/products/kafka/karapace/concepts                                      /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins
-/products/kafka/karapace/howto                                         /docs/products/kafka/karapace/howto/enable-karapace
-/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization
-/products/kafka/reference                                              /docs/products/kafka/reference/advanced-params
-/products/m3db                                             /docs/products/metrics
-/products/metrics/concepts                                 /docs/products/metrics
-/products/metrics/concepts/metrics-overview                /docs/products/metrics
-/products/metrics/howto                                    /docs/products/metrics
-/products/metrics/howto/download-influxdb-data             /docs/platform/reference/end-of-life#aiven-for-influxdb
-/products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life
-/products/metrics/howto/migrate-influxdb-thanos            /docs/platform/reference/end-of-life#aiven-for-influxdb
-/products/metrics/howto/migrate-m3db-thanos                /docs/platform/reference/end-of-life#aiven-for-m3db
-/products/mysql/concepts                                   /docs/products/mysql/concepts/max-number-of-connections
-/products/mysql/howto                                      /docs/products/mysql
-/products/mysql/howto/list-get-started                     /docs/products/mysql/get-started
-/products/mysql/overview                                   /docs/products/mysql
-/products/mysql/reference                                  /docs/products/mysql/reference/advanced-params
-/products/mysql/reference/list-of-advanced-params          /docs/products/mysql/reference/advanced-params
-/products/opensearch/concepts                              /docs/products/opensearch/concepts/access_control
-/products/opensearch/concepts/backups                      /docs/platform/concepts/service_backups
-/products/opensearch/concepts/service-overview             /docs/products/opensearch
-/products/opensearch/concepts/users-access-controls        /docs/products/opensearch/howto/control_access_to_content
-/products/opensearch/dashboards/howto                      /docs/products/opensearch/dashboards/howto/dev-tools-usage-example
-/products/opensearch/howto                                 /docs/products/opensearch/howto/control_access_to_content
-/products/opensearch/howto/list-access-control             /docs/products/opensearch/howto/control_access_to_content
-/products/opensearch/howto/list-data-management            /docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven
-/products/opensearch/howto/list-integrations      /docs/products/opensearch
-/products/opensearch/howto/list-manage-service    /docs/products/opensearch
-/products/opensearch/howto/migrate-snapshot-data-opensearch /docs/products/opensearch/howto/manage-snapshots
-/products/opensearch/howto/upgrade-to-opensearch           /docs/products/opensearch/howto/upgrade-clients-to-opensearch
-/products/opensearch/list-overview                         /docs/products/opensearch
-/products/opensearch/reference                             /docs/products/opensearch/reference/advanced-params
-/products/opensearch/reference/index-replication           /docs/products/opensearch/concepts/index-replication
-/products/opensearch/reference/plans-pricing              /docs/platform/concepts/service-pricing
-/products/opensearch/troubleshooting                       /docs/products/opensearch
-/products/postgresql/concepts                              /docs/products/postgresql/concepts/aiven-db-migrate
-/products/postgresql/getting-started                       /docs/products/postgresql/get-started
-/products/postgresql/howto                                 /docs/products/postgresql/howto/list-code-samples
-/products/postgresql/howto/list-dba-tasks                  /docs/products/postgresql/howto/create-database
-/products/postgresql/howto/list-get-started                /docs/products/postgresql/get-started
-/products/postgresql/howto/list-integrations               /docs/products/postgresql/howto/monitor-database-with-datadog
-/products/postgresql/howto/list-replication                /docs/products/postgresql/howto/create-read-replica
-/products/postgresql/howto/list-replication-migration      /docs/products/postgresql/howto/migrate-cloud-region
-/products/postgresql/overview                              /docs/products/postgresql
-/products/postgresql/reference                             /docs/products/postgresql/reference/advanced-params
-/products/postgresql/reference/high-cpu-load-of-pgbouncer  /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
-/products/postgresql/reference/list-of-advanced-params     /docs/products/postgresql/reference/advanced-params
-/products/postgresql/troubleshooting                       /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling
-/products/redis                                            /docs/products/valkey
-/products/redis/concepts/lua-scripts-redis                 /docs/products/valkey/concepts/lua-scripts
-/products/redis/concepts/read-replica                      /docs/products/valkey/concepts/read-replica
-/products/redis/howto/connect-services                     /docs/products/valkey/howto/connect-services
-/products/redis/howto/create-redis-read-replica            /docs/products/valkey/howto/create-valkey-read-replica
-/products/redis/howto/list-dba-tasks                       /docs/products/valkey/howto/configure-acl-permissions
-/products/redis/howto/migrate-aiven-redis                  /docs/products/valkey/howto/migrate-redis-aiven-cli
-/products/valkey/reference                                 /docs/products/valkey/reference/advanced-params
-/tools/aiven-console/howto/create-accounts                 /docs/platform/howto/manage-org-users
-/tools/cli/account                                         /docs/tools/cli
-/tools/cli/account.html                                    /docs/tools/cli
-/tools/cli/account/account-team                            /docs/tools/aiven-console/howto/create-manage-teams
-/tools/cli/billing-group                                   /docs/platform/concepts/billing-and-payment
-/tools/cli/project                                         /docs/tools/cli
-/tools/cli/service                                         /docs/tools/cli/service-cli
-/tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics
-/tools/cli/ticket                                          /docs/platform/howto/support
-/tools/cli/user/user-access-token                          /docs/tools/cli/user
-/tools/terraform/concepts/data-sources                     /docs/tools/terraform
-/tools/terraform/get-started                               /docs/tools/terraform
-/tools/terraform/howto/terraform-logging                   /docs/tools/terraform
-/tools/terraform/howto/upgrade-to-opensearch               /docs/products/opensearch/get-started
-/tools/terraform/index.html                                /docs/tools/terraform
-/tools/terraform/reference/cookbook                        /docs/tools/terraform/get-started
-/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform/get-started
-/tools/terraform/reference/troubleshooting                            /docs/tools/terraform
-/tools/terraform/reference/troubleshooting/private-access-error       /docs/tools/terraform
-/tutorials/anomaly-detection                                          /docs
-/valkey                                          /docs/products/valkey
+/products/caching                                                  /docs/products/valkey  301
+/products/caching/concepts                                         /docs/products/valkey  301
+/products/caching/concepts/overview                                /docs/products/valkey  301
+/products/caching/concepts/high-availability-redis                 /docs/products/valkey/concepts/high-availability  301
+/products/caching/concepts/lua-scripts-caching                     /docs/products/valkey/concepts/lua-scripts  301
+/products/caching/concepts/memory-usage                            /docs/products/valkey/concepts/memory-usage  301
+/products/caching/concepts/read-replica                            /docs/products/valkey/concepts/read-replica  301
+/products/caching/concepts/restricted-redis-commands               /docs/products/valkey/reference/restricted-commands  301
+/products/caching/get-started                                      /docs/products/valkey/get-started  301
+/products/caching/howto                                            /docs/products/valkey/get-started  301
+/products/caching/howto/benchmark-performance                      /docs/products/valkey/howto/benchmark-performance  301
+/products/caching/howto/configure-acl-permissions                  /docs/products/valkey/howto/configure-acl-permissions  301
+/products/caching/howto/connect-go                                 /docs/products/valkey/howto/connect-go  301
+/products/caching/howto/connect-java                               /docs/products/valkey/howto/connect-java  301
+/products/caching/howto/connect-node                               /docs/products/valkey/howto/connect-node  301
+/products/caching/howto/connect-php                                /docs/products/valkey/howto/connect-php  301
+/products/caching/howto/connect-python                             /docs/products/valkey/howto/connect-python  301
+/products/caching/howto/connect-redis-cli                          /docs/products/valkey/howto/connect-valkey-cli  301
+/products/caching/howto/connect-services                           /docs/products/valkey/howto/connect-services  301
+/products/caching/howto/create-redis-read-replica                  /docs/products/valkey/howto/create-valkey-read-replica  301
+/products/caching/howto/create-valkey-read-replica                 /docs/products/valkey/howto/create-valkey-read-replica  301
+/products/caching/howto/estimate-max-number-of-connections         /docs/products/valkey/howto/estimate-max-number-of-connections  301
+/products/caching/howto/list-code-samples                          /docs/products/valkey/get-started  301
+/products/caching/howto/list-dba-tasks                             /docs/products/valkey  301
+/products/caching/howto/manage-ssl-connectivity                    /docs/products/valkey/howto/manage-ssl-connectivity  301
+/products/caching/howto/migrate-aiven-redis.html                   /docs/products/valkey/howto/migrate-redis-aiven-via-console  301
+/products/caching/howto/migrate-redis-aiven-cli                    /docs/products/valkey/howto/migrate-redis-aiven-cli  301
+/products/caching/howto/migrate-redis-aiven-via-console            /docs/products/valkey/howto/migrate-redis-aiven-via-console  301
+/products/caching/howto/migrate-redis-db                           /docs/products/valkey/howto/configure-acl-permissions  301
+/products/caching/howto/upgrade-aiven-for-caching-to-valkey        /docs/products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey  301
+/products/caching/howto/warning-overcommit_memory                  /docs/products/valkey/troubleshooting/warning-overcommit_memory  301
+/products/caching/reference                                        /docs/products/valkey/reference/advanced-params  301
+/products/caching/reference/advanced-params                        /docs/products/valkey/reference/advanced-params  301
+/products/caching/troubleshooting                                  /docs/products/valkey/troubleshooting/troubleshoot-connection-issues  301
+/products/caching/troubleshooting/troubleshoot-redis-connection-issues /docs/products/valkey/troubleshooting/troubleshoot-connection-issues  301
+/products/cassandra/concepts                           /docs/products/cassandra/concepts/tombstones  301
+/products/cassandra/howto                              /docs/products/cassandra/howto/list-code-samples  301
+/products/cassandra/howto/list-get-started             /docs/products/cassandra/get-started  301
+/products/cassandra/overview                           /docs/products/cassandra  301
+/products/cassandra/reference                          /docs/products/cassandra/reference/advanced-params  301
+/products/clickhouse/concepts                          /docs/products/clickhouse/concepts/service-architecture  301
+/products/clickhouse/concepts/features-overview        /docs/products/clickhouse  301
+/products/clickhouse/howto                             /docs/products/clickhouse/howto/list-connect-to-service  301
+/products/clickhouse/howto/list-get-started              /docs/products/clickhouse/get-started  301
+/products/clickhouse/howto/list-manage-service           /docs/products/clickhouse/howto/manage-users-roles  301
+/products/clickhouse/howto/load-dataset                  /docs/products/clickhouse/get-started#load-a-dataset  301
+/products/clickhouse/list-overview                       /docs/products/clickhouse  301
+/products/clickhouse/reference                           /docs/products/clickhouse/reference/advanced-params  301
+/products/clickhouse/reference/plans-pricing              /docs/platform/concepts/service-pricing  301
+/products/diskless                             /docs/products/kafka/diskless/concepts/diskless-overview  301
+/products/diskless/get-started  /docs/products/kafka/diskless/concepts/diskless-overview  301
+/products/diskless/concepts/architecture       /docs/products/kafka/diskless/concepts/diskless-topics-architecture  301
+/products/diskless/concepts/batching-and-delivery /docs/products/kafka/diskless/concepts/batching-and-delivery  301
+/products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects  301
+/products/diskless/concepts/topics-vs-classic  /docs/products/kafka/diskless/concepts/topics-vs-classic  301
+/products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-overview  301
+/products/diskless/howto/create-diskless-topic /docs/products/kafka/howto/create-topics  301
+/products/dragonfly/concept                              /docs/products/dragonfly  301
+/products/dragonfly/concepts/overview                    /docs/products/dragonfly  301
+/products/dragonfly/howto                                /docs/products/dragonfly/howto/list-code-samples  301
+/products/dragonfly/howto/list-migrate-data              /docs/products/dragonfly/howto/migrate-aiven-caching-df-console  301
+/products/dragonfly/howto/migrate-aiven-redis-df-console /docs/products/dragonfly/howto/migrate-aiven-caching-df-console  301
+/products/dragonfly/reference                              /docs/products/dragonfly/reference/advanced-params  301
+/products/flink/concepts                                   /docs/products/flink/concepts/flink-architecture  301
+/products/flink/concepts/flink-features                    /docs/products/flink  301
+/products/flink/concepts/managed-service-features          /docs/products/flink  301
+/products/flink/concepts/managed-service-features.html     /docs/products/flink  301
+/products/flink/howto                                      /docs/products/flink/howto/create-integration  301
+/products/flink/howto/advanced-topics                      /docs/products/flink/howto/timestamps_opensearch  301
+/products/flink/howto/list-flink-table-integrations        /docs/products/flink/howto/connect-kafka  301
+/products/flink/howto/list-flink-tables                    /docs/products/flink/howto/list-flink-table-integrations  301
+/products/flink/howto/list-get-started                     /docs/products/flink/get-started  301
+/products/flink/howto/list-integrations                    /docs/products/flink/howto/create-integration  301
+/products/flink/howto/real-time-alerting-solution          /docs/products/flink/howto/list-get-started  301
+/products/flink/list-overview                              /docs/products/flink  301
+/products/flink/reference                                  /docs/products/flink/reference/advanced-params  301
+/products/flink/reference/plans-pricing                     /docs/platform/concepts/service-pricing  301
+/products/grafana/concepts/grafana-features                /docs/products/grafana  301
+/products/grafana/howto                                    /docs/products/grafana/howto/log-in  301
+/products/grafana/howto/list-manage-dashboards             /docs/products/grafana/howto/dashboard-previews  301
+/products/grafana/list-overview                            /docs/products/grafana  301
+/products/grafana/reference                                /docs/products/grafana/reference/advanced-params  301
+/products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing  301
+/products/grafana/user-access                              /docs/products/grafana/howto/log-in  301
+/products/influxdb                                         /docs/products/metrics  301
+/products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
+/products/kafka/get-started                                /docs/products/kafka/create-kafka-service  301
+/products/kafka/getting-started.html                       /docs/products/kafka/create-kafka-service  301
+/products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301
+/products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect  301
+/products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry  301
+/products/kafka/howto/fake-sample-data                     /docs/products/kafka/howto/generate-sample-data-manually  301
+/products/kafka/howto/list-admin                           /docs/products/kafka/howto/enable-karapace  301
+/products/kafka/howto/list-integration                     /docs/products/kafka/howto/integrate-service-logs-into-kafka-topic  301
+/products/kafka/howto/list-integration.html                /docs/products/kafka  301
+/products/kafka/howto/list-schema-registry                 /docs/products/kafka/howto/enable-schema-registry  301
+/products/kafka/howto/list-security                        /docs/products/kafka/howto/keystore-truststore  301
+/products/kafka/howto/list-tools                           /docs/products/kafka/howto/kafka-tools-config-file  301
+/products/kafka/howto/list-topic-management                /docs/products/kafka/howto/create-topic  301
+/products/kafka/howto/use-zookeeper                        /docs/products/kafka  301
+/products/kafka/index.html                                 /docs/products/kafka  301
+/products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
+/products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices  301
+/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink  301
+/products/kafka/kafka-connect/howto/list-admin             /docs/products/kafka/kafka-connect/howto/best-practices  301
+/products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect  301
+/products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect  301
+/products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink  301
+/products/kafka/kafka-connect/howto/s3-sink-prereq          /docs/products/kafka/kafka-connect/howto/s3-sink-prepare  301
+/products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params  301
+/products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration  301
+/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster   /docs/products/kafka/howto/integrate-external-kafka-cluster  301
+/products/kafka/kafka-mirrormaker/howto/setup-mirrormaker-monitoring   /docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow  301
+/products/kafka/kafka-mirrormaker/reference                            /docs/products/kafka/kafka-mirrormaker/reference/advanced-params  301
+/products/kafka/karapace/concepts                                      /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
+/products/kafka/karapace/howto                                         /docs/products/kafka/karapace/howto/enable-karapace  301
+/products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization  301
+/products/kafka/reference                                              /docs/products/kafka/reference/advanced-params  301
+/products/m3db                                             /docs/products/metrics  301
+/products/metrics/concepts                                 /docs/products/metrics  301
+/products/metrics/concepts/metrics-overview                /docs/products/metrics  301
+/products/metrics/howto                                    /docs/products/metrics  301
+/products/metrics/howto/download-influxdb-data             /docs/platform/reference/end-of-life#aiven-for-influxdb  301
+/products/metrics/howto/list-data-migration                /docs/platform/reference/end-of-life  301
+/products/metrics/howto/migrate-influxdb-thanos            /docs/platform/reference/end-of-life#aiven-for-influxdb  301
+/products/metrics/howto/migrate-m3db-thanos                /docs/platform/reference/end-of-life#aiven-for-m3db  301
+/products/mysql/concepts                                   /docs/products/mysql/concepts/max-number-of-connections  301
+/products/mysql/howto                                      /docs/products/mysql  301
+/products/mysql/howto/list-get-started                     /docs/products/mysql/get-started  301
+/products/mysql/overview                                   /docs/products/mysql  301
+/products/mysql/reference                                  /docs/products/mysql/reference/advanced-params  301
+/products/mysql/reference/list-of-advanced-params          /docs/products/mysql/reference/advanced-params  301
+/products/opensearch/concepts                              /docs/products/opensearch/concepts/access_control  301
+/products/opensearch/concepts/backups                      /docs/platform/concepts/service_backups  301
+/products/opensearch/concepts/service-overview             /docs/products/opensearch  301
+/products/opensearch/concepts/users-access-controls        /docs/products/opensearch/howto/control_access_to_content  301
+/products/opensearch/dashboards/howto                      /docs/products/opensearch/dashboards/howto/dev-tools-usage-example  301
+/products/opensearch/howto                                 /docs/products/opensearch/howto/control_access_to_content  301
+/products/opensearch/howto/list-access-control             /docs/products/opensearch/howto/control_access_to_content  301
+/products/opensearch/howto/list-data-management            /docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven  301
+/products/opensearch/howto/list-integrations      /docs/products/opensearch  301
+/products/opensearch/howto/list-manage-service    /docs/products/opensearch  301
+/products/opensearch/howto/migrate-snapshot-data-opensearch /docs/products/opensearch/howto/manage-snapshots  301
+/products/opensearch/howto/upgrade-to-opensearch           /docs/products/opensearch/howto/upgrade-clients-to-opensearch  301
+/products/opensearch/list-overview                         /docs/products/opensearch  301
+/products/opensearch/reference                             /docs/products/opensearch/reference/advanced-params  301
+/products/opensearch/reference/index-replication           /docs/products/opensearch/concepts/index-replication  301
+/products/opensearch/reference/plans-pricing               /docs/platform/concepts/service-pricing  301
+/products/opensearch/reference/restapi-limited-access      /docs/products/opensearch/reference/opensearch-limitations  301
+/products/opensearch/troubleshooting                       /docs/products/opensearch  301
+/products/postgresql/concepts                              /docs/products/postgresql/concepts/aiven-db-migrate  301
+/products/postgresql/getting-started                       /docs/products/postgresql/get-started  301
+/products/postgresql/howto                                 /docs/products/postgresql/howto/list-code-samples  301
+/products/postgresql/howto/list-dba-tasks                  /docs/products/postgresql/howto/create-database  301
+/products/postgresql/howto/list-get-started                /docs/products/postgresql/get-started  301
+/products/postgresql/howto/list-integrations               /docs/products/postgresql/howto/monitor-database-with-datadog  301
+/products/postgresql/howto/list-replication                /docs/products/postgresql/howto/create-read-replica  301
+/products/postgresql/howto/list-replication-migration      /docs/products/postgresql/howto/migrate-cloud-region  301
+/products/postgresql/overview                              /docs/products/postgresql  301
+/products/postgresql/reference                             /docs/products/postgresql/reference/advanced-params  301
+/products/postgresql/reference/high-cpu-load-of-pgbouncer  /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling  301
+/products/postgresql/reference/list-of-advanced-params     /docs/products/postgresql/reference/advanced-params  301
+/products/postgresql/troubleshooting                       /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling  301
+/products/redis                                            /docs/products/valkey  301
+/products/redis/concepts/lua-scripts-redis                 /docs/products/valkey/concepts/lua-scripts  301
+/products/redis/concepts/read-replica                      /docs/products/valkey/concepts/read-replica  301
+/products/redis/howto/connect-services                     /docs/products/valkey/howto/connect-services  301
+/products/redis/howto/create-redis-read-replica            /docs/products/valkey/howto/create-valkey-read-replica  301
+/products/redis/howto/list-dba-tasks                       /docs/products/valkey/howto/configure-acl-permissions  301
+/products/redis/howto/migrate-aiven-redis                  /docs/products/valkey/howto/migrate-redis-aiven-cli  301
+/products/redis/howto/connect-redis-cli                    /docs/products/valkey/howto/connect-valkey-cli  301
+/products/redis/howto/migrate-redis-db                     /docs/products/valkey/howto/migrate-redis-aiven-cli  301
+/products/valkey/howto/upgrade-aiven-for-caching-to-valkey /docs/platform/reference/end-of-life#aiven-for-caching  301
+/products/valkey/reference                                 /docs/products/valkey/reference/advanced-params  301
+/tools/aiven-console/howto/create-accounts                 /docs/platform/howto/manage-org-users  301
+/tools/cli/account                                         /docs/tools/cli  301
+/tools/cli/account.html                                    /docs/tools/cli  301
+/tools/cli/account/account-team                            /docs/tools/aiven-console/howto/create-manage-teams  301
+/tools/cli/billing-group                                   /docs/platform/concepts/billing-and-payment  301
+/tools/cli/project                                         /docs/tools/cli  301
+/tools/cli/service                                         /docs/tools/cli/service-cli  301
+/tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics  301
+/tools/cli/ticket                                          /docs/platform/howto/support  301
+/tools/cli/user/user-access-token                          /docs/tools/cli/user  301
+/tools/terraform/concepts/data-sources                     /docs/tools/terraform  301
+/tools/terraform/get-started                               /docs/tools/terraform  301
+/tools/terraform/howto/terraform-logging                   /docs/tools/terraform  301
+/tools/terraform/howto/upgrade-to-opensearch               /docs/products/opensearch/get-started  301
+/tools/terraform/index.html                                /docs/tools/terraform  301
+/tools/terraform/reference/cookbook                        /docs/tools/terraform/get-started  301
+/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform/get-started  301
+/tools/terraform/reference/troubleshooting                            /docs/tools/terraform  301
+/tools/terraform/reference/troubleshooting/private-access-error       /docs/tools/terraform  301
+/tutorials/anomaly-detection                                          /docs  301
+/valkey                                          /docs/products/valkey  301
 
 
 #
 # Redirect to external resources
 #
-/tools/terraform/reference/cookbook/kafka-flink-integration-recipe    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples
-/tools/terraform/reference/cookbook/multicloud-postgresql-recipe      https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples
-/tools/terraform/howto/config-postgresql-provider          https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/use-pg-provider-for-config
-/tools/terraform/howto/promote-to-master-pg-rr             https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/manage-read-replicas
-/tools/terraform/howto/update-deprecated-resources         https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources
-/tools/terraform/howto/upgrade-caching-valkey-terraform    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade
-/tools/terraform/howto/upgrade-provider-v1-v2              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v1-to-v2
-/tools/terraform/howto/upgrade-provider-v2-v3              https://registry.terraform.io/providers/aiven/aiven/latest/guides/upgrade-guide-v2-to-v3
-/tools/terraform/howto/upgrade-provider-v3-v4              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v3-to-v4
-/tools/terraform/list-upgrade-terraform                    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v3-to-v4
-/tools/terraform/list-vpc-terraform                        https://github.com/aiven/terraform-provider-aiven/tree/main/examples
-/tools/terraform/howto/vnet-peering-azure                  https://github.com/aiven/terraform-provider-aiven/tree/main/examples/azure_vnet_peering
-/tools/terraform/howto/vpc-peering-aws                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/aws_vpc_peering
-/tools/terraform/howto/vpc-peering-gcp                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/gcp_vpc_peering
+/tools/terraform/reference/cookbook/kafka-flink-integration-recipe    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples  301
+/tools/terraform/reference/cookbook/multicloud-postgresql-recipe      https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples  301
+/tools/terraform/howto/config-postgresql-provider          https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/use-pg-provider-for-config  301
+/tools/terraform/howto/promote-to-master-pg-rr             https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/manage-read-replicas  301
+/tools/terraform/howto/update-deprecated-resources         https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources  301
+/tools/terraform/howto/upgrade-caching-valkey-terraform    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/update-deprecated-resources#update-aiven_redis-resources-after-valkey-upgrade  301
+/tools/terraform/howto/upgrade-provider-v1-v2              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v1-to-v2  301
+/tools/terraform/howto/upgrade-provider-v2-v3              https://registry.terraform.io/providers/aiven/aiven/latest/guides/upgrade-guide-v2-to-v3  301
+/tools/terraform/howto/upgrade-provider-v3-v4              https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v3-to-v4  301
+/tools/terraform/list-upgrade-terraform                    https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/upgrade-guide-v3-to-v4  301
+/tools/terraform/list-vpc-terraform                        https://github.com/aiven/terraform-provider-aiven/tree/main/examples  301
+/tools/terraform/howto/vnet-peering-azure                  https://github.com/aiven/terraform-provider-aiven/tree/main/examples/azure_vnet_peering  301
+/tools/terraform/howto/vpc-peering-aws                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/aws_vpc_peering  301
+/tools/terraform/howto/vpc-peering-gcp                     https://github.com/aiven/terraform-provider-aiven/tree/main/examples/gcp_vpc_peering  301
 
 #
 # Redirects for legacy urls
 #
-/index.html                                                /docs
+/index.html                                                /docs  301
 
 #
 # Keep splats/ dynamic redirects at the end
 #
-/*/index.html                                              /docs/:splat
-/platform/howto/byoc/create-custom-cloud/*                 /docs/platform/howto/byoc/create-cloud/:splat
-/products/influxdb/*                                       /docs/products/metrics/:splat
-/products/m3db/*                                           /docs/products/metrics
-/products/redis/*                                          /docs/products/valkey/:splat
-/products/caching/*                                        /docs/products/valkey/:splat
+/*/index.html                                              /docs/:splat  301
+/platform/howto/byoc/create-custom-cloud/*                 /docs/platform/howto/byoc/create-cloud/:splat  301
+/products/influxdb/*                                       /docs/products/metrics/:splat  301
+/products/m3db/*                                           /docs/products/metrics  301
+/products/redis/*                                          /docs/products/valkey/:splat  301
+/products/caching/*                                        /docs/products/valkey/:splat  301

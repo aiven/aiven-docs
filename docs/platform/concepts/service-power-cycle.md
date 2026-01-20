@@ -68,8 +68,6 @@ To remove static IP addresses, see
 [Manage static IP addresses](/docs/platform/concepts/static-ips).
 :::
 
-When a service is powered off, you can [delete it](#delete-service).
-
 ## Power on a service
 
 <Tabs groupId="sync">
@@ -124,7 +122,8 @@ on as new virtual machines are created for the service to run on.
 
 ## Delete a service {#delete-service}
 
-You can only delete powered-off services. This action cannot be undone.
+You can delete both powered-on and powered-off services unless they have termination
+protection enabled. Deletion is permanent and cannot be undone.
 
 <Tabs groupId="sync">
 <TabItem value="Console" label="Console" default>

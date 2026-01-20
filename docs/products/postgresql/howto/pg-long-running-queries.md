@@ -1,5 +1,6 @@
 ---
-title: Detect and terminate long-running queries
+title: Detect and terminate long-running queries in Aiven for PostgreSQL®
+sidebar_label: Handle long-running queries
 ---
 
 Aiven does not terminate any customer queries even if they run

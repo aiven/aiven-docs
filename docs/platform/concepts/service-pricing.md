@@ -46,11 +46,17 @@ These additional resources are not guaranteed. Aiven reserves the right to switc
 to a more appropriately sized VM if one becomes available from the cloud provider.
 :::
 
-### Free plans
+### Free plan
 
-The free plan is available for Aiven for PostgreSQL®, Aiven for MySQL, and
-Aiven for Valkey™ services. You don't need a credit card to sign up and you can use them
-indefinitely free of charge.
+The Free plan is available for Aiven for PostgreSQL®, Aiven for MySQL,
+and Aiven for Valkey™ services. You don't need a credit card to sign up
+and you can use them indefinitely free of charge.
+
+:::note
+Aiven for Apache Kafka® does not have a free plan. For Kafka, a free tier is available
+with specific limits and features. For details, see
+[Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier).
+:::
 
 Free services include:
 
@@ -64,7 +70,7 @@ Free services include:
 
 There are some limitations of the free services:
 
--   No VPC peering
+-   Cannot create the service in a VPC
 -   No static IPs
 -   No integrations
 -   No forking
@@ -97,6 +103,35 @@ You can also downgrade a paid plan to the free plan as long as:
 instance size.
 - The free plan is available in the same cloud as the paid plan.
 
+### Developer plan
+
+The Developer plan is available for Aiven for PostgreSQL® and Aiven for MySQL services,
+letting you scale up your service in a cost-effective way. Services on the Developer plan
+are not automatically powered off if they're inactive.
+
+The Developer plan includes:
+
+-   A single node
+-   1 CPU per virtual machine
+-   1 GB RAM
+-   up to 8 GB disk storage
+-   Monitoring for metrics and logs
+-   Backups
+-   [Basic tier support](/docs/platform/howto/support)
+
+Limitations of the Developer plan are:
+
+-   No choice of cloud provider or specific cloud region
+-   Cannot create the service in a VPC
+-   No static IPs
+-   No integrations
+-   No forking
+-   For PostgreSQL: No connection pooling
+-   For PostgreSQL: `max_connections` limit set to `20`
+
+Aiven reserves the right to change the cloud provider, region, or configuration
+of Developer plan services at any point in time.
+
 ### Custom plans
 
 Aiven service plans are optimized for the different clouds and to facilitate migration
@@ -120,7 +155,8 @@ or visible to Aiven, so they cannot be included in the prices or waived.
 
 Aiven offers a free trial for 30 days with $300 USD of credits to explore
 the Aiven Platform. You don't need a credit card to sign up. You can use trial credits
-for any paid services and paid features like virtual private cloud peering.
+for any paid services and paid features like virtual private cloud peering. The trial
+starts when you create a service on any paid tier.
 
 Trials include:
 

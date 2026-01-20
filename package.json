@@ -16,7 +16,7 @@
     "aiven-upgrade": "yarn up @docusaurus/core@latest @docusaurus/plugin-client-redirects@latest @docusaurus/plugin-google-gtag@latest @docusaurus/preset-classic@latest @docusaurus/theme-mermaid@latest @docusaurus/module-type-aliases@latest @docusaurus/tsconfig@latest @docusaurus/types@latest @docusaurus/faster@latest algoliasearch@latest @algolia/client-search@latest @aivenio/aquarium@latest"
   },
   "dependencies": {
-    "@aivenio/aquarium": "^4.5.0",
+    "@aivenio/aquarium": "^4.8.2",
     "@algolia/client-search": "^5.19.0",
     "@docusaurus/core": "^3.7.0",
     "@docusaurus/faster": "^3.7.0",
@@ -35,7 +35,7 @@
     "commander": "^12.1.0",
     "docusaurus-plugin-image-zoom": "^2.0.0",
     "dotenv": "^16.3.1",
-    "glob": "^10.3.10",
+    "glob": "^12.0.0",
     "handlebars": "^4.7.8",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",

@@ -1,5 +1,6 @@
 ---
-title: Use Aiven for OpenSearch® with cURL
+title: Connect to Aiven for OpenSearch® with cURL
+sidebar_label: cURL
 ---
 
 Connect to your Aiven for OpenSearch® service with [cURL](https://curl.se/).

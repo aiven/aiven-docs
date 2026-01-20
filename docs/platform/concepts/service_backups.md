@@ -5,6 +5,7 @@ title: Service backups
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import Variables from "@site/static/variables.json";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -30,8 +31,11 @@ backups with the appropriate tooling:
 
 -   [PostgreSQL®](https://www.postgresql.org/docs/current/app-pgdump.html):
     `pgdump`
--   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html):
-    `mysqldump`
+-   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
+
+    - `mysqldump` for small or medium-sized databases
+    - [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
+
 -   [Caching](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
     `redis-cli`
 -   [Cassandra®](https://docs.datastax.com/en/cql-oss/3.1/cql/cql_reference/copy_r.html)
@@ -70,9 +74,10 @@ There are specific backup strategies for particular service types.
   <thead>
     <tr>
       <th rowspan="2">Service type</th>
-      <th colspan="4">Backup retention time based on service Plan</th>
+      <th colspan="5">Backup retention time based on service Plan</th>
     </tr>
     <tr>
+      <th>Developer</th>
       <th>Hobbyist</th>
       <th>Startup</th>
       <th>Business</th>
@@ -82,6 +87,7 @@ There are specific backup strategies for particular service types.
   <tbody>
     <tr>
       <td>Aiven for Apache Kafka®</td>
+      <td>Plan not available</td>
       <td>No backups</td>
       <td>No backups</td>
       <td>No backups</td>
@@ -90,12 +96,14 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for PostgreSQL® / MySQL</td>
       <td>Single backup only for disaster recovery</td>
+      <td>Single backup only for disaster recovery</td>
       <td>2 days with PITR</td>
       <td>14 days with PITR</td>
       <td>30 days with PITR</td>
     </tr>
     <tr>
       <td>Aiven for OpenSearch®</td>
+      <td>Plan not available</td>
       <td>Single backup only for disaster recovery</td>
       <td>Hourly backup for 24 hours and Daily backup for 3 days</td>
       <td>Hourly backup for 24 hours and Daily backup for 14 days</td>
@@ -104,12 +112,14 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for Apache Cassandra®</td>
       <td>Plan not available</td>
+      <td>Plan not available</td>
       <td>Single day backup</td>
       <td>Single day backup</td>
       <td>Single day backup</td>
     </tr>
     <tr>
       <td>Aiven for Caching</td>
+      <td>Plan not available</td>
       <td>Single backup only for disaster recovery</td>
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
@@ -118,6 +128,7 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for Apache Flink®</td>
       <td>Plan not available</td>
+      <td>Plan not available</td>
       <td>Hourly backup up to 2 hours</td>
       <td>Hourly backup up to 2 hours</td>
       <td>Plan not available</td>
@@ -125,12 +136,14 @@ There are specific backup strategies for particular service types.
     <tr>
       <td>Aiven for Grafana®</td>
       <td>Plan not available</td>
+      <td>Plan not available</td>
       <td>Backup every 1 hour up to 1 day</td>
       <td>Plan not available</td>
       <td>Plan not available</td>
     </tr>
     <tr>
       <td>Aiven for ClickHouse®</td>
+      <td>Plan not available</td>
       <td>Daily backups up to 2 days</td>
       <td>Daily backups up to 2 days</td>
       <td>Daily backups up to 14 days</td>
@@ -138,6 +151,7 @@ There are specific backup strategies for particular service types.
     </tr>
     <tr>
       <td>Aiven for Dragonfly®</td>
+      <td>Plan not available</td>
       <td>Plan unavailable</td>
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
@@ -145,6 +159,7 @@ There are specific backup strategies for particular service types.
     </tr>
     <tr>
       <td>Aiven for Valkey™</td>
+      <td>Plan not available</td>
       <td>Single backup only for disaster recovery</td>
       <td>Backup every 12 hours up to 1 day</td>
       <td>Backup every 12 hours up to 3 days</td>
@@ -191,13 +206,12 @@ the following tools:
 
 - Kafka Connect to backup the cluster, for instance, sinking data from
   Apache Kafka® to S3 via a
-  [dedicated Aiven connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prereq).
+  [dedicated Aiven connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prepare).
 
 For more information, refer to:
 
 - [Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
 - Cloudera's [A look inside Kafka MirrorMaker 2](https://blog.cloudera.com/a-look-inside-kafka-mirrormaker-2/)
-- [Configure AWS for an S3 sink connector](/docs/products/kafka/kafka-connect/howto/s3-sink-prereq)
 - [Configuration Backups](/docs/products/kafka/concepts/configuration-backup)
 
 ### Aiven for PostgreSQL®
@@ -246,6 +260,12 @@ backups and binary logs recorded continuously. All backups are encrypted
 with the open source [myhoard](https://github.com/aiven/myhoard)
 software. Myhoard uses [Percona XtraBackup](https://www.percona.com/)
 internally for taking full (or incremental) snapshots for MySQL.
+
+For manual backups and migrations, you can use:
+
+- [`mysqldump`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) for small or
+  medium-sized databases
+- [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
 
 #### Edit the backup schedule
 

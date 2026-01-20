@@ -1,5 +1,6 @@
 ---
-title: Connect with Rivery
+title: Connect to Aiven for AlloyDB Omni with Rivery
+sidebar_label: Rivery
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

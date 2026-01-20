@@ -243,6 +243,14 @@
       ""
     ]
   },
+  "Insert Terraform docs link": {
+    "prefix": ["terraform docs"],
+    "body": [
+      "Use the `FIELD_NAME` attribute in",
+      "[your `aiven_RESOURCE_NAME` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_project).",
+      ""
+    ]
+  },
   "Karapace": {
     "scope": "markdown",
     "prefix": "karapace",

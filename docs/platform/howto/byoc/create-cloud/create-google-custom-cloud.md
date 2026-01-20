@@ -54,6 +54,14 @@ account so that Aiven can access it:
 -   You have Terraform installed.
 -   You have required
     [IAM permissions](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#iam-permissions).
+-   Your Google Cloud project is not under an organization policy that:
+    -   Enforces the `constraints/compute.requireShieldedVm` constraint. For more
+        information, see
+        [Shielded VMs](https://cloud.google.com/compute/shielded-vm/docs/shielded-vm).
+    -   Restricts the `constraints/compute.vmExternalIpAccess` constraint. Aiven requires
+        the ability to create instances with external IP addresses. An organization policy
+        that only allows external IPs for specific listed instances is not compatible with
+        BYOC.
 
 ### IAM permissions
 
@@ -172,8 +180,6 @@ Use the
 to create a privilege-bearing service account by deploying the template in your Google
 Cloud account.
 
-Continue working in the **Create custom cloud** wizard:
-
 1.  Copy or download the template and the variables file from the
     **Create custom cloud** wizard.
 
@@ -191,16 +197,43 @@ Continue working in the **Create custom cloud** wizard:
     Console](https://console.aiven.io/).
     :::
 
-1.  Use Terraform to deploy the infrastructure template in your Google Cloud account with
-    the provided variables.
+1.  Set up Terraform to authenticate with Google Cloud.
+
+    Configure your Google Cloud credentials using one of the following methods:
+
+    - Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable:
+
+      ```bash
+      export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
+      ```
+
+    - Use `gcloud` CLI to set application default credentials:
+
+      ```bash
+      gcloud auth application-default login
+      ```
+
+    - Set the service account key in the Terraform provider configuration.
+
+    For more information, see the
+    [Google Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started#adding-credentials).
+
+1.  Deploy the infrastructure template using Terraform:
+
+    ```bash
+    terraform init
+    terraform plan -var-file=FILE_NAME.tfvars
+    terraform apply -var-file=FILE_NAME.tfvars
+    ```
+
+    Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
 
     :::important
-    When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
-    as an option.
+    The `-var-file` option is required to pass the configuration variables to Terraform.
     :::
 
-1.  Find a privilege-bearing service account in the output script after
-    running the template.
+1.  Find the privilege-bearing service account in the Terraform output after
+    running `terraform apply`.
 
 1.  Supply the privilege-bearing service account into the **Create custom cloud** wizard.
 
@@ -392,16 +425,43 @@ Your new custom cloud is ready to use only after its status changes to
         Console](https://console.aiven.io/).
         :::
 
-   1. Use Terraform to deploy the infrastructure template with the provided variables in
-      your Google Cloud account. This will generate a privilege-bearing service account (SA).
+   1. Set up Terraform to authenticate with Google Cloud.
 
-       :::important
-       When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
-       as an option.
-       :::
+      Configure your Google Cloud credentials using one of the following methods:
 
-   1. Find `privilege_bearing_service_account_id` in the output script after running
-      the template.
+      - Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable:
+
+        ```bash
+        export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
+        ```
+
+      - Use `gcloud` CLI to set application default credentials:
+
+        ```bash
+        gcloud auth application-default login
+        ```
+
+      - Set the service account key in the Terraform provider configuration.
+
+      For more information, see the
+      [Google Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started#adding-credentials).
+
+   1. Deploy the infrastructure template using Terraform with the provided variables file:
+
+      ```bash
+      terraform init
+      terraform plan -var-file=FILE_NAME.tfvars
+      terraform apply -var-file=FILE_NAME.tfvars
+      ```
+
+      Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
+
+      :::important
+      The `-var-file` option is required to pass the configuration variables to Terraform.
+      :::
+
+   1. Find `privilege_bearing_service_account_id` in the Terraform output after running
+      `terraform apply`.
 
 1. Provision resources by running [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision)
    and passing the generated `google-privilege-bearing-service-account-id` as an option.

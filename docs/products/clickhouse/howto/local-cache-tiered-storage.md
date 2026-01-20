@@ -60,5 +60,5 @@ SYSTEM DROP FILESYSTEM CACHE 'remote_cache'
 <RelatedPages/>
 
 -   [About tiered storage in Aiven for ClickHouse](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
--   [Check data distribution between SSD and object storage](/docs/products/clickhouse/howto/check-data-tiered-storage)
+-   [Check data distribution between EBS and object storage](/docs/products/clickhouse/howto/check-data-tiered-storage)
 -   [Configure data retention thresholds for tiered storage](/docs/products/clickhouse/howto/configure-tiered-storage)
