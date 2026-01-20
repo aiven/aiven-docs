@@ -38,6 +38,8 @@ For details, see this
 [Apache Kafka blog post](https://blogsarchive.apache.org/kafka/entry/apache-kafka-supports-more-partitions).
 Keep the total number of topics under 7,000.
 
+For Diskless topics architecture and considerations, see [Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
+
 :::note
 Ordering is guaranteed only within a partition. To maintain ordering of related records,
 place them in the same partition.
