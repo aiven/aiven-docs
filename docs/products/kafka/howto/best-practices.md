@@ -2,8 +2,7 @@
 title: Optimize Apache Kafka® performance
 ---
 
-Follow these best practices to optimize the performance and reliability of your Aiven for
-Apache Kafka® service.
+Follow these best practices to optimize the performance and reliability of your Aiven for Apache Kafka® service.
 
 ## Check your topic replication factors
 
@@ -12,7 +11,7 @@ The replication factor (RF) determines how many copies of each partition are mai
 across the cluster.
 
 Evaluate the importance of each topic and set a replication factor that balances
-durability requirements with cost and performance. An RF of 3 is commonly recommended
+durability requirements with cost and performance. An RF of 3 is recommended
 for production because it improves durability and availability. In multi-AZ deployments,
 replication traffic across availability zones can increase network costs, especially
 for high-throughput workloads.
