@@ -1,5 +1,5 @@
 ---
-title: Set preferred availability zone for Aiven for Valkey™
+title: Set preferred availability zone for Aiven for Valkey™ primary
 sidebar_label: Set preferred AZ
 ---
 
@@ -10,33 +10,33 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Configure a preferred availability zone (AZ) for your Aiven for Valkey™ primary node to optimize latency and align with your application's deployment architecture.
 
-## About this feature
-
 The preferred availability zone feature provides a hint to the Aiven platform about
-where to deploy the primary node of your Valkey service. When you set a preferred AZ,
-the system attempts to place the primary node in that zone and perform automatic
-failover to nodes in that zone when available.
+where to deploy the primary node of your Aiven for Valkey service. When you set a
+preferred AZ, the system attempts to place the primary node in that zone and perform
+automatic failover to nodes in that zone when available.
 
-### How it works
+## How it works
 
 When a preferred AZ is configured:
 
 - During service creation, the system attempts to deploy the primary node in the
-  specified AZ
+  specified AZ.
 - During failover events, the system prefers promoting nodes in the specified AZ to
-  become the new primary
-- Replica nodes are distributed across other available AZs for high availability
+  become the new primary. The failover command is sent to the current primary only when
+  the preferred AZ node is ready to take over, ensuring all replicas are aware of the
+  switchover.
+- Replica nodes are distributed across other available AZs for high availability.
 
-### Benefits
+## Benefits
 
-- **Reduced latency**: Place the primary node closer to your application workloads
-- **Predictable topology**: Align database placement with application architecture
-- **Cost optimization**: Minimize cross-AZ data transfer costs in the same region
+- **Reduced latency**: Place the primary node closer to your application workloads.
+- **Predictable topology**: Align database placement with application architecture.
+- **Cost optimization**: Minimize cross-AZ data transfer costs in the same region.
 
 ## Prerequisites
 
-- Aiven for Valkey service on **Business**, **Premium**, or **Custom** plan (services
-  with multiple nodes)
+- Aiven for Valkey service on a plan with multiple nodes
+  ([Aiven for Valkey plans & pricing](https://aiven.io/pricing?product=valkey))
 - Access to the [Aiven Console](https://console.aiven.io), Aiven CLI, or Aiven API
 
 ## Limitations
@@ -44,15 +44,14 @@ When a preferred AZ is configured:
 This is a best-effort feature with the following constraints:
 
 - **No guarantees**: The platform attempts to honor the preference but cannot guarantee
-  the primary node deploys in the specified AZ
+  the primary node deploys in the specified AZ.
 - **Availability-dependent**: The preferred AZ must be available in your selected cloud
-  region
+  region.
 - **Node distribution**: If your service has fewer nodes than available AZs in the
-  region, no node may be deployed in the preferred AZ
-  - Example: A 2-node service in a region with 3 AZs might not have a node in your
-    preferred AZ
+  region, no node may be deployed in the preferred AZ. For example, a 2-node service in a
+  region with 3 AZs might not have a node in your preferred AZ.
 - **Cloud provider limitations**: The selected AZ must exist and be accessible in your
-  cloud provider's region
+  cloud provider's region.
 
 ## Set preferred availability zone
 
@@ -208,5 +207,5 @@ curl -X PATCH https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME 
 
 <RelatedPages/>
 
-- [High availability in Aiven for Valkey™](/docs/products/valkey/concepts/high-availability)
-- [Plans & pricing](https://aiven.io/pricing?product=redis)
+- [High availability in Aiven for Valkey](/docs/products/valkey/concepts/high-availability)
+- [Aiven for Valkey plans and pricing](https://aiven.io/pricing?product=valkey)
