@@ -56,7 +56,7 @@ This is a best-effort feature with the following constraints:
 ## Set preferred availability zone
 
 <Tabs groupId="method">
-<TabItem value="1" label="Aiven Console">
+<TabItem value="1" label="Console">
 
 1. Log in to the [Aiven Console](https://console.aiven.io) and select your Valkey
    service.
@@ -135,14 +135,14 @@ curl -X PATCH https://api.aiven.io/v1/project/my-project/service/my-valkey-servi
 ## Verify preferred availability zone
 
 <Tabs groupId="method">
-<TabItem value="1" label="Aiven Console">
+<TabItem value="1" label="Console">
 
 1. Go to your service's <ConsoleLabel name="overview"/> page.
 1. In the **Connection information** section, view the current primary node endpoint.
 1. Check the **Nodes** section to see which AZ each node is deployed in.
 
 </TabItem>
-<TabItem value="2" label="Aiven CLI">
+<TabItem value="2" label="CLI">
 
 View service details to see node distribution:
 
@@ -151,7 +151,7 @@ avn service get SERVICE_NAME --json | grep -A 5 "node_states"
 ```
 
 </TabItem>
-<TabItem value="3" label="Aiven API">
+<TabItem value="3" label="API">
 
 Retrieve service information:
 
@@ -172,7 +172,7 @@ To remove the preference and allow the system to choose the primary node locatio
 automatically, set the value to `null` or an empty string.
 
 <Tabs groupId="method">
-<TabItem value="1" label="Aiven Console">
+<TabItem value="1" label="Console">
 
 1. Click <ConsoleLabel name="service settings"/> from the sidebar.
 1. Scroll to the **Cloud and network** section.
@@ -181,7 +181,7 @@ automatically, set the value to `null` or an empty string.
 1. Click **Save changes**.
 
 </TabItem>
-<TabItem value="2" label="Aiven CLI">
+<TabItem value="2" label="CLI">
 
 ```bash
 avn service update SERVICE_NAME \
@@ -189,7 +189,7 @@ avn service update SERVICE_NAME \
 ```
 
 </TabItem>
-<TabItem value="3" label="Aiven API">
+<TabItem value="3" label="API">
 
 ```bash
 curl -X PATCH https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
