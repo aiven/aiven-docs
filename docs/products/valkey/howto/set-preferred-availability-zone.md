@@ -37,7 +37,8 @@ When a preferred AZ is configured:
 
 - Aiven for Valkey service on a plan with multiple nodes
   ([Aiven for Valkey plans & pricing](https://aiven.io/pricing?product=valkey))
-- Access to the [Aiven Console](https://console.aiven.io), Aiven CLI, or Aiven API
+- Access to the [Aiven Console](https://console.aiven.io), [Aiven CLI](/docs/tools/cli),
+  or [Aiven API](/docs/tools/api)
 
 ## Limitations
 
@@ -47,9 +48,9 @@ This is a best-effort feature with the following constraints:
   the primary node deploys in the specified AZ.
 - **Availability-dependent**: The preferred AZ must be available in your selected cloud
   region.
-- **Node distribution**: If your service has fewer nodes than available AZs in the
-  region, no node may be deployed in the preferred AZ. For example, a 2-node service in a
-  region with 3 AZs might not have a node in your preferred AZ.
+- **Node distribution**: If your Aiven for Valkey service has fewer nodes than available
+  AZs in the region, no node may be deployed in the preferred AZ. For example, a 2-node
+  service in a region with 3 AZs might not have a node in your preferred AZ.
 - **Cloud provider limitations**: The selected AZ must exist and be accessible in your
   cloud provider's region.
 
@@ -58,8 +59,8 @@ This is a best-effort feature with the following constraints:
 <Tabs groupId="method">
 <TabItem value="1" label="Console">
 
-1. Log in to the [Aiven Console](https://console.aiven.io) and select your Valkey
-   service.
+1. Log in to the [Aiven Console](https://console.aiven.io) and select your Aiven for
+   Valkey service.
 1. Click <ConsoleLabel name="service settings"/> from the sidebar.
 1. On the **Service settings** page, scroll to the **Cloud and network** section.
 1. Click <ConsoleLabel name="actions"/> > **Change cloud or region**.
@@ -71,7 +72,7 @@ The system attempts to place the primary node in the selected AZ. If a failover 
 the system prefers promoting a node from this AZ to primary.
 
 </TabItem>
-<TabItem value="2" label="Aiven CLI">
+<TabItem value="2" label="CLI">
 
 Set the preferred AZ using the `service update` command:
 
@@ -82,7 +83,7 @@ avn service update SERVICE_NAME \
 
 Parameters:
 
-- `SERVICE_NAME`: Name of your Valkey service
+- `SERVICE_NAME`: Name of your Aiven for Valkey service
 - `AVAILABILITY_ZONE`: AZ identifier such as `use1-az1` (AWS) or `europe-west1-b`
   (Google Cloud)
 
@@ -94,7 +95,7 @@ avn service update my-valkey-service \
 ```
 
 </TabItem>
-<TabItem value="3" label="Aiven API">
+<TabItem value="3" label="API">
 
 Update the service configuration with a `PATCH` request:
 
@@ -112,7 +113,7 @@ curl -X PATCH https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME 
 Parameters:
 
 - `PROJECT_NAME`: Name of your Aiven project
-- `SERVICE_NAME`: Name of your Valkey service
+- `SERVICE_NAME`: Name of your Aiven for Valkey service
 - `YOUR_AUTH_TOKEN`: Your Aiven API token
 - `AVAILABILITY_ZONE`: AZ identifier such as `use1-az1` or `europe-west1-b`
 
@@ -137,14 +138,14 @@ curl -X PATCH https://api.aiven.io/v1/project/my-project/service/my-valkey-servi
 <Tabs groupId="method">
 <TabItem value="1" label="Console">
 
-1. Go to your service's <ConsoleLabel name="overview"/> page.
+1. Go to your Aiven for Valkey service's <ConsoleLabel name="overview"/> page.
 1. In the **Connection information** section, view the current primary node endpoint.
 1. Check the **Nodes** section to see which AZ each node is deployed in.
 
 </TabItem>
 <TabItem value="2" label="CLI">
 
-View service details to see node distribution:
+View Aiven for Valkey service details to see node distribution:
 
 ```bash
 avn service get SERVICE_NAME --json | grep -A 5 "node_states"
@@ -153,7 +154,7 @@ avn service get SERVICE_NAME --json | grep -A 5 "node_states"
 </TabItem>
 <TabItem value="3" label="API">
 
-Retrieve service information:
+Retrieve Aiven for Valkey service information:
 
 ```bash
 curl -X GET https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
