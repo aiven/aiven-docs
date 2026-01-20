@@ -59,7 +59,7 @@ for the tool-agnostic list of snapshot management restrictions.
 <Tabs groupId="group1">
 <TabItem value="gui" label="Aiven Console" default>
 
-Supported storage services are:
+Only the following are supported storage services:
 
 - Amazon S3
 - Google Cloud Storage (GCS)
@@ -70,7 +70,7 @@ Supported storage services are:
 
 - You cannot access the `/_snapshot` API directly without configuring
   [custom repositories](/docs/products/opensearch/howto/custom-repositories).
-- Supported storage services are:
+- Only the following are supported storage services:
   - Amazon S3
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
@@ -84,7 +84,7 @@ for more Aiven for OpenSearch API restrictions.
 
 - You cannot access the `/_snapshot` API directly without configuring
   [custom repositories](/docs/products/opensearch/howto/custom-repositories).
-- Supported storage services are:
+- Only the following are supported storage services:
   - Amazon S3
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
