@@ -249,7 +249,8 @@
 /products/opensearch/list-overview                         /docs/products/opensearch  301
 /products/opensearch/reference                             /docs/products/opensearch/reference/advanced-params  301
 /products/opensearch/reference/index-replication           /docs/products/opensearch/concepts/index-replication  301
-/products/opensearch/reference/plans-pricing              /docs/platform/concepts/service-pricing  301
+/products/opensearch/reference/plans-pricing               /docs/platform/concepts/service-pricing  301
+/products/opensearch/reference/restapi-limited-access      /docs/products/opensearch/reference/opensearch-limitations  301
 /products/opensearch/troubleshooting                       /docs/products/opensearch  301
 /products/postgresql/concepts                              /docs/products/postgresql/concepts/aiven-db-migrate  301
 /products/postgresql/getting-started                       /docs/products/postgresql/get-started  301
