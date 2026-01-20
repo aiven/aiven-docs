@@ -59,7 +59,7 @@ This is a best-effort feature with the following constraints:
 <Tabs groupId="method">
 <TabItem value="1" label="Console">
 
-1. Log in to the [Aiven Console](https://console.aiven.io) and select your Aiven for
+1. Log in to the [Aiven Console](https://console.aiven.io), and select your Aiven for
    Valkey service.
 1. Click <ConsoleLabel name="service settings"/> from the sidebar.
 1. On the **Service settings** page, scroll to the **Cloud and network** section.
