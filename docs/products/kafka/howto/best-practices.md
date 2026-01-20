@@ -9,13 +9,16 @@ Apache Kafka® service.
 
 Apache Kafka uses replication between brokers to protect data in case of node failures.
 The replication factor (RF) determines how many copies of each partition are maintained
-across your cluster.
+across the cluster.
 
-Evaluate the importance of each topic and set a replication factor that balances your
-durability requirements with cost and performance. An RF of 3 has been Kafka's recommended
-default for production as it provides strong durability and availability. However, this
-can lead to high inter-AZ costs, the replication traffic moving across the network, diskless
-topics should be considered for high-throughput topics.
+Evaluate the importance of each topic and set a replication factor that balances
+durability requirements with cost and performance. An RF of 3 is commonly recommended
+for production because it improves durability and availability. In multi-AZ deployments,
+replication traffic across availability zones can increase network costs, especially
+for high-throughput workloads.
+
+For Diskless Topics architecture and considerations, see
+[Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
 
 Set the replication factor when creating or editing a
 [topic](/docs/products/kafka/howto/create-topic) in the
@@ -37,8 +40,6 @@ A maximum of 4,000 partitions per broker and 200,000 per cluster is recommended.
 For details, see this
 [Apache Kafka blog post](https://blogsarchive.apache.org/kafka/entry/apache-kafka-supports-more-partitions).
 Keep the total number of topics under 7,000.
-
-For Diskless topics architecture and considerations, see [Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
 
 :::note
 Ordering is guaranteed only within a partition. To maintain ordering of related records,
