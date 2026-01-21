@@ -36,7 +36,7 @@ security, and observability in one unified control plane. You can access the pla
 through the Aiven Console, Aiven API, Aiven Provider for Terraform, Aiven CLI, and
 Aiven Operator for Kubernetes®.
 
-Aiven offers [free plans](/docs/platform/concepts/service-pricing#free-plan) and
+Aiven offers [free plans](/docs/platform/concepts/service-pricing#free-tier) and
 [30-day trials](/docs/platform/concepts/service-pricing#free-trials) for you to explore
 the platform and services.
 
