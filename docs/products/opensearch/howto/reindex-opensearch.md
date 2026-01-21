@@ -40,13 +40,13 @@ Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service connection deta
 This command lists indices showing their creation version. Identify indices with versions
 that are incompatible with your target upgrade version.
 
-## Reindex process
+## Reindex earlier-version indices
 
 For each index created with an earlier version of Aiven for OpenSearch, follow these steps:
 
-### 1. Create the new index
+### 1. Create an index
 
-Create a new index with updated settings and mappings:
+Create an index with updated settings and mappings:
 
 ```bash
 PUT /new_index_name
@@ -205,49 +205,6 @@ index:
 ```bash
 DELETE /old_index_name
 ```
-
-## Automate reindexing for multiple indices
-
-For services with many indices, automate the reindexing process using a script.
-This example uses a bash script with `curl` and `jq`:
-
-```bash
-#!/bin/bash
-
-SERVICE_URL="https://USER:PASSWORD@HOST:PORT"
-
-# Get all indices created with an earlier version
-# Update the version filter based on your upgrade requirements
-INDICES=$(curl -s -X GET "$SERVICE_URL/_cat/indices?format=json" | \
-  jq -r '.[] | select(.["creation.date.string"] | startswith("VERSION_PREFIX")) | .index')
-
-for INDEX in $INDICES; do
-  NEW_INDEX="${INDEX}_v2"
-
-  echo "Reindexing $INDEX to $NEW_INDEX"
-
-  # Get and apply mapping
-  MAPPING=$(curl -s -X GET "$SERVICE_URL/$INDEX/_mapping" | \
-    jq ".\"$INDEX\".mappings")
-
-  curl -X PUT "$SERVICE_URL/$NEW_INDEX" \
-    -H "Content-Type: application/json" \
-    -d "{\"mappings\": $MAPPING}"
-
-  # Reindex
-  curl -X POST "$SERVICE_URL/_reindex" \
-    -H "Content-Type: application/json" \
-    -d "{\"source\": {\"index\": \"$INDEX\"}, \"dest\": {\"index\": \"$NEW_INDEX\"}}"
-
-  echo "Completed reindexing $INDEX"
-done
-```
-
-Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service details.
-
-:::warning
-Test the script on a non-production service before running it on production data.
-:::
 
 ## Complete the upgrade
 
