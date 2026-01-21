@@ -1,5 +1,5 @@
 ---
-title: Reindex OpenSearch® data on a newer version
+title: Reindex Aiven for OpenSearch® data on a newer version
 sidebar_label: Reindex data on newer version
 ---
 
@@ -7,27 +7,29 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-When upgrading OpenSearch® to a newer version, you may need to reindex indices created with an earlier version to ensure compatibility with the target version.
+When upgrading Aiven for OpenSearch® to a newer version, you may need to reindex indices created with an earlier version to ensure compatibility with the target version.
 
 ## Why reindexing is required
 
-Newer OpenSearch versions may introduce compatibility requirements where indices must have been created with a minimum version. If you upgrade to a newer version with indices created in an incompatible earlier version, the upgrade can fail.
+Newer Aiven for OpenSearch versions may introduce compatibility requirements where indices
+must have been created with a minimum version. If you upgrade to a newer version with
+indices created in an incompatible earlier version, the upgrade can fail.
 
 To upgrade when reindexing is required:
 
-1. Upgrade your service to an intermediate compatible version if needed
-1. Reindex all indices created with incompatible earlier versions
-1. Upgrade to the target version
+1. Upgrade your service to an intermediate compatible version if needed.
+1. Reindex all indices created with incompatible earlier versions.
+1. Upgrade to the target version.
 
 ## Prerequisites
 
-- Your Aiven for OpenSearch service is running at an intermediate version
-- You have identified indices created with earlier versions that need reindexing
-- You have the service connection credentials
+- Your Aiven for OpenSearch service is running at an intermediate version.
+- You have identified indices created with earlier versions that need reindexing.
+- You have the service connection credentials.
 
 ## Identify indices requiring reindexing
 
-Check which indices were created with an earlier version of OpenSearch:
+Check which indices were created with an earlier version of Aiven for OpenSearch:
 
 ```bash
 curl -X GET "https://USER:PASSWORD@HOST:PORT/_cat/indices?v&h=index,creation.date.string,version"
@@ -35,11 +37,12 @@ curl -X GET "https://USER:PASSWORD@HOST:PORT/_cat/indices?v&h=index,creation.dat
 
 Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service connection details.
 
-This command lists indices showing their creation version. Identify indices with versions that are incompatible with your target upgrade version.
+This command lists indices showing their creation version. Identify indices with versions
+that are incompatible with your target upgrade version.
 
 ## Reindex process
 
-For each index created with an earlier version of OpenSearch, follow these steps:
+For each index created with an earlier version of Aiven for OpenSearch, follow these steps:
 
 ### 1. Create the new index
 
@@ -65,7 +68,8 @@ Export the mapping from the source index:
 GET /old_index_name/_mapping
 ```
 
-Apply the mapping to the new index, removing the outer wrapper and keeping only the `properties` object:
+Apply the mapping to the new index, removing the outer wrapper and keeping only the
+`properties` object:
 
 ```bash
 PUT /new_index_name/_mapping
@@ -111,7 +115,8 @@ POST /_reindex?slices=5&refresh
 }
 ```
 
-The `slices` parameter splits the reindexing into multiple subtasks. Use a value equal to the number of shards for optimal performance.
+The `slices` parameter splits the reindexing into multiple subtasks. Use a value equal to
+the number of shards for optimal performance.
 
 </TabItem>
 <TabItem value="async" label="Asynchronous reindexing">
@@ -194,7 +199,8 @@ POST /_aliases
 }
 ```
 
-After verifying that your application works correctly with the new index, delete the old index:
+After verifying that your application works correctly with the new index, delete the old
+index:
 
 ```bash
 DELETE /old_index_name
@@ -247,11 +253,12 @@ Test the script on a non-production service before running it on production data
 
 After reindexing all indices created with earlier versions:
 
-1. Verify all indices now have a compatible version
-1. [Upgrade your service](/docs/products/opensearch/howto/os-version-upgrade) to the target version
+1. Verify all indices now have a compatible version.
+1. [Upgrade your service](/docs/products/opensearch/howto/os-version-upgrade) to the
+   target version.
 
 <RelatedPages/>
 
 - [Upgrade Aiven for OpenSearch](/docs/products/opensearch/howto/os-version-upgrade)
-- [Manage large shards in OpenSearch](/docs/products/opensearch/howto/resolve-shards-too-large)
-- [OpenSearch Reindex API documentation](https://opensearch.org/docs/latest/api-reference/document-apis/reindex/)
+- [Manage large shards in Aiven for OpenSearch](/docs/products/opensearch/howto/resolve-shards-too-large)
+- [OpenSearch reindex API documentation](https://opensearch.org/docs/latest/api-reference/document-apis/reindex/)
