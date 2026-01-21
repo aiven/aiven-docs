@@ -12,7 +12,7 @@ Configure a preferred availability zone (AZ) for your Aiven for Valkey™ primar
 
 The preferred availability zone feature provides a hint to the Aiven platform about
 where to deploy the primary node of your Aiven for Valkey service. When you set a
-preferred AZ, the system attempts to place the primary node in that zone and perform
+preferred AZ, the system attempts to place the primary node in that zone and performs
 automatic failover to nodes in that zone when available.
 
 ## How it works
@@ -36,7 +36,7 @@ When a preferred AZ is configured:
 ## Prerequisites
 
 - Aiven for Valkey service on a plan with multiple nodes
-  ([Aiven for Valkey plans & pricing](https://aiven.io/pricing?product=valkey))
+  ([Aiven for Valkey plans and pricing](https://aiven.io/pricing?product=valkey))
 - Access to the [Aiven Console](https://console.aiven.io), [Aiven CLI](/docs/tools/cli),
   or [Aiven API](/docs/tools/api)
 
@@ -139,7 +139,7 @@ curl -X PATCH https://api.aiven.io/v1/project/my-project/service/my-valkey-servi
 <TabItem value="1" label="Console">
 
 1. Go to your Aiven for Valkey service's <ConsoleLabel name="overview"/> page.
-1. In the **Connection information** section, view the current primary node endpoint.
+1. In the **Connection information** section, view the primary node endpoint.
 1. Check the **Nodes** section to see which AZ each node is deployed in.
 
 </TabItem>
@@ -162,7 +162,7 @@ curl -X GET https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
 ```
 
 Check the `node_states` section in the response to see which AZ each node is deployed in
-and which node is currently the primary.
+and which node is the primary.
 
 </TabItem>
 </Tabs>
