@@ -175,7 +175,7 @@ GET /new_index_name/_count
 
 The document counts should match.
 
-### 5. Update aliases and delete the old index
+### 5. Update aliases
 
 If the old index uses aliases, update them to point to the new index:
 
@@ -198,6 +198,8 @@ POST /_aliases
   ]
 }
 ```
+
+### 6. Delete the old index
 
 After verifying that your application works correctly with the new index, delete the old
 index:
