@@ -1,5 +1,6 @@
 ---
-title: Connect with Skyvia
+title: Connect to Aiven for PostgreSQL® with Skyvia
+sidebar_label: Skyvia
 ---
 
 [Skyvia](https://skyvia.com/) is an universal cloud data platform. This

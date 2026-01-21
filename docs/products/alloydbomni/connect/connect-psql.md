@@ -1,5 +1,6 @@
 ---
-title: Connect with psql
+title: Connect to Aiven for AlloyDB Omni with psql
+sidebar_label: psql
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

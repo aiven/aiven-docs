@@ -2,7 +2,8 @@
 title: Manage storage
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
 
 Get a comprehensive view of your storage usage with Aiven for Metrics. The Storage page in the [Aiven console](https://console.aiven.io/) provides valuable data to help you effectively manage and understand your object storage consumption and associated costs.
 
@@ -14,6 +15,8 @@ Key metrics provided on the Storage page include:
 - **Object storage used**: Indicates the amount of storage currently in use.
 - **Retention rule**: Displays the current data retention setting, which by default is
   set to **Keep data forever**.
+
+<NoThanosAccess/>
 
 ## Access the Storage page
 

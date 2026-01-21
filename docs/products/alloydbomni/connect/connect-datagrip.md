@@ -1,5 +1,6 @@
 ---
-title: Connect with DataGrip
+title: Connect to Aiven for AlloyDB Omni with DataGrip
+sidebar_label: DataGrip
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

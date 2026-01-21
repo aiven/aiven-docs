@@ -2,7 +2,8 @@
 title: Migrate a public service to a Virtual Private Cloud (VPC)
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ChangeCloud from "@site/static/includes/change-cloud-console.md";
 
 When operating your Aiven service over the public Internet, you might consider enhancing security or connectivity by transitioning to a Virtual Private Cloud (VPC, also known as VNet).
 This move allows you to
@@ -102,29 +103,11 @@ hostname(s) and IP addresses.
 You can migrate your Aiven services into a VPC using the [Aiven
 Console](https://console.aiven.io/) .
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) select your
-    project and select the service.
-1.  On the service page, select **Service settings** from the sidebar.
-1.  In the **Cloud and network** section, click
-    <ConsoleLabel name="actions"/> > **Change cloud or region**.
-1.  In the **Migrate service to another cloud** window, select the
-    **VPC** tab and choose the appropriate region for your project's
-    dedicated VPC. The `Public Internet` tag is displayed.
-1.  Start the migration process.
-1.  Once the migration is complete, ensure the
-    `Project VPC` tag appears on the service's page. This tag indicates the migration
-    was successful.
+<ChangeCloud isVPC={true} />
 
-In [Aiven Console](https://console.aiven.io/), use the **Cloud and VPC** >
-**Migrate cloud** section on the service's **Overview** page to
-migrate your Aiven services into a VPC. Note the `Public Internet` tag.
-
-Ensure that you select the region from the `VPC` tab. This is a
-dedicated VPC for your project.
-
-Ensure that you see the `Project VPC` tag after migration. You can
-monitor the migration status on the service's page in [Aiven
-Console](https://console.aiven.io/).
+Once the migration is complete, ensure the
+`Project VPC` tag appears on the service's page. This tag indicates the migration
+was successful.
 
 ## Testing the service connections
 

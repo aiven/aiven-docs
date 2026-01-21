@@ -4,7 +4,7 @@ title: Set up an Apache Kafka® MirrorMaker 2 replication flow
 
 Apache Kafka® MirrorMaker 2 **replication flows** enable the topics sync from a source Apache Kafka® cluster to a target Apache Kafka cluster deployed anywhere in the world.
 Replication flows can be defined against Aiven for Apache Kafka services or
-external [Apache Kafka clusters](integrate-external-kafka-cluster).
+external [Apache Kafka clusters](/docs/products/kafka/howto/integrate-external-kafka-cluster).
 
 To define a replication flow between a source Apache Kafka cluster and a
 target cluster:

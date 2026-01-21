@@ -24,7 +24,7 @@ To set up a Google Pub/Sub source connector, ensure you have the following:
     subscription is located
   - `GCP_SUBSCRIPTION`: The name of the [Google Pub/Sub subscription](https://cloud.google.com/pubsub/docs/create-subscription)
   - `GCP_SERVICE_KEY`: A valid Google Cloud service account key for the
-    `GCP_PROJECT_NAME`: To create this key, see [Configure GCP for a Google BigQuery sink connector](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq#gcp-bigquery-sink-connector-google-account)
+    `GCP_PROJECT_NAME`: To create this key, see [Configure GCP for a Google BigQuery sink connector](/docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink#configure-google-cloud)
 
     :::warning
     The GCP Pub/Sub source connector accepts the `GCP_SERVICE_KEY` as a JSON string.

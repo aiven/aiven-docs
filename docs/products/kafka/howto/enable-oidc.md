@@ -32,7 +32,7 @@ official documentation for specific configuration guidelines.
 
 Before proceeding with the setup, ensure you have:
 
-- [Aiven for Apache Kafka®](/docs/products/kafka/get-started) service running.
+- [Aiven for Apache Kafka®](/docs/products/kafka/create-kafka-service) service running.
 - **Access to an OIDC provider**: Options include Auth0, Okta, Google
   Identity Platform, Azure, or any other OIDC compliant provider.
 - Required configuration details from your OIDC provider:

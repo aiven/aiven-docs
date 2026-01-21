@@ -37,7 +37,7 @@ For more information, see
 
 ## Prerequisites
 
-- [Aiven for Apache Kafka service](/docs/products/kafka/get-started) running.
+- [Aiven for Apache Kafka service](/docs/products/kafka/create-kafka-service) running.
 - Access to the [Aiven Console](https://console.aiven.io/).
 - Installed and authenticated [Aiven CLI](/docs/tools/cli).
 - An [API token](https://aiven.io/docs/platform/howto/create_authentication_token) for

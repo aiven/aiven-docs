@@ -18,7 +18,7 @@ machines behind the scenes. You don't need to remember using
 
 :::important
 There are limitations on the number of concurrent queries and the number of concurrent
-connections in Aiven for ClickHouse. Depending on your service plan:
+connections in Aiven for ClickHouse:
 
 - `max_concurrent_queries` ranges from `25` to `400`.
 - `max_concurrent_connections` ranges from `1000` to `4000`.

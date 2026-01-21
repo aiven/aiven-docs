@@ -6,7 +6,7 @@ keywords: [quick start]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CreateService from "@site/static/includes/create-service-console.md";
+import CreateServiceDBLegacy from "@site/static/includes/create-service-console-db-legacy.md";
 import Help from "@site/static/includes/cli-help.md";
 import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
@@ -23,7 +23,7 @@ Aiven for Metrics is not currently available on Azure or Google Cloud Marketplac
 <Tabs groupId="setup">
 <TabItem value="Console" label="Console" default>
 
-<CreateService serviceType="Thanos Metrics"/>
+<CreateServiceDBLegacy serviceType="Thanos Metrics"/>
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
@@ -82,6 +82,6 @@ service for comprehensive monitoring. Set up integrations using the
 [Aiven CLI](docs/tools/cli/service/integration.md), or
 [Aiven Terraform Provider](/docs/platform/howto/create-service-integration).
 
-The [Aiven for Metrics integration example](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/thanos_pg) in GitHub
+The [Aiven for Metrics integration example](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/thanos/thanos_pg) in GitHub
 shows you how to use the Aiven Terraform Provider to create and integrate
 Thanos Metrics with PostgreSQL and Grafana.

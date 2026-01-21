@@ -1,25 +1,31 @@
 ---
-title: Install or update an extension
+title: Manage Aiven for PostgreSQL® extensions
+sidebar_label: Manage extensions
 ---
 
 Aiven for PostgreSQL® allows a series of pre-approved extensions to be installed.
 
+:::note[Who can manage extensions]
+All database users can manage extensions: both the default `avnadmin` user and other
+database users created via the Aiven Console, API, CLI, or Aiven Provider for Terraform.
+This is the expected behavior because of the extension whitelist configuration in
+Aiven for PostgreSQL.
+:::
+
 ## Install an extension
 
-Any available extension can be installed by the `avnadmin` user with the
-following `CREATE EXTENSION` command:
+To install an extension, run:
 
-```
-CREATE EXTENSION <EXTENSION_NAME> CASCADE;
+```sql
+CREATE EXTENSION EXTENSION_NAME CASCADE;
 ```
 
 ## Update an extension
 
-To upgrade an already-installed extension to the latest version
-available, run as the `avnadmin` user:
+To upgrade an already-installed extension to the latest version, run:
 
-```
-ALTER EXTENSION <EXTENSION_NAME> UPDATE;
+```sql
+ALTER EXTENSION EXTENSION_NAME UPDATE;
 ```
 
 To experiment with upgrading, remember that you can fork
@@ -34,15 +40,24 @@ versions of an extension being used, so we can't assume that all
 extensions are safe to upgrade.
 :::
 
+## Delete an extension
+
+To delete an extension, run:
+
+```sql
+DROP EXTENSION EXTENSION_NAME;
+```
+
 ## Request a new extension
 
 We are always open to suggestions of additional extensions that can be
 useful to many of our customers, and there are a few that can be enabled
 on request if you need them. For any extensions not on the
-[list of approved extensions](/docs/products/postgresql/reference/list-of-extensions), make a request through [Aiven Ideas](https://ideas.aiven.io/). Be sure to include:
+[list of approved extensions](/docs/products/postgresql/reference/list-of-extensions),
+make a request through [Aiven Ideas](https://ideas.aiven.io/). Be sure to include:
 
--   which extension is requested
--   which database service and user database should have them
+-   Which extension is requested
+-   Which database service and user database should have them
 
 :::warning
 "Untrusted" language extensions such as `plpythonu` cannot be

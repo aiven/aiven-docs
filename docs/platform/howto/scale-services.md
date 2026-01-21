@@ -6,11 +6,20 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ChangeServicePlan from "@site/static/includes/change-service-plan-console.md";
 
-Adjust the plan of your services at any time to scale your services as needed and optimize costs.
-
-You can also [adjust disk storage](/docs/platform/howto/add-storage-space) without
+Adjust the plan of your services at any time to scale your services as needed and optimize costs. You can also [adjust disk storage](/docs/platform/howto/add-storage-space) without
 changing your plan.
+
+If you can't find a suitable plan, you can
+[request a custom plan](/docs/platform/howto/custom-plans).
+
+:::tip
+If you plan to upgrade your service plan, do it immediately
+after a full backup. This reduces the amount of incremental
+changes that need to be applied on top of the base backup, which
+speeds up the upgrade itself.
+:::
 
 :::important
 
@@ -23,18 +32,7 @@ changing your plan.
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In your project, click <ConsoleLabel name="services"/> and open a service.
-1. On the left-side menu, click <ConsoleLabel name="service settings"/>.
-1. In the **Service plan** section, click <ConsoleLabel name="actions"/> >
-   **Change plan**.
-1. In the **Change service plan** dialog, choose the new service plan and tier.
-
-   :::note
-   Select a plan that provides at least 125% of the current disk size unless you're
-   downgrading your plan.
-   :::
-
-1. Click **Change**.
+<ChangeServicePlan/>
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -65,7 +63,5 @@ the service uses. For example, when switching from `Startup-4` to `Business-4` o
 
 <RelatedPages/>
 
-- [Adjust disk storage][storage]
-- [Scale disks storage automatically](/docs/platform/howto/disk-autoscaler)
-
-[storage]: /docs/platform/howto/add-storage-space
+- [Adjust disk storage](/docs/platform/howto/add-storage-space)
+- [Scale disk storage automatically](/docs/platform/howto/disk-autoscaler)

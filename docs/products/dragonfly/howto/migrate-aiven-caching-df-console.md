@@ -132,6 +132,5 @@ writes from the source database, ensuring your data remains up to date.
 
 <RelatedPages/>
 
-- [Aiven for Caching* documentation](/docs/products/caching/get-started)
 - [Aiven for Dragonfly overview](/docs/products/dragonfly)
-- [Aiven for Valkey overview](/docs/products/valkey)
+- [Aiven for Valkey™ overview](/docs/products/valkey)

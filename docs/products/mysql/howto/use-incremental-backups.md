@@ -1,7 +1,7 @@
 ---
 title: Use Aiven for MySQL® incremental backups
 sidebar_label: Incremental backups
-limited: true
+early: true
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -39,7 +39,7 @@ Use Aiven for MySQL® backups for:
 ## Prerequisites
 
 - Enable Aiven for MySQL® incremental backups as a
-  [limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+  [early availability feature](/docs/platform/concepts/service-and-feature-releases#early-availability-).
 - Access the [Aiven Console](https://console.aiven.io/) or the
   [Aiven API](/docs/tools/api).
 - Set up a weekly backup schedule before or when

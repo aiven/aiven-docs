@@ -1,6 +1,6 @@
 ---
 title: Connect to Aiven for PostgreSQL® with DataGrip
-sidebar_label: Connect with DataGrip
+sidebar_label: DataGrip
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

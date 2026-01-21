@@ -3,6 +3,8 @@ title: Prevent PostgreSQL® full disk issues
 sidebar_label: Prevent full disk issues
 ---
 
+import ChangeServicePlan from "@site/static/includes/change-service-plan-console.md";
+
 If your Aiven for PostgreSQL® service runs out of disk space, the service will start malfunctioning, which will preclude proper backup creation.
 
 To prevent this situation, Aiven automatically detects when your service
@@ -33,14 +35,7 @@ via the [Aiven console](https://console.aiven.io/) or
 To perform a plan upgrade via the [Aiven
 console](https://console.aiven.io/):
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), and select
-    your Aiven for PostgreSQL service.
-1.  Select **Service settings** from the sidebar of your service's
-    page.
-1.  Go to the **Service plan** section, and select **Change plan**
-    from the **Actions** (**...**) menu.
-1.  In the **Change service plan** window, select a new plan with a
-    higher capacity, and select **Change**.
+<ChangeServicePlan/>
 
 Once the new nodes with the increased disk capacity are up and running,
 the disk usage drops below the critical level and the system

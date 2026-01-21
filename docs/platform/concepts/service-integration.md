@@ -11,13 +11,9 @@ Service integrations include:
 - Metrics integration, which allows sending advanced telemetry data to an
   [Aiven for PostgreSQL®](https://aiven.io/postgresql) database for metrics and
   visualizing them in [Aiven for Grafana®](https://aiven.io/grafana)
-- Log integration, which allows sending logs from any Aiven service to
+- [Log integration](/docs/products/opensearch/howto/opensearch-log-integration), which
+  allows sending logs from any Aiven service to
   [Aiven for OpenSearch®](https://aiven.io/opensearch).
-
-:::tip
-For help with setting up a service integration or to request an integration type or
-endpoint not yet available, contact the [support team](mailto:support@aiven.io)
-:::
 
 ## Benefits of integrated telemetry
 

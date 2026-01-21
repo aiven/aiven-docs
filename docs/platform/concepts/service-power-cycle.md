@@ -11,7 +11,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Controlling when to power on and off your Aiven services allows you to control the use of resources and save credits.
 Idle resources are released and only the necessary data is kept after a power-off.
-The impact on the service is different depending on the service type and plan.
+The impact on the service is different depending on the service type and configuration.
 
 Aiven service power off and power on can be done on [Aiven
 Console](https://console.aiven.io) or through
@@ -68,8 +68,6 @@ To remove static IP addresses, see
 [Manage static IP addresses](/docs/platform/concepts/static-ips).
 :::
 
-When a service is powered off, you can [delete it](#delete-service).
-
 ## Power on a service
 
 <Tabs groupId="sync">
@@ -108,10 +106,8 @@ When a service is powered on:
     The restoration takes from a few minutes
     to a few hours, depending on:
     - The network bandwidth
-    - Disk IOPS allocated to the service plan
-    - The size of the backup.
-
-    Smaller plans with larger backups take longer time than bigger plans with smaller backups.
+    - Disk IOPS allocated to the service
+    - The size of the backup. Larger backups take a longer time.
 
     Contact the [support team](mailto:support@aiven.io) to inquire about the progress.
 
@@ -126,7 +122,8 @@ on as new virtual machines are created for the service to run on.
 
 ## Delete a service {#delete-service}
 
-You can only delete powered-off services. This action cannot be undone.
+You can delete both powered-on and powered-off services unless they have termination
+protection enabled. Deletion is permanent and cannot be undone.
 
 <Tabs groupId="sync">
 <TabItem value="Console" label="Console" default>

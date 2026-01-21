@@ -1,11 +1,15 @@
 ---
-title: Access PgBouncer statistics
+title: Access PgBouncer statistics for Aiven for PostgreSQL®
+sidebar_label: PgBouncer statistics
 ---
 
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import VerifyPasswordEncryption from "@site/static/includes/pg-password-encryption.md";
 
 PgBouncer is used at Aiven as a [connection pooler](/docs/products/postgresql/concepts/pg-connection-pooling) to lower the performance impact of opening new connections to Aiven for PostgreSQL®.
+
+<VerifyPasswordEncryption/>
 
 After connecting to PgBouncer, you can display statistics available from PgBouncer, such as:
 

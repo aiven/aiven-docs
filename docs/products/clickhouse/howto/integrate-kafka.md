@@ -33,7 +33,7 @@ Aiven for ClickHouse service integrations are available for
 
         :::tip
         If you use the self-hosted Apache Kafka service,
-        [configure an external Apache Kafka endpoint](/docs/products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster#define-an-external-apache-kafka-service-integration-endpoint-via-aiven-console).
+        [configure an external Apache Kafka endpoint](/docs/products/kafka/howto/integrate-external-kafka-cluster).
         :::
 
 -   At least one topic in the Apache Kafka service

@@ -1,13 +1,14 @@
 ---
-title: Aiven for Valkey read replica
-sidebar_label: Valkey read replica
+title: Aiven for Valkey™ read replica
+sidebar_label: Read replica
 early: true
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
 import Button from "@site/src/components/Buttons";
 import GridContainer from "@site/src/components/GridContainer";
 
-Aiven for Valkey read replica replicates data from a primary service to a replica service across different DNS zones, clouds, or regions, enhancing data availability and supporting disaster recovery.
+Aiven for Valkey™ read replica replicates data from a primary service to a replica service across different DNS zones, clouds, or regions, enhancing data availability and supporting disaster recovery.
 
 ## Features and benefits
 
@@ -42,3 +43,7 @@ data consistency under normal conditions.
   replication is not available.
 - You can create a maximum of 5 read replicas per primary service.
 - Read replicas are only supported on the **Startup** plan.
+
+<RelatedPages/>
+
+[Create an Aiven for Valkey™ read replica and promote it to primary](/docs/products/valkey/howto/create-valkey-read-replica)

@@ -5,6 +5,7 @@ keywords: [AWS, Amazon Web Services, byoc, bring your own cloud, custom cloud]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -69,6 +70,7 @@ Show permissions required for creating resources for bastion and workload networ
                 "iam:ListInstanceProfilesForRole",
                 "iam:ListRolePolicies",
                 "iam:PutRolePolicy",
+                "iam:TagRole",
                 "iam:UpdateAssumeRolePolicy"
             ],
             "Effect": "Allow",
@@ -393,6 +395,15 @@ Show permissions required for creating resources for bastion and workload networ
                 "*"
             ],
             "Sid": "Delete"
+        },
+        {
+            "Action": [
+                "s3:*"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::cce-*"
+            ]
         }
     ],
     "Version": "2012-10-17"
@@ -432,7 +443,7 @@ In the **Create custom cloud** wizard:
     -   Custom cloud name
     -   [Infrastructure tags](/docs/platform/howto/byoc/tag-custom-cloud-resources)
 
-    Click **Next**.
+1.  Click **Next**.
 
 1.  Specify deployment and storage details:
 
@@ -444,7 +455,7 @@ In the **Create custom cloud** wizard:
         - Public model, which allows the Aiven control plane to connect to the service
           nodes via the public internet.
 
-    -   CIDR
+    -   CIDR for BYOC resources
 
         The **CIDR** block defines the IP address range of the VPC that
         Aiven creates in your own cloud account. Any Aiven service created in
@@ -479,7 +490,21 @@ In the **Create custom cloud** wizard:
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
 
-    Click **Generate template**.
+    -   Object storage <LimitedBadge/>
+
+        By default, the following data is stored in the BYOC object storage in your own
+        cloud account:
+
+        -   [Cold data managed by the service](/docs/platform/howto/byoc/store-data)
+        -   [Backups of the service](/docs/platform/concepts/byoc#byoc-service-backups)
+
+        :::note
+        - Data is stored in your BYOC object storage using one S3 bucket per custom cloud.
+        - Permissions for S3 bucket management will be included in the Terraform
+          infrastructure template to be generated upon completing this step.
+        :::
+
+1.  Click **Generate template**.
 
 Your IaC Terraform template gets generated based on your inputs. You can
 view, copy, or download it. Now, you can use the template to
@@ -499,8 +524,6 @@ Use the
 [generated Terraform template](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud#generate-an-infrastructure-template)
 to create your Role ARN by deploying the template in your AWS account.
 
-Continue working in the **Create custom cloud** wizard:
-
 1.  Copy or download the template and the variables file from the
     **Create custom cloud** wizard.
 
@@ -518,16 +541,63 @@ Continue working in the **Create custom cloud** wizard:
     Console](https://console.aiven.io/).
     :::
 
-1.  Use Terraform to deploy the infrastructure template in your AWS account with the
-    provided variables.
+1.  Set up Terraform to authenticate with AWS.
 
-    :::important
-    When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
-    as an option.
+    Configure your AWS credentials using one of the following methods:
+
+    - **Environment variables** (quick setup for testing):
+
+      ```bash
+      export AWS_ACCESS_KEY_ID="your_access_key"
+      export AWS_SECRET_ACCESS_KEY="your_secret_key"
+      export AWS_DEFAULT_REGION="your_region"
+      ```
+
+    - **AWS CLI profile** (recommended for local development):
+
+      1. Configure credentials using the AWS CLI:
+
+         ```bash
+         aws configure --profile your-profile-name
+         ```
+
+      1. Reference the profile when running Terraform:
+
+         ```bash
+         export AWS_PROFILE=your-profile-name
+         ```
+
+    - **IAM roles** (recommended for production and CI/CD environments):
+
+      If running on an EC2 instance, in AWS CloudShell, or in a CI/CD pipeline, use IAM
+      roles attached to the compute resource instead of static credentials.
+
+    :::tip
+    For enhanced security, consider using
+    [aws-vault](https://github.com/99designs/aws-vault) to store encrypted credentials or
+    [AWS Single Sign-On (SSO)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html)
+    for centralized identity management.
     :::
 
-1.  Find a role identifier (Role ARN) in the output script after
-    running the template.
+    For more authentication options and configuration details, see the
+    [AWS Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
+
+1.  Deploy the infrastructure template using Terraform:
+
+    ```bash
+    terraform init
+    terraform plan -var-file=FILE_NAME.tfvars
+    terraform apply -var-file=FILE_NAME.tfvars
+    ```
+
+    Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
+
+    :::important
+    The `-var-file` option is required to pass the configuration variables to Terraform.
+    :::
+
+1.  Find the role identifier (Role ARN) in the Terraform output after
+    running `terraform apply`.
 
 1.  Enter Role ARN into the **IAM role ARN** field in the **Create custom
     cloud** wizard.
@@ -628,9 +698,13 @@ Your new custom cloud is ready to use only after its status changes to
        and are by default not accessible from outside. Traffic is routed through a proxy
        for additional security utilizing a bastion host logically separated from the
        Aiven services.
-   - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom cloud,
-     for example `europe-north1`. See all available options in
-     [AWS cloud regions](/docs/platform/reference/list_of_clouds#amazon-web-services).
+   - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom
+     cloud:
+     1. Pick a region from the **Cloud** column in the supported
+        [AWS cloud regions](/docs/platform/reference/list_of_clouds#amazon-web-services)
+        table.
+     1. Drop the `aws-` prefix from the selected region name, for example,
+        `aws-eu-north-1` > `eu-north-1`.
    - `CIDR_BLOCK` with a CIDR block defining the IP address range of the VPC that Aiven
      creates in your own cloud account, for example: `10.0.0.0/16`, `172.31.0.0/16`, or
      `192.168.0.0/20`.
@@ -709,27 +783,74 @@ Your new custom cloud is ready to use only after its status changes to
 
    1. Optionally, modify the template as needed.
 
-        :::note
-        To connect to a custom-cloud service from different security groups
-        (other than the one dedicated for the custom cloud) or from IP
-        address ranges, add specific ingress rules before you apply a
-        Terraform infrastructure template in your AWS cloud account in the process
-        of creating a custom cloud resources.
+      :::note
+      To connect to a custom-cloud service from different security groups
+      (other than the one dedicated for the custom cloud) or from IP
+      address ranges, add specific ingress rules before you apply a
+      Terraform infrastructure template in your AWS cloud account in the process
+      of creating a custom cloud resources.
 
-        Before adding ingress rules, see the examples provided in the
-        Terraform template you generated and downloaded from the [Aiven
-        Console](https://console.aiven.io/).
-        :::
+      Before adding ingress rules, see the examples provided in the
+      Terraform template you generated and downloaded from the [Aiven
+      Console](https://console.aiven.io/).
+      :::
 
-   1. Use Terraform to deploy the infrastructure template with the provided variables in
-      your AWS cloud account. This will generate a Role ARN.
+   1. Set up Terraform to authenticate with AWS.
 
-       :::important
-       When running `terraform plan` and `terraform apply`, add `-var-file=FILE_NAME.tfvars`
-       as an option.
+       Configure your AWS credentials using one of the following methods:
+
+       - **Environment variables** (quick setup for testing):
+
+         ```bash
+         export AWS_ACCESS_KEY_ID="your_access_key"
+         export AWS_SECRET_ACCESS_KEY="your_secret_key"
+         export AWS_DEFAULT_REGION="your_region"
+         ```
+
+       - **AWS CLI profile** (recommended for local development):
+
+         1. Configure credentials using the AWS CLI:
+
+            ```bash
+            aws configure --profile your-profile-name
+            ```
+
+         1. Reference the profile when running Terraform:
+
+            ```bash
+            export AWS_PROFILE=your-profile-name
+            ```
+
+       - **IAM roles** (recommended for production and CI/CD environments):
+
+         If running on an EC2 instance, in AWS CloudShell, or in a CI/CD pipeline, use IAM
+         roles attached to the compute resource instead of static credentials.
+
+       :::tip
+       For enhanced security, consider using
+       [aws-vault](https://github.com/99designs/aws-vault) to store encrypted credentials or
+       [AWS Single Sign-On (SSO)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html)
+       for centralized identity management.
        :::
 
-   1. Find `aws-iam-role-arn` in the output script after running the template.
+       For more authentication options and configuration details, see the
+       [AWS Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
+
+   1. Deploy the infrastructure template using Terraform with the provided variables file:
+
+      ```bash
+      terraform init
+      terraform plan -var-file=FILE_NAME.tfvars
+      terraform apply -var-file=FILE_NAME.tfvars
+      ```
+
+      Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
+
+      :::important
+      The `-var-file` option is required to pass the configuration variables to Terraform.
+      :::
+
+   1. Find `aws-iam-role-arn` in the Terraform output after running `terraform apply`.
 
 1. Provision resources by running [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision)
    and passing the generated `aws-iam-role-arn` as an option.

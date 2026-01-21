@@ -80,7 +80,6 @@ const config: Config = {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       'data-document-language': 'true',
       type: 'text/javascript',
-      charset: 'UTF-8',
       'data-domain-script': '0623fbc6-a463-4822-a7a4-fdb5afcc3afb',
     },
     {src: '/docs/page_scripts/onetrust.js', async: true},
@@ -143,6 +142,14 @@ const config: Config = {
   plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
   themeConfig: {
     image: 'images/site-preview.png',
+    // Banner with link to survey
+    announcementBar: {
+      content:
+        'Tell us about your experience and help us improve the docs by taking a <a target="_blank" rel="noopener noreferrer" href="https://t.maze.co/443153085">3-minute survey</a>.',
+      backgroundColor: '#818EEC',
+      textColor: '#FFFFFF',
+      isCloseable: false,
+    },
     navbar: {
       title: 'aiven',
       logo: {
@@ -268,13 +275,13 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © Aiven 2016-${new Date().getFullYear()}. Apache, Apache Kafka, Kafka, Apache Flink, and Flink, are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. OpenSearch, AlloyDB Omni, PostgreSQL, MySQL, Grafana, Dragonfly, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
+      copyright: `Copyright © Aiven 2016-${new Date().getFullYear()}. Apache, Apache Kafka, Kafka, Apache Flink, and Flink, are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. OpenSearch, PostgreSQL, MySQL, Grafana, Dragonfly, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
     },
     prism: {
       theme: prismThemes.nightOwl,
       darkTheme: prismThemes.dracula,
       defaultLanguage: 'bash',
-      additionalLanguages: ['bash', 'json', 'php', 'hcl'],
+      additionalLanguages: ['bash', 'diff', 'hcl', 'json', 'php'],
     },
     mermaid: {
       options: {

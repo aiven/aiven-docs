@@ -118,6 +118,17 @@
     "prefix": ["contact", "support"],
     "body": ["contact the [support team](mailto:support@aiven.io)"]
   },
+  "Details": {
+    "prefix": "details",
+    "body": [
+      "<details close>",
+      "<summary>Title</summary>",
+      "",
+      "Content",
+      "",
+      "</details>"
+    ]
+  },
   "DocCardList": {
     "prefix": ["doccard", "tiles"],
     "body": [
@@ -229,6 +240,14 @@
       "<TerraformSample filename='${1:EXAMPLE_PATH/FILENAME}.tf' />",
       "",
       "More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).",
+      ""
+    ]
+  },
+  "Insert Terraform docs link": {
+    "prefix": ["terraform docs"],
+    "body": [
+      "Use the `FIELD_NAME` attribute in",
+      "[your `aiven_RESOURCE_NAME` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_project).",
       ""
     ]
   },

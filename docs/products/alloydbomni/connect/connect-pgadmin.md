@@ -1,5 +1,6 @@
 ---
-title: Connect with pgAdmin
+title: Connect to Aiven for AlloyDB Omni with pgAdmin
+sidebar_label: pgAdmin
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

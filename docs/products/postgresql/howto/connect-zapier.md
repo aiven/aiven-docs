@@ -1,5 +1,6 @@
 ---
-title: Connect with Zapier
+title: Connect to Aiven for PostgreSQL® with Zapier
+sidebar_label: Zapier
 ---
 
 [Zapier](https://zapier.com/) is an automation platform that connects

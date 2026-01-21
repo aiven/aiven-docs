@@ -1,5 +1,6 @@
 ---
-title: Connect with psql
+title: Connect to Aiven for PostgreSQL® with psql
+sidebar_label: psql
 ---
 
 `psql` is a command line tool for PostgreSQL®, useful to manage and

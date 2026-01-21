@@ -1,5 +1,6 @@
 ---
-title: Connect with cqlsh
+title: Connect to Aiven for Apache Cassandra® with cqlsh
+sidebar_label: cqlsh
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -40,7 +41,7 @@ export SSL_CERTFILE=<PATH>
 
 :::note
 Alternatively, you can provide the path to the CA certificate file in
-the `[ssl]` section by setting the the `certfile` parameter in
+the `[ssl]` section by setting the `certfile` parameter in
 `~/.cassandra/cqlshrc`.
 :::
 

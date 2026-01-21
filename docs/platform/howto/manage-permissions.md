@@ -76,6 +76,8 @@ To remove all organization permissions for a user or group:
 The super admin role is a special role that has unrestricted access to an organization
 and all its resources and settings.
 
+You cannot make application users super admin.
+
 :::important
 This role should be limited to as few users as possible for organization setup and
 emergency use. For daily administrative tasks, assign users the

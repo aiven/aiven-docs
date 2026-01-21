@@ -7,8 +7,11 @@ keywords: [quick start]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import CreateService from "@site/static/includes/create-service-console.md"
+import CreateServiceDBLegacy from "@site/static/includes/create-service-console-db-legacy.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import EoaNotice from "@site/static/includes/eol-cassandra-banner.md"
+
+<EoaNotice/>
 
 Start using Aiven for Apache Cassandra® by creating and configuring a service, connecting to it, and playing with sample data.
 
@@ -26,7 +29,7 @@ You need some of the following dev tools for different Aiven for Apache Cassandr
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
 
-<CreateService serviceType="Apache Cassandra®"/>
+<CreateServiceDBLegacy serviceType="Apache Cassandra®"/>
 
 </TabItem>
 <TabItem value="2" label="Terraform">

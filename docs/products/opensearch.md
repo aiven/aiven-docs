@@ -78,7 +78,7 @@ and working with your OpenSearch service:
 -   Work with your OpenSearch service
     [using cURL](/docs/products/opensearch/howto/opensearch-with-curl)
 -   Check the [API
-    documentation](https://opensearch.org/docs/opensearch/rest-api/index)
+    documentation](https://docs.opensearch.org/latest/api-reference/)
     for detailed information about the HTTP endpoints.
 -   There's a
     [list of plugins](/docs/products/opensearch/reference/plugins) supported by Aiven for OpenSearch.

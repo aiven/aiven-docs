@@ -7,23 +7,17 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Teams in Aiven are becoming groups. Groups are an easier way to control access to your organization's projects and services for a group of users.
 
+
 :::important
-**Teams have been deprecated and are being migrated to groups.**
+**Teams have been replaced by groups.**
 
-- **On September 30, 2024 the Account Owners team will be removed.**
+To make the transition to groups smoother,
+[migrate your teams](#migrate-teams-to-groups) to groups.
 
-  The Account Owners and super admin are synced, so the removal of the
-  Account Owners team will have no impact on existing permissions.
-  Super admin have full access to organizations.
-
-- **From November 4, 2024 you won't be able to create new teams or update existing ones.**
-
-  To simplify the move, Aiven will also begin migrating your existing teams to groups.
-
-- **On December 2, 2024 all teams will be migrated to groups and deleted.**
-
-  To make the transition to groups smoother, you can
-  migrate your teams before this date.
+Members of the Account Owners team are automatically made super admin.
+You can change their access level by
+[revoking super admin privileges](/docs/platform/howto/manage-permissions#make-users-super-admin),
+or by granting other [roles and permissions](/docs/platform/concepts/permissions).
 :::
 
 ## Migrate teams to groups

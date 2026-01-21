@@ -3,6 +3,7 @@ title: Aiven for Metrics
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
 
 Aiven for Metrics, powered by Thanos, simplifies the management and analysis of large volumes of metrics data. The service is scalable, reliable, and efficient, suitable for organizations of all sizes.
 This service simplifies the management of large-scale metrics systems, allowing
@@ -23,6 +24,8 @@ Aiven for Metrics includes several core Thanos components:
   reducing costs.
 - **Thanos Query Frontend**: Caches query results and splits large queries into
   smaller sub-queries for efficient execution across multiple Thanos Query instances.
+
+<NoThanosAccess/>
 
 ## Unified cluster architecture
 
@@ -65,6 +68,8 @@ enhancing metrics management:
 
 ## Limitations
 
+- **No direct Thanos access**: While built on Thanos, direct API connections to Thanos
+  components are not supported. All access must go through Aiven service integrations.
 - Aiven for Metrics is not currently available on Azure or Google Cloud Marketplace.
 
 <RelatedPages/>

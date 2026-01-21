@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 
 Create Aiven for ClickHouse® users and roles and grant them specific privileges to efficiently control or restrict access to your service.
 
-## Add a user
+## Manage users
+
+### Add a user
 
 To create a user account for your service:
 
@@ -69,6 +71,90 @@ Users' password digests are stored securely in ZooKeeper. Only super admin can a
 them. For users created in the console, their passwords are also salted with a random
 value. The password digests and salts are stored in backup files so they can be
 recovered.
+
+### Configure user settings
+
+Configure user settings to control resource usage and query behavior. You can set limits
+at the user level (applying to all queries by that user) or configure per-query constraints.
+
+#### Set user resource limits
+
+Configure user settings, for example, to restrict resource use per user. This can help you:
+
+- Prevent single users from monopolizing CPU threads and starving other users.
+- Ensure fair distribution of system resources among all active users.
+- Maintain system stability by preventing service overload.
+
+1. Create a user named `limited_user`.
+
+    ```sql
+    CREATE USER limited_user IDENTIFIED WITH SHA256_PASSWORD BY 'PASSWORD';
+    ```
+
+1. Set resource limit `max_threads = 1` for this user.
+
+    ```sql
+    ALTER USER limited_user SETTINGS max_threads = 1;
+    ```
+
+1. Grant read-only access to all databases and tables to `limited_user`.
+
+    ```sql
+    GRANT SELECT ON *.* TO limited_user;
+    ```
+
+1. Log in as `limited_user` to test the configuration.
+
+    ```bash
+    clickhouse-client --host YOUR_HOST --port YOUR_PORT --user limited_user --password PASSWORD --secure
+    ```
+
+    Replace `YOUR_HOST`, `YOUR_PORT`, and `PASSWORD` with your actual service connection details.
+
+1. Verify the resource limit setting.
+
+    ```sql
+    SHOW SETTINGS LIKE 'max_threads';
+    ```
+
+    This displays the `max_threads` setting with a value of `1` for the `limited_user`.
+
+#### Set per-query resource limits
+
+Constrain resources on a per-query basis for specific users by setting query-level limits
+in their user profile.
+
+1. Create a user with per-query memory and execution time limits.
+
+    ```sql
+    CREATE USER query_limited_user IDENTIFIED WITH SHA256_PASSWORD BY 'PASSWORD'
+    SETTINGS max_memory_usage = 1000000000, max_execution_time = 30;
+    ```
+
+1. Grant appropriate permissions.
+
+    ```sql
+    GRANT SELECT ON *.* TO query_limited_user;
+    ```
+
+1. Test the per-query limits by logging in and running a query.
+
+    ```bash
+    clickhouse-client --host YOUR_HOST --port YOUR_PORT --user query_limited_user --password PASSWORD --secure
+    ```
+
+1. Verify the query-level settings.
+
+    ```sql
+    SHOW SETTINGS LIKE '%max_%';
+    ```
+
+**Common per-query settings:**
+
+- `max_memory_usage`: Maximum memory per query (in bytes)
+- `max_execution_time`: Maximum query execution time (in seconds)
+- `max_rows_to_read`: Maximum rows a query can examine
+- `max_result_rows`: Maximum rows in query result
 
 ## Manage roles and privileges
 

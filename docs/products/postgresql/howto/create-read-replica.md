@@ -6,17 +6,16 @@ sidebar_label: Use read replicas
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import CreateReplica from "@site/static/includes/create-replica-console.md";
 
 Use Aiven for PostgreSQL® read-only replicas to reduce the load on the primary server and optimize query response times across different geographical locations.
 
-You can run read-only queries against Aiven for PostgreSQL read-only replicas. These 
+You can run read-only queries against Aiven for PostgreSQL read-only replicas. These
 replicas can be hosted in different regions or on different cloud providers.
 
 :::note
-If your service is running a `business-*` or `premium-*` plan, you have
-standby nodes available in a high availability setup. These support
-read-only queries to reduce the effect of slow queries on the primary
-node.
+Services that have standby nodes available in a high availability setup support
+read-only queries to reduce the effect of slow queries on the primary node.
 :::
 
 ## Prerequisites
@@ -38,12 +37,7 @@ replica.
 <Tabs groupId="group1">
 <TabItem value="gui" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your Aiven for
-    PostgreSQL service.
-1.  On the <ConsoleLabel name="overview"/> page of your service, click **Create replica**.
-1.  Enter a name for the remote replica, select the cloud provider, region, and service
-    plan to use.
-1.  Click **Create**.
+<CreateReplica/>
 
 The read-only replica is created and added to the list of services in
 your project. The <ConsoleLabel name="overview"/> page of the replica indicates the name
@@ -61,8 +55,8 @@ endpoint and configure the `service_integrations` object so that:
 </TabItem>
 <TabItem value="tf" label="Terraform">
 
-Use the
-[aiven_service_integration](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+Use
+[the `aiven_service_integration` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
 resource. Set `integration_type` to `read_replica` and `source_service_name` as needed.
 
 </TabItem>

@@ -12,7 +12,6 @@ similar good practices when it comes to managing them.
 
 Understand the fundamentals:
 
-- [Service resources](/docs/platform/concepts/service-resources)
 - [Service memory limits](/docs/platform/concepts/service-memory-limits)
 - [Service backups](/docs/platform/concepts/service_backups)
 - [Service maintenance](/docs/platform/concepts/maintenance-window)
@@ -31,7 +30,7 @@ product portfolio.
 -   Aiven for PostgreSQL® with the TimescaleDB extension is your best
     choice if you already use PostgreSQL, require **SQL compatibility**
     and have a limited time series use case.
--   Aiven for AlloyDB Omni is a solid option for **PostgreSQL compatibile**
+-   Aiven for AlloyDB Omni is a solid option for **PostgreSQL compatible**
     workloads with a need for columnar analytical data and seamless AI
     integration across any cloud.
 -   Aiven for Clickhouse® is your best choice when you need a high-prformance

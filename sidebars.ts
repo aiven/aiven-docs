@@ -21,8 +21,6 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'get-started',
-        'platform/concepts/free-plan',
-        'platform/concepts/free-trial',
         'tools/aiven-console',
         'platform/howto/support',
         'platform/reference/referrals',
@@ -72,6 +70,7 @@ const sidebars: SidebarsConfig = {
             id: 'platform/concepts/billing-and-payment',
           },
           items: [
+            'platform/concepts/service-pricing',
             'platform/concepts/tax-information',
             {
               type: 'category',
@@ -185,7 +184,6 @@ const sidebars: SidebarsConfig = {
               label: 'Concepts',
               items: [
                 'platform/concepts/service_backups',
-                'platform/concepts/service-resources',
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
@@ -323,6 +321,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'platform/concepts/aiven-node-firewall-configuration',
+            'platform/howto/configure-project-base-port',
             'platform/concepts/tls-ssl-certificates',
 
             'platform/concepts/disaster-recovery-test-scenarios',
@@ -370,6 +369,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/byoc/assign-project-custom-cloud',
             'platform/howto/byoc/add-customer-info-custom-cloud',
             'platform/howto/byoc/tag-custom-cloud-resources',
+            'platform/howto/byoc/store-data',
             'platform/howto/byoc/rename-custom-cloud',
             'platform/howto/byoc/download-infrastructure-template',
             'platform/howto/byoc/delete-custom-cloud',
@@ -478,7 +478,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/cli/billing-group',
             'tools/cli/byoc',
             'tools/cli/cloud',
             'tools/cli/credits',
@@ -510,15 +509,7 @@ const sidebars: SidebarsConfig = {
                 'tools/cli/service/user',
               ],
             },
-            {
-              type: 'category',
-              label: 'avn user',
-              link: {
-                id: 'tools/cli/user',
-                type: 'doc',
-              },
-              items: ['tools/cli/user/user-access-token'],
-            },
+            'tools/cli/user',
             'tools/cli/vpc',
           ],
         },
@@ -544,7 +535,7 @@ const sidebars: SidebarsConfig = {
             'products/alloydbomni/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
+              label: 'Connect to Aiven for AlloyDB Omni',
               link: {
                 type: 'doc',
                 id: 'products/alloydbomni/connect/connect-services',
@@ -600,7 +591,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Apache Cassandra®',
                   link: {
                     type: 'generated-index',
                     slug: 'products/cassandra/howto/list-code-samples',
@@ -656,7 +647,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/flink/get-started',
-            'products/flink/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -748,7 +738,15 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/kafka/get-started',
+            {
+              type: 'category',
+              label: 'Free tier',
+              items: [
+                'products/kafka/free-tier/kafka-free-tier',
+                'products/kafka/free-tier/create-free-tier-kafka-service',
+              ],
+            },
+            'products/kafka/create-kafka-service',
             {
               type: 'category',
               label: 'Sample data',
@@ -765,23 +763,45 @@ const sidebars: SidebarsConfig = {
                 id: 'products/kafka/concepts',
               },
               items: [
-                'products/kafka/concepts/upgrade-procedure',
-                'products/kafka/concepts/horizontal-vertical-scaling',
-                'products/kafka/concepts/kraft-mode',
-                'products/kafka/concepts/acl',
-                'products/kafka/concepts/schema-registry-authorization',
-                'products/kafka/concepts/kafka-rest-api',
-                'products/kafka/concepts/log-compaction',
-                'products/kafka/concepts/partition-segments',
-                'products/kafka/concepts/auth-types',
-                'products/kafka/concepts/non-leader-for-partition',
-                'products/kafka/concepts/configuration-backup',
-                'products/kafka/concepts/monitor-consumer-group',
-                'products/kafka/concepts/consumer-lag-predictor',
-                'products/kafka/concepts/kafka-quotas',
-                'products/kafka/concepts/follower-fetching',
-                'products/kafka/concepts/topic-catalog-overview',
-                'products/kafka/concepts/governance-overview',
+                {
+                  type: 'category',
+                  label: 'Core concepts',
+                  items: [
+                    'products/kafka/concepts/partition-segments',
+                    'products/kafka/concepts/log-compaction',
+                    'products/kafka/concepts/auth-types',
+                    'products/kafka/concepts/acl',
+                    'products/kafka/concepts/schema-registry-authorization',
+                    'products/kafka/concepts/kafka-rest-api',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Operating Kafka with Aiven',
+                  items: [
+                    'products/kafka/concepts/upgrade-procedure',
+                    'products/kafka/concepts/horizontal-vertical-scaling',
+                    'products/kafka/concepts/configuration-backup',
+                    'products/kafka/concepts/monitor-consumer-group',
+                    'products/kafka/concepts/consumer-lag-predictor',
+                    'products/kafka/concepts/follower-fetching',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Diskless topics',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/diskless/concepts/diskless-overview',
+                  },
+                  items: [
+                    'products/kafka/diskless/concepts/diskless-topics-architecture',
+                    'products/kafka/diskless/concepts/topics-vs-classic',
+                    'products/kafka/diskless/concepts/batching-and-delivery',
+                    'products/kafka/diskless/concepts/partitions-and-objects',
+                    'products/kafka/diskless/concepts/limitations',
+                  ],
+                },
                 {
                   type: 'category',
                   label: 'Tiered storage',
@@ -795,8 +815,12 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/tiered-storage-limitations',
                   ],
                 },
+                'products/kafka/concepts/governance-overview',
+                'products/kafka/concepts/kafka-quotas',
+                'products/kafka/concepts/kraft-mode',
               ],
             },
+
             {
               type: 'category',
               label: 'How to',
@@ -810,7 +834,14 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/howto/connect-with-python',
-                    'products/kafka/howto/connect-with-java',
+                    {
+                      type: 'category',
+                      label: 'Connect with Java',
+                      items: [
+                        'products/kafka/howto/connect-with-java-quick-connect',
+                        'products/kafka/howto/connect-with-java-classic-quick-connect',
+                      ],
+                    },
                     'products/kafka/howto/connect-with-go',
                     'products/kafka/howto/connect-with-command-line',
                     'products/kafka/howto/connect-with-nodejs',
@@ -874,6 +905,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/kafka-prometheus-privatelink',
                     'products/kafka/howto/ksql-docker',
                     'products/kafka/howto/add-missing-producer-consumer-metrics',
+                    'products/kafka/howto/integrate-external-kafka-cluster',
                   ],
                 },
                 {
@@ -965,6 +997,7 @@ const sidebars: SidebarsConfig = {
               label: 'Troubleshooting',
               items: [
                 'products/kafka/troubleshooting/troubleshoot-consumer-disconnections',
+                'products/kafka/troubleshooting/non-leader-for-partition',
               ],
             },
             {
@@ -1023,6 +1056,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/couchbase-source',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-mongodb',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-oracle',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement',
                         'products/kafka/kafka-connect/howto/debezium-source-connector-sql-server',
@@ -1046,7 +1080,6 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
                         'products/kafka/kafka-connect/howto/couchbase-sink',
                         'products/kafka/kafka-connect/howto/elasticsearch-sink',
-                        'products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq',
                         'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
@@ -1075,10 +1108,20 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/mqtt-sink-connector',
                         'products/kafka/kafka-connect/howto/opensearch-sink',
                         'products/kafka/kafka-connect/howto/redis-streamreactor-sink',
-                        'products/kafka/kafka-connect/howto/s3-iam-assume-role',
-                        'products/kafka/kafka-connect/howto/s3-sink-connector-aiven',
-                        'products/kafka/kafka-connect/howto/s3-sink-connector-confluent',
-                        'products/kafka/kafka-connect/howto/s3-sink-prereq',
+                        {
+                          type: 'category',
+                          label: 'Amazon S3 sink',
+                          link: {
+                            type: 'doc',
+                            id: 'products/kafka/kafka-connect/howto/s3-sink',
+                          },
+                          items: [
+                            'products/kafka/kafka-connect/howto/s3-sink-prepare',
+                            'products/kafka/kafka-connect/howto/s3-sink-connector-aiven',
+                            'products/kafka/kafka-connect/howto/s3-sink-connector-confluent',
+                            'products/kafka/kafka-connect/howto/s3-iam-assume-role',
+                          ],
+                        },
                         'products/kafka/kafka-connect/howto/snowflake-sink',
                         'products/kafka/kafka-connect/howto/splunk-sink',
                       ],
@@ -1135,19 +1178,20 @@ const sidebars: SidebarsConfig = {
                     },
                     'products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex',
                     'products/kafka/kafka-mirrormaker/concepts/mirrormaker2-tuning',
+                    'products/kafka/kafka-mirrormaker/concepts/permissions-internal-topics',
                   ],
                 },
                 {
                   type: 'category',
                   label: 'How to',
                   items: [
-                    'products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster',
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
                     'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                     'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
                     'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                     'products/kafka/kafka-mirrormaker/howto/exactly-once-delivery',
+                    'products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness',
                   ],
                 },
                 {
@@ -1202,109 +1246,7 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-        {
-          type: 'category',
-          label: 'Diskless Topics BYOC',
-          link: {
-            type: 'doc',
-            id: 'products/diskless',
-          },
-          items: [
-            'products/diskless/get-started',
-            {
-              type: 'category',
-              label: 'Architecture',
-              link: {
-                type: 'doc',
-                id: 'products/diskless/concepts/architecture',
-              },
-              items: [
-                'products/diskless/concepts/topics-vs-classic',
-                'products/diskless/concepts/batching-and-delivery',
-                'products/diskless/concepts/partitions-and-objects',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              items: ['products/diskless/howto/create-diskless-topic'],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Aiven for Caching',
-          link: {
-            id: 'products/caching',
-            type: 'doc',
-          },
-          items: [
-            'products/caching/get-started',
 
-            {
-              type: 'category',
-              label: 'Concepts',
-              items: [
-                'products/caching/concepts/high-availability-redis',
-                'products/caching/concepts/lua-scripts-caching',
-                'products/caching/concepts/memory-usage',
-                'products/caching/concepts/restricted-redis-commands',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              items: [
-                {
-                  type: 'category',
-                  label: 'Connect to service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/caching/howto/list-code-samples',
-                  },
-                  items: [
-                    'products/caching/howto/connect-redis-cli',
-                    'products/caching/howto/connect-go',
-                    'products/caching/howto/connect-node',
-                    'products/caching/howto/connect-php',
-                    'products/caching/howto/connect-python',
-                    'products/caching/howto/connect-java',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Administer database',
-                  items: ['products/caching/howto/configure-acl-permissions'],
-                },
-                {
-                  type: 'category',
-                  label: 'Data migration',
-                  items: [
-                    'products/caching/howto/migrate-redis-aiven-cli',
-                    'products/caching/howto/migrate-redis-aiven-via-console',
-                  ],
-                },
-                'products/caching/howto/estimate-max-number-of-connections',
-                'products/caching/howto/manage-ssl-connectivity',
-                'products/caching/howto/warning-overcommit_memory',
-                'products/caching/howto/benchmark-performance',
-                'products/caching/howto/upgrade-aiven-for-caching-to-valkey',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              items: ['products/caching/reference/advanced-params'],
-            },
-            {
-              type: 'category',
-              label: 'Troubleshooting',
-              items: [
-                'products/caching/troubleshooting/troubleshoot-redis-connection-issues',
-              ],
-            },
-          ],
-        },
         {
           type: 'category',
           label: 'Aiven for ClickHouse®',
@@ -1314,7 +1256,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/clickhouse/get-started',
-            'products/clickhouse/reference/plans-pricing',
             {
               type: 'category',
               label: 'Concepts',
@@ -1336,7 +1277,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for ClickHouse®',
                   link: {
                     type: 'doc',
                     id: 'products/clickhouse/howto/list-connect-to-service',
@@ -1440,7 +1381,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for Dragonfly®',
                   link: {
                     type: 'doc',
                     id: 'products/dragonfly/howto/list-code-samples',
@@ -1480,7 +1421,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/grafana/get-started',
-            'products/grafana/reference/plans-pricing',
             {
               type: 'category',
               label: 'How to',
@@ -1559,7 +1499,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for MySQL®',
                   link: {
                     type: 'doc',
                     id: 'products/mysql/howto/list-code-samples',
@@ -1631,7 +1571,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/opensearch/get-started',
-            'products/opensearch/reference/plans-pricing',
             'products/opensearch/howto/sample-dataset',
             {
               type: 'category',
@@ -1649,7 +1588,6 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/concepts/opensearch-security-considerations',
                   ],
                 },
-                'products/opensearch/concepts/backups',
                 {
                   type: 'category',
                   label: 'Indices',
@@ -1677,7 +1615,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
-                  label: 'Connect with service',
+                  label: 'Connect to Aiven for OpenSearch®',
                   link: {
                     id: 'products/opensearch/howto/list-connect-to-service',
                     type: 'doc',
@@ -1697,6 +1635,19 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
                     {
                       type: 'category',
+                      label: 'Manage custom repositories',
+                      link: {
+                        id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
+                        type: 'doc',
+                      },
+                      items: [
+                        'products/opensearch/howto/custom-repositories',
+                        'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
+                        'products/opensearch/howto/snapshot-credentials',
+                      ],
+                    },
+                    {
+                      type: 'category',
                       label: 'Migrate external snapshots',
                       link: {
                         type: 'doc',
@@ -1707,8 +1658,6 @@ const sidebars: SidebarsConfig = {
                         'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                       ],
                     },
-                    'products/opensearch/howto/custom-repositories',
-                    'products/opensearch/howto/snapshot-credentials',
                     'products/opensearch/howto/manage-snapshots',
                   ],
                 },
@@ -1736,6 +1685,7 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/enable-opensearch-security',
                     'products/opensearch/howto/saml-sso-authentication',
                     'products/opensearch/howto/oidc-authentication',
+                    'products/opensearch/howto/jwt-authentication',
                     'products/opensearch/howto/audit-logs',
                     'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
                   ],
@@ -1744,6 +1694,7 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Manage service',
                   items: [
+                    'products/opensearch/howto/os-version-upgrade',
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
                     'products/opensearch/howto/custom-dictionary-files',
@@ -1751,6 +1702,7 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/handle-low-disk-space',
                     'products/opensearch/howto/resolve-shards-too-large',
                     'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                    'products/opensearch/howto/enable-slow-query-log',
                   ],
                 },
                 {
@@ -1770,11 +1722,11 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/opensearch/reference/plugins',
+                'products/opensearch/reference/list-of-plugins-for-each-version',
                 'products/opensearch/reference/advanced-params',
-
-                'products/opensearch/reference/restapi-limited-access',
                 'products/opensearch/reference/low-space-watermarks',
                 'products/opensearch/howto/os-metrics',
+                'products/opensearch/reference/opensearch-limitations',
               ],
             },
             {
@@ -1832,7 +1784,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/pagila',
                 {
                   type: 'category',
-                  label: 'Connect to service',
+                  label: 'Connect to Aiven for PostgreSQL®',
                   link: {
                     id: 'products/postgresql/howto/list-code-samples',
                     type: 'doc',
@@ -1862,6 +1814,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/create-manual-backups',
                     'products/postgresql/howto/restore-backup',
                     'products/postgresql/howto/ai-insights',
+                    'products/postgresql/howto/ai-editor',
                     'products/postgresql/howto/claim-public-schema-ownership',
                     'products/postgresql/howto/manage-pool',
                     'products/postgresql/howto/pgbouncer-stats',
@@ -1878,6 +1831,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/use-pgvector',
                     'products/postgresql/howto/pg-object-size',
                     'products/postgresql/howto/readonly-user',
+                    'products/postgresql/howto/pg-reads-failover-to-primary',
                     {
                       type: 'category',
                       label: 'PGAudit',
@@ -1932,11 +1886,48 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Cross-region disaster recovery',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/crdr',
+              },
+              items: [
+                'products/postgresql/crdr/crdr-overview',
+                'products/postgresql/crdr/enable-crdr',
+                {
+                  type: 'category',
+                  label: 'Failover & failback',
+                  link: {
+                    id: 'products/postgresql/crdr/failover/list-failover',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/postgresql/crdr/failover/crdr-failover-to-recovery',
+                    'products/postgresql/crdr/failover/crdr-revert-to-primary',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Switchover & switchback',
+                  link: {
+                    id: 'products/postgresql/crdr/switchover/list-switchover',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/postgresql/crdr/switchover/crdr-switchover',
+                    'products/postgresql/crdr/switchover/crdr-switchback',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Troubleshooting',
               items: [
                 'products/postgresql/troubleshooting/troubleshooting-connection-pooling',
                 'products/postgresql/howto/repair-pg-index',
                 'products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem',
+                'products/postgresql/troubleshooting/pg-password-encryption-upgrade',
               ],
             },
             {
@@ -1968,39 +1959,54 @@ const sidebars: SidebarsConfig = {
             'products/valkey/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
-              link: {
-                type: 'doc',
-                id: 'products/valkey/howto/connect-services',
-              },
+              label: 'Concepts',
               items: [
-                'products/valkey/howto/connect-valkey-cli',
-                'products/valkey/howto/connect-go',
-                'products/valkey/howto/connect-node',
-                'products/valkey/howto/connect-php',
-                'products/valkey/howto/connect-python',
-                'products/valkey/howto/connect-java',
+                'products/valkey/concepts/high-availability',
+                'products/valkey/concepts/lua-scripts',
+                'products/valkey/concepts/memory-usage',
+                'products/valkey/concepts/read-replica',
+                'products/valkey/concepts/valkey-cluster',
               ],
             },
             {
               type: 'category',
-              label: 'Data migration',
-              items: [
-                'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Read replica',
-              link: {
-                type: 'doc',
-                id: 'products/valkey/concepts/read-replica',
-              },
+              label: 'How to',
               items: [
                 {
-                  type: 'doc',
-                  id: 'products/valkey/howto/create-valkey-read-replica',
-                  label: 'Create read replica',
+                  type: 'category',
+                  label: 'Connect to Aiven for Valkey™',
+                  link: {
+                    type: 'doc',
+                    id: 'products/valkey/howto/connect-services',
+                  },
+                  items: [
+                    'products/valkey/howto/connect-valkey-cli',
+                    'products/valkey/howto/connect-go',
+                    'products/valkey/howto/connect-node',
+                    'products/valkey/howto/connect-php',
+                    'products/valkey/howto/connect-python',
+                    'products/valkey/howto/connect-java',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Manage service',
+                  items: [
+                    'products/valkey/howto/benchmark-performance',
+                    'products/valkey/howto/configure-acl-permissions',
+                    'products/valkey/howto/estimate-max-number-of-connections',
+                    'products/valkey/howto/manage-ssl-connectivity',
+                    'products/valkey/howto/create-valkey-read-replica',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Migrate data',
+                  items: [
+                    'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
+                    'products/valkey/howto/migrate-redis-aiven-cli',
+                    'products/valkey/howto/migrate-redis-aiven-via-console',
+                  ],
                 },
               ],
             },
@@ -2009,7 +2015,17 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/valkey/reference/advanced-params',
+                'products/valkey/reference/restricted-commands',
                 'products/valkey/reference/valkey-metrics-in-prometheus',
+                'products/valkey/reference/valkey-modules',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              items: [
+                'products/valkey/troubleshooting/troubleshoot-connection-issues',
+                'products/valkey/troubleshooting/warning-overcommit_memory',
               ],
             },
           ],

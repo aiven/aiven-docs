@@ -1,5 +1,5 @@
 ---
-title: Create read replica in Aiven for Valkey
+title: Create read replica in Aiven for Valkey™
 sidebar_label: Create read replica
 early: true
 ---
@@ -8,13 +8,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
+import CreateReplica from "@site/static/includes/create-replica-console.md";
 
-[Aiven for Valkey read replica](/docs/products/valkey/concepts/read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
+[Aiven for Valkey™ read replica](/docs/products/valkey/concepts/read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
 
 ## Prerequisites
 
-- An Aiven account and API token.
-- [Aiven CLI tool](https://github.com/aiven/aiven-client).
+- Aiven for Valkey service
+- Aiven API token
+- [Aiven CLI tool](https://github.com/aiven/aiven-client)
 
 ## Limitations
 
@@ -26,12 +28,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 <Tabs groupId="method">
 <TabItem value="1" label="Aiven Console">
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), select your project,
-   and select your Aiven for Valkey service.
-1. On the <ConsoleLabel name="overview"/> page, scroll to the **Read replica** section,
-1. Click **Create replica**.
-1. Enter a name for the read replica, select the cloud provider, region, and service
-   plan, and click **Create**.
+<CreateReplica/>
 
 The read replica is listed in your project services and can be accessed from the
 **Read replica** section on the service's <ConsoleLabel name="overview"/> page. The

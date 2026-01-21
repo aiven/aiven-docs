@@ -1,11 +1,12 @@
 ---
 title: Create an Amazon S3 source connector for Aiven for Apache Kafka®
-sidebar_label: S3 source connector
+sidebar_label: Amazon S3 source connector
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 The Amazon S3 source connector allows you to ingest data from S3 buckets into Apache Kafka® topics for real-time processing and analytics.
 
@@ -32,15 +33,46 @@ For additional details on how the connector works, see the
 
 ## S3 object key name format
 
-The `file.name.template` parameter defines how the connector extracts metadata from S3
-object keys. If this parameter is missing, no objects are processed.
+The `file.name.template` setting defines how the connector extracts metadata from S3
+object keys. This setting is required. If it is not set, the connector does not process
+any objects.
 
-Use the following placeholders to define the template:
+The configuration depends on how your files are named in S3:
 
-- `{{topic}}`: The Apache Kafka topic name.
-- `{{partition}}`: The Apache Kafka partition number.
-- `{{start_offset}}`: The offset of the first record in the file.
-- `{{timestamp}}`: Optional. The timestamp when the record was processed.
+**`object_hash` distribution type**
+
+In version 3.4.0 and later, you can match any object key:
+
+- `file.name.template=".*"` to process all object keys, or
+- A regular expression to process only keys that match the pattern
+
+**`partition` distribution type**
+
+Set `file.name.template` using the following placeholders:
+
+- `{{topic}}`: The Kafka topic name
+- `{{partition}}`: The Kafka partition number
+- `{{start_offset}}`: The offset of the first record in the file
+- `{{timestamp}}`: Optional. The timestamp when the connector processed the file
+
+### Backfill and prefix behavior
+
+The connector uses the Amazon S3 `ListObjectsV2` API to list objects.
+
+- `aws.s3.prefix` limits processing to keys that begin with the specified prefix
+- The connector processes only objects under that prefix
+- The connector does not automatically continue to the next prefix
+- Objects are processed in the lexicographical order returned by Amazon S3
+
+For time-partitioned folder structures, use a lexicographically sortable pattern such as:
+
+```text
+YYYY/MM/DD/HH/
+```
+
+:::note
+Use prefix filtering to backfill a specific time window from S3.
+:::
 
 ### Example templates and extracted values
 
@@ -59,11 +91,13 @@ The connector supports four S3 object formats. Choose the one that best fits you
 and processing needs:
 
 | Format | Description | Configuration | Example |
-|--------|------------|--------------|---------|
-| JSON Lines (`jsonl`) | Each line is a valid JSON object, commonly used for event streaming. | `input.format=jsonl` | ```json { "key": "k1", "value": "v0", "offset": 1232155, "timestamp": "2020-01-01T00:00:01Z" } ``` |
-| Avro (`avro`) | A compact, schema-based binary format for efficient serialization. | `input.format=avro` | ```json { "type": "record", "fields": [ { "name": "key", "type": "string" }, { "name": "value", "type": "string" }, { "name": "timestamp", "type": "long" } ] } ``` |
-| Parquet (`parquet`) | A columnar format optimized for fast queries. Stores data in a compressed, column-based structure.| `input.format=parquet` | Uses a schema similar to Avro but optimized for analytics.|
-| Bytes (`bytes`) (default) | A raw byte stream format for unstructured data. | `input.format=bytes` | No predefined structure |
+|--------|-------------|--------------|---------|
+| JSON Lines (`jsonl`) | Each line is a valid JSON object, commonly used for event streaming. | `input.format=jsonl` | `{ "key": "k1", "value": "v0", "offset": 1232155, "timestamp": "2020-01-01T00:00:01Z" }` |
+| Avro (`avro`) | A compact, schema-based binary format for efficient serialization. | `input.format=avro` | `{ "type": "record", "fields": [ { "name": "key", "type": "string" }, { "name": "value", "type": "string" }, { "name": "timestamp", "type": "long" } ] }` |
+| Parquet (`parquet`) | A columnar format optimized for analytics. | `input.format=parquet` | Uses a schema similar to Avro but optimized for analytics. |
+| Bytes (`bytes`) (default) | A raw byte stream for unstructured data. | `input.format=bytes` | No predefined structure |
+
+
 
 ## Acknowledged records and offset tracking
 
@@ -77,22 +111,25 @@ handling, see the [S3 source connector documentation](https://github.com/aiven-o
 Create a file named `s3_source_connector.json` and add the following configuration:
 
 ```json
-  {
-    "name": "aiven-s3-source-connector",
-    "connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
-    "aws.access.key.id": "YOUR_AWS_ACCESS_KEY_ID",
-    "aws.secret.access.key": "YOUR_AWS_SECRET_ACCESS_KEY",
-    "aws.s3.bucket.name": "your-s3-bucket-name",
-    "aws.s3.region": "your-s3-region",
-    "aws.s3.prefix": "optional/prefix/",
-    "aws.credentials.provider": "software.amazon.awssdk.auth.credentials.AwsCredentialsProviderChain",
-    "topic": "your-target-kafka-topic",
-    "file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
-    "tasks.max": 1,
-    "poll.interval.ms": 10000,
-    "error.tolerance": "all",
-    "input.format": "jsonl"
-  }
+{
+  "name": "aiven-s3-source-connector",
+  "connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
+  "aws.access.key.id": "YOUR_AWS_ACCESS_KEY_ID",
+  "aws.secret.access.key": "YOUR_AWS_SECRET_ACCESS_KEY",
+  "aws.s3.bucket.name": "your-s3-bucket-name",
+  "aws.s3.region": "your-s3-region",
+  "aws.s3.prefix": "optional/prefix/",
+  "aws.credentials.provider": "software.amazon.awssdk.auth.credentials.AwsCredentialsProviderChain",
+  "topic": "your-target-kafka-topic",
+  "file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
+  "tasks.max": 1,
+  "poll.interval.ms": 10000,
+  "error.tolerance": "all",
+  "input.format": "jsonl",
+  "file.compression.type": "none",
+  "timestamp.timezone": "UTC",
+  "timestamp.source": "wallclock"
+}
 ```
 
 Parameters:
@@ -103,15 +140,19 @@ Parameters:
   authentication.
 - `aws.s3.bucket.name`: The name of the S3 bucket containing the source data.
 - `aws.s3.region`: The AWS region where the bucket is located.
-- `aws.s3.prefix` optional: Filters objects within the S3 bucket.
+- `aws.s3.prefix` optional: Limits processing to keys that begin with this prefix. Only
+  objects under this prefix are processed. The connector does not move to the next prefix.
 - `aws.credentials.provider`: Specifies the AWS credentials provider.
 - `topic` optional: The connector publishes ingested data to the specified Apache
   Kafka topic. If not set, it derives the topic from the `file.name.template`
   configuration.
-- `file.name.template`: Defines how to parse S3 object keys to extract data such as the
-  topic, partition, and starting offset. Template variables were defined above.
-  For example, a template like `{{topic}}-{{partition}}-{{start_offset}}` matches filenames
-  such as `test-topic-1-1734445664111.txt`.
+- `file.name.template`: Defines how to parse S3 object keys to extract the topic,
+  partition, and starting offset. For example,
+  `{{topic}}-{{partition}}-{{start_offset}}` matches a file name like
+  `test-topic-1-1734445664111.txt`.
+  For the `object_hash` distribution type (version 3.4.0+), set
+  `file.name.template` to `.*` to match all keys or use a regular expression to
+  match specific keys.
 - `tasks.max`: The maximum number of tasks that run in parallel.
 - `poll.interval.ms`: The polling interval (in milliseconds) for checking the S3 bucket
   for new files.
@@ -123,6 +164,11 @@ Parameters:
   - `avro` (Avro)
   - `parquet` (Parquet)
   - `bytes` (default)
+- `timestamp.timezone` optional: Time zone for timestamps. Default is `UTC`.
+- `timestamp.source` optional: Source of timestamps. Supports `wallclock`. Default is
+  `wallclock`.
+- `file.compression.type` optional: Compression type for input files. Supported
+  values: `gzip`, `snappy`, `zstd`, `none`. Default is `none`.
 
 
 ## Create the connector
@@ -142,7 +188,7 @@ Parameters:
    1. In the **Service management** section, click
       <ConsoleLabel name="Actions"/> > **Enable Kafka connect**.
 
-1. In the sink connectors list, select **Amazon S3 source connector**, and click
+1. In the source connectors list, select **Amazon S3 source connector**, and click
    **Get started**.
 1. On the **Amazon S3 Source Connector** page, go to the **Common** tab.
 1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
@@ -189,20 +235,28 @@ This example shows how to create an Amazon S3 source connector with the followin
 
 ```json
 {
-"name": "aiven-s3-source-connector",
-"connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
-"tasks.max": "1",
-"topic": "test-topic",
-"aws.access.key.id": "your-access-key-id",
-"aws.secret.access.key": "your-secret-access-key",
-"aws.s3.bucket.name": "my-s3-bucket",
-"aws.s3.region": "us-west-1",
-"aws.s3.prefix": "data-uploads/",
-"file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
-"poll.interval.ms": 10000
+  "name": "aiven-s3-source-connector",
+  "connector.class": "io.aiven.kafka.connect.s3.source.S3SourceConnector",
+  "tasks.max": 1,
+  "topic": "test-topic",
+  "aws.access.key.id": "your-access-key-id",
+  "aws.secret.access.key": "your-secret-access-key",
+  "aws.s3.bucket.name": "my-s3-bucket",
+  "aws.s3.region": "us-west-1",
+  "aws.s3.prefix": "data-uploads/",
+  "file.name.template": "{{topic}}-{{partition}}-{{start_offset}}",
+  "poll.interval.ms": 10000,
+  "file.compression.type": "none",
+  "timestamp.timezone": "UTC",
+  "timestamp.source": "wallclock"
 }
 ```
 
 Once this configuration is saved in the `s3_source_connector.json` file, you can
 create the connector using the Aiven Console or CLI, and verify that data from the
 Apache Kafka topic `test-topic` is successfully ingested from the Amazon S3 bucket.
+
+<RelatedPages/>
+
+- [Amazon S3 sink connector by Aiven](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-aiven)
+- [Amazon S3 sink connector by Confluent](/docs/products/kafka/kafka-connect/howto/s3-sink-connector-confluent)

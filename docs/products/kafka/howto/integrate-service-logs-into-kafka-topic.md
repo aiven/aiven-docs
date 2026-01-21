@@ -68,3 +68,10 @@ To edit or remove the integration, use **Manage
 Integrations** in the source service. The created integration is listed
 in the **Enabled service integrations** section, from where you can edit
 or remove it.
+
+import RelatedPages from "@site/src/components/RelatedPages";
+
+<RelatedPages/>
+
+[Set up a log integration with an Aiven for OpenSearch®
+service](/docs/products/opensearch/howto/opensearch-log-integration)

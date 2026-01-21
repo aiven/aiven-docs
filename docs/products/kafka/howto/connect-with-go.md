@@ -1,5 +1,6 @@
 ---
 title: Connect to Aiven for Apache Kafka® with Go
+sidebar_label: Connect with Go
 ---
 
 import Tabs from '@theme/Tabs';

@@ -7,11 +7,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service's disk storage, without upgrading your plan.
+Use dynamic disk sizing (<abbr>DDS</abbr>) to scale your service's disk storage.
 
 This operation does not disrupt your running service. You pay only for the
-additional storage, not for the compute resources that are part of an upgraded
-service plan.
+additional storage instead of upgrading the compute resources.
 
 :::note[Availability]
 DDS is available for the following services:
@@ -24,14 +23,10 @@ DDS is available for the following services:
 - Aiven for MySQL®
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®
-
-DDS is not supported on custom plans.
 :::
 
 When you add storage to your service, the Aiven platform provisions the
-extra disk space and dynamically adds it to your running instances. The
-total amount of storage you can add to your service is based on your
-service plan and the cloud provider.
+extra disk space and dynamically adds it to your running instances.
 
 In a clustered service such as Apache Cassandra or Apache Kafka, the
 additional storage is equally divided between the nodes. In a shared
@@ -45,7 +40,7 @@ storage.
   Dynamically adding disk (either manually or in an automated fashion) may not be
   appropriate for certain I/O intensive workloads.
 
-- Maximum storage size depends on the plan and the service type. It
+- Maximum storage size depends on the plan, service type, and cloud provider. It
   can go as high as five times the base storage size of the plan.
 - Due to cloud provider restrictions, there is a limit on how many
   times storage can be increased between two maintenance updates. If
@@ -53,6 +48,7 @@ storage.
   performance optimization.
 - If there is an ongoing maintenance update, you cannot add storage
   until the update is completed.
+- DDS is not supported on custom service plans.
 
 :::note[Pricing]
 
@@ -74,9 +70,8 @@ service upgrade.
 
 If you are removing disk storage:
 
--   Make sure the data in your service does not exceed your service
-    plan's allocated storage. If it does, you will not be able to
-    remove the additional storage.
+-   Make sure the data in your service does not exceed your service's
+    allocated storage. If it does, you will not be able to remove the additional storage.
 -   Plan for the time it takes to rebuild the service. The time it takes
     depends on the service.
 
@@ -84,13 +79,10 @@ If you are removing disk storage:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In your project, click <ConsoleLabel name="services"/> and open a service.
-1. On the sidebar, Click <ConsoleLabel name="service settings"/>.
+1. In your service, click <ConsoleLabel name="service settings"/>.
 1. In the **Service plan** section, click <ConsoleLabel name="actions"/> >
-   **Change plan** > **Manage additional storage**.
-1. In the **Upgrade service storage** dialog, click **Change plan**
-   choose the new service plan and tier or use the slider to adjust disk
-   storage.
+   **Manage additional storage**.
+1. Change the disk storage.
 
    :::note
    - The price shown for the additional storage includes backup costs.
@@ -109,8 +101,7 @@ Use [Aiven CLI](/docs/tools/cli) to add or remove additional storage using
 [`avn service update`](/docs/tools/cli/service-cli#avn-cli-service-update) with the
 `--disk-space-gib` flag to specify the total disk space to provide to your service.
 
-For example, if you use a
-`Startup-4` plan with a 80-GiB disk by default and you would like to add
+For example, if your service has a 80-GiB disk and you would like to add
 an extra 10-GiB disk, use:
 
 ```bash
@@ -141,8 +132,8 @@ Use the `additional_disk_space` attribute in
 
 If you added storage, the additional storage is available immediately.
 If you removed additional storage, the service nodes go through a rolling restart.
-Depending on the service type and plan, there might be a short downtime for services with
-no HA capabilities.
+Depending on the service type and configuration, there might be a short downtime for
+services with no HA capabilities.
 
 :::note
 Storage optimization is performed at the next maintenance update after a

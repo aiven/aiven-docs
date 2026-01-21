@@ -1,5 +1,6 @@
 ---
-title: Connect with Python
+title: Connect to Aiven for AlloyDB Omni with Python
+sidebar_label: Python
 ---
 
 import CodeBlock from '@theme/CodeBlock';

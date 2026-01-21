@@ -3,6 +3,7 @@ title: Manage payment cards
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 The default payment method for new customers is credit card. All costs accrued over a calendar month are charged on the first day of the following month.
 
@@ -33,4 +34,4 @@ To delete a payment card,
 1. Click **Billing**.
 1. Click <ConsoleLabel name="paymentmethods"/>.
 1. On the **Payment cards** tab, find the card to delete.
-1. Click **Delete** and confirm.
+1. Click <ConsoleIcon name="delete"/> and confirm.

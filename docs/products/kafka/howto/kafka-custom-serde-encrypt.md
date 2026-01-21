@@ -6,7 +6,7 @@ With the Aiven platform, there are several deployment models available to meet y
 
 -   VPC peering to securely peer the Aiven services to your cloud VPC
 -   Enhanced Compliance Environments (ECE) to satisfy additional
-    compliance needs such as HIPPA and PCI-DSS
+    compliance needs such as HIPAA and PCI-DSS
 -   Bring your own cloud (BYOC) which allows deployment of Aiven
     services directly into your cloud account
 
