@@ -1695,6 +1695,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Manage service',
                   items: [
                     'products/opensearch/howto/os-version-upgrade',
+                    'products/opensearch/howto/reindex-upgrade-opensearch-1x-to-3x',
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
                     'products/opensearch/howto/custom-dictionary-files',
