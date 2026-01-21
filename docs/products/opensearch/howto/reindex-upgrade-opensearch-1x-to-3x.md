@@ -5,6 +5,7 @@ sidebar_label: Reindex for 1.x to 3.3 upgrade
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/RelatedPages";
 
 OpenSearch® 3.3 requires all indices to have been created with OpenSearch 2.x or later and you must reindex any indices created with OpenSearch 1.x before upgrading to version 3.3.
 
@@ -217,22 +218,22 @@ INDICES=$(curl -s -X GET "$SERVICE_URL/_cat/indices?format=json" | \
 
 for INDEX in $INDICES; do
   NEW_INDEX="${INDEX}_v2"
-  
+
   echo "Reindexing $INDEX to $NEW_INDEX"
-  
+
   # Get and apply mapping
   MAPPING=$(curl -s -X GET "$SERVICE_URL/$INDEX/_mapping" | \
     jq ".\"$INDEX\".mappings")
-  
+
   curl -X PUT "$SERVICE_URL/$NEW_INDEX" \
     -H "Content-Type: application/json" \
     -d "{\"mappings\": $MAPPING}"
-  
+
   # Reindex
   curl -X POST "$SERVICE_URL/_reindex" \
     -H "Content-Type: application/json" \
     -d "{\"source\": {\"index\": \"$INDEX\"}, \"dest\": {\"index\": \"$NEW_INDEX\"}}"
-  
+
   echo "Completed reindexing $INDEX"
 done
 ```
@@ -250,7 +251,7 @@ After reindexing all indices created with OpenSearch 1.x:
 1. Verify all indices now have a version of 2.x or higher
 1. [Upgrade your service](/docs/products/opensearch/howto/os-version-upgrade) to OpenSearch 3.3
 
-## Related pages
+<RelatedPages/>
 
 - [Upgrade Aiven for OpenSearch](/docs/products/opensearch/howto/os-version-upgrade)
 - [Manage large shards in OpenSearch](/docs/products/opensearch/howto/resolve-shards-too-large)
