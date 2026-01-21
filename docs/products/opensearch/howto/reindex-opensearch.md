@@ -1,47 +1,45 @@
 ---
-title: Reindex data before upgrading from OpenSearch® 1.x to 3.3
-sidebar_label: Reindex for 1.x to 3.3 upgrade
+title: Reindex OpenSearch® data on a newer version
+sidebar_label: Reindex data on newer version
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-OpenSearch® 3.3 requires all indices to have been created with OpenSearch 2.x or later and you must reindex any indices created with OpenSearch 1.x before upgrading to version 3.3.
+When upgrading OpenSearch® to a newer version, you may need to reindex indices created with an earlier version to ensure compatibility with the target version.
 
 ## Why reindexing is required
 
-OpenSearch 3.3 introduces a compatibility requirement where all indices must
-have a minimum version of 2.x.x. If you attempt to upgrade directly from
-OpenSearch 1.x to 3.3 with indices created in version 1.x, the upgrade fails.
+Newer OpenSearch versions may introduce compatibility requirements where indices must have been created with a minimum version. If you upgrade to a newer version with indices created in an incompatible earlier version, the upgrade can fail.
 
-To upgrade from OpenSearch 1.x to 3.3:
+To upgrade when reindexing is required:
 
-1. Upgrade your service to OpenSearch 2.x
-1. Reindex all indices created in version 1.x
-1. Upgrade to OpenSearch 3.3
+1. Upgrade your service to an intermediate compatible version if needed
+1. Reindex all indices created with incompatible earlier versions
+1. Upgrade to the target version
 
 ## Prerequisites
 
-- Your Aiven for OpenSearch service is running OpenSearch 2.x
-- You have identified indices created with OpenSearch 1.x that need reindexing
+- Your Aiven for OpenSearch service is running at an intermediate version
+- You have identified indices created with earlier versions that need reindexing
 - You have the service connection credentials
 
 ## Identify indices requiring reindexing
 
-Check which indices were created with OpenSearch 1.x:
+Check which indices were created with an earlier version of OpenSearch:
 
 ```bash
-curl -X GET "https://USER:PASSWORD@HOST:PORT/_cat/indices?v&h=index,creation.date.string,version" | grep "^1\."
+curl -X GET "https://USER:PASSWORD@HOST:PORT/_cat/indices?v&h=index,creation.date.string,version"
 ```
 
 Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service connection details.
 
-This command lists indices showing their creation version. Any index with a version starting with `1.` requires reindexing.
+This command lists indices showing their creation version. Identify indices with versions that are incompatible with your target upgrade version.
 
 ## Reindex process
 
-For each index created with OpenSearch 1.x, follow these steps:
+For each index created with an earlier version of OpenSearch, follow these steps:
 
 ### 1. Create the new index
 
@@ -212,9 +210,10 @@ This example uses a bash script with `curl` and `jq`:
 
 SERVICE_URL="https://USER:PASSWORD@HOST:PORT"
 
-# Get all indices created with version 1.x
+# Get all indices created with an earlier version
+# Update the version filter based on your upgrade requirements
 INDICES=$(curl -s -X GET "$SERVICE_URL/_cat/indices?format=json" | \
-  jq -r '.[] | select(.["creation.date.string"] | startswith("1.")) | .index')
+  jq -r '.[] | select(.["creation.date.string"] | startswith("VERSION_PREFIX")) | .index')
 
 for INDEX in $INDICES; do
   NEW_INDEX="${INDEX}_v2"
@@ -244,12 +243,12 @@ Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service details.
 Test the script on a non-production service before running it on production data.
 :::
 
-## Complete the upgrade to OpenSearch 3.3
+## Complete the upgrade
 
-After reindexing all indices created with OpenSearch 1.x:
+After reindexing all indices created with earlier versions:
 
-1. Verify all indices now have a version of 2.x or higher
-1. [Upgrade your service](/docs/products/opensearch/howto/os-version-upgrade) to OpenSearch 3.3
+1. Verify all indices now have a compatible version
+1. [Upgrade your service](/docs/products/opensearch/howto/os-version-upgrade) to the target version
 
 <RelatedPages/>
 
