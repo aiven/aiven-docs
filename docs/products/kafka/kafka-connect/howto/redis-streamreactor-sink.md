@@ -1,5 +1,6 @@
 ---
 title: Create a Stream Reactor sink connector from Apache Kafka® to Redis®*
+sidebar_label: Stream Reactor Redis® sink connector
 ---
 
 import Tabs from '@theme/Tabs';

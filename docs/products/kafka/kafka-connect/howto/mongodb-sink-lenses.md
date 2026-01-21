@@ -1,6 +1,6 @@
 ---
-title: Create a MongoDB sink connector (Lenses.io) for Aiven for Apache Kafka®
-sidebar_label: MongoDB sink connector (Lenses.io)
+title: Create a Lenses.io MongoDB sink connector for Aiven for Apache Kafka®
+sidebar_label: Lenses.io MongoDB sink connector
 ---
 
 import Tabs from '@theme/Tabs';

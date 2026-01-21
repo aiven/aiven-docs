@@ -1,5 +1,6 @@
 ---
 title: Create a Debezium source connector from SQL Server to Apache Kafka® with CDC
+sidebar_label: Debezium SQL Server CDC source connector
 ---
 The SQL Server Debezium source connector uses the [change data capture (CDC) ](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-2017) feature to extract database changes from designated tables and write them to Apache Kafka® topic in a standard format for multiple consumers to read and transform.
 

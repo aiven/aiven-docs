@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to Google BigQuery
+sidebar_label: Google BigQuery sink connector
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
