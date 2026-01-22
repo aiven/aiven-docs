@@ -1,170 +1,198 @@
 ---
-title: Create a sink connector from Apache Kafka® to Google Cloud Storage
+title: Create a Google Cloud Storage sink connector for Apache Kafka®
 sidebar_label: Google Cloud Storage sink connector
 ---
 
-The Apache Kafka Connect® Google Cloud Storage (GCS) sink connector by Aiven enables you to move data from an Aiven for Apache Kafka® cluster to a Google Cloud Storage bucket for long term storage.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-The full connector documentation is available in the dedicated
-[GitHub repository](https://github.com/aiven/gcs-connector-for-apache-kafka).
-
-:::note
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://github.com/aiven/aiven-kafka-connect-gcs).
-:::
+The Google Cloud Storage (GCS) sink connector moves data from Aiven for Apache Kafka® topics to a Google Cloud Storage bucket for long-term storage.
 
 ## Prerequisites
 
-- An Aiven for Apache Kafka® service
-[with Apache Kafka Connect enabled](enable-connect) or a
-[dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- An Aiven for Apache Kafka® service with
+  [Apache Kafka Connect enabled](/docs/products/kafka/kafka-connect/howto/enable-connect),
+  or a [dedicated Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
+- Access to a Google Cloud project where you can create:
+  - a Google Cloud Storage bucket
+  - a Google service account with a JSON service key
+- Collect the following values for connector configuration:
 
-- [Prepare the GCP account and GCS sink](gcs-sink-prereq) and collect the following information about the target GCS
-  bucket:
+  - `GCS_NAME`: The name of the target Google Cloud Storage bucket
+  - `GCS_CREDENTIALS`: The Google service account JSON key
 
-  -   `GCS_NAME`: The name of the GCS bucket
-  -   `GCS_CREDENTIALS`: The Google service account JSON service key
-      [created during the prerequisite phase](/docs/products/kafka/kafka-connect/howto/gcs-sink-prereq#gcs-sink-connector-google-account)
-
-:::warning
-The GCS sink connector accepts the `GCS_CREDENTIALS` JSON service key as
-string, therefore all `"` symbols within it must be escaped `\"`.
-
-The `GCS_CREDENTIALS` parameter should be in the format
-`{\"type\": \"service_account\",\"project_id\": \"XXXXXX\", ...}`
-
-Additionally, any `\n` symbols contained in the `private_key` field need
-to be escaped (by substituting with `\\n`)
+:::note
+For a full list of configuration options, see the
+[Google Cloud Storage sink connector documentation](https://github.com/aiven/gcs-connector-for-apache-kafka).
 :::
 
-## Setup an GCS sink connector with Aiven Console
+:::warning
+The connector expects `GCS_CREDENTIALS` as a single JSON string. Escape all `"` symbols
+as `\"`.
 
-The following example demonstrates how to setup an Apache Kafka Connect®
-GCS sink connector using the [Aiven Console](https://console.aiven.io/).
+Example:
 
-### Define an Apache Kafka Connect® configuration file
+`{\"type\":\"service_account\",\"project_id\":\"XXXXXX\",...}`
 
-Define the connector configurations in a file (we'll refer to it with
-the name `gcs_sink.json`) with the following content:
+If the `private_key` field contains `\n`, escape it as `\\n`.
+:::
+
+## Configure Google Cloud for the connector {#configure-google-cloud-for-the-connector}
+
+Create a Google Cloud Storage bucket and a Google service account key that the connector
+can use to write objects.
+
+### Create a Google Cloud Storage bucket {#gcs-sink-connector-google-bucket}
+
+1. In the [Google Cloud console](https://console.cloud.google.com/), open
+   **Cloud Storage**.
+1. Create a bucket using the
+   [Cloud Storage buckets page](https://console.cloud.google.com/storage/).
+1. Specify the bucket name and location.
+1. Keep the other settings as default unless your organization requires otherwise.
+
+### Create a Google service account and JSON key {#gcs-sink-connector-google-account}
+
+1. Create a Google service account and JSON service key by following
+   [Google authentication instructions](https://cloud.google.com/docs/authentication/client-libraries).
+1. Download the JSON service key.
+
+You use this key in the connector configuration as `GCS_CREDENTIALS`.
+
+### Grant the service account access to the bucket {#gcs-sink-connector-grant-permissions}
+
+1. Open the bucket in the Cloud Storage console.
+1. Go to the **Permissions** tab.
+1. Grant access to the service account.
+
+Ensure the following permissions are granted:
+
+- `storage.objects.create`
+- `storage.objects.delete` (required for overwriting, for example during re-processing)
+
+Grant these permissions using a custom role or the standard
+role **Storage Legacy Bucket Writer**.
+
+Also ensure the bucket does not have a retention policy that prevents overwriting.
+
+## Create the connector configuration
+
+Create a JSON configuration file (for example, `gcs_sink.json`):
 
 ```json
 {
-    "name": "my-gcs-connector",
-    "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",
-    "tasks.max": "1",
-    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "topics": "TOPIC_NAME",
-    "gcs.credentials.json": "GCS_CREDENTIALS",
-    "gcs.bucket.name": "GCS_NAME",
-    "file.name.prefix": "my-custom-prefix/",
-    "file.compression.type": "gzip",
-    "format.output.type": "jsonl",
-    "format.output.fields": "value,offset"
+  "name": "my-gcs-connector",
+  "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",
+  "tasks.max": "1",
+  "topics": "TOPIC_NAME",
+  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "gcs.credentials.json": "GCS_CREDENTIALS",
+  "gcs.bucket.name": "GCS_NAME",
+  "file.name.prefix": "my-custom-prefix/",
+  "file.compression.type": "gzip",
+  "format.output.type": "jsonl",
+  "format.output.fields": "value,offset"
 }
 ```
 
-The configuration file contains the following entries:
+Parameters:
 
--   `name`: The connector name
--   `topics`: The list of Apache Kafka® topics to sink to the GCS bucket
--   `key.converter` and `value.converter`: Data converters, depending on
-    the topic data format. Check the [GitHub repository
-    documentation](https://github.com/aiven/gcs-connector-for-apache-kafka)
-    for more information
--   `gcs.credentials.json`: The Google service account JSON service key
-    as JSON string
--   `gcs.bucket.name`: The name of the GCS bucket
--   `file.name.prefix`: The file name prefix
--   `file.compression.type`: The type of compression to use when
-    creating the file
--   `format.output.type`: The format used to store the message values
--   `format.output.fields`: The message fields to be included in the
-    target file
+- `name`: The connector name
+- `topics`: Comma-separated list of Apache Kafka® topics to sink to the bucket
+- `key.converter` and `value.converter`: Message converters based on your topic format
+- `gcs.credentials.json`: The Google service account JSON key as a JSON string
+- `gcs.bucket.name`: The name of the target bucket
+- `file.name.prefix`: Prefix for files created in the bucket
+- `file.compression.type`: Compression type for output files
+- `format.output.type`: Output file format
+- `format.output.fields`: Message fields to include in output files
 
 :::tip
-You can define GCS sink connector naming and data formats by setting the
-[dedicated parameters](/docs/products/kafka/kafka-connect/reference/gcs-sink-formats).
+You can control file naming and output formats using dedicated parameters. For details, see
+[GCS sink formats](/docs/products/kafka/kafka-connect/reference/gcs-sink-formats).
 :::
 
-See the [GitHub repository parameters
-documentation](https://github.com/aiven/gcs-connector-for-apache-kafka)
-for the full list of configuration options.
+## Create a Google Cloud Storage sink connector
 
-### Create a Kafka Connect connector with the Aiven Console
+<Tabs groupId="setup-method">
+<TabItem value="console" label="Aiven Console" default>
 
-To create a Kafka Connect connector:
+1. Access the [Aiven Console](https://console.aiven.io/).
+1. Select your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
+1. In the sidebar, click <ConsoleLabel name="Connectors"/>.
+1. Click **Create connector** if Apache Kafka Connect is already enabled on the service.
+   If not, click **Enable connector on this service**.
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+   To enable connectors:
+   1. In the sidebar, click <ConsoleLabel name="Service settings"/>.
+   1. In the **Service management** section, click <ConsoleLabel name="Actions"/> >
+      **Enable Kafka Connect**.
+1. In the list of sink connectors, click **Get started** under **Google Cloud Storage sink**.
+1. On the connector page, open the **Common** tab.
+1. In **Connector configuration**, click <ConsoleLabel name="edit"/>.
+1. Paste the configuration from your `gcs_sink.json` file into the text box. Replace
+   placeholders with your actual values.
+1. Click **Apply**.
 
-2.  Select **Connectors** from the left sidebar.
+   :::note
+   When you paste the JSON configuration, Aiven Console parses it and automatically
+   populates the corresponding fields in the UI. Any changes you make in the UI are
+   reflected in the **Connector configuration** JSON.
+   :::
 
-3.  Select **Create New Connector**, it is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
+1. Click **Create connector**.
+1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Confirm that data from the Apache Kafka topics appears in the target bucket.
 
-4.  Select **Google Cloud Storage sink**.
+</TabItem>
 
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
+<TabItem value="cli" label="Aiven CLI">
 
-6.  Paste the connector configuration (stored in the `gcs_sink.json`
-    file) in the form.
+To create a GCS sink connector using the [Aiven CLI](/docs/tools/cli/service-cli), run:
 
-7.  Select **Apply**.
+```bash
+avn service connector create SERVICE_NAME @gcs_sink.json
+```
 
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tab and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
+Parameters:
 
-8.  After all the settings are correctly configured, select **Create
-    connector**.
+- `SERVICE_NAME`: The name of your Aiven for Apache Kafka® service
+- `@gcs_sink.json`: The path to your connector configuration file
 
-9.  Verify the connector status under the **Connectors** screen.
+</TabItem>
 
-10. Verify the presence of the data in the target GCS bucket.
+</Tabs>
 
-:::note
-You can also create connectors using the
-[Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
-:::
+## Examples
 
-## Example: define a GCS sink connector
+### Create a GCS sink connector for a JSON topic
 
-The example creates an GCS sink connector with the following properties:
+This example creates a connector with the following settings:
 
--   connector name: `my_gcs_sink`
--   source topics: `test`
--   target GCS bucket name: `my-test-bucket`
--   target Google service key:
-    `{\"type\": \"service_account\",   \"project_id\": \XXXXXXXXX\", ..}`
--   name prefix: `my-custom-prefix/`
--   data compression: `gzip`
--   message data format: `jsonl`
--   fields to include in the message: `value, offset`
--   number of messages per file: 1
-
-The connector configuration is the following:
+- Connector name: `my_gcs_sink`
+- Source topic: `test`
+- Bucket name: `my-test-bucket`
+- Name prefix: `my-custom-prefix/`
+- Compression: `gzip`
+- Output format: `jsonl`
+- Output fields: `value, offset`
+- Maximum records per file: 1
 
 ```json
 {
-    "name": "my_gcs_sink",
-    "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",
-    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "topics": "test",
-    "gcs.credentials.json": "{\"type\": \"service_account\",   \"project_id\": \XXXXXXXXX\", ..}",
-    "gcs.bucket.name": "my-test-bucket",
-    "file.name.prefix": "my-custom-prefix/",
-    "file.compression.type": "gzip",
-    "file.max.records": "1",
-    "format.output.type": "jsonl",
-    "format.output.fields": "value,offset"
+  "name": "my_gcs_sink",
+  "connector.class": "io.aiven.kafka.connect.gcs.GcsSinkConnector",
+  "topics": "test",
+  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "gcs.credentials.json": "{\"type\": \"service_account\", \"project_id\": \"XXXXXXXXX\", ...}",
+  "gcs.bucket.name": "my-test-bucket",
+  "file.name.prefix": "my-custom-prefix/",
+  "file.compression.type": "gzip",
+  "file.max.records": "1",
+  "format.output.type": "jsonl",
+  "format.output.fields": "value,offset"
 }
 ```
