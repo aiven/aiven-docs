@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
 Aiven provides managed open source services for streaming, databases, and applications across major cloud platforms.
 
 All services run reliably and securely in the clouds of your choice, are observable,
-and can easily be integrated with each other and with external third-party tools.
+and can be integrated with each other and with external tools.
 
 <img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
 
