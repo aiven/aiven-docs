@@ -7,11 +7,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-When upgrading Aiven for OpenSearch® to a newer version, you may need to reindex indices created with an earlier version to ensure compatibility with the target version.
+When upgrading Aiven for OpenSearch® to a newer version, reindex indices created with an earlier version to ensure compatibility with the target version.
 
 ## Why reindexing is required
 
-Newer Aiven for OpenSearch versions may introduce compatibility requirements where indices
+Newer Aiven for OpenSearch versions can introduce compatibility requirements where indices
 must have been created with a minimum version. If you upgrade to a newer version with
 indices created in an incompatible earlier version, the upgrade can fail.
 
@@ -37,7 +37,7 @@ curl -X GET "https://USER:PASSWORD@HOST:PORT/_cat/indices?v&h=index,creation.dat
 
 Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service connection details.
 
-This command lists indices showing their creation version. Identify indices with versions
+This lists the indices with their creation version. Identify indices with versions
 that are incompatible with your target upgrade version.
 
 ## Reindex earlier-version indices
@@ -49,7 +49,7 @@ For each index created with an earlier version of Aiven for OpenSearch, follow t
 Create an index with updated settings and mappings:
 
 ```bash
-PUT /new_index_name
+PUT /NEW_INDEX_NAME
 {
   "settings": {
     "number_of_shards": 1,
@@ -65,17 +65,19 @@ Adjust `number_of_shards` and `number_of_replicas` based on your requirements.
 Export the mapping from the source index:
 
 ```bash
-GET /old_index_name/_mapping
+GET /OLD_INDEX_NAME/_mapping
 ```
 
-Apply the mapping to the new index, removing the outer wrapper and keeping only the
-`properties` object:
+Apply the mapping to the new index. Extract only the `properties` object from the mapping
+response and use it in the request body:
 
 ```bash
-PUT /new_index_name/_mapping
+PUT /NEW_INDEX_NAME/_mapping
 {
   "properties": {
-    // Paste the properties from the source index mapping
+    "example_field": {
+      "type": "text"
+    }
   }
 }
 ```
@@ -88,10 +90,10 @@ Use the Reindex API to copy data from the old index to the new index:
 POST /_reindex
 {
   "source": {
-    "index": "old_index_name"
+    "index": "OLD_INDEX_NAME"
   },
   "dest": {
-    "index": "new_index_name"
+    "index": "NEW_INDEX_NAME"
   }
 }
 ```
@@ -107,10 +109,10 @@ Use slicing to parallelize the reindexing process:
 POST /_reindex?slices=5&refresh
 {
   "source": {
-    "index": "old_index_name"
+    "index": "OLD_INDEX_NAME"
   },
   "dest": {
-    "index": "new_index_name"
+    "index": "NEW_INDEX_NAME"
   }
 }
 ```
@@ -127,10 +129,10 @@ For very large indices, run the reindex operation asynchronously:
 POST /_reindex?wait_for_completion=false
 {
   "source": {
-    "index": "old_index_name"
+    "index": "OLD_INDEX_NAME"
   },
   "dest": {
-    "index": "new_index_name"
+    "index": "NEW_INDEX_NAME"
   }
 }
 ```
@@ -138,7 +140,7 @@ POST /_reindex?wait_for_completion=false
 This returns a task ID that you can use to monitor progress:
 
 ```bash
-GET /_tasks/<task_id>
+GET /_tasks/TASK_ID
 ```
 
 </TabItem>
@@ -150,11 +152,11 @@ Control the batch size to manage memory usage:
 POST /_reindex
 {
   "source": {
-    "index": "old_index_name",
+    "index": "OLD_INDEX_NAME",
     "size": 1000
   },
   "dest": {
-    "index": "new_index_name"
+    "index": "NEW_INDEX_NAME"
   }
 }
 ```
@@ -169,8 +171,8 @@ The `size` parameter controls how many documents are processed in each batch.
 Check that all documents were copied successfully:
 
 ```bash
-GET /old_index_name/_count
-GET /new_index_name/_count
+GET /OLD_INDEX_NAME/_count
+GET /NEW_INDEX_NAME/_count
 ```
 
 The document counts should match.
@@ -185,13 +187,13 @@ POST /_aliases
   "actions": [
     {
       "remove": {
-        "index": "old_index_name",
+        "index": "OLD_INDEX_NAME",
         "alias": "my_alias"
       }
     },
     {
       "add": {
-        "index": "new_index_name",
+        "index": "NEW_INDEX_NAME",
         "alias": "my_alias"
       }
     }
@@ -205,7 +207,7 @@ After verifying that your application works correctly with the new index, delete
 index:
 
 ```bash
-DELETE /old_index_name
+DELETE /OLD_INDEX_NAME
 ```
 
 ## Complete the upgrade
