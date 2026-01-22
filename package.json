@@ -38,7 +38,7 @@
     "glob": "^12.0.0",
     "handlebars": "^4.7.8",
     "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21",
+    "lodash-es": "^4.17.23",
     "prism-react-renderer": "^2.4.1",
     "raw-loader": "^4.0.2",
     "react": "^18.0.0",
