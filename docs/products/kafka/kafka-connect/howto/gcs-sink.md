@@ -78,7 +78,7 @@ Also ensure the bucket does not have a retention policy that prevents overwritin
 
 ## Create the connector configuration
 
-Create a JSON configuration file (for example, `gcs_sink.json`):
+Create a JSON configuration file, for example, `gcs_sink.json`:
 
 ```json
 {

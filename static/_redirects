@@ -209,7 +209,7 @@
 /products/kafka/kafka-connect/howto/list-admin             /docs/products/kafka/kafka-connect/howto/best-practices  301
 /products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect  301
 /products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect  301
-/products/kafka/kafka-connect/howto/gcs-sink-prereq    /docs/products/kafka/kafka-connect/howto/gcs-sink#configure-google-cloud-for-the-connector    301
+/products/kafka/kafka-connect/howto/gcs-sink-prereq        /docs/products/kafka/kafka-connect/howto/gcs-sink#configure-google-cloud-for-the-connector    301
 /products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink  301
 /products/kafka/kafka-connect/howto/s3-sink-prereq          /docs/products/kafka/kafka-connect/howto/s3-sink-prepare  301
 /products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params  301
