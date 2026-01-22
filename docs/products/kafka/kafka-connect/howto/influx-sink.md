@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to InfluxDB®
+sidebar_label: InfluxDB® sink connector
 ---
 
 import Tabs from '@theme/Tabs';

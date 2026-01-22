@@ -1,5 +1,6 @@
 ---
 title: Create a Debezium source connector from MongoDB to Apache Kafka®
+sidebar_label: Debezium MongoDB source connector
 ---
 
 Track and write MongoDB database changes to an Apache Kafka® topic in a standard format with the Debezium source connector, enabling transformation and access by multiple consumers using a MongoDB replica set or sharded cluster.

@@ -1,5 +1,6 @@
 ---
 title: Create and configure a Snowflake sink connector for Apache Kafka®
+sidebar_label: Snowflake sink connector
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

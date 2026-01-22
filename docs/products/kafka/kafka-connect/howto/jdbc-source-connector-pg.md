@@ -1,5 +1,6 @@
 ---
 title: Create a JDBC source connector from PostgreSQL® to Apache Kafka®
+sidebar_label: JDBC PostgreSQL® source connector
 ---
 
 The JDBC source connector pushes data from a relational database, such as PostgreSQL®, to Apache Kafka® where can be transformed and read by multiple consumers.

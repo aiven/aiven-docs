@@ -1,5 +1,6 @@
 ---
 title: Handle PostgreSQL® node replacements when using Debezium for change data capture
+sidebar_label: Handle PostgreSQL® node replacements for Debezium CDC
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

@@ -1,5 +1,6 @@
 ---
 title: Create an IBM MQ sink connector in Aiven for Apache Kafka®
+sidebar_label: IBM MQ sink connector
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
