@@ -12,8 +12,8 @@ When upgrading Aiven for OpenSearch® to a newer version, reindex indices create
 ## Why reindexing is required
 
 Newer Aiven for OpenSearch versions can introduce compatibility requirements where indices
-must have been created with a minimum version. If you upgrade to a newer version with
-indices created in an incompatible earlier version, the upgrade can fail.
+must use a minimum version. If you upgrade to a newer version with indices created in an
+incompatible earlier version, the upgrade can fail.
 
 To upgrade when reindexing is required:
 
@@ -23,7 +23,7 @@ To upgrade when reindexing is required:
 
 ## Prerequisites
 
-- Your Aiven for OpenSearch service is running at an intermediate version.
+- You have an Aiven for OpenSearch service at an intermediate version.
 - You have identified indices created with earlier versions that need reindexing.
 - You have the service connection credentials.
 
@@ -46,7 +46,7 @@ For each index created with an earlier version of Aiven for OpenSearch, follow t
 
 ### 1. Create an index
 
-Create an index with updated settings and mappings:
+Create an index with updated settings:
 
 ```bash
 PUT /NEW_INDEX_NAME
@@ -161,7 +161,7 @@ POST /_reindex
 }
 ```
 
-The `size` parameter controls how many documents are processed in each batch.
+The `size` parameter specifies how many documents to process in each batch.
 
 </TabItem>
 </Tabs>
@@ -214,7 +214,7 @@ DELETE /OLD_INDEX_NAME
 
 After reindexing all indices created with earlier versions:
 
-1. Verify all indices now have a compatible version.
+1. Verify all indices have a compatible version.
 1. [Upgrade your service](/docs/products/opensearch/howto/os-version-upgrade) to the
    target version.
 
@@ -222,4 +222,4 @@ After reindexing all indices created with earlier versions:
 
 - [Upgrade Aiven for OpenSearch](/docs/products/opensearch/howto/os-version-upgrade)
 - [Manage large shards in Aiven for OpenSearch](/docs/products/opensearch/howto/resolve-shards-too-large)
-- [OpenSearch reindex API documentation](https://opensearch.org/docs/latest/api-reference/document-apis/reindex/)
+- [OpenSearch® reindex API documentation](https://opensearch.org/docs/latest/api-reference/document-apis/reindex/)
