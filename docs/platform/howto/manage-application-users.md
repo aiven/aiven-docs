@@ -80,6 +80,26 @@ More information on this resource and its configuration options are available in
 1.  In the **Authentication tokens** section, click <ConsoleLabel name="actions"/>.
 1.  Select **Revoke**.
 
+## Check last activity of an application user
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
+1.  Click **Admin** > <ConsoleLabel name="application users"/>.
+1.  Click the name of the application user.
+1.  To see the date and time that each application token was last used,
+   go to the **Authentication tokens** section.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the `last_activity_time` attribute in
+[the `aiven_organization_user_list` data source](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/organization_user_list#last_activity_time-1)
+to check when one of the application user's tokens was last used.
+
+</TabItem>
+</Tabs>
+
 ## Delete an application user
 
 1.  Click **Admin** > <ConsoleLabel name="application users"/>.
