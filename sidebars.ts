@@ -1136,19 +1136,7 @@ const sidebars: SidebarsConfig = {
 
                         // G
                         'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
-
-                        {
-                          type: 'category',
-                          label: 'Google Cloud Storage sink connector',
-                          link: {
-                            type: 'doc',
-                            id: 'products/kafka/kafka-connect/howto/gcs-sink',
-                          },
-                          items: [
-                            'products/kafka/kafka-connect/howto/gcs-sink-prereq',
-                          ],
-                        },
-
+                        'products/kafka/kafka-connect/howto/gcs-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
 
