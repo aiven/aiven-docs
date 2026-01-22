@@ -349,6 +349,8 @@ subnets
 subprocess
 subprocesses
 subtab
+subtask
+subtasks
 syslog
 taggable
 TaskManager
