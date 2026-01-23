@@ -15,11 +15,6 @@ Principals are
 [application users](/docs/platform/concepts/application-users),
 and [groups](/docs/platform/howto/manage-groups).
 
-You can grant access to principals at the organization, organizational unit,
-and project level.
-
-To give users access to a specific service,
-[create service users](/docs/platform/howto/create_new_service_user).
 
 ## Organization roles and permissions
 
