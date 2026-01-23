@@ -6,6 +6,8 @@ sidebar_label: Create organizations and units
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 
 Organizations and organizational units help you group projects and apply common settings like authentication and access.
 
@@ -25,6 +27,7 @@ within other units.
 <TabItem value="console" label="Console" default>
 
 1.  In the organization, click **Admin**.
+1.  Click <ConsoleLabel name="Organization"/>.
 1.  In the **Organizational units** section, click **Create organizational unit**.
 1.  Enter a name for the unit.
 1.  Click **Create organizational unit**.
@@ -67,12 +70,10 @@ an [identity provider](/docs/platform/howto/list-identity-providers). To create 
 organization, log in to the Aiven Console using another authentication method.
 :::
 
-1.  Click the user information icon in the top right and select
-    **Organizations**.
+1.  Click <ConsoleLabel name="User information"/> > <ConsoleLabel name="Organizations"/>.
 1.  Click **Create organization**.
 1.  Enter a name for the organization.
-1.  Optional: Select any projects to assign to this
-    organization. You can search for projects by name.
+1.  Optional: Select projects to assign to this organization.
 1.  Click **Create organization**.
 
 </TabItem>
