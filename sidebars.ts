@@ -47,6 +47,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'tools/aiven-console/howto/create-orgs-and-units',
                 'platform/howto/manage-organizations',
+                'platform/howto/view-organization-logs',
               ],
             },
             {
@@ -55,6 +56,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
+                'platform/howto/view-project-logs',
                 'platform/howto/manage-unassigned-projects',
                 'platform/howto/reactivate-suspended-project',
               ],
