@@ -41,6 +41,11 @@ More information on this resource and its configuration options are available in
 </TabItem>
 </Tabs>
 
+:::note
+If you reach the limit of application users, you can request an increase by
+[contacting Aiven support](/docs/platform/howto/support#create-a-support-ticket).
+:::
+
 ## Create a token for an application user
 
 <Tabs groupId="group1">
