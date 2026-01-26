@@ -1,7 +1,6 @@
 ---
 title: Aiven for PostgreSQL® reads failover to the primary
 sidebar_label: Reads failover to primary
-limited: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,7 +36,9 @@ Aiven Provider for Terraform.
 
 ### Prerequisites
 
-- Aiven for PostgreSQL service on a [Business or Premium plan](https://aiven.io/pricing?product=pg) (see how to [change your plan](/docs/platform/howto/scale-services))
+- Aiven for PostgreSQL service on a
+  [Business or Premium plan](https://aiven.io/pricing?product=pg) (see how to
+  [change your plan](/docs/platform/howto/scale-services))
 - Tool for managing the feature:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
@@ -45,9 +46,13 @@ Aiven Provider for Terraform.
   - [Aiven Provider for Terraform](/docs/tools/terraform)
   - [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 - During a failover to primary, read-only traffic is served by the primary. This means:
-  - If your application expects eventual consistency from replicas, it will temporarily receive strong consistency from the primary.
-  - If your application relies on read-after-write consistency, failover to the primary will maintain this guarantee, but switching back to replicas may reintroduce replication lag.
-  - Ensure your application can tolerate these changes in consistency behavior during failover events.
+  - If your application expects eventual consistency from replicas, it will temporarily
+    receive strong consistency from the primary.
+  - If your application relies on read-after-write consistency, failover to the primary
+    will maintain this guarantee, but switching back to replicas may reintroduce
+    replication lag.
+  - Ensure your application can tolerate these changes in consistency behavior during
+    failover events.
 
 ### Use your preferred tool
 
@@ -142,7 +147,8 @@ spec:
 :::important
 Existing connections to replicas may fail during an outage. New connections using the HA
 replica DNS continue to succeed. To ensure application reliability, implement connection
-retry logic so your clients can reconnect automatically if a replica connection is interrupted.
+retry logic so your clients can reconnect automatically if a replica connection is
+interrupted.
 :::
 
 ## Disable the feature
