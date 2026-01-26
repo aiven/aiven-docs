@@ -8,8 +8,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Monitor activity in your Aiven organization with the organization and organizational unit logs.
 
-To view logs at the organization level, you have to have the
-[organization Admin role](/docs/platform/concepts/permissions).
+To view logs at the organization level, you must be an
+[organization admin](/docs/platform/concepts/permissions).
 
 ## View organization logs
 
