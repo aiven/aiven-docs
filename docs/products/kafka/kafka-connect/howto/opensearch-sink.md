@@ -1,5 +1,6 @@
 ---
 title: Create a sink connector from Apache Kafka® to OpenSearch®
+sidebar_label: OpenSearch® sink connector
 ---
 
 The OpenSearch sink connector enables you to move data from an Aiven for Apache Kafka® cluster to an OpenSearch® instance for further processing and analysis.

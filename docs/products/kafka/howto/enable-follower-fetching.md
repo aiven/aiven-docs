@@ -25,10 +25,16 @@ Follower fetching is supported on AWS (Amazon Web Services) and Google Cloud.
 
 ## Identify availability zone
 
+Before configuring client-side rack awareness, identify the AZs where your Kafka brokers
+run.
+
 - **AWS**: Availability zone (AZ) names can vary across different accounts.
   The same physical location might have different AZ names in different accounts. To
   ensure consistency when configuring `client.rack`, use the AZ ID, which remains the same
   across accounts.
+
+  To find the AZ ID used by your brokers, check the broker rack information in your
+  client logs or service connection details.
 
   To map AZ names to AZ IDs, see the
   [AWS Knowledge Center article](https://repost.aws/knowledge-center/vpc-map-cross-account-availability-zones)
@@ -39,8 +45,8 @@ Follower fetching is supported on AWS (Amazon Web Services) and Google Cloud.
 
 ## Enable follower fetching
 
-Use either of the following methods to enable follower fetching on your
-Aiven for Apache Kafka service:
+Use one of the following methods to enable follower fetching on your Aiven for
+Apache Kafka service.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Console" default>
@@ -52,6 +58,14 @@ Aiven for Apache Kafka service:
 1. Click <ConsoleIcon name="Add config options"/>.
 1. Select `follower_fetching.enabled` from the list and set the value to **Enabled**.
 1. Click **Save configurations**.
+
+Enabling follower fetching at the service level allows Kafka clients and Aiven-managed
+services to use rack-aware fetching.
+
+You must still configure `client.rack` on Kafka consumers. Aiven for Apache Kafka®
+Connect and Aiven for Apache Kafka® MirrorMaker 2 configure this automatically
+based on the availability zone where each node runs.
+
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -65,7 +79,7 @@ avn service update <service-name> -c follower_fetching.enabled=true
 Parameters:
 
 - `<service-name>`: Name of your Aiven for Apache Kafka service.
-- `follower_fetching={"enabled": true}`: Enables the follower fetching feature.
+- `follower_fetching.enabled=true`: Enables the follower fetching feature.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -163,6 +177,38 @@ client.rack=europe-west1-d
 | Google Cloud   | `europe-west1-b`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
 | Google Cloud   | `europe-west1-c`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
 | Google Cloud   | `europe-west1-d`  | Fetch from the leader (no matching `broker.rack`)      | No follower fetching possible                  |
+
+## Use follower fetching with Kafka Connect and MirrorMaker 2
+
+Aiven for Apache Kafka® Connect and Aiven for Apache Kafka® MirrorMaker 2 use follower
+fetching when it is enabled on your Aiven for Kafka service.
+
+### Kafka Connect
+
+When follower fetching is enabled on the Aiven for Apache Kafka® service, rack-aware
+fetching is enabled by default for Kafka Connect sink connectors.
+
+Kafka Connect sets `consumer.client.rack` based on each node’s availability zone.
+
+Sink connectors use this value when consuming data from Kafka. Source connectors do not
+use follower fetching. To disable rack awareness for a specific sink connector, set:
+
+```json
+{
+  "consumer.override.client.rack": "noop"
+}
+```
+
+### MirrorMaker 2
+
+When follower fetching is enabled for a replication flow, MirrorMaker 2 reads from
+in-sync follower replicas in the same availability zone as the MirrorMaker 2 node.
+
+Follower fetching is enabled by default for new replication flows. You can disable it
+per replication flow if needed.
+
+For details about how rack awareness works in MirrorMaker 2,
+see [Configure rack awareness in MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness).
 
 ## Verify follower fetching
 

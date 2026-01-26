@@ -1,5 +1,6 @@
 ---
 title: Create a source connector from Couchbase to Apache Kafka®
+sidebar_label: Couchbase source connector
 ---
 
 The [Couchbase](https://www.couchbase.com/) source connector pushes data

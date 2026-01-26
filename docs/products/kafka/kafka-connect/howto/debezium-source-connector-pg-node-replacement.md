@@ -1,30 +1,34 @@
 ---
 title: Handle PostgreSQL® node replacements when using Debezium for change data capture
+sidebar_label: Handle PostgreSQL® node replacements for Debezium CDC
 ---
 
-When running a [Debezium source connector for PostgreSQL®](debezium-source-connector-pg) to capture changes from an Aiven for PostgreSQL® service, there are some activities on the database side that can impact the correct functionality of the connector.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-As example, when the source PostgreSQL service undergoes any operation
-which replaces the nodes (such as maintenance, a plan or cloud region
-change or a node replacement), the Debezium connector loses connection
-to the PostgreSQL database. The connector is able to recover from
-temporary errors to the database and start listening for change events
-again after a restart of the related task. However, in some cases, the
-PostgreSQL replication slot used by Debezium can start lagging and
-therefore cause a growing amount of WAL logs.
+import RelatedPages from "@site/src/components/RelatedPages";
+
+
+When you run a [Debezium source connector for PostgreSQL®](debezium-source-connector-pg) with an Aiven for PostgreSQL® service, some database operations can interrupt change data capture (CDC).
+
+For example, if the PostgreSQL service undergoes an operation that replaces nodes (such
+as maintenance, a plan change, a cloud region change, or a node replacement), the
+Debezium connector can lose its connection to the database.
+
+In many cases, Debezium resumes CDC after the connector tasks restart. In some cases,
+the PostgreSQL replication slot used by Debezium starts lagging. This can cause WAL files
+to accumulate and increase disk usage.
 
 :::tip
-Use the GitHub repository to set up and test a Debezium - PostgreSQL node replacement
-scenario. For guidance, follow the [Aiven Debezium help article](https://github.com/aiven/debezium-pg-kafka-connect-test).
+Use the GitHub repository to set up and test a Debezium node replacement scenario. For
+guidance, see the [Aiven Debezium test repository](https://github.com/aiven/debezium-pg-kafka-connect-test).
 :::
 
-## Common Debezium errors related to PostgreSQL node replacement
+## Common Debezium errors during PostgreSQL node replacement
 
-In cases when the Debezium connector can't recover during or after the
-PostgreSQL node replacements, the following errors are commonly shown in
-logs:
+If the Debezium connector cannot recover during or after a PostgreSQL node replacement,
+the following errors commonly appear in the logs:
 
-```
+```text
 # ERROR 1
 org.apache.kafka.connect.errors.ConnectException: Could not create PostgreSQL connection
 # ERROR 2
@@ -33,162 +37,154 @@ io.debezium.DebeziumException: Could not execute heartbeat action (Error: 57P01)
 org.PostgreSQL.util.PSQLException: ERROR: replication slot "SLOT_NAME" is active for PID xxxx
 ```
 
-The above errors are unrecoverable, meaning that they require a restart
-of the connector tasks to resume operations again.
+These errors are not recoverable automatically. Restart the connector tasks to resume
+CDC. You can restart connector tasks in one of the following ways:
 
-A restart can be performed manually either through the [Aiven
-Console](https://console.aiven.io/), in under the `Connectors` tab
-console or via the [Apache Kafka® Connect REST
-API](https://docs.confluent.io/cloud/current/kafka-rest/krest-qs.html).
-You can get the service URI from the [Aiven
-Console](https://console.aiven.io/), in the service detail page.
+- **Aiven Console:** Open the service where the connector is running and go
+  to **Connectors**.
+- **Kafka Connect REST API:** Send the request to the Kafka Connect REST API endpoint.
 
-![The Aiven Console page showing the Debezium connector error](/images/content/products/postgresql/pg-debezium-cdc_image.png)
+To find the Kafka Connect service URI, open the Aiven Console and go to the Aiven for
+Apache Kafka Connect service used by the connector. On the <ConsoleLabel name="overview"/>
+page, under **Connection information**, copy the value in **Service URI**.
+
+![The Aiven Console page showing the Debezium connector error](/images/content/products/kafka/pg-debezium-cdc_image.png)
 
 :::tip
-For automatically restarting tasks, you can set
-`"_aiven.restart.on.failure": true` in the connector's configuration (
-[check the related
-article](/docs/products/kafka/kafka-connect/howto/enable-automatic-restart)).
-Aiven automatically check tasks status for errors every 15 minutes but
-the interval can be customised if needed.
+To automatically restart failed tasks, set `_aiven.restart.on.failure=true` in the
+connector configuration.
+
+Aiven checks task status every 15 minutes by default. You can change the interval if
+needed. For details, see [Enable automatic restart](/docs/products/kafka/kafka-connect/howto/enable-automatic-restart).
 :::
 
 ## Handle growing replication lag after Debezium connector restart
 
-As per the [dedicated Debezium
-docs](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-wal-disk-space),
-there are two main reasons why growing replication lag can happen after
-the Debezium connector is restarted:
+As described in the [Debezium documentation](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-wal-disk-space), replication lag can increase after the
+connector tasks restart for two common reasons:
 
-1.  Too many updates are happening in the tracked database, but only a few of these
-    updates pertain to the tables and schemas that the connector
-    is monitoring for changes.
+1. **High write volume in the database:**
+   Many updates occur in the database, but only a small portion affects the tables and
+   schemas Debezium monitors. In this case, Debezium might not advance the replication
+   slot fast enough to prevent WAL files from accumulating.
 
-    Such issue can be resolved by enabling periodic heartbeat events and
-    setting the (`heartbeat.interval.ms`) connector configuration
-    property.
+   To address this issue, enable periodic heartbeat events by setting `heartbeat.interval.ms`.
 
-2.  The PostgreSQL instance contains multiple databases and one of them
-    is a high-traffic database.
+1. **Multiple databases on the same PostgreSQL instance:**
 
-    Debezium captures changes in another database that is low-traffic in
-    comparison to the other database. Debezium then cannot confirm the
-    LSN (`confirmed_flush_lsn`) as replication slots work per-database
-    and Debezium is not invoked. As WAL is shared by all databases, the
-    amount used tends to grow until an event is emitted by the database
-    for which Debezium is capturing changes.
+   One database generates high write traffic, while Debezium captures changes from a
+   low-traffic database. Replication slots operate per database, so Debezium cannot
+   advance `confirmed_flush_lsn` unless it receives events for the monitored database.
 
-During the Aiven testing, the above situations have been observed to
-happen in 2 scenarios:
+   Because WAL is shared across databases, WAL files can accumulate until Debezium
+   receives an event from the monitored database.
 
-1.  The tables which the Debezium connector is tracking has not had
-    any changes, and heartbeats are not enabled in the connector.
+In Aiven testing, this behavior occurred in the following scenarios:
 
-2.  The tables which the Debezium connector is tracking has not had
-    any changes, heartbeats are enabled (via `heartbeat.interval.ms` and
-    `heartbeat.action.query`), but the connector is not sending the
-    heartbeat.
+1. The monitored tables had no changes and heartbeat events were not enabled.
+1. The monitored tables had no changes, heartbeat events were enabled
+   (`heartbeat.interval.ms` and `heartbeat.action.query`), but the connector did not
+   emit heartbeat events.
 
-    :::note
-    The Debezium heartbeat problem is discussed in the bug
-    [DBZ-3746](https://issues.redhat.com/browse/DBZ-3746) .
-    :::
+   :::note
+   This heartbeat issue is tracked in Debezium bug [DBZ-3746](https://issues.redhat.com/browse/DBZ-3746).
+   :::
 
 ### Clear the replication lag
 
-To clear the replication lag, resume the database activities (if have
-paused all traffic to the database) or make any changes to the tracked
-tables to invoke the replication slot. Debezium would then confirm the
-latest LSN and allow the database to reclaim the WAL space.
+To clear replication lag, generate activity on monitored tables so Debezium can advance
+the replication slot:
 
-## Ensure Debezium gracefully survives a PostgreSQL node replacement
+- Resume database traffic (if you paused writes).
+- Make a change to any monitored table.
 
-To prevent data loss (Debezium missing change events) during PostgreSQL
-node replacement and ensure the automatic recovery of the connector,
-follow the guidelines below.
+After Debezium processes the event, it updates the confirmed LSN and PostgreSQL can
+reclaim WAL space.
 
-### React to Debezium failures
+## Ensure Debezium survives a PostgreSQL node replacement
 
-The following guideline ensures no data loss in case of a Debezium
-connector failure and requires disabling writes to the source
-PoistgreSQL database.
+To prevent missing CDC events during node replacement and ensure Debezium recovers
+correctly, use one of the following approaches.
 
-1.  After noticing a failed Debezium connector, stop all the write
-    traffic to the database immediately.
+### Recover safely from Debezium failures
 
-    After a node replacement, replication slots are not recreated
-    automatically in the newly promoted database. When Debezium
-    recovers, it will recreate the replication slot. If there were
-    changes made to the database before the replication slot is
-    recreated on the new primary server, then Debezium will not be able
-    to capture them, resulting in data loss.
+This approach prevents missing events by stopping writes to the source database until
+Debezium recreates the replication slot on the new primary.
 
-    When this happens, you can reconfigure the connector to temporarily
-    use `snapshot.mode=always`, then restart the connector. This
-    settings forces the connector to republish snapshot data again to
-    the output Apache Kafka® topics. Reconfigure it back to the default
-    once the snapshot finishes to avoid regenerating snapshot on every
-    restart.
+1. Stop write traffic to the database immediately. After node replacement, replication
+   slots are not recreated automatically on the newly promoted primary. When Debezium
+   recovers, it recreates the replication slot.
 
-2.  Manually restart the failed tasks.
+   If writes occur before the slot is recreated, Debezium cannot capture those changes.
 
-3.  Confirm that the connector has created a new replication slot and
-    that it is in active state by querying the `pg_replication_slots`
-    table.
+   If you must recover missing data, temporarily set `snapshot.mode=always` and restart
+   the connector tasks. This republishes snapshot data to the Kafka topics.
 
-4.  Resume the write operations on the database.
+   After the snapshot completes, restore the configuration to the default to avoid
+   generating a snapshot on every restart.
 
-### Automate the replication slot re-creation and verification
+1. Restart the failed connector tasks.
 
-The following guideline requires the setup of an automation which
-re-creates the replication slot on the new PostgreSQL nodes. As per
-[Debezium
-docs](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-cluster-failures):
+1. Verify that the replication slot exists and is active.
+   Query `pg_replication_slots` and confirm the slot is present and active.
+
+1. Resume write operations.
+
+### Automate replication slot recreation and verification
+
+This approach requires an automated process that recreates the replication slot on the
+new primary after node replacement.
+
+Debezium recommends recreating the replication slot before allowing applications to
+write to the new primary:
 
 :::note
-There must be a process that re-creates the Debezium replication slot
-before allowing applications to write to the new primary. This is
-crucial. Without this process, your application can miss change
-events.
+There must be a process that re-creates the Debezium replication slot before allowing
+applications to write to the new primary. This is crucial. Without this process, your
+application can miss change events.
 :::
 
-After recovering, the Debezium connector can create the replication slot
-on the newly promoted database if none exists, however there can be some
-delay in doing that. Having a separate and automated process recreating
-the Debezium replication slot immediately after a node replacement is
-fundamental to resume normal operations as soon as possible without data
-loss. When the connector recovers, it will capture all the changes that
-are made *after* the replication slot was created.
+Debezium can recreate the replication slot after it recovers, but this can take time.
+An automated process that recreates the slot immediately after node replacement
+reduces downtime and lowers the risk of missed change events.
+
+When Debezium restarts, it reads all changes written *after* the replication slot is
+created.
 
 :::note
-The example contained in the [dedicated Aiven
-repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/6f1e6e829ba06bbc396fc0faf28be9e0268ad4f8/bin/python_scripts/debezium_pg_producer.py#L164)
-demonstrates a basic functionality of disabling inserts to the
-database unless the Debezium replication slot is active. However, it
-is enough to check that the replication slot to exists although it may
-be inactive - meaning the connector isn't actively listening on the
-slot yet. Once the connector starts listening again, it will capture
-all the change events since the replication slot was created.
+The example in the
+[Aiven test repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/6f1e6e829ba06bbc396fc0faf28be9e0268ad4f8/bin/python_scripts/debezium_pg_producer.py#L164)
+blocks inserts unless the Debezium replication slot is active.
+
+In most cases, it is sufficient to verify that the replication slot exists, even if it
+is inactive. Once the connector resumes CDC, it reads all changes written since the slot
+was created.
 :::
 
-The [Debezium
-docs](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-cluster-failures)
-also suggest:
+Debezium also recommends verifying that it has read all changes from the replication
+slot before the old primary failed.
 
-Verify that Debezium was able to read all changes in the slot before
-the old primary failed.
-
-To ensure client applications receive all events captured by Debezium,
-implement a verification method to confirm all changes to the monitored tables are recorded.
+To ensure downstream consumers receive all events, implement a verification method that
+confirms changes to monitored tables were recorded.
 
 :::tip
-The example contained in the [dedicated Aiven
-repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/main/bin/python_scripts/debezium_pg_producer.py)
-demonstrates this implementation.
+The [Aiven test repository](https://github.com/aiven/debezium-pg-kafka-connect-test/blob/main/bin/python_scripts/debezium_pg_producer.py) includes an example implementation.
 :::
 
-As per above guideline, setting `"_aiven.restart.on.failure": true` on
-all Debezium connectors ensures that failed tasks are automatically
-restarted in case they fail. By default tasks status is checked every 15
-minutes but the interval can be customised if needed.
+## Handle PostgreSQL major version upgrades
+
+A PostgreSQL major version upgrade replaces database nodes. This can interrupt Debezium
+change data capture (CDC) in the same way as a PostgreSQL node replacement.
+
+During the upgrade, Debezium tasks can fail and the replication slot might not be
+available immediately on the new primary. If applications write to monitored tables
+before the slot is recreated, downstream consumers can miss change events, leading to
+potential data loss.
+
+For guidance, see
+[Steps to protect against data loss when using Debezium and upgrading the PostgreSQL source](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#upgrading-postgresql).
+
+
+<RelatedPages/>
+
+[Upgrade Aiven for PostgreSQL® to a major version](/docs/products/postgresql/howto/upgrade#upgrade-to-a-major-version)

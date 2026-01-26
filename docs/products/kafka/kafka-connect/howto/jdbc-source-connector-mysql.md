@@ -1,5 +1,6 @@
 ---
 title: Create a JDBC source connector from MySQL to Apache Kafka®
+sidebar_label: JDBC MySQL source connector
 ---
 
 The JDBC source connector pushes data from a relational database, such as MySQL, to Apache Kafka® where can be transformed and read by multiple consumers.

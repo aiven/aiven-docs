@@ -46,16 +46,15 @@ These additional resources are not guaranteed. Aiven reserves the right to switc
 to a more appropriately sized VM if one becomes available from the cloud provider.
 :::
 
-### Free plan
+### Free tier
 
-The Free plan is available for Aiven for PostgreSQL®, Aiven for MySQL,
+The Free tier is available for Aiven for PostgreSQL®, Aiven for MySQL,
 and Aiven for Valkey™ services. You don't need a credit card to sign up
 and you can use them indefinitely free of charge.
 
 :::note
-Aiven for Apache Kafka® does not have a free plan. For Kafka, a free tier is available
-with specific limits and features. For details, see
-[Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier).
+For details about the specific limits and features of the Aiven for Apache Kafka® free tier,
+see the [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier).
 :::
 
 Free services include:
@@ -86,7 +85,8 @@ Free services do not have any time limitations. However, Aiven reserves the righ
 
 - Shut down services if Aiven believes they violate the
   [acceptable use policy](https://aiven.io/terms) or are unused for some time.
-  A notification is sent before services are powered off.
+  A notification is sent before services are powered off. You can
+  [power them back on](/docs/platform/concepts/service-power-cycle) at any time.
 - Change the cloud provider, region, or configuration at any point in time.
 
 To try a different service or use advanced features, start a free 30-day trial.
@@ -94,22 +94,22 @@ You can run free services alongside a [free 30-day trial](#free-trials)
 without affecting your trial credits. Free services also continue running after
 your trial has expired.
 
-You can upgrade your free plan to a paid plan at any time by adding
+You can upgrade your free service to a paid plan at any time by adding
 a payment method to the project's billing group or by starting a free trial.
 
-You can also downgrade a paid plan to the free plan as long as:
+You can also downgrade a paid plan to the free tier as long as:
 
 - The data you have in that trial or paid service fits into the smaller
 instance size.
-- The free plan is available in the same cloud as the paid plan.
+- The free tier is available in the same cloud as the paid plan.
 
-### Developer plan
+### Developer tier
 
-The Developer plan is available for Aiven for PostgreSQL® and Aiven for MySQL services,
-letting you scale up your service in a cost-effective way. Services on the Developer plan
+The Developer tier is available for Aiven for PostgreSQL® and Aiven for MySQL services,
+letting you scale up your service in a cost-effective way. Services on the Developer tier
 are not automatically powered off if they're inactive.
 
-The Developer plan includes:
+The Developer tier includes:
 
 -   A single node
 -   1 CPU per virtual machine
@@ -119,7 +119,7 @@ The Developer plan includes:
 -   Backups
 -   [Basic tier support](/docs/platform/howto/support)
 
-Limitations of the Developer plan are:
+Limitations of the Developer tier are:
 
 -   No choice of cloud provider or specific cloud region
 -   Cannot create the service in a VPC
@@ -130,7 +130,7 @@ Limitations of the Developer plan are:
 -   For PostgreSQL: `max_connections` limit set to `20`
 
 Aiven reserves the right to change the cloud provider, region, or configuration
-of Developer plan services at any point in time.
+of Developer tier services at any point in time.
 
 ### Custom plans
 

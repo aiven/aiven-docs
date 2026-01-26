@@ -1,6 +1,6 @@
 ---
 title: Create an Oracle Debezium source connector for Aiven for Apache Kafka®
-sidebar_label: Oracle Debezium source connector
+sidebar_label: Debezium Oracle source connector
 early: true
 ---
 import Tabs from '@theme/Tabs';

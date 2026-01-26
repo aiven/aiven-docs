@@ -47,6 +47,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'tools/aiven-console/howto/create-orgs-and-units',
                 'platform/howto/manage-organizations',
+                'platform/howto/view-organization-logs',
               ],
             },
             {
@@ -55,6 +56,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
+                'platform/howto/view-project-logs',
                 'platform/howto/manage-unassigned-projects',
                 'platform/howto/reactivate-suspended-project',
               ],
@@ -1051,63 +1053,63 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'Source connectors',
                       items: [
+                        // A
+                        'products/kafka/kafka-connect/howto/s3-source-connector',
                         'products/kafka/kafka-connect/howto/azure-blob-source',
-                        'products/kafka/kafka-connect/howto/cassandra-streamreactor-source',
+
+                        // C
                         'products/kafka/kafka-connect/howto/couchbase-source',
-                        'products/kafka/kafka-connect/howto/debezium-source-connector-mongodb',
-                        'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
-                        'products/kafka/kafka-connect/howto/debezium-source-connector-oracle',
-                        'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
-                        'products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement',
-                        'products/kafka/kafka-connect/howto/debezium-source-connector-sql-server',
+
+                        // D (group)
+                        {
+                          type: 'category',
+                          label: 'Debezium',
+                          items: [
+                            'products/kafka/kafka-connect/howto/debezium-source-connector-mongodb',
+                            'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
+                            'products/kafka/kafka-connect/howto/debezium-source-connector-oracle',
+                            'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
+                            'products/kafka/kafka-connect/howto/kafka-connect-debezium-tls-pg',
+                            'products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement',
+                            'products/kafka/kafka-connect/howto/debezium-source-connector-sql-server',
+                          ],
+                        },
+
+                        // G
                         'products/kafka/kafka-connect/howto/gcp-pubsub-lite-source',
                         'products/kafka/kafka-connect/howto/gcp-pubsub-source',
-                        'products/kafka/kafka-connect/howto/jdbc-source-connector-mysql',
-                        'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
-                        'products/kafka/kafka-connect/howto/jdbc-source-connector-sql-server',
-                        'products/kafka/kafka-connect/howto/kafka-connect-debezium-tls-pg',
+
+                        // J (group)
+                        {
+                          type: 'category',
+                          label: 'JDBC',
+                          items: [
+                            'products/kafka/kafka-connect/howto/jdbc-source-connector-mysql',
+                            'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
+                            'products/kafka/kafka-connect/howto/jdbc-source-connector-sql-server',
+                          ],
+                        },
+
+                        // M
                         'products/kafka/kafka-connect/howto/mongodb-poll-source-connector',
                         'products/kafka/kafka-connect/howto/mqtt-source-connector',
-                        'products/kafka/kafka-connect/howto/s3-source-connector',
+
+                        // S (group)
+                        {
+                          type: 'category',
+                          label: 'Stream Reactor',
+                          items: [
+                            'products/kafka/kafka-connect/howto/cassandra-streamreactor-source',
+                          ],
+                        },
                       ],
                     },
+
                     {
                       type: 'category',
                       label: 'Sink connectors',
                       items: [
-                        'products/kafka/kafka-connect/howto/azure-blob-sink',
-                        'products/kafka/kafka-connect/howto/cassandra-streamreactor-sink',
-                        'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
-                        'products/kafka/kafka-connect/howto/couchbase-sink',
-                        'products/kafka/kafka-connect/howto/elasticsearch-sink',
-                        'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
-                        'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
-                        'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
-                        'products/kafka/kafka-connect/howto/gcs-sink-prereq',
-                        'products/kafka/kafka-connect/howto/gcs-sink',
-                        'products/kafka/kafka-connect/howto/http-sink',
-                        'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
-                        {
-                          type: 'category',
-                          label: 'Iceberg sink connector',
-                          link: {
-                            type: 'doc',
-                            id: 'products/kafka/kafka-connect/howto/iceberg-sink-connector',
-                          },
-                          items: [
-                            'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
-                            'products/kafka/kafka-connect/howto/aws-glue-catalog',
-                            'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
-                            'products/kafka/howto/snowflake-open-catalog',
-                          ],
-                        },
-                        'products/kafka/kafka-connect/howto/influx-sink',
-                        'products/kafka/kafka-connect/howto/jdbc-sink',
-                        'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
-                        'products/kafka/kafka-connect/howto/mongodb-sink-mongo',
-                        'products/kafka/kafka-connect/howto/mqtt-sink-connector',
-                        'products/kafka/kafka-connect/howto/opensearch-sink',
-                        'products/kafka/kafka-connect/howto/redis-streamreactor-sink',
+                        // A (subtree)
                         {
                           type: 'category',
                           label: 'Amazon S3 sink',
@@ -1122,6 +1124,60 @@ const sidebars: SidebarsConfig = {
                             'products/kafka/kafka-connect/howto/s3-iam-assume-role',
                           ],
                         },
+
+                        // A
+                        'products/kafka/kafka-connect/howto/azure-blob-sink',
+
+                        // C
+                        'products/kafka/kafka-connect/howto/cassandra-streamreactor-sink',
+                        'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
+                        'products/kafka/kafka-connect/howto/couchbase-sink',
+
+                        // E
+                        'products/kafka/kafka-connect/howto/elasticsearch-sink',
+
+                        // G
+                        'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
+                        'products/kafka/kafka-connect/howto/gcs-sink',
+                        'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
+                        'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
+
+                        // H
+                        'products/kafka/kafka-connect/howto/http-sink',
+
+                        // I
+                        'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
+
+                        {
+                          type: 'category',
+                          label: 'Iceberg sink connector',
+                          link: {
+                            type: 'doc',
+                            id: 'products/kafka/kafka-connect/howto/iceberg-sink-connector',
+                          },
+                          items: [
+                            'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
+                            'products/kafka/kafka-connect/howto/aws-glue-catalog',
+                            'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
+                            'products/kafka/howto/snowflake-open-catalog',
+                          ],
+                        },
+
+                        'products/kafka/kafka-connect/howto/influx-sink',
+                        'products/kafka/kafka-connect/howto/jdbc-sink',
+
+                        // M
+                        'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
+                        'products/kafka/kafka-connect/howto/mongodb-sink-mongo',
+                        'products/kafka/kafka-connect/howto/mqtt-sink-connector',
+
+                        // O
+                        'products/kafka/kafka-connect/howto/opensearch-sink',
+
+                        // R
+                        'products/kafka/kafka-connect/howto/redis-streamreactor-sink',
+
+                        // S
                         'products/kafka/kafka-connect/howto/snowflake-sink',
                         'products/kafka/kafka-connect/howto/splunk-sink',
                       ],
@@ -1191,6 +1247,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
                     'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                     'products/kafka/kafka-mirrormaker/howto/exactly-once-delivery',
+                    'products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness',
                   ],
                 },
                 {
@@ -1694,6 +1751,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Manage service',
                   items: [
                     'products/opensearch/howto/os-version-upgrade',
+                    'products/opensearch/howto/reindex-opensearch',
                     'products/opensearch/howto/restore_opensearch_backup',
                     'products/opensearch/howto/set_index_retention_patterns',
                     'products/opensearch/howto/custom-dictionary-files',
@@ -1723,9 +1781,9 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
                 'products/opensearch/reference/advanced-params',
-                'products/opensearch/reference/restapi-limited-access',
                 'products/opensearch/reference/low-space-watermarks',
                 'products/opensearch/howto/os-metrics',
+                'products/opensearch/reference/opensearch-limitations',
               ],
             },
             {

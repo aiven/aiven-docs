@@ -1,5 +1,6 @@
 ---
 title: Create a Stream Reactor sink connector from Apache Kafka® to Apache Cassandra®
+sidebar_label: Stream Reactor Apache Cassandra® sink connector
 ---
 
 import Tabs from '@theme/Tabs';

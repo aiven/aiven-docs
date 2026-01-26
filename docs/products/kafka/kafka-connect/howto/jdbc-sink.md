@@ -1,6 +1,6 @@
 ---
 title: Create a JDBC sink connector from Apache Kafka® to another database
-sidebar_label: Create a JDBC sink connector to a database
+sidebar_label: JDBC sink connector
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 
