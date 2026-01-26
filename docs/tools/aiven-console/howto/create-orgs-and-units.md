@@ -7,8 +7,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
-
 Organizations and organizational units help you group projects and apply common settings like authentication and access.
 
 When you sign up for Aiven, an organization is automatically created for you.
