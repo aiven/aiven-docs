@@ -4,46 +4,45 @@ title: Aiven for Apache Kafka®
 
 Aiven for Apache Kafka® is a fully managed Apache Kafka service for building event-driven applications, data pipelines, and stream processing systems.
 
-You can create Kafka services using **Inkless Kafka** or **Classic Kafka**, depending on
-your workload and operational requirements.
+You create Kafka services using one of two **cluster types**: **Inkless Kafka** or
+**Classic Kafka**.
 
 ## Inkless Kafka
 
-Inkless Kafka is a Kafka service that supports storing topic data in cloud object storage
+Inkless Kafka is a cluster type that supports storing topic data in cloud object storage
 through diskless topics. Diskless topics are optional and must be explicitly enabled.
 
 This enables elastic scaling and long-term data retention without managing disk capacity.
 
-Inkless Kafka supports two topic types:
+Inkless Kafka supports:
 
-- **Diskless topics**, which store data directly in object storage
-- **Classic topics**, which use local disks
+- **Diskless topics**, which store data in object storage
+- **Classic topics**, which use local disks with tiered storage enabled by default
 
-Diskless topics are intended for high-throughput workloads where storage elasticity and
-cost efficiency are important.
+Inkless Kafka is intended for high-throughput workloads where storage elasticity and
+cost efficiency are important, including Bring Your Own Cloud (BYOC) deployments.
 
 ## Classic Kafka
 
-Classic Aiven for Apache Kafka uses local disk storage and can optionally offload older
-data to object storage using tiered storage.
+Classic Kafka is a cluster type that uses fixed plans with local broker storage and can
+optionally offload older data to object storage using tiered storage.
 
-Classic Kafka is suitable for workloads that rely on local disk storage and plan-based
-broker sizing. It continues to support backups and existing performance defaults.
+It is suitable for workloads that rely on predictable capacity, low-latency access to
+local storage, and plan-based broker sizing. Classic Kafka continues to support existing
+performance defaults and backups.
+ts.
 
-Classic Kafka services can run alongside Inkless Kafka services within the same project.
+Classic Kafka and Inkless Kafka services can run alongside each other within the same
+project.
 
 ## Service tiers and deployment models
 
-Aiven for Apache Kafka offers multiple service tiers and deployment models.
+Aiven for Apache Kafka is available on multiple service tiers and deployment models.
 
-Service tiers include:
-
-- **Free** is intended for evaluation and experimentation, with limited throughput and
-  storage.
+- **Free** supports evaluation and experimentation with limited throughput and storage.
 - **Professional** supports production workloads and Kafka Connect.
 
-You can deploy Aiven for Apache Kafka on **Aiven Cloud** or **Bring Your Own Cloud (BYOC)**.
-
+Kafka services can run on **Aiven Cloud** or **Bring Your Own Cloud (BYOC)**.
 Availability of tiers and features varies by service type and deployment model.
 
 ## Replication with MirrorMaker 2
@@ -68,7 +67,8 @@ Professional tier for both Inkless and classic Kafka services.
 If you are new to Aiven for Apache Kafka®, start with the following topics:
 
 - [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
-- [Generate sample data](/docs/products/kafka/howto/generate-sample-data)
-- [Create a Kafka service](/docs/products/kafka/create-kafka-service)
+- [Create an Inkless Kafka cluster](/docs/products/kafka/get-started/create-inkless-service)
+- [Create a Classic Kafka cluster](/docs/products/kafka/get-started/create-classic-kafka-service)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
+- [Generate sample data](/docs/products/kafka/howto/generate-sample-data)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)

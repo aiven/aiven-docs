@@ -758,8 +758,18 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/free-tier/create-free-tier-kafka-service',
                   ],
                 },
-                'products/kafka/get-started/create-inkless-service',
-                'products/kafka/get-started/create-classic-kafka-service',
+                {
+                  type: 'category',
+                  label: 'Create Kafka service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/get-started/create-kafka-service',
+                  },
+                  items: [
+                    'products/kafka/get-started/create-inkless-service',
+                    'products/kafka/get-started/create-classic-kafka-service',
+                  ],
+                },
                 {
                   type: 'category',
                   label: 'Generate sample data',
@@ -778,7 +788,6 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
                 id: 'products/kafka/concepts',
               },
-
               items: [
                 {
                   type: 'category',

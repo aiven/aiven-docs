@@ -1,7 +1,7 @@
 ---
-title: Create an Inkless Kafka service
-sidebar_label: Create Inkless Kafka service
-keywords: [create, kafka, service, inkless, byoc]
+title: Create an Inkless Kafka cluster
+sidebar_label: Create Inkless Kafka cluster
+keywords: [create, kafka, cluster, inkless, byoc]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,24 +9,24 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Inkless Apache Kafka® service on Aiven. Inkless sizes capacity based on stream load and retention.
+Create an Inkless Apache Kafka® cluster on Aiven. Inkless sizes capacity based on stream load and retention.
 It supports classic topics and, when enabled, diskless topics on Aiven cloud and
 Bring Your Own Cloud (BYOC).
 
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io)
-- An Aiven project where you can create services
+- An Aiven project where you can create Kafka clusters
 
-## Create an Inkless service on Aiven cloud
+## Create an Inkless cluster on Aiven cloud
 
 Inkless services are available on the **Professional** tier. On Aiven cloud, Inkless
-sizes compute capacity based on stream load instead of fixed hardware plans.
+sizes capacity based on produce rate and retention.
 
-The service runs Kafka 4.x and enables tiered storage by default. Diskless topics are
+The cluster runs Kafka 4.x and enables tiered storage by default. Diskless topics are
 available when supported by the selected stream load.
 
-Stream load determines whether diskless topics are available:
+Produce rate determines whether you can enable diskless topics:
 
 - **Up to 5 MB/s** supports **classic topics only**.
 - **10 MB/s or higher** allows you to enable **diskless topics**.
@@ -46,7 +46,7 @@ Stream load determines whether diskless topics are available:
    - Choose **Up to 5 MB/s** to create a service with **classic topics only**.
    - Choose **10 MB/s or higher** to allow **diskless topics**.
    - Select **Custom** to define custom ingress and egress limits.
-1. For stream loads of **10 MB/s or higher**, turn on **Diskless topics**.
+1. For produce rates of **10 MB/s or higher**, turn on **Diskless topics**.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the service name after
@@ -77,7 +77,7 @@ Parameters:
 - `SERVICE_NAME`: Name of the Kafka service
 - `PROJECT_NAME`: Project that contains the service
 - `CLOUD_REGION`: Cloud region, for example aws-eu-north-1 or google-europe-west1
-- `INKLESS_PLAN`: Inkless-capable plan that represents the required stream-load tier
+- `INKLESS_PLAN`: Inkless-capable plan that represents the selected produce rate
 
 Optional configuration:
 
@@ -104,7 +104,7 @@ list the current Inkless-capable plans.
 </TabItem>
 </Tabs>
 
-## Create an Inkless service on Bring your own cloud (BYOC)
+## Create an Inkless cluster on Bring your own cloud (BYOC)
 
 Inkless services can run in your own cloud account through BYOC. Tiered storage is
 enabled by default. Diskless topics are available when enabled for the service and
@@ -158,7 +158,7 @@ Parameters:
 After the service is running, Kafka is available with classic topics by default.
 
 Diskless topics are available only when they are enabled for the service and the
-selected stream load supports them.
+selected produce rate supports them.
 
 - Create classic topics to use standard Kafka topics.
 - Create diskless topics to store data in object storage when diskless topics are

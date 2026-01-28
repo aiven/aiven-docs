@@ -63,7 +63,7 @@ complete the following prerequisites and configuration steps:
 
 ### Prerequisites
 
--   [Aiven for Apache Kafka®](/docs/products/kafka/create-kafka-service) service running with
+-   [Aiven for Apache Kafka®](/docs/products/kafka/get-started/create-kafka-service) service running with
     [OAuth2/OIDC enabled](/docs/products/kafka/howto/enable-oidc).
 -   [Karapace schema registry and REST APIs enabled](/docs/products/kafka/karapace/howto/enable-karapace).
 -   Ensure access to an OIDC-compliant provider, such as Auth0, Okta,
