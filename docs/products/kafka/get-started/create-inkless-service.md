@@ -39,10 +39,10 @@ Stream load determines whether diskless topics are available:
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. Select **Professional** as the service tier.
-1. Select **Inkless** as the service type.
+1. Select **Inkless** as the cluster type.
 1. Select **Aiven cloud** as the deployment mode.
 1. Choose a cloud provider and region.
-1. Set the expected **Stream load** for the service:
+1. Set the expected **Produce rate** for the service:
    - Choose **Up to 5 MB/s** to create a service with **classic topics only**.
    - Choose **10 MB/s or higher** to allow **diskless topics**.
    - Select **Custom** to define custom ingress and egress limits.
@@ -120,7 +120,7 @@ See [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. Select **Professional** as the service tier.
-1. Select **Inkless** as the service type.
+1. Select **Inkless** as the cluster type.
 1. Select **Bring your own cloud (BYOC)** as the deployment mode.
 1. In the **Cloud** section, choose your BYOC environment and region.
 1. Select an **Inkless plan**.
