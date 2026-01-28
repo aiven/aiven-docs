@@ -738,21 +738,37 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
+            'products/kafka/inkless-overview',
             {
               type: 'category',
-              label: 'Free tier',
+              label: 'Get started',
+              link: {
+                type: 'doc',
+                id: 'products/kafka/get-started/get-started-kafka',
+              },
               items: [
-                'products/kafka/free-tier/kafka-free-tier',
-                'products/kafka/free-tier/create-free-tier-kafka-service',
-              ],
-            },
-            'products/kafka/create-kafka-service',
-            {
-              type: 'category',
-              label: 'Sample data',
-              items: [
-                'products/kafka/howto/generate-sample-data',
-                'products/kafka/howto/generate-sample-data-manually',
+                {
+                  type: 'category',
+                  label: 'Free tier',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/free-tier/kafka-free-tier',
+                  },
+                  items: [
+                    'products/kafka/free-tier/create-free-tier-kafka-service',
+                  ],
+                },
+                'products/kafka/get-started/create-inkless-service',
+                'products/kafka/get-started/create-classic-kafka-service',
+                {
+                  type: 'category',
+                  label: 'Generate sample data',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/howto/generate-sample-data',
+                  },
+                  items: ['products/kafka/howto/generate-sample-data-manually'],
+                },
               ],
             },
             {
@@ -762,6 +778,7 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
                 id: 'products/kafka/concepts',
               },
+
               items: [
                 {
                   type: 'category',
@@ -773,18 +790,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/acl',
                     'products/kafka/concepts/schema-registry-authorization',
                     'products/kafka/concepts/kafka-rest-api',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Operating Kafka with Aiven',
-                  items: [
-                    'products/kafka/concepts/upgrade-procedure',
-                    'products/kafka/concepts/horizontal-vertical-scaling',
-                    'products/kafka/concepts/configuration-backup',
-                    'products/kafka/concepts/monitor-consumer-group',
-                    'products/kafka/concepts/consumer-lag-predictor',
-                    'products/kafka/concepts/follower-fetching',
+                    'products/kafka/concepts/kraft-mode',
                   ],
                 },
                 {
@@ -815,9 +821,21 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/tiered-storage-limitations',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Operating Kafka with Aiven',
+                  items: [
+                    'products/kafka/concepts/upgrade-procedure',
+                    'products/kafka/concepts/horizontal-vertical-scaling',
+                    'products/kafka/concepts/configuration-backup',
+                    'products/kafka/concepts/monitor-consumer-group',
+                    'products/kafka/concepts/consumer-lag-predictor',
+                    'products/kafka/concepts/follower-fetching',
+                  ],
+                },
+
                 'products/kafka/concepts/governance-overview',
                 'products/kafka/concepts/kafka-quotas',
-                'products/kafka/concepts/kraft-mode',
               ],
             },
 
