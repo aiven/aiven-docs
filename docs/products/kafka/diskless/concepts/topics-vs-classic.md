@@ -4,8 +4,9 @@ sidebar_label: Diskless vs. classic topics
 ---
 
 Diskless topics are Apache Kafka®-compatible topics that store data in cloud object storage instead of broker-managed local disks.
-Classic and diskless topics can coexist within the same cluster. You can create
-either type if diskless topics are enabled for the service.
+
+Classic and diskless topics can coexist within the same Inkless Kafka cluster. Topic
+type is selected at creation time, based on the capabilities of the service.
 
 ## Compare classic and diskless topics
 
@@ -17,13 +18,13 @@ diskless topics.
 | Storage                  | Broker-managed local disks       | Cloud object storage                                |
 | Replication              | Managed by Kafka brokers         | Handled by the storage provider                     |
 | Partition leadership     | Required                         | Not required (leaderless data path)                 |
-| Data path                | Brokers write and serve data     | Brokers batch and upload to storage                 |
+| Data path                | Brokers write and serve data     | Brokers batch data and write to object storage      |
 | Rebalancing              | Required when scaling brokers    | Not required                                        |
-| Segment format           | Ordered files per partition      | Unordered objects tracked via metadata              |
-| Retention policies       | Supported                        | Limited support                |
+| Segment format           | Ordered files per partition      | Objects tracked via metadata              |
+| Retention policies       | Time- and size-based retention   | Limited retention options               |
 | Compacted topics         | Supported                        | Not supported                                   |
 | Transactions             | Supported                        | Not supported                                    |
-| Topic creation           | Auto-creation           | Manual or API-based only                            |
+| Topic creation           | Auto-creation or manual          | Manual or API-based only                            |
 
 ## When to use classic or diskless topics
 
