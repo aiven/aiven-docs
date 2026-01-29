@@ -33,8 +33,8 @@ The migration does not include service user accounts or commands in progress.
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select the
    Aiven for Valkey service as your migration target.
 1. Go to <ConsoleLabel name="service settings"/> from the sidebar.
-1. Scroll to <ConsoleLabel name="actions"/> > **Migrate database** to start the
-   migration.
+1. On the **Service settings** page, go to **Service management** >
+   <ConsoleLabel name="actions"/> > **Migrate database**.
 1. Follow the wizard to guide you through the migration process.
 
 ### Step 1: Configure
