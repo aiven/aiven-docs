@@ -31,10 +31,8 @@ of tiered storage before enabling it.
 <Tabs groupId="setup">
 <TabItem value="Console" label="Console" default>
 
-1. Log in to the [Aiven console](https://console.aiven.io/), and select
-   your project.
-1. Create an Aiven for Apache Kafka service or select an
-   existing one.
+1. In the [Aiven Console](https://console.aiven.io/), select your project.
+1. Create an Aiven for Apache Kafka service or select an existing one.
    - For [a new service](/docs/platform/howto/create_new_service):
 
      1. On the **Create Apache Kafka® service** page, scroll down to
@@ -48,10 +46,10 @@ of tiered storage before enabling it.
         to activate it.
      1. Click **Activate tiered storage** in the confirmation window.
 
-After activating tiered storage for your service and configuring it for your
-[topics](/docs/products/kafka/howto/configure-topic-tiered-storage), you can monitor
-usage and costs in the
-[Tiered storage overview](/docs/products/kafka/howto/tiered-storage-overview-page) section.
+When tiered storage is activated and configured for your
+[topics](/docs/products/kafka/howto/configure-topic-tiered-storage), monitor usage and
+costs in the [Tiered storage overview](/docs/products/kafka/howto/tiered-storage-overview-page)
+section.
 
 :::note
 Alternatively, if tiered storage is not yet active for your service, you can enable
@@ -107,11 +105,9 @@ In this command:
 
 ## Configure default retention policies at service-level
 
-To manage data retention, set default policies for tiered storage at
-the service level.
+To manage data retention, set default policies for tiered storage at the service level.
 
-1. Access [Aiven console](https://console.aiven.io/), select your
-   project, and choose your Aiven for Apache Kafka service.
+1. In the [Aiven Console](https://console.aiven.io/), select your project and your Aiven for Apache Kafka service.
 1. Click <ConsoleLabel name="service settings"/> from the sidebar.
 1. Scroll to the **Advanced configuration** section, and click **Configure**.
 1. In the **Advanced configuration** dialog, click <ConsoleLabel name="addadvancedconfiguration" />.
@@ -127,9 +123,7 @@ You can also configure the retention policies from the
 
 ## Optional: Configure client-side parameter
 
-For optimal performance and reduced risk of broker interruptions when
-using tiered storage, it is recommended to update the client-side
-parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
+For optimal performance and reduced risk of broker interruptions when using tiered storage, update the client-side parameter `fetch.max.wait.ms` from its default value of 500 ms to 5000 ms.
 
 This consumer configuration is no longer necessary starting from Apache Kafka
 version 3.6.2. Consider upgrading to Apache Kafka version 3.6.2 or later before

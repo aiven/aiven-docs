@@ -1,72 +1,65 @@
 ---
-title: Tiered storage overview page in Aiven Console
-sidebar_label: Tiered storage overview page
-
+title: Storage usage and settings in Aiven Console
+sidebar_label: Storage usage and settings
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Aiven for Apache Kafka® offers a comprehensive overview of tiered storage, allowing you to understand its usage and make informed decisions.
+Use the tiered storage overview page to review storage usage, billing, and retention settings for your Aiven for Apache Kafka® service.
 
-This overview page provides insights into various aspects of tiered storage, including
-hourly billing, settings, and storage details.
+In the Aiven Console, storage is labeled differently based on the cluster type.
+Classic Kafka clusters show **Tiered storage**, which can be enabled and configured.
+Inkless Kafka clusters show **Storage**, reflecting that object storage is always part of the data path.
 
 ## Prerequisite
 
-- [Tiered storage enabled for the Aiven for Apache Kafka service](/docs/products/kafka/howto/enable-kafka-tiered-storage).
+- An Aiven for Apache Kafka® service.
+- For Classic Kafka clusters, tiered storage enabled. For details, see
+  [Enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
 ## Access tiered storage overview page
 
-1. Log in to the [Aiven console](https://console.aiven.io/), choose
-   your project and select your Aiven for Apache Kafka service.
-1. Click <ConsoleLabel name="Tiered storage" />.
+1. In the [Aiven Console](https://console.aiven.io/), select your project and your Aiven for Apache Kafka service.
+1. Click <ConsoleLabel name="Tiered storage" /> (Classic Kafka) or
+   <ConsoleLabel name="Inkless storage" /> (Inkless Kafka).
 
-   - If tiered storage is not yet enabled for your service, you see the option to
-     enabled it.
-   - If tiered storage is enabled for the service but not for any topics, you see
-     the option to enable it for topics. For more
-     details, see [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+   For Classic Kafka clusters:
+
+  - If tiered storage is not enabled for the service, the option to enable it is shown.
+  - If tiered storage is enabled but not configured for any topics, the option to enable it
+    for topics is shown. For details, see [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+
 1. Once configured, you can view an overview of tiered storage and its details.
 
-## Key insights of tiered storage
+## Key insights
 
-Get a quick snapshot of the essential metrics and details related to
-tiered storage:
+View essential metrics and details related to tiered storage:
 
-- **Current billing expenses in USD**: Displays your tiered storage
-  costs, calculated at hourly rates.
-- **Forecasted month cost in USD**: Displays your upcoming monthly costs
-  based on current usage.
-- **Remote tier usage in bytes**: Displays the volume of data that has been tiered.
-- **Storage overview**: Displays an overview of how topics use
-  [remote storage](/docs/products/kafka/howto/tiered-storage-overview-page#remote-storage-overview).
+- **Current billing expenses in USD:** Your tiered storage costs, calculated at hourly rates
+- **Forecasted month cost in USD:** Your upcoming monthly costs based on current usage
+- **Remote tier usage in bytes:** The volume of data that has been tiered
+- **Storage overview:** An overview of how topics use [remote storage](/docs/products/kafka/howto/tiered-storage-overview-page#remote-storage-overview)
 
-## Tiered storage settings
+## Storage settings and retention
 
-Overview of the current local cache details and retention policy configurations for
-tiered storage:
+View the current local cache details and retention policy configurations for tiered storage:
 
-- **Default local retention time (ms)**: Shows the current local data
-  retention set in milliseconds.
-- **Default local retention bytes**: Shows the configured volume of
-  data, in bytes, for local retention.
+- **Default local retention time (ms):** The current local data retention set in milliseconds
+- **Default local retention bytes:** The configured volume of data, in bytes, for local retention
 
 ### Modify retention policies {#modify-retention-polices}
 
 1. In the **Tiered storage settings** section, click
    <ConsoleLabel name="actions"/> > **Update tiered storage settings**.
-1. Within **Update tiered storage settings** page, adjust the values
-   for:
-   - Default Local Retention Time (ms)
-   - Default Local Retention Bytes
+1. In the **Update tiered storage settings** page, adjust the values for:
+   - **Default local retention time (ms)**
+   - **Default local retention bytes**
 1. Click **Save changes**.
 
 ## Remote storage overview
 
-Explore the specifics of your storage usage and configurations:
+View storage usage and configurations:
 
-- **Remote storage usage by topics**: Analyze how much tiered storage
-  each topic uses.
-- **Filter by topic**: Narrow down your view to specific topics for
-  focused insights.
+- **Remote storage usage by topics:** The amount of tiered storage each topic uses
+- **Filter by topic:** Narrow down your view to specific topics
