@@ -30,7 +30,6 @@ optionally offload older data to object storage using tiered storage.
 It is suitable for workloads that rely on predictable capacity, low-latency access to
 local storage, and plan-based broker sizing. Classic Kafka continues to support existing
 performance defaults and backups.
-ts.
 
 Classic Kafka and Inkless Kafka services can run alongside each other within the same
 project.

@@ -17,7 +17,7 @@ topics is enabled by default and cannot be configured.
 
 Enable tiered storage for your Aiven for Apache Kafka service to set up the necessary infrastructure.
 
-1. Log in to the [Aiven console](https://console.aiven.io/).
+1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. Select your project and the Aiven for Apache Kafka service.
 1. See [enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
@@ -38,13 +38,13 @@ Configure tiered storage for specific topics to control your data storage.
 - On the <ConsoleLabel name="topics" /> page, topics using tiered storage display
   **Active** in the **Tiered storage** column.
 
-## Step 3: Monitor tiered storage usage
+## Step 3: Monitor storage usage
 
-Monitor your tiered storage usage.
+Monitor storage usage for your Aiven for Apache Kafka® service.
 
-- Access the <ConsoleLabel name="Tiered storage" /> overview page in your
-  Aiven for Apache Kafka service.
-- Review details on billing, settings, and specific storage aspects.
+- Open the <ConsoleLabel name="Tiered storage" /> (Classic Kafka) or
+   <ConsoleLabel name="Inkless storage" /> (Inkless Kafka) overview.
+- Review billing, retention settings, and storage usage details.
 
 ## Related Pages
 
