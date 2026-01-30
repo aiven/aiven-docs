@@ -1,6 +1,6 @@
 ---
-title: Create a Classic Kafka cluster
-sidebar_label: Create Classic Kafka cluster
+title: Create a Classic Kafka service
+sidebar_label: Create Classic Kafka service
 keywords: [create, kafka, cluster, classic, byoc]
 ---
 
@@ -11,19 +11,20 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-Create a Classic Apache Kafka® cluster on Aiven. Classic Kafka uses fixed plans with local broker storage, with optional tiered storage when supported by the selected plan and cloud.
+Create a Classic Apache Kafka® service on Aiven. Classic Kafka uses predefined service sizes and stores data on local broker disks.
+Optional tiered storage is available when supported by the selected plan and cloud.
 
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io)
-- An Aiven project where you can create Kafka clusters
+- An Aiven project where you can create Kafka services
 
-## Create a Classic Kafka cluster on Aiven cloud
+## Create a Classic Kafka service on Aiven Cloud
 
-Classic Kafka services are available on Free and Professional tiers. They use
-fixed plans and local broker storage. Topic data is stored on local disks by default.
-You can enable [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage)
-if it is supported by the selected plan and cloud.
+Classic Kafka services are available on the Free and Professional service tiers.
+By default, data is stored on local broker disks. You can enable
+[tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage) when it is
+supported by the selected plan and cloud.
 
 <Tabs groupId="classic-aiven-cloud">
 <TabItem value="console" label="Console" default>
@@ -33,11 +34,12 @@ if it is supported by the selected plan and cloud.
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. Select **Classic Kafka** as the cluster type.
+1. Select the **Professional** service tier.
 1. Select **Aiven cloud** as the deployment mode.
 1. Choose a cloud provider and region.
 1. Select a **plan**.
 1. Optional: Adjust **Additional disk storage** or enable **Tiered storage** if supported
-   for your plan and region..
+   for the selected plan and region.
 1. In **Service basics**, enter:
    - **Name:** Name of the service. You cannot change the service name after creation.
    - **Version:** Select the Kafka version. The latest supported version appears by
@@ -95,10 +97,11 @@ Use Terraform to create a Classic Kafka service in your Aiven project.
 </TabItem>
 </Tabs>
 
-## Create a Classic Kafka cluster on Bring your own cloud (BYOC)
+## Create a Classic Kafka service on Bring your own cloud (BYOC)
 
-Classic Kafka clusters on BYOC are available on the Professional tier. The service runs
-in your own cloud account while Aiven manages the Kafka infrastructure and operations.
+Classic Kafka services on BYOC are available on the Professional service tier. The
+service runs in your own cloud account while Aiven manages the Kafka infrastructure and
+operations.
 
 Before you can create services on BYOC, you must set up a BYOC environment. See
 [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
@@ -111,6 +114,7 @@ Before you can create services on BYOC, you must set up a BYOC environment. See
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. Select **Classic Kafka** as the cluster type.
+1. Select the **Professional** service tier.
 1. Select **Bring your own cloud (BYOC)** as the deployment mode.
 1. In the **Cloud** section:
    - Select your **BYOC environment**.

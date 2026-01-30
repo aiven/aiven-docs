@@ -13,8 +13,8 @@ the service is sized and where data is stored: **Inkless** or **Classic**.
 
 ### Inkless Kafka
 
-Inkless Kafka uses throughput-based sizing and supports object storage for topic data.
-It is designed for scalable and cost-aware Kafka workloads.
+Inkless Kafka uses throughput-based sizing and supports both classic topics and
+diskless topics, which store data in object storage.
 
 Choose Inkless Kafka if you need:
 
@@ -22,10 +22,10 @@ Choose Inkless Kafka if you need:
 - Faster cluster scaling, version upgrades, and node recovery
 - Higher throughput per broker
 - Mixed workloads, with classic topics for low latency and diskless topics for
-  lower-cost storage in object storage
+  lower-cost storage
 - Bring Your Own Cloud (BYOC) deployments
 
-[Create an Inkless Kafka cluster](/docs/products/kafka/get-started/create-inkless-service)
+[Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service)
 
 ### Classic Kafka
 
@@ -39,7 +39,7 @@ Choose Classic Kafka if you need:
 - Configurable disk scalability, including disk autoscaling
 - Free tier or standard cloud deployments
 
-[Create a Classic Kafka cluster](/docs/products/kafka/get-started/create-classic-kafka-service)
+[Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service)
 
 <RelatedPages />
 

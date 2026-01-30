@@ -1,6 +1,6 @@
 ---
-title: Create an Inkless Kafka cluster
-sidebar_label: Create Inkless Kafka cluster
+title: Create an Inkless Kafka service
+sidebar_label: Create Inkless Kafka service
 keywords: [create, kafka, cluster, inkless, byoc]
 ---
 
@@ -9,27 +9,20 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Inkless Apache Kafka® cluster on Aiven. Inkless sizes capacity based on stream load and retention.
-It supports classic topics and, when enabled, diskless topics on Aiven cloud and
-Bring Your Own Cloud (BYOC).
+Create an Inkless Apache Kafka® service on Aiven, either on Aiven Cloud or using Bring Your Own Cloud (BYOC).
+Inkless runs Kafka 4.x and supports both classic topics and diskless topics, depending
+on the service configuration. Classic topics use tiered storage, while diskless topics
+store data directly in object storage.
 
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io)
-- An Aiven project where you can create Kafka clusters
+- An Aiven project where you can create Kafka services
 
-## Create an Inkless cluster on Aiven cloud
+## Create an Inkless service on Aiven Cloud
 
-Inkless services are available on the **Professional** tier. On Aiven cloud, Inkless
-sizes capacity based on produce rate and retention.
-
-The cluster runs Kafka 4.x and enables tiered storage by default. Diskless topics are
-available when supported by the selected stream load.
-
-Produce rate determines whether you can enable diskless topics:
-
-- **Up to 5 MB/s** supports **classic topics only**.
-- **10 MB/s or higher** allows you to enable **diskless topics**.
+Inkless services are available on the **Professional** service tier. On Aiven Cloud,
+the cluster is configured based on the selected produce rate and retention.
 
 <Tabs groupId="inkless-aiven-cloud">
 <TabItem value="console" label="Console" default>
@@ -37,16 +30,14 @@ Produce rate determines whether you can enable diskless topics:
 1. In the [Aiven Console](https://console.aiven.io), open the project and
    select <ConsoleLabel name="services" />.
 1. Click **Create service**.
-1. Select **Apache Kafka®**.
-1. Select **Professional** as the service tier.
 1. Select **Inkless** as the cluster type.
-1. Select **Aiven cloud** as the deployment mode.
+1. Select **Professional** as the service tier.
+1. Select the deployment mode:
+   - **Aiven Cloud**, or
+   - **Bring your own cloud (BYOC)**.
 1. Choose a cloud provider and region.
-1. Set the expected **Produce rate** for the service:
-   - Choose **Up to 5 MB/s** to create a service with **classic topics only**.
-   - Choose **10 MB/s or higher** to allow **diskless topics**.
-   - Select **Custom** to define custom ingress and egress limits.
-1. For produce rates of **10 MB/s or higher**, turn on **Diskless topics**.
+1. Select the expected **Produce rate** for the service.
+1. If available, enable **Diskless topics**.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the service name after
@@ -58,8 +49,7 @@ Produce rate determines whether you can enable diskless topics:
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the Aiven CLI to create an Inkless Kafka service. Inkless runs Kafka 4.0 and
-requires tiered storage to be enabled.
+Use the Aiven CLI to create an Apache Kafka® service using the Inkless cluster type.
 
 ```bash
 avn service create SERVICE_NAME \
@@ -104,11 +94,9 @@ list the current Inkless-capable plans.
 </TabItem>
 </Tabs>
 
-## Create an Inkless cluster on Bring your own cloud (BYOC)
+## Create an Inkless service on Bring your own cloud (BYOC)
 
-Inkless services can run in your own cloud account through BYOC. Tiered storage is
-enabled by default. Diskless topics are available when enabled for the service and
-supported by the selected plan.
+You can run Inkless Kafka clusters in your own cloud account using Bring Your Own Cloud (BYOC). Inkless clusters support classic topics and, when supported by the service configuration, diskless topics.
 
 Before you can create services on BYOC, you must set up a BYOC environment.
 See [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
@@ -119,8 +107,8 @@ See [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create
 1. In the Aiven Console, open the project and select <ConsoleLabel name="services" />.
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
-1. Select **Professional** as the service tier.
 1. Select **Inkless** as the cluster type.
+1. Select **Professional** as the service tier.
 1. Select **Bring your own cloud (BYOC)** as the deployment mode.
 1. In the **Cloud** section, choose your BYOC environment and region.
 1. Select an **Inkless plan**.
@@ -157,8 +145,8 @@ Parameters:
 
 After the service is running, Kafka is available with classic topics by default.
 
-Diskless topics are available only when they are enabled for the service and the
-selected produce rate supports them.
+Diskless topics are available only when they are enabled for the service and supported
+by the service configuration.
 
 - Create classic topics to use standard Kafka topics.
 - Create diskless topics to store data in object storage when diskless topics are
