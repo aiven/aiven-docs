@@ -49,4 +49,4 @@ Monitor your tiered storage usage.
 ## Related Pages
 
 - [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage)
-- [Tiered storage usage overview in the Aiven Console](/docs/products/kafka/howto/tiered-storage-overview-page)
+- [Storage usage and settings in Aiven Console](/docs/products/kafka/howto/view-kafka-storage-in-console)

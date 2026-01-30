@@ -1006,7 +1006,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/howto/enable-kafka-tiered-storage',
                     'products/kafka/howto/configure-topic-tiered-storage',
-                    'products/kafka/howto/tiered-storage-overview-page',
+                    'products/kafka/howto/view-kafka-storage-in-console',
                   ],
                 },
               ],

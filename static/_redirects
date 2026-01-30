@@ -202,6 +202,7 @@
 /products/kafka/howto/list-tools                           /docs/products/kafka/howto/kafka-tools-config-file  301
 /products/kafka/howto/list-topic-management                /docs/products/kafka/howto/create-topic  301
 /products/kafka/howto/use-zookeeper                        /docs/products/kafka  301
+/products/kafka/tiered-storage-overview-page          /docs/products/kafka/howto/view-kafka-storage-in-console   301
 /products/kafka/index.html                                 /docs/products/kafka  301
 /products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
 /products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices  301

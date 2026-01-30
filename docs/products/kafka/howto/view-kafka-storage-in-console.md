@@ -39,7 +39,7 @@ View essential metrics and details related to tiered storage:
 - **Current billing expenses in USD:** Your tiered storage costs, calculated at hourly rates
 - **Forecasted month cost in USD:** Your upcoming monthly costs based on current usage
 - **Remote tier usage in bytes:** The volume of data that has been tiered
-- **Storage overview:** An overview of how topics use [remote storage](/docs/products/kafka/howto/tiered-storage-overview-page#remote-storage-overview)
+- **Storage overview:** An overview of how topics use [remote storage](/docs/products/kafka/howto/view-kafka-storage-in-console#remote-storage-overview)
 
 ## Storage settings and retention
 

@@ -48,7 +48,7 @@ of tiered storage before enabling it.
 
 When tiered storage is activated and configured for your
 [topics](/docs/products/kafka/howto/configure-topic-tiered-storage), monitor usage and
-costs in the [Tiered storage overview](/docs/products/kafka/howto/tiered-storage-overview-page)
+costs in [Storage usage and settings in Aiven Console](/docs/products/kafka/howto/view-kafka-storage-in-console)
 section.
 
 :::note
@@ -118,8 +118,9 @@ To manage data retention, set default policies for tiered storage at the service
        define the retention limit in bytes for size-based retention.
 1. Click **Save configuration** to apply your changes.
 
-You can also configure the retention policies from the
-[Tiered storage overview](/docs/products/kafka/howto/tiered-storage-overview-page#modify-retention-polices) page.
+You can configure retention policies from the
+[Storage usage and settings in Aiven Console](/docs/products/kafka/howto/view-kafka-storage-in-console#modify-retention-polices) page.
+
 
 ## Optional: Configure client-side parameter
 
