@@ -32,13 +32,13 @@ To upgrade when reindexing is required:
 Check which indices were created with an earlier version of Aiven for OpenSearch:
 
 ```bash
-curl -X GET "https://USER:PASSWORD@HOST:PORT/_cat/indices?v&h=index,creation.date.string,version"
+curl "https://USER:PASSWORD@HOST:PORT/_all/_settings?filter_path=*.settings.index.version.created_string,*.settings.index.creation_date_string&human=true"
 ```
 
 Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service connection details.
 
-This lists the indices with their creation version. Identify indices with versions
-that are incompatible with your target upgrade version.
+This lists the indices with their creation version and date. Identify indices with
+versions that are incompatible with your target upgrade version.
 
 ## Reindex earlier-version indices
 
