@@ -13,8 +13,7 @@ you configure tiered storage per topic, which gives you granular control over
 your data storage.
 
 In Classic Kafka clusters, tiered storage is an optional feature that you enable and
-configure per topic. On Inkless Kafka clusters, tiered storage for classic topics is
-enabled by default and cannot be configured.
+configure per topic. Inkless Kafka clusters manage storage behavior automatically.
 
 :::note
 - Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version

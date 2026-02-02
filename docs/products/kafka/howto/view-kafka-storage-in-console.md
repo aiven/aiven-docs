@@ -21,8 +21,7 @@ Inkless Kafka clusters show **Storage**, reflecting that object storage is alway
 ## Access tiered storage overview page
 
 1. In the [Aiven Console](https://console.aiven.io/), select your project and your Aiven for Apache Kafka service.
-1. Click <ConsoleLabel name="Tiered storage" /> (Classic Kafka) or
-   <ConsoleLabel name="Inkless storage" /> (Inkless Kafka).
+1. Click <ConsoleLabel name="Tiered storage" />.
 
    For Classic Kafka clusters:
 

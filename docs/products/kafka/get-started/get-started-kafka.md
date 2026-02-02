@@ -24,7 +24,7 @@ For limits, regions, and supported features, see the
 
 ## Create an Inkless Kafka service
 
-Inkless runs Apache Kafka 4.x and uses diskless topics that store data in cloud object
+Inkless runs Apache Kafka 4.x and supports diskless topics that store data in cloud object
 storage rather than on local disks. Compute capacity is sized based on stream load instead
 of fixed hardware plans.
 

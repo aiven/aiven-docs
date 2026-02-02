@@ -15,8 +15,8 @@ only for existing, eligible projects.
 Inkless changes how Kafka services store and manage data:
 
 - **Diskless topics:** Opt-in diskless topics store all retained data in object storage.
-- **Tiered storage by default:** Classic topics retain recent data on local disk and
-  offload older segments to object storage.
+- **Tiered storage for classic topics:** Classic topics retain recent data on local disk and
+  move older data to object storage.
 - **Managed configuration:** Some broker-level settings are managed by Aiven and cannot
   be changed.
 - **KRaft-based metadata management:** Inkless uses
@@ -40,9 +40,8 @@ Use Inkless when:
 
 Inkless supports:
 
-- Diskless topics backed by object storage.
-- Classic topics with tiered storage enabled by default.
-- Mixed workloads that use both classic and diskless topics in the same service.
+- Diskless and classic topics
+- Mixed workloads within the same service
 
 ## Existing Classic Kafka services
 

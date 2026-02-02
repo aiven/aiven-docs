@@ -4,7 +4,7 @@ title: Diskless topics for Apache Kafka®
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Diskless topics are a feature of Aiven for Apache Kafka® that store Kafka topic data in cloud object storage instead of on broker disks.
+Diskless topics are a feature of Aiven for Apache Kafka® that store Kafka topic data in cloud object storage.
 
 Diskless topics are available in Inkless Kafka clusters, including deployments on
 Aiven Cloud and Bring Your Own Cloud (BYOC). In BYOC deployments on supported cloud

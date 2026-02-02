@@ -17,7 +17,7 @@ This enables elastic scaling and long-term data retention without managing disk 
 Inkless Kafka supports:
 
 - **Diskless topics**, which store data in object storage
-- **Classic topics**, which use local disks with tiered storage enabled by default
+- **Classic topics**, which use managed remote storage
 
 Inkless Kafka is intended for high-throughput workloads where storage elasticity and
 cost efficiency are important, including Bring Your Own Cloud (BYOC) deployments.
@@ -25,7 +25,7 @@ cost efficiency are important, including Bring Your Own Cloud (BYOC) deployments
 ## Classic Kafka
 
 Classic Kafka is a cluster type that uses fixed plans with local broker storage and can
-optionally offload older data to object storage using tiered storage.
+optionally move older data to object storage using tiered storage.
 
 It is suitable for workloads that rely on predictable capacity, low-latency access to
 local storage, and plan-based broker sizing. Classic Kafka continues to support existing

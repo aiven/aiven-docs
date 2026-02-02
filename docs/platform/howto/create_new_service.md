@@ -17,8 +17,9 @@ To create a [database service](/docs/products/services#databases) in Aiven Conso
 
 Create an Apache Kafka service on Aiven by choosing a **cluster type**.
 
-- **Inkless Kafka** uses throughput-based sizing and supports classic topics and, when
-  enabled, diskless topics on Aiven cloud and Bring Your Own Cloud (BYOC).
+- **Inkless Kafka** uses throughput-based sizing and supports classic topics and
+  diskless topics on Aiven cloud and Bring your own cloud (BYOC) deployments.
+
 - **Classic Kafka** uses fixed plans with local broker storage, with optional tiered
   storage when supported by the selected plan and cloud.
 

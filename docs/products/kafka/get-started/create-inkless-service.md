@@ -9,10 +9,10 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Inkless Apache Kafka® service on Aiven, either on Aiven Cloud or using Bring Your Own Cloud (BYOC).
+Create an Inkless Apache Kafka® service on Aiven, either on Aiven cloud or using Bring Your Own Cloud (BYOC).
 Inkless runs Kafka 4.x and supports both classic topics and diskless topics, depending
-on the service configuration. Classic topics use tiered storage, while diskless topics
-store data directly in object storage.
+on the service configuration. Classic topics store data in managed remote storage,
+while diskless topics store data directly in cloud object storage.
 
 ## Prerequisites
 

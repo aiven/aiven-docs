@@ -24,9 +24,8 @@ meaning they interact with Apache Kafka the same way, whether tiered storage is
 enabled or not.
 
 In Classic Kafka clusters, administrators can configure tiered storage per topic by
-defining the retention period and retention bytes to control how much data is retained
-on local disk.
-
+setting retention period and retention bytes to control how much data is kept on local
+disk.
 
 ## Local vs. remote data retention
 

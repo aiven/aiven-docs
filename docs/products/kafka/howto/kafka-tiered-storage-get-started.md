@@ -10,8 +10,7 @@ For a detailed understanding of tiered storage, its workings, and benefits, see
 [Tiered storage in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-tiered-storage).
 
 These steps apply only to Classic Kafka clusters. Tiered storage is optional and
-configurable in Classic Kafka. In Inkless Kafka clusters, tiered storage for classic
-topics is enabled by default and cannot be configured.
+configurable in Classic Kafka.
 
 ## Step 1: Enable tiered storage for the service
 
@@ -42,8 +41,7 @@ Configure tiered storage for specific topics to control your data storage.
 
 Monitor storage usage for your Aiven for Apache Kafka® service.
 
-- Open the <ConsoleLabel name="Tiered storage" /> (Classic Kafka) or
-   <ConsoleLabel name="Inkless storage" /> (Inkless Kafka) overview.
+- Open the <ConsoleLabel name="Tiered storage" />.
 - Review billing, retention settings, and storage usage details.
 
 ## Related Pages
