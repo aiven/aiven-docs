@@ -5,7 +5,7 @@ sidebar_label: Diskless vs. classic topics
 
 Diskless topics are Apache Kafka®-compatible topics that store data in cloud object storage instead of broker-managed local disks.
 
-lassic and diskless topics can coexist within the same Inkless Kafka cluster. On Inkless
+Classic and diskless topics can coexist within the same Inkless Kafka cluster. On Inkless
 Kafka clusters, classic topics use managed remote storage by default and this setting
 cannot be changed.
 
@@ -16,7 +16,7 @@ diskless topics.
 
 | Feature                  | Classic topic              | Diskless topic                                       |
 |--------------------------|----------------------------------|-----------------------------------------------------|
-| Storage                  | Managed remote storage.       | Cloud object storage                                |
+| Storage                  | Managed remote storage           | Cloud object storage                                |
 | Replication              | Managed by Kafka brokers         | Handled by the storage provider                     |
 | Partition leadership     | Required                         | Not required (leaderless data path)                 |
 | Data path                | Brokers write and serve data     | Brokers batch data and write to object storage      |
