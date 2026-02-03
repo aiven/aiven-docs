@@ -61,8 +61,10 @@ you to:
 
 For a detailed comparison, see [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
 
+
 <RelatedPages/>
 
 - [Create an Inkless Kafka cluster](/docs/products/kafka/get-started/create-inkless-service)
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture)
 - [Diskless topics limitations](/docs/products/kafka/diskless/concepts/limitations)
+- [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic)
