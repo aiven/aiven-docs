@@ -115,7 +115,7 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="valkey_pubsub_client_output_buffer_limit"/><Link to="#valkey_pubsub_client_output_buffer_limit"><strong>valkey_pubsub_client_output_buffer_limit</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>32</code></li><li>max: <code>512</code></li></ul></div>
+        <div className="param"><p className="name"><Link id="valkey_pubsub_client_output_buffer_limit"/><Link to="#valkey_pubsub_client_output_buffer_limit"><strong>valkey_pubsub_client_output_buffer_limit</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>32</code></li><li>max: <code>262144</code></li></ul></div>
         <div className="description"><p>Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan.</p></div>
       </td>
     </tr>
