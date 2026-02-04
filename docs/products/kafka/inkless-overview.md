@@ -4,11 +4,14 @@ title: Inkless overview
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Inkless is Aiven’s cloud-native Apache Kafka® service that supports diskless topics and object storage-backed data retention, while remaining compatible with standard Kafka APIs and clients.
+Inkless is Aiven’s Apache Kafka® service for cloud deployments, supporting diskless topics and object storage-backed data retention.
 
-Inkless is the default Kafka cluster type for Aiven Cloud projects. It runs on Kafka 4.x and
-supports both classic and diskless topics within the same service. Classic Kafka is available
+Inkless is available on Aiven Cloud and Bring Your Own Cloud (BYOC) deployments. New
+Kafka services use Inkless as the default cluster type. It runs on Kafka 4.x and supports
+both classic and diskless topics within the same service. Classic Kafka is available
 only for existing, eligible projects.
+
+Inkless remains compatible with standard Kafka APIs and clients.
 
 ## Key differences from classic Kafka
 
@@ -17,13 +20,11 @@ Inkless changes how Kafka services store and manage data:
 - **Diskless topics:** Opt-in diskless topics store all retained data in object storage.
 - **Tiered storage for classic topics:** Classic topics retain recent data on local disk and
   move older data to object storage.
-- **Managed configuration:** Some broker-level settings are managed by Aiven and cannot
-  be changed.
+- **Managed configuration:** Some broker-level settings use managed defaults.
 - **KRaft-based metadata management:** Inkless uses
   [KRaft](/docs/products/kafka/concepts/kraft-mode) for metadata and consensus, replacing
   ZooKeeper.
-- **Service availability:** Inkless is available on selected cloud providers and deployment
-  modes.
+- **Kafka Connect deployment:** Kafka Connect is deployed as a separate service.
 
 Diskless topics are available only in Inkless services.
 
@@ -36,13 +37,6 @@ Use Inkless when:
 - Diskless topics are required for large datasets or long retention periods.
 - Managed defaults are preferred over configuring broker-level settings.
 
-## Inkless capabilities
-
-Inkless supports:
-
-- Diskless and classic topics
-- Mixed workloads within the same service
-
 ## Existing Classic Kafka services
 
 Existing Classic Kafka services continue to run unchanged.
@@ -51,8 +45,8 @@ Classic Kafka remains available for existing deployments and is visible in the A
 Console only for projects that already include a Classic Kafka service.
 
 Upgrading or migrating an existing Classic Kafka service to Inkless is not supported at
-this time. Cluster type is fixed at creation. To use Inkless, create a Kafka service and
-select Inkless as the cluster type.
+this time. The cluster type is fixed at service creation. To use Inkless, create a
+Kafka service and select Inkless as the cluster type.
 
 <RelatedPages />
 
