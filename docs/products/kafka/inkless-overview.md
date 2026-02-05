@@ -4,7 +4,7 @@ title: Inkless overview
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Inkless is Aiven’s Apache Kafka® service for cloud deployments, supporting diskless topics and object storage-backed data retention.
+Inkless is an Apache Kafka® service from Aiven for cloud deployments, supporting diskless topics and object storage-backed data retention.
 
 Inkless is available on Aiven Cloud and Bring Your Own Cloud (BYOC) deployments. New
 Kafka services use Inkless as the default cluster type. It runs on Kafka 4.x and supports
@@ -18,15 +18,23 @@ Inkless remains compatible with standard Kafka APIs and clients.
 Inkless changes how Kafka services store and manage data:
 
 - **Diskless topics:** Opt-in diskless topics store all retained data in object storage.
-- **Tiered storage for classic topics:** Classic topics retain recent data on local disk and
-  move older data to object storage.
+- **Classic topics:** Data storage and retention are managed automatically by the service.
 - **Managed configuration:** Some broker-level settings use managed defaults.
 - **KRaft-based metadata management:** Inkless uses
   [KRaft](/docs/products/kafka/concepts/kraft-mode) for metadata and consensus, replacing
   ZooKeeper.
 - **Kafka Connect deployment:** Kafka Connect is deployed as a separate service.
 
-Diskless topics are available only in Inkless services.
+## Billing and cost
+
+Inkless uses object storage and network traffic differently from Classic Kafka.
+
+- **Diskless topics** store retained data directly in object storage.
+- **Internal service components** required for Inkless operation are fully managed by
+  Aiven and are not billed separately.
+
+Billing depends on the deployment model (Aiven Cloud or Bring Your Own Cloud), the
+selected service capacity, and actual storage and network usage.
 
 ## When to use Inkless
 
