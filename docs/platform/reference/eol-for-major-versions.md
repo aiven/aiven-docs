@@ -35,7 +35,7 @@ There are two types of Aiven services with respect to versions:
 
 ## EOL policy for major versions
 
-Aiven EOL policy applies only to services where you select the version (for example,
+Aiven EOL policy applies only to services where you select a version (for example,
 PostgreSQL® or Apache Kafka®). Services that run a single version managed by Aiven are not
 included. This policy covers both running and powered-off services on the affected version.
 
@@ -52,9 +52,10 @@ When Aiven sets the EOL date for a service major version:
 
 ## EOL best practices
 
-Upgrade to the supported version before the EOL date. This gives you
-time to test compatibility, resolve any issues, and plan the upgrade on
-your schedule.
+- Use [database forking](/docs/platform/concepts/service-forking) to test the version
+  upgrade before upgrading your production services.
+- Upgrade to the supported version before the EOL date. This gives you time to test
+  compatibility, resolve any issues, and plan the upgrade on your schedule.
 
 After the EOL date:
 
@@ -66,12 +67,12 @@ After the EOL date:
     version, the service is powered off and ultimately deleted.
     :::
 
--   If the service is powered off, it's deleted. For Aiven for OpenSearch®, powered-off 
-    services are upgraded shortly after EOL and will start with the new version when 
-    powered on.
+-   If the service is powered off, it's deleted.
 
-Aiven offers [database forking](/docs/platform/concepts/service-forking) as an efficient
-tool to test the version upgrade before upgrading their production services.
+    :::note
+    For Aiven for OpenSearch®, powered-off services are upgraded shortly after EOL and
+    will start with the new version when powered on.
+    :::
 
 ## Aiven multi-versioned services EOL
 
