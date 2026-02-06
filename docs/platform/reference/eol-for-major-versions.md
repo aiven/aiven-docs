@@ -46,7 +46,7 @@ included. This policy covers both running and powered-off services on the affect
 
 ## EOL notifications
 
-When Aiven sets the EOL date for a service version:
+When Aiven sets the EOL date for a service major version:
 
 -   You receive an email notification along with instructions on
     the next steps.
