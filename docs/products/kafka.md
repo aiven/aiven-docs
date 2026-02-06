@@ -20,7 +20,9 @@ Inkless Kafka supports:
 - **Classic topics**, which use managed remote storage
 
 Inkless Kafka is intended for high-throughput workloads where storage elasticity and
-cost efficiency are important, including Bring Your Own Cloud (BYOC) deployments.
+cost efficiency are important, including Bring Your Own Cloud (BYOC) deployments. For
+details on how Inkless works, its storage model, and when to use it, see
+[Inkless Kafka overview](/docs/products/kafka/inkless-overview).
 
 ## Classic Kafka
 

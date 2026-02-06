@@ -1,15 +1,14 @@
 ---
-title: Inkless overview
+title: Inkless Kafka overview
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Inkless is an Apache Kafka® service from Aiven for cloud deployments, supporting diskless topics and object storage-backed data retention.
 
-Inkless is available on Aiven Cloud and Bring Your Own Cloud (BYOC) deployments. New
-Kafka services use Inkless as the default cluster type. It runs on Kafka 4.x and supports
-both classic and diskless topics within the same service. Classic Kafka is available
-only for existing, eligible projects.
+Inkless is available on Aiven Cloud and Bring Your Own Cloud (BYOC) deployments. It runs
+on Kafka 4.x and supports both classic and diskless topics within the same service.
+Classic Kafka is available only for existing, eligible projects.
 
 Inkless remains compatible with standard Kafka APIs and clients.
 
