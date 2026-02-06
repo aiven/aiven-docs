@@ -3,10 +3,10 @@ title: Aiven service and tool version lifecycle
 sidebar_label: Version lifecycle
 ---
 
-Learn about version lifecycle policies, EOL schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services where you select versions and single-versioned services managed by Aiven.
+Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services where you select versions and single-versioned services managed by Aiven.
 
 :::note
-End of life (EOL) is the date after which Aiven services and tools are no longer supported
+EOL is the date after which Aiven services and tools are no longer supported
 or maintained.
 :::
 
