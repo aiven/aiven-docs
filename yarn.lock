@@ -6212,6 +6212,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4":
+  version: 4.17.23
+  resolution: "@types/lodash@npm:4.17.23"
+  checksum: 10c0/9d9cbfb684e064a2b78aab9e220d398c9c2a7d36bc51a07b184ff382fa043a99b3d00c16c7f109b4eb8614118f4869678dbae7d5c6700ed16fb9340e26cc0bf6
+  languageName: node
+  linkType: hard
+
 "@types/mdast@npm:^4.0.0, @types/mdast@npm:^4.0.2":
   version: 4.0.4
   resolution: "@types/mdast@npm:4.0.4"
@@ -6714,6 +6721,7 @@ __metadata:
     "@docusaurus/types": "npm:^3.7.0"
     "@iconify/react": "npm:^4.1.1"
     "@mdx-js/react": "npm:^3.0.0"
+    "@types/lodash": "npm:^4"
     "@types/react": "npm:^18.2.48"
     algoliasearch: "npm:^5.19.0"
     axios: "npm:^1.12.0"
@@ -6724,6 +6732,7 @@ __metadata:
     dotenv: "npm:^16.3.1"
     glob: "npm:^12.0.0"
     handlebars: "npm:^4.7.8"
+    lodash: "npm:^4.17.23"
     lodash-es: "npm:^4.17.23"
     prism-react-renderer: "npm:^2.4.1"
     raw-loader: "npm:^4.0.2"
@@ -11455,7 +11464,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.20, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.23":
   version: 4.17.23
   resolution: "lodash@npm:4.17.23"
   checksum: 10c0/1264a90469f5bb95d4739c43eb6277d15b6d9e186df4ac68c3620443160fc669e2f14c11e7d8b2ccf078b81d06147c01a8ccced9aab9f9f63d50dcf8cace6bf6
