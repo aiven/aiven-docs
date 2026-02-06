@@ -866,7 +866,7 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Security',
+                  label: 'Network and Security',
                   items: [
                     'products/kafka/howto/keystore-truststore',
                     'products/kafka/howto/manage-acls',
@@ -875,6 +875,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/renew-ssl-certs',
                     'products/kafka/howto/enable-oidc',
                     'products/kafka/howto/kafka-custom-serde-encrypt',
+                    'products/kafka/howto/ipv6-client-connectivity',
                   ],
                 },
                 {
