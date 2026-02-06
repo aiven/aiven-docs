@@ -96,7 +96,7 @@ dependent on the upstream project.
 
 ### Aiven for PostgreSQL®
 
-Aiven for PostgreSQL® versions will reach EOL on the same date as
+Aiven for PostgreSQL® major versions will reach EOL on the same date as
 the upstream open source project's EOL.
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
