@@ -1,9 +1,14 @@
 ---
-title: End of life for major versions of Aiven services and tools
-sidebar_label: Service & tool lifecycle
+title: Aiven service and tool version lifecycle
+sidebar_label: Version lifecycle
 ---
 
-End of life (EOL) is the date after which Aiven services and tools are no longer supported or maintained.
+Learn about version lifecycle policies, EOL schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services where you select versions and single-versioned services managed by Aiven.
+
+:::note
+End of life (EOL) is the date after which Aiven services and tools are no longer supported
+or maintained.
+:::
 
 ## Aiven version support and upstream EOL
 
@@ -33,7 +38,7 @@ There are two types of Aiven services with respect to versions:
 -   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol):
     Only one default version is available at a time.
 
-## EOL policy for major versions
+## Service version EOL policy
 
 Aiven EOL policy applies only to services where you select a version (for example,
 PostgreSQL® or Apache Kafka®). Services that run a single version managed by Aiven are not
@@ -41,7 +46,7 @@ included. This policy covers both running and powered-off services on the affect
 
 ## EOL notifications
 
-When Aiven sets the EOL date for a service major version:
+When Aiven sets the EOL date for a service version:
 
 -   You receive an email notification along with instructions on
     the next steps.
@@ -91,7 +96,7 @@ dependent on the upstream project.
 
 ### Aiven for PostgreSQL®
 
-Aiven for PostgreSQL® major versions will reach EOL on the same date as
+Aiven for PostgreSQL® versions will reach EOL on the same date as
 the upstream open source project's EOL.
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
