@@ -16,10 +16,19 @@ Principals are
 and [groups](/docs/platform/howto/manage-groups).
 
 You can grant access to principals at the organization, organizational unit,
-and project level.
-
-To give users access to a specific service,
+and project level. To give users access to a specific service,
 [create service users](/docs/platform/howto/create_new_service_user).
+
+Roles and permissions are cumulative. This means that a user's effective access
+is the combination of all roles and permissions granted to them at every level. This
+includes roles and permissions granted directly to the user and those granted to the
+groups they are a member of.
+
+For example, if you grant a user the `project:services:write` permission
+at the organization level, they have write access to all services in all projects
+in the organization. If you also assign the user the `read_only` role on a specific
+project, they still have write access to the services in that project. The less
+permissive role does not negate the more permissive permission.
 
 ## Organization roles and permissions
 
