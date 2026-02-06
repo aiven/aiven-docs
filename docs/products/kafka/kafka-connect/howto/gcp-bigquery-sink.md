@@ -5,6 +5,7 @@ sidebar_label: Google BigQuery sink connector
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import KafkaConnectGcpAuthRestrictions from "@site/static/includes/kafka-connect-gcp-auth-restrictions.md";
 
 Set up the [BigQuery sink connector](https://github.com/Aiven-Open/bigquery-connector-for-apache-kafka) to move data from Aiven for Apache Kafka® into BigQuery tables for analysis and storage.
 
@@ -52,6 +53,8 @@ page of your Kafka service, under **Connection information**, in the **Schema Re
 tab.
 Aiven uses [Karapace](https://github.com/aiven/karapace) as the Schema Registry.
 :::
+
+<KafkaConnectGcpAuthRestrictions />
 
 ## Configure Google Cloud
 
