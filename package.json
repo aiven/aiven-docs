@@ -48,7 +48,7 @@
     "rehype-katex": "7",
     "remark-math": "6",
     "search-insights": "^2.13.0",
-    "webpack": "^5.94.0"
+    "webpack": "^5.104.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.7.0",
