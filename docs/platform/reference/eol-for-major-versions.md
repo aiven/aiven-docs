@@ -77,7 +77,7 @@ After the EOL date:
 
 -   If the service is powered off, it's deleted.
 
-    :::note
+    :::note[Exception]
     Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
     They are upgraded and start with the new version when powered on.
     :::
