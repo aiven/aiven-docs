@@ -10,6 +10,7 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Tiered storage significantly improves the storage efficiency of your Aiven for Apache Kafka® service.
+You can enable tiered storage for topics in a Classic Kafka service.
 
 ## Prerequisites
 

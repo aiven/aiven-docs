@@ -12,7 +12,7 @@ can store data on specific topics indefinitely without running out of space. Onc
 you configure tiered storage per topic, which gives you granular control over
 your data storage.
 
-In Classic Kafka clusters, tiered storage is an optional feature that you enable and
+In Classic Kafka service, tiered storage is an optional feature that you enable and
 configure per topic. Inkless Kafka clusters manage storage behavior automatically.
 
 :::note
