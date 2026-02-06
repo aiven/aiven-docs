@@ -37,7 +37,7 @@ There are two types of Aiven services with respect to versions:
 
     - Multiple service versions supported at a time
     - Service versions managed by the users: You select a version for your service from
-      the versions supported at a time.
+      the available supported versions.
 
 -   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol)
 
@@ -66,7 +66,7 @@ When Aiven sets the EOL date for a service major version:
 
 ## EOL best practices
 
-- Use [database forking](/docs/platform/concepts/service-forking) to test the version
+- Use [service forking](/docs/platform/concepts/service-forking) to test the version
   upgrade before upgrading your production services.
 - Upgrade to the supported version before the EOL date. This gives you time to test
   compatibility, resolve any issues, and plan the upgrade on your schedule.
@@ -85,7 +85,7 @@ After the EOL date:
 
     :::note[Exception]
     Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
-    They are upgraded and start with the new version when powered on.
+    They are upgraded and start running the new version when powered on.
     :::
 
 ## Aiven multi-versioned services EOL
