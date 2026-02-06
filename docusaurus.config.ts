@@ -139,7 +139,23 @@ const config: Config = {
     },
     {src: '/docs/page_scripts/kapa-ai-trigger.js'},
   ],
-  plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
+  plugins: [
+    './src/plugins/svg-fix/index.ts',
+    'docusaurus-plugin-image-zoom',
+    [
+      '@signalwire/docusaurus-plugin-llms-txt',
+      {
+        siteTitle: 'Aiven docs',
+        siteDescription:
+          'Official technical documentation for Aiven, the AI-ready Open Source Data Platform. Comprehensive guides for deploying, scaling, and monitoring managed services including Apache Kafka, PostgreSQL, MySQL, OpenSearch, Redis, ClickHouse, and Flink. Covers platform features like Bring Your Own Cloud (BYOC), VPC peering, and authentication. Includes reference documentation for Aiven Developer Tools: CLI, API, Terraform Provider, and Kubernetes Operator.',
+        depth: 5,
+        content: {
+          enableLlmsFullTxt: true,
+          excludeRoutes: ['**/search', '**/search.md'],
+        },
+      },
+    ],
+  ],
   themeConfig: {
     image: 'images/site-preview.png',
     // Banner with link to survey
