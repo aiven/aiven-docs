@@ -11,19 +11,20 @@ Diskless topics are compatible with Kafka APIs and clients, with some limitation
   topics but must write to classic topics.
 - Classic and tiered Kafka topics cannot be converted to diskless topics.
 
-## Aiven-managed PostgreSQL® service upgrades {#automatic-postgresql-service-upgrades}
+## Internal metadata service behavior {#internal-metadata-service}
 
-Aiven monitors the PostgreSQL® service that supports diskless topics in
-Bring Your Own Cloud (BYOC) deployments.
-This Aiven-managed service stores metadata used by the Batch Coordinator, such as
-offsets and batch locations.
-When the service experiences high load, Aiven upgrades its plan to maintain performance and
-stability.
+Diskless topics rely on an internal metadata service that Aiven operates on your behalf.
+This service tracks offsets and batch locations used by diskless topics and is not exposed
+as a separate service in the console or billing.
 
-- The upgrade does not cause downtime.
-- You receive an email notification when the upgrade occurs.
-- The upgraded plan appears in your billing and usage metrics.
-- No action is required.
+To maintain performance and stability, Aiven may adjust the capacity of this internal
+service automatically. These changes do not require any action from you and do not affect
+how you use diskless topics.
+
+For Aiven Inkless Kafka services that use diskless topics, maintenance for this internal
+service happens in the same maintenance window as the Kafka service. In the Aiven Console,
+you may see references to internal components during maintenance or upgrade flows, but
+they cannot be managed independently.
 
 For details about the Batch Coordinator and metadata,
 see [Architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture#batch-coordinator-and-metadata).

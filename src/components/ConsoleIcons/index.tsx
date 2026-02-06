@@ -556,6 +556,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Tiered storage</b>
         </>
       );
+    case 'inklessstorage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.tiered} /> <b>Storage</b>
+        </>
+      );
     case 'editdatabase':
       return (
         <>
@@ -635,6 +641,7 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Tiered storage</b>
         </>
       );
+
     case 'queryeditor':
       return (
         <>

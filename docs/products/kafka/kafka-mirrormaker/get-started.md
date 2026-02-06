@@ -14,7 +14,7 @@ Create an Apache Kafka® MirrorMaker 2 service and connect it to your Aiven for 
 
 - Access to the [Aiven Console](https://console.aiven.io).
 - An Aiven project with at least one running Aiven for Apache Kafka® service. To create
-  one, see [Create an Aiven for Apache Kafka service](/docs/products/kafka/create-kafka-service).
+  one, see [Create an Aiven for Apache Kafka service](/docs/products/kafka/get-started/create-kafka-service).
 
 ## Create an Apache Kafka® MirrorMaker 2 service
 
