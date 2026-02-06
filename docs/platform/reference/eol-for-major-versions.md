@@ -1,9 +1,14 @@
 ---
-title: End of life for major versions of Aiven services and tools
-sidebar_label: Service & tool lifecycle
+title: Aiven service and tool version lifecycle
+sidebar_label: Version lifecycle
 ---
 
-End of life (EOL) is the date after which Aiven services and tools are no longer supported or maintained.
+Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services and single-versioned services.
+
+:::note
+EOL is the date after which Aiven services and tools are no longer supported
+or maintained.
+:::
 
 ## Aiven version support and upstream EOL
 
@@ -28,16 +33,25 @@ example, Kafka® 3.2). The exact version of the service is visible in the
 
 There are two types of Aiven services with respect to versions:
 
--   [Multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol):
-    You can choose the version for your service.
--   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol):
-    Only one default version is available at a time.
+-   [Multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol)
 
-## EOL policy for major versions
+    - Multiple service versions supported at a time
+    - Service versions managed by the users: You select a version for your service from
+      the available supported versions.
 
-Aiven EOL policy applies only to services where you select the major version (for example,
-PostgreSQL® or Apache Kafka®). Services that run a single version managed by Aiven are not
-included. This policy covers both running and powered-off services on the affected version.
+-   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol)
+
+    - Only one default service version available at a time
+    - Service versions managed by Aiven
+
+## Service version EOL policy
+
+The Aiven service version EOL policy applies only to
+[multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol),
+where you select a version.
+[Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol),
+which run a single version managed by Aiven, are not included. This policy covers both
+running and powered-off services on affected versions.
 
 ## EOL notifications
 
@@ -52,9 +66,10 @@ When Aiven sets the EOL date for a service major version:
 
 ## EOL best practices
 
-Upgrade to the supported version before the EOL date. This gives you
-time to test compatibility, resolve any issues, and plan the upgrade on
-your schedule.
+- Use [service forking](/docs/platform/concepts/service-forking) to test the version
+  upgrade before upgrading your production services.
+- Upgrade to the supported version before the EOL date. This gives you time to test
+  compatibility, resolve any issues, and plan the upgrade on your schedule.
 
 After the EOL date:
 
@@ -68,8 +83,10 @@ After the EOL date:
 
 -   If the service is powered off, it's deleted.
 
-Aiven offers [database forking](/docs/platform/concepts/service-forking) as an efficient
-tool to test the version upgrade before upgrading their production services.
+    :::note[Exception]
+    Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
+    They are upgraded and start running the new version when powered on.
+    :::
 
 ## Aiven multi-versioned services EOL
 
@@ -82,9 +99,9 @@ dependent on the upstream project.
 | Version | Aiven EOL       | Service creation supported until | Service creation supported from |
 | ------- | --------------- | -------------------------------- | ------------------------------- |
 | 1.3.x   | 2026-07-26      | 2026-07-26                       | 2022-05-19                      |
-| 2.17.1  | 2026-07-26      | 2026-07-26                       | 2024-10-15                      |
-| 2.19.3  | To be announced | To be announced                  | 2025-09-15                      |
-| 3.3.2   | To be announced | To be announced                  | 2026-01-20                      |
+| 2.17.x  | 2026-07-26      | 2026-07-26                       | 2024-10-15                      |
+| 2.19.x  | To be announced | To be announced                  | 2025-09-15                      |
+| 3.3.x   | To be announced | To be announced                  | 2026-01-20                      |
 
 ### Aiven for PostgreSQL®
 
