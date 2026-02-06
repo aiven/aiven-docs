@@ -40,9 +40,12 @@ There are two types of Aiven services with respect to versions:
 
 ## Service version EOL policy
 
-Aiven EOL policy applies only to services where you select a version (for example,
-PostgreSQL® or Apache Kafka®). Services that run a single version managed by Aiven are not
-included. This policy covers both running and powered-off services on the affected version.
+The Aiven service version EOL policy applies only to
+[multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol),
+where you select a version.
+[Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol),
+which run a single version managed by Aiven, are not included. This policy covers both
+running and powered-off services on affected versions.
 
 ## EOL notifications
 
