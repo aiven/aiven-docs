@@ -3,7 +3,7 @@ title: Aiven service and tool version lifecycle
 sidebar_label: Version lifecycle
 ---
 
-Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services where you select versions and single-versioned services managed by Aiven.
+Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services and single-versioned services.
 
 :::note
 EOL is the date after which Aiven services and tools are no longer supported
@@ -33,10 +33,16 @@ example, Kafka® 3.2). The exact version of the service is visible in the
 
 There are two types of Aiven services with respect to versions:
 
--   [Multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol):
-    You can choose the version for your service.
--   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol):
-    Only one default version is available at a time.
+-   [Multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol)
+
+    - Multiple service versions supported at a time
+    - Service versions managed by the users: You select a version for your service from
+      the versions supported at a time.
+
+-   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol)
+
+    - Only one default service version available at a time
+    - Service versions managed by Aiven
 
 ## Service version EOL policy
 
