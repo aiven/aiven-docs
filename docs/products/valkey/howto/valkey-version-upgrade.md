@@ -3,13 +3,12 @@ title: Upgrade Aiven for Valkey™
 sidebar_label: Upgrade version
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Choose an Aiven for Valkey™ version that best fits your needs and upgrade your service when ready.
-
-Aiven for Valkey supports multiple versions of Valkey running concurrently in the platform.
+Aiven for Valkey supports multiple versions of Valkey running concurrently in the platform. Choose a version that best fits your needs and upgrade your service when ready.
 
 ## Multi-version support
 
@@ -74,7 +73,7 @@ To upgrade your service version, check that:
    :::warning
    When you click **Upgrade**:
    - The system applies the upgrade immediately.
-   - The Valkey service cannot be downgraded to a previous version.
+   - You cannot downgrade the service to a previous version.
    :::
 
 1. Click **Upgrade**.
@@ -87,34 +86,13 @@ Upgrade the service version using the
 command:
 
 ```bash
-avn service update SERVICE_NAME -c valkey_version=9.0
+avn service update SERVICE_NAME -c valkey_version=N.N
 ```
 
 Parameters:
 
-- `SERVICE_NAME`: Name of your Valkey service.
-- `9.0`: Target Valkey version to upgrade to.
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-Use the
-[`aiven_valkey`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey)
-resource to set
-[`valkey_version`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey#valkey_version-1):
-
-```hcl
-resource "aiven_valkey" "example" {
-  project      = var.project_name
-  cloud_name   = "google-us-east1"
-  plan         = "business-4"
-  service_name = "my-valkey"
-
-  valkey_user_config {
-    valkey_version = "9.0"
-  }
-}
-```
+- `SERVICE_NAME`: Name of your service
+- `N.N`: Target service version to upgrade to, for example `9.0`
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -129,16 +107,46 @@ curl --request PUT \
   --header 'Content-Type: application/json' \
   --data '{
     "user_config": {
-      "valkey_version": "9.0"
+      "valkey_version": "N.N"
     }
   }'
 ```
 
 Parameters:
 
-- `PROJECT_NAME`: Name of your project.
-- `SERVICE_NAME`: Name of your Valkey service.
-- `BEARER_TOKEN`: Your API authentication token.
+- `PROJECT_NAME`: Name of your project
+- `SERVICE_NAME`: Name of your service
+- `BEARER_TOKEN`: Your API authentication token
+- `N.N`: Target service version to upgrade to, for example `9.0`
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the
+[`aiven_valkey`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey)
+resource to set
+[`valkey_version`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey#valkey_version-1):
+
+```hcl
+resource "aiven_valkey" "example" {
+  project      = var.PROJECT_NAME
+  cloud_name   = "CLOUD_NAME"
+  plan         = "PLAN_NAME"
+  service_name = "SERVICE_NAME"
+
+  valkey_user_config {
+    valkey_version = "N.N"
+  }
+}
+```
+
+Parameters:
+
+- `PROJECT_NAME`: Name of your project
+- `CLOUD_NAME`: Cloud region identifier
+- `PLAN_NAME`: Service plan
+- `SERVICE_NAME`: Name of your service
+- `N.N`: Target service version to upgrade to, for example `9.0`
 
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes">
@@ -152,21 +160,21 @@ resource to set
 apiVersion: aiven.io/v1alpha1
 kind: Valkey
 metadata:
-  name: my-valkey
+  name: SERVICE_NAME
 spec:
   authSecretRef:
     name: aiven-token
     key: token
 
   connInfoSecretTarget:
-    name: my-valkey-connection
+    name: valkey-connection
 
   project: PROJECT_NAME
-  cloudName: google-us-east1
-  plan: business-4
+  cloudName: CLOUD_NAME
+  plan: PLAN_NAME
 
   userConfig:
-    valkey_version: "9.0"
+    valkey_version: "N.N"
 ```
 
 Apply the updated configuration:
@@ -177,14 +185,14 @@ kubectl apply -f valkey-service.yaml
 
 Parameters:
 
-- `PROJECT_NAME`: Name of your project.
+- `PROJECT_NAME`: Name of your project
+- `SERVICE_NAME`: Name of your service
+- `CLOUD_NAME`: Cloud region identifier
+- `PLAN_NAME`: Service plan
+- `N.N`: Target service version to upgrade to, for example `9.0`
 
 </TabItem>
 </Tabs>
-
-## Related pages
-
-- [Service maintenance](/docs/platform/concepts/maintenance-window)
 
 ## Version selection for new services
 
@@ -197,9 +205,20 @@ When creating an Aiven for Valkey service:
 Example (CLI):
 
 ```bash
-avn service create my-valkey \
+avn service create SERVICE_NAME \
   --service-type valkey \
-  --plan business-4 \
-  --cloud google-us-east1 \
-  -c valkey_version=8.1
+  --plan PLAN_NAME \
+  --cloud CLOUD_NAME \
+  -c valkey_version=N.N
 ```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your service
+- `PLAN_NAME`: Service plan
+- `CLOUD_NAME`: Cloud region identifier
+- `N.N`: Service version, for example `8.1`
+
+<RelatedPages/>
+
+[Service maintenance](/docs/platform/concepts/maintenance-window)
