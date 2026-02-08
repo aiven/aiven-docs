@@ -10,8 +10,6 @@ import TabItem from '@theme/TabItem';
 Choose an Aiven for Valkey™ version that best fits your needs and upgrade your service when ready.
 
 Aiven for Valkey supports multiple versions of Valkey running concurrently in the platform.
-This guide explains how multi-version support works and how to upgrade your service to a
-newer version.
 
 ## Multi-version support
 
