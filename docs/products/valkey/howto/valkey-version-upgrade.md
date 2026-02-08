@@ -22,19 +22,40 @@ service or upgrading an existing service. Multi-versioning is supported both for
 standalone service mode and the
 [clustered service mode](/docs/products/valkey/concepts/valkey-cluster).
 
-## Upgrade your service
+## Before you upgrade
 
-### Prerequisites
+### Available or upcoming upgrades
+
+Track upgrades for your service via:
+
+- [Aiven Console](https://console.aiven.io): Service <ConsoleLabel name="overview"/>
+  page > **Maintenance** section > List of available mandatory and optional upgrades
+- Email: notifications for automated upgrades
+
+### Downgrade restriction
+
+Downgrading to a previous version is not supported due to potential data format
+incompatibilities. Always test upgrades in a non-production environment first.
+
+To revert to a previous version:
+
+1. Create a service with the desired version.
+1. Restore data from a backup taken before the upgrade.
+1. Update your application connection strings.
+
+### Prerequisites for upgrade
 
 Before upgrading your service:
 
 - **Test in development**: Test the upgrade in a development environment first.
-- **Backup your data**: Ensure you have recent backups (backups are automatic but verify they exist)
+- **Backup your data**: Ensure you have recent backups. Backups are automatic, but verify
+  they exist.
 
 To upgrade your service version, check that:
 
 - Your Aiven for Valkey service is running.
-- Target version to upgrade to is available for manual upgrade.
+- Target version to upgrade to is
+  [available for manual upgrade](/docs/products/valkey/howto/valkey-version-upgrade#available-or-upcoming-upgrades).
 - You can use one of the following tools to upgrade:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
@@ -42,20 +63,30 @@ To upgrade your service version, check that:
   - [Aiven Provider for Terraform](/docs/tools/terraform)
   - [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 
-### Upgrade steps
+## Upgrade your service
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
 
-1. Go to your Valkey service in the Aiven Console.
-1. Go to the **Service Settings** page.
-1. Locate the **Version** section.
-1. Click the desired target version from the dropdown.
-1. Review the upgrade confirmation dialog.
-1. Click **Upgrade** to start the process.
+1. In the [Aiven Console](https://console.aiven.io/), go to your Valkey service.
+1. On the <ConsoleLabel name="overview"/> page, go to the **Maintenance** section.
+1. Click <ConsoleLabel name="actions"/> > **Upgrade version**.
+1. Select a version to upgrade to.
+
+   :::warning
+   When you click **Upgrade**:
+   - The system applies the upgrade immediately.
+   - The Valkey service cannot be downgraded to a previous version.
+   :::
+
+1. Click **Upgrade**.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
+
+Upgrade the service version using the
+[avn service update](https://aiven.io/docs/tools/cli/service-cli#avn-cli-service-update)
+command:
 
 ```bash
 avn service update SERVICE_NAME -c valkey_version=9.0
@@ -64,9 +95,15 @@ avn service update SERVICE_NAME -c valkey_version=9.0
 Parameters:
 
 - `SERVICE_NAME`: Name of your Valkey service.
+- `9.0`: Target Valkey version to upgrade to.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
+
+Use the
+[`aiven_valkey`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey)
+resource to set
+[`valkey_version`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey#valkey_version-1):
 
 ```hcl
 resource "aiven_valkey" "example" {
@@ -84,15 +121,19 @@ resource "aiven_valkey" "example" {
 </TabItem>
 <TabItem value="api" label="API">
 
-To upgrade your Valkey service via API, use the
-[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint:
+Call the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint to set `valkey_version`:
 
 ```bash
 curl --request PUT \
   --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
-  -H 'Authorization: Bearer BEARER_TOKEN' \
-  -H 'content-type: application/json' \
-  --data '{"user_config": {"valkey_version": "9.0"}}'
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "user_config": {
+      "valkey_version": "9.0"
+    }
+  }'
 ```
 
 Parameters:
@@ -104,8 +145,10 @@ Parameters:
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes">
 
-To upgrade your Valkey service using the Aiven Operator for Kubernetes, update the
-`valkey_version` in your service specification:
+Use the
+[Valkey](https://aiven.github.io/aiven-operator/resources/valkey.html)
+resource to set
+[`valkey_version`](https://aiven.github.io/aiven-operator/resources/valkey.html#spec.userConfig.valkey_version-property):
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
@@ -141,16 +184,9 @@ Parameters:
 </TabItem>
 </Tabs>
 
-## Downgrade service versions
+## Related pages
 
-Downgrading to a previous version is not supported due to potential data format
-incompatibilities. Always test upgrades in a non-production environment first.
-
-To revert to a previous version:
-
-1. Create a service with the desired version.
-1. Restore data from a backup taken before the upgrade.
-1. Update your application connection strings.
+- [Service maintenance](/docs/platform/concepts/maintenance-window)
 
 ## Version selection for new services
 
