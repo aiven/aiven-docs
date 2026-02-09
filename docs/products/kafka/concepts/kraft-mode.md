@@ -75,24 +75,22 @@ not supported.
    the KRaft controllers. The service now runs in dual mode (ZooKeeper + KRaft).
 1. Aiven transfers the cluster metadata from ZooKeeper to KRaft.
 1. Brokers switch to KRaft mode and no longer use ZooKeeper.
-1. For a grace period of one week, the KRaft controllers remain in migration mode.
-1. When the grace period is complete, the KRaft controllers are also switched to running
-   in full KRaft mode.
+1. During a one-week grace period, the KRaft controllers remain in migration mode.
+1. After the grace period ends, the KRaft controllers switch to full KRaft mode.
 
 #### Emergency rollback
 
-In case of emergencies, Aiven operators can trigger rollback of the KRaft migration up
-until 1 week after it is completed. This will revert the service back to using ZooKeeper,
-and will decommission the KRaft controller cluster. The service will be still running on
-Kafka 3.9 at this point, and a retry of the migration can be triggered by operators
-again.
+The KRaft migration can be rolled back by Aiven for up to one week after it completes.
+Rolling back reverts the service to using ZooKeeper and decommissions the KRaft
+controller cluster. At this point, the service continues to run on Kafka 3.9, and the
+migration can be retried.
 
 ### Before you migrate
 
 - **Service version**: To upgrade to Apache Kafka 4.0 or later, your service must first
   migrate to KRaft by upgrading to Kafka 3.9.
-- **Grace period**: After the migration is complete, there is a grace period of 1 week
-  during which the cluster cannot be upgraded to 4.0.
+- **Grace period**: After the migration completes, there is a one-week grace period
+  during which the cluster cannot be upgraded to Kafka 4.0.
 - **Service plan**: If your service is on the **Startup-2** plan, you must upgrade
   to **Startup-4** or higher during the same maintenance window as the version upgrade.
 
