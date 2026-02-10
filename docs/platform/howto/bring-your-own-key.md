@@ -7,7 +7,11 @@ limited: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Register, list, preview, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven API](/docs/tools/api) or the [Aiven CLI](/docs/tools/cli).
+:::important
+Bring your own key (BYOK) is a limited availability feature. To get access, contact your account team or [sales@aiven.io](mailto:sales@aiven.io).
+:::
+
+Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven API](/docs/tools/api) or the [Aiven CLI](/docs/tools/cli).
 
 ## Prerequisites
 
@@ -30,7 +34,7 @@ perform encrypt/decrypt operations on your behalf.
 
 ### API endpoint
 
-`GET /v1/project/PROJECT_ID/secrets/accessors`
+`GET /v1/project/PROJECT_ID/secrets/cmks/accessors`
 
 ### Path parameters
 
@@ -61,8 +65,8 @@ for each provider, for example:
 ```
 
 :::note
-For Google Platform Secret Manager Keys, the group returned as the `access_group`
-parameter should be granted access role `roles/cloudkms.cryptoOperator`.
+For Google Cloud Key Management Service keys, grant the group in the `access_group`
+parameter the `roles/cloudkms.cryptoOperator` role.
 :::
 
 </TabItem>
@@ -102,8 +106,8 @@ avn project cmks accessors --project my-project --json
 ```
 
 :::note
-For Google Platform Secret Manager Keys, the group returned as the `access_group`
-parameter should be granted access role `roles/cloudkms.cryptoOperator`.
+For Google Cloud Key Management Service keys, grant the group in the `access_group`
+parameter the `roles/cloudkms.cryptoOperator` role.
 :::
 
 </TabItem>
@@ -189,7 +193,7 @@ newly registered CMK configuration, for example:
 #### Command
 
 ```bash
-avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RESOURCE [--default-cmk]
+avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RESOURCE
 ```
 
 #### Parameters
@@ -197,8 +201,8 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `--project`   | String | True     | Project name |
-| `--provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, or `oci` |
-| `--resource`| String | True     | CMK reference (key identifier: AWS ARN, OCI OCID, or Google Cloud resource name) |
+| `--provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, `oci`, or `azure` |
+| `--resource`| String | True     | CMK reference (key identifier: AWS ARN, OCI OCID, Google Cloud resource name, or Azure key identifier) |
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 
@@ -305,7 +309,7 @@ updated CMK configuration, for example:
 #### Command
 
 ```bash
-avn project cmks update --project PROJECT_NAME --cmk-id CMK_ID --default-cmk [true|false]
+avn project cmks update --project PROJECT_NAME --cmk-id CMK_ID --default-cmk true
 ```
 
 #### Parameters
@@ -517,7 +521,7 @@ avn project cmks list --project my-project
 
 Table format:
 
-```
+```txt
 id                                    status   provider  resource                                                  default_cmk  created_at
 ====================================  =======  ========  ========================================================  ===========  ===================
 a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7  current  oci       ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   False        YYYY-MM-DDTHH:MM:SSZ
