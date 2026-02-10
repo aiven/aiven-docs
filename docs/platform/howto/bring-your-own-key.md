@@ -7,11 +7,13 @@ limited: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::important
-Bring your own key (BYOK) is a limited availability feature. To get access, contact your account team or [sales@aiven.io](mailto:sales@aiven.io).
-:::
-
 Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven API](/docs/tools/api) or the [Aiven CLI](/docs/tools/cli).
+
+:::important
+Bring your own key (BYOK) is a
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+To get access, [contact your Aiven representative](https://aiven.io/contact).
+:::
 
 ## Prerequisites
 
