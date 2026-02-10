@@ -206,15 +206,40 @@ The Aiven API endpoints follow a lifecycle that includes the following stages:
   change without notice. These endpoints are intended for testing and feedback purposes.
 - **Stable**: API endpoints that are fully supported and maintained.
 - **Deprecated**: API endpoints that Aiven plans to remove in the future.
-- **Sunset**: API endpoints that are no longer available and will be permanently removed
-  30 days after the sunset date.
+- **Sunset**: API endpoints that are no longer available.
 
-### Deprecation notices
+### API endpoint deprecation
 
-Aiven announces API endpoint deprecations in the
-[Aiven product updates](https://aiven.io/changelog). If a replacement endpoint
-is available, this information is included in the deprecation notice in the product updates
-and in the API documentation.
+As the Aiven Platform evolves, some API endpoints become
+outdated or replaced by newer versions.
+
+Aiven announces API endpoint deprecations on the
+[Aiven product updates page](https://aiven.io/changelog).
+If a replacement endpoint is available, this information
+is included in the deprecation notice and in the API documentation.
+
+To allow clients to detect these changes automatically, the API returns specific headers
+with the deprecation status and sunset date, for example:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Deprecation: true
+Sunset: Wed, 01 Jul 2026 00:00:00 GMT
+Link: <https://aiven.io/changelog>; rel="deprecation"
+```
+
+Aiven works to reduce the disruptions caused by deprecations.
+The time between the deprecation and sunset statuses varies based on the endpoint's
+usage and the migration complexity. During the deprecation period,
+the endpoint remains fully functional for existing customers,
+giving you time to migrate to the newer version. Deprecated endpoints are
+not available to new customers.
+
+### API endpoint sunset
+
+After the deprecation period, the endpoint transitions to sunset status and
+the API returns a `410 Gone` response.
 
 ## Aiven tools EOL
 
