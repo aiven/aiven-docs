@@ -1,6 +1,6 @@
 ---
-title: Bring your own key
-sidebar_label: BYOK
+title: Bring your own key (BYOK)
+sidebar_label: Bring your own key
 limited: true
 ---
 
@@ -16,7 +16,7 @@ Register, list, preview, update, or delete your customer managed keys (CMKs) in 
   or Microsoft Azure
 
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
-  the [Aiven API](https://aiven.io/docs/tools/api)
+  the [Aiven API](/docs/tools/api)
 
 - [**Aiven CLI**](/docs/tools/cli) installed and configured (for CLI instructions)
 
