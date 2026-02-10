@@ -198,6 +198,24 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | ------- | --------------- |
 | 8.1.4   | To be announced |
 
+## Aiven API lifecycle
+
+The Aiven API endpoints follow a lifecycle that includes the following stages:
+
+- **Experimental**: New API endpoints that are still in development and might
+  change without notice. These endpoints are intended for testing and feedback purposes.
+- **Stable**: API endpoints that are fully supported and maintained.
+- **Deprecated**: API endpoints that Aiven plans to remove in the future.
+- **Sunset**: API endpoints that are no longer available and will be permanently removed
+  30 days after the sunset date.
+
+### Deprecation notices
+
+Aiven announces API endpoint deprecations in the
+[Aiven product updates](https://aiven.io/changelog). If a replacement endpoint
+is available, this information is included in the deprecation notice in the product updates
+and in the API documentation.
+
 ## Aiven tools EOL
 
 Aiven offers multiple tools for interacting with the Aiven Platform and
@@ -206,7 +224,7 @@ and the Aiven Operator for Kubernetes®.
 
 Breaking changes in the Aiven API can result in new major versions of
 the Aiven tools. While backwards compatibility is typically maintained,
-certain changes require us to deprecate older versions of the tools.
+certain changes require Aiven to deprecate older versions of the tools.
 
 ### Aiven CLI
 
