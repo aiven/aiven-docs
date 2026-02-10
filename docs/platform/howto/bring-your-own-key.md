@@ -11,7 +11,8 @@ Register, list, update, or delete your customer managed keys (CMKs) in Aiven pro
 
 :::important
 Bring your own key (BYOK) is a
-[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+feature.
 [Contact Aiven](https://aiven.io/contact) to request access.
 :::
 
