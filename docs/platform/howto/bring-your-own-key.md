@@ -136,7 +136,7 @@ Register a customer managed key resource identifier for an Aiven project.
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, `azure`, or `oci` |
-| `resource`| String | True     | CMK reference (key identifier of max 512 characters: AWS's ARN, OCI's OCID, Google Cloud's resource name, or Azure's key identifier) |
+| `resource`| String | True     | CMK reference (key identifier of max 512 characters: AWS ARN, OCI OCID, Google Cloud resource name, or Azure key identifier) |
 | `default_cmk` | Boolean | False | Mark this key as default for new service creation |
 
 #### Sample request (AWS)
@@ -198,7 +198,7 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 |-----------|--------|----------|-------------|
 | `--project`   | String | True     | Project name |
 | `--provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, or `oci` |
-| `--resource`| String | True     | CMK reference (key identifier: AWS's ARN, OCI's OCID, or Google Cloud's resource name) |
+| `--resource`| String | True     | CMK reference (key identifier: AWS ARN, OCI OCID, or Google Cloud resource name) |
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 

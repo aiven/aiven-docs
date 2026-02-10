@@ -1,6 +1,8 @@
 188
 ACL
 ACLs
+accessor
+accessors
 Addons
 africa
 AIInsights
@@ -44,6 +46,8 @@ Centrify
 checkpointing
 CIDRs
 CLI's
+CMK
+CMKs
 ClickHouse
 Cloudera
 CloudWatch
