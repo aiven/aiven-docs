@@ -22,8 +22,8 @@ Register, list, preview, update, or delete your customer managed keys (CMKs) in 
 
 ## List CMK accessors
 
-Returns a list of customer managed key (CMK) accessors - principals that need to be
-granted the access to perform encrypt/decrypt operations on your behalf.
+List customer managed key (CMK) accessors - principals that need to be granted access to
+perform encrypt/decrypt operations on your behalf.
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -235,7 +235,7 @@ For JSON output, use `--json` flag.
 
 ### Update CMK
 
-Updates attributes or parameters on an existing customer managed key configuration.
+Update attributes or parameters on an existing customer managed key configuration.
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -349,7 +349,7 @@ For JSON output, use `--json` flag.
 
 ### Get CMK details
 
-Retrieves the details of a customer managed key configuration.
+Get the details of a customer managed key configuration.
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -439,7 +439,7 @@ For JSON output, use `--json` flag.
 
 ### List CMKs
 
-Retrieves a list of all customer managed key configurations for a project.
+List all customer managed key configurations for a project.
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -531,7 +531,7 @@ For JSON output, use `--json` flag.
 
 ### Remove CMK
 
-Deletes a customer managed key configuration.
+Delete a customer managed key configuration.
 
 :::note
 This function renders the services linked to the key inoperable. Migrate the services to
