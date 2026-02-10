@@ -52,9 +52,9 @@ in the service.
 1. Go to the [Aiven Console](https://console.aiven.io/).
 1. Select the Aiven for Apache Kafka Connect service.
 1. Click <ConsoleLabel name="service settings"/>.
-1. Scroll to the **Advanced configuration** section and click **Configure**.
+1. In **Advanced configuration**, click **Configure**.
 1. Set **`gcp_auth_allowed_urls`** to the required HTTPS endpoints.
-1. Save the changes.
+1. Click **Save configuration**.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
