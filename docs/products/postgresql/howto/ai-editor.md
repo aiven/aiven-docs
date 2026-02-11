@@ -76,7 +76,7 @@ To open PG Studio:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for
    PostgreSQL service.
-1. Click <ConsoleIcon name="AI editor" />.
+1. Click <ConsoleIcon name="aieditor" />.
 1. Select the source database and schema.
 
 PG Studio opens a split view with a SQL editor on the left and the AI Assistant
