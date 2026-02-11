@@ -139,7 +139,11 @@ const config: Config = {
     },
     {src: '/docs/page_scripts/kapa-ai-trigger.js'},
   ],
-  plugins: ['./src/plugins/svg-fix/index.ts', 'docusaurus-plugin-image-zoom'],
+  plugins: [
+    './src/plugins/svg-fix/index.ts',
+    'docusaurus-plugin-image-zoom',
+    'docusaurus-plugin-copy-page-button',
+  ],
   themeConfig: {
     image: 'images/site-preview.png',
     // Banner with link to survey
