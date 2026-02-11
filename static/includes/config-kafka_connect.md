@@ -71,6 +71,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="gcp_auth_allowed_urls"/><Link to="#gcp_auth_allowed_urls"><strong>gcp_auth_allowed_urls</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Allowed URLs for auth URI validation</p><div className="description"><p>Allow-list of HTTPS URLs used to validate GCP credential_source requests for Kafka Connect.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="private_access"/><Link to="#private_access"><strong>private_access</strong></Link></p><p><code className="type">object</code></p></div>
         <p className="title">Allow access to selected service ports from private networks</p>
         <table className="service-param-children">

@@ -242,6 +242,40 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/enhanced-compliance-env',
             {
               type: 'category',
+              label: 'Bring your own cloud',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/byoc',
+              },
+              items: [
+                'platform/howto/byoc/networking-security',
+                'platform/howto/byoc/enable-byoc',
+                {
+                  type: 'category',
+                  label: 'Create custom clouds',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
+                  },
+                  items: [
+                    'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
+                    'platform/howto/byoc/create-cloud/create-google-custom-cloud',
+                  ],
+                },
+                'platform/howto/byoc/aws-privatelink-byoc',
+                'platform/howto/byoc/assign-project-custom-cloud',
+                'platform/howto/byoc/add-customer-info-custom-cloud',
+                'platform/howto/byoc/tag-custom-cloud-resources',
+                'platform/howto/byoc/store-data',
+                'platform/howto/byoc/rename-custom-cloud',
+                'platform/howto/byoc/download-infrastructure-template',
+                'platform/howto/byoc/delete-custom-cloud',
+                'platform/howto/byoc/manage-byoc-service',
+                'platform/howto/byoc/view-custom-cloud-status',
+              ],
+            },
+            {
+              type: 'category',
               label: 'VPCs',
               link: {
                 type: 'doc',
@@ -325,7 +359,7 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/aiven-node-firewall-configuration',
             'platform/howto/configure-project-base-port',
             'platform/concepts/tls-ssl-certificates',
-
+            'platform/howto/bring-your-own-key',
             'platform/concepts/disaster-recovery-test-scenarios',
           ],
         },
@@ -345,40 +379,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/concepts/service-integration',
         'platform/howto/create-service-integration',
-        {
-          type: 'category',
-          label: 'Bring your own cloud',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/byoc',
-          },
-          items: [
-            'platform/howto/byoc/networking-security',
-            'platform/howto/byoc/enable-byoc',
-            {
-              type: 'category',
-              label: 'Create custom clouds',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
-              },
-              items: [
-                'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
-                'platform/howto/byoc/create-cloud/create-google-custom-cloud',
-              ],
-            },
-            'platform/howto/byoc/aws-privatelink-byoc',
-            'platform/howto/byoc/assign-project-custom-cloud',
-            'platform/howto/byoc/add-customer-info-custom-cloud',
-            'platform/howto/byoc/tag-custom-cloud-resources',
-            'platform/howto/byoc/store-data',
-            'platform/howto/byoc/rename-custom-cloud',
-            'platform/howto/byoc/download-infrastructure-template',
-            'platform/howto/byoc/delete-custom-cloud',
-            'platform/howto/byoc/manage-byoc-service',
-            'platform/howto/byoc/view-custom-cloud-status',
-          ],
-        },
         {
           type: 'category',
           label: 'Monitoring and logs',

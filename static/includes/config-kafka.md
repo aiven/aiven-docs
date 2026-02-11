@@ -279,6 +279,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="gcp_auth_allowed_urls"/><Link to="#gcp_auth_allowed_urls"><strong>gcp_auth_allowed_urls</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Allowed URLs for auth URI validation</p><div className="description"><p>Allow-list of HTTPS URLs used to validate GCP credential_source requests for Kafka Connect.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="kafka_rest"/><Link to="#kafka_rest"><strong>kafka_rest</strong></Link></p><p><code className="type">boolean</code></p></div>
         <p className="title">Enable Kafka-REST service</p>
       </td>

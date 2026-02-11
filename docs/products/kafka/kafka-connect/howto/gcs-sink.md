@@ -6,6 +6,7 @@ sidebar_label: Google Cloud Storage sink connector
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import KafkaConnectGcpAuthRestrictions from "@site/static/includes/kafka-connect-gcp-auth-restrictions.md";
 
 The Google Cloud Storage (GCS) sink connector moves data from Aiven for Apache Kafka® topics to a Google Cloud Storage bucket for long-term storage.
 
@@ -37,6 +38,8 @@ Example:
 
 If the `private_key` field contains `\n`, escape it as `\\n`.
 :::
+
+<KafkaConnectGcpAuthRestrictions />
 
 ## Configure Google Cloud for the connector {#configure-google-cloud-for-the-connector}
 
