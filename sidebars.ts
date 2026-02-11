@@ -885,6 +885,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/enable-schema-registry',
                     'products/kafka/howto/configure-with-kafka-cli',
                     'products/kafka/howto/set-kafka-parameters',
+                    'products/kafka/howto/configure-custom-domain',
                     'products/kafka/howto/viewing-resetting-offset',
                     'products/kafka/howto/configure-log-cleaner',
                     'products/kafka/howto/prevent-full-disks',
