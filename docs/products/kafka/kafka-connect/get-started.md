@@ -36,7 +36,7 @@ not, [create one](/docs/platform/howto/create_new_service).
 Create a Kafka Connect service and integrate it with an Aiven for Apache Kafka® service.
 
 :::note
-For Inkless Kafka services, Kafka Connect runs as a dedicated service.
+For Inkless Kafka services, Kafka Connect must run as a dedicated service.
 
 If no Kafka Connect service exists, create a Kafka Connect service and enable the
 integration from the Kafka service.

@@ -37,12 +37,12 @@ selected service capacity, and actual storage and network usage.
 
 ## When to use Inkless
 
-Use Inkless when:
+Use Inkless when you need to:
 
-- KRaft-based metadata management is required.
-- Object storage-backed data retention is needed.
-- Diskless topics are required for large datasets or long retention periods.
-- Managed defaults are preferred over configuring broker-level settings.
+- Scale storage without managing broker disk capacity.
+- Retain large volumes of data for extended periods.
+- Scale and recover clusters faster than fixed-storage deployments.
+- Combine classic and diskless topics in the same service.
 
 ## Existing Classic Kafka services
 

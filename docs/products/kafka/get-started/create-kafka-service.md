@@ -34,10 +34,11 @@ when supported by the selected plan and cloud.
 
 Choose Classic Kafka if you need:
 
-- Predictable capacity
-- Low-latency access to local storage
-- Configurable disk scalability, including disk autoscaling
-- Free tier or standard cloud deployments
+- Control over the broker size and number in the cluster deployment
+- Very large local retention
+- Complete control over the local disk size, and scaling
+- Free tier or specific cloud deployments
+- All retained data stored on local disks
 
 [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service)
 

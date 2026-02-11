@@ -4,7 +4,7 @@ title: Diskless topics for Apache Kafka®
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Diskless topics are a feature of Aiven for Apache Kafka® that store Kafka topic data in cloud object storage.
+Diskless topics are a feature of Aiven's Inkless clusters that store Kafka topic data in cloud object storage, without writing to local disk.
 
 Diskless topics are available in Inkless Kafka services on Aiven Cloud and
 Bring Your Own Cloud (BYOC). In Bring Your Own Cloud (BYOC)
@@ -31,8 +31,8 @@ require any changes to use them. For architectural details, see
 
 ## Benefits of using diskless topics
 
-Diskless topics are well suited for workloads that require performance, scalability,
-and simplified operations. They provide:
+Diskless topics are well suited for workloads that require high throughput and rapid
+scaling. They provide:
 
 - **Elastic scaling**: Supports high throughput and scales in seconds.
 - **No disk overruns**: Shifting to object storage removes broker disk capacity limits.
@@ -40,10 +40,10 @@ and simplified operations. They provide:
   offloading data to cloud object storage.
 - **Lower latency for hot data**: Frequently accessed data is cached on brokers to
   improve fetch performance.
-- **Simplified operations**: No need to manage broker disks, rebalance partitions, or
-  manually provision storage.
-- **Reduced operational overhead**: Services with only diskless topics require less
-  manual effort to maintain and can be scaled down without rebalancing partitions.
+- **Simplified storage management**: No need to manage broker disks, rebalance partitions,
+  or manually provision storage.
+- **Faster scaling and node replacement**: Removing large local disks reduces data
+  movement during scaling and node rotation.
 - **Compliance and security**: In BYOC deployments, the service runs entirely within
   your own cloud account.
 
