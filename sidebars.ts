@@ -2131,6 +2131,7 @@ const sidebars: SidebarsConfig = {
             'platform/howto/custom-plans',
           ],
         },
+        'platform/howto/controlled-upgrade',
         {
           type: 'category',
           label: 'Backup and restore',
