@@ -116,10 +116,12 @@ Before you can create services on BYOC, you must set up a BYOC environment. See
 1. In **Service tier**, select a supported tier.
 1. In **Cluster type**, select **Classic Kafka**.
 1. In **Deployment mode**, select **Bring your own cloud (BYOC)**.
-1. In the **Cloud** section:
+1. In the **Cloud**:
    - Select your **BYOC environment**.
    - Select a **region**.
-1. In the **Plan** section, choose a plan from the available plan groups.
+1. Select a **plan**.
+1. Optional: Adjust **Additional disk storage** or enable **Tiered storage**, if supported
+   by the selected plan.
 1. In **Service basics**, enter:
    - **Name:** Name of the service. You cannot change the service name after creation.
    - **Version:** Select the Kafka version. The latest supported version appears by

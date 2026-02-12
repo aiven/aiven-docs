@@ -110,8 +110,8 @@ See [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create
 1. In **Service tier**, select **Professional**.
 1. In **Cluster type**, select **Inkless**.
 1. In **Deployment mode**, select **Bring your own cloud (BYOC)**.
-1. In the **Cloud** section, choose your BYOC environment and region.
-1. Select an **Inkless plan**.
+1. In **Cloud**, select your BYOC environment and region.
+1. Select a **plan**.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the name after creation.
    - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
