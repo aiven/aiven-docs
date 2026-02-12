@@ -101,7 +101,7 @@ To control the preferred address family:
 
 :::note
 The Java JVM setting also affects HTTP connections, including Schema Registry. The
-librdkafka setting does not.
+`librdkafka` setting does not.
 :::
 
 ## Supported configurations
