@@ -1,94 +1,143 @@
 ---
-title: Connect from IPv6 client
-sidebar_label: Connect from IPv6 client
+title: Enable IPv6 connectivity for Aiven for Apache Kafka®
+sidebar_label: Enable IPv6 connectivity
 early: true
 ---
 
-Aiven for Apache Kafka® supports dual-stack IPv4/IPv6, allowing for more flexible and
-reliable client connections.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-## How to enable it
+Aiven for Apache Kafka® supports dual-stack IPv4 and IPv6 connectivity.
+Kafka clients can connect using either address type.
 
 :::warning
-Before enabling it on a production cluster, please mind the scope and limitations
-described further below.
+This feature is in early availability. Enable it in a non-production environment first.
 :::
 
-To enable dual-stack IPv4/IPv6 for your Aiven for Apache Kafka® service, you just need to
-set the user configuration `enable_ipv6` to `true` using the Aiven API.
+## Enable IPv6 connectivity
 
-You can also achieve the same using Aiven Console, as follow:
+To enable dual-stack IPv4 and IPv6 support, set the service user configuration
+`enable_ipv6` to `true`.
 
-1. Log in to [Aiven Console](https://console.aiven.io) and click your service from the
-   **Services** page.
+<Tabs groupId="config-methods">
+<TabItem value="console" label="Console" default>
 
-1. On the **Overview** page of your service, click **Service settings** from the sidebar.
-
-1. On the **Service settings** page, in the **Cloud and network** section, click **More
-   network configurations**.
-
-1. In the **Network configuration** window, click **Add configuration options**. In the
-   search field, enter "ipv6". From the displayed parameter names, select the parameter
-   name for your service type and set its value to "enabled".
-
+1. In the [Aiven Console](https://console.aiven.io), select the Aiven for
+   Apache Kafka® service.
+1. Click <ConsoleLabel name="service settings"/> in the sidebar.
+1. In the **Cloud and network** section, click <ConsoleLabel name="actions"/> and
+   select **More network configurations**.
+1. In the **Network configuration** dialog, click <ConsoleIcon name="Add config options"/>.
+1. Search for `enable_ipv6`, select the option from the list, and set the value
+   to **Enabled**.
 1. Click **Save configuration**.
 
-## How it works
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-### On the server
+Enable IPv6 connectivity on an existing service using Aiven CLI:
 
-In addition to the existing DNS records of type `A` that map the Aiven for Apache Kafka®
-service host name to IPv6 addresses, new DNS records of type `AAAA` are created that map
-to IPv6 addresses. The server listens to IPv6 addresses on the same ports as for IPv4.
+```bash
+avn service update SERVICE_NAME -c enable_ipv6=true
+```
 
-### On the client
+Parameters:
 
-Provided that they are able to resolve them, clients can use both IPv4 and IPv6 addresses
-in an interchangeable or selective way, depending on their configuration.
+- `SERVICE_NAME`: Name of the Aiven for Apache Kafka® service.
 
-Configuring Kafka clients to explicitly prefer IPv6 addresses can be achieved as follow:
-- Using Java-based client with JVM parameter `-Djava.net.preferIPv4Addresses=true`.
-- Using `kcat` or any other client based on librdkafka with `broker.address.family=v6`.
+</TabItem>
+<TabItem value="api" label="API">
 
-Note that while the JVM parameter also affects HTTP client connection to schema registry,
-the librdkafka parameter does not.
+Use the
+[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+API to enable IPv6 connectivity:
 
-## Scope
+```bash
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+  --header 'Authorization: Bearer API_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "user_config": {
+      "enable_ipv6": true
+    }
+  }'
+```
 
-This feature is in early availability. Before using it in any production context, it is
-strongly recommended to verify in a lower environment wether a use-case is supported.
-Moreover, using it can (positively or negatively) affect the service resources and how
-it performs.
+Parameters:
 
-### Supported
+- `PROJECT_NAME`: Name of the project.
+- `SERVICE_NAME`: Name of the service.
+- `API_TOKEN`: API token for authentication.
 
-The following types of connections are supported:
-- Authentication methods
-  - SSL certificate
-  - SASL using project CA
-  - SASL using public CA
-- Routes
-  - Dynamic
-  - Public
-  - Private (except for VPC peering and PrivateLink)
+</TabItem>
+</Tabs>
 
-### Limitations
+## How IPv6 connectivity works
 
-The following known limitations exist:
-- It is not possible to completely disable IPv4
-- VPC peering routes rely on IPv4 only
-- PrivateLink routes rely on IPv4 only
-- Static IP addresses rely on IPv4 only
+### Server behavior
 
-#### VPC Peering
+When IPv6 connectivity is enabled:
 
-Existing clients might resolve IPv6 addresses but not be able to connect to them after
-dual-stack IPv4/IPv6 gets enabled.
+- Existing DNS `A` records continue to resolve to IPv4 addresses.
+- The service creates DNS `AAAA` records that resolve to IPv6 addresses.
+- Kafka brokers listen on the same ports for both IPv4 and IPv6 traffic.
 
-Configuring Kafka clients to explicitly prefer IPv4 addresses can be achieved as follow:
-- Using Java-based client with JVM parameter `-Djava.net.preferIPv4Addresses=true`.
-- Using `kcat` or any other client based on librdkafka with `broker.address.family=v4`.
+### Client behavior
 
-Note that while the JVM parameter also affects HTTP client connection to schema registry,
-the librdkafka parameter does not. A possible workaround is to switch the Schema registry
-connection URL over to the service Public endpoint in the client configuration.
+Kafka clients that can resolve IPv6 addresses can connect using either IPv4 or IPv6,
+depending on the client configuration and network setup.
+
+To control the preferred address family:
+
+- **Java clients**
+  - Prefer IPv6: `-Djava.net.preferIPv6Addresses=true`
+  - Prefer IPv4: `-Djava.net.preferIPv4Addresses=true`
+- **librdkafka-based clients (for example, kcat)**
+  - Prefer IPv6: `broker.address.family=v6`
+  - Prefer IPv4: `broker.address.family=v4`
+
+:::note
+The Java JVM setting also affects HTTP connections, including Schema Registry. The
+librdkafka setting does not.
+:::
+
+## Supported configurations
+
+IPv6 connectivity supports the following configurations:
+
+**Authentication methods**
+
+- SSL certificate
+- SASL using project CA
+- SASL using public CA
+
+**Access routes**
+
+- Dynamic
+- Public
+- Private (excluding VPC peering and PrivateLink)
+
+## Limitations
+
+The following limitations apply when IPv6 connectivity is enabled:
+
+- You cannot fully disable IPv4.
+- VPC peering routes support IPv4 only.
+- PrivateLink routes support IPv4 only.
+- Static IP addresses support IPv4 only.
+
+### Impact
+
+When IPv6 connectivity is enabled, some clients may resolve IPv6 addresses but fail to
+connect over access routes that rely on IPv4.
+
+If connection failures occur, configure Kafka clients to prefer IPv4 addresses:
+
+- **Java clients**: Set `-Djava.net.preferIPv4Addresses=true`.
+- **librdkafka-based clients (for example, kcat)**: Set `broker.address.family=v4`.
+
+If Schema Registry connections fail, configure the client to use the service public
+endpoint.
