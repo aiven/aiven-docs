@@ -6,8 +6,7 @@ keywords: [create, kafka, service, cluster, inkless, classic, byoc]
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Apache Kafka service on Aiven by choosing a **cluster type** that defines how
-the service is sized and where data is stored: **Inkless** or **Classic**.
+Create an Apache Kafka® service on Aiven by choosing a **cluster type** that defines how the service is sized and where data is stored: **Inkless** or **Classic**.
 
 ## Choose a cluster type
 
@@ -21,16 +20,17 @@ Choose Inkless Kafka if you need:
 - Throughput-based sizing instead of fixed plans
 - Faster cluster scaling, version upgrades, and node recovery
 - Higher throughput per broker
-- Mixed workloads, with classic topics for low latency and diskless topics for
+- Mixed workloads with classic topics for low latency and diskless topics for
   lower-cost storage
 - Bring Your Own Cloud (BYOC) deployments
 
-[Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service)
+[Create Inkless service](docs/products/kafka/get-started/create-inkless-service)
+
 
 ### Classic Kafka
 
 Classic Kafka uses fixed plans with local broker storage. Tiered storage is available
-when supported by the selected plan and cloud.
+when the selected plan and cloud support it.
 
 Choose Classic Kafka if you need:
 
@@ -40,7 +40,7 @@ Choose Classic Kafka if you need:
 - Free tier or specific cloud deployments
 - All retained data stored on local disks
 
-[Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service)
+[Create Classic service](/docs/products/kafka/get-started/create-classic-kafka-service)
 
 <RelatedPages />
 

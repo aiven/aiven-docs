@@ -11,8 +11,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-Create a Classic Apache Kafka® service on Aiven. Classic Kafka uses predefined service sizes and stores data on local broker disks.
-Optional tiered storage is available when supported by the selected plan and cloud.
+Create a Classic Apache Kafka® service on Aiven. Classic Kafka uses predefined service sizes and stores data on local broker disks. You can enable tiered storage when the selected plan and cloud support it.
 
 ## Prerequisites
 
@@ -23,8 +22,8 @@ Optional tiered storage is available when supported by the selected plan and clo
 
 Classic Kafka services are available on the Free and Professional service tiers.
 By default, data is stored on local broker disks. You can enable
-[tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage) when it is
-supported by the selected plan and cloud.
+[tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage) when the
+selected plan and cloud support it.
 
 <Tabs groupId="classic-aiven-cloud">
 <TabItem value="console" label="Console" default>
@@ -51,7 +50,7 @@ supported by the selected plan and cloud.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the Aiven CLI to create a Classic Kafka service.
+Create a Classic Kafka service using Aiven CLI:
 
 ```bash
 avn service create SERVICE_NAME \
@@ -71,7 +70,7 @@ Parameters:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Use Terraform to create a Classic Kafka service in your Aiven project.
+Create a Classic Kafka service in your Aiven project using Terraform.
 
 1. Create a file named `provider.tf` and add the following:
 
@@ -97,13 +96,13 @@ Use Terraform to create a Classic Kafka service in your Aiven project.
 </TabItem>
 </Tabs>
 
-## Create a Classic Kafka service on Bring your own cloud (BYOC)
+## Create a Classic Kafka service on Bring Your Own Cloud (BYOC)
 
 Classic Kafka services on BYOC are available on the Professional service tier. The
-service runs in your own cloud account while Aiven manages the Kafka infrastructure and
-operations.
+service runs in your own cloud account while Aiven manages the Kafka infrastructure
+and operations.
 
-Before you can create services on BYOC, you must set up a BYOC environment. See
+To create services on BYOC, first set up a BYOC environment. For instructions, see
 [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
 
 <Tabs groupId="classic-byoc">
@@ -133,7 +132,7 @@ Before you can create services on BYOC, you must set up a BYOC environment. See
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the Aiven CLI to create a Classic Kafka BYOC service.
+Create a Classic Kafka BYOC service using Aiven CLI:
 
 ```bash
 avn service create SERVICE_NAME \

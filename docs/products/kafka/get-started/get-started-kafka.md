@@ -18,7 +18,8 @@ For limits, regions, and supported features, see the
 
 - No payment method is required.
 - Fixed resource limits support low-throughput workloads.
-- Basic Kafka workflows are supported, including service creation and sample data generation.
+- Basic Kafka workflows are supported, including service creation and sample data
+  generation.
 
 **Next step:** [Create a Kafka service using the Free tier](/docs/products/kafka/free-tier/create-free-tier-kafka-service).
 

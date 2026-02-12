@@ -21,7 +21,7 @@ on the service configuration.
 ## Create an Inkless service on Aiven Cloud
 
 Inkless services are available on the **Professional** service tier. On Aiven Cloud,
-the cluster is configured based on the selected ingress capacity and retention.
+you configure the cluster by selecting the ingress capacity and retention.
 
 <Tabs groupId="inkless-aiven-cloud">
 <TabItem value="console" label="Console" default>
@@ -47,7 +47,7 @@ the cluster is configured based on the selected ingress capacity and retention.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the Aiven CLI to create an Inkless Kafka service.
+Create an Inkless Kafka service using the Aiven CLI:
 
 ```bash
 avn service create SERVICE_NAME \
@@ -62,17 +62,21 @@ avn service create SERVICE_NAME \
 
 Parameters:
 
-- `SERVICE_NAME`: Name of the Kafka service
-- `PROJECT_NAME`: Project that contains the service
-- `CLOUD_REGION`: Cloud region, for example aws-eu-north-1 or google-europe-west1
-- `INKLESS_PLAN`: Inkless-capable plan that represents the selected produce rate
+- `SERVICE_NAME`: Name of the Kafka service.
+- `PROJECT_NAME`: Project that contains the service.
+- `CLOUD_REGION`: Cloud region, for example `aws-eu-north-1` or `google-europe-west1`.
+- `INKLESS_PLAN`: Inkless-capable plan for the selected cloud.
 
-Optional configuration:
+To list available Inkless-capable plans for a specific cloud:
 
-Use `kafka_diskless.enabled=true` to enable diskless topics. Set this only if you plan
-to create diskless topics.
+```bash
+avn service plans --service-type kafka --cloud CLOUD_REGION
+```
 
-Example with diskless topics enabled:
+### Enable diskless topics
+
+Add `-c kafka_diskless.enabled=true` when creating the service to use
+diskless topics:
 
 ```bash
 avn service create SERVICE_NAME \
@@ -86,20 +90,17 @@ avn service create SERVICE_NAME \
   -c kafka_diskless.enabled=true
 ```
 
-Plan names may change over time. Run `avn service plan-list --service-type kafka` to
-list the current Inkless-capable plans.
-
 </TabItem>
 </Tabs>
 
-## Create an Inkless service on Bring your own cloud (BYOC)
+## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
 You can run Inkless Kafka clusters in your own cloud account using
 Bring Your Own Cloud (BYOC). Inkless clusters support classic topics and, when
 supported by the service configuration, diskless topics.
 
-Before you can create services on BYOC, you must set up a BYOC environment.
-See [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
+To create services on BYOC, first set up a BYOC environment.
+For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
 
 <Tabs groupId="inkless-byoc">
 <TabItem value="console" label="Console" default>
@@ -121,36 +122,42 @@ See [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Use the Aiven CLI to create an Inkless BYOC Kafka service.
+Create an Inkless Kafka service in a BYOC environment:
 
 ```bash
 avn service create SERVICE_NAME \
   --project PROJECT_NAME \
   --service-type kafka \
   --cloud CUSTOM_CLOUD_REGION \
-  --plan INKLESS_PLAN
+  --plan INKLESS_PLAN \
+  -c kafka_version=4.0 \
+  -c tiered_storage.enabled=true \
+  -c inkless.enabled=true \
+  -c kafka_diskless.enabled=true
 ```
 
 Parameters:
 
-- `SERVICE_NAME`: Name of the Kafka service
-- `PROJECT_NAME`: Aiven project name
-- `CUSTOM_CLOUD_REGION`: BYOC region, such as `custom-aws-eu-central-1`
-- `INKLESS_PLAN`: Inkless-capable plan for the selected BYOC environment
+- `SERVICE_NAME`: Name of the Kafka service.
+- `PROJECT_NAME`: Aiven project name.
+- `CUSTOM_CLOUD_REGION`: BYOC region, such as `custom-aws-eu-central-1`.
+- `INKLESS_PLAN`: Inkless-capable plan for the selected BYOC environment.
+
+:::note
+To enable diskless topics, set `kafka_diskless.enabled=true`. The selected plan must
+support diskless topics.
+:::
 
 </TabItem>
 </Tabs>
 
 ## After service creation
 
-After the service is running, Kafka is available with classic topics by default.
+When the service is running, classic topics are available by default.
+Diskless topics are available only when enabled and supported by the service configuration.
 
-Diskless topics are available only when they are enabled for the service and supported
-by the service configuration.
-
-- Create classic topics to use standard Kafka topics.
-- Create diskless topics to store data in object storage when diskless topics are
-  enabled.
+- Create classic topics to use standard Kafka storage.
+- Create diskless topics to store data in object storage.
 
 <RelatedPages />
 
