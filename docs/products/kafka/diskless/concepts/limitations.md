@@ -30,11 +30,11 @@ console or billing.
 In BYOC deployments, enabling diskless topics automatically creates an
 Aiven for PostgreSQL® service in the project. This PostgreSQL service:
 
+- Is required for diskless topics to function.
 - Stores metadata required for diskless topics.
 - Appears as a separate service in the project.
 - Is created and managed automatically by Aiven.
 - Cannot be configured or managed independently.
-- Is required for diskless topics to function.
 
 ### Maintenance behavior
 
