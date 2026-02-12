@@ -27,6 +27,7 @@
     "@docusaurus/theme-mermaid": "^3.7.0",
     "@iconify/react": "^4.1.1",
     "@mdx-js/react": "^3.0.0",
+    "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/react": "^18.2.48",
     "algoliasearch": "^5.19.0",
     "axios": "^1.13.5",
