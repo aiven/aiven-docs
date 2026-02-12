@@ -11,7 +11,11 @@ Aiven for OpenSearch® allows you to choose the version that best fits your need
 
 ## Multi-version: how it works
 
-Aiven for OpenSearch supports multiple minor and major versions.
+- Aiven for OpenSearch supports the
+  [two latest upstream OpenSearch major versions](/docs/platform/reference/eol-for-major-versions#aiven-for-opensearch).
+- When Aiven releases a new minor version within a major version, it decommissions
+  the previous minor version after six months, giving you time to test and migrate.
+- Patch version upgrades are automatic. For example, Aiven upgrades 3.3.1 to 3.3.2.
 
 ### Default version
 
