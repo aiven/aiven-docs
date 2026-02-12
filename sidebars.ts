@@ -222,6 +222,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/btar/disable-backup-to-another-region',
               ],
             },
+            'platform/howto/controlled-upgrade',
             'platform/howto/create_new_service',
             'platform/concepts/service-power-cycle',
             'platform/concepts/rename-services',
