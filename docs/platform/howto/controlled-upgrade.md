@@ -8,6 +8,13 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Ensure your source service is updated and validated before the same maintenance update reaches your destination service.
 
+:::important
+Controlled upgrade pipeline is a
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+feature.
+[Contact Aiven](https://aiven.io/contact) to request access.
+:::
+
 The controlled upgrade pipeline feature lets you test maintenance updates in
 development or staging environments before they reach production. Link services of
 the same type in an ordered sequence to control when each service receives updates.
@@ -222,4 +229,3 @@ When a maintenance update arrives:
 
 - [Service maintenance, updates and upgrades](/docs/platform/concepts/maintenance-window)
 - [Fork a service](/docs/platform/concepts/service-forking)
-- [Create a service](/docs/platform/howto/create_new_service)
