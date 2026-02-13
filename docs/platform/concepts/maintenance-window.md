@@ -143,6 +143,7 @@ except for those with maintenance disabled.
 
 <RelatedPages/>
 
+- [Control maintenance updates with upgrade pipelines](/docs/platform/howto/controlled-upgrade)
 - [Perform a PostgreSQL® major version update][pg]
 
 [pg]: /docs/products/postgresql/howto/upgrade
