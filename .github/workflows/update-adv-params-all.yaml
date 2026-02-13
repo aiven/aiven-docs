@@ -6,12 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-adv-params-cassandra:
-    name: Update parameters - Cassandra
-    uses: ./.github/workflows/update-adv-params.yaml
-    with:
-      service-name: cassandra
-
   update-adv-params-clickhouse:
     name: Update parameters - Clickhouse
     uses: ./.github/workflows/update-adv-params.yaml

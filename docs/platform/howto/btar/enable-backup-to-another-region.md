@@ -148,7 +148,7 @@ curl --request POST                                                    \
         "cloud": "string",
         "plan": "string",
         "service_name": "service_2_name",
-        "service_type": "cassandra",
+        "service_type": "pg",
         "user_config": {
             "additional_backup_regions": ["cloud-region-name"]
         }

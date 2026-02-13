@@ -36,10 +36,6 @@ backups with the appropriate tooling:
     - `mysqldump` for small or medium-sized databases
     - [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
 
--   [Caching](https://redis.io/docs/connect/cli/#remote-backups-of-rdb-files):
-    `redis-cli`
--   [Cassandra®](https://docs.datastax.com/en/cql-oss/3.1/cql/cql_reference/copy_r.html)
-    `cqlsh`
 -   [OpenSearch®](https://github.com/elasticsearch-dump/elasticsearch-dump):
     `elasticdump`
 -   [Dragonfly®](https://redis.io/docs/latest/operate/rs/references/cli-utilities/redis-cli/): `redis-cli`
@@ -108,14 +104,6 @@ There are specific backup strategies for particular service types.
       <td>Hourly backup for 24 hours and Daily backup for 3 days</td>
       <td>Hourly backup for 24 hours and Daily backup for 14 days</td>
       <td>Hourly backup for 24 hours and Daily backup for 30 days</td>
-    </tr>
-    <tr>
-      <td>Aiven for Apache Cassandra®</td>
-      <td>Plan not available</td>
-      <td>Plan not available</td>
-      <td>Single day backup</td>
-      <td>Single day backup</td>
-      <td>Single day backup</td>
     </tr>
     <tr>
       <td>Aiven for Caching</td>
@@ -312,25 +300,6 @@ backups or hourly backups from the previous day.
 
 Find out more about using your backups in our guide:
 [Restore an OpenSearch® backup](/docs/products/opensearch/howto/restore_opensearch_backup)
-
-### Aiven for Apache Cassandra®
-
-Aiven for Apache Cassandra backups are taken every 24 hours. You can choose when a
-backup starts within the 24 hours and, for example, move the backup outside peak hours to
-save resources. To configure the `backup_hour` and `backup_minute` settings, go to
-the [Aiven Console](https://console.aiven.io) > your Aiven for Apache Cassandra service >
-<ConsoleLabel name="backups"/> > <ConsoleLabel name="actions"/> > **Configure backup settings**.
-
-:::note
-The point-in-time recovery (PITR) feature is not available. To be notified once the PITR
-feature is available for Aiven for Apache Cassandra, contact
-[support@aiven.io](mailto:support@aiven.io).
-:::
-
-### Aiven for Caching
-
-Aiven for Caching automatically backs up data every 12 hours and supports configurable
-data persistence using Redis Database Backup (RDB).
 
 #### Persistence settings
 

@@ -9,10 +9,6 @@ service/alloydbomni:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/alloydbomni/**'
 
-service/cassandra:
-  - changed-files:
-      - any-glob-to-any-file: 'docs/products/cassandra/**'
-
 service/clickhouse:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/clickhouse/**'
