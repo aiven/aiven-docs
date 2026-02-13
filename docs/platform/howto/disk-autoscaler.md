@@ -64,8 +64,6 @@ listed on [Aiven Plans and Pricing](https://aiven.io/pricing?product=kafka).
     :::note[Autoscale thresholds per service type]
     The threshold at which disk autoscaling is triggered is a percentage of
     the available disk storage capacity and depends on a service type:
-    -   Aiven for Apache Cassandra®: 35% of the available disk storage
-        capacity
     -   Aiven for OpenSearch®: 75% of the available disk storage capacity
     -   All other Aiven service types: 85% of the available disk storage capacity
     :::

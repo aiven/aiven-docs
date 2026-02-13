@@ -8,7 +8,6 @@ import {ButtonSecondary} from "@site/src/components/Buttons";
 import Card from "@site/src/components/Card";
 import Overview from "@site/static/images/content/platform/platform-overview.png";
 import GridContainer from "@site/src/components/GridContainer";
-import Cassandra from "@site/static/images/logos/cassandra.svg";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";
 import Opensearch from "@site/static/images/logos/opensearch.svg";

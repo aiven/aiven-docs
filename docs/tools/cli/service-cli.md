@@ -240,31 +240,6 @@ Manages the Apache Kafka® native ACL entries.
 More information on `kafka-acl-add`, `kafka-acl-delete` and `kafka-acl-list` can be found
 in [the dedicated page](service/kafka-acl).
 
-### `avn service keypair get`
-
-Service keypair commands. The use cases for this command are limited to
-accessing the keypair for an Aiven for Apache Cassandra® service that
-was started in `migration mode`. For more information about this, see
-[](https://help.aiven.io/en/articles/3147884-using-sstableloader-to-migrate-your-existing-cassandra-cluster-to-aiven)
-
-| Parameter         | Information                                                                 |
-| ----------------- | --------------------------------------------------------------------------- |
-| `service_name`    | The name of the service                                                     |
-| `keypair`         | The name of the keypair. Options are `cassandra_migrate_sstableloader_user` |
-| `--key-filepath`  | The location to download the key to                                         |
-| `--cert-filepath` | The location to download the certificate to                                 |
-
-**Example:** Retrieve the keypair, and save them to the `/tmp`
-directory, for an Aiven for Apache Cassandra® service, called
-`test-cass`, that was started in migration mode.
-
-```
-avn service keypair get --key-filepath /tmp/keyfile --cert-filepath /tmp/certfile test-cass cassandra_migrate_sstableloader_user
-```
-
-The output of this command results in 2 files (`keyfile` and `certfile`)
-saved to the `/tmp` directory.
-
 ### `avn service list`
 
 Lists services within an Aiven project.
@@ -285,7 +260,6 @@ An example of `service list` output:
 ```text
 SERVICE_NAME        SERVICE_TYPE  STATE    CLOUD_NAME           PLAN         CREATE_TIME           UPDATE_TIME
 ==================  ============  =======  ===================  ===========  ====================  ====================
-cassandra-28962a5b  cassandra     RUNNING  google-europe-west3  business-16  2021-09-27T10:18:19Z  2021-09-27T10:25:58Z
 os-24a6d6db         opensearch    RUNNING  google-europe-west3  business-4   2021-09-27T10:18:04Z  2021-09-27T10:23:31Z
 kafka-2134          kafka         RUNNING  google-europe-west3  business-4   2021-09-27T08:48:35Z  2021-09-27T11:20:55Z
 mysql-12f7628c      mysql         RUNNING  google-europe-west3  business-4   2021-09-27T10:18:09Z  2021-09-27T10:23:02Z
@@ -596,7 +570,6 @@ An example of `service types` output:
 ```text
 SERVICE_TYPE       DESCRIPTION
 =================  ===================================================================================
-cassandra          Cassandra - Distributed NoSQL data store
 elasticsearch      Elasticsearch - Search & Analyze Data in Real Time
 grafana            Grafana - Metrics Dashboard
 kafka              Kafka - High-Throughput Distributed Messaging System
@@ -717,7 +690,6 @@ An example of `service versions` output:
 ```text
 SERVICE_TYPE   MAJOR_VERSION  STATE        AVAILABILITY_START_TIME  AVAILABILITY_END_TIME  AIVEN_END_OF_LIFE_TIME  UPSTREAM_END_OF_LIFE_TIME  TERMINATION_TIME  END_OF_LIFE_HELP_ARTICLE_URL
 =============  =============  ===========  =======================  =====================  ======================  =========================  ================  ====================================================================================================
-cassandra      3.11           available    2018-11-08T00:00:00Z     null                   null                    null                       null              null
 OpenSearch     7              unavailable  2020-08-27T00:00:00Z     2021-09-23T00:00:00Z   2022-03-23T00:00:00Z    null                       null              https://help.aiven.io/en/articles/5424825
 OpenSearch     7.10           unavailable  2021-02-22T00:00:00Z     2021-09-23T00:00:00Z   2022-03-23T00:00:00Z    null                       null              https://help.aiven.io/en/articles/5424825
 OpenSearch     7.9            unavailable  2020-08-27T00:00:00Z     2021-09-23T00:00:00Z   2022-03-23T00:00:00Z    null                       null              https://help.aiven.io/en/articles/5424825

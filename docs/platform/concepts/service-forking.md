@@ -24,8 +24,6 @@ Common use cases for forking include:
 
 You can fork the following Aiven services:
 
--   Apache Cassandra®
--   Caching
 -   ClickHouse®
 -   Grafana®
 -   Metrics
@@ -42,7 +40,7 @@ and connection pools are copied to the new service.
   [backup](/docs/platform/concepts/service_backups).
 - Service integrations are not copied over to the forked versions.
 - You cannot [fork Aiven for ClickHouse®](/docs/products/clickhouse/howto/restore-backup)
-  or Aiven for Apache Cassandra® services to a lower amount of nodes.
+  services to a lower amount of nodes.
 - Single sign-on (SSO) methods are not copied over to forked Aiven for OpenSearch® services
   because they are linked to specific URLs and endpoints, which change during
   forking. If you don't configure the SSO methods for the forked service, this can

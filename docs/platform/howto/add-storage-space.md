@@ -15,7 +15,6 @@ additional storage instead of upgrading the compute resources.
 :::note[Availability]
 DDS is available for the following services:
 
-- Aiven for Apache Cassandra®
 - Aiven for Apache Kafka®
 - Aiven for ClickHouse®
 - Aiven for Grafana®
@@ -23,12 +22,13 @@ DDS is available for the following services:
 - Aiven for MySQL®
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®
+
 :::
 
 When you add storage to your service, the Aiven platform provisions the
 extra disk space and dynamically adds it to your running instances.
 
-In a clustered service such as Apache Cassandra or Apache Kafka, the
+In a clustered service such as Apache Kafka, the
 additional storage is equally divided between the nodes. In a shared
 service, each node receives the total shared capacity of the added
 storage.

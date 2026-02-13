@@ -145,14 +145,6 @@ from earlier versions is not yet supported. For details and current limitations,
 To support this transition, Aiven has extended support for Apache Kafka 3.8 by one year.
 :::
 
-### Aiven for Apache Cassandra® {#h_0f2929c770}
-
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 3       | 2022-07-27 | 2022-04-27                       | 2018-11-08                      |
-| 4.0     | 2026-01-07 | 2025-12-03                       | 2021-12-09                      |
-| 4.1     | 2026-01-07 | 2025-12-03                       | 2024-01-18                      |
-
 ### Aiven for Apache Flink® {#aiven-for-flink}
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |

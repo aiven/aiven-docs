@@ -51,19 +51,16 @@ To filter the services by service type, use these filter values:
 
 | Service name                | Filter value    |
 | --------------------------- | --------------- |
-| Apache Cassandra®           | `cassandra`     |
 | Apache Flink®               | `flink`         |
 | Apache Kafka®               | `kafka`         |
 | Apache Kafka® Connect       | `kafkaconnect`  |
 | Apache Kafka® MirrorMaker 2 | `mirrormaker`   |
 | ClickHouse®                 | `clickhouse`    |
 | Grafana®                    | `grafana`       |
-| InfluxDB®                   | `influxdb`      |
 | Metrics                     | `thanos`        |
 | MySQL®                      | `mysql`         |
 | OpenSearch®                 | `opensearch`    |
 | PostgreSQL®                 | `pg`            |
-| Caching                     | `redis`         |
 
 ### Filter by status
 
