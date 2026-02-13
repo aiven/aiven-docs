@@ -438,15 +438,15 @@ call), the new index will have no lifecycle management.
 
 With the double reindex approach, deletion of the original source index purges all ISM
 metadata associated with that name. Even if you recreate the index with the same name, the
-ISM plugin will not recognize it. You must re-run the `_plugins/_ism/add` command, or the
-index will sit unmanaged.
+ISM plugin will not recognize it. Re-run the `_plugins/_ism/add` command to ensure the
+index is managed.
 
 ### Clock reset
 
 Most ISM policies calculate the age of data based on the `index.creation_date`. Reindexing
 creates a new index today, resetting this date.
 
-### State desynchronization
+### Policy state reset
 
 ISM policies are stateful. A policy might be in a Warm state waiting to move to Cold. You
 cannot migrate the state of a policy from one index to another. The new index starts at

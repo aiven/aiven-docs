@@ -301,6 +301,7 @@ redis_timeout
 Redli
 refcard
 reindex
+reindexed
 reindexing
 remoteSecure
 requesters
@@ -367,6 +368,7 @@ Terraforming
 Thanos
 tiering
 TimescaleDB
+tokenizer
 toolchain
 Transport Layer Security
 truststore
