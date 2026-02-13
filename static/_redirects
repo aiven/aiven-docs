@@ -137,11 +137,12 @@
 /products/caching/reference/advanced-params                        /docs/products/valkey/reference/advanced-params  301
 /products/caching/troubleshooting                                  /docs/products/valkey/troubleshooting/troubleshoot-connection-issues  301
 /products/caching/troubleshooting/troubleshoot-redis-connection-issues /docs/products/valkey/troubleshooting/troubleshoot-connection-issues  301
-/products/cassandra/concepts                           /docs/products/cassandra/concepts/tombstones  301
-/products/cassandra/howto                              /docs/products/cassandra/howto/list-code-samples  301
-/products/cassandra/howto/list-get-started             /docs/products/cassandra/get-started  301
-/products/cassandra/overview                           /docs/products/cassandra  301
-/products/cassandra/reference                          /docs/products/cassandra/reference/advanced-params  301
+/products/cassandra                                    /docs/products/services  301
+/products/cassandra/concepts                           /docs/products/services  301
+/products/cassandra/howto                              /docs/products/services  301
+/products/cassandra/howto/list-get-started             /docs/products/services  301
+/products/cassandra/overview                           /docs/products/services  301
+/products/cassandra/reference                          /docs/products/services  301
 /products/clickhouse/concepts                          /docs/products/clickhouse/concepts/service-architecture  301
 /products/clickhouse/concepts/features-overview        /docs/products/clickhouse  301
 /products/clickhouse/howto                             /docs/products/clickhouse/howto/list-connect-to-service  301
@@ -332,3 +333,4 @@
 /products/m3db/*                                           /docs/products/metrics  301
 /products/redis/*                                          /docs/products/valkey/:splat  301
 /products/caching/*                                        /docs/products/valkey/:splat  301
+/products/cassandra/*                                      /docs/products/services  301

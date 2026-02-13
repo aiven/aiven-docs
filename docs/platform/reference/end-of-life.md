@@ -38,18 +38,8 @@ the managed, in-memory NoSQL database service: [Aiven for Valkey™](/docs/produ
 
 **EOL date**: January 7, 2026
 
-- **End of availability (EOA)**: December 3, 2025
-
-  After this date, you can no longer create new Aiven for Apache Cassandra services.
-  Existing services continue to operate until the end of life (EOL) date.
-
-- **End of life (EOL)**: January 7, 2026
-
-  After January 7, 2026, all active Aiven for Apache Cassandra services are powered off
-  and deleted, making data from these services inaccessible.
-
-To ensure uninterrupted service, complete your migration out of Aiven for Apache Cassandra
-before January 7, 2026. For further assistance, contact your account team.
+Since January 7, 2026, Aiven for Apache Cassandra services are no longer available,
+and data they hosted is inaccessible.
 
 ## Aiven for AlloyDB Omni
 

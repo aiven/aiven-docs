@@ -20,8 +20,6 @@ By default, Aiven-managed services allow up to 50 users.
 This limit does not apply to the following services:
 
 - Aiven for AlloyDB Omni
-- Aiven for Apache Cassandra®
-- Aiven for Caching
 - Aiven for Dragonfly
 - Aiven for MySQL®
 - Aiven for PostgreSQL®
