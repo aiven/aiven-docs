@@ -369,6 +369,7 @@ Thanos
 tiering
 TimescaleDB
 tokenizer
+tokenizers
 toolchain
 Transport Layer Security
 truststore
