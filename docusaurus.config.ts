@@ -93,6 +93,8 @@ const config: Config = {
       'data-modal-title': 'Ask Aiven docs AI',
       'data-modal-image-width': '38px',
       'data-button-hide': 'true',
+      'data-mcp-enabled': 'true',
+      'data-mcp-server-url': 'https://aiven-docs.mcp.kapa.ai',
       'data-modal-header-bg-color': '#F3F6FF',
       'data-modal-header-border-bottom': '1px solid #CED4DA',
       'data-font-family': 'Inter',
