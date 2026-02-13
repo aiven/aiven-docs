@@ -494,7 +494,6 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'tools/cli/service/acl',
-                'tools/cli/service/alloydbomni',
                 'tools/cli/service/connection-info',
                 'tools/cli/service/connection-pool',
                 'tools/cli/service/connector',
@@ -526,50 +525,6 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       items: [
         'products/services',
-        {
-          type: 'category',
-          label: 'Aiven for AlloyDB Omni',
-          link: {
-            id: 'products/alloydbomni',
-            type: 'doc',
-          },
-          items: [
-            'products/alloydbomni/get-started',
-            {
-              type: 'category',
-              label: 'Connect to Aiven for AlloyDB Omni',
-              link: {
-                type: 'doc',
-                id: 'products/alloydbomni/connect/connect-services',
-              },
-              items: [
-                'products/alloydbomni/connect/connect-go',
-                'products/alloydbomni/connect/connect-node',
-                'products/alloydbomni/connect/connect-php',
-                'products/alloydbomni/connect/connect-python',
-                'products/alloydbomni/connect/connect-java',
-                'products/alloydbomni/connect/connect-psql',
-                'products/alloydbomni/connect/connect-pgadmin',
-                'products/alloydbomni/connect/connect-datagrip',
-                'products/alloydbomni/connect/connect-dbeaver',
-                'products/alloydbomni/connect/connect-rivery',
-                'products/alloydbomni/connect/connect-skyvia',
-                'products/alloydbomni/connect/connect-zapier',
-              ],
-            },
-            'products/alloydbomni/use-columnar-engine',
-            'products/alloydbomni/manage-credentials',
-            'products/alloydbomni/access-ai-models',
-            {
-              type: 'category',
-              label: 'Reference',
-              items: [
-                'products/alloydbomni/reference/advanced-params',
-                'products/alloydbomni/reference/list-of-extensions',
-              ],
-            },
-          ],
-        },
         {
           type: 'category',
           label: 'Aiven for Apache Flink®',

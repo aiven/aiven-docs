@@ -19,7 +19,6 @@ and Aiven for Grafana®.
 By default, Aiven-managed services allow up to 50 users.
 This limit does not apply to the following services:
 
-- Aiven for AlloyDB Omni
 - Aiven for Dragonfly
 - Aiven for MySQL®
 - Aiven for PostgreSQL®
@@ -48,7 +47,6 @@ To increase the maximum number of users allowed for a service,
 
 Use the service user resource for your Aiven service:
 
-- Aiven for AlloyDB Omni: [`aiven_alloydbomni_user`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/alloydbomni_user)
 - Aiven for ClickHouse®: [`aiven_clickhouse_user`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/clickhouse_user)
 - Aiven for Apache Kafka®: [`aiven_kafka_user`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_user)
 - Aiven for MySQL®: [`aiven_mysql_user`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql_user)

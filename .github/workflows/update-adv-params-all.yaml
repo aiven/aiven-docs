@@ -71,9 +71,3 @@ jobs:
     uses: ./.github/workflows/update-adv-params.yaml
     with:
       service-name: valkey
-
-  update-adv-params-alloydbomni:
-    name: Update parameters - AlloyDB Omni
-    uses: ./.github/workflows/update-adv-params.yaml
-    with:
-      service-name: alloydbomni

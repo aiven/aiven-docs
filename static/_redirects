@@ -100,7 +100,8 @@
 /platform/privatelink                                  /docs/platform/howto/use-aws-privatelinks  301
 /platform/reference/project-member-privileges          /docs/platform/concepts/permissions  301
 /platform/vpc                                          /docs/platform/howto/manage-vpc-peering  301
-/products/alloydbomni/advanced-params                  /docs/products/alloydbomni/reference/advanced-params  301
+/products/alloydbomni                                  /docs/products/postgresql  301
+/products/alloydbomni/advanced-params                  /docs/products/postgresql/reference/advanced-params  301
 # Aiven for Caching → Aiven for Valkey redirects
 /products/caching                                                  /docs/products/valkey  301
 /products/caching/concepts                                         /docs/products/valkey  301
@@ -286,6 +287,7 @@
 /tools/cli/project                                         /docs/tools/cli  301
 /tools/cli/service                                         /docs/tools/cli/service-cli  301
 /tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics  301
+/tools/cli/service/alloydbomni                             /docs/tools/cli/service-cli  301
 /tools/cli/ticket                                          /docs/platform/howto/support  301
 /tools/cli/user/user-access-token                          /docs/tools/cli/user  301
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform  301
@@ -334,3 +336,4 @@
 /products/redis/*                                          /docs/products/valkey/:splat  301
 /products/caching/*                                        /docs/products/valkey/:splat  301
 /products/cassandra/*                                      /docs/products/services  301
+/products/alloydbomni/*                                    /docs/products/postgresql  301
