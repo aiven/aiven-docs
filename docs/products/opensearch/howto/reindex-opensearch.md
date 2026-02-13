@@ -67,7 +67,7 @@ versions that are incompatible with your target upgrade version.
 There are two primary patterns for reindexing. Your choice depends on whether you can use
 aliases.
 
-### Strategy A: Blue-Green swap
+### Strategy A: blue-green swap
 
 Create a new index alongside your existing index and move a pointer (alias) once the data
 is synchronized.
@@ -78,7 +78,7 @@ is synchronized.
   end.
 - **Use when**: Your application uses aliases to reference indices.
 
-### Strategy B: Double reindex
+### Strategy B: double reindex
 
 Use when you cannot use aliases.
 
