@@ -31,7 +31,7 @@ https://aiven-docs.mcp.kapa.ai
 <Tabs groupId="mcp-clients">
 <TabItem value="cursor" label="Cursor" default>
 
-### Configure in a repository
+To configure the MCP server using a configuration file:
 
 1. In your project root, create or edit `.cursor/mcp.json`.
 1. Add the following configuration:
@@ -54,7 +54,7 @@ https://aiven-docs.mcp.kapa.ai
 1. When prompted, click **Open** to launch your browser.
 1. Sign in with your Google account to complete authentication.
 
-### Configure in the UI
+To configure the MCP server using the Cursor UI:
 
 1. Open **Settings** > **Tools & MCP**.
 1. Click **Add Custom MCP**.

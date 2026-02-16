@@ -41,4 +41,10 @@ You can interact with the Aiven platform with various interfaces and tools that 
         title="SQL query optimizer"
         description="Use AI to optimize your queries."
     />
+    <Card
+        to="/docs/tools/mcp-server"
+        iconName="dataflow02"
+        title="MCP server"
+        description="Access Aiven documentation from MCP-compatible clients."
+    />
 </GridContainer>
