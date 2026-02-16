@@ -18,9 +18,9 @@ certain changes require creating a new index and moving data into it.
 
 ### Version upgrades
 
-Newer Aiven for OpenSearch versions can introduce compatibility
-  requirements where indices require a minimum version. Upgrading to a newer version
-  with indices created in an incompatible earlier version can cause the upgrade to fail.
+Newer Aiven for OpenSearch versions can introduce compatibility requirements where indices
+require a minimum version. Upgrading to a newer version with indices created in an
+incompatible earlier version can cause the upgrade to fail.
 
 :::important[Version compatibility rules]
 
@@ -68,8 +68,8 @@ In the examples,
 
 - `$OS_URI` is used for the service connection URL (for example,
   `https://USER:PASSWORD@HOST:PORT`).
-- `$OLD_INDEX` is used for the index to be reindexed.
-- `$NEW_INDEX` is used for the target index.
+- `$OLD_INDEX_NAME` is used for the index to be reindexed.
+- `$NEW_INDEX_NAME` is used for the target index.
 
 :::
 
@@ -93,7 +93,7 @@ aliases.
 
 ### Strategy A: blue-green swap
 
-Create a new index alongside your existing index and move a pointer (alias) once the data
+Create an index alongside your existing index and move a pointer (alias) once the data
 is synchronized.
 
 - **How it works**: Data is copied to a new version, for example, v2. Once verified, the
@@ -127,7 +127,7 @@ curl -s "$OS_URI/_cat/allocation?v&s=disk.avail:desc"
 
 Check these values:
 
-- `disk.indices`: the amount of space currently taken by your data
+- `disk.indices`: the amount of space taken by your data
 - `disk.avail`: the remaining space on the node
 - `disk.percent`: your current usage percentage
 
@@ -151,7 +151,7 @@ curl -s "$OS_URI/_cluster/settings?include_defaults=true" | jq '
 See the primary storage and total storage (primaries plus replicas):
 
 ```bash
-curl -s "$OS_URI/_cat/indices/$OLD_INDEX?v&h=index,docs.count,pri.store.size,store.size"
+curl -s "$OS_URI/_cat/indices/$OLD_INDEX_NAME?v&h=index,docs.count,pri.store.size,store.size"
 ```
 
 Check these values:
@@ -159,7 +159,7 @@ Check these values:
 - `pri.store.size`: the size of your unique data (the primary shards)
 - `store.size`: the total space on disk, including replicas
 
-### Verify safe-to-proceed
+### Verify sufficient storage
 
 If current disk usage plus 1.5 times the index size (with replicas) does not push the disk
 usage over the watermark levels (specifically the flood stage), you can proceed.
@@ -182,7 +182,7 @@ Capture the current settings as the source of truth.
 Export the complete definition of your existing index:
 
 ```bash
-curl -s "$OS_URI/$OLD_INDEX" > original_state.json
+curl -s "$OS_URI/$OLD_INDEX_NAME" > original_state.json
 ```
 
 ### 2. Create configuration for the new index
@@ -211,14 +211,14 @@ jq '.[0][value] | {
 Alternatively, manually create an index with updated settings:
 
 ```bash
-PUT /NEW_INDEX_NAME
-{
-  "settings":
-  {
+curl -X PUT "$OS_URI/NEW_INDEX_NAME" \
+     -H 'Content-Type: application/json' \
+     -d '{
+  "settings": {
     "number_of_shards": 1,
     "number_of_replicas": 1
   }
-}
+}'
 ```
 
 Adjust `number_of_shards` and `number_of_replicas` based on your requirements.
@@ -228,7 +228,7 @@ Adjust `number_of_shards` and `number_of_replicas` based on your requirements.
 Use the sanitized settings to create the destination index:
 
 ```bash
-curl -s -X PUT "$OS_URI/$NEW_INDEX" \
+curl -s -X PUT "$OS_URI/$NEW_INDEX_NAME" \
      -H 'Content-Type: application/json' \
      -d @new_index_request.json
 ```
@@ -240,16 +240,15 @@ If you created the index manually, apply the mapping. Extract only the `properti
 from the mapping response:
 
 ```bash
-PUT /NEW_INDEX_NAME/_mapping
-{
-  "properties":
-  {
-    "example_field":
-    {
+curl -X PUT "$OS_URI/NEW_INDEX_NAME/_mapping" \
+     -H 'Content-Type: application/json' \
+     -d '{
+  "properties": {
+    "example_field": {
       "type": "text"
     }
   }
-}
+}'
 ```
 
 ### 4. Make the source index read-only
@@ -258,7 +257,7 @@ Optionally, prevent the moving target problem by making the source index read-on
 prevents writes during reindexing.
 
 ```bash
-curl -s -X PUT "$OS_URI/$OLD_INDEX/_settings" \
+curl -s -X PUT "$OS_URI/$OLD_INDEX_NAME/_settings" \
      -H 'Content-Type: application/json' \
      -d '{
        "index.blocks.write": true
@@ -280,8 +279,8 @@ request timeouts:
 TASK_ID=$(curl -s -X POST "$OS_URI/_reindex?wait_for_completion=false&slices=auto" \
      -H 'Content-Type: application/json' \
      -d "{
-       \"source\": {\"index\": \"$OLD_INDEX\"},
-       \"dest\": {\"index\": \"$NEW_INDEX\"}
+       \"source\": {\"index\": \"$OLD_INDEX_NAME\"},
+       \"dest\": {\"index\": \"$NEW_INDEX_NAME\"}
      }" | jq -r '.task')
 
 echo "Reindex Task started: $TASK_ID"
@@ -293,17 +292,16 @@ The reindex returns a task ID for monitoring progress.
 For synchronous reindexing of smaller indices:
 
 ```bash
-POST /_reindex
-{
-  "source":
-  {
-    "index": "OLD_INDEX_NAME"
+curl -s -X POST "$OS_URI/_reindex" \
+     -H 'Content-Type: application/json' \
+     -d '{
+  "source": {
+    "index": "$OLD_INDEX_NAME"
   },
-  "dest":
-  {
-    "index": "NEW_INDEX_NAME"
+  "dest": {
+    "index": "$NEW_INDEX_NAME"
   }
-}
+}'
 ```
 
 For large indices, consider using these additional parameters:
@@ -314,17 +312,16 @@ For large indices, consider using these additional parameters:
 Use slicing to parallelize the reindexing process:
 
 ```bash
-POST /_reindex?slices=5&refresh
-{
-  "source":
-  {
-    "index": "OLD_INDEX_NAME"
+curl -s -X POST "$OS_URI/_reindex?slices=5&refresh" \
+     -H 'Content-Type: application/json' \
+     -d '{
+  "source": {
+    "index": "$OLD_INDEX_NAME"
   },
-  "dest":
-  {
-    "index": "NEW_INDEX_NAME"
+  "dest": {
+    "index": "$NEW_INDEX_NAME"
   }
-}
+}'
 ```
 
 The `slices` parameter splits the reindexing into multiple subtasks. Use a value equal to
@@ -355,18 +352,17 @@ GET /_tasks/TASK_ID
 Control the batch size to manage memory usage:
 
 ```bash
-POST /_reindex
-{
-  "source":
-  {
-    "index": "OLD_INDEX_NAME",
+curl -s -X POST "$OS_URI/_reindex" \
+     -H 'Content-Type: application/json' \
+     -d '{
+  "source": {
+    "index": "$OLD_INDEX_NAME",
     "size": 1000
   },
-  "dest":
-  {
-    "index": "NEW_INDEX_NAME"
+  "dest": {
+    "index": "$NEW_INDEX_NAME"
   }
-}
+}'
 ```
 
 The `size` parameter specifies how many documents to process in each batch.
@@ -379,8 +375,8 @@ The `size` parameter specifies how many documents to process in each batch.
 Check that all documents are copied successfully:
 
 ```bash
-GET /OLD_INDEX_NAME/_count
-GET /NEW_INDEX_NAME/_count
+curl -s "$OS_URI/$OLD_INDEX_NAME/_count"
+curl -s "$OS_URI/$NEW_INDEX_NAME/_count"
 ```
 
 The document counts should match.
@@ -394,21 +390,24 @@ Complete the reindexing process based on your chosen strategy.
 Update aliases to point to the newly created index:
 
 ```bash
-POST /_aliases
-{
+curl -s -X POST "$OS_URI/_aliases" \
+     -H 'Content-Type: application/json' \
+     -d '{
   "actions": [
     {
       "remove": {
-        "index": "OLD_INDEX_NAME",
+        "index": "$OLD_INDEX_NAME",
         "alias": "my_alias"
+      }
     },
     {
       "add": {
-        "index": "NEW_INDEX_NAME",
+        "index": "$NEW_INDEX_NAME",
         "alias": "my_alias"
+      }
     }
   ]
-}
+}'
 ```
 
 If you modified `refresh_interval`, set it back to the original value on the target index.
@@ -417,7 +416,7 @@ After verifying that your application works correctly with the new index, delete
 index:
 
 ```bash
-DELETE /OLD_INDEX_NAME
+curl -s -X DELETE "$OS_URI/$OLD_INDEX_NAME"
 ```
 
 #### Double reindex approach
@@ -428,7 +427,7 @@ operations targeting the index.
 1. Optionally, clone the original source before deleting it (the index must be read-only):
 
    ```bash
-   curl -s -X POST "$OS_URI/$OLD_INDEX/_clone/OLD_INDEX_BACKUP"
+   curl -s -X POST "$OS_URI/$OLD_INDEX_NAME/_clone/${OLD_INDEX_NAME}_backup"
    ```
 
 1. Delete the original source index and redo the reindex steps using the freshly created
