@@ -16,8 +16,10 @@ at the organization level and you
 in the same way as organization users.
 
 You cannot make application users super admin, but you can grant them the
-organization admin role, giving them full access to your organization,
-its organizational units, projects, services, billing, and other settings.
+organization admin role, giving them access to your organization,
+its organizational units, projects, and services. However, application users
+cannot access or manage billing information even if you make them
+an organization admin.
 
 Unlike organization users, application users can't log in to the Aiven Console and the
 authentication policies don't apply to them.
