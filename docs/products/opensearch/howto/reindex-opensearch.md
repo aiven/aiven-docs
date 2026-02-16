@@ -13,24 +13,30 @@ When upgrading Aiven for OpenSearch® to a newer version, reindex indices create
 
 In a production environment, reindexing is more than a version upgrade tool. It is a
 fundamental administrative task required whenever you need to change the underlying
-structure of your data. Because OpenSearch utilizes immutable Lucene segments, certain
-changes require creating a new index and moving data into it.
+structure of your data. Because Aiven for OpenSearch utilizes immutable Lucene segments,
+certain changes require creating a new index and moving data into it.
 
-Common reasons for reindexing:
+### Version upgrades
 
-- **Version upgrades**: Newer Aiven for OpenSearch versions can introduce compatibility
+Newer Aiven for OpenSearch versions can introduce compatibility
   requirements where indices must use a minimum version. If you upgrade to a newer version
   with indices created in an incompatible earlier version, the upgrade can fail.
-- **Mapping transformations**: Changing a field type, such as converting a text field to a
-  keyword for exact matching.
-- **Static setting updates**: Changing the number of primary shards or updating custom
-  analyzers and tokenizers.
 
 To upgrade when reindexing is required:
 
 1. Upgrade your service to an intermediate compatible version if needed.
 1. Reindex all indices created with incompatible earlier versions.
 1. Upgrade to the target version.
+
+### Mapping transformations
+
+You might need reindexing when changing a field type, for example, when converting a text
+field to a keyword for exact matching.
+
+### Static setting updates
+
+Common reasons for reindexing are changing the number of primary shards and updating
+custom analyzers and tokenizers.
 
 ## Prerequisites
 
@@ -44,9 +50,13 @@ To upgrade when reindexing is required:
 - You have required permissions to create and delete indices.
 
 :::note
-In the examples, `$OS_URI` is used for the service connection URL (for example,
-`https://USER:PASSWORD@HOST:PORT`), `$OLD_INDEX` for the index to be reindexed, and
-`$NEW_INDEX` for the target index.
+In the examples,
+
+- `$OS_URI` is used for the service connection URL (for example,
+  `https://USER:PASSWORD@HOST:PORT`).
+- `$OLD_INDEX` is used for the index to be reindexed.
+- `$NEW_INDEX` is used for the target index.
+
 :::
 
 ## Identify indices requiring reindexing
@@ -72,7 +82,7 @@ aliases.
 Create a new index alongside your existing index and move a pointer (alias) once the data
 is synchronized.
 
-- **How it works**: Data is copied to a new version (for example, v2). Once verified, the
+- **How it works**: Data is copied to a new version, for example, v2. Once verified, the
   application alias is updated to point to v2 in a single, atomic operation.
 - **Pros**: Instant rollback, low downtime, and source data remains untouched until the
   end.
@@ -90,7 +100,7 @@ Use when you cannot use aliases.
 
 ## Check storage availability
 
-Before starting a reindex, verify you have enough storage space. You need to see how
+Before starting a reindex, verify you have enough storage space by checking how Aiven for
 OpenSearch views its disk watermarks.
 
 ### Check disk usage per node
@@ -103,14 +113,14 @@ curl -s "$OS_URI/_cat/allocation?v&s=disk.avail:desc"
 
 Check these values:
 
-- `disk.indices`: The amount of space currently taken by your data.
-- `disk.avail`: The remaining space on the node.
-- `disk.percent`: Your current usage percentage.
+- `disk.indices`: the amount of space currently taken by your data
+- `disk.avail`: the remaining space on the node
+- `disk.percent`: your current usage percentage
 
 ### Check flood stage watermarks
 
-OpenSearch blocks all writes (including reindexing) if a node hits the flood stage
-watermark. By default, this is 95%.
+Aiven for OpenSearch blocks all writes (including reindexing) if a node hits the flood
+stage watermark. By default, this is 95%.
 
 Check if your cluster has custom settings:
 
@@ -122,10 +132,6 @@ curl -s "$OS_URI/_cluster/settings?include_defaults=true" | jq '
 '
 ```
 
-:::note
-This command uses `jq` for JSON manipulation. Install it if not available on your system.
-:::
-
 ### Check index-specific storage
 
 See the primary storage and total storage (primaries plus replicas):
@@ -136,8 +142,8 @@ curl -s "$OS_URI/_cat/indices/$OLD_INDEX?v&h=index,docs.count,pri.store.size,sto
 
 Check these values:
 
-- `pri.store.size`: The size of your unique data (the primary shards).
-- `store.size`: The total space on disk, including replicas.
+- `pri.store.size`: the size of your unique data (the primary shards)
+- `store.size`: the total space on disk, including replicas
 
 ### Verify safe-to-proceed
 
@@ -234,7 +240,7 @@ PUT /NEW_INDEX_NAME/_mapping
 
 ### 4. Make the source index read-only
 
-Optional: Prevent the moving target problem by making the source index read-only. This
+Optionally, prevent the moving target problem by making the source index read-only. This
 prevents writes during reindexing.
 
 ```bash
@@ -246,7 +252,7 @@ curl -s -X PUT "$OS_URI/$OLD_INDEX/_settings" \
 ```
 
 :::warning
-Applications trying to write to the source index will receive a 403 Forbidden error.
+Applications trying to write to the source index will receive a `403 Forbidden` error.
 :::
 
 ### 5. Reindex the data
@@ -319,8 +325,9 @@ Monitor the reindex task by periodically running:
 curl -s "$OS_URI/_tasks/$TASK_ID" | jq '.task.status'
 ```
 
-When a task completes, it disappears from the `_tasks` endpoint (request returns 404). If
-the task was successful, its result is stored in the `.tasks` index for a short period.
+When the task completes, it disappears from the `_tasks` endpoint (the request returns
+`404`). If the task is successful, its result is stored in the `.tasks` index for a short
+period.
 
 You can also use:
 
@@ -355,7 +362,7 @@ The `size` parameter specifies how many documents to process in each batch.
 
 ### 6. Verify the reindexing
 
-Check that all documents were copied successfully:
+Check that all documents are copied successfully:
 
 ```bash
 GET /OLD_INDEX_NAME/_count
@@ -368,7 +375,7 @@ The document counts should match.
 
 Complete the reindexing process based on your chosen strategy.
 
-#### Blue-Green approach
+#### Blue-green approach
 
 Update aliases to point to the newly created index:
 
@@ -390,8 +397,7 @@ POST /_aliases
 }
 ```
 
-If you modified the `refresh_interval`, set it back to the original value on the target
-index.
+If you modified `refresh_interval`, set it back to the original value on the target index.
 
 After verifying that your application works correctly with the new index, delete the old
 index:
@@ -405,7 +411,7 @@ DELETE /OLD_INDEX_NAME
 Before repeating the reindexing, ensure no applications are doing write or delete
 operations targeting the index.
 
-1. Optional: Clone the original source before deleting it (the index must be read-only):
+1. Optionally, clone the original source before deleting it (the index must be read-only):
 
    ```bash
    curl -s -X POST "$OS_URI/$OLD_INDEX/_clone/OLD_INDEX_BACKUP"
@@ -432,25 +438,25 @@ can arise after reindexing:
 
 ### Orphaned index
 
-When you create a new index and move data into it, the ISM plugin sees it as a new entity.
+When you create an index and move data into it, the ISM plugin sees it as a new entity.
 Unless you explicitly attach a policy during creation (using a template or a manual API
-call), the new index will have no lifecycle management.
+call), the new index has no lifecycle management.
 
-With the double reindex approach, deletion of the original source index purges all ISM
+With the double reindex approach, the deletion of the original source index purges all ISM
 metadata associated with that name. Even if you recreate the index with the same name, the
-ISM plugin will not recognize it. Re-run the `_plugins/_ism/add` command to ensure the
+ISM plugin doesn't recognize it. Re-run the `_plugins/_ism/add` command to ensure the
 index is managed.
 
 ### Clock reset
 
-Most ISM policies calculate the age of data based on the `index.creation_date`. Reindexing
-creates a new index today, resetting this date.
+Most ISM policies calculate the age of data based on `index.creation_date`. Reindexing
+creates an index today, resetting this date.
 
 ### Policy state reset
 
-ISM policies are stateful. A policy might be in a Warm state waiting to move to Cold. You
+ISM policies are stateful. A policy might be in a warm state waiting to move to cold. You
 cannot migrate the state of a policy from one index to another. The new index starts at
-the initial state (usually Hot).
+the initial state (usually hot).
 
 <RelatedPages/>
 
