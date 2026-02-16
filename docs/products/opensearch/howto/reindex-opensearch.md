@@ -11,10 +11,10 @@ When upgrading Aiven for OpenSearch® to a newer version, reindex indices create
 
 ## Why reindexing is required
 
-In a production environment, reindexing is more than a version upgrade tool. It is a
-fundamental administrative task required whenever you need to change the underlying
-structure of your data. Because Aiven for OpenSearch utilizes immutable Lucene segments,
-certain changes require creating a new index and moving data into it.
+In a production environment, reindexing is a fundamental administrative task for changing
+the underlying structure of your data, not only for version upgrades. Because Aiven for
+OpenSearch uses immutable Lucene segments, certain changes require creating a new index
+and moving data into it.
 
 ### Version upgrades
 
@@ -211,7 +211,7 @@ jq '.[0][value] | {
 Alternatively, manually create an index with updated settings:
 
 ```bash
-curl -X PUT "$OS_URI/NEW_INDEX_NAME" \
+curl -X PUT "$OS_URI/$NEW_INDEX_NAME" \
      -H 'Content-Type: application/json' \
      -d '{
   "settings": {
@@ -240,7 +240,7 @@ If you created the index manually, apply the mapping. Extract only the `properti
 from the mapping response:
 
 ```bash
-curl -X PUT "$OS_URI/NEW_INDEX_NAME/_mapping" \
+curl -X PUT "$OS_URI/$NEW_INDEX_NAME/_mapping" \
      -H 'Content-Type: application/json' \
      -d '{
   "properties": {
