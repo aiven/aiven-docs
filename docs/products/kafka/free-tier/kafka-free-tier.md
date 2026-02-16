@@ -6,7 +6,7 @@ keywords: [kafka free tier, kafka free, kafka trial]
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Get started with Apache Kafka at no cost. The Aiven for Apache Kafka free tier is a fully managed service for learning, prototyping, and evaluation, and it does not require a credit card.
+Get started with Apache Kafka® at no cost. The Aiven for Apache Kafka® free tier is a fully managed service for learning, prototyping, and evaluation. No credit card is required.
 
 ## When to use the free tier
 
@@ -16,7 +16,7 @@ Use the free tier to:
 - Build or test small event-driven applications
 - Evaluate Aiven for Apache Kafka before choosing a paid plan
 - Test end-to-end message flow during early development
-- Run small proof-of-concepts or demonstrations
+- Run small proofs of concept or demonstrations
 
 The free tier supports limited-scale workloads. For production use, longer retention, or
 features such as Aiven for Apache Kafka® Connect, choose a paid plan.
@@ -27,7 +27,7 @@ The free tier includes:
 
 - A managed Kafka cluster with a fixed configuration
 - Karapace Schema Registry
-- Streaming throughput up to 250 KiB/s total (125 KiB/s ingress and 125 KiB/s egress)
+- Streaming throughput up to 250 KiB/s ingress and 250 KiB/s egress
 - Sample data generation for testing message flow
 - Basic monitoring for metrics and logs
 
@@ -40,8 +40,7 @@ Free tier services have the following restrictions.
 
 ### Performance and capacity
 
-- Throughput limits of up to 125 KiB/s for produce traffic and 125 KiB/s for consume
-  traffic
+- Fixed throughput limits for produce and consume traffic
 - Up to 5 topics, each with two partitions
 - Fixed data retention settings
 - Limited number of users and ACLs
@@ -62,17 +61,15 @@ Free tier services have the following restrictions.
 - Free tier services are not covered by an SLA
 - Maintenance window is fixed
 - Additional disk storage cannot be added
-- Creation available only through the Aiven Console; CLI, Terraform, and API support
-  may be added later
+- Creation available only through the Aiven Console
 
 ## How free tier services operate
 
 Free tier Kafka services operate as follows:
 
-- **Idle shutdown:** If no data is produced or consumed for 24 hours, the service is
-  powered off automatically. Free tier services may also be powered off after extended
-  periods of inactivity. You will receive a notification before shutdown, and you can
-  power on the service from the Aiven Console at any time.
+- **Idle shutdown:** The service powers off automatically if no data is produced or
+  consumed for 24 hours. Extended inactivity can also trigger a shutdown. You receive a
+  notification before shutdown and can power on the service from the Aiven Console.
 - **Leader election:** The service continues operating after a node failure by using a
   simplified leader election mode. This ensures availability for small, non-production
   workloads.
@@ -82,4 +79,4 @@ Free tier Kafka services operate as follows:
 
 <RelatedPages/>
 
-[Create free tier Aiven for Apache Kafka service](/docs/products/kafka/free-tier/create-free-tier-kafka-service)
+[Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service)
