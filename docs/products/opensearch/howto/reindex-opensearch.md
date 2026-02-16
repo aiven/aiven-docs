@@ -19,8 +19,22 @@ certain changes require creating a new index and moving data into it.
 ### Version upgrades
 
 Newer Aiven for OpenSearch versions can introduce compatibility
-  requirements where indices must use a minimum version. If you upgrade to a newer version
-  with indices created in an incompatible earlier version, the upgrade can fail.
+  requirements where indices require a minimum version. Upgrading to a newer version
+  with indices created in an incompatible earlier version can cause the upgrade to fail.
+
+:::important[Version compatibility rules]
+
+An index version cannot be more than one major version lower than the target service
+version. For example:
+
+- An index with version `1.3.2` is compatible with service version `2.19.4` but not with
+  `3.3.0` because the difference in the major version is greater than one.
+- Upgrading a service to version 3.x requires all indices to have version `>=2.0.0`.
+- Services with old Elasticsearch® indices at versions `6.x` or `7.x` require first
+  upgrading those indices to OpenSearch version `2.19` before upgrading the service to
+  version 3.x. This process is the same as for `1.x` indices.
+
+:::
 
 To upgrade when reindexing is required:
 
