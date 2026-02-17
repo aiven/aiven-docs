@@ -1,12 +1,12 @@
 ---
-title: Configure a custom domain for Kafka REST, Schema Registry, and Kafka Connect
+title: Configure a custom domain for Kafka REST API, Schema Registry, and Kafka Connect
 sidebar_label: Configure custom domain
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Configure a custom domain to replace the default Aiven service hostname for Kafka REST API, Schema Registry, and Kafka Connect endpoints.
+Configure a custom domain to replace the default Aiven service hostname for Kafka REST API, Schema Registry, and Kafka Connect.
 
 ## About custom domains
 
@@ -20,7 +20,7 @@ protocol.
 
 ## Prerequisites
 
-- A running Aiven for Apache Kafka service
+- A running Aiven for Apache Kafka® service
 - Permission to manage DNS records for your domain
 - Access to the Aiven CLI or Aiven API
 
@@ -33,11 +33,11 @@ your custom domain to the Kafka service hostname.
 
 Use one of the following targets:
 
-- `subdomain.mydomain.com` → `project_name-service_name.aivencloud.com`
-- `subdomain.mydomain.com` → `public-project_name-service_name.aivencloud.com`
+- `SUBDOMAIN.example.com` → `PROJECT_NAME-SERVICE_NAME.aivencloud.com`:
+   Use this target when the service is accessed through private networking.
 
-Choose the target based on whether the service is accessed through private or public
-networking.
+- `SUBDOMAIN.example.com` → `public-PROJECT_NAME-SERVICE_NAME.aivencloud.com`:
+   Use this target when the service is accessed through public networking.
 
 ### Step 2: Configure the custom domain
 
@@ -46,18 +46,18 @@ Set the custom domain in the Kafka service configuration.
 <Tabs groupId="config-methods">
 <TabItem value="cli" label="CLI" default>
 
-Configure the custom domain for the service using the Aiven CLI:
+Configure the custom domain using Aiven CLI:
 
 ```bash
-avn service update <service-name> \
-  --user-config '{"custom_domain": "subdomain.mydomain.com"}'
+avn service update SERVICE_NAME \
+  --user-config '{"custom_domain": "SUBDOMAIN.example.com"}'
 ```
 
 Parameters:
 
-- `<service-name>`: Name of your Aiven for Apache Kafka service.
-- `custom_domain`: Custom domain to use for Kafka REST API, Schema Registry, and
-  Kafka Connect endpoints.
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
+- `custom_domain`: Custom domain for Kafka REST API, Schema Registry, and
+  Kafka Connect.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -68,23 +68,23 @@ API to configure the custom domain for the service:
 
 ```bash
 curl --request PUT \
-  --url https://api.aiven.io/v1/project/YOUR_PROJECT_NAME/service/YOUR_SERVICE_NAME \
-  --header 'Authorization: Bearer YOUR_BEARER_TOKEN' \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+  --header 'Authorization: Bearer API_TOKEN' \
   --header 'content-type: application/json' \
   --data '{
     "user_config": {
-      "custom_domain": "subdomain.mydomain.com"
+      "custom_domain": "SUBDOMAIN.example.com"
     }
   }'
 ```
 
 Parameters:
 
-- `YOUR_PROJECT_NAME`: Name of your project.
-- `YOUR_SERVICE_NAME`: Name of your service.
-- `YOUR_BEARER_TOKEN`: API token for authentication.
-- `custom_domain`: Custom domain to use for Kafka REST API, Schema Registry, and Kafka
-  Connect endpoints.
+- `PROJECT_NAME`: Name of your project.
+- `SERVICE_NAME`: Name of your service.
+- `API_TOKEN`: API token for authentication.
+- `custom_domain`: Custom domain for Kafka REST API, Schema Registry, and Kafka
+  Connect.
 
 </TabItem>
 </Tabs>
@@ -102,7 +102,7 @@ is required.
 Update client applications to use the custom domain and the existing service port.
 
 ```text
-https://subdomain.mydomain.com:<port>
+https://SUBDOMAIN.example.com:PORT
 ```
 
-Use the same port that was previously used with the default Aiven endpoint.
+Use the same port as the default Aiven endpoint.
