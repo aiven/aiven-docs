@@ -233,7 +233,7 @@ Aiven works to reduce the disruptions caused by deprecations.
 The time between the deprecation and sunset statuses varies based on the endpoint's
 usage and the migration complexity. During the deprecation period,
 the endpoint remains fully functional for existing customers,
-giving you time to migrate to the newer version. Deprecated endpoints are
+giving you time to migrate to the newer version. Deprecated endpoints may
 not available to new customers.
 
 ### API endpoint sunset
