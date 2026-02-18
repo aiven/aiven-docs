@@ -1,5 +1,6 @@
 ---
 title: S3 sink connector by Aiven naming and data formats
+sidebar_label: Aiven connector
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
