@@ -458,7 +458,15 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'tools',
-        'tools/api',
+        {
+          type: 'category',
+          label: 'Aiven API',
+          link: {
+            id: 'tools/api',
+            type: 'doc',
+          },
+          items: ['tools/api/restore_progress_updates'],
+        },
         {
           type: 'category',
           label: 'Aiven Provider for Terraform',
