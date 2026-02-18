@@ -4,7 +4,7 @@ sidebar_label: Upgrade version
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -86,7 +86,7 @@ Upgrade the service version using the
 command:
 
 ```bash
-avn service update SERVICE_NAME -c valkey_version=N.N
+avn service update SERVICE_NAME -c valkey_version="N.N"
 ```
 
 Parameters:
@@ -209,7 +209,7 @@ avn service create SERVICE_NAME \
   --service-type valkey \
   --plan PLAN_NAME \
   --cloud CLOUD_NAME \
-  -c valkey_version=N.N
+  -c valkey_version="N.N"
 ```
 
 Parameters:
