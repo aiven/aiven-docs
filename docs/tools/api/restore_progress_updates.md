@@ -1,13 +1,13 @@
 ---
 title: Track service restore progress using the API
-sidebar_label: Restore progress
+sidebar_label: Service restore progress
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 You can track restore progress for individual nodes during service node replacement by using the Aiven API.
-For example, use this to monitor the restore progress of a forked service or
+For example, use this endpoint to monitor the restore progress of a forked service or
 when applying maintenance.
 
 The service object exposes restore progress under `node_states[].progress_updates`:
@@ -19,9 +19,10 @@ The service object exposes restore progress under `node_states[].progress_update
 - Other node states don't include restore progress data.
 
 :::note
+
 `progress_updates` may be missing or empty even when a node is in `syncing_data`. This
-can happen when a restore completes quickly or when the service does not emit detailed
-progress counters.
+can occur when a restore completes before detailed progress is reported or when the
+service does not emit detailed progress counters.
 :::
 
 ## API endpoints
@@ -39,7 +40,11 @@ Restore progress fields are part of the standard service response payload.
 curl -H "Authorization: aivenv1 TOKEN" https://api.aiven.io/v1/project/{project}/service/{service_name}
 ```
 
-Replace `TOKEN` with your API token.
+Replace the following placeholders:
+
+- `API_TOKEN`: Your Aiven API token.
+- `PROJECT_NAME`: Your Aiven project name.
+- `SERVICE_NAME`: The name of your service.
 
 </TabItem>
 <TabItem value="response" label="Response">
@@ -107,17 +112,17 @@ Each phase object includes the following fields:
 
 ### Field semantics
 
-- `phase` (string, required): The restore phase. Possible values: `prepare`,
+- `phase`: String, required. The restore phase. Possible values: `prepare`,
   `basebackup`, `stream`, and `finalize`.
-- `completed` (boolean, required): Whether the phase is complete.
-- `current` (number or null, optional): The current progress value. This field may be
+- `completed`: Boolean, required. Whether the phase is complete.
+- `current`: Number or null, optional. The current progress value. This field can be
   missing or null.
-- `min` (number or null, optional): The starting value for the phase. This field may be
+- `min`: Number or null, optional. The starting value for the phase. This field can be
   missing or null.
-- `max` (number or null, optional): The expected total value for the phase. This value
-  may be missing, null, or change while the restore is in progress.
-- `unit` (string or null, optional): The unit for `current`, `min`, and `max`. New
-  unit values may be introduced.
+- `max`: Number or null, optional. The expected total value for the phase. This value
+  can be missing, null, or change while the restore is in progress.
+- `unit`: String or null, optional. The unit for `current`, `min`, and `max`. New
+  unit values can appear over time.
 
 :::note Important considerations
 
@@ -171,7 +176,7 @@ Known unit values include:
 - `bytes_uncompressed`: Uncompressed backup data.
 - `wal_lsn`: PostgreSQL® write-ahead log sequence number.
 
-Additional unit values may be introduced as new functionality is added.
+Aiven can add new unit values as new functionality becomes available.
 
 ## Compute phase progress percentages
 
