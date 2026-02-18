@@ -133,91 +133,7 @@ service data.
 Register a customer managed key resource identifier for an Aiven project.
 
 <Tabs groupId="interface">
-<TabItem value="terraform" label="Terraform" default>
-
-#### Resource
-
-Use the `aiven_cmk` resource to register a CMK with your Aiven project.
-
-:::important
-This resource is in beta stage. Set the `PROVIDER_AIVEN_ENABLE_BETA` environment variable to use it.
-:::
-
-#### Required parameters
-
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| `project`   | String | Project name |
-| `cmk_provider`   | String | Cloud provider hosting the KMS: `aws`, `gcp`, `azure`, or `oci` |
-| `resource`| String | CMK reference (key identifier of max 512 characters: AWS ARN, OCI OCID, Google Cloud resource name, or Azure key identifier) |
-| `default_cmk` | Boolean | Mark this key as default for new service creation |
-
-#### Sample configuration (AWS)
-
-```terraform
-resource "aiven_cmk" "aws_cmk" {
-  project      = "my-project"
-  cmk_provider = "aws"
-  resource     = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234"
-  default_cmk  = true
-}
-```
-
-#### Sample configuration (GCP)
-
-```terraform
-resource "aiven_cmk" "gcp_cmk" {
-  project      = "my-project"
-  cmk_provider = "gcp"
-  resource     = "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key"
-  default_cmk  = false
-}
-```
-
-#### Sample configuration (OCI)
-
-```terraform
-resource "aiven_cmk" "oci_cmk" {
-  project      = "my-project"
-  cmk_provider = "oci"
-  resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  default_cmk  = false
-}
-```
-
-#### Sample configuration (Azure)
-
-```terraform
-resource "aiven_cmk" "azure_cmk" {
-  project      = "my-project"
-  cmk_provider = "azure"
-  resource     = "https://example-keyvault.vault.azure.net/keys/example-key/abc123def456"
-  default_cmk  = false
-}
-```
-
-#### Exported attributes
-
-| Attribute | Description |
-|-----------|-------------|
-| `cmk_id` | Identifier of the specific key |
-| `status` | One of `current`, `old`, or `deleted` |
-| `created_at` | CMK creation timestamp |
-| `updated_at` | CMK update timestamp |
-| `id` | Resource ID in format `project/cmk_id` |
-
-#### Usage
-
-Apply the configuration:
-
-```bash
-export PROVIDER_AIVEN_ENABLE_BETA=1
-terraform plan
-terraform apply
-```
-
-</TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="API" default>
 
 #### API endpoint
 
@@ -329,39 +245,82 @@ updated_at    YYYY-MM-DDTHH:MM:SSZ
 For JSON output, use `--json` flag.
 
 </TabItem>
-</Tabs>
-
-### Update CMK
-
-Update attributes or parameters on an existing customer managed key configuration.
-
-<Tabs groupId="interface">
-<TabItem value="terraform" label="Terraform" default>
+<TabItem value="terraform" label="Terraform">
 
 #### Resource
 
-Update the `aiven_cmk` resource configuration to modify the CMK settings.
+Use the `aiven_cmk` resource to register a CMK with your Aiven project.
 
-:::note
-Only the `default_cmk` attribute can be updated. To change `project`, `cmk_provider`, or `resource`, you must recreate the resource.
+:::important
+This resource is in beta stage. Set the `PROVIDER_AIVEN_ENABLE_BETA` environment variable to use it.
 :::
 
-#### Sample configuration
+#### Required parameters
 
-Update the `default_cmk` setting:
+| Parameter | Type   | Description |
+|-----------|--------|-------------|
+| `project`   | String | Project name |
+| `cmk_provider`   | String | Cloud provider hosting the KMS: `aws`, `gcp`, `azure`, or `oci` |
+| `resource`| String | CMK reference (key identifier of max 512 characters: AWS ARN, OCI OCID, Google Cloud resource name, or Azure key identifier) |
+| `default_cmk` | Boolean | Mark this key as default for new service creation |
+
+#### Sample configuration (AWS)
 
 ```terraform
-resource "aiven_cmk" "example" {
+resource "aiven_cmk" "aws_cmk" {
   project      = "my-project"
-  cmk_provider = "gcp"
-  resource     = "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key"
-  default_cmk  = false  # Changed from true to false
+  cmk_provider = "aws"
+  resource     = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234"
+  default_cmk  = true
 }
 ```
 
+#### Sample configuration (GCP)
+
+```terraform
+resource "aiven_cmk" "gcp_cmk" {
+  project      = "my-project"
+  cmk_provider = "gcp"
+  resource     = "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key"
+  default_cmk  = false
+}
+```
+
+#### Sample configuration (OCI)
+
+```terraform
+resource "aiven_cmk" "oci_cmk" {
+  project      = "my-project"
+  cmk_provider = "oci"
+  resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  default_cmk  = false
+}
+```
+
+#### Sample configuration (Azure)
+
+```terraform
+resource "aiven_cmk" "azure_cmk" {
+  project      = "my-project"
+  cmk_provider = "azure"
+  resource     = "https://example-keyvault.vault.azure.net/keys/example-key/abc123def456"
+  default_cmk  = false
+}
+```
+
+#### Exported attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `cmk_id` | Identifier of the specific key |
+| `status` | One of `current`, `old`, or `deleted` |
+| `created_at` | CMK creation timestamp |
+| `updated_at` | CMK update timestamp |
+| `id` | Resource ID in format `project/cmk_id` |
+
 #### Usage
 
-Apply the changes:
+Apply the configuration:
 
 ```bash
 export PROVIDER_AIVEN_ENABLE_BETA=1
@@ -370,7 +329,14 @@ terraform apply
 ```
 
 </TabItem>
-<TabItem value="api" label="API">
+</Tabs>
+
+### Update CMK
+
+Update attributes or parameters on an existing customer managed key configuration.
+
+<Tabs groupId="interface">
+<TabItem value="api" label="API" default>
 
 #### API endpoint
 
@@ -477,6 +443,40 @@ updated_at    YYYY-MM-DDTHH:MM:SSZ
 For JSON output, use `--json` flag.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+Update the `aiven_cmk` resource configuration to modify the CMK settings.
+
+:::note
+Only the `default_cmk` attribute can be updated. To change `project`, `cmk_provider`, or `resource`, you must recreate the resource.
+:::
+
+#### Sample configuration
+
+Update the `default_cmk` setting:
+
+```terraform
+resource "aiven_cmk" "example" {
+  project      = "my-project"
+  cmk_provider = "gcp"
+  resource     = "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key"
+  default_cmk  = false  # Changed from true to false
+}
+```
+
+#### Usage
+
+Apply the changes:
+
+```bash
+export PROVIDER_AIVEN_ENABLE_BETA=1
+terraform plan
+terraform apply
+```
+
+</TabItem>
 </Tabs>
 
 ### Get CMK details
@@ -484,60 +484,7 @@ For JSON output, use `--json` flag.
 Get the details of a customer managed key configuration.
 
 <Tabs groupId="interface">
-<TabItem value="terraform" label="Terraform" default>
-
-#### Data source
-
-Use the `aiven_cmk` resource or a data source to retrieve CMK details. When using the resource, all attributes are automatically available after creation or import.
-
-#### Accessing CMK details from resource
-
-```terraform
-resource "aiven_cmk" "example" {
-  project      = "my-project"
-  cmk_provider = "oci"
-  resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  default_cmk  = false
-}
-
-# Access the CMK details
-output "cmk_id" {
-  value = aiven_cmk.example.cmk_id
-}
-
-output "cmk_status" {
-  value = aiven_cmk.example.status
-}
-
-output "cmk_created_at" {
-  value = aiven_cmk.example.created_at
-}
-```
-
-#### Importing existing CMK
-
-Import an existing CMK to manage it with Terraform:
-
-```bash
-export PROVIDER_AIVEN_ENABLE_BETA=1
-terraform import aiven_cmk.example PROJECT_NAME/CMK_ID
-```
-
-After importing, the resource will have all attributes available:
-
-```terraform
-# After import, you can reference:
-# - aiven_cmk.example.cmk_id
-# - aiven_cmk.example.status
-# - aiven_cmk.example.created_at
-# - aiven_cmk.example.updated_at
-# - aiven_cmk.example.cmk_provider
-# - aiven_cmk.example.resource
-# - aiven_cmk.example.default_cmk
-```
-
-</TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="API" default>
 
 #### API endpoint
 
@@ -620,6 +567,59 @@ updated_at    YYYY-MM-DDTHH:MM:SSZ
 For JSON output, use `--json` flag.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Data source
+
+Use the `aiven_cmk` resource or a data source to retrieve CMK details. When using the resource, all attributes are automatically available after creation or import.
+
+#### Accessing CMK details from resource
+
+```terraform
+resource "aiven_cmk" "example" {
+  project      = "my-project"
+  cmk_provider = "oci"
+  resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  default_cmk  = false
+}
+
+# Access the CMK details
+output "cmk_id" {
+  value = aiven_cmk.example.cmk_id
+}
+
+output "cmk_status" {
+  value = aiven_cmk.example.status
+}
+
+output "cmk_created_at" {
+  value = aiven_cmk.example.created_at
+}
+```
+
+#### Importing existing CMK
+
+Import an existing CMK to manage it with Terraform:
+
+```bash
+export PROVIDER_AIVEN_ENABLE_BETA=1
+terraform import aiven_cmk.example PROJECT_NAME/CMK_ID
+```
+
+After importing, the resource will have all attributes available:
+
+```terraform
+# After import, you can reference:
+# - aiven_cmk.example.cmk_id
+# - aiven_cmk.example.status
+# - aiven_cmk.example.created_at
+# - aiven_cmk.example.updated_at
+# - aiven_cmk.example.cmk_provider
+# - aiven_cmk.example.resource
+# - aiven_cmk.example.default_cmk
+```
+
+</TabItem>
 </Tabs>
 
 ### List CMKs
@@ -627,57 +627,7 @@ For JSON output, use `--json` flag.
 List all customer managed key configurations for a project.
 
 <Tabs groupId="interface">
-<TabItem value="terraform" label="Terraform" default>
-
-#### Using multiple resources
-
-When you have multiple CMK resources in your Terraform configuration, you can list and reference them individually:
-
-```terraform
-resource "aiven_cmk" "cmk_oci_iad" {
-  project      = "my-project"
-  cmk_provider = "oci"
-  resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  default_cmk  = false
-}
-
-resource "aiven_cmk" "cmk_oci_phx" {
-  project      = "my-project"
-  cmk_provider = "oci"
-  resource     = "ocid1.key.oc1.phx.yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
-  default_cmk  = false
-}
-
-# Output all CMK IDs
-output "all_cmk_ids" {
-  value = [
-    aiven_cmk.cmk_oci_iad.cmk_id,
-    aiven_cmk.cmk_oci_phx.cmk_id,
-  ]
-}
-```
-
-#### Using Terraform state
-
-List all CMKs managed by Terraform:
-
-```bash
-export PROVIDER_AIVEN_ENABLE_BETA=1
-terraform state list | grep aiven_cmk
-```
-
-View details of a specific CMK:
-
-```bash
-terraform state show aiven_cmk.cmk_oci_iad
-```
-
-:::note
-To list all CMKs in a project (including those not managed by Terraform), use the API or CLI.
-:::
-
-</TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="API" default>
 
 #### API endpoint
 
@@ -762,6 +712,56 @@ a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7  current  oci       ocid1.key.oc1.iad.xxxxx
 For JSON output, use `--json` flag.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Using multiple resources
+
+When you have multiple CMK resources in your Terraform configuration, you can list and reference them individually:
+
+```terraform
+resource "aiven_cmk" "cmk_oci_iad" {
+  project      = "my-project"
+  cmk_provider = "oci"
+  resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  default_cmk  = false
+}
+
+resource "aiven_cmk" "cmk_oci_phx" {
+  project      = "my-project"
+  cmk_provider = "oci"
+  resource     = "ocid1.key.oc1.phx.yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+  default_cmk  = false
+}
+
+# Output all CMK IDs
+output "all_cmk_ids" {
+  value = [
+    aiven_cmk.cmk_oci_iad.cmk_id,
+    aiven_cmk.cmk_oci_phx.cmk_id,
+  ]
+}
+```
+
+#### Using Terraform state
+
+List all CMKs managed by Terraform:
+
+```bash
+export PROVIDER_AIVEN_ENABLE_BETA=1
+terraform state list | grep aiven_cmk
+```
+
+View details of a specific CMK:
+
+```bash
+terraform state show aiven_cmk.cmk_oci_iad
+```
+
+:::note
+To list all CMKs in a project (including those not managed by Terraform), use the API or CLI.
+:::
+
+</TabItem>
 </Tabs>
 
 ### Remove CMK
@@ -774,53 +774,7 @@ either another CMK or Aiven managed keys to avoid any service disruption.
 :::
 
 <Tabs groupId="interface">
-<TabItem value="terraform" label="Terraform" default>
-
-#### Resource
-
-Remove the CMK by deleting the `aiven_cmk` resource from your Terraform configuration.
-
-:::warning
-Deleting a CMK renders services linked to the key inoperable. Ensure services are migrated to another CMK or Aiven-managed keys before deletion.
-:::
-
-#### Step 1: Remove from configuration
-
-Remove or comment out the CMK resource:
-
-```terraform
-# resource "aiven_cmk" "example" {
-#   project      = "my-project"
-#   cmk_provider = "oci"
-#   resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-#   default_cmk  = false
-# }
-```
-
-#### Step 2: Apply the changes
-
-```bash
-export PROVIDER_AIVEN_ENABLE_BETA=1
-terraform plan  # Review the planned deletion
-terraform apply # Confirm and apply
-```
-
-Alternatively, use `terraform destroy` to target a specific resource:
-
-```bash
-export PROVIDER_AIVEN_ENABLE_BETA=1
-terraform destroy -target=aiven_cmk.example
-```
-
-#### What happens
-
-When you remove a CMK resource:
-- The CMK configuration is deleted from the Aiven project
-- Services using this CMK will become inoperable
-- The resource is removed from Terraform state
-
-</TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="API" default>
 
 #### API endpoint
 
@@ -889,6 +843,52 @@ avn project cmks delete \
 The command returns the details of the deleted CMK in the format you specified.
 
 For JSON output, use `--json` flag.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+Remove the CMK by deleting the `aiven_cmk` resource from your Terraform configuration.
+
+:::warning
+Deleting a CMK renders services linked to the key inoperable. Ensure services are migrated to another CMK or Aiven-managed keys before deletion.
+:::
+
+#### Step 1: Remove from configuration
+
+Remove or comment out the CMK resource:
+
+```terraform
+# resource "aiven_cmk" "example" {
+#   project      = "my-project"
+#   cmk_provider = "oci"
+#   resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#   default_cmk  = false
+# }
+```
+
+#### Step 2: Apply the changes
+
+```bash
+export PROVIDER_AIVEN_ENABLE_BETA=1
+terraform plan  # Review the planned deletion
+terraform apply # Confirm and apply
+```
+
+Alternatively, use `terraform destroy` to target a specific resource:
+
+```bash
+export PROVIDER_AIVEN_ENABLE_BETA=1
+terraform destroy -target=aiven_cmk.example
+```
+
+#### What happens
+
+When you remove a CMK resource:
+- The CMK configuration is deleted from the Aiven project
+- Services using this CMK will become inoperable
+- The resource is removed from Terraform state
 
 </TabItem>
 </Tabs>
