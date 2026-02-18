@@ -37,7 +37,7 @@ Restore progress fields are part of the standard service response payload.
 <TabItem value="req" label="Request" default>
 
 ```bash
-curl -H "Authorization: aivenv1 TOKEN" https://api.aiven.io/v1/project/{project}/service/{service_name}
+curl -H "Authorization: aivenv1 API_TOKEN" https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME
 ```
 
 Replace the following placeholders:
