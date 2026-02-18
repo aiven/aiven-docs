@@ -249,7 +249,9 @@ For JSON output, use `--json` flag.
 
 #### Resource
 
-Use the `aiven_cmk` resource to register a CMK with your Aiven project.
+Use the
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+resource to register a CMK with your Aiven project.
 
 :::important
 This resource is in beta stage. Set the `PROVIDER_AIVEN_ENABLE_BETA` environment variable to use it.
@@ -447,7 +449,9 @@ For JSON output, use `--json` flag.
 
 #### Resource
 
-Update the `aiven_cmk` resource configuration to modify the CMK settings.
+Update the
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+resource configuration to modify the CMK settings.
 
 :::note
 Only the `default_cmk` attribute can be updated. To change `project`, `cmk_provider`, or `resource`, you must recreate the resource.
@@ -571,7 +575,10 @@ For JSON output, use `--json` flag.
 
 #### Data source
 
-Use the `aiven_cmk` resource or a data source to retrieve CMK details. When using the resource, all attributes are automatically available after creation or import.
+Use the
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+resource or a data source to retrieve CMK details. When using the resource, all attributes
+are automatically available after creation or import.
 
 #### Accessing CMK details from resource
 
@@ -849,10 +856,13 @@ For JSON output, use `--json` flag.
 
 #### Resource
 
-Remove the CMK by deleting the `aiven_cmk` resource from your Terraform configuration.
+Remove the CMK by deleting the
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+resource from your Terraform configuration.
 
 :::warning
-Deleting a CMK renders services linked to the key inoperable. Ensure services are migrated to another CMK or Aiven-managed keys before deletion.
+Deleting a CMK renders services linked to the key inoperable. Ensure services are migrated
+to another CMK or Aiven-managed keys before deletion.
 :::
 
 #### Step 1: Remove from configuration
