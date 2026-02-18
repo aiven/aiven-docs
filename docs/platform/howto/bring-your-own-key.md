@@ -27,7 +27,11 @@ feature.
 
 - [**Aiven CLI**](/docs/tools/cli) installed and configured (for CLI instructions)
 
-- [**Aiven Terraform Provider**](/docs/tools/terraform) installed and configured (for Terraform instructions). The CMK resource is in beta stage and requires setting the `PROVIDER_AIVEN_ENABLE_BETA` environment variable.
+- [**Aiven Terraform Provider**](/docs/tools/terraform) installed and configured (for
+  Terraform instructions). The
+  [aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+  resource is in the beta stage and requires setting the `PROVIDER_AIVEN_ENABLE_BETA`
+  environment variable.
 
 ## List CMK accessors
 
@@ -35,8 +39,8 @@ List customer managed key (CMK) accessors - principals that need to be granted a
 perform encrypt/decrypt operations on your behalf.
 
 :::note
-This operation is for retrieving accessor information and does not have a Terraform equivalent.
-Use the API or CLI to get the accessor details needed for granting KMS permissions.
+This operation is not supported by Aiven Terraform Provider. Use the API or CLI to get the
+accessor details needed for granting KMS permissions.
 :::
 
 <Tabs groupId="interface">
