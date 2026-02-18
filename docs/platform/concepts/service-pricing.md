@@ -96,6 +96,13 @@ your trial has expired.
 
 You can upgrade your free service to a paid plan at any time by adding
 a payment method to the project's billing group or by starting a free trial.
+To upgrade a free service:
+
+1. Go to the service **Overview** page.
+1. In the **Service plan usage** section, click **Upgrade plan**.
+
+The upgrade happens immediately; however, it can take up to 3 hours for
+Basic tier support to be available.
 
 You can also downgrade a paid plan to the free tier as long as:
 
