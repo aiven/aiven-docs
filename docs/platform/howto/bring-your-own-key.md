@@ -7,7 +7,7 @@ limited: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven Terraform Provider](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
+Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
 :::important
 Bring your own key (BYOK) is a
@@ -27,7 +27,7 @@ feature.
 
 - [**Aiven CLI**](/docs/tools/cli) installed and configured (for CLI instructions)
 
-- [**Aiven Terraform Provider**](/docs/tools/terraform) installed and configured (for
+- [**Aiven Provider for Terraform**](/docs/tools/terraform) installed and configured (for
   Terraform instructions). The
   [aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
   resource is in the beta stage and requires setting the `PROVIDER_AIVEN_ENABLE_BETA`
@@ -39,7 +39,7 @@ List customer managed key (CMK) accessors - principals that need to be granted a
 perform encrypt/decrypt operations on your behalf.
 
 :::note
-This operation is not supported by Aiven Terraform Provider. Use the API or CLI to get the
+This operation is not supported by Aiven Provider for Terraform. Use the API or CLI to get the
 accessor details needed for granting KMS permissions.
 :::
 
@@ -129,7 +129,7 @@ parameter the `roles/cloudkms.cryptoOperator` role.
 
 ## Manage a project CMK
 
-Use the Aiven Terraform Provider, Aiven API, or Aiven CLI to manage customer managed keys (CMKs) for encrypting
+Use the Aiven Provider for Terraform, Aiven API, or Aiven CLI to manage customer managed keys (CMKs) for encrypting
 service data.
 
 ### Register CMK resource identifier
