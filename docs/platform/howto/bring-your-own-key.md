@@ -39,8 +39,8 @@ List customer managed key (CMK) accessors - principals that need to be granted a
 perform encrypt/decrypt operations on your behalf.
 
 :::note
-This operation is not supported by Aiven Provider for Terraform. Use the API or CLI to get the
-accessor details needed for granting KMS permissions.
+This operation is not supported by Aiven Provider for Terraform. Use the API or CLI to get
+the accessor details needed for granting KMS permissions.
 :::
 
 <Tabs groupId="interface">
@@ -129,8 +129,8 @@ parameter the `roles/cloudkms.cryptoOperator` role.
 
 ## Manage a project CMK
 
-Use the Aiven Provider for Terraform, Aiven API, or Aiven CLI to manage customer managed keys (CMKs) for encrypting
-service data.
+Use the Aiven Provider for Terraform, Aiven API, or Aiven CLI to manage customer managed
+keys (CMKs) for encrypting service data.
 
 ### Register CMK resource identifier
 
@@ -172,8 +172,8 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
 
 #### Sample response (AWS)
 
-A successful request returns a `201 CREATED` status code and a JSON object representing the
-newly registered CMK configuration, for example:
+A successful request returns a `201 CREATED` status code and a JSON object representing
+the newly registered CMK configuration, for example:
 
 ```json
 {
@@ -258,7 +258,8 @@ Use the
 resource to register a CMK with your Aiven project.
 
 :::important
-This resource is in beta stage. Set the `PROVIDER_AIVEN_ENABLE_BETA` environment variable to use it.
+This resource is in the beta stage. Set the `PROVIDER_AIVEN_ENABLE_BETA` environment
+variable to use it.
 :::
 
 #### Required parameters
@@ -458,7 +459,8 @@ Update the
 resource configuration to modify the CMK settings.
 
 :::note
-Only the `default_cmk` attribute can be updated. To change `project`, `cmk_provider`, or `resource`, you must recreate the resource.
+Only the `default_cmk` attribute can be updated. To change `project`, `cmk_provider`, or
+`resource`, you must recreate the resource.
 :::
 
 #### Sample configuration
@@ -727,7 +729,9 @@ For JSON output, use `--json` flag.
 
 #### Using multiple resources
 
-When you have multiple CMK resources in your Terraform configuration, you can list and reference them individually:
+When you have multiple
+[CMK resources](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+in your Terraform configuration, you can list and reference them individually:
 
 ```terraform
 resource "aiven_cmk" "cmk_oci_iad" {
@@ -769,7 +773,8 @@ terraform state show aiven_cmk.cmk_oci_iad
 ```
 
 :::note
-To list all CMKs in a project (including those not managed by Terraform), use the API or CLI.
+To list all CMKs in a project (including those not managed by Terraform), use the API or
+CLI.
 :::
 
 </TabItem>
@@ -871,7 +876,8 @@ to another CMK or Aiven-managed keys before deletion.
 
 #### Step 1: Remove from configuration
 
-Remove or comment out the CMK resource:
+Remove or comment out the
+[CMK resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk):
 
 ```terraform
 # resource "aiven_cmk" "example" {
@@ -899,10 +905,12 @@ terraform destroy -target=aiven_cmk.example
 
 #### What happens
 
-When you remove a CMK resource:
-- The CMK configuration is deleted from the Aiven project
-- Services using this CMK will become inoperable
-- The resource is removed from Terraform state
+When you remove a
+[CMK resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk):
+
+- The CMK configuration is deleted from the Aiven project.
+- Services using this CMK become inoperable.
+- The resource is removed from Terraform state.
 
 </TabItem>
 </Tabs>
