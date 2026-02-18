@@ -152,13 +152,14 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | 1.16    | 2024-11-21 | 2024-08-21                       | 2023-01-01                      |
 | 1.19    | N/A        | N/A                              | 2024-05-21                      |
 
+### Aiven for Valkey™
+
+| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
+| ------- |-----------------|----------------------------------| ------------------------------- |
+| 8.1.x   | To be announced | To be announced                  | 2025-11-18                      |
+| 9.0.x   | To be announced | To be announced                  | 2026-02-16                      |
+
 ## Aiven single-versioned services EOL
-
-### Aiven for AlloyDB Omni
-
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-|---------|------------|----------------------------------| ------------------------------- |
-| 15.x    | 2025-12-05 | 2025-09-05                       | 2024-10-02                      |
 
 ### Aiven for ClickHouse®
 
@@ -183,12 +184,6 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | Version | Aiven EOL       |
 | ------- | --------------- |
 | 8.0.35  | To be announced |
-
-### Aiven for Valkey™
-
-| Version | Aiven EOL       |
-| ------- | --------------- |
-| 8.1.4   | To be announced |
 
 ## Aiven API lifecycle
 
