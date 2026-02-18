@@ -15,8 +15,8 @@ Aiven for Valkey supports multiple versions of Valkey running concurrently in th
 Aiven for Valkey supports
 [two latest upstream Valkey versions](/docs/platform/reference/eol-for-major-versions#aiven-for-valkey)
 at a time. Both versions are generally available and can be selected when creating a new
-service or upgrading an existing service. Multi-versioning is supported both for the
-standalone service mode and the
+service or upgrading an existing service. Starting from version 9.0, multi-versioning is
+supported both for the standalone service mode and the
 [clustered service mode](/docs/products/valkey/concepts/valkey-cluster).
 
 ## Before you upgrade
