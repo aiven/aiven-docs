@@ -185,11 +185,18 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Concepts',
               items: [
-                'platform/concepts/service_backups',
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
                 'platform/howto/custom-plans',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Backup and restore',
+              items: [
+                'platform/concepts/service_backups',
+                'platform/howto/restore_progress_updates',
               ],
             },
             {
@@ -458,15 +465,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'tools',
-        {
-          type: 'category',
-          label: 'Aiven API',
-          link: {
-            id: 'tools/api',
-            type: 'doc',
-          },
-          items: ['tools/api/restore_progress_updates'],
-        },
+        'tools/api',
         {
           type: 'category',
           label: 'Aiven Provider for Terraform',
