@@ -197,6 +197,19 @@ const sidebars: SidebarsConfig = {
               items: [
                 'platform/concepts/service_backups',
                 'platform/howto/restore_progress_updates',
+                {
+                  type: 'category',
+                  label: 'Backup to another region',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/concepts/backup-to-another-region',
+                  },
+                  items: [
+                    'platform/howto/btar/enable-backup-to-another-region',
+                    'platform/howto/btar/manage-backup-to-another-region',
+                    'platform/howto/btar/disable-backup-to-another-region',
+                  ],
+                },
               ],
             },
             {
@@ -216,19 +229,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/disk-autoscaler',
               ],
             },
-            {
-              type: 'category',
-              label: 'Backup to another region',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/backup-to-another-region',
-              },
-              items: [
-                'platform/howto/btar/enable-backup-to-another-region',
-                'platform/howto/btar/manage-backup-to-another-region',
-                'platform/howto/btar/disable-backup-to-another-region',
-              ],
-            },
+
             'platform/howto/create_new_service',
             'platform/concepts/service-power-cycle',
             'platform/concepts/rename-services',
