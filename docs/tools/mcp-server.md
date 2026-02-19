@@ -6,17 +6,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The Aiven documentation Model Context Protocol (MCP) server lets you access Aiven documentation from MCP-compatible clients.
-
-It retrieves content from the latest published documentation and returns answers with
-source references. Some clients require authentication with a Google account when you
-first connect to the server.
+The server is hosted by [Kapa](https://docs.kapa.ai/integrations/mcp/overview) and
+retrieves content from the latest published documentation.
 
 ## Before you begin
 
-Make sure you have:
+You need the following:
 
 - An MCP-compatible client
-- A Google account for authentication
+- A Google account for authentication (required by some clients)
 
 ## MCP server URL
 
@@ -30,8 +28,6 @@ https://aiven-docs.mcp.kapa.ai
 
 <Tabs groupId="mcp-clients">
 <TabItem value="cursor" label="Cursor" default>
-
-To configure the MCP server using a configuration file:
 
 1. In your project root, create or edit `.cursor/mcp.json`.
 1. Add the following configuration:
@@ -50,22 +46,8 @@ To configure the MCP server using a configuration file:
 1. Save the file.
 1. Restart Cursor.
 1. Open **Settings** > **Tools & MCP**.
-1. Next to **aiven**, click **Connect**.
-1. When prompted, click **Open** to launch your browser.
-1. Sign in with your Google account to complete authentication.
-
-To configure the MCP server using the Cursor UI:
-
-1. Open **Settings** > **Tools & MCP**.
-1. Click **Add Custom MCP**.
-1. Enter the server URL:
-
-   ```text
-   https://aiven-docs.mcp.kapa.ai
-   ```
-
-1. Click **Connect**.
-1. If prompted, sign in with your Google account to complete the authentication.
+1. Select **aiven** and click **Connect**.
+1. Sign in with your Google account when prompted.
 
 For more information, see the [Cursor MCP documentation](https://cursor.com/docs/context/mcp).
 
@@ -79,8 +61,7 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
    claude mcp add --transport http aiven-docs https://aiven-docs.mcp.kapa.ai
    ```
 
-1. If prompted, sign in with your Google account in your browser to complete
-   authentication.
+1. Sign in with your Google account when prompted.
 1. Run `/mcp` in Claude Code to verify the server is registered.
 
 For more information, see the [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/tutorials/set-up-mcp).
@@ -96,8 +77,7 @@ For more information, see the [Claude Code MCP documentation](https://docs.anthr
    - **Windows:**
      `%APPDATA%\Claude\claude_desktop_config.json`
 
-1. In the `mcpServers` section, add the `aiven` entry. If `mcpServers` does not exist,
-   create it.
+1. Add the following to the configuration file:
 
    ```json
    {
@@ -112,7 +92,7 @@ For more information, see the [Claude Code MCP documentation](https://docs.anthr
 
 1. Save the file.
 1. Restart Claude Desktop.
-1. Sign in with your Google account if prompted.
+1. Sign in with your Google account when prompted.
 
 For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/quickstart/user).
 
@@ -124,8 +104,6 @@ Requires Visual Studio Code 1.102 or later with the GitHub Copilot extension ins
 and enabled.
 :::
 
-### Configure the MCP server
-
 1. Open your workspace in Visual Studio Code.
 1. In the workspace root, create a `.vscode` directory if it does not exist.
 1. In the `.vscode` directory, create a file named `mcp.json`.
@@ -133,7 +111,7 @@ and enabled.
 
    ```json
    {
-     "mcpServers": {
+     "servers": {
        "aiven": {
          "type": "http",
          "url": "https://aiven-docs.mcp.kapa.ai"
@@ -144,17 +122,11 @@ and enabled.
 
 1. Save the file.
 1. Reload Visual Studio Code.
-
-### Verify the MCP server
-
-1. Open the Command Palette.
-1. Run **MCP: List Servers**.
+1. Open the Command Palette and run **MCP: List Servers**.
 1. Confirm that **aiven** appears in the list.
+1. Sign in with your Google account when prompted.
 
-If **aiven** does not appear, verify that the file is located at
-`WORKSPACE_ROOT/.vscode/mcp.json`, then reload Visual Studio Code.
-
-For more information, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+For more information, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
 
 </TabItem>
 <TabItem value="chatgpt-web" label="ChatGPT (Web)">
@@ -167,17 +139,16 @@ if the steps do not match your interface.
 
 1. Open ChatGPT in a web browser.
 1. Click **Settings**.
-1. Select **Apps**.
-1. Select **Advanced settings**.
-1. Turn on **Developer mode**.
-1. Return to **Apps** and select **Create app**.
+1. Select **Apps**, then select **Advanced settings**.
+1. Click the **Developer mode** toggle.
+1. Select **Apps** > **Create app**.
 1. Enter the following:
    - **Name:** Aiven
    - **Description (optional):** Aiven documentation MCP server
    - **MCP Server URL:** `https://aiven-docs.mcp.kapa.ai`
 1. Click **Create**.
-1. Sign in with your Google account if prompted.
-1. Confirm that **Aiven** appears under **Settings → Apps**.
+1. Sign in with your Google account when prompted.
+1. Confirm that **Aiven** appears under **Settings** > **Apps**.
 
 For more information, see the [OpenAI Developer mode documentation](https://developers.openai.com/api/docs/guides/developer-mode).
 
@@ -203,17 +174,26 @@ Most clients accept a configuration similar to:
 }
 ```
 
-Refer to your client documentation for detailed configuration steps.
-If prompted, sign in with your Google account to complete the authentication.
+1. Save the file and restart your client.
+1. Sign in with your Google account when prompted.
+
+Some clients require specifying the transport type, for example `"type": "http"`. Refer
+to your client documentation if the configuration fails.
 
 </TabItem>
 </Tabs>
 
 ## Verify the connection
 
-After connecting, ask a question such as:
+After connecting the MCP server:
 
-- How do I create a topic in Aiven for Apache Kafka®?
-- How do I migrate snapshot data to Aiven for OpenSearch?
+1. Open your AI client, such as Copilot Chat in Visual Studio Code or Chat in Cursor.
+1. Ask a question about Aiven documentation, such as:
 
-If the response includes references to Aiven documentation, the connection is successful.
+   - How do I create a topic in Aiven for Apache Kafka®?
+   - How do I migrate snapshot data to Aiven for OpenSearch®?
+
+1. If prompted to allow tool execution, click **Allow**.
+1. Confirm that the response includes references to Aiven documentation.
+
+If the response includes references to Aiven documentation, the MCP server is connected.
