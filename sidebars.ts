@@ -523,6 +523,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'tools/query-optimizer',
+        'tools/mcp-server',
       ],
     },
     {
