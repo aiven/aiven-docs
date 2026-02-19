@@ -141,42 +141,43 @@ The following metrics are only available when running Kafka in ZooKeeper mode:
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_OneMinuteRate`                   | Rate of leader elections over the last minute                                               |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_StdDev`                          | Standard deviation of leader election times                                                 |
 | `kafka_controller_ControllerStats_UncleanLeaderElectionsPerSec_Count`                          | Number of unclean leader elections. Unclean leader elections can lead to data loss     |
-| `kafka_controller_KafkaController_ActiveBrokerCount_Value`                                     | Number of active brokers                                                                    |
-| `kafka_controller_KafkaController_ActiveControllerCount_Value`                                 | Number of active controllers                                                                |
-| `kafka_controller_KafkaController_FencedBrokerCount_Value`                                     | Number of fenced brokers                                                                    |
-| `kafka_controller_KafkaController_OfflinePartitionsCount_Value`                                | Number of offline partitions                                                                |
-| `kafka_controller_KafkaController_PreferredReplicaImbalanceCount_Value`                        | Number of preferred replica imbalances                                                      |
-| `kafka_controller_KafkaController_ReplicasIneligibleToDeleteCount_Value`                       | Number of replicas ineligible to delete                                                     |
-| `kafka_controller_KafkaController_ReplicasToDeleteCount_Value`                                 | Number of replicas to delete                                                                |
-| `kafka_controller_KafkaController_TopicsIneligibleToDeleteCount_Value`                         | Number of topics ineligible to delete                                                       |
-| `kafka_controller_KafkaController_TopicsToDeleteCount_Value`                                   | Number of topics to delete                                                                  |
 
 #### KRaft mode and metrics changes
 
-Aiven for Apache Kafka services running Apache Kafka 3.9 use KRaft mode, which replaces
-ZooKeeper for metadata and controller management. While KRaft tracks similar metrics,
-Aiven does not expose these metrics because they are internal and not needed for
-monitoring. This is similar to ZooKeeper mode, where Kafka did not expose
-ZooKeeper-specific metrics.
+Aiven for Apache Kafka services running Apache Kafka 3.9 and later use KRaft mode, which
+replaces ZooKeeper for metadata and controller management.
+
+In KRaft mode, controller metrics are emitted from a dedicated controller process instead
+of the broker. Aiven exposes a limited subset of these metrics for monitoring cluster
+size and availability. Internal controller and Raft metrics are not exposed.
+
+##### Controller metrics available in KRaft mode
+
+The following controller metrics are available in KRaft mode:
+
+| Metric                                                          | Description                  |
+| --------------------------------------------------------------- | ---------------------------- |
+| `kafka_controller_KafkaController_ActiveControllerCount_Value`  | Number of active controllers |
+| `kafka_controller_KafkaController_ActiveBrokerCount_Value`      | Number of active brokers     |
+| `kafka_controller_KafkaController_GlobalTopicCount_Value`       | Number of topics             |
+| `kafka_controller_KafkaController_GlobalPartitionCount_Value`   | Number of partitions         |
+| `kafka_controller_KafkaController_TopicsToDeleteCount_Value`    | Number of topics to delete   |
+| `kafka_controller_KafkaController_ReplicasToDeleteCount_Value`  | Number of replicas to delete |
+| `kafka_controller_KafkaController_OfflinePartitionsCount_Value` | Number of offline partitions |
+
+##### Controller metrics not available in KRaft mode
 
 The following controller metrics are **not** available in KRaft mode:
 
 | Metric                                                                   | Description                                |
 | ------------------------------------------------------------------------ | ------------------------------------------ |
-| `kafka_controller_KafkaController_ActiveControllerCount_Value`           | Number of active controllers               |
-| `kafka_controller_KafkaController_OfflinePartitionsCount_Value`          | Number of offline partitions               |
 | `kafka_controller_KafkaController_PreferredReplicaImbalanceCount_Value`  | Number of preferred replica imbalances     |
-| `kafka_controller_KafkaController_TopicsToDeleteCount_Value`             | Number of topics to delete                 |
-| `kafka_controller_KafkaController_ReplicasToDeleteCount_Value`           | Number of replicas to delete               |
 | `kafka_controller_KafkaController_TopicsIneligibleToDeleteCount_Value`   | Number of topics ineligible for deletion   |
 | `kafka_controller_KafkaController_ReplicasIneligibleToDeleteCount_Value` | Number of replicas ineligible for deletion |
-| `kafka_controller_KafkaController_ActiveBrokerCount_Value`               | Number of active brokers                   |
 | `kafka_controller_KafkaController_FencedBrokerCount_Value`               | Number of fenced brokers                   |
 | `kafka_controller_KafkaController_NewActiveControllersCount_Value`       | Number of new active controllers           |
 | `kafka_controller_KafkaController_TimedOutBrokerHeartbeatCount_Value`    | Number of timed-out broker heartbeats      |
 | `kafka_controller_KafkaController_ControllerState_Value`                 | Controller state                           |
-| `kafka_controller_KafkaController_GlobalTopicCount_Value`                | Number of global topics                    |
-| `kafka_controller_KafkaController_GlobalPartitionCount_Value`            | Number of global partitions                |
 | `kafka_controller_KafkaController_MetadataErrorCount_Value`              | Number of metadata errors                  |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`     | Total number of leader elections           |
 | `kafka_controller_ControllerStats_UncleanLeaderElectionsPerSec_Count`    | Number of unclean leader elections         |
