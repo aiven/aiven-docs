@@ -1016,6 +1016,14 @@ const sidebars: SidebarsConfig = {
                             'products/kafka/kafka-connect/howto/s3-sink-connector-aiven',
                             'products/kafka/kafka-connect/howto/s3-sink-connector-confluent',
                             'products/kafka/kafka-connect/howto/s3-iam-assume-role',
+                            {
+                              type: 'category',
+                              label: 'Naming and data formats',
+                              items: [
+                                'products/kafka/kafka-connect/howto/s3-sink-additional-parameters',
+                                'products/kafka/kafka-connect/howto/s3-sink-additional-parameters-confluent',
+                              ],
+                            },
                           ],
                         },
 
@@ -1083,18 +1091,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Reference',
                   items: [
                     'products/kafka/kafka-connect/reference/advanced-params',
-                    {
-                      type: 'category',
-                      label: 'AWS S3 sink connector naming and data formats',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/kafka-connect/reference/s3-sink-formats',
-                      },
-                      items: [
-                        'products/kafka/kafka-connect/reference/s3-sink-additional-parameters',
-                        'products/kafka/kafka-connect/reference/s3-sink-additional-parameters-confluent',
-                      ],
-                    },
+
                     'products/kafka/kafka-connect/reference/gcs-sink-formats',
                     'products/kafka/kafka-connect/reference/connect-metrics-prometheus',
                   ],
