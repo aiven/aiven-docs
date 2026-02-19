@@ -6,6 +6,7 @@ sidebar_label: Upgrade version
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for OpenSearch® allows you to choose the version that best fits your needs and upgrade when ready.
 
@@ -152,3 +153,8 @@ resource to set
 
 </TabItem>
 </Tabs>
+
+<RelatedPages/>
+
+- [Control maintenance updates with upgrade pipelines](/docs/platform/howto/controlled-upgrade)
+- [Service maintenance](/docs/platform/concepts/maintenance-window)
