@@ -30,20 +30,22 @@ feature.
 - [**Aiven CLI**](/docs/tools/cli) installed and configured (for CLI instructions)
 
 - [**Aiven Provider for Terraform**](/docs/tools/terraform) installed and configured (for
-  Terraform instructions). The
-  [aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
-  resource is in the beta stage and requires setting the `PROVIDER_AIVEN_ENABLE_BETA`
-  environment variable.
+  Terraform instructions)
+
+  - The
+    [aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+    resource is in the beta stage and requires setting the `PROVIDER_AIVEN_ENABLE_BETA`
+    environment variable.
+  - The [list CMK accessors](/docs/platform/howto/bring-your-own-key#list-cmk-accessors)
+    operation is not supported by Aiven Provider for Terraform. Use the API or CLI.
+  - More information on the `aiven_cmk` resource and its configuration options are
+    available in the
+    [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk).
 
 ## List CMK accessors
 
 List customer managed key (CMK) accessors - principals that need to be granted access to
 perform encrypt/decrypt operations on your behalf.
-
-:::note
-This operation is not supported by Aiven Provider for Terraform. Use the API or CLI to get
-the accessor details needed for granting KMS permissions.
-:::
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -253,9 +255,25 @@ For JSON output, use `--json` flag.
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
+#### Resource
+
+Use the
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+resource to register a CMK with your Aiven project.
+
+#### Sample configuration
+
 <TerraformSample filename='resources/aiven_cmk/resource.tf' />
 
-More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk).
+#### Usage
+
+Apply the configuration:
+
+```bash
+export PROVIDER_AIVEN_ENABLE_BETA=1
+terraform plan
+terraform apply
+```
 
 </TabItem>
 </Tabs>
