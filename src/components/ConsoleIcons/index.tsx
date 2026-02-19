@@ -113,7 +113,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'aieditor':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>AI editor</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>PG Studio</b>
         </>
       );
     case 'generativeai':
