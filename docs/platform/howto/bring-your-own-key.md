@@ -6,8 +6,10 @@ limited: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 
-Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven API](/docs/tools/api) or the [Aiven CLI](/docs/tools/cli).
+Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
 :::important
 Bring your own key (BYOK) is a
@@ -26,6 +28,19 @@ feature.
   the [Aiven API](/docs/tools/api)
 
 - [**Aiven CLI**](/docs/tools/cli) installed and configured (for CLI instructions)
+
+- [**Aiven Provider for Terraform**](/docs/tools/terraform) installed and configured (for
+  Terraform instructions)
+
+  - The
+    [aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+    resource is in the beta stage and requires setting the `PROVIDER_AIVEN_ENABLE_BETA`
+    environment variable.
+  - The [list CMK accessors](/docs/platform/howto/bring-your-own-key#list-cmk-accessors)
+    operation is not supported by Aiven Provider for Terraform. Use the API or CLI.
+  - More information on the `aiven_cmk` resource and its configuration options are
+    available in the
+    [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk).
 
 ## List CMK accessors
 
@@ -118,8 +133,8 @@ parameter the `roles/cloudkms.cryptoOperator` role.
 
 ## Manage a project CMK
 
-Use the Aiven API or Aiven CLI to manage customer managed keys (CMKs) for encrypting
-service data.
+Use the Aiven Provider for Terraform, Aiven API, or Aiven CLI to manage customer managed
+keys (CMKs) for encrypting service data.
 
 ### Register CMK resource identifier
 
@@ -161,8 +176,8 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
 
 #### Sample response (AWS)
 
-A successful request returns a `201 CREATED` status code and a JSON object representing the
-newly registered CMK configuration, for example:
+A successful request returns a `201 CREATED` status code and a JSON object representing
+the newly registered CMK configuration, for example:
 
 ```json
 {
@@ -236,6 +251,19 @@ updated_at    YYYY-MM-DDTHH:MM:SSZ
 ```
 
 For JSON output, use `--json` flag.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+Use the
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+resource to register a CMK with your Aiven project.
+
+#### Sample configuration
+
+<TerraformSample filename='resources/aiven_cmk/resource.tf' />
 
 </TabItem>
 </Tabs>
@@ -352,6 +380,34 @@ updated_at    YYYY-MM-DDTHH:MM:SSZ
 For JSON output, use `--json` flag.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+Update the
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+resource configuration to modify the CMK settings.
+
+:::note
+You can only update the `default_cmk` attribute. Changing the `project`, `cmk_provider`,
+or `resource` attributes forces the recreation of the resource.
+:::
+
+#### Sample configuration
+
+Update the `default_cmk` setting:
+
+```diff
+resource "aiven_cmk" "example" {
+  project      = "my-project"
+  cmk_provider = "gcp"
+  resource     = "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key"
+- default_cmk  = true
++ default_cmk  = false
+}
+```
+
+</TabItem>
 </Tabs>
 
 ### Get CMK details
@@ -440,6 +496,39 @@ updated_at    YYYY-MM-DDTHH:MM:SSZ
 ```
 
 For JSON output, use `--json` flag.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+Use
+[aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+outputs to get CMK details.
+
+#### Accessing CMK details from resource
+
+```terraform
+output "cmk_id" {
+  value = aiven_cmk.example.cmk_id
+}
+
+output "cmk_status" {
+  value = aiven_cmk.example.status
+}
+
+output "cmk_created_at" {
+  value = aiven_cmk.example.created_at
+}
+```
+
+#### Importing existing CMK
+
+Import an existing CMK to manage it with Terraform:
+
+```bash
+terraform import aiven_cmk.example PROJECT_NAME/CMK_ID
+```
 
 </TabItem>
 </Tabs>
@@ -534,6 +623,27 @@ a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7  current  oci       ocid1.key.oc1.iad.xxxxx
 For JSON output, use `--json` flag.
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use Terraform state to list all CMKs managed in your
+[CMK resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk):
+
+```bash
+terraform state list | grep aiven_cmk
+```
+
+View details of a specific CMK:
+
+```bash
+terraform state show aiven_cmk.cmk_oci_iad
+```
+
+:::note
+To list all CMKs in a project (including those not managed by Terraform), use the API or
+CLI.
+:::
+
+</TabItem>
 </Tabs>
 
 ### Remove CMK
@@ -615,6 +725,44 @@ avn project cmks delete \
 The command returns the details of the deleted CMK in the format you specified.
 
 For JSON output, use `--json` flag.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+:::warning
+Deleting a CMK renders services linked to the key inoperable. Ensure services are migrated
+to another CMK or Aiven-managed keys before deletion.
+:::
+
+Remove or comment out the
+[CMK resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
+in your Terraform configuration:
+
+```terraform
+# resource "aiven_cmk" "example" {
+#   project      = "my-project"
+#   cmk_provider = "oci"
+#   resource     = "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#   default_cmk  = false
+# }
+```
+
+Alternatively, use `terraform destroy` to target a specific resource:
+
+```bash
+terraform destroy -target=aiven_cmk.example
+```
+
+#### What happens
+
+When you remove a
+[CMK resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk):
+
+- The CMK configuration is deleted from the Aiven project.
+- Services using this CMK become inoperable.
+- The resource is removed from Terraform state.
 
 </TabItem>
 </Tabs>
