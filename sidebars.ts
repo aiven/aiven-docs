@@ -185,11 +185,31 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Concepts',
               items: [
-                'platform/concepts/service_backups',
                 'platform/concepts/service-memory-limits',
                 'platform/concepts/out-of-memory-conditions',
                 'platform/concepts/maintenance-window',
                 'platform/howto/custom-plans',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Backup and restore',
+              items: [
+                'platform/concepts/service_backups',
+                'platform/howto/restore_progress_updates',
+                {
+                  type: 'category',
+                  label: 'Backup to another region',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/concepts/backup-to-another-region',
+                  },
+                  items: [
+                    'platform/howto/btar/enable-backup-to-another-region',
+                    'platform/howto/btar/manage-backup-to-another-region',
+                    'platform/howto/btar/disable-backup-to-another-region',
+                  ],
+                },
               ],
             },
             {
@@ -209,19 +229,7 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/disk-autoscaler',
               ],
             },
-            {
-              type: 'category',
-              label: 'Backup to another region',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/backup-to-another-region',
-              },
-              items: [
-                'platform/howto/btar/enable-backup-to-another-region',
-                'platform/howto/btar/manage-backup-to-another-region',
-                'platform/howto/btar/disable-backup-to-another-region',
-              ],
-            },
+
             'platform/howto/create_new_service',
             'platform/concepts/service-power-cycle',
             'platform/concepts/rename-services',
@@ -458,15 +466,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'tools',
-        {
-          type: 'category',
-          label: 'Aiven API',
-          link: {
-            id: 'tools/api',
-            type: 'doc',
-          },
-          items: ['tools/api/restore_progress_updates'],
-        },
+        'tools/api',
         {
           type: 'category',
           label: 'Aiven Provider for Terraform',

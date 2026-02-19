@@ -1,6 +1,6 @@
 ---
 title: Track service restore progress using the API
-sidebar_label: Service restore progress
+sidebar_label: Service restore progress (API)
 ---
 
 import Tabs from '@theme/Tabs';
