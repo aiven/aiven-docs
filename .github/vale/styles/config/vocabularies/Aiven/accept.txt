@@ -199,6 +199,7 @@ kafka
 Kafka
 Kaggle
 Kaggle/M
+Kapa
 Karapace
 kcat
 keypair
