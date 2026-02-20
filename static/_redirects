@@ -190,8 +190,8 @@
 /products/grafana/user-access                              /docs/products/grafana/howto/log-in  301
 /products/influxdb                                         /docs/products/metrics  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
-/products/kafka/get-started                                /docs/products/kafka/create-kafka-service  301
-/products/kafka/getting-started.html                       /docs/products/kafka/create-kafka-service  301
+/products/kafka/get-started                                /docs/products/kafka/get-started/create-kafka-service  301
+/products/kafka/getting-started.html                       /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301
 /products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect  301
 /products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry  301
@@ -204,6 +204,7 @@
 /products/kafka/howto/list-tools                           /docs/products/kafka/howto/kafka-tools-config-file  301
 /products/kafka/howto/list-topic-management                /docs/products/kafka/howto/create-topic  301
 /products/kafka/howto/use-zookeeper                        /docs/products/kafka  301
+/products/kafka/tiered-storage-overview-page               /docs/products/kafka/howto/view-kafka-storage-in-console   301
 /products/kafka/index.html                                 /docs/products/kafka  301
 /products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
 /products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices  301

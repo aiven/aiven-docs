@@ -41,12 +41,12 @@ large, infrequent writes. Batching enables diskless topics to:
 After a batch is finalized:
 
 1. The broker uploads the batch to cloud storage as an object.
-1. The broker registers the object's offset ranges and metadata with the Batch
-   Coordinator.
+1. The broker registers the object's offset ranges and metadata with the internal
+   Batch Coordinator.
 1. The Batch Coordinator tracks partition ordering and ensures metadata consistency.
 
-Objects may contain messages from multiple partitions. They are not ordered internally.
-The Batch Coordinator manages total ordering at the partition level.
+Objects may contain messages from multiple partitions. Messages within an object are not
+ordered across partitions. Ordering is managed at the partition level.
 
 This separation of storage and coordination allows brokers to continue accepting new
 messages while finalizing storage operations in the background.
@@ -101,10 +101,8 @@ Tuning for very low latency (for example, under 10 milliseconds) or small object
 Diskless topics use several internal components to manage batching and delivery
 efficiently:
 
-- **Batch Coordinator**: Manages partition-level metadata and total ordering.
-    It tracks which messages are in which objects and monitors their offset ranges.
-    Currently backed by PostgreSQL, the Batch Coordinator may evolve into a
-    topic-based coordinator.
+- **Batch Coordinator**: Manages partition-level metadata and total ordering. It tracks
+  which messages are stored in which objects and their offset ranges.
 - **Object cache**: Caches recently accessed objects in memory or ephemeral disk to
   improve consumer fetch performance.
 - **Compaction jobs**: Merges smaller or older objects into larger ones. This improves

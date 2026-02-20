@@ -1,6 +1,6 @@
 ---
-title: Limitations of diskless topics
-sidebar_label: Limitations
+title: Diskless topic limitations and behavior
+sidebar_label: Limitations and behavior
 ---
 
 Diskless topics are compatible with Kafka APIs and clients, with some limitations:
@@ -11,19 +11,35 @@ Diskless topics are compatible with Kafka APIs and clients, with some limitation
   topics but must write to classic topics.
 - Classic and tiered Kafka topics cannot be converted to diskless topics.
 
-## Aiven-managed PostgreSQL® service upgrades {#automatic-postgresql-service-upgrades}
+## Internal metadata service behavior {#internal-metadata-service}
 
-Aiven monitors the PostgreSQL® service that supports diskless topics in
-Bring Your Own Cloud (BYOC) deployments.
-This Aiven-managed service stores metadata used by the Batch Coordinator, such as
-offsets and batch locations.
-When the service experiences high load, Aiven upgrades its plan to maintain performance and
-stability.
+Diskless topics rely on an internal metadata service that Aiven operates on your behalf.
+This service tracks offsets and batch locations used by diskless topics.
 
-- The upgrade does not cause downtime.
-- You receive an email notification when the upgrade occurs.
-- The upgraded plan appears in your billing and usage metrics.
-- No action is required.
+Aiven may adjust the capacity of this service automatically to maintain performance and
+stability. These changes do not require action and do not change how diskless topics are
+used.
 
-For details about the Batch Coordinator and metadata,
-see [Architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture#batch-coordinator-and-metadata).
+### Aiven Cloud deployments
+
+In Aiven Cloud deployments, this service does not appear as a separate service in the
+console or billing.
+
+### Bring Your Own Cloud (BYOC) deployments
+
+In BYOC deployments, enabling diskless topics automatically creates an
+Aiven for PostgreSQL® service in the project. This PostgreSQL service:
+
+- Is required for diskless topics to function.
+- Stores metadata required for diskless topics.
+- Appears as a separate service in the project.
+- Is created and managed automatically by Aiven.
+- Cannot be configured or managed independently.
+
+### Maintenance behavior
+
+Maintenance for this internal service occurs in the same maintenance window as the Kafka
+service. In the Aiven Console, references to internal components may appear during
+maintenance or upgrade flows, but they cannot be managed independently.
+
+For more information about the metadata architecture, see [Architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture#batch-coordinator-and-metadata).

@@ -11,7 +11,7 @@ This example uses [Docker](https://www.docker.com/) images.
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) or [Podman](https://podman.io/) installed
-- Active [Aiven for Apache Kafka® service](/docs/products/kafka/create-kafka-service)
+- Active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service)
 - Access to the [Aiven Console](https://console.aiven.io)
 - [Kafka REST API](https://aiven.io/docs/products/kafka/karapace/howto/enable-karapace)
   enabled
