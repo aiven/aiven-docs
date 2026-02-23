@@ -178,8 +178,8 @@ metadata management, see [KRaft in Aiven for Apache Kafka®](/docs/products/kafk
 
 #### Existing services
 
--  Migration from ZooKeeper to KRaft is part of the upgrade to Apache Kafka 3.9.
--  Migration from ZooKeeper to KRaft is part of the upgrade to Apache Kafka 3.9.
+- Migration from ZooKeeper to KRaft is part of the upgrade to Apache Kafka 3.9.
+  For details, see [Migration from ZooKeeper to KRaft](/docs/products/kafka/concepts/kraft-mode#migration-from-zookeeper-to-kraft).
 - After migrating to Kafka 3.9 in KRaft mode, you can upgrade to Kafka 4.0 or later.
 - To support this transition, Aiven has extended support for Apache Kafka 3.8 by one
   year, allowing sufficient time for planning and migration.
