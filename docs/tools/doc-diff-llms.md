@@ -1,5 +1,5 @@
 ---
-title: Monitor Aiven documentation changes with GitHub actions
+title: Monitor Aiven documentation changes with GitHub Actions
 sidebar_label: Monitor doc changes
 ---
 
