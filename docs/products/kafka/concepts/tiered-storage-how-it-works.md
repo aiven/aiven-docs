@@ -26,7 +26,7 @@ enabled or not.
 In Classic Kafka services, you can configure tiered storage per topic, including local
 retention settings that control how much data is kept on broker disks before offload.
 
-Inkless Kafka services manage these settings for classic topics automatically.
+Inkless Kafka services manage storage for classic topics automatically.
 
 ## Local vs. remote data retention
 

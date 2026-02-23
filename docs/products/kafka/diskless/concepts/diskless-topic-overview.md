@@ -47,6 +47,12 @@ scaling. They provide:
 - **Compliance and security**: In BYOC deployments, the service runs entirely within
   your own cloud account.
 
+:::note
+Internal and ecosystem topics (such as consumer offsets, Kafka Connect, MirrorMaker 2,
+and Schema Registry topics) are managed by the service. You cannot change their storage
+type or configuration.
+:::
+
 ## Diskless vs. classic Kafka topics
 
 Diskless topics store data in cloud object storage and do not rely on broker-managed

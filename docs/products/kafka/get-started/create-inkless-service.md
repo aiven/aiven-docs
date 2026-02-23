@@ -55,7 +55,6 @@ avn service create SERVICE_NAME \
   --cloud CLOUD_REGION \
   --plan INKLESS_PLAN \
   -c kafka_version=4.0 \
-  -c tiered_storage.enabled=true \
   -c inkless.enabled=true
 ```
 
@@ -84,7 +83,6 @@ avn service create SERVICE_NAME \
   --cloud CLOUD_REGION \
   --plan INKLESS_PLAN \
   -c kafka_version=4.0 \
-  -c tiered_storage.enabled=true \
   -c inkless.enabled=true \
   -c kafka_diskless.enabled=true
 ```
@@ -129,7 +127,6 @@ avn service create SERVICE_NAME \
   --cloud CUSTOM_CLOUD_REGION \
   --plan INKLESS_PLAN \
   -c kafka_version=4.0 \
-  -c tiered_storage.enabled=true \
   -c inkless.enabled=true \
   -c kafka_diskless.enabled=true
 ```

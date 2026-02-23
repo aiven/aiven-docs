@@ -14,7 +14,7 @@ Diskless topics are compatible with Kafka APIs and clients, with some limitation
 ## Internal metadata service behavior {#internal-metadata-service}
 
 Diskless topics rely on an internal metadata service that Aiven operates on your behalf.
-This service tracks offsets and batch locations used by diskless topics.
+This service maintains metadata required for diskless topics to function.
 
 Aiven may adjust the capacity of this service automatically to maintain performance and
 stability. These changes do not require action and do not change how diskless topics are
@@ -42,4 +42,5 @@ Maintenance for this internal service occurs in the same maintenance window as t
 service. In the Aiven Console, references to internal components may appear during
 maintenance or upgrade flows, but they cannot be managed independently.
 
-For more information about the metadata architecture, see [Architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture#batch-coordinator-and-metadata).
+For more information about how diskless topics work, see [Diskless topics
+architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture).

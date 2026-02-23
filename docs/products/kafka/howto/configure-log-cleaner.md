@@ -8,6 +8,14 @@ The log cleaner serves the purpose of preserving only the latest value associate
 In Aiven for Apache Kafka®, the log cleaner is enabled by
 default, while log compaction remains disabled.
 
+:::note Inkless Kafka services
+Compaction is not available for topics you create on **Inkless Kafka** services.
+Classic topics (which use remote storage) and diskless topics do not support the
+compaction cleanup policy.
+Only certain ecosystem topics (for example, Schema Registry) use compaction. See
+[Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic#topic-types).
+:::
+
 ## Enable log compaction for all topics
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your

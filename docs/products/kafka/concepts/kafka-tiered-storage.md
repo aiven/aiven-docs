@@ -13,7 +13,7 @@ you configure tiered storage per topic, which gives you granular control over
 your data storage.
 
 In Classic Kafka service, tiered storage is an optional feature that you enable and
-configure per topic. In Inkless Kafka services, classic topics use managed tiered
+configure per topic. In Inkless Kafka services, classic topics use managed remote
 storage by default and you cannot disable it.
 
 :::note

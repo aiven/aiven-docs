@@ -19,7 +19,7 @@ Create an Apache Kafka service on Aiven by choosing a **cluster type**.
 
 - **Inkless Kafka** supports classic topics and diskless topics. On Aiven Cloud, sizing
   is based on service throughput. On Bring Your Own Cloud (BYOC), sizing is based on
-  the selected plan. In Inkless Kafka, classic topics use managed tiered storage by
+  the selected plan. In Inkless Kafka, classic topics use managed remote storage by
   default.
 
 - **Classic Kafka** uses fixed plans with local broker storage, with optional tiered

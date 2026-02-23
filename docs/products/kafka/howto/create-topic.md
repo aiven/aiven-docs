@@ -15,7 +15,7 @@ Create topics in your Aiven for Apache Kafka® service to organize message strea
 A topic in Aiven for Apache Kafka is a named stream of messages.
 Producers write data to topics, and consumers read from them.
 
-Available topic types vary by Kafka service type.
+Topic types depend on your Kafka service type.
 
 ### Topic types
 
@@ -24,38 +24,49 @@ Available topic types vary by Kafka service type.
   - Storage behavior varies by service type:
     - In **Classic Kafka** services, data is stored on local broker disks unless tiered
       storage is enabled.
-    - In **Inkless Kafka** services, classic topics use managed remote storage by default.
-      You cannot change the storage mode or local retention settings.
+    - In **Inkless Kafka** services, classic topics use remote storage by default. You
+      cannot change the storage mode or local retention settings.
 
 - **Diskless topics**
   - Available only in **Inkless Kafka** services.
   - Store topic data directly in cloud object storage.
   - Must be enabled for the service before creation.
-  - The topic type cannot be changed after creation.
+  - You cannot change the topic type after creation.
 
 In Inkless Kafka services, classic and diskless topics can coexist.
 To choose between them, see
 [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
 
-For limitations and restrictions of diskless topics, see
+For diskless topic limitations, see
 [Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations).
 
 ## Before you begin
 
-Before creating topics in your Aiven for Apache Kafka® service, review the following:
+Before you create topics in your Aiven for Apache Kafka service, review the following:
 
 - **Tiered storage** is available in **Classic Kafka** services, where you can enable and
   configure it per topic. See [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 - **Manual topic creation** gives you control over partitions, replication, and
   retention. This approach is preferred in production to prevent accidental topic creation.
-- **Automatic topic creation** is supported only for classic topics in Classic Kafka
-  services. See [Automatically create topics](create-topics-automatically).
+- **Automatic topic creation** can be enabled for Classic Kafka and Inkless Kafka
+  services. On Inkless Kafka, automatically created topics are classic topics.
+  Create diskless topics manually.
 
 ## Create an Apache Kafka topic
 
 The topic creation options shown in the Aiven Console depend on the Kafka service type.
-Classic Kafka services create classic topics only. Inkless Kafka services let you choose
+In Classic Kafka services, you create classic topics. Inkless Kafka services let you choose
 between classic and diskless topics.
+
+:::tip Kafka CLI and client APIs on Inkless Kafka
+
+- When you create a topic with the Kafka CLI (`kafka-topics.sh`), the Kafka Admin API, or
+  other Kafka clients without specifying a topic type, the topic is created as a classic
+  topic with remote storage by default.
+- To create a diskless topic, use the Aiven Console or Aiven CLI and explicitly select
+  the diskless topic type.
+
+:::
 
 <Tabs groupId="setup">
 <TabItem value="console" label="Console" default>
@@ -73,7 +84,7 @@ between classic and diskless topics.
 1. Optional: Under **Tiered storage**, enable tiered storage for the topic.
 
    :::note
-   Tiered storage cannot be disabled after it is enabled.
+   You cannot disable tiered storage after you enable it.
    :::
 
 1. Click **Create topic**.
@@ -98,7 +109,7 @@ between classic and diskless topics.
    as retention, cleanup policy, and message size limits.
 
    :::note
-   Diskless topics do not support compaction.
+   You cannot create compacted topics on Inkless Kafka services.
    :::
 
 1. Click **Create topic**.
@@ -107,7 +118,7 @@ between classic and diskless topics.
 </Tabs>
 
 After creation, the topic appears on the <ConsoleLabel name="topics" /> page.
-The **Topic type** column indicates whether the topic is **Classic** or **Diskless**.
+The **Topic type** column shows **Classic** or **Diskless**.
 
 </TabItem>
 
@@ -146,7 +157,8 @@ avn service topic-create \
 ```
 
 Use the `--diskless-enable` flag to create a diskless topic. Enable diskless topics on
-the service before creating them.
+the service before creating them. On Inkless services, omitting the flag creates a
+classic topic with remote storage.
 
 </TabItem>
 </Tabs>
@@ -183,7 +195,6 @@ with [`aiven_kafka_topic`](https://registry.terraform.io/providers/aiven/aiven/l
 </Tabs>
 </TabItem>
 </Tabs>
-
 
 <RelatedPages/>
 
