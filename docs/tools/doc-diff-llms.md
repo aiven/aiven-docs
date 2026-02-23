@@ -1,5 +1,5 @@
 ---
-title:  Monitor Aiven documentation changes with GitHub actions
+title: Monitor Aiven documentation changes with GitHub actions
 sidebar_label: Monitor doc changes
 ---
 
@@ -16,40 +16,45 @@ history of the `llms.txt` file so you can see exactly what changed over time.
 1. Log into GitHub and create a repository, for example, `aiven-docs-monitor`.
 1. Set this to **Private** if you don't want others to see your monitoring activity.
 
-## Set up Slack notifications
+## Set up notifications
 
-If you want to be alerted immediately rather than checking GitHub manually, set up a Slack
-webhook:
+Rather than checking GitHub manually for changes, set up notifications to receive
+automatic alerts when changes are detected.
+
+### Set up Slack notifications
+
+Use a Slack webhook:
 
 1. Create an **Incoming Webhook** in your Slack workspace.
 1. In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**.
 1. Click **New repository secret** and name it `SLACK_WEBHOOK_URL`. Paste your webhook
    link as the value.
 
-## Set up email notifications
+### Set up email notifications
 
-To receive email alerts when changes are detected, configure SMTP credentials:
+Configure SMTP credentials:
 
 1. **Set up an email account for sending notifications**:
-   - Use an existing Gmail account, or create a new one specifically for notifications
-   - For Gmail, you'll need to create an App Password rather than using your regular password
+   - Use an existing Gmail account, or create a new one specifically for notifications.
+   - For Gmail, you'll need to create an App Password rather than using your regular
+     password.
 
 1. **Create the App Password for Gmail**:
-   - Go to your Google Account settings
-   - Navigate to **Security** > **2-Step Verification** > **App passwords**
-   - Select **Mail** and **Other (Custom name)**
-   - Enter "Aiven Docs Monitor" as the name
-   - Copy the generated 16-character password
+   - Go to your Google Account settings.
+   - Navigate to **Security** > **2-Step Verification** > **App passwords**.
+   - Select **Mail** and **Other (Custom name)**.
+   - Enter `Aiven Docs Monitor` as the name.
+   - Copy the generated 16-character password.
 
 1. **Configure GitHub secrets**:
-   - In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**
+   - In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**.
    - Click **New repository secret** and add:
-     - `SMTP_USERNAME`: Your Gmail address (for example, `monitor@yourdomain.com`)
-     - `SMTP_PASSWORD`: The App Password you generated
+     - `SMTP_USERNAME`: Your Gmail address (for example, `notifications@example.com`)
+     - `SMTP_PASSWORD`: The app password you generated
 
 1. **Update the recipient email**:
-   - In the automation script, change `dorota.wojcik@aiven.io` to your email address
-   - You can add multiple recipients by separating emails with commas
+   - In the automation script, change `john.doe@example.com` to your email address.
+   - You can add multiple recipients by separating emails with commas.
 
 :::note Alternative SMTP providers
 You can use other email providers instead of Gmail. Update the `server_address` and `server_port` in the script accordingly:
@@ -64,7 +69,7 @@ Inside your new repository, create a folder path: `.github/workflows/`. Inside t
 create a file named `monitor.yml`. Add the following code:
 
 ```yaml
-name: Monitor Aiven Docs
+name: Monitor Aiven docs
 on:
   schedule:
     - cron: '0 9 * * *' # Runs daily at 9:00 AM UTC
@@ -112,7 +117,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: 🔔 Aiven Docs Update Detected
+          subject: 🔔 Aiven docs update detected
           to: john.doe@example.com
           from: ${{ secrets.SMTP_USERNAME }}
           body: |
@@ -125,16 +130,16 @@ jobs:
             🌐 View live document: https://aiven.io/docs/llms.txt
             📊 Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-            This is an automated notification from the Aiven Docs Monitor.
+            This is an automated notification from the Aiven docs monitor.
 
             Best regards,
-            Aiven Docs Monitor
+            Aiven docs monitor
 
       - name: Save changes to history
         if: steps.compare.outputs.changed == 'true'
         run: |
           git config user.name "Aiven Monitor"
-          git config user.email "monitor@yourdomain.com"
+          git config user.email "monitor@example.com"
           mv latest_llms.txt current_llms.txt
           git add current_llms.txt
           git commit -m "Detect changes in Aiven llms.txt"
@@ -150,7 +155,7 @@ Valkey™.
 
 By setting this up, you gain three major advantages over checking the site manually:
 
-- **Diff history**: Because the script "commits" the new version to your repository, you
+- **Diff history**: Because the script commits the new version to your repository, you
   can click the **Commits** tab in GitHub to see a line-by-line comparison of what was
   added or removed.
 - **Zero noise**: You only get a Slack ping when a functional change is made to the

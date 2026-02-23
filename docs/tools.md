@@ -47,10 +47,4 @@ You can interact with the Aiven platform with various interfaces and tools that 
         title="MCP server"
         description="Access Aiven documentation from MCP-compatible clients."
     />
-    <Card
-        to="/docs/tools/doc-diff-llms"
-        iconName="tools"
-        title="Documentation monitoring"
-        description="Set up automated monitoring to track changes in Aiven documentation."
-    />
 </GridContainer>
