@@ -1,4 +1,4 @@
----
+  ---
 title: Aiven for Apache Kafka® metrics available via Prometheus
 ---
 import HostMetrics from "@site/static/includes/host-metrics.md";
@@ -148,8 +148,8 @@ Aiven for Apache Kafka services running Apache Kafka 3.9 and later use KRaft mod
 replaces ZooKeeper for metadata and controller management.
 
 In KRaft mode, controller metrics are emitted from a dedicated controller process instead
-of the broker. Aiven exposes a limited subset of these metrics for monitoring cluster
-size and availability. Internal controller and Raft metrics are not exposed.
+of the broker. Aiven exposes a limited subset of these metrics. The KRaft controller is
+fully managed by Aiven. Controller and Raft metrics are not exposed.
 
 ##### Controller metrics available in KRaft mode
 
