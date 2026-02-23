@@ -17,7 +17,7 @@ This enables elastic scaling and long-term data retention without managing disk 
 Inkless Kafka supports:
 
 - **Diskless topics**, which store data in object storage
-- **Classic topics**, which use managed remote storage
+- **Classic topics**, which use managed remote storage by default
 
 Inkless Kafka is intended for high-throughput workloads where storage elasticity and
 cost efficiency are important, including Bring Your Own Cloud (BYOC) deployments. For
@@ -68,8 +68,8 @@ Professional tier for both Inkless and classic Kafka services.
 If you are new to Aiven for Apache Kafka®, start with the following topics:
 
 - [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
-- [Create an Inkless Kafka cluster](/docs/products/kafka/get-started/create-inkless-service)
-- [Create a Classic Kafka cluster](/docs/products/kafka/get-started/create-classic-kafka-service)
+- [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service)
+- [Create a Classic Kafka serivce](/docs/products/kafka/get-started/create-classic-kafka-service)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
 - [Generate sample data](/docs/products/kafka/howto/generate-sample-data)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)

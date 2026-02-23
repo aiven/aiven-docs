@@ -6,11 +6,12 @@ sidebar_label: Storage usage and settings
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 
-Use the tiered storage overview page to review storage usage, billing, and retention settings for your Aiven for Apache Kafka® service.
+Use the storage overview page to review storage usage, billing, and retention settings for your Aiven for Apache Kafka® service.
 
-In the Aiven Console, storage is labeled differently based on the cluster type.
-Classic Kafka clusters show **Tiered storage**, which can be enabled and configured.
-Inkless Kafka clusters show **Storage**, reflecting that object storage is always part of the data path.
+In the Aiven Console, storage is labeled differently based on the service type.
+Classic Kafka service show **Tiered storage**, which can be enabled and configured.
+Inkless Kafka service show **Storage**, reflecting that object storage is always part of
+the data path.
 
 ## Prerequisite
 
@@ -48,6 +49,12 @@ View the current local cache details and retention policy configurations for tie
 - **Default local retention bytes:** The configured volume of data, in bytes, for local retention
 
 ### Modify retention policies {#modify-retention-polices}
+
+:::note
+You can update tiered storage retention settings only in Classic Kafka services. In
+Inkless Kafka services, storage settings for classic topics are managed automatically
+and cannot be changed.
+:::
 
 1. In the **Tiered storage settings** section, click
    <ConsoleLabel name="actions"/> > **Update tiered storage settings**.

@@ -44,9 +44,10 @@ network costs between zones can be high.
 
 ## Role of object storage
 
-Object storage replaces the local disk storage used in classic Kafka. Instead of writing
-log segments to disk, brokers batch messages into larger units called objects and upload
-them to the object storage service configured for the cluster.
+For diskless topics, object storage replaces the local disk storage used in Classic
+Kafka services. Instead of writing log segments to disk, brokers batch messages into
+larger units called objects and upload them to the cloud object storage configured for
+the Kafka service.
 
 This design shifts durability and replication responsibilities from Kafka to the
 cloud provider, reducing broker-to-broker data transfer and operational complexity.
@@ -66,11 +67,13 @@ diskless topics, the internal Batch Coordinator is updated in the same maintenan
 as the Kafka service. Maintenance details for both components are shown together in the
 service’s maintenance view in the Aiven Console.
 
-## Clusters with mixed topics: classic and diskless
+## Services with mixed topics: classic and diskless
 
-Kafka clusters can include both classic and diskless topics in the same deployment:
+Inkless Kafka services can include both classic and diskless topics in the same
+deployment:
 
-- Classic topics store data on local disks managed by brokers.
+- In Classic Kafka services, classic topics store data on local disks managed by brokers.
+- In Inkless Kafka services, classic topics use managed remote storage.
 - Diskless topics store data in cloud object storage.
 - Metadata for both topic types is shared using Kafka’s KRaft protocol.
 

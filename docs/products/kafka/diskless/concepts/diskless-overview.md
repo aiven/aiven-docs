@@ -50,8 +50,8 @@ scaling. They provide:
 ## Diskless vs. classic Kafka topics
 
 Diskless topics store data in cloud object storage and do not rely on broker-managed
-replication or partition leadership. Classic Kafka topics store data on broker-local
-disks and use standard Kafka replication.
+replication or partition leadership. In Classic Kafka services, classic topics store
+data on broker-local disks and use standard Kafka replication.
 
 You can use both diskless and classic Kafka topics in the same Inkless Kafka service.
 This allows you to:

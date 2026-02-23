@@ -9,9 +9,8 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Inkless Apache Kafka® service on Aiven, either on Aiven cloud or using Bring Your Own Cloud (BYOC).
-Inkless runs Kafka 4.x and supports both classic topics and diskless topics, depending
-on the service configuration.
+Create an Inkless Apache Kafka® service on Aiven Cloud or using Bring Your Own Cloud (BYOC).
+Inkless runs Kafka 4.x and supports both classic and diskless topics.
 
 ## Prerequisites
 
@@ -34,7 +33,7 @@ you configure the cluster by selecting the ingress capacity and retention.
 1. In **Cluster type**, select **Inkless**.
 1. In **Deployment mode**, select **Aiven cloud**.
 1. Select a cloud provider and region.
-1. Select the expected **Ingress capacity** for the service.
+1. Select the **Ingress capacity** for the service.
 1. Optional: Enable **Diskless topics**, if available.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
@@ -75,8 +74,8 @@ avn service plans --service-type kafka --cloud CLOUD_REGION
 
 ### Enable diskless topics
 
-Add `-c kafka_diskless.enabled=true` when creating the service to use
-diskless topics:
+To create diskless topics, add `-c kafka_diskless.enabled=true` to the
+service creation command:
 
 ```bash
 avn service create SERVICE_NAME \
@@ -96,10 +95,9 @@ avn service create SERVICE_NAME \
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
 You can run Inkless Kafka clusters in your own cloud account using
-Bring Your Own Cloud (BYOC). Inkless clusters support classic topics and, when
-supported by the service configuration, diskless topics.
+Bring Your Own Cloud (BYOC). Inkless clusters support classic and diskless topics.
 
-To create services on BYOC, first set up a BYOC environment.
+Before creating services on BYOC, configure a BYOC environment.
 For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
 
 <Tabs groupId="inkless-byoc">
@@ -151,13 +149,12 @@ support diskless topics.
 </TabItem>
 </Tabs>
 
-## After service creation
+## Topic defaults
 
-When the service is running, classic topics are available by default.
-Diskless topics are available only when enabled and supported by the service configuration.
-
-- Create classic topics to use standard Kafka storage.
-- Create diskless topics to store data in object storage.
+- **Classic topics:**
+  - Remote storage is enabled automatically when you create a classic topic.
+  - Local retention settings are enforced by the service and cannot be changed.
+- **Diskless topics:** Diskless topics are available only if enabled when creating the service.
 
 <RelatedPages />
 

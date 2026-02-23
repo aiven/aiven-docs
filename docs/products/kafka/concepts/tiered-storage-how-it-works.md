@@ -23,9 +23,10 @@ Tiered storage operates seamlessly for both Apache Kafka producers and consumers
 meaning they interact with Apache Kafka the same way, whether tiered storage is
 enabled or not.
 
-In Classic Kafka clusters, administrators can configure tiered storage per topic by
-setting retention period and retention bytes to control how much data is kept on local
-disk.
+In Classic Kafka services, you can configure tiered storage per topic, including local
+retention settings that control how much data is kept on broker disks before offload.
+
+Inkless Kafka services manage these settings for classic topics automatically.
 
 ## Local vs. remote data retention
 
