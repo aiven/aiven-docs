@@ -26,6 +26,38 @@ webhook:
 1. Click **New repository secret** and name it `SLACK_WEBHOOK_URL`. Paste your webhook
    link as the value.
 
+## Set up email notifications
+
+To receive email alerts when changes are detected, configure SMTP credentials:
+
+1. **Set up an email account for sending notifications**:
+   - Use an existing Gmail account, or create a new one specifically for notifications
+   - For Gmail, you'll need to create an App Password rather than using your regular password
+
+1. **Create the App Password for Gmail**:
+   - Go to your Google Account settings
+   - Navigate to **Security** > **2-Step Verification** > **App passwords**
+   - Select **Mail** and **Other (Custom name)**
+   - Enter "Aiven Docs Monitor" as the name
+   - Copy the generated 16-character password
+
+1. **Configure GitHub secrets**:
+   - In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**
+   - Click **New repository secret** and add:
+     - `SMTP_USERNAME`: Your Gmail address (for example, `monitor@yourdomain.com`)
+     - `SMTP_PASSWORD`: The App Password you generated
+
+1. **Update the recipient email**:
+   - In the automation script, change `dorota.wojcik@aiven.io` to your email address
+   - You can add multiple recipients by separating emails with commas
+
+:::note Alternative SMTP providers
+You can use other email providers instead of Gmail. Update the `server_address` and `server_port` in the script accordingly:
+- **Outlook.com**: `smtp-mail.outlook.com`, port `587`
+- **Yahoo**: `smtp.mail.yahoo.com`, port `587`
+- **Custom SMTP**: Contact your email provider for the correct settings
+:::
+
 ## Create the automation script
 
 Inside your new repository, create a folder path: `.github/workflows/`. Inside that folder,
@@ -71,6 +103,32 @@ jobs:
           curl -X POST -H 'Content-type: application/json' \
           --data "{\"text\":\"🔔 *Aiven Docs Update:* Changes detected in llms.txt. View live: https://aiven.io/docs/llms.txt\"}" \
           $SLACK_WEBHOOK
+
+      - name: Send email alert
+        if: steps.compare.outputs.changed == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: 🔔 Aiven Docs Update Detected
+          to: john.doe@example.com
+          from: ${{ secrets.SMTP_USERNAME }}
+          body: |
+            Hello,
+
+            Changes have been detected in the Aiven documentation llms.txt file.
+
+            🔍 What changed: The llms.txt file has been updated
+            📅 Detection time: ${{ github.run_id }} - ${{ github.run_number }}
+            🌐 View live document: https://aiven.io/docs/llms.txt
+            📊 Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            This is an automated notification from the Aiven Docs Monitor.
+
+            Best regards,
+            Aiven Docs Monitor
 
       - name: Save changes to history
         if: steps.compare.outputs.changed == 'true'
