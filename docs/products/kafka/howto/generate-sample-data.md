@@ -80,7 +80,7 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
       On **Inkless Kafka** services, you can choose **Classic topic** or
       **Diskless topic** for sample data. On **Classic Kafka** services,
       only classic topics are used. For more information, see
-      [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
+      [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview).
       :::
 
    1. Click **Confirm**.

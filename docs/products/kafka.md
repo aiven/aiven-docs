@@ -72,4 +72,4 @@ If you are new to Aiven for Apache Kafka®, start with the following topics:
 - [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
 - [Generate sample data](/docs/products/kafka/howto/generate-sample-data)
-- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

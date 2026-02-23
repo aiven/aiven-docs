@@ -807,7 +807,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Diskless topics',
                   link: {
                     type: 'doc',
-                    id: 'products/kafka/diskless/concepts/diskless-overview',
+                    id: 'products/kafka/diskless/concepts/diskless-topic-overview',
                   },
                   items: [
                     'products/kafka/diskless/concepts/diskless-topics-architecture',

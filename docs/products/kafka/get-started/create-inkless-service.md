@@ -156,5 +156,5 @@ support diskless topics.
 <RelatedPages />
 
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
-- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
 - [Generate sample data](/docs/products/kafka/howto/generate-sample-data)

@@ -45,4 +45,4 @@ Choose Classic Kafka if you need:
 <RelatedPages />
 
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
-- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

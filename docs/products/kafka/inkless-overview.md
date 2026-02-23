@@ -58,4 +58,4 @@ Kafka service and select Inkless as the cluster type.
 <RelatedPages />
 
 - [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service)
-- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview)
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview )

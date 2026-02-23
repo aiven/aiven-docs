@@ -157,7 +157,7 @@
 /products/diskless/concepts/batching-and-delivery /docs/products/kafka/diskless/concepts/batching-and-delivery  301
 /products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects  301
 /products/diskless/concepts/topics-vs-classic  /docs/products/kafka/diskless/concepts/topics-vs-classic  301
-/products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-overview  301
+/products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
 /products/diskless/howto/create-diskless-topic /docs/products/kafka/howto/create-topics  301
 /products/dragonfly/concept                              /docs/products/dragonfly  301
 /products/dragonfly/concepts/overview                    /docs/products/dragonfly  301
