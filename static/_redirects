@@ -214,6 +214,9 @@
 /products/kafka/kafka-connect/howto/gcs-sink-prereq        /docs/products/kafka/kafka-connect/howto/gcs-sink#configure-google-cloud-for-the-connector    301
 /products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink  301
 /products/kafka/kafka-connect/howto/s3-sink-prereq          /docs/products/kafka/kafka-connect/howto/s3-sink-prepare  301
+/products/kafka/kafka-connect/reference/s3-sink-formats     /docs/products/kafka/kafka-connect/howto/s3-sink  301
+/products/kafka/kafka-connect/reference/s3-sink-additional-parameters    /docs/products/kafka/kafka-connect/howto/s3-sink-additional-parameters  301
+/products/kafka/kafka-connect/reference/s3-sink-additional-parameters-confluent    /docs/products/kafka/kafka-connect/howto/s3-sink-additional-parameters-confluent  301
 /products/kafka/kafka-connect/reference                    /docs/products/kafka/kafka-connect/reference/advanced-params  301
 /products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration  301
 /products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster   /docs/products/kafka/howto/integrate-external-kafka-cluster  301
