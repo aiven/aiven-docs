@@ -24,7 +24,7 @@ Choose Inkless Kafka if you need:
   lower-cost storage
 - Bring Your Own Cloud (BYOC) deployments
 
-[Create Inkless service](docs/products/kafka/get-started/create-inkless-service)
+[Create Inkless service](/docs/products/kafka/get-started/create-inkless-service)
 
 
 ### Classic Kafka
