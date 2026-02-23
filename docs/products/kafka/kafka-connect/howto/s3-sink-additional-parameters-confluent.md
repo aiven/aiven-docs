@@ -20,7 +20,7 @@ The connector stores data as objects in the configured S3 bucket. By default, ob
 names follow this pattern:
 
 ```text
-topics/<TOPIC_NAME>/partition=<PARTITION_NUMBER>/<TOPIC_NAME>+<PARTITIOIN_NUMBER>+<START_OFFSET>.<FILE_EXTENSION>
+topics/<TOPIC_NAME>/partition=<PARTITION_NUMBER>/<TOPIC_NAME>+<PARTITION_NUMBER>+<START_OFFSET>.<FILE_EXTENSION>
 ```
 
 The following placeholders define the pattern:

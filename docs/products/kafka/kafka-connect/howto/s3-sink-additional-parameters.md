@@ -45,8 +45,8 @@ naming format section in the
 [Aiven S3 sink connector GitHub repository](https://github.com/aiven/aiven-kafka-connect-s3).
 
 The connector creates one file per partition for each interval defined by
-`offset.flush.interval.ms`. A file is created only if the partition receives at least
-one record during the interval. The default interval is 60 seconds.
+`offset.flush.interval.ms`. The connector creates a file only if the partition receives
+at least one record during the interval. The default interval is 60 seconds.
 
 ## S3 data format
 
