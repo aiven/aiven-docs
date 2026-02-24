@@ -17,7 +17,7 @@ diskless topics, which store data in object storage.
 
 Choose Inkless Kafka if you need:
 
-- Throughput-based sizing instead of fixed plans
+- Throughput-based sizing on Aiven Cloud instead of fixed plans
 - Faster cluster scaling, version upgrades, and node recovery
 - Higher throughput per broker
 - Mixed workloads with classic topics for low latency and diskless topics for

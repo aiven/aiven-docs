@@ -13,12 +13,14 @@ Diskless topics are compatible with Kafka APIs and clients, with some limitation
 
 ## Internal metadata service behavior {#internal-metadata-service}
 
-Diskless topics rely on an internal metadata service that Aiven operates on your behalf.
-This service maintains metadata required for diskless topics to function.
+Diskless topics rely on an internal metadata service that is managed automatically
+as part of the Kafka service. This service stores the metadata required for
+diskless topics to function.
 
-Aiven may adjust the capacity of this service automatically to maintain performance and
-stability. These changes do not require action and do not change how diskless topics are
-used.
+If no diskless topics exist for some time, the service may be powered off.
+
+When you re-enable diskless topics, there may be a short delay before you can
+create or use them while the service starts.
 
 ### Aiven Cloud deployments
 

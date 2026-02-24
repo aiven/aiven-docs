@@ -8,7 +8,7 @@ Inkless is an Apache Kafka® service from Aiven for cloud deployments, supportin
 
 Inkless is available on Aiven Cloud and Bring Your Own Cloud (BYOC) deployments. It runs
 on Kafka 4.x and supports both classic and diskless topics within the same service.
-Classic Kafka is available only for existing, eligible projects.
+Classic Kafka remains available and can be selected when creating a new Kafka service.
 
 Inkless remains compatible with standard Kafka APIs and clients.
 

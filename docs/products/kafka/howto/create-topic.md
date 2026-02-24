@@ -64,7 +64,8 @@ between classic and diskless topics.
   other Kafka clients without specifying a topic type, the topic is created as a classic
   topic with remote storage by default.
 - To create a diskless topic, use the Aiven Console or Aiven CLI and explicitly select
-  the diskless topic type.
+  the diskless topic type. If you use `kafka-topics.sh` for diskless topics, use the
+  script from the [Inkless repository](https://github.com/aiven/inkless).
 
 :::
 

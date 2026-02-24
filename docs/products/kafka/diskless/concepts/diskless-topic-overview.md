@@ -26,7 +26,10 @@ are managed by an internal coordination layer that Aiven deploys and operates to
 diskless topics. For details, see [Batching and delivery](/docs/products/kafka/diskless/concepts/batching-and-delivery).
 
 Diskless topics work with standard Kafka APIs and clients, and most applications do not
-require any changes to use them. For architectural details, see
+require any changes to use them. If you use the Kafka CLI (`kafka-topics.sh`) to create or
+configure diskless topics, use the script from the [Inkless repository](https://github.com/aiven/inkless).
+
+For architectural details, see
 [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture).
 
 ## Benefits of using diskless topics
