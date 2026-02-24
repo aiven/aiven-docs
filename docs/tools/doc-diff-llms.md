@@ -6,7 +6,7 @@ sidebar_label: Monitor doc changes
 Set up automated monitoring of the Aiven documentation to track changes and get notifications when content is updated.
 
 To monitor the [Aiven documentation](https://aiven.io/docs) for changes, set up an
-automated GitHub action in your own personal or company account.
+automated GitHub Actions workflow in your own personal or company account.
 
 ## Create a monitoring repository
 
