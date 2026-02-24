@@ -14,6 +14,7 @@ allowlists
 Altinity
 Amazon
 america
+anonymized
 Apache
 API
 APIs
@@ -169,6 +170,8 @@ httpie
 HTTPS
 hyperloglog
 hyperloglogs
+hyperscaler
+hyperscalers
 hypertable
 hypertables
 IdP
@@ -306,6 +309,7 @@ reindex
 reindexed
 reindexing
 remoteSecure
+renewables
 requesters
 resharding
 Resharding
