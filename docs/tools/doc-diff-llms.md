@@ -75,6 +75,9 @@ on:
     - cron: '0 9 * * *' # Runs daily at 9:00 AM UTC
   workflow_dispatch: # Allows you to run it manually to test
 
+permissions:
+  contents: write
+
 jobs:
   check-changes:
     runs-on: ubuntu-latest
