@@ -1,6 +1,6 @@
 ---
 title: Monitor Aiven documentation changes with GitHub Actions
-sidebar_label: Monitor doc changes
+sidebar_label: Doc change monitor
 ---
 
 Set up automated monitoring of the Aiven documentation to track changes and get notifications when content is updated.
@@ -8,7 +8,22 @@ Set up automated monitoring of the Aiven documentation to track changes and get 
 To monitor the [Aiven documentation](https://aiven.io/docs) for changes, set up an
 automated GitHub Actions workflow in your own personal or company account.
 
-## Create a monitoring repository
+## Benefits of automated monitoring
+
+By setting this up, you gain three major advantages over checking the site manually:
+
+- **Diff history**: Because the script commits the new version to your repository, you
+  can click the **Commits** tab in GitHub to see a line-by-line comparison of what was
+  added or removed.
+- **Zero noise**: You only get a Slack ping when a functional change is made to the
+  document map.
+- **LLM ready**: If you use AI to manage your Aiven services, you can point your AI tool
+  (like an **MCP server**) at your `current_llms.txt` to ensure it always has the most
+  recent documentation context.
+
+## Set up automated monitoring
+
+### Create a monitoring repository
 
 You need a home repository for your monitor. This repository stores the script and a
 history of the `llms.txt` file so you can see exactly what changed over time.
@@ -16,12 +31,12 @@ history of the `llms.txt` file so you can see exactly what changed over time.
 1. Log into GitHub and create a repository, for example, `aiven-docs-monitor`.
 1. Set this to **Private** if you don't want others to see your monitoring activity.
 
-## Set up notifications
+### Set up notifications
 
 Rather than checking GitHub manually for changes, set up notifications to receive
 automatic alerts when changes are detected.
 
-### Set up Slack notifications
+#### Set up Slack notifications
 
 Use a Slack webhook:
 
@@ -30,7 +45,7 @@ Use a Slack webhook:
 1. Click **New repository secret** and name it `SLACK_WEBHOOK_URL`. Paste your webhook
    link as the value.
 
-### Set up email notifications
+#### Set up email notifications
 
 Configure SMTP credentials:
 
@@ -57,13 +72,15 @@ Configure SMTP credentials:
    - You can add multiple recipients by separating emails with commas.
 
 :::note Alternative SMTP providers
-You can use other email providers instead of Gmail. Update the `server_address` and `server_port` in the script accordingly:
+You can use other email providers instead of Gmail. Update the `server_address` and
+`server_port` in the script accordingly:
+
 - **Outlook.com**: `smtp-mail.outlook.com`, port `587`
 - **Yahoo**: `smtp.mail.yahoo.com`, port `587`
 - **Custom SMTP**: Contact your email provider for the correct settings
 :::
 
-## Create the automation script
+### Create the automation script
 
 Inside your new repository, create a folder path: `.github/workflows/`. Inside that folder,
 create a file named `monitor.yml`. Add the following code:
@@ -153,19 +170,6 @@ jobs:
 You can expand this script to monitor specific product folders, like only PostgreSQL® or
 Valkey™.
 :::
-
-## Benefits of automated monitoring
-
-By setting this up, you gain three major advantages over checking the site manually:
-
-- **Diff history**: Because the script commits the new version to your repository, you
-  can click the **Commits** tab in GitHub to see a line-by-line comparison of what was
-  added or removed.
-- **Zero noise**: You only get a Slack ping when a functional change is made to the
-  document map.
-- **LLM ready**: If you use AI to manage your Aiven services, you can point your AI tool
-  (like an **MCP server**) at your `current_llms.txt` to ensure it always has the most
-  recent documentation context.
 
 ## Test the monitoring setup
 
