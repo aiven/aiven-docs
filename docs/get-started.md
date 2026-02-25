@@ -8,38 +8,24 @@ import {ButtonSecondary} from "@site/src/components/Buttons";
 import Card from "@site/src/components/Card";
 import Overview from "@site/static/images/content/platform/platform-overview.png";
 import GridContainer from "@site/src/components/GridContainer";
-import ClickHouse from "@site/static/images/logos/clickhouse.svg";
-import Dragonfly from "@site/static/images/logos/dragonfly.svg";
-import Opensearch from "@site/static/images/logos/opensearch.svg";
-import Flink from "@site/static/images/logos/flink.svg";
-import Grafana from "@site/static/images/logos/grafana.svg";
-import Kafka from "@site/static/images/logos/kafka.svg";
-import MySQL from "@site/static/images/logos/mysql.svg";
-import PG from "@site/static/images/logos/pg.svg";
-import Valkey from "@site/static/images/logos/valkey.svg";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <!-- vale off -->
 
-Aiven provides managed open source services for streaming, databases, and applications across major cloud platforms.
-
-All services run reliably and securely in the clouds of your choice, are observable,
-and can be integrated with each other and with external tools.
-
-<img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
-
-## Try the Aiven Platform for free
+Aiven provides managed open source services for streaming and databases across major cloud providers.
 
 The Aiven Platform streamlines your operations by centralizing your cloud infrastructure,
 security, and observability in one unified control plane. You can access the platform
 through the Aiven Console, Aiven API, Aiven Provider for Terraform, Aiven CLI, and
 Aiven Operator for Kubernetes®.
 
-Aiven offers [free plans](/docs/platform/concepts/service-pricing#free-tier) and
-[30-day trials](/docs/platform/concepts/service-pricing#free-trials) for you to explore
-the platform and services.
+<img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
+
+## Try the Aiven Platform for free
+
+Sign up for a free trial to explore the Aiven Platform and try out our services.
 
 Aiven services are also available on the AWS, Azure, and Google Cloud marketplaces.
 
@@ -134,7 +120,7 @@ create managed users through your identity provider (IdP).
 
 <TabItem value="2" label="Create managed users" default>
 
-Make your organization users managed users by verifiying a domain and configuring an
+Make your organization users managed users by verifying a domain and configuring an
 identity provider.
 
 Aiven also supports automatic
@@ -179,7 +165,7 @@ Add users to groups to streamline access management to your Aiven projects and s
     <Card
       to="/docs/platform/howto/manage-permissions"
       iconName="clipboardCheck"
-      title="Give groups acess to projects"
+      title="Give groups access to projects"
       description="Grant roles and permissions to a group of users to access a project
       and its services."
     />
@@ -305,6 +291,12 @@ Create a service using the Aiven CLI or API.
       title="Aiven API"
     />
 </GridContainer>
+
+### Step 6: Earn credits by referring others to Aiven
+
+Invite colleagues and friends to sign up to Aiven.
+[Both of you earn credits](/docs/platform/reference/referrals)
+when they sign up and start using services.
 
 ## Next steps
 
