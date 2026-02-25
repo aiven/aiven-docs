@@ -19,8 +19,8 @@ Inkless runs Kafka 4.x and supports both classic and diskless topics.
 
 ## Create an Inkless service on Aiven Cloud
 
-Inkless services are available on the **Professional** service tier. On Aiven Cloud,
-you configure the cluster by selecting the ingress capacity and retention.
+Inkless services are available on the **Professional** tier. On Aiven Cloud,
+configure the service by selecting ingress capacity and retention.
 
 <Tabs groupId="inkless-aiven-cloud">
 <TabItem value="console" label="Console" default>
@@ -46,46 +46,11 @@ you configure the cluster by selecting the ingress capacity and retention.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Create an Inkless Kafka service using the Aiven CLI:
-
-```bash
-avn service create SERVICE_NAME \
-  --project PROJECT_NAME \
-  --service-type kafka \
-  --cloud CLOUD_REGION \
-  --plan INKLESS_PLAN \
-  -c kafka_version=4.0 \
-  -c inkless.enabled=true
-```
-
-Parameters:
-
-- `SERVICE_NAME`: Name of the Kafka service.
-- `PROJECT_NAME`: Project that contains the service.
-- `CLOUD_REGION`: Cloud region, for example `aws-eu-north-1` or `google-europe-west1`.
-- `INKLESS_PLAN`: Inkless-capable plan for the selected cloud.
-
-To list available Inkless-capable plans for a specific cloud:
-
-```bash
-avn service plans --service-type kafka --cloud CLOUD_REGION
-```
-
-### Enable diskless topics
-
-To create diskless topics, add `-c kafka_diskless.enabled=true` to the
-service creation command:
-
-```bash
-avn service create SERVICE_NAME \
-  --project PROJECT_NAME \
-  --service-type kafka \
-  --cloud CLOUD_REGION \
-  --plan INKLESS_PLAN \
-  -c kafka_version=4.0 \
-  -c inkless.enabled=true \
-  -c kafka_diskless.enabled=true
-```
+:::note
+Inkless on Aiven Cloud uses throughput-based offerings rather than fixed plans.
+The Aiven CLI does not list these offerings.
+Create Inkless services on Aiven Cloud using the Aiven Console.
+:::
 
 </TabItem>
 </Tabs>
@@ -127,8 +92,13 @@ avn service create SERVICE_NAME \
   --cloud CUSTOM_CLOUD_REGION \
   --plan INKLESS_PLAN \
   -c kafka_version=4.0 \
-  -c inkless.enabled=true \
-  -c kafka_diskless.enabled=true
+  -c inkless.enabled=true
+```
+
+To enable diskless topics, add the following option:
+
+```bash
+-c kafka_diskless.enabled=true
 ```
 
 Parameters:
@@ -138,9 +108,15 @@ Parameters:
 - `CUSTOM_CLOUD_REGION`: BYOC region, such as `custom-aws-eu-central-1`.
 - `INKLESS_PLAN`: Inkless-capable plan for the selected BYOC environment.
 
+To list available Inkless-capable plans for a BYOC environment and region:
+
+```bash
+avn service plans --service-type kafka --cloud CUSTOM_CLOUD_REGION
+```
+
 :::note
-To enable diskless topics, set `kafka_diskless.enabled=true`. The selected plan must
-support diskless topics.
+Diskless topics require `kafka_diskless.enabled=true`. The selected plan must support
+diskless topics.
 :::
 
 </TabItem>
@@ -151,7 +127,7 @@ support diskless topics.
 - **Classic topics:**
   - Remote storage is enabled automatically when you create a classic topic.
   - Local retention settings are enforced by the service and cannot be changed.
-- **Diskless topics:** Diskless topics are available only if enabled when creating the service.
+- **Diskless topics:** Available only if enabled when creating the service.
 
 <RelatedPages />
 

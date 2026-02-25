@@ -26,7 +26,6 @@ Choose Inkless Kafka if you need:
 
 [Create Inkless service](/docs/products/kafka/get-started/create-inkless-service)
 
-
 ### Classic Kafka
 
 Classic Kafka uses fixed plans with local broker storage. Tiered storage is available
