@@ -1,5 +1,5 @@
 ---
-title: OpenSearch® vs Elasticsearch
+title: OpenSearch vs Elasticsearch
 ---
 
 OpenSearch® is the open-source version of the Elasticsearch project, which has [a restrictive license](https://www.elastic.co/blog/licensing-change). Third parties cannot offer Elasticsearch as a service.

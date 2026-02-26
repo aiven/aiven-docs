@@ -1522,6 +1522,68 @@ const sidebars: SidebarsConfig = {
             'products/opensearch/get-started',
             {
               type: 'category',
+              label: 'Connect to service',
+              link: {
+                id: 'products/opensearch/howto/list-connect-to-service',
+                type: 'doc',
+              },
+              items: [
+                'products/opensearch/howto/connect-with-nodejs',
+                'products/opensearch/howto/connect-with-python',
+                'products/opensearch/howto/opensearch-with-curl',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Indices and data management',
+              items: [
+                'products/opensearch/howto/sample-dataset',
+                {
+                  type: 'category',
+                  label: 'Cross-cluster replication',
+                  items: [
+                    'products/opensearch/concepts/cross-cluster-replication-opensearch',
+                    'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                  ],
+                },
+                'products/opensearch/howto/custom-dictionary-files',
+                'products/opensearch/concepts/index-replication',
+                'products/opensearch/concepts/indices',
+                'products/opensearch/howto/reindex-opensearch',
+                'products/opensearch/howto/resolve-shards-too-large',
+                'products/opensearch/howto/set_index_retention_patterns',
+                'products/opensearch/concepts/shards-number',
+                'products/opensearch/concepts/when-create-index',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Search and aggregations',
+              items: [
+                'products/opensearch/concepts/aggregations',
+                'products/opensearch/howto/list-search-service',
+                'products/opensearch/howto/opensearch-aggregations-and-nodejs',
+                'products/opensearch/howto/opensearch-and-nodejs',
+                'products/opensearch/howto/opensearch-search-and-python',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'OpenSearch Dashboards',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/dashboards',
+              },
+              items: [
+                'products/opensearch/dashboards/get-started',
+                'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
+                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Backups, snapshots, and data migration',
               items: [
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
@@ -1559,29 +1621,6 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Indices and data management',
-              items: [
-                'products/opensearch/howto/sample-dataset',
-                {
-                  type: 'category',
-                  label: 'Cross-cluster replication',
-                  items: [
-                    'products/opensearch/concepts/cross-cluster-replication-opensearch',
-                    'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
-                  ],
-                },
-                'products/opensearch/howto/custom-dictionary-files',
-                'products/opensearch/concepts/index-replication',
-                'products/opensearch/concepts/indices',
-                'products/opensearch/howto/reindex-opensearch',
-                'products/opensearch/howto/resolve-shards-too-large',
-                'products/opensearch/howto/set_index_retention_patterns',
-                'products/opensearch/concepts/shards-number',
-                'products/opensearch/concepts/when-create-index',
-              ],
-            },
-            {
-              type: 'category',
               label: 'Monitoring and observability',
               items: [
                 'products/opensearch/howto/enable-slow-query-log',
@@ -1589,33 +1628,6 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/opensearch-alerting-api',
                 'products/opensearch/howto/opensearch-log-integration',
                 'products/opensearch/howto/os-metrics',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'OpenSearch Dashboards',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/dashboards',
-              },
-              items: [
-                'products/opensearch/dashboards/get-started',
-                'products/opensearch/dashboards/howto/dev-tools-usage-example',
-                'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
-                'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
-                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
-              ],
-            },
-            'products/opensearch/concepts/opensearch-vs-elasticsearch',
-            {
-              type: 'category',
-              label: 'Search and aggregations',
-              items: [
-                'products/opensearch/concepts/aggregations',
-                'products/opensearch/howto/list-search-service',
-                'products/opensearch/howto/opensearch-aggregations-and-nodejs',
-                'products/opensearch/howto/opensearch-and-nodejs',
-                'products/opensearch/howto/opensearch-search-and-python',
               ],
             },
             {
@@ -1638,19 +1650,6 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management and maintenance',
               items: [
-                {
-                  type: 'category',
-                  label: 'Connect to service',
-                  link: {
-                    id: 'products/opensearch/howto/list-connect-to-service',
-                    type: 'doc',
-                  },
-                  items: [
-                    'products/opensearch/howto/connect-with-nodejs',
-                    'products/opensearch/howto/connect-with-python',
-                    'products/opensearch/howto/opensearch-with-curl',
-                  ],
-                },
                 'products/opensearch/reference/advanced-params',
                 'products/opensearch/howto/handle-low-disk-space',
                 'products/opensearch/concepts/high-availability-for-opensearch',
@@ -1661,6 +1660,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/reference/plugins',
               ],
             },
+            'products/opensearch/concepts/opensearch-vs-elasticsearch',
           ],
         },
         {
