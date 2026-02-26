@@ -7,7 +7,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven makes its services available through the AWS, Azure, and Google Cloud marketplaces. If you already have services running in a project that is billed directly through Aiven, you can change the project billing to a marketplace subscription without disrupting your services.
+You can change the payment method for a billing group to a marketplace subscription.
+This lets you pay for your Aiven services through the AWS, Azure, or
+Google Cloud marketplaces.
+
+To change to a marketplace payment method, contact the support team with your
+subscription details. Changing from direct billing to a marketplace subscription
+does not disrupt your services.
 
 <Tabs groupId="group1">
 <TabItem value="aws" label="AWS Marketplace" default>
@@ -16,7 +22,7 @@ Aiven makes its services available through the AWS, Azure, and Google Cloud mark
 
 1. Collect information about your accounts:
 
-   * In the [Aiven Console](https://console.aiven.io/),
+   * In the Aiven Console,
      copy your [organization ID](/docs/platform/reference/get-resource-IDs).
 
    * In the AWS Marketplace, copy your subscription ID.
