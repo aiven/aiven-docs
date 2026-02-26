@@ -20,6 +20,7 @@ you may see errors such as:
 
 ```text
 UNKNOWN_TOPIC_OR_PARTITION
+```
 
 For example:
 
