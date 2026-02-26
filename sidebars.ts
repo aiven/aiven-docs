@@ -1520,19 +1520,38 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/opensearch/get-started',
-            'products/opensearch/howto/sample-dataset',
             {
               type: 'category',
               label: 'Backups, snapshots, and data migration',
               items: [
-                'products/opensearch/howto/custom-repositories',
-                'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
-                'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
+                {
+                  type: 'category',
+                  label: 'Manage custom repositories',
+                  link: {
+                    id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/custom-repositories',
+                    'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
+                    'products/opensearch/howto/snapshot-credentials',
+                  ],
+                },
                 'products/opensearch/howto/manage-snapshots',
-                'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
-                'products/opensearch/howto/migrate-ism-policies',
+                {
+                  type: 'category',
+                  label: 'Migrate external snapshots',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
+                  },
+                  items: [
+                    'products/opensearch/howto/migrate-ism-policies',
+                    'products/opensearch/howto/migrate-opendistro-security-config-aiven',
+                  ],
+                },
                 'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
                 'products/opensearch/howto/restore_opensearch_backup',
                 'products/opensearch/howto/snapshot-credentials',
@@ -1542,6 +1561,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Indices and data management',
               items: [
+                'products/opensearch/howto/sample-dataset',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
                 'products/opensearch/howto/custom-dictionary-files',
                 'products/opensearch/concepts/index-replication',
@@ -1602,7 +1622,6 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/enable-opensearch-security',
                 'products/opensearch/howto/jwt-authentication',
                 'products/opensearch/howto/list-opensearch-security',
-                'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                 'products/opensearch/howto/oidc-authentication',
                 'products/opensearch/concepts/opensearch-security-considerations',
                 'products/opensearch/concepts/os-security',
