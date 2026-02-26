@@ -49,4 +49,4 @@ that is used for a billing group
 
 1.  In the organization, click **Billing**.
 1.  Click <ConsoleLabel name="billingaddress"/>.
-1.  In the address to update, click **Delete**.
+1.  Find the address and click **Delete**.

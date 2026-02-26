@@ -36,6 +36,7 @@ You must be an
 to access this feature in the Aiven Console.
 
 1.  In the organization, click **Billing**.
+1.  Click <ConsoleLabel name="billinggroups"/>.
 1.  Find the billing group to rename, click <ConsoleLabel name="actions"/> > **Rename**.
 1.  Enter the new name and click **Rename**.
 
@@ -49,7 +50,8 @@ To change the payment method, billing and shipping address, VAT ID,
 billing contact emails, invoice emails, or other billing details:
 
 1.  In the organization, click **Billing**.
-1.  Select the name of the billing group to update.
+1.  Click <ConsoleLabel name="billinggroups"/>.
+1.  Click the name of the billing group to update.
 1.  On the **Billing information** tab click **Edit** to update the
     details for that section.
 
@@ -64,17 +66,23 @@ You must be an organization admin or have the manage projects
 to access this feature in the Aiven Console.
 
 1.  In the project, click **Settings**.
-1.  In the **Project settings** section, select a billing group to assign the project to.
+1.  In the **Project settings** section, choose a billing group to assign the project to.
 1.  Click **Save changes**.
 
 ## Delete a billing group
+
+To delete a billing group, move all projects assigned to it to a
+different billing group first.
 
 You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature in the Aiven Console.
 
 1.  In the organization, click **Billing**.
+1.  Click <ConsoleLabel name="billinggroups"/>.
 1.  Click the name of the billing group to delete.
-1.  On the **Projects** tab, move any projects to a different billing group.
+1.  To move the assigned projects, on the **Projects** tab
+    click <ConsoleLabel name="Actions"/> and move each project
+    to a different billing group.
 1.  Click <ConsoleLabel name="actions"/> at the top of the page.
 1.  Click **Delete** and **Confirm**.
