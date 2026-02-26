@@ -19,7 +19,7 @@ Generate data classes if you:
 
 ## Prerequisites
 
-- An active [Aiven for Apache Kafka® service](/docs/products/kafka/create-kafka-service)
+- An active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service)
 - [Karapace Schema Registry enabled](/docs/products/kafka/karapace/howto/enable-karapace)
 - Java (JDK 8 or later)
 - [Apache Maven](https://maven.apache.org/) installed

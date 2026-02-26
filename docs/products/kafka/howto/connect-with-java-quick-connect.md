@@ -11,7 +11,7 @@ schema, and download ready-to-use client code.
 
 ## Prerequisites
 
-- A running [Aiven for Apache Kafka® service](/docs/products/kafka/create-kafka-service)
+- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service)
 - Java development environment with [Maven](https://maven.apache.org/install.html)
 
 ## Step 1: Open quick connect and select Java
@@ -35,7 +35,7 @@ Topics organize and store the events you stream to Apache Kafka.
    If your Aiven for Apache Kafka® service has **Diskless topics** enabled, you can choose
    to create a **Classic** or **Diskless** topic, or select an existing topic of
    either type. To learn more, see
-   [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
+   [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview).
    :::
 
 1. Click **Next**.

@@ -9,7 +9,7 @@ Generate Java data classes from Protocol Buffers (`.proto`) schema files for use
 
 ## Prerequisites
 
-- An active [Aiven for Apache Kafka® service](/docs/products/kafka/create-kafka-service)
+- An active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service)
 - [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace)
   enabled
 - Java (JDK 8 or later)

@@ -17,7 +17,7 @@ replication traffic across availability zones can increase network costs, especi
 for high-throughput workloads.
 
 For Diskless Topics architecture and considerations, see
-[Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-overview).
+[Diskless Topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview).
 
 Set the replication factor when creating or editing a
 [topic](/docs/products/kafka/howto/create-topic) in the
