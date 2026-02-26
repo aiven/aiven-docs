@@ -1,5 +1,6 @@
 ---
 title: When to create an index
+sidebar_label: Creating index considerations
 ---
 
 Determine wether to create an index per customer/project/entity or to look for alternatives.

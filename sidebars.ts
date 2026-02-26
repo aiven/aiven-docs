@@ -1553,6 +1553,7 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
+                'products/opensearch/howto/upgrade-clients-to-opensearch',
                 'products/opensearch/howto/restore_opensearch_backup',
               ],
             },
@@ -1637,18 +1638,20 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management and maintenance',
               items: [
-                'products/opensearch/reference/advanced-params',
                 {
                   type: 'category',
-                  label: 'Connecting to OpenSearch',
+                  label: 'Connect to service',
+                  link: {
+                    id: 'products/opensearch/howto/list-connect-to-service',
+                    type: 'doc',
+                  },
                   items: [
                     'products/opensearch/howto/connect-with-nodejs',
                     'products/opensearch/howto/connect-with-python',
-                    'products/opensearch/howto/list-connect-to-service',
                     'products/opensearch/howto/opensearch-with-curl',
-                    'products/opensearch/howto/upgrade-clients-to-opensearch',
                   ],
                 },
+                'products/opensearch/reference/advanced-params',
                 'products/opensearch/howto/handle-low-disk-space',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
