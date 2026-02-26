@@ -1554,7 +1554,6 @@ const sidebars: SidebarsConfig = {
                 },
                 'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
                 'products/opensearch/howto/restore_opensearch_backup',
-                'products/opensearch/howto/snapshot-credentials',
               ],
             },
             {
@@ -1562,14 +1561,20 @@ const sidebars: SidebarsConfig = {
               label: 'Indices and data management',
               items: [
                 'products/opensearch/howto/sample-dataset',
-                'products/opensearch/concepts/cross-cluster-replication-opensearch',
+                {
+                  type: 'category',
+                  label: 'Cross-cluster replication',
+                  items: [
+                    'products/opensearch/concepts/cross-cluster-replication-opensearch',
+                    'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                  ],
+                },
                 'products/opensearch/howto/custom-dictionary-files',
                 'products/opensearch/concepts/index-replication',
                 'products/opensearch/concepts/indices',
                 'products/opensearch/howto/reindex-opensearch',
                 'products/opensearch/howto/resolve-shards-too-large',
                 'products/opensearch/howto/set_index_retention_patterns',
-                'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/concepts/when-create-index',
               ],
@@ -1593,9 +1598,9 @@ const sidebars: SidebarsConfig = {
                 id: 'products/opensearch/dashboards',
               },
               items: [
-                'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
-                'products/opensearch/dashboards/howto/dev-tools-usage-example',
                 'products/opensearch/dashboards/get-started',
+                'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
                 'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
                 'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
               ],

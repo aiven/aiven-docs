@@ -1,5 +1,6 @@
 ---
 title: Restore an OpenSearch® backup
+sidebar_label: Restore backup
 ---
 
 import ForkService from "@site/static/includes/fork-service-console.md";
