@@ -22,7 +22,7 @@ Choose Inkless Kafka if you need:
 - Higher throughput per broker
 - Mixed workloads with classic topics for low latency and diskless topics for
   lower-cost storage
-- Bring Your Own Cloud (BYOC) deployments
+
 
 [Create Inkless service](/docs/products/kafka/get-started/create-inkless-service)
 

@@ -34,7 +34,8 @@ configure the service by selecting ingress capacity and retention.
 1. In **Deployment mode**, select **Aiven cloud**.
 1. Select a cloud provider and region.
 1. Select the **Ingress capacity** for the service.
-1. Optional: Enable **Diskless topics**, if available.
+1. Optional: Enable **Diskless topics**, if available. They are not suitable for
+   smaller workloads.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the service name after

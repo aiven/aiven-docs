@@ -36,7 +36,7 @@ Aiven for PostgreSQL® service in the project. This PostgreSQL service:
 - Stores metadata required for diskless topics.
 - Appears as a separate service in the project.
 - Is created and managed automatically by Aiven.
-- Cannot be configured or managed independently.
+- Should not be configured or managed independently.
 
 ### Maintenance behavior
 

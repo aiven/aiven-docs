@@ -7,18 +7,26 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Apache Kafka® can automatically create a topic when a message is sent to a topic that
-does not exist.
+When you send a message to a topic that does not exist, Apache Kafka® can
+automatically create that topic.
 
-You can enable or disable automatic topic creation on both Classic Kafka and Inkless
-Kafka services. In production, disable automatic topic creation to avoid creating
+Automatic topic creation is off by default on both Classic Kafka and Inkless
+Kafka services. Turn it on when you want topics to be created automatically
+(for example, in development). In production, leave it off to avoid creating
 topics by mistake (for example, due to typos or incorrectly configured clients).
 
-If automatic topic creation is off and a producer sends to a non-existent topic,
-you may see:
+If automatic topic creation is disabled and a producer sends to a non-existent topic,
+you may see errors such as:
+
+```text
+UNKNOWN_TOPIC_OR_PARTITION
+
+For example:
 
 ```bash
-KafkaTimeoutError: Failed to update metadata after 60.0 secs.
+WARN [Producer clientId=console-producer] The metadata response from the cluster reported
+a recoverable issue with correlation id 18: {auto-created-1=UNKNOWN_TOPIC_OR_PARTITION}
+(org.apache.kafka.clients.NetworkClient)
 ```
 
 You can:

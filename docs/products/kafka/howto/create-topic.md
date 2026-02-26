@@ -20,7 +20,7 @@ Topic types depend on your Kafka service type.
 ### Topic types
 
 - **Classic topics**
-  - Available in **Classic Kafka** and **Inkless Kafka** services.
+  - They are available in **Classic Kafka** and **Inkless Kafka** services.
   - Storage behavior varies by service type:
     - In **Classic Kafka** services, data is stored on local broker disks unless tiered
       storage is enabled.
@@ -28,9 +28,11 @@ Topic types depend on your Kafka service type.
       cannot change the storage mode or local retention settings.
 
 - **Diskless topics**
-  - Available only in **Inkless Kafka** services.
-  - Store topic data directly in cloud object storage.
-  - Must be enabled for the service before creation.
+  - They are available only in **Inkless Kafka** services.
+  - They store topic data directly in cloud object storage.
+  - They require diskless support to be enabled on the service before you create
+    diskless topics.
+  - You choose classic or diskless per topic when you create the topic.
   - You cannot change the topic type after creation.
 
 In Inkless Kafka services, classic and diskless topics can coexist.
@@ -48,9 +50,11 @@ Before you create topics in your Aiven for Apache Kafka service, review the foll
   configure it per topic. See [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 - **Manual topic creation** gives you control over partitions, replication, and
   retention. This approach is preferred in production to prevent accidental topic creation.
-- **Automatic topic creation** can be enabled for Classic Kafka and Inkless Kafka
-  services. On Inkless Kafka, automatically created topics are classic topics.
-  Create diskless topics manually.
+- **Automatic topic creation** is disabled by default. Enable it only when needed
+  (for example, for development clusters). In production, leave it disabled to
+  govern topic creation and avoid accidental topics. On Inkless Kafka,
+  auto-created topics are classic topics. Create diskless topics manually. For
+  more information, see [Create topics automatically](/docs/products/kafka/howto/create-topics-automatically).
 
 ## Create an Apache Kafka topic
 
@@ -134,9 +138,9 @@ To create a classic topic:
 
 ```bash
 avn service topic-create \
+  SERVICE_NAME \
+  TOPIC_NAME \
   --project PROJECT_NAME \
-  --service-name SERVICE_NAME \
-  --topic TOPIC_NAME \
   --partitions PARTITION_COUNT \
   --replication REPLICATION_FACTOR
 ```
@@ -149,9 +153,9 @@ To create a diskless topic (Inkless services only):
 
 ```bash
 avn service topic-create \
+  SERVICE_NAME \
+  TOPIC_NAME \
   --project PROJECT_NAME \
-  --service-name SERVICE_NAME \
-  --topic TOPIC_NAME \
   --partitions PARTITION_COUNT \
   --replication REPLICATION_FACTOR \
   --diskless-enable

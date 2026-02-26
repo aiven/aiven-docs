@@ -45,9 +45,8 @@ network costs between zones can be high.
 ## Role of object storage
 
 For diskless topics, object storage replaces the local disk storage used in Classic
-Kafka services. Instead of writing log segments to disk, brokers batch messages into
-larger units called objects and upload them to the cloud object storage configured for
-the Kafka service.
+Kafka services. Instead of writing log segments to disk, brokers batch messages and
+upload them to cloud object storage.
 
 This design shifts durability and replication responsibilities from Kafka to the
 cloud provider, reducing broker-to-broker data transfer and operational complexity.
