@@ -167,6 +167,7 @@ hostnames
 HTTP
 httpie
 HTTPS
+Hyperdisk
 hyperloglog
 hyperloglogs
 hypertable

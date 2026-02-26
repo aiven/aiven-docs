@@ -6,7 +6,7 @@ sidebar_label: Tiered storage
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. TThe data is automatically moved to an appropriate tier based on your database's disk usage.
+The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's disk usage.
 
 On top of this default data allocation mechanism, you can control the tier your
 data is stored in using custom data retention periods.
