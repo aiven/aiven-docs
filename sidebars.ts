@@ -1478,35 +1478,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/get-started',
                 'products/opensearch/howto/sample-dataset',
-                'products/opensearch/concepts/access_control',
-                {
-                  type: 'category',
-                  label: 'Security',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/concepts/os-security',
-                  },
-                  items: [
-                    'products/opensearch/concepts/opensearch-security-considerations',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Indices',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/concepts/indices',
-                  },
-                  items: [
-                    'products/opensearch/concepts/index-replication',
-                    'products/opensearch/concepts/when-create-index',
-                  ],
-                },
-
-                'products/opensearch/concepts/aggregations',
-                'products/opensearch/concepts/high-availability-for-opensearch',
-                'products/opensearch/concepts/dedicated-node-roles',
-                'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
               ],
             },
@@ -1515,20 +1486,9 @@ const sidebars: SidebarsConfig = {
               label: 'How to connect',
               items: [
                 'products/opensearch/howto/create-free-tier-opensearch',
-                'products/opensearch/howto/control_access_to_content',
-                {
-                  type: 'category',
-                  label: 'Connect to service',
-                  link: {
-                    id: 'products/opensearch/howto/list-connect-to-service',
-                    type: 'doc',
-                  },
-                  items: [
-                    'products/opensearch/howto/connect-with-nodejs',
-                    'products/opensearch/howto/connect-with-python',
-                    'products/opensearch/howto/opensearch-with-curl',
-                  ],
-                },
+                'products/opensearch/howto/connect-with-nodejs',
+                'products/opensearch/howto/connect-with-python',
+                'products/opensearch/howto/opensearch-with-curl',
               ],
             },
             {
@@ -1651,6 +1611,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/opensearch/concepts/access_control',
+                'products/opensearch/concepts/opensearch-free-tier',
                 {
                   type: 'category',
                   label: 'OpenSearch Security',
