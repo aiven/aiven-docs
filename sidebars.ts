@@ -1486,9 +1486,19 @@ const sidebars: SidebarsConfig = {
               label: 'How to connect',
               items: [
                 'products/opensearch/howto/create-free-tier-opensearch',
-                'products/opensearch/howto/connect-with-nodejs',
-                'products/opensearch/howto/connect-with-python',
-                'products/opensearch/howto/opensearch-with-curl',
+                {
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    id: 'products/opensearch/howto/list-connect-to-service',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/connect-with-nodejs',
+                    'products/opensearch/howto/connect-with-python',
+                    'products/opensearch/howto/opensearch-with-curl',
+                  ],
+                },
               ],
             },
             {
