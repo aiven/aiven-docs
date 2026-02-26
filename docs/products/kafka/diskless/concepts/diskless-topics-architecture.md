@@ -6,7 +6,9 @@ import schemaProducerConsumer from "@site/static/images/content/figma/schema-pro
 
 Diskless topics extend the Apache Kafka® storage model by replacing local disk storage with cloud object storage.
 This approach reduces broker responsibilities and avoids inter-broker replication for
-diskless topics. The architecture introduces a metadata service (the Batch Coordinator)
+diskless topics.
+
+The architecture introduces an internal metadata service (the Batch Coordinator)
 and relies on object storage for durability and scalability.
 
 ## How diskless topics work
@@ -20,14 +22,14 @@ Apache Kafka’s partition and topic model remains unchanged. Diskless topics co
 to support parallelism and ordering guarantees, using object storage for the data path
 and the coordinator for metadata.
 
-<img src={schemaProducerConsumer} className="centered" alt="Producer and consumer flow in diskless topics BYOC" width="100%" />
+<img src={schemaProducerConsumer} className="centered" alt="Producer and consumer flow in diskless topics" width="100%" />
 
 ## Leaderless data layer
 
 In diskless topics, partitions do not have leaders. Any broker in the cluster can
 read data from any diskless topic partition because all brokers access the same
-underlying object storage. This design eliminates the need for inter-broker replication
-and reduces operational complexity.
+underlying object storage. This design eliminates inter-broker replication for diskless
+topic data and reduces operational complexity.
 
 Although the data path is leaderless, metadata still requires coordination. Diskless
 topics use the Batch Coordinator to manage this metadata. It tracks which data
@@ -42,9 +44,9 @@ network costs between zones can be high.
 
 ## Role of object storage
 
-Object storage replaces the local disk storage used in classic Kafka. Instead of writing
-log segments to disk, brokers batch messages into larger units called objects and upload
-them to the object storage service configured for the BYOC environment.
+For diskless topics, object storage replaces the local disk storage used in Classic
+Kafka services. Instead of writing log segments to disk, brokers batch messages and
+upload them to cloud object storage.
 
 This design shifts durability and replication responsibilities from Kafka to the
 cloud provider, reducing broker-to-broker data transfer and operational complexity.
@@ -59,15 +61,18 @@ The Batch Coordinator manages metadata for diskless topics. It assigns offsets t
 batches, tracks where each batch is stored, and preserves message order within
 partitions. It does not handle message data directly.
 
-Currently, this metadata is stored in an Aiven-managed PostgreSQL database. In future versions,
-a topic-based coordinator will replace the PostgreSQL-based implementation, but the
-Batch Coordinator will continue to manage offsets and batch metadata.
+When you schedule or start maintenance for an Aiven Inkless Kafka service that uses
+diskless topics, the internal Batch Coordinator is updated in the same maintenance window
+as the Kafka service. Maintenance details for both components are shown together in the
+service’s maintenance view in the Aiven Console.
 
-## Clusters with mixed topics: classic and diskless
+## Services with mixed topics: classic and diskless
 
-Kafka clusters can include both classic and diskless topics in the same deployment:
+Inkless Kafka services can include both classic and diskless topics in the same
+deployment:
 
-- Classic topics store data on local disks managed by brokers.
+- In Classic Kafka services, classic topics store data on local disks managed by brokers.
+- In Inkless Kafka services, classic topics use managed remote storage.
 - Diskless topics store data in cloud object storage.
 - Metadata for both topic types is shared using Kafka’s KRaft protocol.
 

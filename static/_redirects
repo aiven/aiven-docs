@@ -153,13 +153,13 @@
 /products/clickhouse/list-overview                       /docs/products/clickhouse  301
 /products/clickhouse/reference                           /docs/products/clickhouse/reference/advanced-params  301
 /products/clickhouse/reference/plans-pricing              /docs/platform/concepts/service-pricing  301
-/products/diskless                             /docs/products/kafka/diskless/concepts/diskless-overview  301
-/products/diskless/get-started  /docs/products/kafka/diskless/concepts/diskless-overview  301
+/products/diskless                                 /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
+/products/diskless/get-started             /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
 /products/diskless/concepts/architecture       /docs/products/kafka/diskless/concepts/diskless-topics-architecture  301
 /products/diskless/concepts/batching-and-delivery /docs/products/kafka/diskless/concepts/batching-and-delivery  301
 /products/diskless/concepts/partitions-and-objects /docs/products/kafka/diskless/concepts/partitions-and-objects  301
 /products/diskless/concepts/topics-vs-classic  /docs/products/kafka/diskless/concepts/topics-vs-classic  301
-/products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-overview  301
+/products/diskless/get-started                 /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
 /products/diskless/howto/create-diskless-topic /docs/products/kafka/howto/create-topics  301
 /products/dragonfly/concept                              /docs/products/dragonfly  301
 /products/dragonfly/concepts/overview                    /docs/products/dragonfly  301
@@ -190,8 +190,9 @@
 /products/grafana/user-access                              /docs/products/grafana/howto/log-in  301
 /products/influxdb                                         /docs/products/metrics  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
-/products/kafka/get-started                                /docs/products/kafka/create-kafka-service  301
-/products/kafka/getting-started.html                       /docs/products/kafka/create-kafka-service  301
+/products/kafka/get-started                                /docs/products/kafka/get-started/create-kafka-service  301
+/products/kafka/diskless/concepts/diskless-overview        /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
+/products/kafka/getting-started.html                       /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301
 /products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect  301
 /products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry  301
@@ -204,6 +205,7 @@
 /products/kafka/howto/list-tools                           /docs/products/kafka/howto/kafka-tools-config-file  301
 /products/kafka/howto/list-topic-management                /docs/products/kafka/howto/create-topic  301
 /products/kafka/howto/use-zookeeper                        /docs/products/kafka  301
+/products/kafka/tiered-storage-overview-page               /docs/products/kafka/howto/view-kafka-storage-in-console   301
 /products/kafka/index.html                                 /docs/products/kafka  301
 /products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
 /products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices  301

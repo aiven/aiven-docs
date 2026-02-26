@@ -10,7 +10,7 @@ without administrator intervention.
 
 ## Prerequisites
 
-- [Aiven for Apache Kafka® service](/docs/products/kafka/create-kafka-service)
+- [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service)
 - [Klaw cluster](https://www.klaw-project.io/docs/quickstart)
 - [Java keystore and truststore containing the service SSL certificates](/docs/products/kafka/howto/keystore-truststore)
 
