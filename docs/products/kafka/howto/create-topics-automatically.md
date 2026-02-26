@@ -26,7 +26,7 @@ For example:
 
 ```bash
 WARN [Producer clientId=console-producer] The metadata response from the cluster reported
-a recoverable issue with correlation id 18: {auto-created-1=UNKNOWN_TOPIC_OR_PARTITION}
+a recoverable issue with correlation id 18: {example-topic=UNKNOWN_TOPIC_OR_PARTITION}
 (org.apache.kafka.clients.NetworkClient)
 ```
 
