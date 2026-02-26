@@ -53,10 +53,10 @@ If you reach the limit of application users, you can request an increase by
 
 1.  Click **Admin**.
 1.  Click <ConsoleLabel name="application users"/>.
-1.  Find the user and click <ConsoleLabel name="actions"/> >
-    <ConsoleLabel name="viewappuserprofile"/>.
+1.  Click the application user's name.
 1.  In the **Authentication tokens** section, click **Generate token**.
 1.  Optional: Enter a description and session duration.
+1.  Optional: Add an IP address range to the allowlist for this token.
 1.  Click **Generate token**.
 1.  Click the **Copy** icon and save your token somewhere safe.
 
@@ -65,6 +65,10 @@ If you reach the limit of application users, you can request an increase by
     :::
 
 1.  Click **Close**.
+
+:::note
+You cannot change the token's session duration or allowlist after creating it.
+:::
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -80,8 +84,7 @@ More information on this resource and its configuration options are available in
 ## Revoke a token for an application user
 
 1.  Click **Admin** > <ConsoleLabel name="application users"/>.
-1.  Find the user and click <ConsoleLabel name="actions"/> >
-    <ConsoleLabel name="viewappuserprofile"/>.
+1.  Click the name of the application user.
 1.  In the **Authentication tokens** section, click <ConsoleLabel name="actions"/>.
 1.  Select **Revoke**.
 
