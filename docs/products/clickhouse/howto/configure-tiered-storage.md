@@ -13,9 +13,9 @@ If you have the tiered storage feature
 [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on your Aiven for
 ClickHouse service, your data is
 distributed between two storage devices (tiers). The data is stored
-either on network-attached block storage or in object storage, depending on whether and how you
-configure this behavior. By default, data is moved from network-attached block storage to object
-storage when it reaches 80% of its capacity (default size-based data
+either on network-attached block storage or in object storage, depending on whether and
+how you configure this behavior. By default, data is moved from network-attached block
+storage to object storage when it reaches 80% of its capacity (default size-based data
 retention policy).
 
 You may want to change this default data distribution behavior by
@@ -28,26 +28,25 @@ To enable this time-based data distribution mechanism, you can set up a
 retention policy (threshold) on a table level by using the TTL clause.
 For data retention control purposes, the TTL clause uses the following:
 
--   Data item of the `Date` or `DateTime` type as a reference point in
-    time
--   INTERVAL clause as a time period to elapse between the reference
-    point and the data transfer to object storage
+- Data item of the `Date` or `DateTime` type as a reference point in
+  time
+- INTERVAL clause as a time period to elapse between the reference
+  point and the data transfer to object storage
 
 ## Prerequisites
 
--   Tiered storage [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)
--   Command line tool installed
-    ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
+- Tiered storage [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)
+- Command-line tool installed ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
 
 ## Configure time-based data retention {#time-based-retention-config}
 
-1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client.
+1. [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client.
 
-1.  Select a database for operations you intend to perform.
+1. Select a database for operations you intend to perform.
 
-    ```sql
-    USE database-name
-    ```
+   ```sql
+   USE DATABASE_NAME
+   ```
 
 ### Add TTL
 
