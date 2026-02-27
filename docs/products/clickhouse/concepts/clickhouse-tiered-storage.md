@@ -6,7 +6,7 @@ sidebar_label: Tiered storage
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's local disk usage.
+The tiered storage feature introduces a method of organizing and storing data in two tiers for improved efficiency and cost optimization. The data is automatically moved to an appropriate tier based on your database's disk usage.
 
 On top of this default data allocation mechanism, you can control the tier your
 data is stored in using custom data retention periods.
@@ -16,11 +16,17 @@ data is stored in using custom data retention periods.
 The tiered storage in Aiven for ClickHouse® consists of the following two
 layers:
 
-- Amazon Elastic Block Store (EBS) - the first tier:
-  Fast storage device with limited capacity, better suited for fresh
-  and frequently queried data, relatively costly to use
-- Object storage - the second tier: Affordable storage device with unlimited capability,
-  better suited for historical and more rarely queried data, relatively slower
+- Network-attached block storage (cloud provider-managed disks) - the first tier:
+  Fast storage with limited capacity, optimized for fresh and frequently
+  queried data, and relatively costly compared to object storage
+- Object storage - the second tier: Affordable storage with unlimited capacity, better
+  suited for historical and more rarely queried data, and relatively slower.
+
+The network-attached block storage implementation depends on the cloud provider:
+
+- AWS: Amazon EBS (gp3)
+- Azure: Azure Managed Disks (Premium SSD v2)
+- GCP: Google Persistent Disk (Hyperdisk Balanced)
 
 Aiven for ClickHouse's tiered storage supports
 [local on-disk cache for remote files](/docs/products/clickhouse/howto/local-cache-tiered-storage),
@@ -53,41 +59,41 @@ storage costs of your Aiven for ClickHouse instance.
 After you
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature,
 Aiven for ClickHouse by default
-stores data on EBS until it reaches 80% of its capacity. After exceeding
+stores data on network-attached block storage until it reaches 80% of its capacity. After exceeding
 this size-based threshold, data is stored in object storage.
 
 Optionally, you can
 [configure the time-based threshold](/docs/products/clickhouse/howto/configure-tiered-storage)
 for your storage. Based on the time-based threshold, the
-data is moved from your EBS to object storage after a specified time
+data moves from network-attached block storage to object storage after a specified time
 period.
 
 ```mermaid
 sequenceDiagram
-        Application->>+EBS: writing data
-        EBS->>Object storage: moving data based <br> on storage policies
-        par Application to EBS
-            Application-->>EBS: querying data
+        Application->>+Network-attached block storage: writing data
+        Network-attached block storage->>Object storage: moving data based <br> on storage policies
+        par Application to Network-attached block storage
+            Application-->>Network-attached block storage: querying data
         and Application to Object storage
             Application-->>Object storage: querying data
         end
         alt if stored in Object storage
             Object storage->>Application: reading data
-        else if stored in EBS
-            EBS->>Application: reading data
+        else if stored in Network-attached block storage
+            Network-attached block storage->>Application: reading data
         end
 ```
 
 :::note
-Backups are taken for data that resides both on EBS and in object
+Aiven backs up data that resides on network-attached block storage and in object
 storage.
 :::
 
 ## Typical use case
 
-In your Aiven for ClickHouse service, there is a significant amount of
-data that is there for a while and is rarely accessed. It's stored
-on EBS and high-priced. You decide to
+In your Aiven for ClickHouse service, a significant amount of
+data sits unused for a long time and is rarely accessed. That data is stored
+on network-attached block storage, which is relatively costly. You decide to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage to make
 your data storage more efficient and reduce the costs. For that purpose, you
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature on tables to
@@ -118,7 +124,7 @@ threshold to control how your data is stored between the two layers.
     connect to an external existing object storage or cloud storage bucket.
 
 -   In the [Aiven Console](https://console.aiven.io/), there can be a mismatch in the
-    displayed amount of data in object storage between what's showed in
+    displayed amount of data in object storage between what's shown in
     [<ConsoleLabel name="tieredstorage"/>](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
     and
     [Storage details](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details).
@@ -147,4 +153,4 @@ threshold to control how your data is stored between the two layers.
 <RelatedPages/>
 
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
--   [Transfer data between EBS and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
+-   [Transfer data between network-attached block storage and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
