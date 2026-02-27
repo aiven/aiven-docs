@@ -14,7 +14,7 @@ on your Aiven for ClickHouse service, Aiven distributes your data between two st
 devices (tiers). Data is stored either on network-attached block storage or in object
 storage, depending on whether and how you configure this behavior. By default, ClickHouse
 moves data from network-attached block storage to object storage when it reaches 80% of
-ts capacity (default size-based data retention policy).
+its capacity (default size-based data retention policy).
 
 To change this default data distribution behavior,
 [configure your table's schema by adding a TTL (time-to-live) clause](/docs/products/clickhouse/howto/configure-tiered-storage#time-based-retention-config).
@@ -44,7 +44,7 @@ For data retention control purposes, the TTL clause uses the following:
 1. Select a database for operations you intend to perform.
 
    ```sql
-   USE database-name
+   USE DATABASE_NAME
    ```
 
 ### Add or modify TTL
