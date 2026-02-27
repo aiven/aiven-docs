@@ -26,7 +26,7 @@ to access this feature in the Aiven Console.
 
 1.  In the organization, click **Billing**.
 1.  Click <ConsoleLabel name="billingaddress"/>.
-1.  In the address to update, click **Edit**.
+1.  Find the address and click **Edit**.
 1.  Edit the address and click **Save changes**.
 
 ## Assign addresses to a billing group
