@@ -96,7 +96,7 @@ When writing data that will be immediately moved to remote storage (such as duri
 backfilling of historical data):
 
 - **Use large inserts**: Ensure your data inserts are large enough to create substantial
-  parts on remote storage
+  parts on remote storage.
 - **Temporarily disable TTL moves**: Use the following commands to pause data movement
   while smaller parts merge together:
 
@@ -137,10 +137,10 @@ SETTINGS storage_policy = 'tiered', ttl_only_drop_parts = 1;
 #### How this helps
 
 - **Prevents inefficient partial drops**: Instead of repeatedly rewriting parts as
-  individual rows expire, ClickHouse drops entire parts at once
+  individual rows expire, ClickHouse drops entire parts at once.
 - **Requires matching partition strategy**: Use a `PARTITION BY` expression that aligns
-  with your TTL period so all data in a partition expires simultaneously
-- **Improves performance**: Eliminates the overhead of multiple partial rewrites
+  with your TTL period so all data in a partition expires simultaneously.
+- **Improves performance**: Eliminates the overhead of multiple partial rewrites.
 
 #### Example of aligned partitioning and TTL
 
