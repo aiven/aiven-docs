@@ -14,36 +14,43 @@ All new Aiven for Apache Kafka services running Apache Kafka 3.9 or later use KR
 by default.
 :::
 
-## Limited migration roll out
+## Limited migration rollout
 
-KRaft migrations are currently in a limited roll-out stage. While publicly available,
-the following limitations are in place to ensure a controlled roll-out across our fleet.
-These limitations will be phased out as the roll-out over the Aiven fleet is
-progressing.
+If you have an existing service that uses ZooKeeper and want to migrate to KRaft,
+review the following limitations before you start. For the full migration process,
+see [Migration from ZooKeeper to KRaft](#migration-from-zookeeper-to-kraft).
 
-Note that these restrictions do not apply to creating new services running on KRaft, on
-Apache Kafka version 3.9 and higher.
+You can start a KRaft migration for eligible Aiven for Apache Kafka services. The
+migration capability is rolled out gradually across all Aiven for Apache Kafka services.
+During this rollout, the following temporary limitations apply. These limitations will
+be removed in phases.
 
-### Fleet limitation to ongoing migrations
+These restrictions do not apply when creating a new service that runs on KRaft with
+Apache Kafka version 3.9 or later.
 
-There is a limit to the total number of concurrently ongoing migrations in the fleet.
-This works as first-come-first-serve, and once the quota is filled, attempts to upgrade
-will result in an error response.
+### Limit on concurrent migrations
 
-### EU office hours migration window
+A limited number of migrations can run at the same time across all Aiven for Apache Kafka
+services. Migration requests are processed in the order received. If the maximum number
+of concurrent migrations is reached, the request returns an error.
 
-Triggering of migrations is limited to EU office hours in the window 06:00 – 14:00 UTC,
-Monday to Friday.
+### Migration window
 
-### Service plans limit
+You can start a migration only during EU office hours:
 
-Migrations are currently limited to these small service plans only:
+- Monday to Friday
+- 06:00 to 14:00 UTC
 
-- startup-2/startup-4
-- business-4
-- business-8
+### Supported service plans
 
-More plans will be added gradually over the coming weeks.
+You can migrate only if your service uses one of these plans:
+
+- `startup-2`
+- `startup-4`
+- `business-4`
+- `business-8`
+
+Support for more plans will be added in phases.
 
 ## What is KRaft?
 
@@ -81,8 +88,8 @@ performance.
 
 ## Migration from ZooKeeper to KRaft
 
-Migration from ZooKeeper to KRaft is not yet available for existing
-Aiven for Apache Kafka services. Aiven will notify you when your service becomes eligible.
+Before you migrate, review [Limited migration rollout](#limited-migration-rollout) for
+migration windows, supported service plans, and limits on concurrent migrations.
 
 The migration is part of the upgrade to Apache Kafka 3.9. It is fully automated and
 does not require manual steps. After the migration completes, reverting to ZooKeeper is
@@ -119,9 +126,9 @@ migration can be retried.
 ### Before you migrate
 
 - **Service version**: To upgrade to Apache Kafka 4.0 or later, your service must first
-  migrate to KRaft by upgrading to Kafka 3.9.
+  migrate to KRaft by upgrading to Apache Kafka 3.9.
 - **Grace period**: After the migration completes, there is a one-week grace period
-  during which the cluster cannot be upgraded to Kafka 4.0.
+  during which the cluster cannot be upgraded to Apache Kafka 4.0.
 - **Service plan**: If your service is on the **Startup-2** plan, you must upgrade
   to **Startup-4** or higher during the same maintenance window as the version upgrade.
 
