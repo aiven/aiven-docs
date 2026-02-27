@@ -43,12 +43,14 @@ You can start a migration only during EU office hours:
 
 ### Supported service plans
 
-You can migrate only if your service uses one of these plans:
+You can start a migration only if your service uses one of these plans:
 
 - `startup-2`
-- `startup-4`
 - `business-4`
 - `business-8`
+
+Some plans have additional requirements. For details, see
+[Before you migrate](#before-you-migrate).
 
 Support for more plans will be added in phases.
 
