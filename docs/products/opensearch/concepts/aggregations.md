@@ -1,5 +1,6 @@
 ---
-title: Aggregations
+title: Aiven for OpenSearch® aggregation overview
+sidebar_label: Aggregations overview
 ---
 
 Alongside the search functionality, OpenSearch® offers a powerful

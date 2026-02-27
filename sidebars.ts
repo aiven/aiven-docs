@@ -1568,9 +1568,12 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Search and aggregations',
+              link: {
+                id: 'products/opensearch/howto/list-search-service',
+                type: 'doc',
+              },
               items: [
                 'products/opensearch/concepts/aggregations',
-                'products/opensearch/howto/list-search-service',
                 'products/opensearch/howto/opensearch-aggregations-and-nodejs',
                 'products/opensearch/howto/opensearch-and-nodejs',
                 'products/opensearch/howto/opensearch-search-and-python',
