@@ -14,6 +14,37 @@ All new Aiven for Apache Kafka services running Apache Kafka 3.9 or later use KR
 by default.
 :::
 
+## Limited migration roll out
+
+KRaft migrations are currently in a limited roll-out stage. While publicly available,
+the following limitations are in place to ensure a controlled roll-out across our fleet.
+These limitations will be phased out as the roll-out over the Aiven fleet is
+progressing.
+
+Note that these restrictions do not apply to creating new services running on KRaft, on
+Apache Kafka version 3.9 and higher.
+
+### Fleet limitation to ongoing migrations
+
+There is a limit to the total number of concurrently ongoing migrations in the fleet.
+This works as first-come-first-serve, and once the quota is filled, attempts to upgrade
+will result in an error response.
+
+### EU office hours migration window
+
+Triggering of migrations is limited to EU office hours in the window 06:00 – 14:00 UTC,
+Monday to Friday.
+
+### Service plans limit
+
+Migrations are currently limited to these small service plans only:
+
+- startup-2/startup-4
+- business-4
+- business-8
+
+More plans will be added gradually over the coming weeks.
+
 ## What is KRaft?
 
 KRaft is the built-in metadata and consensus management system in Aiven for Apache Kafka
