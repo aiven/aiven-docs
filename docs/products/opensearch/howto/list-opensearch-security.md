@@ -1,5 +1,5 @@
 ---
-title: OpenSearch® Security management in Aiven for OpenSearch®
+title: Security and access control
 ---
 
 Using OpenSearch Security can significantly strengthen the security of

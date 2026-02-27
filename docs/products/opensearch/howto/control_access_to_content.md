@@ -1,6 +1,6 @@
 ---
 title: Manage users and access control in Aiven for OpenSearch®
-sidebar_label: Manage users and access control
+sidebar_label: User access and permissions
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 

@@ -1519,25 +1519,34 @@ const sidebars: SidebarsConfig = {
             id: 'products/opensearch',
           },
           items: [
-            'products/opensearch/get-started',
             {
               type: 'category',
-              label: 'Connect to service',
+              label: 'Get started',
               link: {
-                id: 'products/opensearch/howto/list-connect-to-service',
                 type: 'doc',
+                id: 'products/opensearch/get-started',
               },
               items: [
-                'products/opensearch/howto/connect-with-nodejs',
-                'products/opensearch/howto/connect-with-python',
-                'products/opensearch/howto/opensearch-with-curl',
+                {
+                  type: 'category',
+                  label: 'Connect to service',
+                  link: {
+                    id: 'products/opensearch/howto/list-connect-to-service',
+                    type: 'doc',
+                  },
+                  items: [
+                    'products/opensearch/howto/connect-with-nodejs',
+                    'products/opensearch/howto/connect-with-python',
+                    'products/opensearch/howto/opensearch-with-curl',
+                  ],
+                },
+                'products/opensearch/howto/sample-dataset',
               ],
             },
             {
               type: 'category',
               label: 'Indices and data management',
               items: [
-                'products/opensearch/howto/sample-dataset',
                 {
                   type: 'category',
                   label: 'Cross-cluster replication',
@@ -1633,17 +1642,36 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Security and access control',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/howto/list-opensearch-security',
+              },
               items: [
                 'products/opensearch/concepts/access_control',
                 'products/opensearch/howto/audit-logs',
                 'products/opensearch/howto/control_access_to_content',
-                'products/opensearch/howto/enable-opensearch-security',
-                'products/opensearch/howto/jwt-authentication',
-                'products/opensearch/howto/list-opensearch-security',
-                'products/opensearch/howto/oidc-authentication',
-                'products/opensearch/concepts/opensearch-security-considerations',
-                'products/opensearch/concepts/os-security',
-                'products/opensearch/howto/saml-sso-authentication',
+                {
+                  type: 'category',
+                  label: 'OpenSearch Security',
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/opensearch/howto/opensearch-security',
+                  },
+                  items: [
+                    'products/opensearch/concepts/os-security',
+                    'products/opensearch/concepts/opensearch-security-considerations',
+                    'products/opensearch/howto/enable-opensearch-security',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Authentication methods',
+                  items: [
+                    'products/opensearch/howto/saml-sso-authentication',
+                    'products/opensearch/howto/jwt-authentication',
+                    'products/opensearch/howto/oidc-authentication',
+                  ],
+                },
               ],
             },
             {
