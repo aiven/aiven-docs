@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that ClickHouse automatically writes your data to network-attached block storage or object storage as needed.
+Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse® service. Configure tables so that ClickHouse automatically writes your data to network-attached block storage or object storage as needed.
 
 If you have [tiered storage enabled](/docs/products/clickhouse/howto/enable-tiered-storage)
 on your Aiven for ClickHouse service, Aiven distributes your data between two storage
