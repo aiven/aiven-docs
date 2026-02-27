@@ -1602,7 +1602,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
                 {
                   type: 'category',
-                  label: 'Custom repositories',
+                  label: 'Custom snapshot repositories',
                   link: {
                     id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
                     type: 'doc',
