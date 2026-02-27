@@ -48,11 +48,8 @@ to access this feature in the Aiven Console.
 
 1.  Click **Billing**.
 1.  Click **Billing groups**.
-1.  Select the billing group to update.
-1.  Click **Billing information**.
-1.  Optional: In the **Company details** section, click **Edit**, update
-    the billing country, and click **Save**.
-1.  In the **Billing details** section, click **Edit**.
-1.  Enter your **VAT ID** and click **Save**.
+1.  Find the billing group and click **Edit**.
+1.  Enter the **VAT ID**.
+1.  Click **Save changes**.
 
 It can take up to an hour for the new tax status to be visible on the invoice estimates.
