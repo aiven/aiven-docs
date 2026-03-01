@@ -1651,8 +1651,6 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/opensearch/concepts/access_control',
-                'products/opensearch/howto/audit-logs',
-                'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
                   label: 'OpenSearch Security',
@@ -1670,11 +1668,13 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Authentication methods',
                   items: [
+                    'products/opensearch/howto/oidc-authentication',
                     'products/opensearch/howto/saml-sso-authentication',
                     'products/opensearch/howto/jwt-authentication',
-                    'products/opensearch/howto/oidc-authentication',
                   ],
                 },
+                'products/opensearch/howto/control_access_to_content',
+                'products/opensearch/howto/audit-logs',
               ],
             },
             {
@@ -1682,13 +1682,13 @@ const sidebars: SidebarsConfig = {
               label: 'Service management and maintenance',
               items: [
                 'products/opensearch/reference/advanced-params',
-                'products/opensearch/howto/handle-low-disk-space',
                 'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/reference/opensearch-limitations',
+                'products/opensearch/reference/plugins',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
                 'products/opensearch/reference/low-space-watermarks',
-                'products/opensearch/reference/opensearch-limitations',
+                'products/opensearch/howto/handle-low-disk-space',
                 'products/opensearch/howto/os-version-upgrade',
-                'products/opensearch/reference/plugins',
               ],
             },
             'products/opensearch/concepts/opensearch-vs-elasticsearch',
