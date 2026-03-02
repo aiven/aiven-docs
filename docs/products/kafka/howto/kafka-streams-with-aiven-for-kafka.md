@@ -162,6 +162,10 @@ detailed in the header comments for the script).
 APP_NAME=GenericFilterApp ./run.sh
 ```
 
+:::note
+This is the same `run.sh` script that the container file runs.
+:::
+
 ### Check the produced data
 
 In the [Aiven console](https://console.aiven.io/)
