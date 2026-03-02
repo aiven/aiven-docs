@@ -166,9 +166,6 @@ In the [Aiven console](https://console.aiven.io/)
 4. Select **Messages**
 5. Change the Format to `avro`
 6. Select **Fetch messages**
-
-Use **Messages** to see recent messages. Remember to select that they are
-`Avro` messages.
 </TabItem>
 
 <TabItem value="python" label="With a Python program" default>
