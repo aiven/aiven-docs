@@ -2,10 +2,10 @@
 title: Use Apache Kafka® Streams with Aiven for Apache Kafka®
 ---
 
-[Apache Kafka® Streams](https://kafka.apache.org/documentation/streams/) is a
-client side library for building real time applications where the input and/or
-output data are stored in Kafka clusters. It aims to make it easy for users to
-write scalable, fault tolerant and secure applications to manipulate data streams.
+[Apache Kafka® Streams](https://kafka.apache.org/documentation/streams/) is a client side library for building real time applications where the input and/or output data are stored in Kafka clusters.
+
+Kafka Streams aims to make it easy for users to write scalable, fault tolerant
+and secure applications to manipulate data streams.
 
 It processes data from one or more input sources (for instance, but not
 necessarily, Kafka topics) and writes to a sink (for instance, an output Kafka
@@ -112,14 +112,14 @@ schema, which the application registers with Karapace.
 For more details of the example repository and what it provides, including
 [Building the program](https://github.com/Aiven-Labs/kafka-streams-example?tab=readme-ov-file#building-the-program)
 and
-[Running the unit tests](https://github.com/Aiven-Labs/kafka-streams-example?tab=readme-ov-file#running-the-unit-tests)
+[Running the unit tests](https://github.com/Aiven-Labs/kafka-streams-example?tab=readme-ov-file#running-the-unit-tests),
 see its
 [README](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/README.md)
 :::
 
 ### Starting the "Logistics" data stream
 
-See [Stream sample data from the Aiven Console](./generate-sample-data) and
+See [Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data) and
 run the "Logistics" data generator.
 
 
@@ -164,9 +164,14 @@ APP_NAME=GenericFilterApp ./run.sh
 
 ### Check the produced data
 
-In the [Aiven console](https://console.aiven.io/), navigate to service
-page for this Aiven for Kafka service, choose the **Topics** tab from the
-sidebar, and select the `logistics_data_filtered` topic.
+In the [Aiven console](https://console.aiven.io/)
+
+1. Go to the service page for this Aiven for Kafka service
+2. Choose the **Topics** tab from the sidebar
+3. Select the `logistics_data_filtered` topic
+4. Select **Messages**
+5. Change the Format to `avro`
+6. Select **Fetch messages**
 
 Use **Messages** to see recent messages. Remember to select that they are
 `Avro` messages.
@@ -180,4 +185,5 @@ run it with
 ```shell
 reporting/report_messages.py
 ```
+
 
