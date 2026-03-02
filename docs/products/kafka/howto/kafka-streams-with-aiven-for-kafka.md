@@ -171,10 +171,14 @@ In the [Aiven console](https://console.aiven.io/)
 <TabItem value="python" label="With a Python program" default>
 In the `reporting` directory of the repository there is a command line program
 `report_messages.py` which reads messages from both the input and output
-topics and shows them using a text UI.
+topics and shows them in the terminal using a text UI.
 
-If all the environment variables discussed before are set up, then you can run
-it with
+Running it requires [`uv`](https://docs.astral.sh/uv/).
+
+If [`uv` is
+installed](https://docs.astral.sh/uv/getting-started/installation/) and all
+the environment variables discussed earlier are set up, then run the
+visualization script with
 
 ```shell
 reporting/report_messages.py
