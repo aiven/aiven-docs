@@ -107,6 +107,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="clickhouse_version"/><Link to="#clickhouse_version"><strong>clickhouse_version</strong></Link></p><p><code className="type">string,null</code></p></div>
+        <p className="title">ClickHouse major version</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="tiered_storage_move_factor"/><Link to="#tiered_storage_move_factor"><strong>tiered_storage_move_factor</strong></Link></p><p><code className="type">number</code></p></div><div className="constraints"><ul><li>max: <code>1</code></li><li>default: <code>0.2</code></li></ul></div>
         <p className="title">Tiered storage move factor</p><div className="description"><p>The percentage of free disk space required on local storage before data is moved to object storage. A value of 0.2 means data is moved when local storage has less than 20% free space.</p></div>
       </td>
