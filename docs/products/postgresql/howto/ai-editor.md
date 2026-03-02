@@ -11,7 +11,7 @@ import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language. It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
 
 :::important
-PG Studio ia an <EarlyBadge/> feature.
+PG Studio is an <EarlyBadge/> feature.
 :::
 
 PG Studio supports:
