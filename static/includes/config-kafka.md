@@ -273,6 +273,18 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="inkless"/><Link to="#inkless"><strong>inkless</strong></Link></p><p><code className="type">object</code></p></div>
+        <p className="title">Inkless configuration values</p>
+        <table className="service-param-children">
+          <tbody>
+          
+          <tr><td><div className="param"><p className="name"><Link id="inkless_enabled"/><Link to="#inkless_enabled"><strong>inkless.enabled</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Enabled</p><div className="description"><p>Whether to enable the Inkless functionality</p></div></td></tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="sasl_oauthbearer_allowed_urls"/><Link to="#sasl_oauthbearer_allowed_urls"><strong>sasl_oauthbearer_allowed_urls</strong></Link></p><p><code className="type">array</code></p></div>
         <div className="description"><p>List of allowed URLs for SASL OAUTHBEARER authentication. Only HTTPS URLs are allowed for security reasons.</p></div>
       </td>
