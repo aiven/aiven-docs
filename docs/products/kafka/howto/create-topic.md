@@ -157,9 +157,11 @@ avn service topic-create \
   TOPIC_NAME \
   --project PROJECT_NAME \
   --partitions PARTITION_COUNT \
-  --replication REPLICATION_FACTOR \
+  --replication 1 \
   --diskless-enable
 ```
+
+For diskless topics, set `--replication 1.`
 
 Use the `--diskless-enable` flag to create a diskless topic. Enable diskless topics on
 the service before creating them. On Inkless services, omitting the flag creates a
