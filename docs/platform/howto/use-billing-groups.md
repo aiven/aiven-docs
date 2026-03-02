@@ -6,8 +6,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Costs associated with services and features in an Aiven project are charged to the payment method assigned to its [billing group](/docs/platform/concepts/billing-and-payment#billing-groups).
 
-Billing groups let you set up billing profiles and use them across different projects
-in your organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups)
+Billing groups store billing information that you can use across different projects
+in your organization. An [invoice](/docs/platform/howto/use-billing-groups)
 is created for each billing group.
 
 ## Create a billing group
@@ -19,26 +19,14 @@ to access this feature in the Aiven Console.
 1.  In the organization, click **Billing**.
 1.  Click <ConsoleLabel name="billinggroups"/>.
 1.  Click **Create billing group**.
-1.  Enter a name for the billing group and click **Continue**.
-1.  Enter the billing details. You can also copy these details from
-    another billing group by selecting it from the list. Click
-    **Continue**.
-1.  Select the projects to add to this billing group. You
-    can also skip this and add projects later. Click **Continue**.
-1.  Check the information in the **Summary** step. To make changes to
-    any section, click **Edit**.
-1.  When you have confirmed everything is correct, click **Create**.
-
-## Rename a billing group
-
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console.
-
-1.  In the organization, click **Billing**.
-1.  Click <ConsoleLabel name="billinggroups"/>.
-1.  Find the billing group to rename, click <ConsoleLabel name="actions"/> > **Rename**.
-1.  Enter the new name and click **Rename**.
+1.  Enter a name.
+1.  Choose [addresses](/docs/platform/howto/manage-billing-addresses), a payment method,
+    and a currency.
+1.  Optional: Enter your VAT ID.
+1.  Optional: Enter **Billing contact emails** for people that Aiven can email about
+    billing issues.
+1.  Enter **Invoice emails** for your monthly PDF invoices.
+1.  Click **Create billing group**.
 
 ## Update a billing group
 
@@ -46,14 +34,13 @@ You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature in the Aiven Console.
 
-To change the payment method, billing and shipping address, VAT ID,
-billing contact emails, invoice emails, or other billing details:
+To change the billing group name, payment method, addresses, VAT ID, contact emails,
+or other billing details:
 
 1.  In the organization, click **Billing**.
 1.  Click <ConsoleLabel name="billinggroups"/>.
-1.  Click the name of the billing group to update.
-1.  On the **Billing information** tab click **Edit** to update the
-    details for that section.
+1.  Find the billing group to update, and click **Edit**.
+1.  Edit the billing group details and click **Save changes**.
 
 ## Assign a billing group to a project
 
@@ -80,9 +67,9 @@ to access this feature in the Aiven Console.
 
 1.  In the organization, click **Billing**.
 1.  Click <ConsoleLabel name="billinggroups"/>.
-1.  Click the name of the billing group to delete.
-1.  To move the assigned projects, on the **Projects** tab
-    click <ConsoleLabel name="Actions"/> and move each project
-    to a different billing group.
-1.  Click <ConsoleLabel name="actions"/> at the top of the page.
-1.  Click **Delete** and **Confirm**.
+1.  Find the billing group to delete and click **Details**.
+1.  To move the assigned projects, on the **Projects** tab,
+    click <ConsoleLabel name="Actions"/> > **Change billing group**.
+1.  To delete the billing group, click <ConsoleLabel name="actions"/>
+    at the top of the page.
+1.  Click <ConsoleLabel name="delete"/>.
