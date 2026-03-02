@@ -30,8 +30,9 @@ Topic types depend on your Kafka service type.
 - **Diskless topics**
   - They are available only in **Inkless Kafka** services.
   - They store topic data directly in cloud object storage.
-  - They require diskless support to be enabled on the service before you create
-    diskless topics.
+  - Diskless topics require a service plan that supports diskless. On Aiven Cloud, you
+    can enable diskless support during service creation or later in
+    <ConsoleLabel name="service settings" /> > **Advanced configuration**.
   - You choose classic or diskless per topic when you create the topic.
   - You cannot change the topic type after creation.
 
@@ -114,7 +115,7 @@ between classic and diskless topics.
    as retention, cleanup policy, and message size limits.
 
    :::note
-   You cannot create compacted topics on Inkless Kafka services.
+   Compacted topics are not supported for diskless topics on Inkless Kafka services.
    :::
 
 1. Click **Create topic**.
@@ -161,7 +162,7 @@ avn service topic-create \
   --diskless-enable
 ```
 
-For diskless topics, set `--replication 1.`
+For diskless topics, set `--replication 1`.
 
 Use the `--diskless-enable` flag to create a diskless topic. Enable diskless topics on
 the service before creating them. On Inkless services, omitting the flag creates a
