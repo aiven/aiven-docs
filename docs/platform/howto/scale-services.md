@@ -23,6 +23,8 @@ speeds up the upgrade itself.
 
 :::important
 
+- When changing a service plan, reserve an additional 25% of disk space. This requirement
+  applies to upgrades and downgrades.
 - Downgrading to a plan with fewer VMs is supported for Aiven for ClickHouse® only.
 - Changing a service plan triggers a node recycle, service rebuilding, and any pending
   maintenance updates.
