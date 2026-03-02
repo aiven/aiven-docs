@@ -15,10 +15,10 @@ topic).
 
 It runs on the JVM and is typically used from Java or Scala.
 
-This article explains how to use Kafka Streams with Aiven
-for Apache Kafka, [Apache Avro™](https://avro.apache.org/) messages
-and the schema registry functionality offered by
-[Karapace](https://karapace.io/), using Java example code.
+The following example demonstrates how to use Kafka Streams with Aiven for
+Apache Kafka and the schema registry functionality offered by
+[Karapace](https://karapace.io/) to filter [Apache
+Avro™](https://avro.apache.org/) messages.
 
 :::note
 The Avro messages are expected to be "Confluent style", where the schema id is
@@ -39,9 +39,9 @@ schema registry features necessary for dealing with messages in Avro
 format.
 :::
 
-Sample data will be generated using the Sample Data Generator for "Logistics",
+Sample data will be generated using the Sample Data Generator for "Logistics"
 which writes to the `logistics_data_gen` topic. Filtered data will be written
-to a topic called `logistics_data_filtered.`
+to a topic called `logistics_data_filtered`.
 
 
 For the example, collect the following information about the Aiven for Apache
