@@ -1,6 +1,8 @@
 ---
 title: Use Apache Kafka® Streams with Aiven for Apache Kafka®
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 [Apache Kafka® Streams](https://kafka.apache.org/documentation/streams/) is a client side library for building real time applications where the input and/or output data are stored in Kafka clusters.
 
@@ -45,13 +47,6 @@ to a topic called `logistics_data_filtered`.
 For the example, collect the following information about the Aiven for Apache
 Kafka service.
 
-:::note
-The details are available in the **Connection Information** section of the
-service Overview tab in the [Aiven console](https://console.aiven.io/) or via
-the dedicated `avn service get` command with the [Aiven
-CLI](/docs/tools/cli/service-cli#avn_service_get).
-:::
-
 - `KAFKA_SERVICE_URI`: The Service URI of the Apache Kafka service.
 - `SCHEMA_REGISTRY_URL`: The Service URI for the schema registry, from the
   Schema Registry tab.
@@ -59,6 +54,14 @@ CLI](/docs/tools/cli/service-cli#avn_service_get).
   from the Schema Registry tab.
 - `SCHEMA_REGISTRY_USERNAME`: The User for accessing the schema registry, from
   the Schema Registry tab.
+
+:::tip
+The details are available in the **Connection Information** section of the
+service Overview tab in the [Aiven console](https://console.aiven.io/) or via
+the dedicated `avn service get` command with the [Aiven
+CLI](/docs/tools/cli/service-cli#avn_service_get). And that's also where you
+can download the files in the next step...
+:::
  
 Create a directory called `certs` and download the **Access key**,
 **Access certificate** and **CA certificate** files (`service.key`,
@@ -72,7 +75,7 @@ To run the examples, you will need either Docker (to run them in a container),
 or [Gradle](https://gradle.org/) (to run them using the `run.sh` script, which
 builds the application locally).
 
-## The example applications
+## Get the example application code
 
 Download the `kafka-streams-example` sources from GitHub
 
@@ -86,6 +89,13 @@ and change to the repository directory:
 cd kafka-streams-example
 ```
 
+### Start the "Logistics" data stream
+
+See [Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data) and
+run the "Logistics" data generator.
+
+### Run the application
+
 Running the example also needs the environment variables
 
 - `CA_PEM_CONTENTS`: The contents of the `ca.pem` file
@@ -96,6 +106,84 @@ These can be set by sourcing the provided `prep_cert_env.sh` script
 ```shell
 source prep_cert_env.sh
 ```
+
+<Tabs groupId="running">
+<TabItem value="docker" label="Run with Docker" default>
+
+Build the container image for the `GenericFilterApp` example:
+```shell
+docker build --build-arg APP_NAME=GenericFilterApp -t appimage .
+```
+
+Run the container image using the environment values collected earlier:
+```shell
+docker run -d --name kafka-streams-container -p 3000:3000 \
+        -e KAFKA_SERVICE_URI=$KAFKA_SERVICE_URI \
+        -e CA_PEM_CONTENTS="$CA_PEM_CONTENTS" \
+        -e SERVICE_CERT_CONTENTS="$SERVICE_CERT_CONTENTS" \
+        -e SERVICE_KEY_CONTENTS="$SERVICE_KEY_CONTENTS" \
+        -e SCHEMA_REGISTRY_URL=$SCHEMA_REGISTRY_URL \
+        -e SCHEMA_REGISTRY_USERNAME=$SCHEMA_REGISTRY_USERNAME \ 
+        -e SCHEMA_REGISTRY_PASSWORD=$SCHEMA_REGISTRY_PASSWORD \
+        appimage
+```
+</TabItem>
+
+<TabItem value="local" label="Build and run locally">
+
+Build the application (this builds a "fat JAR"):
+```shell
+gradle GenericFilterAppUberJar
+```
+
+Copy it to the current directory so the `run.sh` script can find it:
+```shell
+cp app/build/libs/GenericFilterApp-uber.jar .
+```
+
+Run the program. This requires the enviroment variables set earlier (which are
+detailed in the header comments for the script).
+```
+APP_NAME=GenericFilterApp ./run.sh
+```
+
+:::tip
+This is the same `run.sh` script that the container file runs.
+:::
+</TabItem>
+</Tabs>
+
+### Check the produced data
+
+
+<Tabs groupId="checkingData">
+<TabItem value="console" label="In the Aiven console" default>
+In the [Aiven console](https://console.aiven.io/)
+
+1. Go to the service page for this Aiven for Kafka service
+2. Choose the **Topics** tab from the sidebar
+3. Select the `logistics_data_filtered` topic
+4. Select **Messages**
+5. Change the Format to `avro`
+6. Select **Fetch messages**
+
+Use **Messages** to see recent messages. Remember to select that they are
+`Avro` messages.
+</TabItem>
+
+<TabItem value="python" label="With a Python program" default>
+In the `reporting` directory of the repository there is a command line program
+`report_messages.py` which reads messages from both the input and output
+topics and shows them using a text UI.
+
+If all the environment variables discussed before are set up, then you can run
+it with
+
+```shell
+reporting/report_messages.py
+```
+</TabItem>
+</Tabs>
 
 ### About the example code
 
@@ -116,78 +204,3 @@ and
 see its
 [README](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/README.md)
 :::
-
-### Starting the "Logistics" data stream
-
-See [Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data) and
-run the "Logistics" data generator.
-
-
-### Running with Docker
-
-Build the container image for the `GenericFilterApp` example:
-```shell
-docker build --build-arg APP_NAME=GenericFilterApp -t appimage .
-```
-
-Run the container image using the environment values collected earlier:
-```shell
-docker run -d --name kafka-streams-container -p 3000:3000 \
-        -e KAFKA_SERVICE_URI=$KAFKA_SERVICE_URI \
-        -e CA_PEM_CONTENTS="$CA_PEM_CONTENTS" \
-        -e SERVICE_CERT_CONTENTS="$SERVICE_CERT_CONTENTS" \
-        -e SERVICE_KEY_CONTENTS="$SERVICE_KEY_CONTENTS" \
-        -e SCHEMA_REGISTRY_URL=$SCHEMA_REGISTRY_URL \
-        -e SCHEMA_REGISTRY_USERNAME=$SCHEMA_REGISTRY_USERNAME \ 
-        -e SCHEMA_REGISTRY_PASSWORD=$SCHEMA_REGISTRY_PASSWORD \
-        appimage
-```
-
-
-### Building the app and running locally
-
-Build the application (this builds a "fat JAR"):
-```shell
-gradle GenericFilterAppUberJar
-```
-
-Copy it to the current directory so the `run.sh` script can find it:
-```shell
-cp app/build/libs/GenericFilterApp-uber.jar .
-```
-
-Run the program. This requires the enviroment variables set earlier (which are
-detailed in the header comments for the script).
-```
-APP_NAME=GenericFilterApp ./run.sh
-```
-
-:::note
-This is the same `run.sh` script that the container file runs.
-:::
-
-### Check the produced data
-
-In the [Aiven console](https://console.aiven.io/)
-
-1. Go to the service page for this Aiven for Kafka service
-2. Choose the **Topics** tab from the sidebar
-3. Select the `logistics_data_filtered` topic
-4. Select **Messages**
-5. Change the Format to `avro`
-6. Select **Fetch messages**
-
-Use **Messages** to see recent messages. Remember to select that they are
-`Avro` messages.
-
-Alternatively, in the `reporting` directory of the repository there is a
-command line program `report_messages.py` which reads messages from both the
-input and output topics and shows them using a text UI.
-
-If all the environment variables discussed before are set up, then you can 
-run it with
-```shell
-reporting/report_messages.py
-```
-
-
