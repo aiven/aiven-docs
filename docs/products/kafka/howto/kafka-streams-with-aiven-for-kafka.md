@@ -22,7 +22,7 @@ and the schema registry functionality offered by
 
 :::note
 The Avro messages are expected to be "Confluent style", where the schema id is
-prepended to each value (see the Confluent [Wire
+added before each value (see the Confluent [Wire
 format](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#wire-format)
 documentation for details of how this works)
 :::
@@ -41,7 +41,7 @@ format.
 
 Sample data will be generated using the Sample Data Generator for "Logistics",
 which writes to the `logistics_data_gen` topic. Filtered data will be written
-to a topic called `logistics_data_filtered`.
+to a topic called `logistics_data_filtered.`
 
 
 For the example, collect the following information about the Aiven for Apache
@@ -141,7 +141,7 @@ Copy it to the current directory so the `run.sh` script can find it:
 cp app/build/libs/GenericFilterApp-uber.jar .
 ```
 
-Run the program. This requires the enviroment variables set earlier (which are
+Run the program. This requires the environment variables set earlier (which are
 detailed in the header comments for the script).
 ```
 APP_NAME=GenericFilterApp ./run.sh
@@ -187,9 +187,9 @@ reporting/report_messages.py
 
 ### About the example code
 
-The example code provides source code for several different applications, but
-here we use the
-[`GenericFilterApp.java`](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/app/src/main/java/org/example/GenericFilterApp.java)
+The example code provides source code for several different applications. This
+page concentrates on the
+[`GenericFilterApp.java`](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/app/src/main/java/org/example/GenericFilterApp.java).
 
 The schema for the input Avro messages is downloaded from Karapace. The output
 messages use the
