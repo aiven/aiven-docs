@@ -92,12 +92,12 @@ and change to the repository directory:
 cd kafka-streams-example
 ```
 
-### Start the "Logistics" data stream
+## Start the "Logistics" data stream
 
 Follow the instructions at [Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data) and
 run the **Logistics** data generator.
 
-### Run the application
+## Run the application
 
 Running the example also needs the environment variables
 
@@ -157,7 +157,7 @@ This is the same `run.sh` script that the container file runs.
 </TabItem>
 </Tabs>
 
-### Check the produced data
+## Check the produced data
 
 
 <Tabs groupId="checkingData">
@@ -190,7 +190,7 @@ reporting/report_messages.py
 </TabItem>
 </Tabs>
 
-### About the example code
+## About the example code
 
 The example code provides source code for several different applications. This
 page concentrates on the program
