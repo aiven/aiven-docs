@@ -21,7 +21,7 @@ Avro™](https://avro.apache.org/) messages.
 The example expects data generated using the Sample Data Generator for
 **Logistics** which writes to the `logistics_data_gen` topic. The example code
 reads from that topic and writes filtered data to a topic called
-`logistics_data_filtered`:
+`logistics_data_delivered`:
 
 - It only writes messages where the `state` is `Delivered`.
 - It copies the fields `carrier` and `manifest`, and renames `time_utc` to
@@ -78,7 +78,7 @@ Create a directory called `certs` and download the **Access key**,
 
 [Create the output
 topic](/docs/products/kafka/howto/create-topic#create-an-apache-kafka-topic)
-`logistics_data_filtered` on the Kafka Service. The input topic is
+`logistics_data_delivered` on the Kafka Service. The input topic is
 created automatically by the sample data generator.
 
 To run the examples, you will need either Docker (to run them in a container),
@@ -133,7 +133,7 @@ docker run -d --name kafka-streams-container -p 3000:3000 \
         -e SERVICE_CERT_CONTENTS="$SERVICE_CERT_CONTENTS" \
         -e SERVICE_KEY_CONTENTS="$SERVICE_KEY_CONTENTS" \
         -e SCHEMA_REGISTRY_URL=$SCHEMA_REGISTRY_URL \
-        -e SCHEMA_REGISTRY_USERNAME=$SCHEMA_REGISTRY_USERNAME \ 
+        -e SCHEMA_REGISTRY_USERNAME=$SCHEMA_REGISTRY_USERNAME \
         -e SCHEMA_REGISTRY_PASSWORD=$SCHEMA_REGISTRY_PASSWORD \
         appimage
 ```
@@ -173,7 +173,7 @@ In the [Aiven console](https://console.aiven.io/)
 
 1. Go to the service page for this Aiven for Apache Kafka service
 2. Choose the **Topics** tab from the sidebar
-3. Select the `logistics_data_filtered` topic
+3. Select the `logistics_data_delivered` topic
 4. Click **Messages**
 5. Change the Format to `avro`
 6. Click **Fetch messages**
