@@ -93,6 +93,22 @@ source and schema.
 1. Click **Run**.
 1. View the results in the results panel.
 
+### Run selected SQL
+
+When working with multiple SQL statements, the editor runs one query at a time.
+It runs the query where your cursor is placed.
+
+1. In the SQL editor, place your cursor in the query to run.
+1. Click **Run selected** next to the active query.
+1. View the results in the results panel.
+
+This is useful for:
+
+- Testing individual queries from a larger script
+- Iterating quickly on a single query while keeping other statements in context
+- Testing each subquery independently before combining a complex query
+- Verifying data in a specific table without executing setup or cleanup statements
+
 ### Generate SQL with natural language
 
 1. In the AI Assistant panel, describe the query or result you need.
