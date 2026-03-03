@@ -93,6 +93,30 @@ source and schema.
 1. Click **Run**.
 1. View the results in the results panel.
 
+### Run selected SQL
+
+When working with multiple SQL statements in the editor, you can execute specific portions
+of your code without running everything.
+
+1. In the SQL editor, highlight the SQL code you want to execute.
+1. Click **Run selected**.
+1. View the results in the results panel.
+
+This is useful when you need to:
+
+- Test individual queries from a larger script
+- Debug specific parts of complex SQL without executing the entire file
+- Iterate quickly on a single query while keeping other statements in context
+- Compare results from different queries by running them separately
+
+**Example use cases:**
+
+- You have multiple test queries and want to run one at a time to compare outputs.
+- You are developing a complex query and want to test each subquery independently before
+  combining them.
+- You need to verify data in a specific table without executing setup or cleanup statements
+  around it.
+
 ### Generate SQL with natural language
 
 1. In the AI Assistant panel, describe the query or result you need.
