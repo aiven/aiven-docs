@@ -98,24 +98,17 @@ source and schema.
 When working with multiple SQL statements in the editor, you can execute specific portions
 of your code without running everything.
 
-1. In the SQL editor, highlight the SQL code you want to execute.
+1. In the SQL editor, highlight the SQL code to execute.
 1. Click **Run selected**.
 1. View the results in the results panel.
 
-This is useful when you need to:
+This is useful for:
 
-- Test individual queries from a larger script
-- Debug specific parts of complex SQL without executing the entire file
-- Iterate quickly on a single query while keeping other statements in context
-- Compare results from different queries by running them separately
-
-**Example use cases:**
-
-- You have multiple test queries and want to run one at a time to compare outputs.
-- You are developing a complex query and want to test each subquery independently before
-  combining them.
-- You need to verify data in a specific table without executing setup or cleanup statements
-  around it.
+- Testing individual queries from a larger script
+- Debugging specific parts of complex SQL without executing the entire file
+- Iterating quickly on a single query while keeping other statements in context
+- Testing each subquery independently before combining a complex query
+- Verifying data in a specific table without executing setup or cleanup statements
 
 ### Generate SQL with natural language
 
