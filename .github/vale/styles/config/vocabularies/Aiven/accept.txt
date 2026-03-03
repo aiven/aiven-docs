@@ -357,6 +357,7 @@ subnet
 subnets
 subprocess
 subprocesses
+subquery
 subtab
 subtask
 subtasks
