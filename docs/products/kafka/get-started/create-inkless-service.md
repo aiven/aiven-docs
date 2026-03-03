@@ -10,7 +10,9 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Create an Inkless Apache Kafka® service on Aiven Cloud or using Bring Your Own Cloud (BYOC).
-Inkless runs Kafka 4.x and supports classic and diskless topics.
+
+Topic behavior differs between Aiven Cloud and BYOC deployments.
+For details, see [Topic behavior by deployment model](#topic-behavior-by-deployment-model).
 
 ## Prerequisites
 
@@ -34,7 +36,8 @@ configure the service by selecting ingress capacity and retention.
 1. In **Deployment mode**, select **Aiven cloud**.
 1. Select a cloud provider and region.
 1. Select the **Ingress capacity** for the service.
-1. Optional: Enable **Diskless topics**, if available.
+1. Optional: Enable **Diskless topics**. You can enable diskless topics later in
+   <ConsoleLabel name="service settings" /> > **Advanced configuration**.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the service name after
@@ -58,7 +61,7 @@ Create Inkless services on Aiven Cloud using the [Aiven Console](https://console
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
 You can run Inkless Kafka clusters in your own cloud account using
-Bring Your Own Cloud (BYOC). Inkless clusters support classic and diskless topics.
+Bring Your Own Cloud (BYOC). Inkless on BYOC supports classic and diskless topics.
 
 Before creating services on BYOC, configure a BYOC environment.
 For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
@@ -83,9 +86,10 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Create an Inkless Kafka service in a BYOC environment.
+Create an Inkless Kafka service in a BYOC environment:
 
-1. List available Kafka plans for your BYOC cloud and region:
+1. List available Kafka plans for your BYOC cloud and region. Plans that support Inkless
+   end with `-inkless`.
 
    ```bash
    avn service plans --service-type kafka --cloud CUSTOM_CLOUD_REGION
@@ -106,8 +110,6 @@ Create an Inkless Kafka service in a BYOC environment.
 
    :::note
    Set both `tiered_storage.enabled=true` and `kafka_diskless.enabled=true`.
-
-   Use a plan that supports Inkless (for example, one ending with `-inkless`).
    :::
 
 Parameters:
@@ -121,14 +123,23 @@ Parameters:
 </TabItem>
 </Tabs>
 
-## Topic defaults
+## Topic behavior by deployment model
 
-- Classic topics use tiered storage by default.
+In both deployment models, classic topics use managed remote storage by default.
+The service manages storage mode and local retention. Classic and diskless
+topics can coexist in the same service.
 
-- Diskless topics:
-  - On Aiven Cloud, diskless topics are optional. You can enable them during service
-    creation or later in <ConsoleLabel name="service settings" /> > **Advanced configuration**.
-  - On Bring Your Own Cloud (BYOC), diskless topics are available by default.
+### Aiven Cloud
+
+- Classic and diskless topics are supported.
+- Diskless topics are optional. You can enable diskless support during service
+  creation or later in <ConsoleLabel name="service settings" /> > **Advanced configuration**.
+
+### Bring Your Own Cloud (BYOC)
+
+- Classic and diskless topics are supported.
+- In the Console, diskless support is enabled by default when creating an Inkless service.
+- When using the Aiven CLI, set `-c kafka_diskless.enabled=true` to enable diskless support.
 
 <RelatedPages />
 
