@@ -14,8 +14,8 @@ topic).
 It is typically used from Java or Scala.
 
 The following example demonstrates how to use Kafka Streams with Aiven for
-Apache Kafka and the schema registry functionality offered by
-[Karapace](https://karapace.io/) to filter [Apache
+Apache Kafka, and the schema registry functionality offered by
+[Karapace](https://karapace.io/), to filter [Apache
 Avro™](https://avro.apache.org/) messages.
 
 The example expects data generated using the Sample Data Generator for
