@@ -32,6 +32,13 @@ The Avro messages in this example use the [Confluent Wire
 Format](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#wire-format),
 which means the schema id is inserted before each value. This is sometimes
 also referred to as `AvroConfluent`.
+
+The schema for the input Avro messages is downloaded from the schema
+repository. The schema for the output
+messages is in the file
+[`logistics_delivered.avsc`](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/app/src/main/avro/logistics_delivered.avsc),
+which is compiled into the Java application, and then registered with the
+schema registry.
 :::
 
 ## Prerequisites {#kafka-streams-prereq}
@@ -195,11 +202,6 @@ reporting/report_messages.py
 The example code provides source code for several different applications. This
 page concentrates on the program
 [`GenericFilterApp.java`](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/app/src/main/java/org/example/GenericFilterApp.java).
-
-The schema for the input Avro messages is downloaded from Karapace. The output
-messages use the
-[`logistics_delivered.avsc`](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/app/src/main/avro/logistics_delivered.avsc)
-schema, which the application registers with Karapace.
 
 :::note
 See the example repository
