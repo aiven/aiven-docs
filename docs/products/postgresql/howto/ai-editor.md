@@ -95,17 +95,16 @@ source and schema.
 
 ### Run selected SQL
 
-When working with multiple SQL statements in the editor, you can execute specific portions
-of your code without running everything.
+When working with multiple SQL statements, the editor runs one query at a time.
+It runs the query where your cursor is placed.
 
-1. In the SQL editor, highlight the SQL code to execute.
-1. Click **Run selected**.
+1. In the SQL editor, place your cursor in the query to run.
+1. Click **Run selected** next to the active query.
 1. View the results in the results panel.
 
 This is useful for:
 
 - Testing individual queries from a larger script
-- Debugging specific parts of complex SQL without executing the entire file
 - Iterating quickly on a single query while keeping other statements in context
 - Testing each subquery independently before combining a complex query
 - Verifying data in a specific table without executing setup or cleanup statements
