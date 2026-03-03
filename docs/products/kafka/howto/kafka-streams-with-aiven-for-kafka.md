@@ -20,32 +20,36 @@ Apache Kafka and the schema registry functionality offered by
 [Karapace](https://karapace.io/) to filter [Apache
 Avro™](https://avro.apache.org/) messages.
 
+The example expects data generated using the Sample Data Generator for
+**Logistics** which writes to the `logistics_data_gen` topic. The example code
+reads from that topic and writes filtered data to a topic called
+`logistics_data_filtered`:
+
+- It only writes messages where the `state` is `Delivered`.
+- It copies the fields `carrier` and `manifest`, and renames `time_utc` to
+  `timeUtc` and `tracking_id` to `trackingId`. Other fields are not copied.
+
 :::note
-The Avro messages are expected to be "Confluent style", where the schema id is
-added before each value (see the Confluent [Wire
-format](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#wire-format)
-documentation for details of how this works)
+The Avro messages in this example use the [Confluent Wire
+Format](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#wire-format),
+which means the schema id is inserted before each value. This is sometimes
+also referred to as `AvroConfluent`.
 :::
 
 ## Prerequisites {#kafka-streams-prereq}
 
 It is possible to run the example code with any Apache Kafka service, but this
-documentation assumes you are running an Aiven for Apache Kafka service with
-**Schema Registry (Karapace)** Enabled.
+documentation assumes you are running an Aiven for Apache Kafka service.
 
-:::note
-Enabling **Schema Registry (Karapace)** is needed to make use of the
-schema registry features necessary for dealing with messages in Avro
-format.
-:::
+The example needs a **schema registry**. The message producer registers the
+Avro schema to get a schema id, which is added to the start of each message.
+The consumer looks up the schema in the registry so it can correctly decode
+the message. [Enable the **Karapace** schema
+registry](/docs/products/kafka/karapace/howto/enable-karapace) for the Aiven
+for Kafka service.
 
-Sample data will be generated using the Sample Data Generator for "Logistics"
-which writes to the `logistics_data_gen` topic. Filtered data will be written
-to a topic called `logistics_data_filtered`.
-
-
-For the example, collect the following information about the Aiven for Apache
-Kafka service.
+Create the following environment variables, needed to connect to the Aiven for
+Apache Kafka and Karapace services:
 
 - `KAFKA_SERVICE_URI`: The Service URI of the Apache Kafka service.
 - `SCHEMA_REGISTRY_URL`: The Service URI for the schema registry, from the
@@ -56,20 +60,21 @@ Kafka service.
   the Schema Registry tab.
 
 :::tip
-The details are available in the **Connection Information** section of the
+The values are available in the **Connection Information** section of the
 service Overview tab in the [Aiven console](https://console.aiven.io/) or via
 the dedicated `avn service get` command with the [Aiven
-CLI](/docs/tools/cli/service-cli#avn_service_get). And that's also where you
-can download the files in the next step...
+CLI](/docs/tools/cli/service-cli#avn_service_get). That's also where you
+can download the files in the next step.
 :::
  
 Create a directory called `certs` and download the **Access key**,
 **Access certificate** and **CA certificate** files (`service.key`,
 `service.cert`, and `ca.pem`) to that directory.
 
-Create the output topic `logistics_data_filtered` on the Kafka
-Service (the input topic will be created automatically by the sample data
-generator).
+[Create the output
+topic](/docs/products/kafka/howto/create-topic#create-an-apache-kafka-topic)
+`logistics_data_filtered` on the Kafka Service. The input topic is
+created automatically by the sample data generator.
 
 To run the examples, you will need either Docker (to run them in a container),
 or [Gradle](https://gradle.org/) (to run them using the `run.sh` script, which
@@ -91,8 +96,8 @@ cd kafka-streams-example
 
 ### Start the "Logistics" data stream
 
-See [Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data) and
-run the "Logistics" data generator.
+Follow the instructions at [Stream sample data from the Aiven Console](/docs/products/kafka/howto/generate-sample-data) and
+run the **Logistics** data generator.
 
 ### Run the application
 
@@ -131,18 +136,19 @@ docker run -d --name kafka-streams-container -p 3000:3000 \
 
 <TabItem value="local" label="Build and run locally">
 
-Build the application (this builds a "fat JAR"):
+Build the application. This builds a **fat JAR**.
 ```shell
 gradle GenericFilterAppUberJar
 ```
 
-Copy it to the current directory so the `run.sh` script can find it:
+Copy the JAR file to the current directory so the `run.sh` script can find it:
 ```shell
 cp app/build/libs/GenericFilterApp-uber.jar .
 ```
 
-Run the program. This requires the environment variables set earlier (which are
-detailed in the header comments for the script).
+Use the `run.sh` script to run the program. This requires the environment
+variables set earlier. The header comments for the script also list the
+environment variables needed.
 ```
 APP_NAME=GenericFilterApp ./run.sh
 ```
@@ -160,12 +166,12 @@ This is the same `run.sh` script that the container file runs.
 <TabItem value="console" label="In the Aiven console" default>
 In the [Aiven console](https://console.aiven.io/)
 
-1. Go to the service page for this Aiven for Kafka service
+1. Go to the service page for this Aiven for Apache Kafka service
 2. Choose the **Topics** tab from the sidebar
 3. Select the `logistics_data_filtered` topic
-4. Select **Messages**
+4. Click **Messages**
 5. Change the Format to `avro`
-6. Select **Fetch messages**
+6. Click **Fetch messages**
 </TabItem>
 
 <TabItem value="python" label="With a Python program" default>
@@ -189,7 +195,7 @@ reporting/report_messages.py
 ### About the example code
 
 The example code provides source code for several different applications. This
-page concentrates on the
+page concentrates on the program
 [`GenericFilterApp.java`](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/app/src/main/java/org/example/GenericFilterApp.java).
 
 The schema for the input Avro messages is downloaded from Karapace. The output
@@ -198,10 +204,7 @@ messages use the
 schema, which the application registers with Karapace.
 
 :::note
-For more details of the example repository and what it provides, including
-[Building the program](https://github.com/Aiven-Labs/kafka-streams-example?tab=readme-ov-file#building-the-program)
-and
-[Running the unit tests](https://github.com/Aiven-Labs/kafka-streams-example?tab=readme-ov-file#running-the-unit-tests),
-see its
+See the example repository
 [README](https://github.com/Aiven-Labs/kafka-streams-example/blob/main/README.md)
+for more details, including other sample programs.
 :::
