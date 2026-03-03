@@ -126,8 +126,7 @@ Parameters:
 ## Topic behavior by deployment model
 
 In both deployment models, classic topics use managed remote storage by default.
-The service manages storage mode and local retention. Classic and diskless
-topics can coexist in the same service.
+Classic and diskless topics can coexist in the same service.
 
 ### Aiven Cloud
 
