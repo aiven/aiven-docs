@@ -8,11 +8,9 @@ import TabItem from '@theme/TabItem';
 
 Kafka Streams aims to make it easy for users to write scalable, fault tolerant
 and secure applications to manipulate data streams.
-
 It processes data from one or more input sources (for instance, but not
 necessarily, Kafka topics) and writes to a sink (for instance, an output Kafka
 topic).
-
 It runs on the JVM and is typically used from Java or Scala.
 
 The following example demonstrates how to use Kafka Streams with Aiven for
