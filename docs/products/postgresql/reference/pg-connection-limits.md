@@ -26,10 +26,6 @@ Aiven can utilize any number of the connections for managing the service.
 
 ## Increase or decrease `max_connections`
 
-:::note
-This is a limited-release parameter. Contact your account team to confirm your eligibility.
-:::
-
 To increase or decrease the number of allowed connection for your service, set the value
 of the
 [`max_connections`](/docs/products/postgresql/reference/advanced-params#pg_max_connections)
