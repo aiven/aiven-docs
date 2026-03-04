@@ -141,6 +141,7 @@ The following metrics are only available when running Kafka in ZooKeeper mode:
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_OneMinuteRate`                   | Rate of leader elections over the last minute                                               |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_StdDev`                          | Standard deviation of leader election times                                                 |
 | `kafka_controller_ControllerStats_UncleanLeaderElectionsPerSec_Count`                          | Number of unclean leader elections. Unclean leader elections can lead to data loss     |
+| `kafka_controller_KafkaController_ActiveControllerCount_Value`                                 | Number of active controllers                                                                |
 
 #### KRaft mode and metrics changes
 
@@ -157,7 +158,6 @@ The following controller metrics are available in KRaft mode:
 
 | Metric                                                          | Description                  |
 | --------------------------------------------------------------- | ---------------------------- |
-| `kafka_controller_KafkaController_ActiveControllerCount_Value`  | Number of active controllers |
 | `kafka_controller_KafkaController_ActiveBrokerCount_Value`      | Number of active brokers     |
 | `kafka_controller_KafkaController_GlobalTopicCount_Value`       | Number of topics             |
 | `kafka_controller_KafkaController_GlobalPartitionCount_Value`   | Number of partitions         |
