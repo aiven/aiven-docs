@@ -1,4 +1,4 @@
-  ---
+---
 title: Aiven for Apache Kafka® metrics available via Prometheus
 ---
 import HostMetrics from "@site/static/includes/host-metrics.md";
