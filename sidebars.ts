@@ -1581,6 +1581,7 @@ const sidebars: SidebarsConfig = {
 
                 'products/opensearch/concepts/aggregations',
                 'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
@@ -1590,6 +1591,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'How to',
               items: [
+                'products/opensearch/howto/create-free-tier-opensearch',
                 'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
