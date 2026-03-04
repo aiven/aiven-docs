@@ -56,7 +56,7 @@ for Kafka service.
 Create the following environment variables, needed to connect to the Aiven for
 Apache Kafka and Karapace services:
 
-- `KAFKA_SERVICE_URI`: The Service URI of the Apache Kafka service.
+- `KAFKA_SERVICE_URL`: The Service URI of the Apache Kafka service.
 - `SCHEMA_REGISTRY_URL`: The Service URI for the schema registry, from the
   Schema Registry tab.
 - `SCHEMA_REGISTRY_PASSWORD`: The Password for accessing the schema registry,
@@ -128,7 +128,7 @@ docker build --build-arg APP_NAME=GenericFilterApp -t appimage .
 Run the container image using the environment values collected earlier:
 ```shell
 docker run -d --name kafka-streams-container -p 3000:3000 \
-        -e KAFKA_SERVICE_URI=$KAFKA_SERVICE_URI \
+        -e KAFKA_SERVICE_URL=$KAFKA_SERVICE_URL \
         -e CA_PEM_CONTENTS="$CA_PEM_CONTENTS" \
         -e SERVICE_CERT_CONTENTS="$SERVICE_CERT_CONTENTS" \
         -e SERVICE_KEY_CONTENTS="$SERVICE_KEY_CONTENTS" \
