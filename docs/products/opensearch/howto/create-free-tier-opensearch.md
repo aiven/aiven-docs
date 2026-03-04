@@ -6,21 +6,21 @@ sidebar_label: Create free tier service
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-You can create a free tier Aiven for Apache OpenSearch® service to learn OpenSearch, test producers and consumers, or run small proof-of-concept workloads.
+You can create a free tier Aiven for OpenSearch® service to learn OpenSearch, test indexing and queries, or run small proof-of-concept workloads.
 
-For details about throughput, topic limits, and feature restrictions, see
+For details about throughput, capacity, and feature restrictions, see
 [Free tier service limitations](/docs/products/opensearch/concepts/opensearch-free-tier).
 
 ## Prerequisites
 
-- An Aiven account (sign up or sign in at https://console.aiven.io)
-- An Aiven project
+- Signup or signin using the [Aiven Console](https://console.aiven.io)
+- Aiven project
 
 :::note
-Each organization can have only one free tier OpenSearch service.
+Each organization can have only one free tier Aiven for OpenSearch service.
 :::
 
-## Create a free tier OpenSearch service
+## Create a free tier service
 
 1. In your project, click <ConsoleLabel name="services" />.
 1. Click **Create service**.
@@ -28,8 +28,9 @@ Each organization can have only one free tier OpenSearch service.
 1. In **Service tier**, select **Free**.
    The free tier includes:
    - Up to 250 KiB/s total throughput
-   - Up to 5 topics, each with two partitions
-   - Karapace Schema Registry and REST Proxy
+  - Fixed storage and performance limits
+  - Basic monitoring for metrics and logs
+  - A default OpenSearch version selected automatically
 1. Review the **Cloud** section.
    The cloud provider is managed automatically for the free tier. You can select only a
    region group.
@@ -39,35 +40,47 @@ Each organization can have only one free tier OpenSearch service.
 
 When the status changes to **Running**, your free tier OpenSearch service is ready to use.
 
-To stream sample data, use the sample data generator in the Aiven Console. It produces
-test messages to your OpenSearch service.
+To add sample data, use the sample data tools in the Aiven Console.
 
 To connect your application, use **Quick connect** to get setup steps and sample code for
 common programming languages.
 
-## After service creation
+## What's next
 
-- If no data is produced or consumed for 24 hours, the service is powered off
-  automatically. You receive a notification before shutdown, and you can power on the
-  service from the
-  Aiven Console.
-- You can upgrade the service at any time to enable:
+### Index or query data
+
+Use your new Aiven for OpenSearch service so that data is indexed or queried within 24
+hours from the service creation.
+
+:::warning
+Your new free tier Aiven for OpenSearch service is powered off automatically after 24
+hours if you don't start using it or index or query any data. You receive a notification
+before shutdown, and you can power on the service from the Aiven Console.
+:::
+
+### Upgrade the free tier service
+
+You can upgrade the service at any time to
+
+- Enable the following capabilities:
+
   - Cloud and region selection
   - Higher throughput and storage
-  - OpenSearch Connect and service integrations
+  - Advanced OpenSearch features and service integrations
   - Support for tiered storage
 
-## Upgrade the free tier service
+- Remove limits and limitations on the following:
 
-You can upgrade from the free tier at any time to remove throughput, storage, and feature
-limits.
+  - Throughput
+  - Storage
+  - Features
 
-To upgrade from the service overview:
+To upgrade in the [Aiven Console](https://console.aiven.io) from the service overview:
 
 1. Open your service’s <ConsoleLabel name="overview" /> page.
 1. In **Service usage**, click **Upgrade**.
 
-Or upgrade from service settings:
+To upgrade in the [Aiven Console](https://console.aiven.io) from service settings:
 
 1. In your service, click <ConsoleLabel name="servicesettings" />.
 1. In the **Service summary** section, click **Upgrade**.

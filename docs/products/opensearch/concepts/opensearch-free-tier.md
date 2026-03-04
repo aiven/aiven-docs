@@ -12,21 +12,21 @@ Get started with Aiven for OpenSearch® at no cost. The Aiven for OpenSearch fre
 Use the free tier to:
 
 - Explore Aiven for OpenSearch concepts with a managed service
-- Build or test small event-driven applications
+- Build or test small search applications
 - Evaluate Aiven for OpenSearch before choosing a paid plan
 - Test and experiment during early development
 - Run small proofs of concept or demonstrations
 
-The free tier supports limited-scale workloads.
+The free tier supports limited-scale workloads. For production use, longer retention, or
+more advanced features, choose a paid plan.
 
 ## What the free tier includes
 
 The free tier includes:
 
 - A managed Aiven for OpenSearch cluster with a fixed configuration
-- Karapace Schema Registry
-- Streaming throughput up to 250 KiB/s ingress and 250 KiB/s egress
-- Sample data generation for testing message flow
+- Indexing throughput up to 250 KiB/s and query throughput up to 250 KiB/s
+- Sample dataset tools for testing indexing and search
 - Basic monitoring for metrics and logs
 
 Standard Aiven for OpenSearch clients can connect the same way as they do to paid Aiven
@@ -38,16 +38,19 @@ Free tier services have the following restrictions.
 
 ### Performance and capacity
 
-- Fixed throughput limits for produce and consume traffic
-- Up to 5 topics, each with two partitions
-- Fixed data retention settings
-- Limited number of users and ACLs
+- Fixed throughput limits for indexing and query traffic
+- Fixed storage and performance limits
+- Fixed index lifecycle settings
+- Limited number of users and access rules
 
 ### Features not available
 
 - Tiered storage
 - Service integrations such as logs, metrics, and authentication
 - Custom configuration for certain Aiven for OpenSearch settings
+- Custom dictionary files and custom repositories
+- Custom domains
+- Dynamic disk sizing
 
 ### Service restrictions
 
@@ -63,12 +66,11 @@ Free tier services have the following restrictions.
 
 Free tier Aiven for OpenSearch services operate as follows:
 
-- **Idle shutdown:** The service powers off automatically if no data is produced or
-  consumed for 24 hours. Extended inactivity can also trigger a shutdown. You receive a
+- **Idle shutdown:** The service powers off automatically if no data is indexed or
+  queried for 24 hours. Extended inactivity can also trigger a shutdown. You receive a
   notification before shutdown and can power on the service from the Aiven Console.
-- **Leader election:** The service continues operating after a node failure by using a
-  simplified leader election mode. This ensures availability for small, non-production
-  workloads.
+- **First-use shutdown:** A new free tier service with no first use can power off after
+  24 hours.
 - **Alerts:** Platform alerts are not routed to Aiven operators.
 - **Configuration updates:** Aiven may change the cloud provider, region availability,
   or configuration of free services.
