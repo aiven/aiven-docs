@@ -13,7 +13,7 @@ For details about throughput, capacity, and feature restrictions, see
 
 ## Prerequisites
 
-- Signup or signin using the [Aiven Console](https://console.aiven.io)
+- Sign-up or sign-in using the [Aiven Console](https://console.aiven.io)
 - Aiven project
 
 :::note

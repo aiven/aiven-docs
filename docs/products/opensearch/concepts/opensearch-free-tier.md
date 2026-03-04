@@ -57,9 +57,10 @@ Free tier services have the following restrictions.
 - One free Aiven for OpenSearch service per organization
 - Paid services cannot be reverted to the free tier
 - Cloud provider is fixed with a limited set of regions
+- Cloud region is fixed: You cannot migrate your free tier service to another region.
 - Free tier services are not covered by an SLA
-- Maintenance window is fixed
-- Additional disk storage cannot be added
+- Maintenance window is fixed.
+- Additional disk storage cannot be added.
 - Creation available only through the Aiven Console
 
 ## How free tier services operate
