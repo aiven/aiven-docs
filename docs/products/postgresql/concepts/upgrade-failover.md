@@ -1,5 +1,6 @@
 ---
-title: Upgrade and failover procedures
+title: Aiven for PostgreSQL® upgrade and failover procedures
+sidebar_label: Upgrade and failover
 ---
 
 Aiven for PostgreSQL® Business and Premium plans include **standby read-replica** servers. If the primary server fails, a standby replica server is automatically promoted as new primary server.
@@ -134,6 +135,7 @@ post](https://aiven.io/blog/aiven-for-pg-recreates-logical-replication-slots).
 
 :::important
 
+- Replication slots are not recreated during power-on or power-off events.
 - Replication slots are not recovered after major version upgrades of Aiven for PostgreSQL.
 - To prevent the loss of a replication slot when promoting a new primary server, all
   changes from the old primary must be fully consumed to ensure that its `catalog_xmin`
