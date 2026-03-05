@@ -1276,6 +1276,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/configure-backup',
                     'products/clickhouse/howto/manage-users-roles',
                     'products/clickhouse/howto/manage-databases-tables',
+                    'products/clickhouse/howto/manage-clickhouse-versions',
                     'products/clickhouse/howto/query-databases',
                     'products/clickhouse/howto/materialized-views',
                     'products/clickhouse/howto/monitor-performance',
