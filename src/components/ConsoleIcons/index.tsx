@@ -613,6 +613,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.eyeOpen} /> <b>View details</b>
         </>
       );
+    case 'copy':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.duplicate} /> <b>Copy</b>
+        </>
+      );
     case 'removerepo':
       return (
         <>
