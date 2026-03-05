@@ -135,11 +135,13 @@ available on the Aiven platform.
 | 4.1.x     | 2026-12-10 | 2026-09-10                       | 2025-12-10                      |
 
 :::note
-Starting with Apache Kafka 3.9, Aiven for Apache Kafka uses KRaft (Kafka Raft)
-to manage metadata and controllers, replacing ZooKeeper. Migration to Apache Kafka 3.9
-from earlier versions is not yet supported. For details and current limitations, see:
+Apache Kafka 3.8 is the last version that supports ZooKeeper.
 
-- [KRaft in Apache Kafka®](/docs/products/kafka/concepts/kraft-mode)
+Starting with Apache Kafka 3.9, Aiven for Apache Kafka uses KRaft (Kafka Raft)
+to manage metadata and controllers instead of ZooKeeper. For details about the
+migration process and rollout limitations, see:
+
+- [KRaft in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kraft-mode)
 - [Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft)
 
 To support this transition, Aiven has extended support for Apache Kafka 3.8 by one year.

@@ -10,6 +10,7 @@ KRaft, like ZooKeeper, is an internal component of Apache Kafka but simplifies
 metadata management and improves efficiency.
 
 :::note
+Apache Kafka 3.8 is the last version that supports ZooKeeper.
 All new Aiven for Apache Kafka services running Apache Kafka 3.9 or later use KRaft
 by default.
 :::
@@ -93,7 +94,7 @@ performance.
 Before you migrate, review [Limited migration rollout](#limited-migration-rollout) for
 migration windows, supported service plans, and limits on concurrent migrations.
 
-The migration is part of the upgrade to Apache Kafka 3.9. It is fully automated and
+The migration occurs as part of the upgrade to Apache Kafka 3.9. It is fully automated and
 does not require manual steps. After the migration completes, reverting to ZooKeeper is
 not supported.
 
