@@ -1,98 +1,206 @@
 ---
-title: Controlled maintenance updates
+title: Controlled maintenance updates in Aiven for PostgreSQL®
 sidebar_label: Controlled switchover
+limited: true
 ---
 
-The controlled switchover feature allows the user to have more control over the process of applying maintenance updates, specifically the failover/switchover of the primary Postgres instance.
+import RelatedPages from "@site/src/components/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
-The current workflow allows the user to configure one maintenance window per week, by specifying the maintenance field (day of week in dow, and start time in time) when creating a service. It also allows the user to manually start a maintenance update using the API call ServiceMaintenanceStart (PUT /v1/project/{project}/service/{service_name}/maintenance/start).
+Control when primary node switchover happens during Aiven for PostgreSQL® maintenance.
 
-The new feature will be specified under user_config.switchover_windows which allows the user to specify multiple (up to 28) windows for the failover/switchover of the primary node.
+:::important
+This feature is in <LimitedBadge/>.
+:::
 
-This switchover window configuration will be respected for manually-started or automatically-started maintenance updates.
-It will not apply for other user-initiated operations, such as plan upgrades or region migrations, or exceptional circumstances (e.g. node failures, network degradation, or manual intervention in incidents).
-API Documentation
-Enabling the switchover windows
-In the API calls for ServiceCreate, ServiceUpdate, and read operations like ServiceGet, the new switchover_windows field will be available in the user_config object.
-Early Availability: After Aiven support/engineering enables the feature for the project, you will be able to use this new field. Without enabling it for your project, we will return a 4XX validation error saying the field is not supported.
-For example, to create a service with the feature enabled:
+## Benefits and use cases
 
+Use controlled maintenance updates to reduce impact from primary node promotion:
+
+- Align switchover with low-traffic periods.
+- Keep maintenance predictable for application teams.
+- Reduce risk during business-critical hours.
+- Use multiple short windows each day instead of one broad period.
+
+Typical use cases are the following:
+
+- A global application that needs different low-traffic windows each day.
+- A service that allows brief disruption only after batch processing ends.
+- A team that starts maintenance manually, then wants promotion in approved
+  hours.
+
+## How it works
+
+1. You define one or more daily switchover windows in `user_config.switchover_windows`.
+1. Maintenance starts from your regular `maintenance` schedule or from a manual
+   start.
+1. Aiven waits for your configured switchover window before promoting the new
+   primary.
+
+If nodes are not ready in the first available window, switchover waits for the
+next configured window. For detailed PostgreSQL failover behavior, see
+[Aiven for PostgreSQL upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover).
+
+## Limitations
+
+Controlled switchover applies to the following:
+
+- Maintenance started automatically during the configured maintenance window
+- Maintenance started manually with
+  [ServiceMaintenanceStart](https://api.aiven.io/doc/#tag/Service/operation/ServiceMaintenanceStart)
+
+Controlled switchover does not apply to the following:
+
+- Plan upgrades
+- Region migrations
+- Incident handling, such as node failure or network issues
+
+Window limits:
+
+- Define at least one window per day.
+- Define at most four windows per day.
+- Define at most 28 windows total.
+- Set each window length to at least 10 minutes.
+- Use UTC times.
+- Use `HH:MM:SS` for `start_time` and `end_time`.
+- Split a window that crosses midnight into two windows.
+
+## Manage controlled switchover
+
+### Prerequisites
+
+Before you configure controlled maintenance updates, ensure the following:
+
+- Your service is Aiven for PostgreSQL.
+- Aiven has enabled this <LimitedBadge/> feature for your project.
+- Your service has a configured
+  [maintenance window](/docs/platform/concepts/maintenance-window#set-the-maintenance-window).
+- You can update service configuration with
+  [Aiven API endpoints](https://api.aiven.io/doc/#tag/Service) or
+  [Aiven CLI service commands](/docs/tools/cli/service-cli).
+
+### Enable and configure
+
+Configure the `user_config.switchover_windows` field in one of the following:
+
+- [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+- [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+- [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet)
+
+Follow these window rules:
+
+- Define at least one window per day.
+- Define at most four windows per day.
+- Define at most 28 windows total.
+- Set each window length to at least 10 minutes.
+- Use UTC times.
+- Use `HH:MM:SS` for `start_time` and `end_time`.
+- Split a window that crosses midnight into two windows.
+
+`start_time` and `end_time` are inclusive.
+
+This example sets a Monday maintenance window and three switchover windows:
+
+```json
 {
-  "maintenance": {"dow": "monday", "time": "08:00:00"},
+  "maintenance": {
+    "dow": "monday",
+    "time": "08:00:00"
+  },
   "user_config": {
     "switchover_windows": [
-      {"dow": "monday", "start_time": "22:00:00", "end_time": "22:10:00"},
-      {"dow": "tuesday", "start_time": "23:30:00", "end_time": "23:59:59"},
-      {"dow": "wednesday", "start_time": "00:00:00", "end_time": "00:30:00"},
-      ...
+      {
+        "dow": "monday",
+        "start_time": "22:00:00",
+        "end_time": "22:15:00"
+      },
+      {
+        "dow": "tuesday",
+        "start_time": "23:30:00",
+        "end_time": "23:59:59"
+      },
+      {
+        "dow": "wednesday",
+        "start_time": "00:00:00",
+        "end_time": "00:30:00"
+      }
     ]
   }
 }
+```
 
-In the example above, if the automated maintenance is started during the maintenance window (i.e. on Monday, between 08:00 in the morning and 12:00 (noon) in UTC), then either:
-The new primary node is ready before 10:00 PM (22:00 UTC); in which case, the old primary node is decommissioned and the new primary node is promoted between the 22:00 and 22:10 on that day.
-The replication takes a long time, and the new primary node is only ready on Tuesday morning (e.g. at 10 AM the next day); in which case, the old primary node stays online until 23:30 on Tuesday, and only then is it decommissioned for the new primary node to be promoted.
-Implementation notes
-Note that it’s required for the switchover window to be at least 10 minutes long for several reasons:
-Normal load conditions mean that there may be delays (<1 minute typically) for the control plane to signal the nodes to start promotion.
-There are some additional steps needed to action the promotion once it’s triggered, even when all the new and old replicas have near-zero replication lag.
-We need to account for a grace period for graceful termination of the old primary, which means connection interruptions are possible up to 15 minutes after the promotion signal is sent. Typically, that number is lower, but network conditions and/or client setup and/or DNS propagation delays can impact that number in practice.
+If maintenance starts Monday at `08:00:00` UTC and nodes are ready before
+`22:00:00`, promotion happens in the Monday window.
 
-Also note that the switchover windows that cross over the day boundary (i.e. around midnight UTC) need to be split into two separate windows (as above). The start_time and end_time are treated as inclusive bounds (i.e. two windows 20:30:00-20:59:59 + 21:00:00-21:30:00 on the same day is effectively equivalent to one window 20:30:00-21:30:00, and the same applies to windows at the day boundary).
+If nodes become ready after that window, promotion waits for the Tuesday or
+Wednesday window.
 
-The example above is just for illustrative purposes. In reality, there are some restrictions to the allowed configurations:
-We require at least one switchover window per day.
-This allows us to avoid situations where we need to keep an extra node replicated and in-sync for several days to a week.
-We allow at most 4 switchover windows per day.
-This allows the user enough flexibility and control over the process without making it hard to reason about.
-A minimum of 10 minutes is enforced for each switchover window. The recommendation is to have it higher than that, as explained above.
-Disabling the switchover windows
-To disable it (i.e. to allow the switchover/failover to happen at any time), it’s enough to set the user_config.switchover_windows value to an empty list ([]).
-Implementation notes
-Note that disabling the switchover windows would take effect almost immediately, so any pending/scheduled switchovers will be actionable as soon as the user disables the feature.
-Inspecting the state of the switchover
-To monitor the progress of the maintenance and the state of the controlled switchover, a new field will be available in the response of the ServiceGet (GET /v1/project/{project}/service/{service_name}) endpoint.
-For example, when running avn service get --json $SERVICE_NAME, you can expect a response similar to:
+If you update windows during ongoing maintenance, Aiven uses the latest
+configuration for the next eligible switchover time.
 
+### Operate and monitor
+
+To start maintenance manually, use
+[`avn service maintenance-start`](/docs/tools/cli/service-cli#avn-service-maintenance-start).
+
+When controlled windows are configured, manual maintenance still follows those
+windows for promotion.
+
+To turn off controlled switchover and allow promotion at any time, set
+`switchover_windows` to an empty list:
+
+```json
 {
-  "backups": [...],
-  ...
+  "user_config": {
+    "switchover_windows": []
+  }
+}
+```
+
+This change takes effect soon after the update.
+Pending switchovers can proceed without waiting for a window.
+
+Check service state with:
+
+```bash
+avn service get SERVICE_NAME --json
+```
+
+In the response, inspect `maintenance.controlled_switchover`:
+
+```json
+{
   "maintenance": {
-    "dow": "saturday",
-    "enabled": true,
-    "time": "09:28:08",
-    "updates": [],
     "controlled_switchover": {
       "enabled": true,
-      "state": "PENDING",
-      "scheduled_start_time": "2026-02-27T10:01:00.000000Z",
+      "state": "SCHEDULED",
+      "scheduled_start_time": "2026-02-27T10:01:00.000000Z"
     }
-  },
-  "node_count": 2,
-  "node_states": [...],
-  "user_config": {
-    ...
-    "switchover_windows": [
-       {
-         "dow": "monday",
-         "end_time": "10:22:00",
-         "start_time": "10:01:00"
-       },
-       ...
-    ],
-    ...
-  },
-  ...
+  }
 }
+```
 
-The enabled flag is true if the user has configured the user_config.switchover_windows option.
+State values:
 
-The state field is one of:
-INACTIVE: when there is no ongoing maintenance, or the feature is not configured, or a past maintenance/switchover is already completed.
-PENDING: when a maintenance has started, and the new nodes are not ready for a switchover yet. In such cases, the node_states field can provide more detailed information about the progress of the individual nodes.
-SCHEDULED: all new nodes are ready and we scheduled a switchover for a specific timestamp in the configured switchover windows. The scheduled_start_time will contain that UTC timestamp in ISO format.
-RUNNING: all new nodes are ready, and the switchover is being triggered, or is ongoing already. In this case, the scheduled_start_time may already be in the past, and it indicates when the switchover was originally scheduled to start.
-COMPLETED: only new nodes are ready and the switchover that was scheduled is done.
-Note that we may extend the list of allowed state values at a later stage, if we need to provide more granular details around the progress of the maintenance and/or the switchover. Do not treat this as an exhaustive list when implementing the API client.
+- `INACTIVE`: No active maintenance, or feature is not configured.
+- `PENDING`: Maintenance started, and new nodes are not ready.
+- `SCHEDULED`: New nodes are ready, and switchover is scheduled.
+- `RUNNING`: Switchover is in progress.
+- `COMPLETED`: Switchover finished.
 
-The scheduled_start_time can be null or contain an ISO-formatted timestamp, depending on the state (as documented above).
+`scheduled_start_time` can be `null` for some states.
+
+## Best practices
+
+- Use windows longer than 10 minutes to absorb timing variation.
+- Use at least 15-minute windows to reduce client impact around promotion.
+- Keep one predictable window per day before adding more windows.
+- Place windows outside business-critical traffic periods.
+- Treat midnight windows as two entries, one per day.
+- Monitor `state` and `scheduled_start_time` during maintenance events.
+
+<RelatedPages/>
+
+- [Service maintenance, updates and upgrades](/docs/platform/concepts/maintenance-window)
+- [Aiven for PostgreSQL upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)
+- [Aiven CLI service commands](/docs/tools/cli/service-cli)
