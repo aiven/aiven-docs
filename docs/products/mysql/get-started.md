@@ -21,7 +21,7 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 <TabItem value="console" label="Console" default>
 
 - Access to the [Aiven Console](https://console.aiven.io)
-- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.4/en/mysql.html)
   installed
 
 </TabItem>
@@ -29,7 +29,7 @@ Start using Aiven for MySQL® by creating a service, connecting to it, and loadi
 
 - [Terraform installed](https://www.terraform.io/downloads)
 - A [personal token](https://docs.aiven.io/docs/platform/howto/create_authentication_token.html)
-- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+- [MySQL CLI client](https://dev.mysql.com/doc/refman/8.4/en/mysql.html)
   installed
 
 </TabItem>
@@ -141,7 +141,7 @@ using the outputs.
 </TabItem>
 <TabItem value="mysql" label="mysql">
 [Connect to your new service](/docs/products/mysql/howto/connect-from-cli) with
-[mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+[mysql](https://dev.mysql.com/doc/refman/8.4/en/mysql.html).
 </TabItem>
 </Tabs>
 

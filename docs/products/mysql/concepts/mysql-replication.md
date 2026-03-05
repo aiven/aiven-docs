@@ -13,7 +13,7 @@ contains full details of all changes in itself. For these reasons, Aiven
 uses row format by default. Read more about the comparison between MySQL
 statement based and row based replication on the [Advantages and
 Disadvantages of Statement-Based and Row-Based
-Replication](https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html)
+Replication](https://dev.mysql.com/doc/refman/8.4/en/replication-sbr-rbr.html)
 article.
 <!-- vale off -->
 The row based replication works very well as long as the tables being

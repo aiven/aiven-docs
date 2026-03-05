@@ -21,7 +21,7 @@ a MySQL that you can use.
 
 -   [Aiven.io](https://aiven.io/mysql)
 -   [MySQL proprietary
-    documentation](https://dev.mysql.com/doc/refman/8.0/en/) (upstream
+    documentation](https://dev.mysql.com/doc/refman/8.4/en/) (upstream
     project documentation)
 -   [Blog post about
     MyHoard](https://aiven.io/blog/introducing-myhoard-your-single-solution-to-mysql-backups-and-restoration),

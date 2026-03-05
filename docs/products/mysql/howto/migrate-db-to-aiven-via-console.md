@@ -110,7 +110,7 @@ migration wizard. To continue with the migration, the wizard allows you to selec
 
       To make sure you have GTID enabled, open your `my.cnf` file in
       `/etc/my.cnf` or `/etc/mysql/my.cnf`. If this file cannot be found, see [more potential locations in the MySQL
-      documentation](https://dev.mysql.com/doc/refman/8.0/en/option-files.html).
+      documentation](https://dev.mysql.com/doc/refman/8.4/en/option-files.html).
 
    1. Ensure the `my.cnf` file has the `[mysqld]` header.
 
