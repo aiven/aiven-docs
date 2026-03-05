@@ -63,5 +63,5 @@ If the script runs successfully, the output is the MySQL version running
 in your service like:
 
 ```
-8.0.28
+8.4.0
 ```

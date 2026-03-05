@@ -23,8 +23,7 @@ pages from disk. When there are no more free pages in the pool, older
 pages must be evicted and if they were modified, synchronized back to
 disk (checkpointing).
 
-The [MySQL 8.0
-Reference](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html)
+The [MySQL Reference](https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html)
 says:
 
 ```
@@ -35,7 +34,7 @@ processing.
 ```
 
 And [How MySQL Uses
-Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html) says:
+Memory](https://dev.mysql.com/doc/refman/8.4/en/memory-use.html) says:
 
 ```
 InnoDB allocates memory for the entire buffer pool at server startup,
@@ -53,7 +52,7 @@ improve performance of database operations.
 
 An explanation of these various buffers (or code areas) can be found in
 the MySQL documentation: [How MySQL Uses
-Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html).
+Memory](https://dev.mysql.com/doc/refman/8.4/en/memory-use.html).
 
 Using a 4 GB service as an example, a view of the global buffers shows
 what memory has been allocated:

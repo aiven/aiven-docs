@@ -182,7 +182,7 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 
 | Version | Aiven EOL       |
 | ------- | --------------- |
-| 8.0.35  | To be announced |
+| 8.4.x   | To be announced |
 
 ### Aiven for Valkey™
 
