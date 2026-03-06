@@ -13,7 +13,7 @@ Aiven for MySQL® supports multiple versions of MySQL running concurrently in th
 ## Supported MySQL versions
 
 From version 8.4, Aiven for MySQL supports two major upstream MySQL versions at a time.
-These are the two latest stable major versions on the Aiven Platform.
+These are the two latest major versions that are stable on the Aiven Platform.
 You can select either version when you create a service or upgrade an existing service.
 If you do not select a version, the default is the latest stable version on the Aiven
 Platform.
