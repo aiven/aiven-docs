@@ -38,8 +38,8 @@ For automated upgrades, you get email notifications.
 
 ### Downgrade restriction
 
-Downgrading to a previous version is not supported due to potential data format
-incompatibilities. Always test upgrades in a non-production environment first.
+Downgrading to a previous version is not supported due to data format incompatibilities.
+Always test upgrades in a non-production environment first.
 
 To revert to a previous version:
 
@@ -51,7 +51,8 @@ To revert to a previous version:
 
 Before upgrading your service:
 
-- **Test in development**: Test the upgrade in a development environment first.
+- **Test in development**: Test the upgrade in a development environment first, for
+  example, using [service forking](/docs/platform/concepts/service-forking).
 - **Backup your data**: Ensure you have recent backups. Backups are automatic, but verify
   they exist.
 
