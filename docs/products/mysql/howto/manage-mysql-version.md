@@ -1,6 +1,6 @@
 ---
 title: Manage Aiven for MySQL® versions
-sidebar_label: Manage version
+sidebar_label: Upgrade service version
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -10,12 +10,16 @@ import TabItem from '@theme/TabItem';
 
 Aiven for MySQL® supports multiple versions of MySQL running concurrently in the platform. Choose a version that best fits your needs and upgrade your service when ready.
 
-## Multi-version support
+## Supported MySQL versions
 
-Starting from version 8.4, Aiven for MySQL supports
-[two latest upstream MySQL versions](/docs/platform/reference/eol-for-major-versions#aiven-for-mysql)
-at a time. Both versions are generally available and can be selected when creating a new
-service or upgrading an existing service.
+From version 8.4, Aiven for MySQL supports two major upstream MySQL versions at a time.
+These are the two latest stable major versions on the Aiven Platform.
+You can select either version when you create a service or upgrade an existing service.
+If you do not select a version, the default is the latest stable version on the Aiven
+Platform.
+
+See the supported versions in the
+[Aiven for MySQL version reference](/docs/platform/reference/eol-for-major-versions#aiven-for-mysql).
 
 ## Before you upgrade
 
@@ -196,7 +200,8 @@ Parameters:
 
 When creating an Aiven for MySQL service:
 
-- **Default version**: The platform uses the latest stable version by default.
+- **Default version**: The latest stable version on the Aiven Platform is the default
+  version.
 - **Explicit selection**: You can specify a version using the `mysql_version` parameter.
 - **Version availability**: Only versions in `available` state can be selected.
 
