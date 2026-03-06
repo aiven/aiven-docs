@@ -109,19 +109,13 @@ async function generateMarkdown() {
       return;
     }
 
-    // Filter out OpenSearch version 3
-    const filteredVersions = json.opensearch.filter(
-      (osVersion) => osVersion.version !== '3',
-    );
-
-    // Sort versions in decreasing order
-    filteredVersions.sort(
-      (a, b) => parseFloat(b.version) - parseFloat(a.version),
-    );
+    // Use all returned OpenSearch versions and sort in decreasing order
+    const allVersions = [...json.opensearch];
+    allVersions.sort((a, b) => parseFloat(b.version) - parseFloat(a.version));
 
     let markdownContent = '<!-- vale off -->\n\n';
 
-    filteredVersions.forEach((osVersion) => {
+    allVersions.forEach((osVersion) => {
       markdownContent += generateMarkdownTableForVersion(osVersion);
       markdownContent += '\n'; // Add spacing between tables
     });

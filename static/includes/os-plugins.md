@@ -1,5 +1,40 @@
 <!-- vale off -->
 
+## OpenSearch 3 plugins
+
+| Plugin name | Supported version |
+|-------------|-------------------|
+| analysis-icu | 3.3 |
+| analysis-kuromoji | 3.3 |
+| analysis-phonetic | 3.3 |
+| ingest-attachment | 3.3 |
+| mapper-size | 3.3 |
+| opensearch-alerting | 3.3 |
+| opensearch-anomaly-detection | 3.3 |
+| opensearch-asynchronous-search | 3.3 |
+| opensearch-cross-cluster-replication | 3.3 |
+| opensearch-custom-codecs | 3.3 |
+| opensearch-flow-framework | 3.3 |
+| opensearch-geospatial | 3.3 |
+| opensearch-index-management | 3.3 |
+| opensearch-job-scheduler | 3.3 |
+| opensearch-knn | 3.3 |
+| opensearch-ml | 3.3 |
+| opensearch-neural-search | 3.3 |
+| opensearch-notifications | 3.3 |
+| opensearch-notifications-core | 3.3 |
+| opensearch-observability | 3.3 |
+| opensearch-reports-scheduler | 3.3 |
+| opensearch-security | 3.3 |
+| opensearch-security-analytics | 3.3 |
+| opensearch-skills | 3.3 |
+| opensearch-sql | 3.3 |
+| opensearch-system-templates | 3.3 |
+| query-insights | 3.3 |
+| repository-azure | 3.3 |
+| repository-gcs | 3.3 |
+| repository-s3 | 3.3 |
+
 ## OpenSearch 2 plugins
 
 | Plugin name | Supported version |
