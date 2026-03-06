@@ -23,13 +23,18 @@ See the supported versions in the
 
 ## Before you upgrade
 
-### Available or upcoming upgrades
+### Check available versions
 
-Track upgrades for your service via:
+Preview versions available for your service in [Aiven Console](https://console.aiven.io):
 
-- [Aiven Console](https://console.aiven.io): Service <ConsoleLabel name="overview"/>
-  page > **Maintenance** section > List of available mandatory and optional upgrades
-- Email: notifications for automated upgrades
+- Major versions: Service <ConsoleLabel name="overview"/>
+  page > **Maintenance** section > <ConsoleLabel name="actions"/> **Upgrade version** >
+  Expand the version dropdown list.
+- Minor versions: Service <ConsoleLabel name="overview"/>
+  page > **Maintenance** section > See the list of available mandatory and optional
+  updates.
+
+For automated upgrades, you get email notifications.
 
 ### Downgrade restriction
 
