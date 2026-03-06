@@ -1,6 +1,6 @@
 ---
-title: Upgrade Aiven for Valkey™
-sidebar_label: Upgrade version
+title: Manage Aiven for Valkey™ versions
+sidebar_label: Upgrade service version
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -8,16 +8,18 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Aiven for Valkey supports multiple versions of Valkey running concurrently in the platform. Choose a version that best fits your needs and upgrade your service when ready.
+Aiven for Valkey™ supports multiple versions of Valkey running concurrently in the platform. Choose a version that best fits your needs and upgrade your service when ready.
 
-## Multi-version support
+## Supported Valkey versions
 
-Aiven for Valkey supports
-[two latest upstream Valkey versions](/docs/platform/reference/eol-for-major-versions#aiven-for-valkey)
-at a time. Both versions are generally available and can be selected when creating a new
-service or upgrading an existing service. Starting from version 9.0, multi-versioning is
-supported both for the standalone service mode and the
-[clustered service mode](/docs/products/valkey/concepts/valkey-cluster).
+Starting from version 9.0, Aiven for Valkey supports two major upstream Valkey versions at
+a time. These are the two latest stable major versions on the Aiven Platform.
+You can select either version when you create a service or upgrade an existing service.
+If you do not select a version, the default is the latest stable version on the Aiven
+Platform.
+
+See the supported versions in the
+[Aiven for Valkey version reference](/docs/platform/reference/eol-for-major-versions#aiven-for-Aiven for Valkey™).
 
 ## Before you upgrade
 
@@ -198,7 +200,8 @@ Parameters:
 
 When creating an Aiven for Valkey service:
 
-- **Default version**: The platform uses the latest stable version by default.
+- **Default version**: The latest stable version on the Aiven Platform is the default
+  version.
 - **Explicit selection**: You can specify a version using the `valkey_version` parameter.
 - **Version availability**: Only versions in `available` state can be selected.
 
