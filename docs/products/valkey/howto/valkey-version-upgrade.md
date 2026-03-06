@@ -12,14 +12,14 @@ Aiven for Valkey™ supports multiple versions of Valkey running concurrently in
 
 ## Supported Valkey versions
 
-Starting from version 9.0, Aiven for Valkey supports two major upstream Valkey versions at
-a time. These are the two latest stable major versions on the Aiven Platform.
+From version 9.0, Aiven for Valkey supports two major upstream Valkey versions at
+a time. These are the two latest major versions that are stable on the Aiven Platform.
 You can select either version when you create a service or upgrade an existing service.
 If you do not select a version, the default is the latest stable version on the Aiven
 Platform.
 
 See the supported versions in the
-[Aiven for Valkey version reference](/docs/platform/reference/eol-for-major-versions#aiven-for-Aiven for Valkey™).
+[Aiven for Valkey version reference](/docs/platform/reference/eol-for-major-versions#aiven-for-valkey).
 
 ## Before you upgrade
 
