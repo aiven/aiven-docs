@@ -101,7 +101,7 @@ avn service update SERVICE_NAME -c mysql_version="N.N"
 Parameters:
 
 - `SERVICE_NAME`: Name of your service
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `8.4`
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -126,7 +126,7 @@ Parameters:
 - `PROJECT_NAME`: Name of your project
 - `SERVICE_NAME`: Name of your service
 - `BEARER_TOKEN`: Your API authentication token
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `8.4`
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -155,7 +155,7 @@ Parameters:
 - `CLOUD_NAME`: Cloud region identifier
 - `PLAN_NAME`: Service plan
 - `SERVICE_NAME`: Name of your service
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `8.4`
 
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes">
@@ -198,7 +198,7 @@ Parameters:
 - `SERVICE_NAME`: Name of your service
 - `CLOUD_NAME`: Cloud region identifier
 - `PLAN_NAME`: Service plan
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `8.4`
 
 </TabItem>
 </Tabs>
