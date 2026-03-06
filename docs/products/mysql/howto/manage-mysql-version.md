@@ -60,7 +60,7 @@ To upgrade your service version, check that:
 
 - Your Aiven for MySQL service is running.
 - Target version to upgrade to is
-  [available for manual upgrade](/docs/products/mysql/howto/manage-mysql-version#available-or-upcoming-upgrades).
+  [available for manual upgrade](/docs/products/mysql/howto/manage-mysql-version#check-available-versions).
 - You can use one of the following tools to upgrade:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)
