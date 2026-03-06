@@ -124,6 +124,7 @@ This example sets a Monday maintenance window and three switchover windows:
         "start_time": "00:00:00",
         "end_time": "00:30:00"
       }
+      ...
     ]
   }
 }
@@ -189,6 +190,23 @@ State values:
 - `COMPLETED`: Switchover finished.
 
 `scheduled_start_time` can be `null` for some states.
+
+Example with the CLI to update the user config:
+
+```bash
+avn service update -c 'switchover_windows='"$(jq -c -n --argjson window '{"start_time": "15:50:42", "end_time": "16:59:59"}' '[ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" ] | map($window + {dow: .})')" SERVICE_NAME
+```
+
+```
+# Generate a JSON list of windows: from 9-10 AM for every day of the week
+WINDOWS_JSON="$(jq -c -n \
+  --argjson window '{"start_time": "09:00:00", "end_time": "10:00:00"}' \
+  --argjson weekdays '[ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" ]' \
+  '$weekdays | map($window + {dow: .})'
+)"
+# Update the configuration using the CLI
+avn service update -c "switchover_windows=${WINDOWS_JSON}" SERVICE_NAME
+```
 
 ## Best practices
 
