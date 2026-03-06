@@ -1497,6 +1497,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/mysql/howto/create-database',
                     'products/mysql/howto/ai-insights',
+                    'products/mysql/howto/manage-mysql-version',
                     'products/mysql/howto/create-remote-replica',
                     'products/mysql/howto/use-incremental-backups',
                     'products/mysql/howto/migrate-database-mysqldump',
