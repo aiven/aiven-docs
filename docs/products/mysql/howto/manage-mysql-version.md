@@ -27,9 +27,9 @@ See the supported versions in the
 
 Preview versions available for your service in [Aiven Console](https://console.aiven.io):
 
-- Major versions: Service <ConsoleLabel name="overview"/>
-  page > **Maintenance** section > <ConsoleLabel name="actions"/> **Upgrade version** >
-  Expand the version dropdown list.
+- Major versions: Service <ConsoleLabel name="service settings"/>
+  page > **Service management** section > <ConsoleLabel name="actions"/> >
+  **Upgrade version** > Expand the version dropdown list.
 - Minor versions: Service <ConsoleLabel name="overview"/>
   page > **Maintenance** section > See the list of available mandatory and optional
   updates.
@@ -72,10 +72,11 @@ To upgrade your service version, check that:
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io/), go to your MySQL service.
-1. On the <ConsoleLabel name="overview"/> page, go to the **Maintenance** section.
+1. In the [Aiven Console](https://console.aiven.io/), go to your Aiven for MySQL service.
+1. Open the <ConsoleLabel name="service settings"/> page from the sidebar, and go to the
+   **Service management** section.
 1. Click <ConsoleLabel name="actions"/> > **Upgrade version**.
-1. Select a version to upgrade to.
+1. Expand the version dropdown list, and select a version to upgrade to.
 
    :::warning
    When you click **Upgrade**:
