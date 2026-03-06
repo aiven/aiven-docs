@@ -6,6 +6,8 @@ limited: true
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Control when primary node switchover happens during Aiven for PostgreSQL® maintenance.
 
@@ -81,12 +83,6 @@ Before you configure controlled maintenance updates, ensure the following:
 
 ### Enable and configure
 
-Configure the `user_config.switchover_windows` field in one of the following:
-
-- [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
-- [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-- [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet)
-
 Follow these window rules:
 
 - Define at least one window per day.
@@ -98,6 +94,64 @@ Follow these window rules:
 - Split a window that crosses midnight into two windows.
 
 `start_time` and `end_time` are inclusive.
+
+Use one of the following tools to configure `user_config.switchover_windows`:
+
+<Tabs groupId="switchover-config">
+<TabItem value="cli" label="CLI" default>
+
+To generate and apply daily windows with Aiven CLI, run:
+
+```bash
+WINDOWS_JSON="$(jq -c -n \
+  --argjson window '{"start_time": "09:00:00", "end_time": "10:00:00"}' \
+  --argjson weekdays '[
+    "monday", "tuesday", "wednesday", "thursday",
+    "friday", "saturday", "sunday"
+  ]' \
+  '$weekdays | map($window + {dow: .})'
+)"
+
+avn service update -c "switchover_windows=${WINDOWS_JSON}" SERVICE_NAME
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Call the
+[ServiceUpdate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+to set `user_config.switchover_windows`:
+
+```bash
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "user_config": {
+      "switchover_windows": [
+        {
+          "dow": "monday",
+          "start_time": "22:00:00",
+          "end_time": "22:15:00"
+        },
+        {
+          "dow": "tuesday",
+          "start_time": "23:30:00",
+          "end_time": "23:59:59"
+        },
+        {
+          "dow": "wednesday",
+          "start_time": "00:00:00",
+          "end_time": "00:30:00"
+        }
+      ]
+    }
+  }'
+```
+
+</TabItem>
+</Tabs>
 
 This example sets a Monday maintenance window and three switchover windows:
 
@@ -190,23 +244,6 @@ State values:
 - `COMPLETED`: Switchover finished.
 
 `scheduled_start_time` can be `null` for some states.
-
-Example with the CLI to update the user config:
-
-```bash
-avn service update -c 'switchover_windows='"$(jq -c -n --argjson window '{"start_time": "15:50:42", "end_time": "16:59:59"}' '[ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" ] | map($window + {dow: .})')" SERVICE_NAME
-```
-
-```
-# Generate a JSON list of windows: from 9-10 AM for every day of the week
-WINDOWS_JSON="$(jq -c -n \
-  --argjson window '{"start_time": "09:00:00", "end_time": "10:00:00"}' \
-  --argjson weekdays '[ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" ]' \
-  '$weekdays | map($window + {dow: .})'
-)"
-# Update the configuration using the CLI
-avn service update -c "switchover_windows=${WINDOWS_JSON}" SERVICE_NAME
-```
 
 ## Best practices
 
