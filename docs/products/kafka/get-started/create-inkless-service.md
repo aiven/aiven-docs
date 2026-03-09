@@ -11,9 +11,6 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Create an Inkless Apache Kafka® service on Aiven Cloud or using Bring Your Own Cloud (BYOC).
 
-Topic behavior differs between Aiven Cloud and BYOC deployments.
-For details, see [Topic behavior by deployment model](#topic-behavior-by-deployment-model).
-
 ## Prerequisites
 
 - Access to the [Aiven Console](https://console.aiven.io)
@@ -123,22 +120,9 @@ Parameters:
 </TabItem>
 </Tabs>
 
-## Topic behavior by deployment model
+After creating the service, create topics to store data streams. To create topics,
+see [Create Kafka topics](/docs/products/kafka/howto/create-topic).
 
-In both deployment models, classic topics use managed remote storage by default.
-Classic and diskless topics can coexist in the same service.
-
-### Aiven Cloud
-
-- Classic and diskless topics are supported.
-- Diskless topics are optional. You can enable diskless support during service
-  creation or later in <ConsoleLabel name="service settings" /> > **Advanced configuration**.
-
-### Bring Your Own Cloud (BYOC)
-
-- Classic and diskless topics are supported.
-- In the Console, diskless support is enabled by default when creating an Inkless service.
-- When using the Aiven CLI, set `-c kafka_diskless.enabled=true` to enable diskless support.
 
 <RelatedPages />
 
