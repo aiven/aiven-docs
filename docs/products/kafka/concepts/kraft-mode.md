@@ -32,8 +32,8 @@ Apache Kafka version 3.9 or later.
 ### Limit on concurrent migrations
 
 A limited number of migrations can run at the same time across all Aiven for Apache Kafka
-services. Migration requests are processed in the order received. If the maximum number
-of concurrent migrations is reached, the request returns an error.
+services. If the maximum number of concurrent migrations is reached, the request returns
+an error.
 
 ### Migration window
 
