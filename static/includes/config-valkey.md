@@ -187,6 +187,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="valkey_version"/><Link to="#valkey_version"><strong>valkey_version</strong></Link></p><p><code className="type">string,null</code></p></div>
+        <p className="title">Valkey major version</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="service_to_fork_from"/><Link to="#service_to_fork_from"><strong>service_to_fork_from</strong></Link></p><p><code className="type">string,null</code></p></div>
         <p className="title">Name of another service to fork from. This has effect only when a new service is being created.</p>
       </td>
