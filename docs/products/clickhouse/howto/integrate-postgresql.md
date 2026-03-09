@@ -1,5 +1,6 @@
 ---
 title: Connect PostgreSQL® to Aiven for ClickHouse®
+sidebar_label: Connect PostgreSQL
 ---
 
 You can integrate Aiven for ClickHouse® with either *Aiven for PostgreSQL* service located in the same project, or *an external PostgreSQL endpoint*.

@@ -1302,7 +1302,7 @@ const sidebars: SidebarsConfig = {
               label: 'Integrate',
               link: {
                 type: 'doc',
-                id: 'products/clickhouse/howto/list-integrations',
+                id: 'products/clickhouse/concepts/data-integration-overview',
               },
               items: [
                 'products/clickhouse/howto/connect-to-grafana',
@@ -1310,7 +1310,6 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/howto/integrate-postgresql',
                 'products/clickhouse/howto/data-service-integration',
                 'products/clickhouse/howto/integration-databases',
-                'products/clickhouse/concepts/data-integration-overview',
               ],
             },
 

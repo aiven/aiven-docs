@@ -1,6 +1,6 @@
 ---
 title: Set up Aiven for ClickHouse® data source integrations
-sidebar_label: Integrate with data source
+sidebar_label: Integrate data sources
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

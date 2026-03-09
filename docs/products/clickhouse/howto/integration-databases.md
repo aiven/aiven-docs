@@ -1,5 +1,6 @@
 ---
 title: Manage Aiven for ClickHouse® integration databases
+sidebar_label: Manage integration databases
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

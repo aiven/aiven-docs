@@ -1,6 +1,6 @@
 ---
 title: Aiven for ClickHouse® limits and limitations
-sidebar_label: Limits and limitations
+sidebar_label: Limitations
 ---
 
 import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
