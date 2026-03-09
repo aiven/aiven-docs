@@ -1580,6 +1580,7 @@ const sidebars: SidebarsConfig = {
 
                 'products/opensearch/concepts/aggregations',
                 'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/dedicated-node-roles',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
