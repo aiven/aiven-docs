@@ -9,6 +9,9 @@ a European climate-tech company that measures and optimizes IT and cloud emissio
 OxygenIT works with hyperscalers, cloud providers, and enterprises to
 improve transparency and efficiency.
 
+Emissions are calculated for services in AWS, Microsoft Azure, and Google Cloud.
+Services in other cloud providers are not included in the estimates.
+
 Emissions are measured in metric tons of carbon dioxide-equivalent,
 which includes multiple greenhouse gasses. OxygenIT uses region-specific electricity data
 from each data center's energy mix and hardware efficiency metrics.
