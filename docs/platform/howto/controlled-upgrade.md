@@ -8,7 +8,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Control when maintenance updates move from a source service to a destination service.
+Control when your Aiven managed services receive maintenance updates and test maintenance
+updates in development or staging environments before they reach production.
 
 :::important
 Controlled upgrade pipeline is a
@@ -17,16 +18,13 @@ feature.
 [Contact Aiven](https://aiven.io/contact) to request access.
 :::
 
-The controlled upgrade pipeline feature lets you test maintenance updates in
-development or staging environments before they reach production. Aiven performs
-automatic service maintenance for security fixes, minor software updates, and other
-platform changes. For details, see [Service maintenance, updates and
-upgrades](/docs/platform/concepts/maintenance-window).
-
-Link services of the same type in an ordered sequence to control when each service
-receives updates. After a maintenance update upgrades a source service, validate that
-version before the update proceeds to the next service. Validation can be manual or
-automatic after a configurable delay.
+Aiven performs automatic
+[service maintenance for security fixes, minor software updates](/docs/platform/concepts/maintenance-window),
+and other platform changes. The controlled upgrade pipeline feature lets you link services
+of the same type in an ordered sequence to control when each service receives updates.
+After a maintenance update upgrades a service at the initial pipeline step, you validate
+that service version before the update proceeds to the service at the next pipeline step.
+Validation can be manual or automatic after a configurable delay.
 
 ## About controlled upgrade pipelines
 
@@ -92,8 +90,10 @@ validated version.
 
 To use controlled upgrade pipelines:
 
+- [Aiven CLI](/docs/tools/cli) or [Aiven API](/docs/tools/api)
 - Write access to the source and destination projects
-- The correct access control list (ACL) permissions for the feature in your destination project
+- The correct access control list (ACL) permissions for the feature in your destination
+  project
 - At least two services of the same type (for example, two Aiven for PostgreSQL® services)
 - Services can be in different projects in the same organization
 
