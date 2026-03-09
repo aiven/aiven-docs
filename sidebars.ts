@@ -164,6 +164,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/howto/manage-domains',
             'platform/howto/saml/add-identity-providers',
+            'platform/howto/saml/rotate-scim-token',
             'platform/howto/saml/add-auth0-idp',
             'platform/howto/saml/add-fusionauth-idp',
             'platform/howto/saml/add-google-idp',
