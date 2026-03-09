@@ -1,11 +1,45 @@
 ---
 title: Dedicated node roles in Aiven for OpenSearch®
 sidebar_label: Dedicated node roles
+limited: true
 ---
+
+import RelatedPages from "@site/src/components/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Aiven for OpenSearch® supports clusters with dedicated node roles, allowing you to assign specialized functions to different node groups for improved performance and scalability.
 
-## What are dedicated node roles?
+The dedicated node roles feature is in
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+for Aiven for OpenSearch® version 2 and later. It's available in specific service plans
+for production workloads that require enhanced performance and reliability.
+
+:::tip
+Contact Aiven to request access, learn which service plans include
+dedicated node roles, and get recommendations for your workload.
+:::
+
+## Benefits and use cases
+
+The dedicated node roles feature helps achieve the following:
+
+**Improved stability**: Separating cluster management from data operations prevents resource-intensive queries from affecting cluster coordination, reducing the risk of cluster instability.
+
+**Better scalability**: You can scale data nodes independently from cluster manager nodes, adding capacity where needed without over-provisioning management resources.
+
+**Optimized resource allocation**: Each node group can use hardware configurations tailored to its specific workload, improving cost efficiency.
+
+**Enhanced performance**: Dedicated data nodes can focus entirely on query execution and data processing without the overhead of cluster management tasks.
+
+The dedicated node roles feature is particularly beneficial for:
+
+**Large-scale deployments**: Clusters with high data volumes or query throughput benefit from isolating coordination overhead from data operations.
+
+**Performance-critical applications**: Preventing resource contention between cluster management and query execution ensures consistent performance.
+
+**Complex cluster topologies**: Larger clusters with many nodes see stability improvements when cluster management runs on dedicated hardware.
+
+## About dedicated node roles
 
 By default, OpenSearch nodes perform all roles: cluster management, data storage, and query processing. With dedicated node roles, you can separate these responsibilities across different node groups, each optimized for specific tasks.
 
@@ -13,56 +47,46 @@ This architecture separates the cluster's control plane from its data plane, ens
 
 ```mermaid
 graph TB
-    subgraph "Client Applications"
+    subgraph "Client apps"
         C1[Client 1]
-        C2[Client 2]
-        C3[Client 3]
     end
-    
-    subgraph "OpenSearch Cluster with Dedicated Node Roles"
-        subgraph "Cluster Manager Nodes (Control Plane)"
+
+    subgraph "OpenSearch cluster"
+        subgraph "Manager nodes"
             CM1[Manager 1]
             CM2[Manager 2]
             CM3[Manager 3]
         end
-        
-        subgraph "Data Nodes (Data Plane)"
-            DN1[Data Node 1<br/>Search & Index]
-            DN2[Data Node 2<br/>Search & Index]
-            DN3[Data Node 3<br/>Search & Index]
-            DN4[Data Node 4<br/>Search & Index]
+
+        subgraph "Data nodes"
+            DN1[Data node 1<br/>Search and index]
+            DN2[Data node 2<br/>Search and index]
         end
     end
-    
-    C1 -.->|Queries & Data| DN1
-    C2 -.->|Queries & Data| DN2
-    C3 -.->|Queries & Data| DN3
-    
-    CM1 <-->|Cluster State<br/>Coordination| CM2
-    CM2 <-->|Cluster State<br/>Coordination| CM3
-    CM3 <-->|Cluster State<br/>Coordination| CM1
-    
-    CM1 -.->|Manage Shards<br/>& Health| DN1
-    CM1 -.->|Manage Shards<br/>& Health| DN2
-    CM1 -.->|Manage Shards<br/>& Health| DN3
-    CM1 -.->|Manage Shards<br/>& Health| DN4
-    
-    DN1 <-->|Replicate Data| DN2
-    DN2 <-->|Replicate Data| DN3
-    DN3 <-->|Replicate Data| DN4
-    
-    style CM1 fill:#e1f5ff
-    style CM2 fill:#e1f5ff
-    style CM3 fill:#e1f5ff
-    style DN1 fill:#fff4e6
-    style DN2 fill:#fff4e6
-    style DN3 fill:#fff4e6
-    style DN4 fill:#fff4e6
+
+    C1 -.->|Queries and data| DN1
+    C1 -.->|Queries and data| DN2
+
+    CM1 <-->|Cluster state<br/>coordination| CM2
+    CM2 <-->|Cluster state<br/>coordination| CM3
+    CM3 <-->|Cluster state<br/>coordination| CM1
+
+    CM1 -.->|Manage shards<br/>and health| DN1
+    CM1 -.->|Manage shards<br/>and health| DN2
+
+    DN1 <-->|Replicate data| DN2
+
+    style C1 fill:#e3e9ff
+    style CM1 fill:#cfeefc
+    style CM2 fill:#cfeefc
+    style CM3 fill:#cfeefc
+    style DN1 fill:#fff3e8
+    style DN2 fill:#fff3e8
 ```
 
-## Available node roles
+### Available node roles
 
-### Cluster manager nodes
+#### Cluster manager nodes
 
 Cluster manager nodes handle cluster-wide operations such as:
 
@@ -79,7 +103,7 @@ These nodes run on smaller instances optimized for low-latency coordination task
 Cluster manager nodes are always configured in odd numbers (typically 3) to ensure proper quorum for cluster decisions and prevent split-brain scenarios.
 :::
 
-### Data nodes
+#### Data nodes
 
 Data nodes are responsible for:
 
@@ -91,17 +115,9 @@ Data nodes are responsible for:
 
 Data nodes typically run on larger instances with more storage capacity and compute resources to handle data-intensive operations efficiently.
 
-## Benefits of dedicated node roles
 
-**Improved stability**: Separating cluster management from data operations prevents resource-intensive queries from affecting cluster coordination, reducing the risk of cluster instability.
 
-**Better scalability**: You can scale data nodes independently from cluster manager nodes, adding capacity where needed without over-provisioning management resources.
-
-**Optimized resource allocation**: Each node group can use hardware configurations tailored to its specific workload, improving cost efficiency.
-
-**Enhanced performance**: Dedicated data nodes can focus entirely on query execution and data processing without the overhead of cluster management tasks.
-
-## Cluster configuration
+### Cluster configuration
 
 Dedicated node roles are defined at the service plan level. When you select a plan with dedicated roles:
 
@@ -113,7 +129,7 @@ Dedicated node roles are defined at the service plan level. When you select a pl
 
 All standard service operations work with dedicated node roles, including service creation, major version upgrades, plan changes, service forking, and node replacement. The platform handles cluster manager node operations carefully to maintain cluster stability during updates.
 
-## Node replacement and scaling
+### Node replacement and scaling
 
 During maintenance or scaling operations:
 
@@ -122,25 +138,35 @@ During maintenance or scaling operations:
 - Node failures are handled automatically with role-aware replacement
 - Disk space validation considers only data nodes, as cluster manager nodes do not store data
 
-## Use cases
+## Manage dedicated node roles
 
-Dedicated node roles are particularly beneficial for:
+The dedicated node roles feature is plan-based.
 
-**Large-scale deployments**: Clusters with high data volumes or query throughput benefit from isolating coordination overhead from data operations.
+### Prerequisites
 
-**Performance-critical applications**: Preventing resource contention between cluster management and query execution ensures consistent performance.
+- This is a <LimitedBadge/> feature. Contact Aiven to enable it.
+- [Upgrade Aiven for OpenSearch®](/docs/products/opensearch/howto/os-version-upgrade) to
+  2.19 or later if your service runs an older version.
 
-**Complex cluster topologies**: Larger clusters with many nodes see stability improvements when cluster management runs on dedicated hardware.
+### Start using dedicated node roles
 
-## Availability
+Create an Aiven for OpenSearch® service and choose a plan that includes
+dedicated node roles. For steps, see
+[Get started with Aiven for OpenSearch®](/docs/products/opensearch/get-started#create-an-aiven-for-opensearch-service).
 
-Dedicated node roles are available for Aiven for OpenSearch® version 2 and later. The feature is included in select service plans designed for production workloads requiring enhanced performance and reliability.
+### Configure dedicated node roles
 
-:::tip
-Contact Aiven support to learn which service plans include dedicated node roles and to get recommendations for your specific workload requirements.
-:::
+To move to another dedicated-role layout, change the service plan to a
+different eligible plan. For steps, see
+[Change a service plan](/docs/platform/howto/scale-services).
 
-## Related pages
+### Disable dedicated node roles
+
+Change the service plan to a plan without dedicated node roles. This
+returns the service to a standard node layout where nodes share roles.
+For steps, see [Change a service plan](/docs/platform/howto/scale-services).
+
+<RelatedPages/>
 
 - [High availability in Aiven for OpenSearch®](/docs/products/opensearch/concepts/high-availability-for-opensearch)
 - [Shards and replicas](/docs/products/opensearch/concepts/shards-number)
