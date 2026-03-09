@@ -37,8 +37,8 @@ Make Apache Kafka data available in Aiven for ClickHouse using the Kafka engine:
 
    The **Apache Kafka data source integration** wizard opens and displays a list of external
    data sources or Aiven-managed data services available for integration. If there are
-   no data sources to integrate with, the wizard allows you to create them either by clicking
-   **Create service** (for Aiven-managed sources) or **Add external endpoint** (for external
+   no data sources to integrate with, the wizard allows you to create them either by
+   clicking **Create service** (for Aiven-managed sources) or **Add external endpoint** (for external
    sources).
 
 1. In the **Apache Kafka data source integration** wizard:
@@ -93,8 +93,8 @@ Make PostgreSQL data available in Aiven for ClickHouse using the PostgreSQL engi
 
    The **PostgreSQL data source integration** wizard opens and displays a list of external
    data sources or Aiven-managed data services available for integration. If there are no
-   data sources to integrate with, the wizard allows you to create them either by clicking
-   **Create service** (for Aiven-managed sources) or **Add external endpoint** (for external
+   data sources to integrate with, the wizard allows you to create them either by
+   clicking **Create service** (for Aiven-managed sources) or **Add external endpoint** (for external
    sources).
 
 1. In the **PostgreSQL data source integration** wizard:
@@ -126,7 +126,7 @@ Make PostgreSQL data available in Aiven for ClickHouse using the PostgreSQL engi
       [create such integration databases](/docs/products/clickhouse/howto/integration-databases)
       any time later, for example, by finding your integration on the **Integrations** page
       and clicking <ConsoleLabel name="actions"/> > <ConsoleLabel name="editdatabase"/>.
-      ::::
+      :::
 
    1. Click **Enable integration** > **Close**.
 
@@ -176,7 +176,7 @@ for the data to be made available through the integration.
       :::note[Alternative]
       You can test the connection any time later by going to your Aiven for ClickHouse
       service's **Integrations** page, finding the credentials integration, and clicking
-       <ConsoleLabel name="actions"/> > <ConsoleLabel name="testconnection"/>.
+      <ConsoleLabel name="actions"/> > <ConsoleLabel name="testconnection"/>.
       :::
 
    1. Click **Close**.
