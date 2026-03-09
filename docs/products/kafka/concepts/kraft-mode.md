@@ -10,9 +10,50 @@ KRaft, like ZooKeeper, is an internal component of Apache Kafka but simplifies
 metadata management and improves efficiency.
 
 :::note
+Apache Kafka 3.8 is the last version that supports ZooKeeper.
 All new Aiven for Apache Kafka services running Apache Kafka 3.9 or later use KRaft
 by default.
 :::
+
+## Limited migration rollout
+
+If you have an existing service that uses ZooKeeper and want to migrate to KRaft,
+review the following limitations before you start. For the full migration process,
+see [Migration from ZooKeeper to KRaft](#migration-from-zookeeper-to-kraft).
+
+You can start a KRaft migration for eligible Aiven for Apache Kafka services. The
+migration capability is rolled out gradually across all Aiven for Apache Kafka services.
+During this rollout, the following temporary limitations apply. These limitations will
+be removed in phases.
+
+These restrictions do not apply when creating a new service that runs on KRaft with
+Apache Kafka version 3.9 or later.
+
+### Limit on concurrent migrations
+
+A limited number of migrations can run at the same time across all Aiven for Apache Kafka
+services. If the maximum number of concurrent migrations is reached, the request returns
+an error.
+
+### Migration window
+
+You can start a migration only during EU office hours:
+
+- Monday to Friday
+- 06:00 to 14:00 UTC
+
+### Supported service plans
+
+You can start a migration only if your service uses one of these plans:
+
+- `startup-2`
+- `business-4`
+- `business-8`
+
+Some plans have additional requirements. For details, see
+[Before you migrate](#before-you-migrate).
+
+Support for more plans will be added in phases.
 
 ## What is KRaft?
 
@@ -50,10 +91,10 @@ performance.
 
 ## Migration from ZooKeeper to KRaft
 
-Migration from ZooKeeper to KRaft is not yet available for existing
-Aiven for Apache Kafka services. Aiven will notify you when your service becomes eligible.
+Before you migrate, review [Limited migration rollout](#limited-migration-rollout) for
+migration windows, supported service plans, and limits on concurrent migrations.
 
-The migration is part of the upgrade to Apache Kafka 3.9. It is fully automated and
+The migration occurs as part of the upgrade to Apache Kafka 3.9. It is fully automated and
 does not require manual steps. After the migration completes, reverting to ZooKeeper is
 not supported.
 
@@ -88,9 +129,9 @@ migration can be retried.
 ### Before you migrate
 
 - **Service version**: To upgrade to Apache Kafka 4.0 or later, your service must first
-  migrate to KRaft by upgrading to Kafka 3.9.
+  migrate to KRaft by upgrading to Apache Kafka 3.9.
 - **Grace period**: After the migration completes, there is a one-week grace period
-  during which the cluster cannot be upgraded to Kafka 4.0.
+  during which the cluster cannot be upgraded to Apache Kafka 4.0.
 - **Service plan**: If your service is on the **Startup-2** plan, you must upgrade
   to **Startup-4** or higher during the same maintenance window as the version upgrade.
 
