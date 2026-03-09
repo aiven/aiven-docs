@@ -15,7 +15,7 @@ Aiven for Apache Kafka® allows you to configure tiered storage and set retentio
 ## Tiered storage status for topics
 
 When you activate tiered storage for a service, any new topics created in that service
-have tiered storage enabled by default.
+using the Aiven Console have tiered storage enabled by default.
 
 - **Disable tiered storage for new topics**: You can disable tiered storage by setting
   **Remote storage enable** to false during the creation of a new topic in the topic
