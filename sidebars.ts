@@ -1232,6 +1232,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/clickhouse/get-started',
+            'products/clickhouse/concepts/service-architecture',
 
             {
               type: 'category',
@@ -1241,6 +1242,7 @@ const sidebars: SidebarsConfig = {
                 id: 'products/clickhouse/howto/list-connect-to-service',
               },
               items: [
+                'products/clickhouse/reference/supported-interfaces-drivers',
                 'products/clickhouse/howto/connect-with-clickhouse-cli',
                 'products/clickhouse/howto/connect-with-go',
                 'products/clickhouse/howto/connect-with-python',
@@ -1248,7 +1250,6 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/howto/connect-with-php',
                 'products/clickhouse/howto/connect-with-java',
                 'products/clickhouse/howto/connect-with-jdbc',
-                'products/clickhouse/reference/supported-interfaces-drivers',
               ],
             },
 
@@ -1256,28 +1257,46 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Work with data',
               items: [
-                'products/clickhouse/howto/manage-databases-tables',
-                'products/clickhouse/howto/query-databases',
-                'products/clickhouse/howto/materialized-views',
-                'products/clickhouse/howto/use-shards-with-distributed-table',
-                'products/clickhouse/howto/create-dictionary',
-                'products/clickhouse/howto/sql-user-defined-functions',
-                'products/clickhouse/howto/clickhouse-query-cache',
-                'products/clickhouse/howto/run-federated-queries',
+                {
+                  type: 'category',
+                  label: 'Tables and queries',
+                  items: [
+                    'products/clickhouse/howto/table-engines-and-replication',
+                    'products/clickhouse/howto/manage-databases-tables',
+                    'products/clickhouse/howto/materialized-views',
+                    'products/clickhouse/howto/use-shards-with-distributed-table',
 
-                // Keep concept pages for now; split/merge later
-                'products/clickhouse/concepts/indexing',
-                'products/clickhouse/concepts/strings',
-                'products/clickhouse/concepts/federated-queries',
+                    'products/clickhouse/howto/query-databases',
+                    'products/clickhouse/concepts/indexing', // TODO merge into query-databases
+                    'products/clickhouse/concepts/strings', // TODO merge into query-databases
+                  ],
+                },
 
-                // Reference pages that belong with data work
-                'products/clickhouse/reference/supported-table-engines',
-                'products/clickhouse/reference/supported-table-functions',
-                'products/clickhouse/reference/supported-input-output-formats',
-                'products/clickhouse/reference/s3-supported-file-formats',
+                {
+                  type: 'category',
+                  label: 'Dictionaries and advanced queries',
+                  items: [
+                    'products/clickhouse/howto/create-dictionary',
+                    'products/clickhouse/howto/sql-user-defined-functions',
+                    'products/clickhouse/howto/clickhouse-query-cache',
+
+                    'products/clickhouse/howto/run-federated-queries',
+                    'products/clickhouse/concepts/federated-queries', // TODO merge into run-federated-queries
+                  ],
+                },
+
+                {
+                  type: 'category',
+                  label: 'Table engines and formats',
+                  items: [
+                    'products/clickhouse/reference/supported-table-engines',
+                    'products/clickhouse/reference/supported-table-functions',
+                    'products/clickhouse/reference/supported-input-output-formats',
+                    'products/clickhouse/reference/s3-supported-file-formats',
+                  ],
+                },
               ],
             },
-
             {
               type: 'category',
               label: 'Integrate',
@@ -1302,19 +1321,13 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/howto/secure-service',
                 'products/clickhouse/howto/manage-users-roles',
                 'products/clickhouse/howto/list-manage-cluster',
-
-                // Keep concept pages for now; split/merge later
-                'products/clickhouse/concepts/service-architecture',
-                'products/clickhouse/concepts/olap',
-                'products/clickhouse/concepts/columnar-databases',
-
                 'products/clickhouse/reference/limitations',
               ],
             },
 
             {
               type: 'category',
-              label: 'Manage storage',
+              label: 'Tiered storage',
               link: {
                 type: 'doc',
                 id: 'products/clickhouse/howto/list-tiered-storage',
@@ -1328,6 +1341,16 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/howto/local-cache-tiered-storage',
               ],
             },
+            {
+              type: 'category',
+              label: 'Backups and recovery',
+              items: [
+                'products/clickhouse/howto/configure-backup',
+                'products/clickhouse/howto/restore-backup',
+                'products/clickhouse/howto/copy-data-across-instances',
+                'products/clickhouse/concepts/disaster-recovery',
+              ],
+            },
 
             {
               type: 'category',
@@ -1339,17 +1362,6 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/clickhouse-metrics-datadog',
                 'products/clickhouse/reference/clickhouse-metrics-prometheus',
                 'products/clickhouse/reference/clickhouse-system-tables',
-              ],
-            },
-
-            {
-              type: 'category',
-              label: 'Backups and recovery',
-              items: [
-                'products/clickhouse/howto/configure-backup',
-                'products/clickhouse/howto/restore-backup',
-                'products/clickhouse/howto/copy-data-across-instances',
-                'products/clickhouse/concepts/disaster-recovery',
               ],
             },
             {

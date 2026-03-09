@@ -145,6 +145,8 @@
 /products/cassandra/overview                           /docs/products/services  301
 /products/cassandra/reference                          /docs/products/services  301
 /products/clickhouse/concepts                          /docs/products/clickhouse/concepts/service-architecture  301
+/products/clickhouse/concepts/olap                  /docs/products/clickhouse  301
+/products/clickhouse/concepts/columnar-databases    /docs/products/clickhouse  301
 /products/clickhouse/concepts/features-overview        /docs/products/clickhouse  301
 /products/clickhouse/howto                             /docs/products/clickhouse/howto/list-connect-to-service  301
 /products/clickhouse/howto/list-get-started              /docs/products/clickhouse/get-started  301

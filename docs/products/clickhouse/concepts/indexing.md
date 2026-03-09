@@ -15,8 +15,6 @@ the columns you read, the faster and more efficient the performance of
 the request. If you have to read many or all columns, using a columnar
 database becomes a less effective approach.
 
-Read more about characteristics of columnar databases and their features
-in [Columnar databases](columnar-databases).
 
 ## Reading data in blocks
 
