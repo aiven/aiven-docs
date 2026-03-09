@@ -313,6 +313,7 @@ resharding
 Resharding
 reStructuredText
 rivery
+rollout
 rsyslog
 safelist
 safelisting
