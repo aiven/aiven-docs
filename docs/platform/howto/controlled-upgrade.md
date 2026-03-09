@@ -5,8 +5,10 @@ limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Ensure your source service is updated and validated before the same maintenance update reaches your destination service.
+Control when maintenance updates move from a source service to a destination service.
 
 :::important
 Controlled upgrade pipeline is a
@@ -16,11 +18,15 @@ feature.
 :::
 
 The controlled upgrade pipeline feature lets you test maintenance updates in
-development or staging environments before they reach production. Link services of
-the same type in an ordered sequence to control when each service receives updates.
-After a maintenance update upgrades a service, you can validate that version before
-the update proceeds to the next service. Validation can be manual or automatic after
-a configurable delay.
+development or staging environments before they reach production. Aiven performs
+automatic service maintenance for security fixes, minor software updates, and other
+platform changes. For details, see [Service maintenance, updates and
+upgrades](/docs/platform/concepts/maintenance-window).
+
+Link services of the same type in an ordered sequence to control when each service
+receives updates. After a maintenance update upgrades a source service, validate that
+version before the update proceeds to the next service. Validation can be manual or
+automatic after a configurable delay.
 
 ## About controlled upgrade pipelines
 
@@ -31,8 +37,8 @@ An upgrade step is a pair of services linked by an upgrade constraint:
 - **Source service**: The service that receives maintenance updates first
 - **Destination service**: The service that waits for validation before receiving updates
 
-Each destination service can have only one source service, but a source service can
-have multiple destination services.
+Each destination service can have only one source service. A source service can have
+multiple destination services.
 
 ### Upgrade pipelines
 
@@ -46,9 +52,10 @@ For example:
 
 To use controlled upgrade pipelines:
 
+- Write access to the source and destination projects
 - The correct access control list (ACL) permissions for the feature in your destination project
 - At least two services of the same type (for example, two Aiven for PostgreSQL® services)
-- Services can be in different projects
+- Services can be in different projects in the same organization
 
 ## How validation works
 
@@ -57,21 +64,44 @@ When a maintenance update upgrades your source service:
 1. The source service receives the update first.
 1. Test the updated source service to verify it works as expected.
 1. Validate the update manually using the API, or wait for automatic validation
-   after the configured delay. The default delay is 7 days.
+  after the configured delay. The default delay is 7 days.
 1. After validation, the destination service becomes eligible for the same
    maintenance update.
+
+If one source service has multiple destination services, one validation for the
+source service applies to all connected destination services.
 
 Nodes in the destination service maintain the validated version until you approve a
 newer version. When a node is recycled or replaced, it uses the same validated
 version, not the latest available version.
 
+When you create a step, the destination service keeps the newest version that is
+already validated at that moment. If the destination service is already applying
+maintenance during step creation, the in-progress target version becomes the initial
+validated version.
+
 ## Set up an upgrade pipeline
 
 Use the Aiven API to create upgrade steps between your services.
 
+:::note
+These upgrade pipeline commands require a preview build of Aiven CLI.
+Command names and parameters can change before general availability.
+:::
+
 ### Create an upgrade step
 
 Create a step to link a source service and a destination service:
+
+<Tabs groupId="upgrade-step-create">
+<TabItem value="cli" label="Aiven CLI" default>
+
+```bash
+avn upgrade-pipeline step create SOURCE_PROJECT SOURCE_SERVICE DESTINATION_PROJECT DESTINATION_SERVICE
+```
+
+</TabItem>
+<TabItem value="api" label="API">
 
 ```bash
 curl -X POST https://api.aiven.io/v1/upgrade/step \
@@ -86,6 +116,9 @@ curl -X POST https://api.aiven.io/v1/upgrade/step \
   }'
 ```
 
+</TabItem>
+</Tabs>
+
 Parameters:
 
 - `source_project`: Name of the project containing the source service
@@ -93,7 +126,7 @@ Parameters:
 - `destination_project`: Name of the project containing the destination service
 - `destination_service`: Name of the destination service
 - `auto_validation_delay_days`: Optional. Number of days before automatic validation.
-  The default is 7 days.
+  The value must be at least `1`. The default is 7 days.
 
 The maximum delay you can configure depends on your ACL permissions. The default
 maximum is 30 days.
@@ -102,10 +135,23 @@ maximum is 30 days.
 
 View all upgrade steps you have access to:
 
+<Tabs groupId="upgrade-step-list">
+<TabItem value="cli" label="Aiven CLI" default>
+
+```bash
+avn upgrade-pipeline step list --organization-id ORGANIZATION_ID
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
 ```bash
 curl https://api.aiven.io/v1/upgrade/step \
   -H "Authorization: Bearer TOKEN"
 ```
+
+</TabItem>
+</Tabs>
 
 ### View a specific step
 
@@ -116,6 +162,9 @@ curl https://api.aiven.io/v1/upgrade/step/STEP_ID \
   -H "Authorization: Bearer TOKEN"
 ```
 
+The step details include `last_validation` values such as `validated_at`,
+`validated_by_user`, and `comment` when validation exists.
+
 ## Validate an upgrade
 
 After testing your source service with the new update, validate the version to allow
@@ -125,14 +174,29 @@ the destination service to receive the same update.
 
 Validate the current version of your source service:
 
+<Tabs groupId="upgrade-step-validate">
+<TabItem value="cli" label="Aiven CLI" default>
+
 ```bash
-curl -X POST https://api.aiven.io/v1/project/SOURCE_PROJECT_NAME/service/SOURCE_SERVICE_NAME/upgrade_validation \
+avn upgrade-pipeline step validate-for-service --project SOURCE_PROJECT SOURCE_SERVICE
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+```bash
+UPGRADE_VALIDATION_URL="https://api.aiven.io/v1/project/SOURCE_PROJECT/service/SOURCE_SERVICE/upgrade_validation"
+
+curl -X POST "$UPGRADE_VALIDATION_URL" \
   -H "Authorization: Bearer TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "comment": "Tested and verified in development"
   }'
 ```
+
+</TabItem>
+</Tabs>
 
 The `comment` parameter is optional but helps track why a version was validated.
 
@@ -161,10 +225,25 @@ curl -X PATCH https://api.aiven.io/v1/upgrade/step/STEP_ID \
 
 Remove an upgrade step to allow the destination service to receive updates independently:
 
+<Tabs groupId="upgrade-step-delete">
+<TabItem value="cli" label="Aiven CLI" default>
+
+```bash
+avn upgrade-pipeline step delete --organization-id ORGANIZATION_ID STEP_ID
+```
+
+Find `STEP_ID` from the upgrade step list command.
+
+</TabItem>
+<TabItem value="api" label="API">
+
 ```bash
 curl -X DELETE https://api.aiven.io/v1/upgrade/step/STEP_ID \
   -H "Authorization: Bearer TOKEN"
 ```
+
+</TabItem>
+</Tabs>
 
 Deleting a step removes all associated validations.
 
@@ -174,14 +253,14 @@ Deleting a step removes all associated validations.
   two Aiven for PostgreSQL services.
 - **Chain length**: The maximum number of steps you can chain depends on your ACL
   permissions. The default maximum is 3 steps.
-- **Emergency overrides**: If service failures or critical security patches occur,
-  Aiven can apply maintenance updates to a constrained service before validation to
-  maintain the service level agreement (SLA).
+- **No cycles**: You cannot create circular dependencies between services.
+- **Emergency overrides**: Aiven can apply critical security or stability fixes
+  to a destination service before explicit validation.
 - **Supported services**: Only independently deployable service types support this
   feature.
-- **No permanent blocking**: You cannot prevent an update indefinitely. If an update
-  is mandatory and you cannot resolve compatibility issues before the maximum
-  auto-validation delay expires, contact support.
+- **No permanent blocking**: You cannot prevent an update indefinitely. Automatic
+  validation applies after the configured delay, up to the maximum delay allowed by
+  your ACL permissions.
 
 ## Example: Three-environment pipeline
 
