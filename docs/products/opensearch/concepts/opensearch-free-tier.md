@@ -25,7 +25,6 @@ more advanced features, choose a paid plan.
 The free tier includes:
 
 - A managed Aiven for OpenSearch cluster with a fixed configuration
-- Indexing throughput up to 250 KiB/s and query throughput up to 250 KiB/s
 - Sample dataset tools for testing indexing and search
 - Basic monitoring for metrics and logs
 
@@ -40,15 +39,13 @@ Free tier services have the following restrictions.
 
 - Fixed throughput limits for indexing and query traffic
 - Fixed storage and performance limits
-- Fixed index lifecycle settings
-- Limited number of users and access rules
+- Fixed cluster settings
 
 ### Features not available
 
-- Tiered storage
-- Service integrations such as logs, metrics, and authentication
-- Custom configuration for certain Aiven for OpenSearch settings
-- Custom dictionary files and custom repositories
+- Service integrations such as logs, metrics, external authentication (SAML, OIDC, JWT)
+- Custom dictionary files
+- Custom repositories
 - Custom domains
 - Dynamic disk sizing
 

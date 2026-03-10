@@ -71,7 +71,6 @@ You can upgrade the service at any time to
 
 - Remove limits and limitations on the following:
 
-  - Throughput
   - Storage
   - Features
 
