@@ -78,8 +78,8 @@ validated version.
 - **No cycles**: You cannot create circular dependencies between services.
 - **Emergency overrides**: Aiven can apply critical security or stability fixes
   to a destination service before explicit validation.
-- **Supported services**: This feature supports Aiven for PostgreSQL® and Aiven
-  for OpenSearch®.
+- **Supported services**: This feature supports all Aiven service types except
+  Aiven for Apache Flink® and Aiven for MySQL.
 - **No permanent blocking**: You cannot prevent an update indefinitely. Automatic
   validation applies after the configured delay, up to the maximum delay.
 
@@ -90,7 +90,7 @@ validated version.
 To use controlled upgrade pipelines, you need the following:
 
 - The feature enabled by Aiven (<LimitedBadge/>)
-- [Aiven CLI](/docs/tools/cli) or [Aiven API](/docs/tools/api)
+- [Aiven API](/docs/tools/api)
 - Write access to the source and destination projects
 - At least two services of the same type (for example, two Aiven for PostgreSQL® services)
 - Services can be in different projects in the same organization
@@ -99,16 +99,19 @@ To use controlled upgrade pipelines, you need the following:
 
 Use the Aiven API to create upgrade steps between your services.
 
+<!--
 :::note
 These upgrade pipeline commands require a preview build of Aiven CLI.
 Command names and parameters can change before general availability.
 :::
+-->
 
 #### Create an upgrade step
 
 Create a step to link a source service and a destination service:
 
 <Tabs groupId="upgrade-step-create">
+{/* CLI tab hidden until CLI support is ready.
 <TabItem value="cli" label="CLI" default>
 
 ```bash
@@ -116,6 +119,7 @@ avn upgrade-pipeline step create SOURCE_PROJECT SOURCE_SERVICE DESTINATION_PROJE
 ```
 
 </TabItem>
+*/}
 <TabItem value="api" label="API">
 
 ```bash
@@ -150,6 +154,7 @@ The maximum delay you can configure is 30 days.
 View all upgrade steps you have access to:
 
 <Tabs groupId="upgrade-step-list">
+{/* CLI tab hidden until CLI support is ready.
 <TabItem value="cli" label="CLI" default>
 
 ```bash
@@ -157,6 +162,7 @@ avn upgrade-pipeline step list --organization-id ORGANIZATION_ID
 ```
 
 </TabItem>
+*/}
 <TabItem value="api" label="API">
 
 ```bash
@@ -189,6 +195,7 @@ the destination service to receive the same update.
 Validate the current version of your source service:
 
 <Tabs groupId="upgrade-step-validate">
+{/* CLI tab hidden until CLI support is ready.
 <TabItem value="cli" label="CLI" default>
 
 ```bash
@@ -196,6 +203,7 @@ avn upgrade-pipeline step validate-for-service --project SOURCE_PROJECT SOURCE_S
 ```
 
 </TabItem>
+*/}
 <TabItem value="api" label="API">
 
 ```bash
@@ -240,6 +248,7 @@ curl -X PATCH https://api.aiven.io/v1/upgrade/step/STEP_ID \
 Remove an upgrade step to allow the destination service to receive updates independently:
 
 <Tabs groupId="upgrade-step-delete">
+{/* CLI tab hidden until CLI support is ready.
 <TabItem value="cli" label="CLI" default>
 
 ```bash
@@ -249,6 +258,7 @@ avn upgrade-pipeline step delete --organization-id ORGANIZATION_ID STEP_ID
 Find `STEP_ID` from the upgrade step list command.
 
 </TabItem>
+*/}
 <TabItem value="api" label="API">
 
 ```bash
