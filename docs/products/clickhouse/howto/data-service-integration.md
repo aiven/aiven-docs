@@ -271,4 +271,4 @@ configuration.
     -   [Managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
     -   [Managed databases integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-databases-integration)
 -   [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)
--   [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations)
+-   [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrate)

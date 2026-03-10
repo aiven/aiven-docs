@@ -1277,7 +1277,6 @@ const sidebars: SidebarsConfig = {
                   label: 'Tables and table structure',
                   items: [
                     'products/clickhouse/howto/manage-databases-tables',
-                    'products/clickhouse/howto/table-engines-and-replication',
                     'products/clickhouse/howto/materialized-views',
                     'products/clickhouse/howto/use-shards-with-distributed-table',
                   ],

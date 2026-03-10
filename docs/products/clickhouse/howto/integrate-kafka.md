@@ -62,13 +62,13 @@ Variables used to set up and configure the integration:
 
 To connect Aiven for ClickHouse and Aiven for Apache Kafka by enabling a
 data service integration, see
-[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-apache-kafka-integrations).
+[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-an-apache-kafka-integration).
 
 When you create the integration, a database is automatically added in your Aiven for
 ClickHouse. Its name is `service_KAFKA_SERVICE_NAME`, where `KAFKA_SERVICE_NAME` is the
 name of your Apache Kafka service. In this database, you create virtual connector tables,
 which is also a part of the
-[integration creation in the Aiven Console](/docs/products/clickhouse/howto/data-service-integration#create-apache-kafka-integrations).
+[integration creation in the Aiven Console](/docs/products/clickhouse/howto/data-service-integration#create-an-apache-kafka-integration).
 You can have up to 400 such tables for receiving and sending messages from multiple topics.
 
 ## Update integration settings

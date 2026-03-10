@@ -182,4 +182,4 @@ Depending on what you intend to delete, select **Database** or **Table**.
 <RelatedPages/>
 
 -   [Manage Aiven for ClickHouse® data service integrations](/docs/products/clickhouse/howto/data-service-integration)
--   [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations)
+-   [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrate)

@@ -43,7 +43,7 @@ The following variables will be used later in the code snippets:
 
 To connect Aiven for ClickHouse and Aiven for PostgreSQL by enabling a
 data service integration, see
-[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-postgresql-integrations).
+[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-a-postgresql-integration).
 
 The newly created database name has the following format:
 `service_PG_SERVICE_NAME_PG_DATABASE_PG_SCHEMA`, for example,
