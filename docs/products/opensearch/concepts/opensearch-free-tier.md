@@ -35,9 +35,9 @@ for OpenSearch plans.
 
 Free tier services have the following restrictions.
 
-### Performance and capacity
+### Performance and configuration limits
 
-- Fixed throughput limits for indexing and query traffic
+- Fixed limit on concurrent connections
 - Fixed storage and performance limits
 - Fixed cluster settings
 
