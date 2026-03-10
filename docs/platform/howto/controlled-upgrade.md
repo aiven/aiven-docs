@@ -61,8 +61,8 @@ If one source service has multiple destination services, one validation for the
 source service applies to all connected destination services.
 
 Nodes in the destination service maintain the validated version until you approve a
-newer version. When a node is recycled or replaced, it uses the same validated
-version, not the latest available version.
+newer version. When a node is recycled, it uses the same validated version, not the latest
+available version.
 
 When you create a step, the destination service keeps the newest version that is
 already validated at that moment. If the destination service is already applying
