@@ -5,6 +5,7 @@ limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -73,27 +74,24 @@ validated version.
 
 - **Same service type**: You can only link services of the same type. For example,
   two Aiven for PostgreSQL services.
-- **Chain length**: The maximum number of steps you can chain depends on your ACL
-  permissions. The default maximum is 3 steps.
+- **Chain length**: The maximum chain depth is 3 services, which is 2 steps.
 - **No cycles**: You cannot create circular dependencies between services.
 - **Emergency overrides**: Aiven can apply critical security or stability fixes
   to a destination service before explicit validation.
-- **Supported services**: Only independently deployable service types support this
-  feature.
+- **Supported services**: This feature supports Aiven for PostgreSQL® and Aiven
+  for OpenSearch®.
 - **No permanent blocking**: You cannot prevent an update indefinitely. Automatic
-  validation applies after the configured delay, up to the maximum delay allowed by
-  your ACL permissions.
+  validation applies after the configured delay, up to the maximum delay.
 
 ## Use controlled upgrade pipelines
 
 ### Prerequisites
 
-To use controlled upgrade pipelines:
+To use controlled upgrade pipelines, you need the following:
 
+- The feature enabled by Aiven (<LimitedBadge/>)
 - [Aiven CLI](/docs/tools/cli) or [Aiven API](/docs/tools/api)
 - Write access to the source and destination projects
-- The correct access control list (ACL) permissions for the feature in your destination
-  project
 - At least two services of the same type (for example, two Aiven for PostgreSQL® services)
 - Services can be in different projects in the same organization
 
@@ -145,8 +143,7 @@ Parameters:
 - `auto_validation_delay_days`: Optional. Number of days before automatic validation.
   The value must be at least `1`. The default is 7 days.
 
-The maximum delay you can configure depends on your ACL permissions. The default
-maximum is 30 days.
+The maximum delay you can configure is 30 days.
 
 #### List upgrade steps
 
