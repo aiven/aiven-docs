@@ -14,7 +14,8 @@ and large-scale aggregations across millions or billions of rows.
 
 ClickHouse uses a columnar storage model. Data is stored by column instead of by row,
 so queries read only the columns required for a specific operation. This reduces disk
-I/O, improves compression efficiency, and accelerates aggregation queries.
+I/O, improves compression efficiency, and accelerates aggregation queries. For more on
+how ClickHouse indexes and processes data, see [Indexing and data processing](/docs/products/clickhouse/concepts/indexing).
 
 Aiven manages infrastructure, configuration, upgrades, and maintenance so you can focus
 on working with your data.

@@ -1,6 +1,6 @@
 ---
 title: Manage your Aiven for ClickHouse® cluster
-sidebar_label: Manage the cluster
+sidebar_label: Manage cluster
 ---
 
 [Monitor a managed service](/docs/platform/howto/list-monitoring)

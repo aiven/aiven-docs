@@ -1,50 +1,39 @@
 ---
-title: Query Aiven for ClickHouse® databases
-sidebar_label: Query a database
+title: Run queries on Aiven for ClickHouse®
+sidebar_label: Run queries
 keywords: [query log, query_log, log table]
 ---
 
-Run a query against an Aiven for ClickHouse® database using a tool of your choice.
+Run queries against an Aiven for ClickHouse® database using the query editor, the Play UI, or the [ClickHouse® client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
 
-To ensure data security, stability, and its proper replication, we equip
-our managed Aiven for ClickHouse® service with specific features, some
-of them missing from the standard ClickHouse offer. Aiven for
-ClickHouse® takes care of running queries in the distributed mode over
-the entire cluster. In the standard ClickHouse, the queries `CREATE`,
-`ALTER`, `RENAME` and `DROP` only affect the server where they are run.
-In contrast, we ensure the proper distribution across all cluster
-machines behind the scenes. You don't need to remember using
-`ON CLUSTER` for every query.
+Aiven for ClickHouse runs queries in distributed mode across the entire cluster. In
+standard ClickHouse, queries such as `CREATE`, `ALTER`, `RENAME`, and `DROP` affect only
+the server where they run unless you explicitly add the `ON CLUSTER` clause. In
+Aiven for ClickHouse, these queries are automatically distributed across the cluster.
+You do not need to include `ON CLUSTER` in your queries.
 
 :::important
-There are limitations on the number of concurrent queries and the number of concurrent
-connections in Aiven for ClickHouse:
+Aiven for ClickHouse limits concurrent queries and connections:
 
-- `max_concurrent_queries` ranges from `25` to `400`.
-- `max_concurrent_connections` ranges from `1000` to `4000`.
+- `max_concurrent_queries`: `25` to `400`
+- `max_concurrent_connections`: `1000` to `4000`
 
-See
-[Aiven for ClickHouse® limits and limitations](/docs/products/clickhouse/reference/limitations)
+See [Aiven for ClickHouse® limits and limitations](/docs/products/clickhouse/reference/limitations)
 for details.
 :::
-
-For querying your ClickHouse® databases, you can choose between our
-query editor, the Play UI, and
-[the ClickHouse® client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli).
 
 ## Query a database with a selected tool
 
 ### Query editor {#use-query-editor}
 
-Aiven for ClickHouse® includes a web-based query editor, which you can
-find in [Aiven Console](https://console.aiven.io/) by selecting **Query
-editor** from the sidebar of your service's page.
+Aiven for ClickHouse® includes a web-based query editor. In
+[Aiven Console](https://console.aiven.io/), open your service and click **Query editor**
+in the sidebar.
 
 #### When to use the query editor
 
-The query editor is convenient to run queries directly from
-the console on behalf of the default user. The requests that you run
-through the query editor rely on the permissions granted to this user.
+Use the query editor to run queries directly from the console as the default user.
+Queries run with the permissions assigned to this user.
 
 #### Examples of queries
 
@@ -66,49 +55,45 @@ Create a role:
 CREATE ROLE accountant
 ```
 
-### Play UI {#play-iu}
+### Play UI {#play-ui}
 
-ClickHouse® includes a built-in user interface for running SQL queries.
-You can access it from a web browser over the HTTPS protocol.
+ClickHouse provides a built-in web interface called the Play UI for running SQL queries.
 
-#### When to use the play UI
+#### When to use the Play UI
 
-Use the play UI to run requests using a non-default user or
-if you expect a large size of the response.
+Use the Play UI when you need to:
 
-#### Use the play UI
+- Run queries as a non-default user
+- Work with large query results
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), choose the
-    right project, and select your Aiven for ClickHouse service.
-1.  In the **Overview** page of your service, find the **Connection
-    information** section and select **ClickHouse HTTPS & JDBC**.
-1.  Copy **Service URI** and go to `YOUR_SERVICE_URI/play` from a
-    web browser.
-1.  Set the name and the password of the user on whose behalf you want
-    to run the queries.
-1.  Enter the body of the query.
-1.  Select **Run**.
+#### Use the Play UI
+
+1. Log in to [Aiven Console](https://console.aiven.io/), choose the
+   right project, and select your Aiven for ClickHouse service.
+1. In the **Overview** page of your service, find the **Connection
+   information** section and select **ClickHouse HTTPS & JDBC**.
+1. Copy **Service URI** and go to `YOUR_SERVICE_URI/play` from a
+   web browser.
+1. Set the name and the password of the user on whose behalf you want
+   to run the queries.
+1. Enter the body of the query.
+1. Select **Run**.
 
 :::note
-The play interface is only available if you can connect directly to
-ClickHouse from your browser. If the service is
-[restricted by IP addresses](/docs/platform/howto/restrict-access) or in a
-[VPC without public access](/docs/platform/howto/public-access-in-vpc), you can use the
-[query editor](/docs/products/clickhouse/howto/query-databases#use-query-editor) instead.
-The query editor can be accessed directly from the console to run
-requests on behalf of the default user.
+The Play UI works only when your browser can reach ClickHouse directly. If you
+[restrict access by IP](/docs/platform/howto/restrict-access) or the service is in a
+[VPC without public access](/docs/platform/howto/public-access-in-vpc), use the
+[query editor](/docs/products/clickhouse/howto/query-databases#use-query-editor) in the
+console to run queries as the default user.
 :::
 
 ## Query a non-replicated table
 
-Behind the DNS name of your Aiven for ClickHouse service, there are multiple nodes. When
-you query a non-replicated table, for example a log table, requests are routed randomly to
-one of the nodes regardless of how data is distributed across them. A particular row is
-found only if your `SELECT` query is directed to the node which executed a `WRITE` on
-this row.
+Your Aiven for ClickHouse® service has multiple nodes behind one DNS name. For
+non-replicated tables, for example log tables, each request goes to one node. You get a
+row only if the `SELECT` hits the node that wrote that row.
 
-To query a non-replicated table across all the service nodes, use `clusterAllReplicas`
-as follows:
+To read from a non-replicated table across all nodes, use `clusterAllReplicas`:
 
 ```sql
 SELECT *

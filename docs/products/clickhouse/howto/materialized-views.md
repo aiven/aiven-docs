@@ -1,11 +1,13 @@
 ---
 title: Create materialized views in ClickHouse®
+sidebar_label: Materialized views
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Use materialized views to persist data from the Kafka® table engine.
-One way of integrating your ClickHouse® service with Kafka® is using the Kafka® table engine, which enables, for example, inserting data into ClickHouse® from Kafka.
+One way of integrating your ClickHouse® service with Kafka® is using the Kafka® table
+engine, which enables, for example, inserting data into ClickHouse® from Kafka.
 
 In such a scenario, ClickHouse can read from a Kafka® topic directly.
 This is, however, one-time retrieval so the data cannot be re-read. When

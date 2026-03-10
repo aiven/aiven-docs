@@ -1,5 +1,6 @@
 ---
 title: Indexing and data processing in ClickHouse®
+sidebar_label: Indexes
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -55,11 +56,11 @@ limitations of ClickHouse. A primary key, as used in ClickHouse, does
 not ensure uniqueness for a single searched item since only every ten
 thousandth item is indexed. You need to iterate over thousands of
 items to find a specific row, which makes this approach inadequate when
-working with individual rows and suitable for processing millions or
+working with individual rows, and suitable for processing millions or
 trillions of items.
 
 :::note[Example]
-When analysing error rates based on a server log analysis, you don't
+When analyzing error rates based on server log analysis, you don't
 focus on individual lines but look at the overall picture to see trends.
 Such requests allow approximate calculations using only a sample of data
 to draw conclusions.
@@ -77,18 +78,18 @@ ClickHouse](https://clickhouse.com/docs/en/engines/table-engines/mergetree-famil
 ## ClickHouse data skipping indexes
 
 Although skipping indexes are used in ClickHouse as secondary indexes,
-they work quite differently to secondary indexes used in other DBMSs.
+they work differently from secondary indexes used in other DBMSs.
 
 Skipping indexes help boost performance by skipping some irrelevant rows
 in advance, when it can be predicted that these rows do not satisfy
 query conditions.
 
 :::note[Example]
-You have numeric column *number of page visits* and run a query to
+You have a numeric column `number of page visits` and run a query to
 select all rows where page visits are over 10000. To speed up such a
 query, you can add a skipping index to store extremes of the field and
-help ClickHouse to skip in advance values that do not satisfy the
-request condition.
+help ClickHouse skip in advance values that do not satisfy the query
+condition.
 :::
 
 <RelatedPages/>

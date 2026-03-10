@@ -1256,35 +1256,40 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Work with data',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-work-with-data',
+              },
               items: [
                 {
                   type: 'category',
-                  label: 'Tables and queries',
+                  label: 'Query data',
                   items: [
-                    'products/clickhouse/howto/table-engines-and-replication',
-                    'products/clickhouse/howto/manage-databases-tables',
-                    'products/clickhouse/howto/materialized-views',
-                    'products/clickhouse/howto/use-shards-with-distributed-table',
-
                     'products/clickhouse/howto/query-databases',
-                    'products/clickhouse/concepts/indexing', // TODO merge into query-databases
-                    'products/clickhouse/concepts/strings', // TODO merge into query-databases
+                    'products/clickhouse/howto/create-dictionary',
+                    'products/clickhouse/howto/run-federated-queries',
+                    'products/clickhouse/howto/clickhouse-query-cache',
+                    'products/clickhouse/howto/sql-user-defined-functions',
                   ],
                 },
-
                 {
                   type: 'category',
-                  label: 'Dictionaries and advanced queries',
+                  label: 'Tables and table structure',
                   items: [
-                    'products/clickhouse/howto/create-dictionary',
-                    'products/clickhouse/howto/sql-user-defined-functions',
-                    'products/clickhouse/howto/clickhouse-query-cache',
-
-                    'products/clickhouse/howto/run-federated-queries',
-                    'products/clickhouse/concepts/federated-queries', // TODO merge into run-federated-queries
+                    'products/clickhouse/howto/manage-databases-tables',
+                    'products/clickhouse/howto/table-engines-and-replication',
+                    'products/clickhouse/howto/materialized-views',
+                    'products/clickhouse/howto/use-shards-with-distributed-table',
                   ],
                 },
-
+                {
+                  type: 'category',
+                  label: 'Data types and indexing',
+                  items: [
+                    'products/clickhouse/concepts/indexing',
+                    'products/clickhouse/concepts/strings',
+                  ],
+                },
                 {
                   type: 'category',
                   label: 'Table engines and formats',
@@ -1302,9 +1307,10 @@ const sidebars: SidebarsConfig = {
               label: 'Integrate',
               link: {
                 type: 'doc',
-                id: 'products/clickhouse/concepts/data-integration-overview',
+                id: 'products/clickhouse/howto/list-integrate',
               },
               items: [
+                'products/clickhouse/concepts/data-integration-overview',
                 'products/clickhouse/howto/connect-to-grafana',
                 'products/clickhouse/howto/integrate-kafka',
                 'products/clickhouse/howto/integrate-postgresql',
@@ -1316,6 +1322,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Manage service',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-manage-service',
+              },
               items: [
                 'products/clickhouse/howto/secure-service',
                 'products/clickhouse/howto/manage-users-roles',
@@ -1343,6 +1353,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Backups and recovery',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-backups-recovery',
+              },
               items: [
                 'products/clickhouse/howto/configure-backup',
                 'products/clickhouse/howto/restore-backup',
@@ -1354,6 +1368,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Monitor performance',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-monitor-performance',
+              },
               items: [
                 'products/clickhouse/howto/monitor-performance',
                 'products/clickhouse/howto/fetch-query-statistics',
