@@ -46,11 +46,70 @@ configure the service by selecting ingress capacity and retention.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-:::note
-Inkless on Aiven Cloud uses throughput-based offerings rather than fixed plans.
-The Aiven CLI does not list these offerings.
-Create Inkless services on Aiven Cloud using the [Aiven Console](https://console.aiven.io).
-:::
+Create an Inkless Kafka service on Aiven Cloud using the Aiven CLI.
+
+1. List available Inkless offerings for the project:
+
+   ```bash
+   avn inkless offering list \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME
+   ```
+
+   The command returns available offerings with their maximum ingress and
+   egress throughput.
+
+1. Optional: Filter offerings by required ingress throughput:
+
+   ```bash
+   avn inkless offering list \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME \
+     --ingress REQUIRED_MBPS
+   ```
+
+1. View pricing rates for the offerings:
+
+   ```bash
+   avn inkless offering rates \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME \
+     --cloud-provider CLOUD_PROVIDER
+   ```
+
+   Optional: Filter rates by offering with `--offering-name OFFERING_NAME` or by
+   region with `--cloud-name CLOUD_NAME`.
+
+1. Create the Inkless Kafka service using an offering as the plan:
+
+   ```bash
+   avn service create SERVICE_NAME \
+     --project PROJECT_NAME \
+     --service-type kafka \
+     --cloud CLOUD_REGION \
+     --plan OFFERING_NAME \
+     -c kafka_version=4.0 \
+     -c tiered_storage.enabled=true \
+     -c inkless.enabled=true
+   ```
+
+Parameters:
+
+- `ORGANIZATION_ID`: Organization ID that owns the project.
+- `PROJECT_NAME`: Aiven project name.
+- `CLOUD_PROVIDER`: Cloud provider, such as `aws`, `google`, or `azure`.
+- `CLOUD_REGION`: Cloud region for the service, such as `aws-us-east-1`.
+- `OFFERING_NAME`: Inkless offering returned by `avn inkless offering list`.
+- `SERVICE_NAME`: Name of the Kafka service.
+
+Optional: To enable diskless topics when creating the service, add this option to
+the create command:
+
+```bash
+-c kafka_diskless.enabled=true
+```
+
+You can also enable diskless topics later in the service configuration.
 
 </TabItem>
 </Tabs>
