@@ -67,22 +67,23 @@ including committed memory, initial memory, max memory, and used memory.
 For a comprehensive list of Apache Kafka Connect metrics exposed through Prometheus,
 see [Apache Kafka® Connect available via Prometheus](../kafka-connect/reference/connect-metrics-prometheus).
 
-## Schema Registry (Karapace) metrics
+## Schema Registry metrics
 
-When [Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace) is enabled for
-an Aiven for Apache Kafka® service, metrics from the underlying Karapace Schema Registry
-instance are exposed through the Prometheus metrics endpoint. Use the same
+When [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace) is
+enabled for an Aiven for Apache Kafka® service, metrics from the Schema Registry instance
+are exposed through the Prometheus metrics endpoint. Use the same
 [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics) as for
 Kafka metrics.
 
 Metric names use the `karapace_` prefix and cover request volume, latency, and
-concurrency.
+concurrency. These metrics are for the Schema Registry only, not for the
+Karapace REST proxy.
 
 | Metric                                | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| `karapace_http_requests_total`        | Total HTTP requests. Use `rate()` for requests per second.                 |
-| `karapace_http_requests_duration_seconds` | Request duration. Prometheus exposes `_sum` and `_count`; use both for average duration in seconds. |
-| `karapace_http_requests_in_progress`  | HTTP requests currently in progress.                                       |
+| `karapace_http_requests_total`        | Total Schema Registry HTTP requests. Use `rate()` for requests per second.   |
+| `karapace_http_requests_duration_seconds` | Schema Registry request duration. Prometheus exposes `_sum` and `_count`; use both for average duration in seconds. |
+| `karapace_http_requests_in_progress`  | Schema Registry HTTP requests currently in progress.                       |
 
 :::note
 Schema Registry metrics appear only when Schema Registry is enabled. They are returned
