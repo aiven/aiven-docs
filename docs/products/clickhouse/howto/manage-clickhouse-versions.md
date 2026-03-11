@@ -16,7 +16,7 @@ Aiven for ClickHouse currently supports the following versions:
 - **25.3** (default)
 - **25.8**
 
-If you do not specify a version when creating a service, the platform uses the default
+If you do not specify a version when you create a service, the platform uses the default
 version.
 
 ## Before you upgrade
@@ -24,7 +24,9 @@ version.
 Before upgrading your service, complete the following checks:
 
 - Review the upstream ClickHouse release notes.
-- Test the upgrade in a development or staging environment.
+- Test the upgrade in a development or staging environment by
+  [forking the service](/docs/platform/concepts/service-forking) and upgrading the fork
+  first.
 - Verify that your applications and clients support the target version.
 - Ensure recent backups are available.
 
@@ -45,7 +47,7 @@ This process avoids modifying the existing nodes directly during the upgrade.
 
 ## Upgrade your service
 
-You can upgrade a service to a newer supported ClickHouse version using the
+Upgrade a service to a newer supported ClickHouse version using the
 Aiven Console, CLI, API, or Terraform.
 
 <Tabs groupId="method">
