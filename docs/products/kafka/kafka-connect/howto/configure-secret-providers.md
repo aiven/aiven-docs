@@ -10,7 +10,8 @@ Securely reference secrets stored in external secret managers within your connec
 Secret providers are tools that manage sensitive information, such as passwords
 and API keys, in a secure manner. Instead of directly including these secrets in your
 configuration files, secret providers allow you to store them securely in external
-secret managers like AWS Secrets Manager and HashiCorp Vault.
+secret managers like AWS Secrets Manager and HashiCorp Vault, or in encrypted
+service configuration with the ENV secret provider.
 Aiven for Apache Kafka Connect dynamically retrieves these secrets when needed, enhancing
 the security of your setup.
 
@@ -22,3 +23,6 @@ the security of your setup.
 - [HashiCorp Vault](/docs/products/kafka/kafka-connect/howto/configure-hashicorp-vault)
   - **Auth method**: `token`
   - **Required parameters**: `token`, `address`
+- [ENV secret provider](/docs/products/kafka/kafka-connect/howto/configure-env-secret-provider)
+  - **Auth method**: not applicable
+  - **Required parameters**: `name`, `env.secrets`
