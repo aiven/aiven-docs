@@ -1,5 +1,5 @@
 ---
-title: Configure ENV secret provider
+title: Configure the ENV secret provider
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,20 +16,20 @@ Configure and use the ENV secret provider in Aiven for Apache Kafka® Connect se
   installed.
 
 :::note
-The ENV secret provider is not yet available on the Aiven Console.
+The ENV secret provider is not yet available in the Aiven Console.
 :::
 
-## Configure secret providers
+## Configure the secret provider
 
-Set up the ENV secret provider in your Aiven for Apache Kafka Connect service to manage
-and access sensitive information from `user_config`.
+Configure the ENV secret provider in your Aiven for Apache Kafka Connect service to
+store and reference secrets in `user_config`.
 
 <Tabs groupId="secret-config">
 <TabItem value="api" label="API" default>
 
 Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
 API to update your service configuration. Add the ENV secret provider configuration to
-`user_config` using the following API request:
+`user_config` with the following API request:
 
 ```sh
 curl --request PUT \
@@ -54,9 +54,9 @@ curl --request PUT \
 
 Parameters:
 
-- `name`: Name of the secret provider. In this example, `db_credentials`.
+- `name`: Name of the secret provider, for example `db_credentials`.
 - `env.secrets`: Map of secret keys and values stored in `user_config`.
-- `db_password`: Secret key used later in connector configuration.
+- `db_password`: Secret key that you use later in connector configuration.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -86,14 +86,14 @@ resource "aiven_kafka_connect" "kafka_connect" {
 
 Parameters:
 
-- `name`: Name of the secret provider. In this example, `db_credentials`.
+- `name`: Name of the secret provider, for example `db_credentials`.
 - `env.secrets`: Map of secret keys and values.
-- `db_password`: Variable containing the secret value.
+- `db_password`: Terraform variable containing the secret value.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Add the ENV secret provider using [Aiven CLI](/docs/tools/cli):
+Add the ENV secret provider using the [Aiven CLI](/docs/tools/cli):
 
 ```sh
 avn service update SERVICE_NAME \
@@ -112,7 +112,7 @@ avn service update SERVICE_NAME \
 Parameters:
 
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
-- `name`: Name of the secret provider. In this example, `db_credentials`.
+- `name`: Name of the secret provider, for example `db_credentials`.
 - `env.secrets`: Map of secret keys and values.
 
 </TabItem>
@@ -120,18 +120,20 @@ Parameters:
 
 ## Reference secrets in connector configurations
 
-Use the provider name and secret key in connector configuration values.
-The syntax is `${PROVIDER_NAME:SECRET_KEY}`.
+Reference secrets in connector configuration values using the provider name and secret
+key.
+Use the syntax `${PROVIDER_NAME:SECRET_KEY}`.
 
-In the examples below:
+Example values:
 
-- Provider name is `db_credentials`.
-- Secret key is `db_password`.
-- Secret reference is `${db_credentials:db_password}`.
+- **Provider name**: `db_credentials`
+- **Secret key**: `db_password`
+- **Secret reference**: `${db_credentials:db_password}`
 
 ### JDBC sink connector
 
-Configure a JDBC sink connector where the password comes from the ENV secret provider:
+Example JDBC sink connector configuration that references a secret from the ENV secret
+provider.
 
 ```json
 {
@@ -145,7 +147,8 @@ Configure a JDBC sink connector where the password comes from the ENV secret pro
 
 ### JDBC source connector
 
-Configure a JDBC source connector where the password comes from the ENV secret provider:
+Example JDBC source connector configuration that references a secret from the ENV secret
+provider.
 
 ```json
 {
@@ -163,6 +166,5 @@ Configure a JDBC source connector where the password comes from the ENV secret p
 
 ## Security behavior
 
-The ENV secret provider stores secrets in encrypted form at rest.
-The secret provider decrypts secrets in memory only when resolving them for
-connector runtime.
+The ENV secret provider stores secrets in encrypted form at rest. The service decrypts
+secrets in memory only when a connector resolves them at runtime.
