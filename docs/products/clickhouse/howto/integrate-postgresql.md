@@ -1,5 +1,6 @@
 ---
-title: Connect PostgreSQL® to Aiven for ClickHouse®
+title: Integrate PostgreSQL® with Aiven for ClickHouse®
+sidebar_label: Integrate with PostgreSQL
 ---
 
 You can integrate Aiven for ClickHouse® with either *Aiven for PostgreSQL* service located in the same project, or *an external PostgreSQL endpoint*.
@@ -42,7 +43,7 @@ The following variables will be used later in the code snippets:
 
 To connect Aiven for ClickHouse and Aiven for PostgreSQL by enabling a
 data service integration, see
-[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-postgresql-integrations).
+[Create data service integrations](/docs/products/clickhouse/howto/data-service-integration#create-a-postgresql-integration).
 
 The newly created database name has the following format:
 `service_PG_SERVICE_NAME_PG_DATABASE_PG_SCHEMA`, for example,

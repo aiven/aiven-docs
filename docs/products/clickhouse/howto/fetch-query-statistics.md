@@ -1,6 +1,6 @@
 ---
 title: Fetch query statistics for Aiven for ClickHouse®
-sidebar_label: Fetch query statistics
+sidebar_label: Query statistics
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

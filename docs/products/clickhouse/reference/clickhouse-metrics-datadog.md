@@ -1,5 +1,6 @@
 ---
 title: Aiven for ClickHouse® metrics available via Datadog
+sidebar_label: Datadog metrics
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1223,7 +1223,6 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
-
         {
           type: 'category',
           label: 'Aiven for ClickHouse®',
@@ -1233,115 +1232,162 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/clickhouse/get-started',
+            'products/clickhouse/concepts/service-architecture',
+
             {
               type: 'category',
-              label: 'Concepts',
+              label: 'Connect',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-connect-to-service',
+              },
               items: [
-                'products/clickhouse/concepts/service-architecture',
-                'products/clickhouse/concepts/olap',
-                'products/clickhouse/concepts/columnar-databases',
-                'products/clickhouse/concepts/indexing',
-                'products/clickhouse/concepts/disaster-recovery',
-                'products/clickhouse/concepts/strings',
-                'products/clickhouse/concepts/federated-queries',
-                'products/clickhouse/concepts/clickhouse-tiered-storage',
-                'products/clickhouse/concepts/data-integration-overview',
+                'products/clickhouse/reference/supported-interfaces-drivers',
+                'products/clickhouse/howto/connect-with-clickhouse-cli',
+                'products/clickhouse/howto/connect-with-go',
+                'products/clickhouse/howto/connect-with-python',
+                'products/clickhouse/howto/connect-with-nodejs',
+                'products/clickhouse/howto/connect-with-php',
+                'products/clickhouse/howto/connect-with-java',
+                'products/clickhouse/howto/connect-with-jdbc',
+              ],
+            },
+
+            {
+              type: 'category',
+              label: 'Work with data',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-work-with-data',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Query data',
+                  items: [
+                    'products/clickhouse/howto/query-databases',
+                    'products/clickhouse/howto/create-dictionary',
+                    'products/clickhouse/howto/run-federated-queries',
+                    'products/clickhouse/howto/clickhouse-query-cache',
+                    'products/clickhouse/howto/sql-user-defined-functions',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Tables and table structure',
+                  items: [
+                    'products/clickhouse/howto/manage-databases-tables',
+                    'products/clickhouse/howto/materialized-views',
+                    'products/clickhouse/howto/use-shards-with-distributed-table',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Data types and indexing',
+                  items: [
+                    'products/clickhouse/concepts/indexing',
+                    'products/clickhouse/concepts/strings',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Table engines and formats',
+                  items: [
+                    'products/clickhouse/reference/supported-table-engines',
+                    'products/clickhouse/reference/supported-table-functions',
+                    'products/clickhouse/reference/supported-input-output-formats',
+                    'products/clickhouse/reference/s3-supported-file-formats',
+                  ],
+                },
               ],
             },
             {
               type: 'category',
-              label: 'How to',
+              label: 'Integrate',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-integrate',
+              },
               items: [
-                {
-                  type: 'category',
-                  label: 'Connect to Aiven for ClickHouse®',
-                  link: {
-                    type: 'doc',
-                    id: 'products/clickhouse/howto/list-connect-to-service',
-                  },
-                  items: [
-                    'products/clickhouse/howto/connect-with-clickhouse-cli',
-                    'products/clickhouse/howto/connect-with-go',
-                    'products/clickhouse/howto/connect-with-python',
-                    'products/clickhouse/howto/connect-with-nodejs',
-                    'products/clickhouse/howto/connect-with-php',
-                    'products/clickhouse/howto/connect-with-java',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Manage service',
-                  items: [
-                    'products/clickhouse/howto/secure-service',
-                    'products/clickhouse/howto/restore-backup',
-                    'products/clickhouse/howto/configure-backup',
-                    'products/clickhouse/howto/manage-users-roles',
-                    'products/clickhouse/howto/manage-databases-tables',
-                    'products/clickhouse/howto/query-databases',
-                    'products/clickhouse/howto/materialized-views',
-                    'products/clickhouse/howto/monitor-performance',
-                    'products/clickhouse/howto/use-shards-with-distributed-table',
-                    'products/clickhouse/howto/copy-data-across-instances',
-                    'products/clickhouse/howto/fetch-query-statistics',
-                    'products/clickhouse/howto/run-federated-queries',
-                    'products/clickhouse/howto/create-dictionary',
-                    'products/clickhouse/howto/sql-user-defined-functions',
-                    'products/clickhouse/howto/clickhouse-query-cache',
-                  ],
-                },
+                'products/clickhouse/concepts/data-integration-overview',
+                'products/clickhouse/howto/connect-to-grafana',
+                'products/clickhouse/howto/integrate-kafka',
+                'products/clickhouse/howto/integrate-postgresql',
+                'products/clickhouse/howto/data-service-integration',
+                'products/clickhouse/howto/integration-databases',
+              ],
+            },
+
+            {
+              type: 'category',
+              label: 'Manage service',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-manage-service',
+              },
+              items: [
+                'products/clickhouse/howto/secure-service',
+                'products/clickhouse/howto/manage-users-roles',
                 'products/clickhouse/howto/list-manage-cluster',
-                {
-                  type: 'category',
-                  label: 'Integrate service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/clickhouse/howto/list-integrations',
-                  },
-                  items: [
-                    'products/clickhouse/howto/connect-to-grafana',
-                    'products/clickhouse/howto/integrate-kafka',
-                    'products/clickhouse/howto/integrate-postgresql',
-                    'products/clickhouse/howto/data-service-integration',
-                    'products/clickhouse/howto/integration-databases',
-                    'products/clickhouse/howto/connect-with-jdbc',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Tiered storage',
-                  link: {
-                    type: 'doc',
-                    id: 'products/clickhouse/howto/list-tiered-storage',
-                  },
-                  items: [
-                    'products/clickhouse/howto/enable-tiered-storage',
-                    'products/clickhouse/howto/configure-tiered-storage',
-                    'products/clickhouse/howto/check-data-tiered-storage',
-                    'products/clickhouse/howto/transfer-data-tiered-storage',
-                    'products/clickhouse/howto/local-cache-tiered-storage',
-                  ],
-                },
+                'products/clickhouse/reference/limitations',
+              ],
+            },
+
+            {
+              type: 'category',
+              label: 'Tiered storage',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-tiered-storage',
+              },
+              items: [
+                'products/clickhouse/concepts/clickhouse-tiered-storage',
+                'products/clickhouse/howto/enable-tiered-storage',
+                'products/clickhouse/howto/configure-tiered-storage',
+                'products/clickhouse/howto/check-data-tiered-storage',
+                'products/clickhouse/howto/transfer-data-tiered-storage',
+                'products/clickhouse/howto/local-cache-tiered-storage',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Backups and recovery',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-backups-recovery',
+              },
+              items: [
+                'products/clickhouse/howto/configure-backup',
+                'products/clickhouse/howto/restore-backup',
+                'products/clickhouse/howto/copy-data-across-instances',
+                'products/clickhouse/concepts/disaster-recovery',
+              ],
+            },
+
+            {
+              type: 'category',
+              label: 'Monitor performance',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/howto/list-monitor-performance',
+              },
+              items: [
+                'products/clickhouse/howto/monitor-performance',
+                'products/clickhouse/howto/fetch-query-statistics',
+                'products/clickhouse/reference/metrics-list',
+                'products/clickhouse/reference/clickhouse-metrics-datadog',
+                'products/clickhouse/reference/clickhouse-metrics-prometheus',
+                'products/clickhouse/reference/clickhouse-system-tables',
               ],
             },
             {
               type: 'category',
               label: 'Reference',
-              items: [
-                'products/clickhouse/reference/supported-table-engines',
-                'products/clickhouse/reference/supported-interfaces-drivers',
-                'products/clickhouse/reference/metrics-list',
-                'products/clickhouse/reference/clickhouse-metrics-datadog',
-                'products/clickhouse/reference/clickhouse-metrics-prometheus',
-                'products/clickhouse/reference/supported-table-functions',
-                'products/clickhouse/reference/s3-supported-file-formats',
-                'products/clickhouse/reference/supported-input-output-formats',
-                'products/clickhouse/reference/advanced-params',
-                'products/clickhouse/reference/clickhouse-system-tables',
-                'products/clickhouse/reference/limitations',
-              ],
+              items: ['products/clickhouse/reference/advanced-params'],
             },
           ],
         },
+
         {
           type: 'category',
           label: 'Aiven for Dragonfly',

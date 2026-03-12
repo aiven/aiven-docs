@@ -1,6 +1,6 @@
 ---
 title: Create dictionaries in Aiven for ClickHouse®
-sidebar_label: Create dictionaries
+sidebar_label: Dictionaries
 ---
 
 Create dictionaries in Aiven for ClickHouse® to accelerate queries for better efficiency and performance.

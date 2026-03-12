@@ -1,6 +1,6 @@
 ---
 title: Aiven for ClickHouse® limits and limitations
-sidebar_label: Limits and limitations
+sidebar_label: Limitations
 ---
 
 import ClickHouseTotalStorageLimitation from '@site/static/includes/clickhouse-storage-limitation.md';
@@ -14,7 +14,7 @@ From the information about restrictions on using Aiven for ClickHouse,
 you can draw conclusions on how to get your service to operate
 closer to its full potential. Use **Recommended approach** as guidelines
 on how to work around specific restrictions.
-a
+
 <table>
   <thead>
     <tr>

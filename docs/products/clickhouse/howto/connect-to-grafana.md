@@ -1,5 +1,6 @@
 ---
 title: Visualize ClickHouse® data with Grafana®
+sidebar_label: Visualize data with Grafana
 ---
 
 You can visualise your ClickHouse® data using Grafana® and Aiven can

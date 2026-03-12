@@ -1,6 +1,6 @@
 ---
 title: Use query cache in Aiven for ClickHouse®
-sidebar_label: Use query cache
+sidebar_label: Query cache
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -75,7 +75,7 @@ You can configure the following query cache settings:
 
 <RelatedPages/>
 
-- [Querying external data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/federated-queries)
+- [Query external data using federated queries in Aiven for ClickHouse®](/docs/products/clickhouse/howto/run-federated-queries)
 - [Query Aiven for ClickHouse® databases](/docs/products/clickhouse/howto/query-databases)
 - [Fetch query statistics for Aiven for ClickHouse®](/docs/products/clickhouse/howto/fetch-query-statistics)
 - [Create dictionaries in Aiven for ClickHouse®](/docs/products/clickhouse/howto/create-dictionary)

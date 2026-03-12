@@ -1,5 +1,6 @@
 ---
 title: Secure a managed ClickHouse® service
+sidebar_label: Secure service
 ---
 
 You can secure your Aiven for ClickHouse® service in a few different ways, for example by restricting network access, using Virtual Private Cloud (VPC), and enabling service termination protection.
