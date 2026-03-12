@@ -1,6 +1,7 @@
 ---
 title: Manage Aiven for MySQL® versions
 sidebar_label: Upgrade service version
+early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -36,7 +37,7 @@ Preview versions available for your service in [Aiven Console](https://console.a
 
 For automated upgrades, you get email notifications.
 
-### Downgrade restriction
+### Check downgrade restrictions
 
 Downgrading to a previous version is not supported due to data format incompatibilities.
 Always test upgrades in a non-production environment first.
