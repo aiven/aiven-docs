@@ -11,7 +11,7 @@ import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQL database, and restore it using [`mysqldump/restore`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [`mydumper/myloader`](https://github.com/mydumper/mydumper).
+Copy your Aiven for MySQL® data to a file, back it up to another Aiven for MySQL database, and restore it using [`mysqldump/restore`](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html) or [`mydumper/myloader`](https://github.com/mydumper/mydumper).
 
 <MydumperNote/>
 
@@ -24,7 +24,7 @@ memory capacity to process data migration without resource exhaustion or downtim
 <TabItem value="1" label="mysqldump/restore" default>
 
 - [`mysqldump` tool](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html):
-  [install](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html) if
+  [install](https://dev.mysql.com/doc/mysql-shell/8.4/en/mysql-shell-install.html) if
   missing
 - Source database to copy your data from: `source-db`
 - Target database to dump your `source-db` data to: `target-db`
@@ -94,16 +94,16 @@ having the prompt request for the password is more secure than including
 the password straight away in the command.
 
 The `--single-transaction`
-[flag](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#option_mysqldump_single-transaction)
+[flag](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html#option_mysqldump_single-transaction)
 starts a transaction in isolation mode `REPEATABLE READ` before running.
 This allows `mysqldump` to read the database in its current state at the
 time of the transaction, ensuring consistency of the data.
 
 :::warning
 If you are using [Global Transaction
-Identifiers](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-concepts.html)
+Identifiers](https://dev.mysql.com/doc/refman/8.4/en/replication-gtids-concepts.html)
 (GTIDs) with InnoDB use the `--set-gtid-purged=OFF`
-[option](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#option_mysqldump_set-gtid-purged).
+[option](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html#option_mysqldump_set-gtid-purged).
 The reason is that GTID's are not available with MyISAM.
 :::
 
@@ -233,7 +233,7 @@ myloader \
 When the password is requested at the prompt, paste `TARGET_DB_PASSWORD` into the terminal.
 When the restore or load process is complete and the data is stored in your `target-db`,
 you can use the
-[`mysqlcheck` command](https://dev.mysql.com/doc/refman/8.0/en/mysqlcheck.html) to
+[`mysqlcheck` command](https://dev.mysql.com/doc/refman/8.4/en/mysqlcheck.html) to
 perform data analysis.
 
 <RelatedPages/>

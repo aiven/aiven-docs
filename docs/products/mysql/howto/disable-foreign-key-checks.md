@@ -16,7 +16,7 @@ foreign key checking for the duration of a session.
 
 -   The `mysqlsh` client installed. You can install this by following
     the MySQL shell installation
-    [documentation](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html).
+    [documentation](https://dev.mysql.com/doc/mysql-shell/8.4/en/mysql-shell-install.html).
 -   An Aiven account with an Aiven for MySQL service running.
 
 ## Variables
@@ -128,6 +128,6 @@ Read the official documentation to understand possible implications that
 can happen when disabling foreign key checks in your service.
 
 -   [Foreign Key
-    Checks](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html#foreign-key-checks).
+    Checks](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html#foreign-key-checks).
 -   [Server System
-    Variables](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_foreign_key_checks).
+    Variables](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_foreign_key_checks).

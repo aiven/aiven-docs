@@ -37,7 +37,7 @@ operations.**
 
 An explanation of these various buffers (or code areas) can be found in
 the MySQL documentation: [How MySQL Uses
-Memory](https://dev.mysql.com/doc/refman/8.0/en/memory-use.html).
+Memory](https://dev.mysql.com/doc/refman/8.4/en/memory-use.html).
 
 ```sql
 SELECT SUBSTRING_INDEX(event_name,'/',2) AS code_area,

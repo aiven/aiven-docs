@@ -27,7 +27,7 @@ Replace the following placeholders in the code sample:
     -   Using maven:
 
         ```bash
-        mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=mysql:mysql-connector-java:8.0.28:jar -Ddest=mysql-driver-8.0.28.jar
+        mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=com.mysql:mysql-connector-j:8.4.8:jar -Ddest=mysql-connector-j-8.4.8.jar
         ```
 
 ## Code
@@ -43,14 +43,14 @@ Run the code after replacement of the placeholders with values for your
 project:
 
 ```
-javac MySqlExample.java && java -cp "mysql-driver-8.0.28.jar;." MySqlExample -host MYSQL_HOST -port MYSQL_PORT -database MYSQL_DATABASE -username avnadmin -password MYSQL_PASSWORD
+javac MySqlExample.java && java -cp "mysql-connector-j-8.4.8.jar;." MySqlExample -host MYSQL_HOST -port MYSQL_PORT -database MYSQL_DATABASE -username avnadmin -password MYSQL_PASSWORD
 ```
 
 If the script runs successfully, the output will be the values that were
 inserted into the table:
 
 ```text
-Version: 8.0.26
+Version: 8.4.8
 ```
 
 Now that your application is connected, you are all set to use Java with

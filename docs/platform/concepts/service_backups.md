@@ -31,7 +31,7 @@ backups with the appropriate tooling:
 
 -   [PostgreSQL®](https://www.postgresql.org/docs/current/app-pgdump.html):
     `pgdump`
--   [MySQL®](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
+-   [MySQL®](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html)
 
     - `mysqldump` for small or medium-sized databases
     - [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
@@ -251,7 +251,7 @@ internally for taking full (or incremental) snapshots for MySQL.
 
 For manual backups and migrations, you can use:
 
-- [`mysqldump`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) for small or
+- [`mysqldump`](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html) for small or
   medium-sized databases
 - [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
 
