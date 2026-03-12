@@ -3,63 +3,100 @@ title: Supported table engines in Aiven for ClickHouse®
 sidebar_label: Table engines
 ---
 
-Aiven for ClickHouse® supports several table engines that define the storage
-parameters, supported queries, and other aspects of the data tables. For
-details on each table engine, see the [ClickHouse
-documentation](https://clickhouse.com/docs/en/engines/table-engines/).
+Table engines define how data is stored and which queries a table supports.
+Aiven for ClickHouse® supports different table engines depending on the service
+version. Engine availability can differ from upstream depending on features
+enabled in Aiven for ClickHouse®.
+
+For details about each engine, see the
+[ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/).
+For database engines, see [Supported database engines](/docs/products/clickhouse/reference/supported-database-engines).
 
 :::note
-To support node recycling for backup and restore procedures and high
-availability in the Aiven platform, some of the table engines are
-remapped. This means that in replicated databases, `MergeTree` engines
-are automatically replaced with `ReplicatedMergeTree` variants of the
-same engine.
+To support high availability and node replacement operations on the Aiven
+platform, some table engines are automatically remapped. In replicated
+databases, `MergeTree` engines are replaced with their corresponding
+`ReplicatedMergeTree` variants.
 :::
 
-Aiven for ClickHouse supports the following table engines:
+## MergeTree family
 
-| Engine                                                                                                                | Engine family      |
-|-----------------------------------------------------------------------------------------------------------------------|--------------------|
-| `AggregatingMergeTree` (remapped)                                                                                     | MergeTree          |
-| `AzureBlobStorage`                                                                                                    | Integration engine |
-| `Buffer`                                                                                                              | Special engine     |
-| `CollapsingMergeTree` (remapped)                                                                                      | MergeTree          |
-| `COSN`                                                                                                                | Integration engine |
-| `DeltaLake`                                                                                                           | Integration engine |
-| `Dictionary`                                                                                                          | Special engine     |
-| `Distributed`                                                                                                         | Special engine     |
-| `GenerateRandom`                                                                                                      | Special engine     |
-| `GraphiteMergeTree` (remapped)                                                                                        | MergeTree          |
-| `Hudi`                                                                                                                | Integration engine |
-| `Iceberg`                                                                                                             | Integration engine |
-| `Join`                                                                                                                | Special engine     |
-| `Kafka` (via [integration](/docs/products/clickhouse/howto/integrate-kafka) only, not via SQL)                        | Integration engine |
-| `MaterializedView`                                                                                                    | Special engine     |
-| `Memory`                                                                                                              | Special engine     |
-| `Merge`                                                                                                               | Special engine     |
-| `MergeTree` (remapped)                                                                                                | MergeTree          |
-| `MySQL`                                                                                                               | Integration engine |
-| `Null`                                                                                                                | Special engine     |
-| `OSS`                                                                                                                 | Integration engine |
-| `PostgreSQL` (either via SQL or via [integration](/docs/products/clickhouse/howto/integrate-postgresql))              | Integration engine |
-| `ReplacingMergeTree` (remapped)                                                                                       | MergeTree          |
-| `ReplicatedAggregatingMergeTree`                                                                                      | MergeTree          |
-| `ReplicatedCollapsingMergeTree`                                                                                       | MergeTree          |
-| `ReplicatedGraphiteMergeTree`                                                                                         | MergeTree          |
-| `ReplicatedMergeTree`                                                                                                 | MergeTree          |
-| `ReplicatedReplacingMergeTree`                                                                                        | MergeTree          |
-| `ReplicatedSummingMergeTree`                                                                                          | MergeTree          |
-| `ReplicatedVersionedCollapsingMergeTree`                                                                              | MergeTree          |
-| `S3`                                                                                                                  | Integration engine |
-| `Set`                                                                                                                 | Special engine     |
-| `SummingMergeTree` (remapped)                                                                                         | MergeTree          |
-| `URL`                                                                                                                 | URL                |
-| `VersionedCollapsingMergeTree` (remapped)                                                                             | MergeTree          |
-| `View`                                                                                                                | Special engine     |
+| Engine | Replicated variant | Supported in |
+| ------ | ------------------- | ------------ |
+| `MergeTree` (remapped) | `ReplicatedMergeTree` | 25.3, 25.8 |
+| `AggregatingMergeTree` (remapped) | `ReplicatedAggregatingMergeTree` | 25.3, 25.8 |
+| `CoalescingMergeTree` (remapped) | `ReplicatedCoalescingMergeTree` | 25.8 |
+| `CollapsingMergeTree` (remapped) | `ReplicatedCollapsingMergeTree` | 25.3, 25.8 |
+| `GraphiteMergeTree` (remapped) | `ReplicatedGraphiteMergeTree` | 25.3, 25.8 |
+| `ReplacingMergeTree` (remapped) | `ReplicatedReplacingMergeTree` | 25.3, 25.8 |
+| `SummingMergeTree` (remapped) | `ReplicatedSummingMergeTree` | 25.3, 25.8 |
+| `VersionedCollapsingMergeTree` (remapped) | `ReplicatedVersionedCollapsingMergeTree` | 25.3, 25.8 |
+
+## Integration engines
+
+| Engine | Supported in |
+| ------ | ------------ |
+| `AzureBlobStorage` | 25.3, 25.8 |
+| `AzureQueue` | 25.3, 25.8 |
+| `COSN` | 25.3, 25.8 |
+| `GCS` | 25.8 |
+| `Kafka` (via [integration](/docs/products/clickhouse/howto/integrate-kafka) only, not via SQL) | 25.3, 25.8 |
+| `MaterializedPostgreSQL` | 25.3, 25.8 |
+| `MySQL` | 25.3, 25.8 |
+| `OSS` | 25.3, 25.8 |
+| `PostgreSQL` (via SQL or [integration](/docs/products/clickhouse/howto/integrate-postgresql)) | 25.3, 25.8 |
+| `S3` | 25.3, 25.8 |
+| `S3Queue` | 25.3, 25.8 |
+| `URL` | 25.3, 25.8 |
+
+## Data lake engines
+
+| Engine | Supported in |
+| ------ | ------------ |
+| `DeltaLake` | 25.3, 25.8 |
+| `DeltaLakeAzure` | 25.8 |
+| `DeltaLakeS3` | 25.8 |
+| `Hudi` | 25.3, 25.8 |
+| `Iceberg` | 25.3, 25.8 |
+| `IcebergAzure` | 25.3, 25.8 |
+| `IcebergS3` | 25.3, 25.8 |
+
+## View engines
+
+| Engine | Supported in |
+| ------ | ------------ |
+| `LiveView` | 25.3, 25.8 |
+| `MaterializedView` | 25.3, 25.8 |
+| `View` | 25.3, 25.8 |
+| `WindowView` | 25.3, 25.8 |
+
+## Special-purpose engines
+
+| Engine | Supported in |
+| ------ | ------------ |
+| `Buffer` | 25.3, 25.8 |
+| `Dictionary` | 25.3, 25.8 |
+| `Distributed` | 25.3, 25.8 |
+| `Join` | 25.3, 25.8 |
+| `KeeperMap` | 25.3, 25.8 |
+| `Memory` | 25.3, 25.8 |
+| `Merge` | 25.3, 25.8 |
+| `Null` | 25.3, 25.8 |
+| `Set` | 25.3, 25.8 |
+| `YTsaurus` | 25.8 |
+
+## Testing and utility engines
+
+| Engine | Supported in |
+| ------ | ------------ |
+| `FuzzJSON` | 25.3, 25.8 |
+| `FuzzQuery` | 25.3, 25.8 |
+| `GenerateRandom` | 25.3, 25.8 |
+| `Loop` | 25.3, 25.8 |
 
 :::tip
 [Managed credentials integrations](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
-simplify authentication when using integration engines and dictionaries to access remote
-sources.
-Learn how to [enable the managed credentials integration](/docs/products/clickhouse/howto/data-service-integration#create-managed-credentials-integrations).
+simplify authentication for integration engines and dictionaries that access
+remote sources. Enable them when using these engines.
+[Learn how to enable managed credentials](/docs/products/clickhouse/howto/data-service-integration#create-managed-credentials-integrations).
 :::

@@ -1328,6 +1328,7 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/clickhouse/reference/supported-table-engines',
+                'products/clickhouse/reference/supported-database-engines',
                 'products/clickhouse/reference/supported-interfaces-drivers',
                 'products/clickhouse/reference/metrics-list',
                 'products/clickhouse/reference/clickhouse-metrics-datadog',
