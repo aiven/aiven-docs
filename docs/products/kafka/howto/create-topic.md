@@ -15,7 +15,7 @@ Create topics in your Aiven for Apache Kafka® service to organize message strea
 A topic in Aiven for Apache Kafka is a named stream of messages.
 Producers write data to topics, and consumers read from them.
 
-Topic types depend on your Kafka service type.
+Available topic types depend on the Kafka service type.
 
 ### Topic types
 
@@ -26,18 +26,20 @@ Topic types depend on your Kafka service type.
       storage is enabled.
     - In **Inkless Kafka** services, classic topics use remote storage by default. You
       cannot change the storage mode or local retention settings.
+  - Support log compaction.
 
 - **Diskless topics**
-  - They are available only in **Inkless Kafka** services.
-  - They store topic data directly in cloud object storage.
-  - They require diskless support to be enabled on the service before you create
-    diskless topics.
-  - You choose classic or diskless per topic when you create the topic.
+  - Available only in **Inkless Kafka** services.
+  - Store topic data directly in cloud object storage.
+  - Require a service plan that supports diskless. On Aiven Cloud, enable diskless
+    topics during service creation or later in
+    <ConsoleLabel name="service settings" /> > **Advanced configuration**.
+  - Select the topic type when creating the topic.
   - You cannot change the topic type after creation.
 
 In Inkless Kafka services, classic and diskless topics can coexist.
 To choose between them, see
-[Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
+[Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic#compare-classic-and-diskless-topics).
 
 For diskless topic limitations, see
 [Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations).
@@ -114,7 +116,8 @@ between classic and diskless topics.
    as retention, cleanup policy, and message size limits.
 
    :::note
-   You cannot create compacted topics on Inkless Kafka services.
+   Diskless topics do not support compaction.
+   Create a **classic topic** if your workload requires compaction.
    :::
 
 1. Click **Create topic**.
@@ -157,9 +160,11 @@ avn service topic-create \
   TOPIC_NAME \
   --project PROJECT_NAME \
   --partitions PARTITION_COUNT \
-  --replication REPLICATION_FACTOR \
+  --replication 1 \
   --diskless-enable
 ```
+
+For diskless topics, set `--replication 1`.
 
 Use the `--diskless-enable` flag to create a diskless topic. Enable diskless topics on
 the service before creating them. On Inkless services, omitting the flag creates a
