@@ -1788,6 +1788,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/postgresql/howto/create-database',
                     'products/postgresql/howto/upgrade',
+                    'products/postgresql/howto/pg-controlled-switchover',
                     'products/postgresql/howto/manage-extensions',
                     'products/postgresql/howto/create-manual-backups',
                     'products/postgresql/howto/restore-backup',
