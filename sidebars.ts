@@ -969,6 +969,7 @@ const sidebars: SidebarsConfig = {
                           items: [
                             'products/kafka/kafka-connect/howto/configure-aws-secrets-manager',
                             'products/kafka/kafka-connect/howto/configure-hashicorp-vault',
+                            'products/kafka/kafka-connect/howto/configure-env-secret-provider',
                           ],
                         },
                       ],
