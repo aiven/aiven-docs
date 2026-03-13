@@ -1457,6 +1457,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/mysql/get-started',
+            'products/mysql/concepts/mysql-free-tier',
             {
               type: 'category',
               label: 'Concepts',
@@ -1738,6 +1739,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/postgresql/get-started',
+            'products/postgresql/concepts/pg-free-tier',
             {
               type: 'category',
               label: 'Concepts',
@@ -1935,6 +1937,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/valkey/get-started',
+            'products/valkey/concepts/valkey-free-tier',
             {
               type: 'category',
               label: 'Concepts',
