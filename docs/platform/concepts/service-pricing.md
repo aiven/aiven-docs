@@ -3,6 +3,7 @@ title: Service pricing
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import FreeTierDisclaimer from "@site/static/includes/free-tier-disclaimer.md";
 
 All Aiven services are billed based on actual usage so you only pay for the resources you use.
 
@@ -48,51 +49,22 @@ to a more appropriately sized VM if one becomes available from the cloud provide
 
 ### Free tier
 
-The Free tier is available for Aiven for PostgreSQL®, Aiven for MySQL,
-and Aiven for Valkey™ services. You don't need a credit card to sign up
+The Free tier is available for Aiven for Apache Kafka®, Aiven for PostgreSQL®,
+Aiven for MySQL®, and Aiven for Valkey™ services. You don't need a credit card to sign up
 and you can use them indefinitely free of charge.
 
-:::note
-For details about the specific limits and features of the Aiven for Apache Kafka® free tier,
-see the [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier).
-:::
-
-Free services include:
-
--   A single node
--   1 CPU per virtual machine
--   1 GB RAM
--   For PostgreSQL and MySQL: 1 GB disk storage
--   For Valkey: `maxmemory` set to 50%
--   Monitoring for metrics and logs
--   Backups
-
-There are some limitations of the free services:
-
--   Cannot create the service in a VPC
--   No static IPs
--   No integrations
--   No forking
--   For PostgreSQL:
-    -   No connection pooling
-    -   `max_connections` limit set to `20`
--   No support services
--   Only one service of each service type in your
-    [organization](/docs/platform/concepts/orgs-units-projects)
--   Not covered under Aiven's 99.99% SLA
-
-Free services do not have any time limitations. However, Aiven reserves the right to:
-
-- Shut down services if Aiven believes they violate the
-  [acceptable use policy](https://aiven.io/terms) or are unused for some time.
-  A notification is sent before services are powered off. You can
-  [power them back on](/docs/platform/concepts/service-power-cycle) at any time.
-- Change the cloud provider, region, or configuration at any point in time.
-
-To try a different service or use advanced features, start a free 30-day trial.
+<FreeTierDisclaimer/>
 You can run free services alongside a [free 30-day trial](#free-trials)
 without affecting your trial credits. Free services also continue running after
 your trial has expired.
+
+The following pages have more information about the features and limitations
+for each service available on the Free tier:
+
+- [Aiven for Apache Kafka® free tier](/docs/products/kafka/free-tier/kafka-free-tier)
+- [Aiven for PostgreSQL® free tier](/docs/products/postgresql/concepts/pg-free-tier)
+- [Aiven for MySQL® free tier](/docs/products/mysql/concepts/mysql-free-tier)
+- [Aiven for Valkey™ free tier](/docs/products/valkey/concepts/valkey-free-tier)
 
 You can upgrade your free service to a paid plan at any time by adding
 a payment method to the project's billing group or by starting a free trial.
