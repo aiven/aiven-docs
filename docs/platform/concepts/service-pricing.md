@@ -89,13 +89,13 @@ Free services do not have any time limitations. However, Aiven reserves the righ
   [power them back on](/docs/platform/concepts/service-power-cycle) at any time.
 - Change the cloud provider, region, or configuration at any point in time.
 
-To try a different service or use advanced features, start a free 30-day trial.
-You can run free services alongside a [free 30-day trial](#free-trials)
+You can run free services alongside your [free 30-day trial](#free-trials)
 without affecting your trial credits. Free services also continue running after
 your trial has expired.
 
 You can upgrade your free service to a paid plan at any time by adding
-a payment method to the project's billing group or by starting a free trial.
+a payment method to the project's billing group.
+
 To upgrade a free service:
 
 1. Go to the service **Overview** page.
@@ -106,8 +106,7 @@ Basic tier support to be available.
 
 You can also downgrade a paid plan to the free tier as long as:
 
-- The data you have in that trial or paid service fits into the smaller
-instance size.
+- The data you have in the paid service fits into the smaller instance size.
 - The free tier is available in the same cloud as the paid plan.
 
 ### Developer tier
@@ -162,8 +161,7 @@ or visible to Aiven, so they cannot be included in the prices or waived.
 
 Aiven offers a free trial for 30 days with $300 USD of credits to explore
 the Aiven Platform. You don't need a credit card to sign up. You can use trial credits
-for any paid services and paid features like virtual private cloud peering. The trial
-starts when you create a service on any paid tier.
+for any paid services and paid features like virtual private cloud peering.
 
 Trials include:
 
@@ -182,7 +180,7 @@ There are some limitations:
 -   You cannot end a free trial yourself before the end of the trial period.
 <!-- vale on -->
 
-If you didn't add a payment card to the billing group for your project, services
+If you don't add a payment card to the billing group for your project, services
 in that project are automatically powered off when the trial ends or your credits run out.
 To keep your services running
 [add a payment card](/docs/platform/howto/manage-payment-card)
