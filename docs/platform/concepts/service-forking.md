@@ -30,6 +30,7 @@ You can fork the following Aiven services:
 -   MySQL
 -   OpenSearch®
 -   PostgreSQL®
+-   Valkey™
 
 When you fork a service, the service configurations, databases, service users,
 and connection pools are copied to the new service.
