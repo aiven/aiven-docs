@@ -1548,164 +1548,64 @@ const sidebars: SidebarsConfig = {
             id: 'products/opensearch',
           },
           items: [
-            'products/opensearch/get-started',
-            'products/opensearch/howto/sample-dataset',
             {
               type: 'category',
-              label: 'Concepts',
+              label: 'Get started',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/get-started',
+              },
               items: [
-                'products/opensearch/concepts/access_control',
                 {
                   type: 'category',
-                  label: 'Security',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/concepts/os-security',
-                  },
-                  items: [
-                    'products/opensearch/concepts/opensearch-security-considerations',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Indices',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/concepts/indices',
-                  },
-                  items: [
-                    'products/opensearch/concepts/index-replication',
-                    'products/opensearch/concepts/when-create-index',
-                  ],
-                },
-
-                'products/opensearch/concepts/aggregations',
-                'products/opensearch/concepts/high-availability-for-opensearch',
-                'products/opensearch/concepts/opensearch-vs-elasticsearch',
-                'products/opensearch/concepts/shards-number',
-                'products/opensearch/concepts/cross-cluster-replication-opensearch',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              items: [
-                'products/opensearch/howto/control_access_to_content',
-                {
-                  type: 'category',
-                  label: 'Connect to Aiven for OpenSearch®',
+                  label: 'Connect to service',
                   link: {
                     id: 'products/opensearch/howto/list-connect-to-service',
                     type: 'doc',
                   },
                   items: [
-                    'products/opensearch/howto/opensearch-with-curl',
                     'products/opensearch/howto/connect-with-nodejs',
                     'products/opensearch/howto/connect-with-python',
+                    'products/opensearch/howto/opensearch-with-curl',
                   ],
                 },
-                {
-                  type: 'category',
-                  label: 'Data management',
-                  items: [
-                    'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
-                    'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
-                    'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
-                    {
-                      type: 'category',
-                      label: 'Manage custom repositories',
-                      link: {
-                        id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
-                        type: 'doc',
-                      },
-                      items: [
-                        'products/opensearch/howto/custom-repositories',
-                        'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
-                        'products/opensearch/howto/snapshot-credentials',
-                      ],
-                    },
-                    {
-                      type: 'category',
-                      label: 'Migrate external snapshots',
-                      link: {
-                        type: 'doc',
-                        id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
-                      },
-                      items: [
-                        'products/opensearch/howto/migrate-ism-policies',
-                        'products/opensearch/howto/migrate-opendistro-security-config-aiven',
-                      ],
-                    },
-                    'products/opensearch/howto/manage-snapshots',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Search and aggregation',
-                  link: {
-                    id: 'products/opensearch/howto/list-search-service',
-                    type: 'doc',
-                  },
-                  items: [
-                    'products/opensearch/howto/opensearch-search-and-python',
-                    'products/opensearch/howto/opensearch-and-nodejs',
-                    'products/opensearch/howto/opensearch-aggregations-and-nodejs',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Manage OpenSearch Security',
-                  link: {
-                    id: 'products/opensearch/howto/list-opensearch-security',
-                    type: 'doc',
-                  },
-                  items: [
-                    'products/opensearch/howto/enable-opensearch-security',
-                    'products/opensearch/howto/saml-sso-authentication',
-                    'products/opensearch/howto/oidc-authentication',
-                    'products/opensearch/howto/jwt-authentication',
-                    'products/opensearch/howto/audit-logs',
-                    'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Manage service',
-                  items: [
-                    'products/opensearch/howto/os-version-upgrade',
-                    'products/opensearch/howto/reindex-opensearch',
-                    'products/opensearch/howto/restore_opensearch_backup',
-                    'products/opensearch/howto/set_index_retention_patterns',
-                    'products/opensearch/howto/custom-dictionary-files',
-                    'products/opensearch/howto/opensearch-alerting-api',
-                    'products/opensearch/howto/handle-low-disk-space',
-                    'products/opensearch/howto/resolve-shards-too-large',
-                    'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
-                    'products/opensearch/howto/enable-slow-query-log',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Integrate service',
-                  items: [
-                    'products/opensearch/howto/opensearch-log-integration',
-                    'products/opensearch/howto/integrate-with-grafana',
-                  ],
-                },
-                'products/opensearch/howto/upgrade-clients-to-opensearch',
+                'products/opensearch/howto/sample-dataset',
               ],
             },
-
             {
               type: 'category',
-              label: 'Reference',
+              label: 'Indices and data management',
               items: [
-                'products/opensearch/reference/plugins',
-                'products/opensearch/reference/list-of-plugins-for-each-version',
-                'products/opensearch/reference/advanced-params',
-                'products/opensearch/reference/low-space-watermarks',
-                'products/opensearch/howto/os-metrics',
-                'products/opensearch/reference/opensearch-limitations',
+                'products/opensearch/concepts/indices',
+                'products/opensearch/concepts/shards-number',
+                'products/opensearch/concepts/when-create-index',
+                'products/opensearch/concepts/index-replication',
+                'products/opensearch/howto/set_index_retention_patterns',
+                'products/opensearch/howto/custom-dictionary-files',
+                'products/opensearch/howto/reindex-opensearch',
+                'products/opensearch/howto/resolve-shards-too-large',
+                {
+                  type: 'category',
+                  label: 'Cross-cluster replication',
+                  items: [
+                    'products/opensearch/concepts/cross-cluster-replication-opensearch',
+                    'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Search and aggregations',
+              link: {
+                id: 'products/opensearch/howto/list-search-service',
+                type: 'doc',
+              },
+              items: [
+                'products/opensearch/concepts/aggregations',
+                'products/opensearch/howto/opensearch-search-and-python',
+                'products/opensearch/howto/opensearch-and-nodejs',
+                'products/opensearch/howto/opensearch-aggregations-and-nodejs',
               ],
             },
             {
@@ -1717,17 +1617,110 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/opensearch/dashboards/get-started',
+                'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
+                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Backups, snapshots, and data migration',
+              items: [
+                'products/opensearch/howto/manage-snapshots',
+                'products/opensearch/howto/restore_opensearch_backup',
                 {
                   type: 'category',
-                  label: 'How to',
+                  label: 'Custom snapshot repositories',
+                  link: {
+                    id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
+                    type: 'doc',
+                  },
                   items: [
-                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
-                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
-                    'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+                    'products/opensearch/howto/custom-repositories',
+                    'products/opensearch/howto/manage-custom-repo/custom-repositories-os-api',
+                    'products/opensearch/howto/snapshot-credentials',
+                  ],
+                },
+                'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
+                'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
+                'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
+                'products/opensearch/howto/upgrade-clients-to-opensearch',
+                {
+                  type: 'category',
+                  label: 'Migrate external snapshots',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
+                  },
+                  items: [
+                    'products/opensearch/howto/migrate-ism-policies',
+                    'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                   ],
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Monitoring and observability',
+              items: [
+                'products/opensearch/howto/os-metrics',
+                'products/opensearch/howto/integrate-with-grafana',
+                'products/opensearch/howto/opensearch-log-integration',
+                'products/opensearch/howto/opensearch-alerting-api',
+                'products/opensearch/howto/enable-slow-query-log',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Security and access control',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/howto/list-opensearch-security',
+              },
+              items: [
+                'products/opensearch/concepts/access_control',
+                {
+                  type: 'category',
+                  label: 'OpenSearch Security',
+                  link: {
+                    type: 'generated-index',
+                    slug: 'products/opensearch/howto/opensearch-security',
+                  },
+                  items: [
+                    'products/opensearch/concepts/os-security',
+                    'products/opensearch/concepts/opensearch-security-considerations',
+                    'products/opensearch/howto/enable-opensearch-security',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Authentication methods',
+                  items: [
+                    'products/opensearch/howto/oidc-authentication',
+                    'products/opensearch/howto/saml-sso-authentication',
+                    'products/opensearch/howto/jwt-authentication',
+                  ],
+                },
+                'products/opensearch/howto/control_access_to_content',
+                'products/opensearch/howto/audit-logs',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Service management and maintenance',
+              items: [
+                'products/opensearch/reference/advanced-params',
+                'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/reference/opensearch-limitations',
+                'products/opensearch/reference/plugins',
+                'products/opensearch/reference/list-of-plugins-for-each-version',
+                'products/opensearch/reference/low-space-watermarks',
+                'products/opensearch/howto/handle-low-disk-space',
+                'products/opensearch/howto/os-version-upgrade',
+              ],
+            },
+            'products/opensearch/concepts/opensearch-vs-elasticsearch',
           ],
         },
         {

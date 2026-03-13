@@ -1,5 +1,6 @@
 ---
-title: Get started with Dev tools
+title: Get started with Dev Tools
+sidebar_label: Run queries from Dev Tools
 ---
 
 Similarly to how you can work with the OpenSearch® service [using cURL](/docs/products/opensearch/howto/opensearch-with-curl) you can run the queries directly from OpenSearch Dashboards **Dev Tools**. The console contains both a request editor and a command output window.

@@ -1,5 +1,6 @@
 ---
 title: Set up OpenSearch® Dashboard multi-tenancy
+sidebar_label: Set up multi-tenancy
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,5 +1,6 @@
 ---
 title: Write search queries with OpenSearch® and Python
+sidebar_label: Search queries with Python
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

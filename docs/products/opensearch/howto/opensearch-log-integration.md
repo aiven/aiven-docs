@@ -1,6 +1,6 @@
 ---
 title: Manage OpenSearch® log integration
-sidebar_label: Log integration
+sidebar_label: Enable log integration
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

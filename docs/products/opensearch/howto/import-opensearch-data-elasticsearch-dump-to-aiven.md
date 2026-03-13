@@ -1,6 +1,6 @@
 ---
 title: Copy data from OpenSearch to Aiven for OpenSearch® using elasticsearch-dump
-sidebar_label: Copy data from OpenSearch to Aiven for OpenSearch®
+sidebar_label: Import data to Aiven
 ---
 
 Backup your OpenSearch® data into Aiven for Opensearch.

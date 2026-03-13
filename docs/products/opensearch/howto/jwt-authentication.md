@@ -1,6 +1,6 @@
 ---
 title: Enable JSON Web Token authentication on Aiven for OpenSearch®
-sidebar_label: JWT authentication
+sidebar_label: JWT
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

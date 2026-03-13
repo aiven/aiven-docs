@@ -1,6 +1,6 @@
 ---
 title: Enable OpenSearch Security management for Aiven for OpenSearch®
-sidebar_label: Enable OpenSearch Security
+sidebar_label: Enable in Aiven Console
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

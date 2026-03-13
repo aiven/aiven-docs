@@ -1,5 +1,6 @@
 ---
-title: Sample dataset
+title: Load data, get index mappings, and run queries in Aiven for OpenSearch®
+sidebar_label: Load and query data
 ---
 
 Databases are more fun with data, so to get you started on your OpenSearch® journey we picked this open data set of recipes as a great example you can try out yourself.

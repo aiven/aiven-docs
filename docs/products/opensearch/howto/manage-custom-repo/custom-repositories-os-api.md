@@ -1,6 +1,6 @@
 ---
 title: Manage Aiven for OpenSearch® custom repositories in OpenSearch® API
-sidebar_label: In OpenSearch® API
+sidebar_label: Manage in OpenSearch API
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

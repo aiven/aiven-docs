@@ -1,6 +1,6 @@
 ---
 title: Key considerations and system adaptation for OpenSearch® Security management
-sidebar_label: Security management
+sidebar_label: Plan security migration
 ---
 
 Before enabling OpenSearch Security management for Aiven for OpenSearch service, understand its impact on your current system and adapt your infrastructure accordingly.

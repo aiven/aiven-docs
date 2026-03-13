@@ -1,6 +1,6 @@
 ---
 title: Enable OpenID Connect authentication on Aiven for OpenSearch®
-sidebar_label: OIDC authentication
+sidebar_label: OIDC
 ---
 
 OpenID Connect (OIDC) is an authentication protocol that builds on top of the OAuth 2.0 protocol.

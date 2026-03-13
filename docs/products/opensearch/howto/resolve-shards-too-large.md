@@ -1,5 +1,6 @@
 ---
 title: Manage large shards in OpenSearch®
+sidebar_label: Manage large shards
 ---
 
 Ensuring an optimal shard size is a critical consideration when operating within OpenSearch.
