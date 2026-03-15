@@ -1,6 +1,3 @@
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
-
-<!-- vale off -->
 
 ## Amazon Web Services
 
@@ -107,11 +104,6 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>europe</td>
     <td>aws-eu-west-3</td>
     <td>Europe, France: Paris</td>
-  </tr>
-  <tr>
-    <td>middle east</td>
-    <td>aws-me-central-1</td>
-    <td>Middle East, UAE: UAE</td>
   </tr>
   <tr>
     <td>middle east</td>
@@ -503,7 +495,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   <tr>
     <td>europe</td>
     <td>google-europe-southwest1</td>
-    <td>Europe, Spain: Madrid</td>
+    <td>Europe, Madrid: Spain</td>
   </tr>
   <tr>
     <td>europe</td>
@@ -666,6 +658,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   <tr>
     <td>europe</td>
+    <td>upcloud-dk-cph</td>
+    <td>Europe, Denmark: Copenhagen</td>
+  </tr>
+  <tr>
+    <td>europe</td>
     <td>upcloud-es-mad</td>
     <td>Europe, Spain: Madrid</td>
   </tr>
@@ -688,6 +685,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>europe</td>
     <td>upcloud-nl-ams</td>
     <td>Europe, Netherlands: Amsterdam</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-no-svg</td>
+    <td>Europe, Norway: Oslo</td>
   </tr>
   <tr>
     <td>europe</td>
@@ -722,147 +724,3 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 </tbody>
 </table>
 
-## Oracle Cloud Infrastructure <LimitedBadge/>
-
-:::important
-Oracle Cloud Infrastructure (OCI) is supported on the Aiven Platform as a
-[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-For more information or access, contact your account team.
-:::
-
-<table>
-  <thead>
-  <tr>
-    <th>Region</th>
-    <th>Cloud</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-mumbai-1</td>
-    <td>India, India West: Mumbai</td>
-  </tr>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-osaka-1</td>
-    <td>Japan, Japan Central: Osaka</td>
-  </tr>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-seoul-1</td>
-    <td>South Korea, South Korea Central: Seoul</td>
-  </tr>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-singapore-1</td>
-    <td>Singapore, Singapore: Singapore</td>
-  </tr>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-sydney-1</td>
-    <td>Australia, Australia East: Sydney</td>
-  </tr>
-  <tr>
-    <td>Asia-Pacific</td>
-    <td>ap-tokyo-1</td>
-    <td>Japan, Japan East: Tokyo</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>eu-frankfurt-1</td>
-    <td>Germany, Germany Central: Frankfurt</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>uk-london-1</td>
-    <td>United Kingdom, UK South: London</td>
-  </tr>
-  <tr>
-    <td>Middle East</td>
-    <td>me-dubai-1</td>
-    <td>UAE, UAE East: Dubai</td>
-  </tr>
-  <tr>
-    <td>North America</td>
-    <td>ca-montreal-1</td>
-    <td>Canada, Canada Southeast: Montreal</td>
-  </tr>
-  <tr>
-    <td>North America</td>
-    <td>us-ashburn-1</td>
-    <td>US East, Virginia: Ashburn</td>
-  </tr>
-  <tr>
-    <td>North America</td>
-    <td>us-phoenix-1</td>
-    <td>US West, Arizona: Phoenix</td>
-  </tr>
-  <tr>
-    <td>South America</td>
-    <td>sa-saopaulo-1</td>
-    <td>Brazil, Brazil East: São Paulo</td>
-  </tr>
-</tbody>
-</table>
-
-## Exoscale <LimitedBadge/>
-
-:::important
-Exoscale is supported on the Aiven Platform as a
-[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-for Aiven for PostgreSQL® only. For more information or access, contact your account team.
-:::
-
-<table>
-  <thead>
-  <tr>
-    <th>Region</th>
-    <th>Zone</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Europe</td>
-    <td>AT-VIE-1</td>
-    <td>Austria, Vienna</td>
-  </tr>
-    <tr>
-    <td>Europe</td>
-    <td>AT-VIE-2</td>
-    <td>Austria, Vienna</td>
-  </tr>
-    <tr>
-    <td>Europe</td>
-    <td>BG-SOF-1</td>
-    <td>Bulgaria, Sofia</td>
-  </tr>
-    <tr>
-    <td>Europe</td>
-    <td>CH-DK-2</td>
-    <td>Switzerland, Zurich</td>
-  </tr>
-    <tr>
-    <td>Europe</td>
-    <td>CH-GVA-2</td>
-    <td>Switzerland, Geneva</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>DE-FRA-1</td>
-    <td>Germany, Frankfurt</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>DE-MUC-1</td>
-    <td>Germany, Munich</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>HR-ZAG-1</td>
-    <td>Croatia, Zagreb</td>
-  </tr>
-  </tbody>
-</table>
