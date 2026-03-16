@@ -91,8 +91,15 @@ source and schema.
 
 ### Write SQL manually
 
-1. In the SQL editor, enter your query. Press the `Tab` key to autocomplete SQL keywords,
-   table names, column names, and other database objects from your schema.
+1. In the SQL editor, enter your query.
+
+   :::tip[Use `Tab` to autocomplete]
+   Press the `Tab` key to autocomplete SQL keywords, table names, column names, and other
+   database objects from your schema. When the autocomplete list is open, use the arrow
+   keys to move between suggestions and press `Enter` or `Tab` to insert the selected
+   suggestion. Press `Esc` to dismiss autocomplete.
+   :::
+
 1. Click **Run**.
 1. View the results in the results panel.
 
