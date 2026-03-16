@@ -98,7 +98,7 @@ source and schema.
 
 The autocomplete feature helps you write queries faster by suggesting:
 
-- PostgreSQL command keywords (`SELECT`, `FROM`, `WHERE`, `JOIN`)
+- SQL keywords and clauses: `SELECT`, `FROM`, `WHERE`, `JOIN`
 - Table names from your selected schema
 - Column names from tables in your query
 - Database functions and operators
