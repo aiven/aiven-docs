@@ -17,6 +17,7 @@ PG Studio is an <EarlyBadge/> feature.
 PG Studio supports:
 
 - Writing SQL in plain English or any other language
+- Autocompleting SQL queries with Tab based on PostgreSQL commands and your schema
 - Visualizing your database structure with an interactive schema map
 - Exploring schemas and table relationships
 - Explaining queries and database objects
@@ -89,9 +90,17 @@ source and schema.
 
 ### Write SQL manually
 
-1. In the SQL editor, enter your query.
+1. In the SQL editor, enter your query. Press Tab to autocomplete SQL keywords, 
+   table names, column names, and other database objects from your schema.
 1. Click **Run**.
 1. View the results in the results panel.
+
+The autocomplete feature helps you write queries faster by suggesting:
+
+- PostgreSQL command keywords (SELECT, FROM, WHERE, JOIN)
+- Table names from your selected schema
+- Column names from tables in your query
+- Database functions and operators
 
 ### Run selected SQL
 
