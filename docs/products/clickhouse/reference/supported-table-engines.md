@@ -83,7 +83,6 @@ databases, `MergeTree` engines are replaced with their corresponding
 | `Merge` | 25.3, 25.8 |
 | `Null` | 25.3, 25.8 |
 | `Set` | 25.3, 25.8 |
-| `YTsaurus` | 25.8 |
 
 ## Testing and utility engines
 
