@@ -9,6 +9,10 @@ import TabItem from '@theme/TabItem';
 
 You can grant [organization users](/docs/platform/howto/manage-org-users), [application users](/docs/platform/concepts/application-users), and [groups](/docs/platform/howto/manage-groups) access at the organization, organizational unit, and project level through [roles and permissions](/docs/platform/concepts/permissions).
 
+If you don't grant any roles or permissions to an organization user, they have the
+[default access level](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to the organization.
+
 :::important
 When you remove permissions from a user or group, service credentials are not changed.
 Users can still directly access services if they know the service credentials. To prevent
@@ -35,7 +39,7 @@ all projects in that unit.
 
 1. Select the users or groups to grant permissions to.
 
-1. In the **Resource** field, choose an organization or organizational unit.
+1. In **Resource**, choose an organization or organizational unit.
 
 1. Select the [roles and permissions](/docs/platform/concepts/permissions) to grant.
 
@@ -53,8 +57,8 @@ and set the `resource_type` to `organization` or `organization_unit`.
 ### Change organization or unit permissions for a user or group
 
 You can change the permissions granted at the organization or organizational unit level
-for a user or group. In the Aiven Console, you cannot edit the resource that the
-permissions are granted to. To change the resource, remove the existing permissions and
+for a user or group. In the Aiven Console, you cannot change the resource for
+existing permissions. To change the resource, remove the existing permissions and
 grant the permissions for the other resource.
 
 1. In the organization, click **Admin**.
@@ -66,14 +70,12 @@ grant the permissions for the other resource.
 
 1. Add or remove permissions and click **Save changes**.
 
-### Remove all organization-level roles and permissions
+### Remove all organization or unit-level roles and permissions
 
-You can remove all organization-level permissions that you granted to a user or group.
-After removing the permissions, organization users have the
-[default access level](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to the organization.
+You can remove all permissions that you granted to a user or group at the
+organization or organizational unit level.
 
-To remove all organization permissions for a user or group:
+To remove all organization and unit permissions for a user or group:
 
 1. In the organization, click **Admin**.
 
