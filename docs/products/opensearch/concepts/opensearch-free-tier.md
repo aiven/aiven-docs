@@ -25,9 +25,8 @@ more advanced features, choose a paid plan.
 The free tier features:
 
 - Managed Aiven for OpenSearch cluster with a fixed configuration
-- 4 GB RAM
-- 2 shards, maximum 20 shards per node
-- 50 consecutive connections
+- 4 GB RAM, 20 GB storage
+- 2 shards
 - Snapshot retention up to 3 days
 - Sample dataset tools for testing indexing and search
 - Basic monitoring for metrics and logs
@@ -41,7 +40,8 @@ Free tier services have the following restrictions.
 
 ### Performance and configuration limits
 
-- Fixed limit on concurrent connections
+- Max 20 shards per node
+- 50 consecutive connections
 - Fixed storage and performance limits
 - Fixed cluster settings
 
@@ -49,7 +49,8 @@ Free tier services have the following restrictions.
 
 - Service integrations such as logs, metrics, external authentication (SAML, OIDC, JWT)
 - Custom dictionary files
-- Custom repositories
+- No security plugin
+- No import from custom repositories
 - Custom domains
 - Dynamic disk sizing
 
@@ -79,4 +80,5 @@ Free tier Aiven for OpenSearch services operate as follows:
 
 <RelatedPages/>
 
-[Create a free tier Aiven for OpenSearch service](/docs/products/opensearch/howto/create-free-tier-opensearch)
+- [Create a free tier Aiven for OpenSearch service](/docs/products/opensearch/howto/create-free-tier-opensearch)
+- [Aiven free tier services](/docs/platform/concepts/service-pricing#free-tier)

@@ -8,16 +8,17 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 You can create a free tier Aiven for OpenSearch® service to learn OpenSearch, test indexing and queries, or run small proof-of-concept workloads.
 
-For details about free tier features, capacity, and restrictions, see
-[Free tier service limitations](/docs/products/opensearch/concepts/opensearch-free-tier).
+For details about Aiven for OpenSearch free tier features, capacity, and restrictions, see
+[Aiven for OpenSearch free tier](/docs/products/opensearch/concepts/opensearch-free-tier).
 
 ## Prerequisites
 
 - Sign-up or sign-in using the [Aiven Console](https://console.aiven.io)
 - Aiven project
 
-:::note
-Each organization can have only one free tier Aiven for OpenSearch service.
+:::important
+Review
+[Aiven for OpenSearch free tier limitations](/docs/products/opensearch/concepts/opensearch-free-tier#limitations).
 :::
 
 ## Create a free tier service
@@ -84,4 +85,5 @@ Upgrades apply immediately. Paid services cannot be downgraded to the free tier.
 
 <RelatedPages />
 
-- [OpenSearch free tier overview](/docs/products/opensearch/concepts/opensearch-free-tier)
+- [Aiven for OpenSearch free tier overview](/docs/products/opensearch/concepts/opensearch-free-tier)
+- [Aiven free tier services](/docs/platform/concepts/service-pricing#free-tier)
