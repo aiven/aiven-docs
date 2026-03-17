@@ -8,7 +8,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 You can create a free tier Aiven for OpenSearch® service to learn OpenSearch, test indexing and queries, or run small proof-of-concept workloads.
 
-For details about throughput, capacity, and feature restrictions, see
+For details about free tier features, capacity, and restrictions, see
 [Free tier service limitations](/docs/products/opensearch/concepts/opensearch-free-tier).
 
 ## Prerequisites
@@ -24,13 +24,8 @@ Each organization can have only one free tier Aiven for OpenSearch service.
 
 1. In your project, click <ConsoleLabel name="services" />.
 1. Click **Create service**.
-1. Select **Aiven for Apache OpenSearch®**.
+1. Select **OpenSearch®**.
 1. In **Service tier**, select **Free**.
-   The free tier includes:
-   - Up to 250 KiB/s total throughput
-  - Fixed storage and performance limits
-  - Basic monitoring for metrics and logs
-  - A default OpenSearch version selected automatically
 1. Review the **Cloud** section.
    The cloud provider is managed automatically for the free tier. You can select only a
    region group.
@@ -77,7 +72,7 @@ You can upgrade the service at any time to
 To upgrade in the [Aiven Console](https://console.aiven.io) from the service overview:
 
 1. Open your service’s <ConsoleLabel name="overview" /> page.
-1. In **Service usage**, click **Upgrade**.
+1. In **Service plan usage**, click **Upgrade**.
 
 To upgrade in the [Aiven Console](https://console.aiven.io) from service settings:
 

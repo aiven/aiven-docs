@@ -22,9 +22,13 @@ more advanced features, choose a paid plan.
 
 ## What the free tier includes
 
-The free tier includes:
+The free tier features:
 
-- A managed Aiven for OpenSearch cluster with a fixed configuration
+- Managed Aiven for OpenSearch cluster with a fixed configuration
+- 4 GB RAM
+- 2 shards, maximum 20 shards per node
+- 50 consecutive connections
+- Snapshot retention up to 3 days
 - Sample dataset tools for testing indexing and search
 - Basic monitoring for metrics and logs
 
