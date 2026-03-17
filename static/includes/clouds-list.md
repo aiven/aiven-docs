@@ -664,6 +664,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>upcloud-de-fra</td>
     <td>Europe, Germany: Frankfurt</td>
   </tr>
+    <tr>
+    <td>europe</td>
+    <td>upcloud-dk-cph</td>
+    <td>Europe, Denmark: Copenhagen</td>
+  </tr>
   <tr>
     <td>europe</td>
     <td>upcloud-es-mad</td>
@@ -688,6 +693,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>europe</td>
     <td>upcloud-nl-ams</td>
     <td>Europe, Netherlands: Amsterdam</td>
+  </tr>
+    <tr>
+    <td>europe</td>
+    <td>upcloud-no-svg</td>
+    <td>Europe, Norway: Oslo</td>
   </tr>
   <tr>
     <td>europe</td>
