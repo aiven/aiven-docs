@@ -7,7 +7,11 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can grant [organization users](/docs/platform/howto/manage-org-users), [application users](/docs/platform/concepts/application-users), and [groups](/docs/platform/howto/manage-groups) access at the organization and project level through [roles and permissions](/docs/platform/concepts/permissions).
+You can grant [organization users](/docs/platform/howto/manage-org-users), [application users](/docs/platform/concepts/application-users), and [groups](/docs/platform/howto/manage-groups) access at the organization, organizational unit, and project level through [roles and permissions](/docs/platform/concepts/permissions).
+
+If you don't grant any roles or permissions to an organization user, they have the
+[default access level](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to the organization.
 
 :::important
 When you remove permissions from a user or group, service credentials are not changed.
@@ -15,9 +19,14 @@ Users can still directly access services if they know the service credentials. T
 this type of access, reset all service passwords.
 :::
 
-## Organization permissions
+## Organization and organizational unit permissions
 
-### Grant organization permissions to a user or group
+Grant permissions at the organization level for access to all
+organizational units and projects in the organization.
+Grant permissions at the organizational unit level to give users access to
+all projects in that unit.
+
+### Grant organization or unit permissions to a user or group
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -28,8 +37,11 @@ this type of access, reset all service passwords.
 
 1. Click **Grant permissions** and select **Grant to users** or **Grant to groups**.
 
-1. Select the users or groups, and the
-   [roles and permissions](/docs/platform/concepts/permissions) to grant.
+1. Select the users or groups to grant permissions to.
+
+1. In **Resource**, choose an organization or organizational unit.
+
+1. Select the [roles and permissions](/docs/platform/concepts/permissions) to grant.
 
 1. Click **Grant permissions**.
 
@@ -37,12 +49,17 @@ this type of access, reset all service passwords.
 <TabItem value="terraform" label="Terraform">
 
 Use [the `aiven_organization_permission` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_permission)
-and set the `resource_type` to `organization`.
+and set the `resource_type` to `organization` or `organization_unit`.
 
 </TabItem>
 </Tabs>
 
-### Change organization permissions for a user or group
+### Change organization or unit permissions for a user or group
+
+You can change the permissions granted at the organization or organizational unit level
+for a user or group. In the Aiven Console, you cannot change the resource for
+existing permissions. To change the resource, remove the existing permissions and
+grant the permissions for the other resource.
 
 1. In the organization, click **Admin**.
 
@@ -53,14 +70,12 @@ and set the `resource_type` to `organization`.
 
 1. Add or remove permissions and click **Save changes**.
 
-### Remove all organization-level roles and permissions
+### Remove all organization or unit-level roles and permissions
 
-You can remove all organization-level permissions that you granted to a user or group.
-After removing the permissions, organization users have the
-[default access level](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to the organization.
+You can remove all permissions that you granted to a user or group at the
+organization or organizational unit level.
 
-To remove all organization permissions for a user or group:
+To remove all organization and unit permissions for a user or group:
 
 1. In the organization, click **Admin**.
 
@@ -68,8 +83,6 @@ To remove all organization permissions for a user or group:
 
 1. For the user or group click <ConsoleLabel name="actions"/> >
    <ConsoleIcon name="delete"/> **Remove**.
-
-1. Click **Remove user** or **Remove group** to confirm.
 
 ### Make users super admin
 
@@ -139,5 +152,3 @@ To remove all permissions to a project:
 
 1. For the user or group click <ConsoleLabel name="actions"/> >
    <ConsoleIcon name="delete"/> **Remove**.
-
-1. Click **Remove user** or **Remove group** to confirm.
