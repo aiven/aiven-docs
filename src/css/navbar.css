@@ -51,3 +51,22 @@
 .navbar__title {
   display: none;
 }
+
+/* Dropdown container */
+.navbar__item .dropdown__menu {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
+/* Dropdown links */
+.dropdown__link {
+  padding: 12px 16px;
+  font-weight: 500;
+}
+
+.dropdown__link:hover {
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+}
