@@ -28,7 +28,7 @@ PG Studio supports:
 
 - **Schema visualization:** View your database structure as an interactive diagram
   showing tables, columns and relationships. Open it from **Open schema map** or request
-  it from the AI Assistant panel.
+  it from the **AI Assistant** panel.
 - **SQL editor:** Write and edit SQL across multiple tabs, and run queries to view results
   in the results panel.
 - **AI Assistant panel:** Describe what you need in natural language. The assistant
@@ -96,7 +96,7 @@ To open PG Studio:
 1. Click <ConsoleIcon name="aieditor" />.
 1. Select the source database and schema.
 
-PG Studio opens a split view with a SQL editor on the left and the AI Assistant
+PG Studio opens a split view with a SQL editor on the left and the **AI Assistant**
 panel on the right. Use the selectors at the top of the editor to switch the database
 source and schema.
 
@@ -139,7 +139,7 @@ This is useful for:
 
 ### Generate SQL with natural language
 
-1. In the AI Assistant panel, describe the query or result you need.
+1. In the **AI Assistant** panel, describe the query or result you need.
 1. Review the generated SQL in the SQL editor.
 1. Click **Run** to execute the query.
 
@@ -151,16 +151,20 @@ Example queries to try:
 - Find duplicate email addresses in the users table
 - List failed payment transactions from the last week with customer details
 
-### Ask for explanations
+### Ask AI about your query
 
-Use **Ask AI** in the AI Assistant panel to explain queries, break down joins and filters,
-and describe table relationships.
+Use **Ask AI** in the **AI Assistant** panel to explain queries or get a modified version
+of a highlighted SQL snippet.
 
 1. Paste a query into the SQL editor.
 1. Optional: Highlight the part of the query to focus on.
 1. Click **Ask AI** next to **Run selected**.
-1. In the AI Assistant panel, request an explanation.
-1. Review the explanation of tables, joins, filters, and logic.
+1. In the **AI Assistant** panel, enter your request.
+1. Review the explanation or updated SQL in the editor.
+
+When you highlight a snippet, the AI uses it as a focused context. You can ask for
+an explanation of that part or request changes to it, such as rewriting a filter
+or optimizing a subquery.
 
 You can **Ask AI** to:
 
@@ -169,10 +173,12 @@ You can **Ask AI** to:
 - Describe how JOIN operations combine data from multiple tables
 - Clarify the purpose of WHERE clauses and filters
 - Explain aggregate functions and GROUP BY operations
+- Rewrite or modify a highlighted part of a query
+- Optimize a selected subquery or filter condition
 
 ### Explore your schema
 
-1. Ask a schema question in the AI Assistant panel, such as how tables relate or what a
+1. Ask a schema question in the **AI Assistant** panel, such as how tables relate or what a
    column stores.
 1. Review the response or generated SQL.
 1. Click **Open schema map** to browse tables and relationships visually.
