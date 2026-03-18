@@ -41,7 +41,7 @@ Free tier services have the following restrictions.
 ### Performance and configuration limits
 
 - Max 20 shards per node
-- 50 consecutive connections
+- 50 concurrent connections
 - Fixed storage and performance limits
 - Fixed cluster settings
 
