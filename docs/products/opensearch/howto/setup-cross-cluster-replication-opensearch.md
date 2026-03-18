@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Set up cross-cluster replication (CCR) for your Aiven for OpenSearch service to synchronize data across regions and cloud providers efficiently.
 
 :::note
-Cross cluster replication is not available for the Hobbyist and Startup plans.
+Cross cluster replication is not available for the Free and Startup plans.
 :::
 
 ## Steps to set up CCR

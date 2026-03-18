@@ -24,7 +24,7 @@ new data entries, metadata, and configurations are replicated automatically.
 
 ## Limitations {#ccr-limitatons}
 
--   Cross cluster replication is not available for Hobbyist and Startup
+-   Cross cluster replication is not available for Free and Startup
     plans.
 -   During creation, the follower cluster service must have the same
     service plan as the leader cluster service. This ensures the

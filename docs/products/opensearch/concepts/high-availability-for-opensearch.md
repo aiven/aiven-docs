@@ -7,9 +7,9 @@ Aiven for OpenSearch® is available on a variety of plans, offering
 different levels of high availability. The selected plan defines the
 features available, and a summary is provided in the table below:
 
-| Plan         | High Availability Features                                  | Backup History                           |
+| Plan         | High availability features                                  | Backup history                           |
 | ------------ | ----------------------------------------------------------- | ---------------------------------------- |
-| **Hobbyist** | Single-node with limited availability                       | single backup for disaster recovery      |
+| **Free**     | Single-node with limited availability                       | Single backup for disaster recovery      |
 | **Startup**  | Single-node with limited availability                       | 2 days, with hourly backup for 24 hours  |
 | **Business** | Three-node cluster configured for high availability         | 14 days, with hourly backup for 24 hours |
 | **Premium**  | Six-node (or more) cluster configured for high availability | 30 days, with hourly backup for 24 hours |
@@ -69,7 +69,7 @@ clients will be routed to the promoted shards. All of this is automatic
 and requires no administrator intervention.
 :::
 
-## Single-node Hobbyist and Startup service plans
+## Single-node Free and Startup service plans
 
 Losing the only node from the service starts the automatic process of
 creating a new replacement node. The new node starts up, restores its

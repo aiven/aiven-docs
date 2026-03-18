@@ -190,7 +190,7 @@ For more information, refer to [MySQL Backups](/docs/products/mysql/concepts/mys
 Aiven for OpenSearch has daily and hourly options with different backup frequencies
 and retention periods depending on the service plan:
 
--   Hobbyist plans:
+-   Free plan:
     -   Single backup for disaster recovery
 -   Startup plans:
     -   Hourly backups with a 24-hour retention period
