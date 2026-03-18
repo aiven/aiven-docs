@@ -64,8 +64,8 @@ graph TB
         end
     end
 
-    C1 -.->|Queries and data| DN1
-    C1 -.->|Queries and data| DN2
+    C1 -.->|Client requests via<br/>internal DNS| DN1
+    C1 -.->|Client requests via<br/>internal DNS| DN2
 
     CM1 <-->|Cluster state<br/>coordination| CM2
     CM2 <-->|Cluster state<br/>coordination| CM3
@@ -110,12 +110,12 @@ Data nodes are responsible for:
 - Storing and indexing data
 - Executing search queries
 - Performing data aggregations
-- Processing ingest operations
+- Running ingest pipelines
 - Handling client requests
+- Coordinating distributed requests across the cluster
+- Providing internal DNS routing for cluster traffic
 
-Data nodes typically run on larger instances with more storage capacity and compute resources to handle data-intensive operations efficiently.
-
-
+In dedicated-role plans, each data node includes the data, ingest, coordinator, and internal DNS roles. Data nodes typically run on larger instances with more storage and compute resources for data-intensive operations.
 
 ### Cluster configuration
 
@@ -126,6 +126,8 @@ Dedicated node roles are defined at the service plan level. When you select a pl
 - The configuration is managed automatically by Aiven
 - Cluster manager nodes are excluded from DNS routing for client connections
 - Node roles are assigned during cluster creation and maintained throughout the cluster lifecycle
+- OpenSearch Dashboards is served on every node
+- Dedicated dashboard nodes are not included
 
 All standard service operations work with dedicated node roles, including service creation, major version upgrades, plan changes, service forking, and node replacement. The platform handles cluster manager node operations carefully to maintain cluster stability during updates.
 
@@ -133,10 +135,14 @@ All standard service operations work with dedicated node roles, including servic
 
 During maintenance or scaling operations:
 
-- Data nodes can be scaled independently to adjust cluster capacity
-- Cluster manager nodes are spawned and removed last during upgrades to maintain cluster coordination
-- Node failures are handled automatically with role-aware replacement
-- Disk space validation considers only data nodes, as cluster manager nodes do not store data
+- To increase data capacity, move to a dedicated-role plan with more or larger data nodes
+  while keeping the cluster manager layout unchanged.
+- Cluster manager nodes are replaced last during maintenance updates, including version
+  upgrades, to maintain cluster coordination.
+- Node failures are handled automatically with role-aware replacement.
+- Disk space validation and additional disk capacity apply only to data nodes, as cluster
+  manager nodes do not store data. This makes adding disk space more cost-efficient
+  compared to scaling disk across all nodes.
 
 ## Manage dedicated node roles
 
