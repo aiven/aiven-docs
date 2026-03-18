@@ -54,7 +54,7 @@ Enable the **Karapace schema registry** for the Kafka service. See
 Create the following environment variables to connect to the Aiven for Apache Kafka and
 Karapace services:
 
-- `KAFKA_SERVICE_URL`: Service URL of the Kafka service
+- `KAFKA_BOOTSTRAP_SERVERS`: Service URL of the Kafka service
 - `SCHEMA_REGISTRY_URL`: Service URI of the schema registry
 - `SCHEMA_REGISTRY_USERNAME`: Username for the schema registry
 - `SCHEMA_REGISTRY_PASSWORD`: Password for the schema registry
@@ -112,9 +112,9 @@ to start the **Logistics** data generator.
 
 Set the following environment variables:
 
-- `CA_PEM_CONTENTS`: Contents of the `ca.pem` file
+- `KAFKA_CA_CERT`: Contents of the `ca.pem` file
 - `SERVICE_CERT_CONTENTS`: Contents of the `service.cert` file
-- `SERVICE_KEY_CONTENTS`: Contents of the `service.key` file
+- `KAFKA_ACCESS_KEY`: Contents of the `service.key` file
 
 Set these variables by sourcing the `prep_cert_env.sh` script in the cloned
 repository:
@@ -136,10 +136,10 @@ source prep_cert_env.sh
 
    ```shell
    docker run -d --name kafka-streams-container -p 3000:3000 \
-           -e KAFKA_SERVICE_URL=$KAFKA_SERVICE_URL \
-           -e CA_PEM_CONTENTS="$CA_PEM_CONTENTS" \
+           -e KAFKA_BOOTSTRAP_SERVERS=$KAFKA_BOOTSTRAP_SERVERS \
+           -e KAFKA_CA_CERT="$KAFKA_CA_CERT" \
            -e SERVICE_CERT_CONTENTS="$SERVICE_CERT_CONTENTS" \
-           -e SERVICE_KEY_CONTENTS="$SERVICE_KEY_CONTENTS" \
+           -e KAFKA_ACCESS_KEY="$KAFKA_ACCESS_KEY" \
            -e SCHEMA_REGISTRY_URL=$SCHEMA_REGISTRY_URL \
            -e SCHEMA_REGISTRY_USERNAME=$SCHEMA_REGISTRY_USERNAME \
            -e SCHEMA_REGISTRY_PASSWORD=$SCHEMA_REGISTRY_PASSWORD \
