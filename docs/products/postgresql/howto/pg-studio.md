@@ -155,9 +155,6 @@ This is useful for:
 1. Review the generated SQL in the SQL editor.
 1. Click **Run** to execute the query.
 
-You can use **Ask AI** to describe your needs in plain language. The assistant interprets
-your request and generates appropriate SQL based on your database schema.
-
 Example queries to try:
 
 - Show monthly active users for the last 6 months
@@ -165,12 +162,6 @@ Example queries to try:
 - List customers who placed orders in the last 30 days
 - Find duplicate email addresses in the users table
 - List failed payment transactions from the last week with customer details
-
-You can also **Ask AI** questions about your database structure:
-
-- What columns are in the users table?
-- How are the orders and customers tables related?
-- What data types are used in the products table?
 
 ### Ask for explanations
 
@@ -197,10 +188,3 @@ You can **Ask AI** to:
    column stores.
 1. Review the response or generated SQL.
 1. Click **Open schema map** to browse tables and relationships visually.
-
-Use **Ask AI** to understand your database structure:
-
-- Ask about table relationships and foreign key connections
-- Get descriptions of column purposes and data types
-- Learn about indexes and constraints
-- Understand the overall structure of your database schema
