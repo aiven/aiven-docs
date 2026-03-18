@@ -50,9 +50,9 @@ When you enter a prompt:
 You can also ask the assistant to describe table relationships or break down complex
 queries.
 
-### Use Ask AI
+### Use **Ask AI**
 
-The Ask AI capability in the AI Assistant panel lets you get help with SQL queries
+The **Ask AI** capability in the AI Assistant panel lets you get help with SQL queries
 and database questions in natural language. You can:
 
 - **Generate queries:** Describe what data you need, and the assistant creates the SQL
@@ -65,6 +65,16 @@ and database questions in natural language. You can:
 
 The AI Assistant uses your database schema as context for all responses, providing
 accurate and relevant suggestions specific to your data structure.
+
+When you work in the SQL editor, you can also click **Ask AI** in the floating
+statement actions next to **Run selected**. PG Studio opens the AI Assistant panel,
+attaches SQL context, and focuses the input.
+
+PG Studio sends SQL context in two parts:
+
+- The full active SQL statement for complete context, including aliases, CTEs,
+  and joins.
+- Any highlighted SQL snippet as a separate focus area.
 
 ### Query execution
 
@@ -145,7 +155,7 @@ This is useful for:
 1. Review the generated SQL in the SQL editor.
 1. Click **Run** to execute the query.
 
-You can use Ask AI to describe your needs in plain language. The assistant interprets
+You can use **Ask AI** to describe your needs in plain language. The assistant interprets
 your request and generates appropriate SQL based on your database schema.
 
 Example queries to try:
@@ -156,7 +166,7 @@ Example queries to try:
 - Find duplicate email addresses in the users table
 - List failed payment transactions from the last week with customer details
 
-You can also Ask AI questions about your database structure:
+You can also **Ask AI** questions about your database structure:
 
 - What columns are in the users table?
 - How are the orders and customers tables related?
@@ -164,14 +174,16 @@ You can also Ask AI questions about your database structure:
 
 ### Ask for explanations
 
-Use Ask AI in the AI Assistant panel to explain queries, break down joins and filters,
+Use **Ask AI** in the AI Assistant panel to explain queries, break down joins and filters,
 and describe table relationships.
 
 1. Paste a query into the SQL editor.
+1. Optional: Highlight the part of the query to focus on.
+1. Click **Ask AI** next to **Run selected**.
 1. In the AI Assistant panel, request an explanation.
 1. Review the explanation of tables, joins, filters, and logic.
 
-You can Ask AI to:
+You can **Ask AI** to:
 
 - Explain what a specific SQL query does in plain language
 - Break down complex queries into simpler steps
@@ -186,7 +198,7 @@ You can Ask AI to:
 1. Review the response or generated SQL.
 1. Click **Open schema map** to browse tables and relationships visually.
 
-Use Ask AI to understand your database structure:
+Use **Ask AI** to understand your database structure:
 
 - Ask about table relationships and foreign key connections
 - Get descriptions of column purposes and data types
