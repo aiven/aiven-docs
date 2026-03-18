@@ -67,6 +67,8 @@ CPU/MS
 CPUs?
 cqlsh
 CRD
+CTE
+CTEs
 cron
 cutover
 Cutover
