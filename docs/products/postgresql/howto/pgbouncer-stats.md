@@ -16,7 +16,7 @@ You can access PgBouncer statistics in two ways:
 - **Through metrics integrations** (recommended): PgBouncer statistics are automatically
   exported as standard metrics, available through any
   [metrics integration](/docs/platform/concepts/service-integration) Aiven supports, such
-  as Datadog, Grafana, Prometheus, or CloudWatch.
+  as Datadog, Prometheus, or CloudWatch.
 - **Direct database connection**: Connect to PgBouncer and run the `SHOW STATS` command to
   view statistics directly.
 
@@ -40,8 +40,6 @@ The following statistics are available:
 - `total_server_parse_count` - Total number of server-side parse operations
 - `avg_xact_count` - Average transactions per second
 - `avg_query_count` - Average queries per second
-- `avg_recv` - Average received bytes
-- `avg_sent` - Average sent bytes
 - `avg_xact_time` - Average transaction time in microseconds
 - `avg_query_time` - Average query time in microseconds
 - `avg_wait_time` - Average wait time in microseconds
@@ -52,8 +50,14 @@ The following statistics are available:
 
 ### Metric format
 
-Metrics are exported in InfluxDB line protocol format and include tags for cloud, database,
-host, instance, project, service, and service type. Example:
+Metrics are exported in InfluxDB line protocol format and include the following tags:
+`cloud`, `db`, `host`, `instance`, `project`, `service`, and `service_type`.
+
+The `instance` tag distinguishes between metrics from different PgBouncer processes.
+For example, if a service runs two PgBouncer processes, their metrics have `instance` set
+to `pgbouncer_1` and `pgbouncer_2`.
+
+Example:
 
 ```text
 pgbouncer,cloud=google-europe-west1,db=pool1,host=ae-pg-1,instance=pgbouncer_1,project=testproject,service=ae-pg,service_type=pg avg_query_time=383i,total_query_count=33i,total_wait_time=43703i,avg_wait_time=0i 1773830989000000000
@@ -67,7 +71,7 @@ To access PgBouncer metrics through integrations:
   [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog)
   to enable PgBouncer monitoring.
 - **Other integrations**: Set up any
-  [metrics integration](/docs/platform/concepts/service-integration) (Grafana, Prometheus,
+  [metrics integration](/docs/platform/concepts/service-integration) (Prometheus,
   CloudWatch) for your PostgreSQL service. PgBouncer metrics are automatically included.
 
 ## Access statistics through direct connection
