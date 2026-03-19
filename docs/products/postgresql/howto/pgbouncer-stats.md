@@ -13,17 +13,18 @@ PgBouncer is used at Aiven as a [connection pooler](/docs/products/postgresql/co
 
 You can access PgBouncer statistics in two ways:
 
-- **Through metrics integrations** (recommended): PgBouncer statistics are automatically
-  exported as standard metrics, available through any
-  [metrics integration](/docs/platform/concepts/service-integration) Aiven supports, such
-  as Datadog, Prometheus, or CloudWatch.
+- **Through integration endpoints** (recommended): PgBouncer statistics are automatically
+  exported as standard metrics that you can send to Datadog, Prometheus, or CloudWatch
+  through [integration endpoints](/docs/platform/howto/integration-endpoints) and the
+  related service integrations.
 - **Direct database connection**: Connect to PgBouncer and run the `SHOW STATS` command to
   view statistics directly.
 
-## Access statistics through metrics integrations
+## Access statistics through integration endpoints
 
-Aiven exports PgBouncer `SHOW STATS` results as standard metrics, making them available
-through any metrics integration without connecting to the database.
+Aiven exports PgBouncer `SHOW STATS` results as standard metrics. You can send them to
+external monitoring systems through integration endpoints and the related service
+integrations, without connecting to the database.
 
 The following statistics are available:
 
@@ -50,14 +51,14 @@ The following statistics are available:
 
 ### Metric format
 
-Metrics are exported in InfluxDB line protocol format and include the following tags:
-`cloud`, `db`, `host`, `instance`, `project`, `service`, and `service_type`.
+PgBouncer metrics use the native format for each metrics integration.
+
+When you send PgBouncer metrics to Aiven for Metrics with an InfluxDB-compatible endpoint, Aiven exports them in InfluxDB line protocol format. In this case metrics include the following tags: `cloud`, `db`, `host`, `instance`, `project`, `service`, and `service_type`.
 
 The `instance` tag distinguishes between metrics from different PgBouncer processes.
-For example, if a service runs two PgBouncer processes, their metrics have `instance` set
-to `pgbouncer_1` and `pgbouncer_2`.
+For example, if a service runs two PgBouncer processes, their metrics have `instance` set to `pgbouncer_1` and `pgbouncer_2`.
 
-Example:
+The following example shows the InfluxDB line protocol output:
 
 ```text
 pgbouncer,cloud=google-europe-west1,db=pool1,host=ae-pg-1,instance=pgbouncer_1,project=testproject,service=ae-pg,service_type=pg avg_query_time=383i,total_query_count=33i,total_wait_time=43703i,avg_wait_time=0i 1773830989000000000
