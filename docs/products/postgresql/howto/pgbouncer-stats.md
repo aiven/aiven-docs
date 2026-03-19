@@ -53,7 +53,7 @@ The following statistics are available:
 
 PgBouncer metrics use the native format for each metrics integration.
 
-When you send PgBouncer metrics to Aiven for Metrics with an InfluxDB-compatible endpoint, Aiven exports them in InfluxDB line protocol format. In this case metrics include the following tags: `cloud`, `db`, `host`, `instance`, `project`, `service`, and `service_type`.
+When you send PgBouncer metrics to Aiven for Metrics with an InfluxDB-compatible endpoint, Aiven exports them in InfluxDB line protocol format. In this case, metrics include the following tags: `cloud`, `db`, `host`, `instance`, `project`, `service`, and `service_type`.
 
 The `instance` tag distinguishes between metrics from different PgBouncer processes.
 For example, if a service runs two PgBouncer processes, their metrics have `instance` set to `pgbouncer_1` and `pgbouncer_2`.
@@ -115,7 +115,7 @@ postgres://avnadmin:xxxxxxxxxxx@demo-pg-dev-advocates.aivencloud.com:13040/pgbou
 
 To connect to PgBouncer, use the [extracted URI](#extract-pgbouncer-uri):
 
-```sql
+```bash
 psql 'EXTRACTED_PGBOUNCER_URI'
 ```
 
@@ -136,9 +136,9 @@ psql 'EXTRACTED_PGBOUNCER_URI'
 Depending on the load of your database, expect an output similar to the following:
 
 ```text
-database  | total_xact_count | total_query_count | total_received | total_sent | total_xact_time | total_query_time | total_wait_time | avg_xact_count | avg_query_count | avg_recv | avg_sent | avg_xact_time | avg_query_time | avg_wait_time
-----------+------------------+-------------------+----------------+------------+-----------------+------------------+-----------------+----------------+-----------------+----------+----------+---------------+----------------+---------------
-pgbouncer |                1 |                 1 |              0 |          0 |               0 |                0 |               0 |              0 |               0 |        0 |        0 |             0 |              0 |             0
+database  | total_xact_count | total_query_count | total_received | total_sent | total_xact_time | total_query_time | total_wait_time | avg_xact_count | avg_query_count | avg_xact_time | avg_query_time | avg_wait_time
+----------+------------------+-------------------+----------------+------------+-----------------+------------------+-----------------+----------------+-----------------+---------------+----------------+---------------
+pgbouncer |                1 |                 1 |              0 |          0 |               0 |                0 |               0 |              0 |               0 |             0 |              0 |             0
 (1 row)
 ```
 
