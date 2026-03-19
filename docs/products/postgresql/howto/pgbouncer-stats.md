@@ -15,7 +15,7 @@ You can access PgBouncer statistics in two ways:
 
 - **Through integration endpoints**: This is the recommended option. PgBouncer statistics are
   exported as standard metrics that you can send to Datadog, Prometheus, or CloudWatch by
-  using [integration endpoints](/docs/platform/howto/integration-endpoints) and related
+  using [integration endpoints](/docs/platform/howto/list-monitoring) and related
   service integrations.
 - **Direct database connection**: Connect to PgBouncer and run the `SHOW STATS` command to
   view statistics directly.
@@ -72,7 +72,7 @@ To access PgBouncer metrics through integrations:
   [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog)
   to enable PgBouncer monitoring.
 - **Other integrations**: Set up any
-  [metrics integration](/docs/platform/concepts/service-integration), such as Prometheus
+  [metrics integration](/docs/platform/howto/list-monitoring), such as Prometheus
   or CloudWatch, for your PostgreSQL service. PgBouncer metrics are automatically included.
 
 ## Access statistics through direct connection
