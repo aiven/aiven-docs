@@ -7,6 +7,10 @@ import VerifyPasswordEncryption from "@site/static/includes/pg-password-encrypti
 
 Connection pooling in Aiven for PostgreSQL® services allows you to maintain very large numbers of connections to a database while minimizing the consumption of server resources.
 
+:::note
+Connection pooling requires a startup plan or higher.
+:::
+
 <VerifyPasswordEncryption/>
 
 ## About connection pooling
