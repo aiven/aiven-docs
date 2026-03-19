@@ -6,6 +6,10 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling) lets you maintain very large numbers of connections to a database while minimizing the consumption of server resources.
 
+:::note
+Connection pooling requires a startup plan or higher.
+:::
+
 ## Connection pooling tips
 
 You can connect directly to the PostgreSQL® server using the **Service
@@ -76,12 +80,12 @@ same as for the primary server, except that the host name has a
 
 For example, if the primary connection URI is as follows:
 
-```
+```txt
 postgres://avnadmin:password@pg-prod-myproject.aivencloud.com:20986/mypool?params
 ```
 
 The replica connection pool URI is as follows:
 
-```
+```txt
 postgres://avnadmin:password@replica-pg-prod-myproject.aivencloud.com:20986/mypool?params
 ```
