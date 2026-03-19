@@ -15,8 +15,8 @@ You can access PgBouncer statistics in two ways:
 
 - **Through metrics integrations** (recommended): PgBouncer statistics are automatically
   exported as standard metrics, available through any
-  [metrics integration](/docs/integrations) Aiven supports, such as Datadog, Grafana,
-  Prometheus, or CloudWatch.
+  [metrics integration](/docs/platform/concepts/service-integration) Aiven supports, such
+  as Datadog, Grafana, Prometheus, or CloudWatch.
 - **Direct database connection**: Connect to PgBouncer and run the `SHOW STATS` command to
   view statistics directly.
 
@@ -66,9 +66,9 @@ To access PgBouncer metrics through integrations:
 - **Datadog**: Follow
   [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog)
   to enable PgBouncer monitoring.
-- **Other integrations**: Set up any [metrics integration](/docs/integrations) (Grafana,
-  Prometheus, CloudWatch) for your PostgreSQL service. PgBouncer metrics are automatically
-  included.
+- **Other integrations**: Set up any
+  [metrics integration](/docs/platform/concepts/service-integration) (Grafana, Prometheus,
+  CloudWatch) for your PostgreSQL service. PgBouncer metrics are automatically included.
 
 ## Access statistics through direct connection
 
