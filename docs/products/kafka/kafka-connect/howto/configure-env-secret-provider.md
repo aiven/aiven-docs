@@ -185,9 +185,9 @@ If you need to store a JSON credential as a secret:
 
 ```json
 {
-  "username": "user",
-  "password": "p@ssw0rd",
-  "api_key": "sk-1234567890"
+  "username": "USER_NAME",
+  "password": "PASSWORD",
+  "api_key": "API_KEY_VALUE"
 }
 ```
 
@@ -198,7 +198,8 @@ echo '{"username":"user","password":"p@ssw0rd","api_key":"sk-1234567890"}' | bas
 ```
 
 Output example:
-```
+
+```txt
 eyJ1c2VybmFtZSI6InVzZXIiLCJwYXNzd29yZCI6InBAc3N3MHJkIiwiYXBpX2tleSI6InNrLTEyMzQ1Njc4OTAifQ==
 ```
 
@@ -219,7 +220,7 @@ curl --request PUT \
           "name": "api_credentials",
           "env": {
             "secrets": {
-              "api_config": "ENV-base64:eyJ1c2VybmFtZSI6InVzZXIiLCJwYXNzd29yZCI6InBAc3N3MHJkIiwiYXBpX2tleSI6InNrLTEyMzQ1Njc4OTAifQ=="
+              "api_config": "ENV-base64:BASE64_ENCODED_VALUE"
             }
           }
         }
@@ -243,7 +244,7 @@ resource "aiven_kafka_connect" "kafka_connect" {
       name = "api_credentials"
       env {
         secrets = {
-          api_config = "ENV-base64:eyJ1c2VybmFtZSI6InVzZXIiLCJwYXNzd29yZCI6InBAc3N3MHJkIiwiYXBpX2tleSI6InNrLTEyMzQ1Njc4OTAifQ=="
+          api_config = "ENV-base64:BASE64_ENCODED_VALUE"
         }
       }
     }
@@ -261,7 +262,7 @@ avn service update SERVICE_NAME \
       "name": "api_credentials",
       "env": {
         "secrets": {
-          "api_config": "ENV-base64:eyJ1c2VybmFtZSI6InVzZXIiLCJwYXNzd29yZCI6InBAc3N3MHJkIiwiYXBpX2tleSI6InNrLTEyMzQ1Njc4OTAifQ=="
+          "api_config": "ENV-base64:BASE64_ENCODED_VALUE"
         }
       }
     }
