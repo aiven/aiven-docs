@@ -94,10 +94,8 @@ To open PG Studio:
 1. Click <ConsoleIcon name="aieditor" />.
 1. Select the source database and schema.
 
-PG Studio opens a split view with a SQL editor on the left and the **AI Assistant**
-panel on the right. Use the selectors at the top of the editor to switch the database
-source and schema.
-
+PG Studio opens a split view that shows the SQL editor and the **AI Assistant**
+panel. Use the editor selectors to change the database source and schema.
 ### Write SQL manually
 
 1. In the SQL editor, enter your query.
@@ -151,7 +149,7 @@ Example queries to try:
 
 ### Ask AI about your query
 
-Use **Ask AI** next to **Run selected** in the SQL editor to explain queries or get a modified version of a highlighted SQL snippet in the **AI Assistant** panel.
+Use **Ask AI** in the SQL editor to explain queries. It can also create a modified version of a highlighted SQL snippet in the **AI Assistant** panel.
 
 1. Paste a query into the SQL editor.
 1. Optional: Highlight the part of the query to focus on.
