@@ -177,149 +177,22 @@ const config: Config = {
       },
       items: [
         {
-          type: 'dropdown',
+          type: 'docSidebar',
           position: 'left',
           label: 'Platform',
-          to: '/docs/get-started',
-          items: [
-            {
-              type: 'doc',
-              docId: 'get-started',
-              label: 'Get started',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/concepts/orgs-units-projects',
-              label: 'Organizations, units, and projects',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/concepts/billing-and-payment',
-              label: 'Billing and payment',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/concepts/user-access-management',
-              label: 'User and access management',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/howto/list-authentication',
-              label: 'Authentication',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/howto/list-identity-providers',
-              label: 'Identity providers and domains',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/concepts/cloud-security',
-              label: 'Networking and security',
-            },
-          ],
+          sidebarId: 'main',
         },
         {
-          type: 'dropdown',
+          type: 'docSidebar',
           position: 'left',
           label: 'Services',
-          to: '/docs/products/services',
-          items: [
-            {
-              type: 'doc',
-              docId: 'products/flink',
-              label: 'Apache Flink®',
-            },
-            {
-              type: 'doc',
-              docId: 'products/kafka',
-
-              label: 'Apache Kafka®',
-            },
-            {
-              type: 'doc',
-              docId: 'products/clickhouse',
-              label: 'ClickHouse®',
-            },
-            {
-              type: 'doc',
-              docId: 'products/dragonfly',
-              label: 'Dragonfly',
-            },
-            {
-              type: 'doc',
-              docId: 'products/grafana',
-              label: 'Grafana®',
-            },
-            {
-              type: 'doc',
-              docId: 'products/metrics',
-              label: 'Metrics',
-            },
-            {
-              type: 'doc',
-              docId: 'products/mysql',
-              label: 'MySQL®',
-            },
-            {
-              type: 'doc',
-              docId: 'products/opensearch',
-              label: 'OpenSearch®',
-            },
-            {
-              type: 'doc',
-              docId: 'products/postgresql',
-              label: 'PostgreSQL®',
-            },
-            {
-              type: 'doc',
-              docId: 'products/valkey',
-              label: 'Valkey™',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/howto/list-service',
-              label: 'Service management',
-            },
-            {
-              type: 'doc',
-              docId: 'platform/concepts/service-integration',
-              label: 'Service integrations',
-            },
-          ],
+          sidebarId: 'services',
         },
         {
-          type: 'dropdown',
+          type: 'docSidebar',
           position: 'left',
           label: 'Tools',
-          to: '/docs/tools',
-          items: [
-            {
-              type: 'doc',
-              docId: 'tools/api',
-              label: 'API',
-            },
-            {
-              type: 'doc',
-              docId: 'tools/terraform',
-              label: 'Terraform Provider',
-            },
-            {
-              type: 'doc',
-              docId: 'tools/kubernetes',
-              label: 'Kubernetes Operator',
-            },
-            {
-              type: 'doc',
-              docId: 'tools/cli',
-              label: 'CLI',
-            },
-            {
-              type: 'doc',
-              docId: 'tools/query-optimizer',
-              label: 'SQL query optimizer',
-            },
-          ],
+          sidebarId: 'tools',
         },
         {
           label: 'Aiven Console',
