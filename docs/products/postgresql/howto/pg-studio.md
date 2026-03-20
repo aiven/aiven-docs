@@ -59,7 +59,7 @@ When you work in the SQL editor, click **Ask AI** for the current statement. PG 
 attaches SQL context, and focuses the input.
 PG Studio sends SQL context in two parts:
 
-- The full active SQL statement for context, including aliases, CTEs, and joins.
+- The full active SQL statement for context, including aliases, common table expressions (CTEs), and joins.
 - Any highlighted SQL snippet as a separate focus area.
 
 ### Executing queries
@@ -165,9 +165,9 @@ You can **Ask AI** to:
 
 - Explain what a specific SQL query does in plain language
 - Break down complex queries into simpler steps
-- Describe how JOIN operations combine data from multiple tables
-- Clarify the purpose of WHERE clauses and filters
-- Explain aggregate functions and GROUP BY operations
+- Describe how `JOIN` operations combine data from multiple tables
+- Clarify the purpose of `WHERE` clauses and filters
+- Explain aggregate functions and `GROUP BY` operations
 - Rewrite or modify a highlighted part of a query
 - Optimize a selected subquery or filter condition
 
