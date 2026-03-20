@@ -174,7 +174,7 @@ secrets in memory only when a connector resolves them at runtime.
 If your secret value contains complex strings such as JSON, use base64 encoding to
 avoid escaping issues.
 
-Use the format `ENV-base64:<base64-encoded-value>`. The secret provider automatically
+Use the format `ENV-base64:BASE64_ENCODED_VALUE`. The secret provider automatically
 decodes base64-encoded values at runtime.
 
 ### Example: JSON credential
