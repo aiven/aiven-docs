@@ -168,3 +168,109 @@ provider.
 
 The ENV secret provider stores secrets in encrypted form at rest. The service decrypts
 secrets in memory only when a connector resolves them at runtime.
+
+## Base64 encoding for complex secret values
+
+If your secret value contains complex strings such as JSON, use base64 encoding to
+avoid escaping issues.
+
+Use the format `ENV-base64:BASE64_ENCODED_VALUE`. The secret provider automatically
+decodes base64-encoded values at runtime.
+
+### Example: JSON credential
+
+If you need to store a JSON credential as a secret:
+
+1. Create your JSON value:
+
+```json
+{
+  "username": "USER_NAME",
+  "password": "PASSWORD",
+  "api_key": "API_KEY_VALUE"
+}
+```
+
+2. Encode it with base64:
+
+```sh
+echo '{"username":"user","password":"p@ssw0rd","api_key":"sk-1234567890"}' | base64
+```
+
+Output example:
+
+```txt
+eyJ1c2VybmFtZSI6InVzZXIiLCJwYXNzd29yZCI6InBAc3N3MHJkIiwiYXBpX2tleSI6InNrLTEyMzQ1Njc4OTAifQ==
+```
+
+3. Add the encoded value to your secret provider configuration with the `ENV-base64:` prefix:
+
+<Tabs groupId="base64-secret-config">
+<TabItem value="api" label="API" default>
+
+```sh
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
+  --header 'Authorization: Bearer AIVEN_API_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "user_config": {
+      "secret_providers": [
+        {
+          "name": "api_credentials",
+          "env": {
+            "secrets": {
+              "api_config": "ENV-base64:BASE64_ENCODED_VALUE"
+            }
+          }
+        }
+      ]
+    }
+  }'
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+```hcl
+resource "aiven_kafka_connect" "kafka_connect" {
+  project      = var.project_name
+  cloud_name   = var.cloud_name
+  plan         = var.plan
+  service_name = var.service_name
+
+  kafka_connect_user_config {
+    secret_providers {
+      name = "api_credentials"
+      env {
+        secrets = {
+          api_config = "ENV-base64:BASE64_ENCODED_VALUE"
+        }
+      }
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+```sh
+avn service update SERVICE_NAME \
+  -c secret_providers='[
+    {
+      "name": "api_credentials",
+      "env": {
+        "secrets": {
+          "api_config": "ENV-base64:BASE64_ENCODED_VALUE"
+        }
+      }
+    }
+  ]'
+```
+
+</TabItem>
+</Tabs>
+
+The secret provider automatically decodes the base64 value and resolves it to the
+original value when a connector references the secret.
