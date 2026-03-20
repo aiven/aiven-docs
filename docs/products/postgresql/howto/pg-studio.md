@@ -96,6 +96,7 @@ To open PG Studio:
 
 PG Studio opens a split view that shows the SQL editor and the **AI Assistant**
 panel. Use the editor selectors to change the database source and schema.
+
 ### Write SQL manually
 
 1. In the SQL editor, enter your query.
