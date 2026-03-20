@@ -42,8 +42,8 @@ CLI commands to run from the terminal. To get the code on your machine and try t
     :::note
     The repository includes a recipe dataset (`full_format_recipes.json`) from
     [Kaggle](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json).
-    If you encounter an "extra data" error when loading the data, you can download a fresh
-    copy from Kaggle and replace the file in the repository.
+    If you encounter an `extra data` error when you load the data, download a fresh copy from Kaggle.
+    Replace the file in the repository.
     :::
 
 ### Connect to the OpenSearch cluster with Python
