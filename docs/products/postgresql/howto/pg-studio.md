@@ -55,11 +55,12 @@ language. You can:
 The AI Assistant uses your database schema as context for all responses, providing
 accurate and relevant suggestions specific to your data structure.
 
-When you work in the SQL editor, click **Ask AI** for the current statement. PG Studio opens the **AI Assistant** panel,
-attaches SQL context, and focuses the input.
+When you work in the SQL editor, click **Ask AI** for the current statement. PG Studio
+opens the **AI Assistant** panel, attaches SQL context, and focuses the input.
 PG Studio sends SQL context in two parts:
 
-- The full active SQL statement for context, including aliases, common table expressions (CTEs), and joins.
+- The full active SQL statement for context, including aliases, common table expressions
+  (CTEs), and joins.
 - Any highlighted SQL snippet as a separate focus area.
 
 ### Executing queries
@@ -150,13 +151,16 @@ Example queries to try:
 
 ### Ask AI about your query
 
-Use **Ask AI** in the SQL editor to explain queries. It can also create a modified version of a highlighted SQL snippet in the **AI Assistant** panel.
+Use **Ask AI** in the SQL editor to explain queries or create a modified version of your
+SQL. The AI response and any updated SQL appear in the **AI Assistant** panel.
 
 1. Paste a query into the SQL editor.
 1. Optional: Highlight the part of the query to focus on.
 1. Click **Ask AI** in the SQL editor.
 1. In the **AI Assistant** panel, enter your request.
-1. Review the explanation or updated SQL in the editor.
+1. Review the explanation or updated SQL in the **AI Assistant** panel.
+1. Optional: Click **Run query** in the **AI Assistant** panel to move the updated SQL to
+   the editor and execute it.
 
 When you highlight a snippet, the AI uses it as a focused context. You can ask for
 an explanation of that part or request changes to it, such as rewriting a filter
@@ -174,7 +178,7 @@ You can **Ask AI** to:
 
 ### Explore your schema
 
-1. Ask a schema question in the **AI Assistant** panel, such as how tables relate or what a
-   column stores.
+1. Ask a schema question in the **AI Assistant** panel, such as how tables relate or what
+   a column stores.
 1. Review the response or generated SQL.
 1. Click **Open schema map** to browse tables and relationships visually.
