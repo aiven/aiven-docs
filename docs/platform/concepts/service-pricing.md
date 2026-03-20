@@ -49,9 +49,15 @@ to a more appropriately sized VM if one becomes available from the cloud provide
 
 ### Free tier
 
-The Free tier is available for Aiven for Apache Kafka®, Aiven for PostgreSQL®,
-Aiven for MySQL®, and Aiven for Valkey™ services. You don't need a credit card to sign up
-and you can use them indefinitely free of charge.
+The Free tier is available for the following service types:
+
+- Aiven for Apache Kafka®
+- Aiven for MySQL®
+- Aiven for OpenSearch®
+- Aiven for PostgreSQL®
+- Aiven for Valkey™
+
+You don't need a credit card to sign up and you can use them indefinitely free of charge.
 
 <FreeTierDisclaimer/>
 You can run free services alongside a [free 30-day trial](#free-trials)
@@ -62,8 +68,9 @@ The following pages have more information about the features and limitations
 for each service available on the Free tier:
 
 - [Aiven for Apache Kafka® free tier](/docs/products/kafka/free-tier/kafka-free-tier)
-- [Aiven for PostgreSQL® free tier](/docs/products/postgresql/concepts/pg-free-tier)
 - [Aiven for MySQL® free tier](/docs/products/mysql/concepts/mysql-free-tier)
+- [Aiven for OpenSearch® free tier](/docs/products/opensearch/concepts/opensearch-free-tier)
+- [Aiven for PostgreSQL® free tier](/docs/products/postgresql/concepts/pg-free-tier)
 - [Aiven for Valkey™ free tier](/docs/products/valkey/concepts/valkey-free-tier)
 
 You can upgrade your free service to a paid plan at any time by adding

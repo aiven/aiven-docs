@@ -1555,6 +1555,34 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/get-started',
                 'products/opensearch/howto/sample-dataset',
+                'products/opensearch/concepts/access_control',
+                {
+                  type: 'category',
+                  label: 'Security',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/concepts/os-security',
+                  },
+                  items: [
+                    'products/opensearch/concepts/opensearch-security-considerations',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Indices',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/concepts/indices',
+                  },
+                  items: [
+                    'products/opensearch/concepts/index-replication',
+                    'products/opensearch/concepts/when-create-index',
+                  ],
+                },
+
+                'products/opensearch/concepts/aggregations',
+                'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
               ],
             },
@@ -1562,6 +1590,8 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'How to connect',
               items: [
+                'products/opensearch/howto/create-free-tier-opensearch',
+                'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
                   label: 'Connect to service',
