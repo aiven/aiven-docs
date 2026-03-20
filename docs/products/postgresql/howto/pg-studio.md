@@ -55,10 +55,8 @@ language. You can:
 The AI Assistant uses your database schema as context for all responses, providing
 accurate and relevant suggestions specific to your data structure.
 
-When you work in the SQL editor, you can also click **Ask AI** in the floating
-statement actions next to **Run selected**. PG Studio opens the **AI Assistant** panel,
+When you work in the SQL editor, click **Ask AI** for the current statement. PG Studio opens the **AI Assistant** panel,
 attaches SQL context, and focuses the input.
-
 PG Studio sends SQL context in two parts:
 
 - The full active SQL statement for context, including aliases, CTEs, and joins.
@@ -153,12 +151,11 @@ Example queries to try:
 
 ### Ask AI about your query
 
-Use **Ask AI** in the **AI Assistant** panel to explain queries or get a modified version
-of a highlighted SQL snippet.
+Use **Ask AI** next to **Run selected** in the SQL editor to explain queries or get a modified version of a highlighted SQL snippet in the **AI Assistant** panel.
 
 1. Paste a query into the SQL editor.
 1. Optional: Highlight the part of the query to focus on.
-1. Click **Ask AI** next to **Run selected**.
+1. Click **Ask AI** in the SQL editor.
 1. In the **AI Assistant** panel, enter your request.
 1. Review the explanation or updated SQL in the editor.
 
