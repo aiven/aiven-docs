@@ -1,6 +1,6 @@
 ---
 title: Connect to Aiven documentation using MCP
-sidebar_label: MCP server
+sidebar_label: Documentation MCP server
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

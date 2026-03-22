@@ -70,3 +70,15 @@ Produce data manually to test application integrations or custom workloads.
 - Use this approach for development, automation, or advanced testing scenarios.
 
 **Next step:** [Generate sample data manually with Docker](/docs/products/kafka/howto/generate-sample-data-manually).
+
+## Create and manage Kafka using AI assistants
+
+Use the [Aiven MCP server](/docs/tools/mcp) to create Kafka services, manage
+topics, produce and consume messages, and configure connectors from MCP-compatible
+clients such as Cursor, Claude Code, and VS Code.
+
+- Configure the Aiven MCP server in your AI assistant.
+- Describe the service or operation you want in natural language.
+- The assistant creates and manages Kafka resources through the Aiven API.
+
+**Next step:** [Set up the Aiven MCP server](/docs/tools/mcp).
