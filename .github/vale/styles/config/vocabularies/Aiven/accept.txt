@@ -61,6 +61,8 @@ config
 Config
 Confluent
 connect
+Containerfile
+Containerfiles
 Coralogix
 Couchbase
 CPU/MS
@@ -102,6 +104,8 @@ diskio_iops_in_progress
 Diskless
 Distro
 Docker
+Dockerfile
+Dockerfiles
 dockerized
 downsampled
 downsampling
@@ -240,6 +244,7 @@ NACLs
 namespace/MS
 namespaces?
 netmask
+Nginx
 NodeJS
 nosqlbench
 npm
@@ -336,6 +341,7 @@ scriptable
 SDKs?
 Security
 serde
+serdes
 serializer
 serverless
 service_account

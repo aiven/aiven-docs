@@ -385,6 +385,37 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+  //Apps sidebar
+  apps: [
+    {
+      type: 'category',
+      label: 'Apps',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        'products/aiven-apps',
+        'products/apps/get-started',
+        'products/apps/deploy-apps',
+        {
+          type: 'category',
+          label: 'Manifest files',
+          link: {
+            type: 'doc',
+            id: 'products/apps/manifest-files/manifests',
+          },
+          items: [
+            'products/apps/manifest-files/docker-compose',
+            'products/apps/manifest-files/containerfiles',
+          ],
+        },
+        'products/apps/connect-services-to-apps',
+        'products/apps/ports',
+        'products/apps/secrets-and-variables',
+      ],
+    },
+  ],
+
   //Services sidebar
   services: [
     {

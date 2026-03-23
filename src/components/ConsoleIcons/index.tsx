@@ -580,6 +580,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit</b>
         </>
       );
+    case 'editappintegrationconfig':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Configure</b>
+        </>
+      );
     case 'governance':
       return (
         <>
