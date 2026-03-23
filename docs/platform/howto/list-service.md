@@ -1,5 +1,6 @@
 ---
 title: Service management
+sidebar_label: Overview
 ---
 
 import DocCardList from '@theme/DocCardList';

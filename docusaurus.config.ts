@@ -177,24 +177,27 @@ const config: Config = {
       },
       items: [
         {
-          label: 'Console',
+          type: 'docSidebar',
           position: 'left',
+          label: 'Platform',
+          sidebarId: 'main',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          label: 'Services',
+          sidebarId: 'services',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          label: 'Tools',
+          sidebarId: 'tools',
+        },
+        {
+          label: 'Aiven Console',
+          position: 'right',
           href: 'https://console.aiven.io/login',
-        },
-        {
-          label: 'API reference',
-          position: 'left',
-          href: 'https://api.aiven.io/doc/',
-        },
-        {
-          label: 'Changelog',
-          href: 'https://aiven.io/changelog',
-          position: 'left',
-        },
-        {
-          href: 'https://github.com/aiven/aiven-docs',
-          label: 'GitHub',
-          position: 'left',
         },
         {
           type: 'search',
@@ -264,6 +267,10 @@ const config: Config = {
             {
               label: 'Support tiers',
               href: 'https://aiven.io/support-services',
+            },
+            {
+              label: 'Product updates',
+              href: 'https://aiven.io/changelog',
             },
             {
               label: 'Status',
