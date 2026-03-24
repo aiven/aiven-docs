@@ -86,6 +86,20 @@ PG Studio ensures safe, controlled access.
 - **Encrypted connections:** All database connections use SSL/TLS encryption.
 - **Rate limiting:** One request every two seconds per user per service.
 
+## Prerequisites
+
+To use PG Studio, you need:
+
+- **Aiven permissions:** The `service:data:write` permission on the project or service. This permission is included in the project admin, developer, and operator roles.
+- **Network access:** Your IP address must be in the service's IP allowlist. PG Studio connects from your browser's IP address, which must be allowed in the [service's IP filter configuration](/docs/platform/howto/restrict-access). If you get an "Access is not allowed from the IP address" error, add your IP address to the allowlist.
+
+## Database connection details
+
+PG Studio connects to your PostgreSQL service using:
+
+- **Database user:** The `avnadmin` user account, which has full read and write access to your databases. You can run `SELECT`, `INSERT`, `UPDATE`, `DELETE`, and other SQL statements through PG Studio.
+- **Access scope:** Full database access with the same privileges as the `avnadmin` user. This is not limited to read-only access.
+
 ## Use PG Studio
 
 To open PG Studio:
