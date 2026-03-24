@@ -39,11 +39,13 @@ This typically takes couple of minutes and can vary between cloud providers and 
 
 1. In the **Connection information** section, copy the **Password**.
 1. To open the DataHub UI, click the **Application URL**.
-1. For **Username**, enter **datahub**.
+1. For **Username**, enter `datahub`.
 1. For **Password**, paste the password you copied.
 1. Click **Login**.
 
 ## Next steps
 
+- Explore the
+  [DataHub home page](https://docs.datahub.com/docs/features/feature-guides/custom-home-page)
 - [Give users access](/docs/products/datahub/manage-datahub-users) to your DataHub service
 - [Add connectors](/docs/products/datahub/connect-datahub-to-services) and start ingesting data
