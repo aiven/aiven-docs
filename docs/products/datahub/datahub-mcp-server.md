@@ -101,7 +101,7 @@ The following standard MCP JSON configuration format works with most clients:
 ```
 
 Where:
-- `DATAHUB_APPLICATION_URL` is the full URL.
+- `DATAHUB_APPLICATION_URL` is the [DataHub GMS URL](#get-the-datahub-gms-url).
 - `DATAHUB_PAT` is the personal access token you created in the DataHub UI.
 
 </TabItem>

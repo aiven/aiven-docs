@@ -45,7 +45,5 @@ This typically takes couple of minutes and can vary between cloud providers and 
 
 ## Next steps
 
-- Explore the
-  [DataHub home page](https://docs.datahub.com/docs/features/feature-guides/custom-home-page)
 - [Give users access](/docs/products/datahub/manage-datahub-users) to your DataHub service
 - [Add connectors](/docs/products/datahub/connect-datahub-to-services) and start ingesting data
