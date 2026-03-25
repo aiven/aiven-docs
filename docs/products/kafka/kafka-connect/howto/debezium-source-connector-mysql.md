@@ -61,6 +61,8 @@ documentation](https://debezium.io/docs/connectors/mysql/).
   is only needed when using Avro as a data format
 - `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
   password is only needed when using Avro as a data format
+- `TOPIC_PREFIX`: The namespace for the MySQL database server from which
+  Debezium captures changes. It should be unique across all connectors.
 
 :::note
 When using Aiven for MySQL and Aiven for Apache Kafka, you can gather the necessary
@@ -87,44 +89,43 @@ settings in one place and copy/paste them into the
 
 ```json
 {
-  "name" : "mssql-source",
-  "connector.class" : "io.debezium.connector.sqlserver.SqlServerConnector",
+  "name": "CONNECTOR_NAME",
+  "connector.class": "io.debezium.connector.mysql.MySqlConnector",
   "database.hostname": "MYSQL_HOST",
   "database.port": "MYSQL_PORT",
   "database.user": "MYSQL_USER",
   "database.password": "MYSQL_PASSWORD",
   "database.dbname": "MYSQL_DATABASE_NAME",
-  "database.names" : "dbtest",
-  "database.server.name" : "dbserver",
+  "database.sslmode": "SSL_MODE",
+  "database.server.id": "MYSQL_SERVER_ID",
+  "topic.prefix": "TOPIC_PREFIX",
   "table.include.list": "MYSQL_TABLES",
-  "tasks.max":"NR_TASKS",
-  "topic.prefix" : var.cdc_topic_prefix,
-  "poll.interval.ms" : 500,
-  "schema.history.internal.kafka.topic" : format("%s.history", var.cdc_topic_prefix),
-  "schema.history.internal.kafka.bootstrap.servers" : format("%s:%s", aiven_kafka.kafka.service_host, aiven_kafka.kafka.service_port)
-  "schema.history.internal.producer.security.protocol" : "SSL",
-  "schema.history.internal.producer.ssl.keystore.type" : "PKCS12",
-  "schema.history.internal.producer.ssl.keystore.location" : "/run/aiven/keys/public.keystore.p12",
-  "schema.history.internal.producer.ssl.keystore.password" : "password",
-  "schema.history.internal.producer.ssl.truststore.location" : "/run/aiven/keys/public.truststore.jks",
-  "schema.history.internal.producer.ssl.truststore.password" : "password",
-  "schema.history.internal.producer.ssl.key.password" : "password",
-  "schema.history.internal.consumer.security.protocol" : "SSL",
-  "schema.history.internal.consumer.ssl.keystore.type" : "PKCS12",
-  "schema.history.internal.consumer.ssl.keystore.location" : "/run/aiven/keys/public.keystore.p12",
-  "schema.history.internal.consumer.ssl.keystore.password" : "password",
-  "schema.history.internal.consumer.ssl.truststore.location" : "/run/aiven/keys/public.truststore.jks",
-  "schema.history.internal.consumer.ssl.truststore.password" : "password",
-  "schema.history.internal.consumer.ssl.key.password" : "password",
+  "tasks.max": "NR_TASKS",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "schema.history.internal.kafka.topic": "HISTORY_TOPIC_NAME",
+  "schema.history.internal.kafka.bootstrap.servers": "APACHE_KAFKA_HOST:APACHE_KAFKA_PORT",
+  "schema.history.internal.producer.security.protocol": "SSL",
+  "schema.history.internal.producer.ssl.keystore.type": "PKCS12",
+  "schema.history.internal.producer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "schema.history.internal.producer.ssl.keystore.password": "password",
+  "schema.history.internal.producer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "schema.history.internal.producer.ssl.truststore.password": "password",
+  "schema.history.internal.producer.ssl.key.password": "password",
+  "schema.history.internal.consumer.security.protocol": "SSL",
+  "schema.history.internal.consumer.ssl.keystore.type": "PKCS12",
+  "schema.history.internal.consumer.ssl.keystore.location": "/run/aiven/keys/public.keystore.p12",
+  "schema.history.internal.consumer.ssl.keystore.password": "password",
+  "schema.history.internal.consumer.ssl.truststore.location": "/run/aiven/keys/public.truststore.jks",
+  "schema.history.internal.consumer.ssl.truststore.password": "password",
+  "schema.history.internal.consumer.ssl.key.password": "password",
   "include.schema.changes" : "true"
-  "key.converter" : "org.apache.kafka.connect.storage.StringConverter",
-  "transforms" : "unwrap,createKey,extractInt",
-  "transforms.unwrap.type" : "io.debezium.transforms.ExtractNewRecordState",
-  "transforms.unwrap.drop.tombstones" : "false",
-  "transforms.createKey.type" : "org.apache.kafka.connect.transforms.ValueToKey",
-  "transforms.createKey.fields" : "id",
-  "transforms.extractInt.type" : "org.apache.kafka.connect.transforms.ExtractField$Key",
-  "transforms.extractInt.field" : "id",
 }
 ```
 
@@ -133,7 +134,7 @@ settings in one place and copy/paste them into the
 
 ```json
 {
-  "name":"CONNECTOR_NAME",
+  "name": "CONNECTOR_NAME",
   "connector.class": "io.debezium.connector.mysql.MySqlConnector",
   "database.hostname": "MYSQL_HOST",
   "database.port": "MYSQL_PORT",
@@ -141,9 +142,9 @@ settings in one place and copy/paste them into the
   "database.password": "MYSQL_PASSWORD",
   "database.dbname": "MYSQL_DATABASE_NAME",
   "database.sslmode": "SSL_MODE",
-  "database.server.name": "KAFKA_TOPIC_PREFIX",
+  "database.server.name": "TOPIC_PREFIX",
   "table.include.list": "MYSQL_TABLES",
-  "tasks.max":"NR_TASKS",
+  "tasks.max": "NR_TASKS",
   "key.converter": "io.confluent.connect.avro.AvroConverter",
   "key.converter.basic.auth.credentials.source": "USER_INFO",
   "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
@@ -185,9 +186,16 @@ The configuration file contains the following entries:
     parameters collected in the
     [prerequisite](/docs/products/kafka/kafka-connect/howto/debezium-source-connector-mysql#connect_debezium_mysql_source_prereq) phase.
 
--   `database.server.name`: The logical name of the database, which determines the prefix
-    used for Apache Kafka topic names. The resulting topic name is a combination of the
-    `database.server.name` and the table name.
+-   `database.server.name` (Debezium v1): The logical name of the database,
+    which also determines the prefix used in combination with table names
+    for Apache Kafka topic names.
+
+-   `database.server.id` (Debezium v2): The numeric ID of the MySQL client.
+    It must be unique across all currently-running database processes in
+    the MySQL cluster.
+
+-   `topic.prefix` (Debezium v2): The prefix used in combination with table
+    names for Apache Kafka topic names.
 
 -   `tasks.max`: Maximum number of tasks to execute in parallel. By
     default this is 1, the connector can use at most 1 task for each
