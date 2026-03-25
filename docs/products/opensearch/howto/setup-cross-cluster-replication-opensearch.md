@@ -87,16 +87,6 @@ Parameters:
 - `<FOLLOWER_SERVICE_NAME>`: Follower (destination) service name.
 
 </TabItem>
-<TabItem value="Terraform" label="Terraform">
-
-To set up cross-cluster replication with Terraform, use
-[the `aiven_service_integration` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
-and set:
- - the `integration_type` to `opensearch_cross_cluster_replication`
- - the `source_service_name` to the leader service
- - the `destination_service_name` to the follower service
-
-</TabItem>
 </Tabs>
 
 :::note
@@ -180,15 +170,6 @@ Parameters:
 - `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
 
 Deleting the integration transitions the follower service to a standalone service.
-
-</TabItem>
-<TabItem value="Terraform" label="Terraform">
-
-To promote a follower service to standalone using [Terraform](/docs/tools/terraform),
-delete the `opensearch_cross_cluster_replication` integration from your configuration.
-
-Run `terraform apply` to apply the changes.
-After the changes are applied, the follower service transitions to a standalone service.
 
 </TabItem>
 </Tabs>
