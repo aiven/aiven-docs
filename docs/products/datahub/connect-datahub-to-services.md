@@ -22,14 +22,6 @@ ingest metadata from them. You can add connectors through the
 [DataHub UI](https://docs.datahub.com/docs/ui-ingestion)
 or the [DataHub CLI](https://docs.datahub.com/docs/metadata-ingestion/cli-ingestion).
 
-DataHub doesn’t support VPC connections. To connect to restricted access services,
-add the following IP addresses
-[to the allowlist](/docs/platform/howto/restrict-access#restrict-access) for your DataHub service:
-
-- 54.73.239.100
-- 52.209.40.219
-- 34.251.8.130
-
 :::important
 Store sensitive information like passwords and API keys used for connectors in DataHub
 [Secrets](https://docs.datahub.com/docs/ui-ingestion#managing-sensitive-information-with-secrets).
