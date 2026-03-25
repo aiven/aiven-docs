@@ -368,6 +368,7 @@ const sidebars: SidebarsConfig = {
                 'tools/cli/service/integration',
                 'tools/cli/service/kafka-acl',
                 'tools/cli/service/privatelink',
+                'tools/cli/service/quota',
                 'tools/cli/service/schema-registry-acl',
                 'tools/cli/service/service-index',
                 'tools/cli/service/tags',
