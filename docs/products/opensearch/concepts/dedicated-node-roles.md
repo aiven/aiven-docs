@@ -11,7 +11,7 @@ Aiven for OpenSearch® supports clusters with dedicated node roles, allowing you
 
 The dedicated node roles feature is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-for Aiven for OpenSearch® version 2 and later. It's available in specific service plans
+for Aiven for OpenSearch® version 2.19 and later. It's available in specific service plans
 for production workloads that require enhanced performance and reliability.
 
 :::tip
@@ -23,27 +23,33 @@ dedicated node roles, and get recommendations for your workload.
 
 The dedicated node roles feature helps achieve the following:
 
-**Improved stability**: Separating cluster management from data operations prevents resource-intensive queries from affecting cluster coordination, reducing the risk of cluster instability.
-
-**Better scalability**: You can scale data nodes independently from cluster manager nodes, adding capacity where needed without over-provisioning management resources.
-
-**Optimized resource allocation**: Each node group can use hardware configurations tailored to its specific workload, improving cost efficiency.
-
-**Enhanced performance**: Dedicated data nodes can focus entirely on query execution and data processing without the overhead of cluster management tasks.
+- **Improved stability**: Separating cluster management from data operations prevents
+  resource-intensive queries from affecting cluster coordination, reducing the risk of
+  cluster instability.
+- **Better scalability**: You can scale data nodes independently from cluster manager
+  nodes, adding capacity where needed without over-provisioning management resources.
+- **Optimized resource allocation**: Each node group can use hardware configurations
+  tailored to its specific workload, improving cost efficiency.
+- **Enhanced performance**: Dedicated data nodes can focus entirely on query execution and
+  data processing without the overhead of cluster management tasks.
 
 The dedicated node roles feature is particularly beneficial for:
 
-**Large-scale deployments**: Clusters with high data volumes or query throughput benefit from isolating coordination overhead from data operations.
-
-**Performance-critical applications**: Preventing resource contention between cluster management and query execution ensures consistent performance.
-
-**Complex cluster topologies**: Larger clusters with many nodes see stability improvements when cluster management runs on dedicated hardware.
+- **Large-scale deployments**: Clusters with high data volumes or query throughput benefit
+  from isolating coordination overhead from data operations.
+- **Performance-critical applications**: Preventing resource contention between cluster
+  management and query execution ensures consistent performance.
+- **Complex cluster topologies**: Larger clusters with many nodes see stability
+  improvements when cluster management runs on dedicated hardware.
 
 ## About dedicated node roles
 
-By default, OpenSearch nodes perform all roles: cluster management, data storage, and query processing. With dedicated node roles, you can separate these responsibilities across different node groups, each optimized for specific tasks.
+By default, OpenSearch nodes perform all roles: cluster management, data storage, and
+query processing. With dedicated node roles, you can separate these responsibilities
+across different node groups, each optimized for specific tasks.
 
-This architecture separates the cluster's control plane from its data plane, ensuring that cluster management operations remain stable even during heavy query loads or data ingestion.
+This architecture separates the cluster's control plane from its data plane, ensuring that
+cluster management operations remain stable even during heavy query loads or data ingestion.
 
 ```mermaid
 graph TB
@@ -52,10 +58,10 @@ graph TB
     end
 
     subgraph "OpenSearch cluster"
-        subgraph "Manager nodes"
-            CM1[Manager 1]
-            CM2[Manager 2]
-            CM3[Manager 3]
+        subgraph "Cluster manager nodes"
+            CM1[Cluster manager 1]
+            CM2[Cluster manager 2]
+            CM3[Cluster manager 3]
         end
 
         subgraph "Data nodes"
@@ -97,10 +103,13 @@ Cluster manager nodes handle cluster-wide operations such as:
 - Allocating shards to nodes
 - Orchestrating cluster-wide operations
 
-These nodes run on smaller instances optimized for low-latency coordination tasks rather than data storage. Cluster manager nodes do not store data or handle search requests, allowing them to focus on maintaining cluster stability.
+These nodes run on smaller instances optimized for low-latency coordination tasks rather
+than data storage. Cluster manager nodes do not store data or handle search requests,
+allowing them to focus on maintaining cluster stability.
 
 :::note
-Cluster manager nodes are always configured in odd numbers (typically 3) to ensure proper quorum for cluster decisions and prevent split-brain scenarios.
+Configure cluster manager nodes in odd numbers to ensure quorum for cluster decisions and
+prevent split-brain scenarios. Three nodes is the most common configuration.
 :::
 
 #### Data nodes
@@ -115,11 +124,14 @@ Data nodes are responsible for:
 - Coordinating distributed requests across the cluster
 - Providing internal DNS routing for cluster traffic
 
-In dedicated-role plans, each data node includes the data, ingest, coordinator, and internal DNS roles. Data nodes typically run on larger instances with more storage and compute resources for data-intensive operations.
+In dedicated-role plans, each data node includes the data, ingest, coordinator, and
+internal DNS roles. Data nodes typically run on larger instances with more storage and
+compute resources for data-intensive operations.
 
 ### Cluster configuration
 
-Dedicated node roles are defined at the service plan level. When you select a plan with dedicated roles:
+Dedicated node roles are defined at the service plan level. When you select a plan with
+dedicated roles:
 
 - Cluster manager nodes are configured as a separate node group with their own instance type
 - Data nodes form another group optimized for storage and compute
@@ -129,7 +141,10 @@ Dedicated node roles are defined at the service plan level. When you select a pl
 - OpenSearch Dashboards is served on every node
 - Dedicated dashboard nodes are not included
 
-All standard service operations work with dedicated node roles, including service creation, major version upgrades, plan changes, service forking, and node replacement. The platform handles cluster manager node operations carefully to maintain cluster stability during updates.
+All standard service operations work with dedicated node roles, including service creation,
+major version upgrades, plan changes, service forking, and node replacement. The platform
+handles cluster manager node operations carefully to maintain cluster stability during
+updates.
 
 ### Node replacement and scaling
 
