@@ -107,7 +107,7 @@ To use PG Studio, you need:
 - **Network access:** Your IP address must be in the service's IP allowlist. PG Studio
   connects from your browser's IP address, which must be allowed in the
   [service's IP filter configuration](/docs/platform/howto/restrict-access). If you get the
-  **Access is not allowed from the IP address** error, add your IP address to the allowlist.
+  `Access is not allowed from the IP address` error, add your IP address to the allowlist.
 
 ### Open PG Studio
 
