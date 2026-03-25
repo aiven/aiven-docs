@@ -14,6 +14,11 @@ reduce operational overhead.
 You can [add an unlimited number of users](/docs/products/datahub/manage-datahub-users)
 with no per-user licensing costs.
 
+:::note
+Aiven for DataHub is in limited availability.
+To request access, [contact Aiven](https://aiven.io/datahub#contact-us).
+:::
+
 ## Features
 
 Aiven for DataHub is built on DataHub Core and offers the following features:
