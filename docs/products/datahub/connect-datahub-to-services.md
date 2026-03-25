@@ -5,15 +5,53 @@ limited: true
 
 Add connectors to your DataHub service to ingest data.
 
-## Connect Aiven services to DataHub
+## Aiven service connectors
 
-During the limited availability stage, you can use the
-[Aiven to DataHub Connector app](https://github.com/Itsdarkhere/datahub_connection_wizard)
-to more easily connect your Aiven services to DataHub. The app supports
+During the limited availability stage, you can use Aiven's
+[DataHub Connector Wizard](https://019ce649-0fff-7093-a754-3a429e8a9479-3000.eur-1.aiven.app)
+to more easily connect your Aiven services to DataHub. The wizard supports
 Aiven for PostgreSQL®, Aiven for MySQL, Aiven for Apache Kafka®, and Aiven for ClickHouse®.
 
-To connect your Aiven services, follow the
-[usage instructions](https://github.com/Itsdarkhere/datahub_connection_wizard?tab=readme-ov-file#usage).
+### Prerequisites
+
+- An [Aiven token](/docs/platform/howto/create_authentication_token).
+- A [DataHub personal access tokens (PAT)](https://docs.datahub.com/docs/authentication/).
+- Supported services that are running and are in projects you have access to.
+
+### Connect Aiven services
+
+1. Open the
+   [DataHub Connector Wizard](https://019ce649-0fff-7093-a754-3a429e8a9479-3000.eur-1.aiven.app).
+
+1. In the **Aiven** section, enter your Aiven **API token**.
+
+1. Click **Test**.
+
+1. In the Aiven Console, go to your DataHub service.
+
+1. In the **Connection information** section, copy the **Application URL**.
+
+1. In the DataHub Connector Wizard, in **DataHub** section,
+   paste the **URL** you copied from the Aiven Console
+
+1. Enter your DataHub **Token**.
+
+1. Click **Test**.
+
+1. Click **Connect**.
+
+1. Choose services to add. You can select multiple services across different projects.
+
+1. Click **Add to DataHub**.
+
+1. Optional: Enable recurring schedule for automatic updates.
+
+1. Click **Create with schedule** or **Create connectors**.
+
+A [service user](/docs/platform/howto/create_new_service_user) is created in
+each connected service to give DataHub read access to the service.
+
+To view connected services in the DataHub UI, click **Data Sources**.
 
 ## Connect external services to DataHub
 
