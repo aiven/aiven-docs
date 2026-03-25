@@ -48,8 +48,8 @@ By default, OpenSearch nodes perform all roles: cluster management, data storage
 query processing. With dedicated node roles, you can separate these responsibilities
 across different node groups, each optimized for specific tasks.
 
-This architecture separates the cluster's control plane from its data plane, ensuring that
-cluster management operations remain stable even during heavy query loads or data ingestion.
+This architecture separates the cluster control plane from the data plane.
+It keeps cluster management operations stable during heavy query loads or data ingestion.
 
 ```mermaid
 graph TB
@@ -109,7 +109,7 @@ allowing them to focus on maintaining cluster stability.
 
 :::note
 Configure cluster manager nodes in odd numbers to ensure quorum for cluster decisions and
-prevent split-brain scenarios. Three nodes is the most common configuration.
+prevent split-brain scenarios. Three nodes are the most common configuration.
 :::
 
 #### Data nodes
