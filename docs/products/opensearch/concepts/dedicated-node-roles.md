@@ -15,7 +15,7 @@ for Aiven for OpenSearch® version 2.19 and later. It's available in specific se
 for production workloads that require enhanced performance and reliability.
 
 :::tip
-Contact Aiven to request access, learn which service plans include
+[Contact Aiven](https://aiven.io/contact) to request access, learn which service plans include
 dedicated node roles, and get recommendations for your workload.
 :::
 
@@ -165,7 +165,7 @@ The dedicated node roles feature is plan-based.
 
 ### Prerequisites
 
-- This is a <LimitedBadge/> feature. Contact Aiven to enable it.
+- This is a <LimitedBadge/> feature. [Contact Aiven](https://aiven.io/contact) to enable it.
 - [Upgrade Aiven for OpenSearch®](/docs/products/opensearch/howto/os-version-upgrade) to
   2.19 or later if your service runs an older version.
 
