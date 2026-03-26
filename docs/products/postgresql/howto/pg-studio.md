@@ -190,7 +190,7 @@ continue analysis without re-writing queries.
 
 ### Save queries
 
-Save a query so you can quickly open and run it again later.
+Save a query so you can open and run it again later.
 
 To save a query:
 
@@ -204,8 +204,7 @@ The query appears in your saved queries list in PG Studio.
 
 ### Access query history
 
-PG Studio keeps a recent history of executed queries so you can quickly return to previous
-work.
+PG Studio keeps a recent history of executed queries so you can return to previous work.
 
 To access query history:
 
