@@ -199,7 +199,7 @@ To save a query:
 1. Run the query and verify the result.
 1. Click **Save**.
 
-PG Studio saves the query using the current tab name.
+PG Studio saves the query using the current tab name. The query appears in **Saved queries**.
 
 ### Access saved queries and query history
 
