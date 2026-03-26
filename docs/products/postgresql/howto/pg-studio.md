@@ -186,7 +186,7 @@ You can **Ask AI** to:
 ## Manage and persist queries
 
 PG Studio lets you save useful SQL and revisit recently executed statements, so you can
-continue analysis without re-writing queries.
+continue analysis without rewriting queries.
 
 ### Save queries
 
@@ -200,7 +200,7 @@ To save a query:
 1. Enter a name for the query.
 1. Confirm the save action.
 
-The query appears in your saved queries list in PG Studio.
+The query appears in **Saved queries** in PG Studio.
 
 ### Access query history
 
@@ -221,8 +221,8 @@ To manage a saved query:
 1. Click **Saved queries**.
 1. Select a query from the list.
 1. Choose an action:
-   - Click **Rename** to change the query name.
-   - Click **Delete** to remove the query from your saved list.
+   - Click **Rename** to change the query name
+   - Click **Delete** to remove the query from your saved list
 
 :::note
 Deleting a query removes it only from your saved queries list in the editor. It does not
