@@ -185,11 +185,15 @@ You can **Ask AI** to:
 
 ## Manage and persist queries
 
-PG Studio provides features to save, organize, and track your executed queries, improving workflow efficiency by reducing the need to re-type or re-locate frequently used SQL statements.
+PG Studio provides features to save, organize, and track your executed queries, improving
+workflow efficiency by reducing the need to re-type or re-locate frequently used SQL
+statements.
 
 ### Save queries
 
-Save any executed query with a unique, user-defined name. When you save a query, the AI Assistant automatically generates a descriptive name based on the query content, which you can customize. Saved queries persist across sessions.
+Save any executed query with a unique, user-defined name. When you save a query, the AI
+Assistant automatically generates a descriptive name based on the query content, which you
+can customize. Saved queries persist across sessions.
 
 To save a query:
 
@@ -202,7 +206,8 @@ Your saved query appears in your saved queries list and is available in future s
 
 ### Access query history
 
-PG Studio maintains a history of your last 10 executed queries, allowing you to quickly recall and re-execute previous statements without re-typing them.
+PG Studio maintains a history of your last 10 executed queries, allowing you to recall
+and re-execute previous statements without re-typing them.
 
 To access query history:
 
@@ -212,7 +217,8 @@ To access query history:
 
 ### Organize saved queries
 
-Use folders or tags to organize your growing list of saved queries. This helps you categorize queries by project, purpose, or frequency of use.
+Use folders or tags to organize your growing list of saved queries. This helps you
+categorize queries by project, purpose, or frequency of use.
 
 To organize queries:
 
@@ -234,7 +240,9 @@ To manage a saved query:
    - Click **Delete** to remove the query from your saved list.
 
 :::note
-Deleting a query removes it only from your saved queries list in the editor. It does not delete any database objects created by the query, such as views, stored procedures, or functions. It also does not affect any `.sql` files you have exported.
+Deleting a query removes it only from your saved queries list in the editor. It does not
+delete any database objects created by the query, such as views, stored procedures, or
+functions. It also does not affect any `.sql` files you have exported.
 :::
 
 ### Export queries
@@ -249,7 +257,8 @@ To export a query:
 
 ### Save queries as database objects
 
-Save your query directly to the database as a stored procedure or function for reuse in database operations.
+Save your query directly to the database as a stored procedure or function for reuse in
+database operations.
 
 To save as a stored procedure or function:
 
