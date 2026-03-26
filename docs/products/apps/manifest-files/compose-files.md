@@ -1,12 +1,13 @@
 ---
-title: Create Docker Compose files for Aiven Apps
-sidebar_label: Create Docker Compose files
+title: Create Compose files for Aiven Apps
+sidebar_label: Create Compose files
 limited: true
 ---
 
-Aiven Apps scans your repository for [Docker Compose files](https://docs.docker.com/compose/) to detect application services, identify supported data services, and create integrations.
+Aiven Apps scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
+Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
 
-It recognizes Compose files in the following formats:
+Aiven recognizes Compose files with the following file naming conventions:
 
 <table>
   <thead>

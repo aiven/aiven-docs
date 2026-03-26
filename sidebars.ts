@@ -405,7 +405,7 @@ const sidebars: SidebarsConfig = {
             id: 'products/apps/manifest-files/manifests',
           },
           items: [
-            'products/apps/manifest-files/docker-compose',
+            'products/apps/manifest-files/compose-files',
             'products/apps/manifest-files/containerfiles',
           ],
         },
