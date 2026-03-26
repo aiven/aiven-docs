@@ -199,13 +199,14 @@ To save a query:
 1. Run the query and verify the result.
 1. Click **Save**.
 
-PG Studio saves the query by using the current tab name.
+PG Studio saves the query using the current tab name.
 
-### Access query history
+### Access saved queries and query history
 
-PG Studio keeps a recent history of executed queries so you can return to previous work.
+**Saved queries** shows both your explicitly saved queries and your recent query history,
+so you can return to any previous work.
 
-To access query history:
+To open a saved query or a recent query:
 
 1. In the SQL editor, click **Saved queries**.
 1. Select a query from the list to load it into the editor.
