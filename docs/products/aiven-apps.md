@@ -23,8 +23,9 @@ Aiven Apps offers the following capabilities to streamline your development life
 
 ## Use cases
 
-Aiven Apps is ideal for automating cross-cloud backups, building anomaly detection,
-or shipping internal tools in a secure and scalable way.
+Aiven Apps is ideal for filtering data streams in real time, building anomaly detection,
+creating admin dashboards, running LLMs and AI Agents securely,
+or shipping other internal tools in a secure and scalable way.
 
 ## Get started with Aiven Apps
 
