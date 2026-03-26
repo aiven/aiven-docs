@@ -9,13 +9,7 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import DocCardList from '@theme/DocCardList';
 
-<<<<<<< HEAD
 Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language. It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
-=======
-Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language.
-
-It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
->>>>>>> 30ef844a (update: PG Studio IA improvements (#1545))
 
 :::important
 PG Studio is an <EarlyBadge/> feature.
@@ -33,19 +27,20 @@ PG Studio supports:
 - Exploring schemas and table relationships
 - Explaining queries and database objects
 - Running queries with live results
+- Executing write queries and data definition statements with built-in safety guardrails
 
 ## PG Studio components
 
 - **Schema visualization:** View your database structure as an interactive diagram showing
-  tables, columns and relationships. Open it from **Open schema map** or request it from
+  tables, columns, and relationships. Open it from **Open schema map** or request it from
   the **AI Assistant** panel. Click the copy icon next to a table name to copy it to the
   clipboard.
 - **Tables view:** Browse tables in your selected schema and preview up to 100 rows.
   Open a table tab to start writing SQL.
-- **SQL editor:** Write and edit SQL across multiple tabs, and run queries to view results
-  in the results panel.
+- **SQL editor:** Write and edit SQL across multiple tabs, run queries to view results
+  in the results panel, and execute write operations with built-in safety guardrails.
 - **AI Assistant panel:** Describe what you need in natural language. The assistant
-  generates SQL or explains queries, tables and relationships using your database schema.
+  generates SQL or explains queries, tables, and relationships using your database schema.
 
 ## Get started with PG Studio
 

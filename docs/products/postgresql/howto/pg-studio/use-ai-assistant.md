@@ -16,6 +16,8 @@ The AI Assistant lets you get help with SQL queries and database questions in na
 - **Troubleshoot queries:** Get help debugging errors, breaking down complex queries, or improving query performance.
 
 The AI Assistant uses your database schema as context for all responses, providing accurate and relevant suggestions specific to your data structure.
+It can suggest `SELECT`, data modification, and data definition statements when they match your request.
+For blocked request types, see [Security safeguards](/docs/products/postgresql/howto/pg-studio/security-connections#security-safeguards).
 
 ## Generate SQL with natural language
 
