@@ -185,29 +185,27 @@ You can **Ask AI** to:
 
 ## Manage and persist queries
 
-PG Studio provides features to save, organize, and track your executed queries, improving
-workflow efficiency by reducing the need to re-type or re-locate frequently used SQL
-statements.
+PG Studio lets you save useful SQL and revisit recently executed statements, so you can
+continue analysis without re-writing queries.
 
 ### Save queries
 
-Save any executed query with a unique, user-defined name. When you save a query, the AI
-Assistant automatically generates a descriptive name based on the query content, which you
-can customize. Saved queries persist across sessions.
+Save a query so you can quickly open and run it again later.
 
 To save a query:
 
 1. In the SQL editor, write or generate your query.
+1. Run the query and verify the result.
 1. Click **Save**.
-1. Review the AI-generated query name and modify it if needed.
-1. Click **Confirm**.
+1. Enter a name for the query.
+1. Confirm the save action.
 
-Your saved query appears in your saved queries list and is available in future sessions.
+The query appears in your saved queries list in PG Studio.
 
 ### Access query history
 
-PG Studio maintains a history of your last 10 executed queries, allowing you to recall
-and re-execute previous statements without re-typing them.
+PG Studio keeps a recent history of executed queries so you can quickly return to previous
+work.
 
 To access query history:
 
@@ -215,20 +213,9 @@ To access query history:
 1. Select a query from the list to load it into the editor.
 1. Click **Run** to execute the query.
 
-### Organize saved queries
-
-Use folders or tags to organize your growing list of saved queries. This helps you
-categorize queries by project, purpose, or frequency of use.
-
-To organize queries:
-
-1. Click **Saved queries**.
-1. Select a query to organize.
-1. Add tags or move the query to a folder.
-
 ### Manage saved queries
 
-You can rename, edit, or delete your saved queries.
+You can rename or delete saved queries in PG Studio.
 
 To manage a saved query:
 
@@ -236,35 +223,9 @@ To manage a saved query:
 1. Select a query from the list.
 1. Choose an action:
    - Click **Rename** to change the query name.
-   - Click **Edit** to modify the SQL statement.
    - Click **Delete** to remove the query from your saved list.
 
 :::note
 Deleting a query removes it only from your saved queries list in the editor. It does not
-delete any database objects created by the query, such as views, stored procedures, or
-functions. It also does not affect any `.sql` files you have exported.
+delete any database objects created earlier by running SQL in your database.
 :::
-
-### Export queries
-
-Export queries as `.sql` files to run them locally or share them with your team.
-
-To export a query:
-
-1. In the SQL editor, write or load your query.
-1. Click **Save** > **Export as .sql file**.
-1. Choose a location to save the file.
-
-### Save queries as database objects
-
-Save your query directly to the database as a stored procedure or function for reuse in
-database operations.
-
-To save as a stored procedure or function:
-
-1. In the SQL editor, write your query.
-1. Click **Save** > **Save as stored procedure** or **Save as function**.
-1. Configure the procedure or function parameters.
-1. Click **Confirm**.
-
-The stored procedure or function is created in your selected database and schema.
