@@ -190,17 +190,16 @@ continue analysis without rewriting queries.
 
 ### Save queries
 
-Save a query so you can open and run it again later.
+Save a query so you can open and run it again later. Saved queries are user-specific.
+Other users in the same Aiven for PostgreSQL service can't see your saved queries.
 
 To save a query:
 
 1. In the SQL editor, write or generate your query.
 1. Run the query and verify the result.
 1. Click **Save**.
-1. Enter a name for the query.
-1. Confirm the save action.
 
-The query appears in **Saved queries** in PG Studio.
+PG Studio saves the query by using the current tab name.
 
 ### Access query history
 
@@ -208,7 +207,7 @@ PG Studio keeps a recent history of executed queries so you can return to previo
 
 To access query history:
 
-1. In the SQL editor, click **History**.
+1. In the SQL editor, click **Saved queries**.
 1. Select a query from the list to load it into the editor.
 1. Click **Run** to execute the query.
 
@@ -221,8 +220,8 @@ To manage a saved query:
 1. Click **Saved queries**.
 1. Select a query from the list.
 1. Choose an action:
-   - Click **Rename** to change the query name
-   - Click **Delete** to remove the query from your saved list
+   - Double-click the query tab name, enter a new name, and press `Enter`.
+   - Click **Delete** to remove the query from your saved list.
 
 :::note
 Deleting a query removes it only from your saved queries list in the editor. It does not
