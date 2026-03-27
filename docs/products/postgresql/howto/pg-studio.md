@@ -105,7 +105,7 @@ To use PG Studio, you need:
 - **Aiven permissions:** The `service:data:write` permission at the organization, unit, or project level.
   This permission is included in the **Admin**, **Developer**, and **Operator** roles.
 - **Network access:** Your IP address must be in the service's IP allowlist. PG Studio
-  connects from your browser's IP address, which must be allowed in the
+  validates your browser's IP address, which must be allowed in the
   [service's IP filter configuration](/docs/platform/howto/restrict-access). If you get the
   `Access is not allowed from the IP address` error, add your IP address to the allowlist.
 
