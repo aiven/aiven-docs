@@ -205,3 +205,49 @@ You can **Ask AI** to:
    a column stores.
 1. Review the response or generated SQL.
 1. Click **Open schema map** to browse tables and relationships visually.
+
+## Manage and persist queries
+
+PG Studio lets you save useful SQL and revisit recently executed statements, so you can
+continue analysis without rewriting queries.
+
+### Save queries
+
+Save a query so you can open and run it again later. Saved queries are user-specific.
+Other users in the same Aiven for PostgreSQL service can't see your saved queries.
+
+To save a query:
+
+1. In the SQL editor, write or generate your query.
+1. Run the query and verify the result.
+1. Click **Save**.
+
+PG Studio saves the query using the current tab name. The query appears in **Saved queries**.
+
+### Access saved queries and query history
+
+**Saved queries** shows both your explicitly saved queries and your recent query history,
+so you can return to any previous work.
+
+To open a saved query or a recent query:
+
+1. In the SQL editor, click **Saved queries**.
+1. Select a query from the list to load it into the editor.
+1. Click **Run** to execute the query.
+
+### Manage saved queries
+
+You can rename or delete saved queries in PG Studio.
+
+To manage a saved query:
+
+1. Click **Saved queries**.
+1. Select a query from the list.
+1. Choose an action:
+   - Double-click the query tab name, enter a new name, and press `Enter`.
+   - Click **Delete** to remove the query from your saved list.
+
+:::note
+Deleting a query removes it only from your saved queries list in the editor. It does not
+delete any database objects created earlier by running SQL in your database.
+:::
