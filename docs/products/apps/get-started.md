@@ -9,11 +9,6 @@ Get started using Aiven Apps by building and deploying a sample image search app
 This is a Python web app that searches for images matching a text description.
 This example creates the app and Aiven for PostgreSQL® service.
 
-```mermaid
-graph LR
-    A["<b>Runtime app</b><br/>Aiven Apps"]
-    --- B["<b>Database</b><br/>Aiven for PostgreSQL®"]
-```
 ## Prerequisites
 
 - [Sign up for Aiven](https://console.aiven.io/signup) for free.

@@ -10,6 +10,12 @@ Aiven automatically handles the underlying networking,
 and container orchestration, enabling developers to focus on application logic
 rather than DevOps overhead.
 
+:::note
+Aiven Apps is in
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases).
+To request access, [contact Aiven](http://aiven.io/apps).
+:::
+
 ## Key features
 Aiven Apps offers the following capabilities to streamline your development lifecycle:
 
@@ -29,4 +35,5 @@ or shipping other internal tools in a secure and scalable way.
 
 ## Get started with Aiven Apps
 
-[Use an example](/docs/products/apps/get-started) to deploy your first app and integrate it with Aiven services.
+[Use an example](/docs/products/apps/get-started) to deploy your first app and integrate
+it with Aiven services.
