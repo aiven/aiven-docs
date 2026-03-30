@@ -4,6 +4,8 @@ sidebar_label: Create Compose files
 limited: true
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Aiven Apps scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
 Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
 
@@ -37,7 +39,10 @@ Aiven automatically analyzes manifest files to:
 
 ## Create a Docker Compose file
 
-
+Use the following guidelines to create your Compose files for Aiven Apps.
+More information on formatting Compose files is available in the
+[Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md)
+and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file_/).
 
 ### Service integrations
 
@@ -89,9 +94,13 @@ services:
   valkey-cache:
     image: valkey/valkey:7.2
 ```
+
 ### Environment variables
 
 You can use a list or dictionary format for environment variables.
+
+For sensitive data like credentials, use
+[Secrets](https://github.com/compose-spec/compose-spec/blob/main/09-secrets.md).
 
 **List format example**
 
@@ -172,3 +181,90 @@ EXPOSE 3000
 # Start the application
 CMD ["npm", "start"]
 ```
+
+### Multi-service application
+
+The following example Compose file defines a more complex application with
+a React frontend, a backend API, a background worker, and integrations
+with PostgreSQL, Valkey, and OpenSearch services.
+
+
+```yaml
+services:
+  # React frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+
+  # Backend API
+  backend-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres-main
+      - valkey-sessions
+      - search-engine
+    environment:
+      # Primary database connection
+      - DATABASE_URL=postgresql://app:password@postgres-main:5432/maindb
+      # Session storage
+      - VALKEY_URL=valkey://valkey-sessions:6379
+      # Search functionality
+      - OPENSEARCH_URI=https://admin:password@search-engine:9200
+      - JWT_SECRET=your-jwt-secret
+      - NODE_ENV=production
+
+  # Background job processor
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.worker
+    depends_on:
+      - postgres-main
+      - valkey-sessions
+    environment:
+      - DATABASE_URL=postgresql://app:password@postgres-main:5432/maindb
+      - VALKEY_URL=valkey://valkey-sessions:6379
+      - WORKER_MODE=true
+
+  # Aiven PostgreSQL - Main database
+  postgres-main:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: maindb
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Aiven for Valkey - Session store and job queue
+  valkey-sessions:
+    image: valkey/valkey:7.2
+
+  # Aiven for OpenSearch - Full-text search
+  search-engine:
+    image: opensearchproject/opensearch:2.11
+    environment:
+      discovery.type: single-node
+      plugins.security.disabled: true
+      "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - opensearch_data:/usr/share/opensearch/data
+
+volumes:
+  postgres_data:
+  opensearch_data:
+```
+
+<RelatedPages/>
+
+- [Docker Compose Quickstart](https://docs.docker.com/compose/gettingstarted)
+- [Manage secrets securely in Docker Compose](https://docs.docker.com/compose/how-tos/use-secrets/)
