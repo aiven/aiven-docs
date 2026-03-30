@@ -691,6 +691,16 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   <tr>
     <td>Europe</td>
+    <td>avn-ovh-mil</td>
+    <td>Europe, Italy: Milan</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>avn-ovh-par</td>
+    <td>Europe, France: Paris</td>
+  </tr>   
+  <tr>
+    <td>Europe</td>
     <td>avn-ovh-sbg5</td>
     <td>Europe, France: Strasbourg</td>
   </tr>
