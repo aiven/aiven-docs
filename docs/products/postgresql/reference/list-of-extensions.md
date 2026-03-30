@@ -13,6 +13,10 @@ Some extensions:
 
 :::
 
+## How it works
+
+### List extensions
+
 To list the extensions and their details, such as extension version numbers,
 run the following command in your Aiven for PostgreSQL server:
 
@@ -43,23 +47,30 @@ installed with a few exceptions.
 
 :::
 
+### Install and manage extensions
+
+See [Manage Aiven for PostgreSQL extensions](/docs/products/postgresql/howto/manage-extensions)
+for the instructions.
+
 <!-- vale off -->
 
-## Auditing
+## Supported extensions
+
+### Auditing
 
 -   [pgaudit](https://github.com/pgaudit/pgaudit) provides session and object audit logging
     often required for compliance with government, financial, or ISO certifications.
 -   [tcn](https://www.postgresql.org/docs/current/tcn.html). Triggered
     change notifications.
 
-## Connectivity
+### Connectivity
 
 -   [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html).
     Connect to other PostgreSQL databases from within a database.
 -   [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html).
     Foreign-data wrapper for remote PostgreSQL servers.
 
-## Data types
+### Data types
 
 -   [citext](https://www.postgresql.org/docs/current/citext.html). Data
     type for case-insensitive character strings.
@@ -84,7 +95,7 @@ installed with a few exceptions.
 -   [uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html).
     Generate universally unique identifiers (UUIDs).
 
-## Geographical features
+### Geographical features
 
 -   [address_standardizer](https://postgis.net/docs/standardize_address.html).
     Used to parse an address into constituent elements. Generally used
@@ -112,7 +123,7 @@ installed with a few exceptions.
 -   [postgis_topology](https://postgis.net/docs/Topology.html). PostGIS
     topology spatial types and functions.
 
-## Machine learning (ML) and artificial intelligence (AI)
+### Machine learning (ML) and artificial intelligence (AI)
 
 -   [pgvector](https://github.com/pgvector/pgvector) designed for vector
     similarity search for PostgreSQL. `PG13 and newer`
@@ -129,14 +140,14 @@ installed with a few exceptions.
     [pgvectorscale releases](https://github.com/timescale/pgvectorscale/releases).
     :::
 
-## Procedural language
+### Procedural language
 
 -   [plperl](https://www.postgresql.org/docs/current/plperl.html).
     PL/Perl procedural language.
 -   [plpgsql](https://www.postgresql.org/docs/current/plpgsql.html).
     PL/pgSQL procedural language.
 
-## Search and text handling
+### Search and text handling
 
 -   [bloom](https://www.postgresql.org/docs/current/bloom.html). Bloom
     access method - signature file based index.
@@ -158,7 +169,7 @@ installed with a few exceptions.
 -   [unaccent](https://www.postgresql.org/docs/current/unaccent.html).
     Text search dictionary that removes accents.
 
-## Utilities
+### Utilities
 
 -   [aiven_extras](https://github.com/aiven/aiven-extras). This
     extension is meant for use in environments where you want
