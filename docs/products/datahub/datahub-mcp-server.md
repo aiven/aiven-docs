@@ -11,6 +11,12 @@ Use the DataHub MCP server to empower AI agents with deep visibility into your d
 - A [DataHub personal access tokens (PAT)](https://docs.datahub.com/docs/authentication/personal-access-tokens)
 - The [DataHub GMS URL](#get-the-datahub-gms-url)
 
+## Get the DataHub GMS URL
+
+1. In the Aiven Console, go to your DataHub service.
+1. In the **Connection information** section, copy the **Application URL**.
+1. Add `/api/gms` to the end of the copied URL.
+
 ## Configure the MCP server
 
 To run the [open-source MCP server](https://github.com/acryldata/mcp-server-datahub)
@@ -106,10 +112,3 @@ Where:
 
 </TabItem>
 </Tabs>
-
-
-## Get the DataHub GMS URL
-
-1. In the Aiven Console, go to your DataHub service.
-1. In the **Connection information** section, copy the **Application URL**.
-1. Add `/api/gms` to the end of the copied URL.
