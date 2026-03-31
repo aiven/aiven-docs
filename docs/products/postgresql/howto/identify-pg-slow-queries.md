@@ -44,11 +44,9 @@ CREATE EXTENSION pg_stat_statements;
 
 Display the `pg_stat_statements` view and all the columns contained:
 
-<!-- vale off -->
-```sql
+```bash
 \d pg_stat_statements;
 ```
-<!-- vale on -->
 
 Expect to receive the following output:
 
