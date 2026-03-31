@@ -29,3 +29,9 @@ organization can select that account in Aiven Apps.
    To change the configuration of a service integration, click
    <ConsoleLabel name="editappintegrationconfig"/>.
 1. To deploy the apps and create the services, click **Deploy**.
+
+## Redeploy an app
+
+1. In the Aiven Console, go to your project and click **Applications**.
+1. Open your app.
+1. On the **Overview** page, click <ConsoleIcon name="actions"/> > <ConsoleLabel name="redeployapp"/ >.
