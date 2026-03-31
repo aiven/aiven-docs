@@ -10,8 +10,7 @@ The [pgvector extension](/docs/products/postgresql/concepts/pgvector) allows you
 ## Prerequisites
 
 -   Aiven account
--   Aiven for PostgreSQL service running on PostgreSQL 13 or newer
-    PostgreSQL versions
+-   Running Aiven for PostgreSQL service
 -   psql and a psql CLI client
 -   Vector embeddings generated (for example, with the [OpenAI
     API](https://platform.openai.com/docs/api-reference/embeddings/create)

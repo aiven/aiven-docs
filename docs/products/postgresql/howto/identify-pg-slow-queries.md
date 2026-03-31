@@ -48,7 +48,7 @@ Display the `pg_stat_statements` view and all the columns contained:
 \d pg_stat_statements;
 ```
 
-For PostgreSQL 13, expect to receive the following output:
+Expect to receive the following output:
 
 ```text
 View "public.pg_stat_statements"
