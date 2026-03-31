@@ -30,7 +30,7 @@ The output should look like the following if the connection is
 successful:
 
 ```
-psql (13.2, server 13.3)
+psql (PG_VERSION_NUMBER, server VERSION_NUMBER)
 SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
 Type "help" for help.
 
@@ -49,6 +49,6 @@ The result will be similar to the following:
 ```
 version
 --------------------------------------------------------------------------------------------
-PostgreSQL 13.3 on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6520304dc1, 64-bit
+PostgreSQL PG_VERSION_NUMBER on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6520304dc1, 64-bit
 (1 row)
 ```
