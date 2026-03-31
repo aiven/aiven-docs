@@ -44,7 +44,7 @@ CREATE EXTENSION pg_stat_statements;
 
 Display the `pg_stat_statements` view and all the columns contained:
 
-```shell
+```sql
 \d pg_stat_statements;
 ```
 
