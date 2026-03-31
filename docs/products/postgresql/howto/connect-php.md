@@ -57,5 +57,5 @@ If the script runs successfully, the outputs should be the PostgreSQL
 version running in your service like:
 
 ```
-PostgreSQL 13.3 on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6520304dc1, 64-bit
+PostgreSQL PG_VERSION_NUMBER on x86_64-pc-linux-gnu, compiled by gcc, a 68c5366192 p 6520304dc1, 64-bit
 ```
