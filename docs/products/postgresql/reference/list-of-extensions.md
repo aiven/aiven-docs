@@ -194,8 +194,6 @@ for the instructions.
     manage partitioned tables by time or ID.
 -   [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html).
     Prewarm relation data.
--   [pg_prometheus](https://github.com/timescale/pg_prometheus).
-    Prometheus metrics for PostgreSQL.
 -   [pg_repack](https://pgxn.org/dist/pg_repack/1.4.6/). Reorganize
     tables in PostgreSQL databases with minimal locks.
 -   [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html).
@@ -223,8 +221,6 @@ for the instructions.
     Information about SSL certificates.
 -   [tablefunc](https://www.postgresql.org/docs/current/tablefunc.html).
     Functions that manipulate whole tables, including `crosstab`.
--   [timetravel](https://www.postgresql.org/docs/6.3/c0503.htm).
-    Functions for implementing time travel.
 -   [tsm_system_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html).
     TABLESAMPLE method which accepts number of rows as a limit.
 -   [tsm_system_time](https://www.postgresql.org/docs/current/tsm-system-time.html).
