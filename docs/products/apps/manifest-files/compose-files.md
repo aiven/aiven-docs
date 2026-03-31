@@ -5,6 +5,7 @@ limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
 
 Aiven Apps scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
 Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
@@ -30,12 +31,8 @@ Aiven recognizes Compose files with the following file naming conventions:
   </tbody>
 </table>
 
-Aiven automatically analyzes manifest files to:
-
-  - Detect application services to build
-  - Identify supported data services
-  - Create service integrations based on environment variables and dependencies
-  - Provision Aiven-managed services for your data needs
+Aiven automatically analyzes Compose files to detect the apps to build and
+the Aiven services to create.
 
 ## Create a Docker Compose file
 
@@ -47,12 +44,36 @@ and in the [Docker Compose file reference](https://docs.docker.com/reference/com
 ### Service integrations
 
 Aiven Apps automatically detects and creates the following data services based
-on Docker image names: Aiven for PostgreSQL®, Aiven for Valkey™, and Aiven for OpenSearch®.
+on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
+and Aiven for OpenSearch®.
 
 You define the service type and version with the `image` property. The following examples
-show how to specify the image for each supported service:
+show how to specify the image for each supported service.
 
-**PostgreSQL**
+#### Kafka
+
+The supported images for Kafka are:
+
+- `apache/kafka`: Official Apache Kafka
+- `confluentinc/cp-kafka`: Confluent Platform
+- `bitnami/kafka`: Bitnami packaging
+
+The following is an example for the official Apache Kafka image:
+
+```yaml
+services:
+  message-broker:
+    image: apache/kafka:3.9
+```
+
+The following is an example for the Confluent Platform Kafka image:
+
+```yaml
+  kafka-confluent:
+    image: confluentinc/cp-kafka:latest
+```
+
+#### PostgreSQL
 
 ```yaml
 services:
@@ -60,7 +81,7 @@ services:
     image: postgres:15
 ```
 
-**Valkey**
+#### Valkey
 
 ```yaml
 services:
@@ -68,7 +89,7 @@ services:
     image: valkey/valkey:7.2
 ```
 
-**OpenSearch**
+#### OpenSearch
 
 ```yaml
 services:
@@ -99,10 +120,9 @@ services:
 
 You can use a list or dictionary format for environment variables.
 
-For sensitive data like credentials, use
-[Secrets](https://github.com/compose-spec/compose-spec/blob/main/09-secrets.md).
+<EnvVarMerging/>
 
-**List format example**
+#### List format example
 
 ```yaml
 services:
@@ -113,7 +133,7 @@ services:
       - NODE_ENV=production
 ```
 
-**Dictionary format example**
+#### Dictionary format example
 
 ```yaml
 services:
@@ -187,7 +207,6 @@ CMD ["npm", "start"]
 The following example Compose file defines a more complex application with
 a React frontend, a backend API, a background worker, and integrations
 with PostgreSQL, Valkey, and OpenSearch services.
-
 
 ```yaml
 services:

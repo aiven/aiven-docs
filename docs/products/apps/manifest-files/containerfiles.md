@@ -4,6 +4,8 @@ sidebar_label: Create Containerfiles and Dockerfiles
 limited: true
 ---
 
+import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
+
 Aiven Apps automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure apps.
 
 It recognizes Containerfiles and Dockerfiles in the following formats:
@@ -38,6 +40,7 @@ EXPOSE 9090/tcp
 ## Environment Variables
 
 You can define environment variables using the `ENV` instruction.
+
 The following example defines two environment variables, `NODE_ENV` and `DEBUG`:
 
 ```dockerfile
@@ -46,6 +49,8 @@ FROM python:3.11-slim
 ENV NODE_ENV=production
 ENV DEBUG=true
 ```
+
+<EnvVarMerging/>
 
 ## Other commands and best practices
 
