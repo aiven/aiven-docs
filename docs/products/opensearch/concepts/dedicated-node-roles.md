@@ -109,7 +109,7 @@ allowing them to focus on maintaining cluster stability.
 
 :::note
 Configure cluster manager nodes in odd numbers to ensure quorum for cluster decisions and
-prevent split-brain scenarios. Three nodes are the most common configuration.
+prevent split-brain scenarios.
 :::
 
 #### Data nodes
