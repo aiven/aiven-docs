@@ -37,7 +37,7 @@ an error.
 
 ### Migration window
 
-You can start a migration only in the following time window:
+You can start a migration only during the following time window:
 
 - Monday to Friday
 - 00:00 to 14:00 UTC
