@@ -3,6 +3,8 @@ title: Quotas in Aiven for Apache Kafka®
 sidebar_label: Kafka quotas
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Quotas ensure fair resource allocation, stability, and efficiency in your Kafka cluster.
 In Aiven for Apache Kafka®, you can
 [add quotas](/docs/products/kafka/howto/manage-quotas) to limit the data or requests
@@ -47,7 +49,7 @@ network bandwidth and CPU usage:
     any individual from monopolizing CPU resources, promoting fairness
     and efficient resource utilization.
 
-## Client ID and users in quotas
+## Client IDs and users
 
 **Client ID** and **User** are two types of entities that can be used to
 enforce quotas in Kafka.
@@ -64,7 +66,7 @@ connecting to a cluster. With authentication mechanisms like SASL, users
 are associated with specific connections. By setting quotas based on
 Users, resource limits can be enforced per-user.
 
-## Quotas enforcement
+## Quota enforcement
 
 Quotas enforcement ensures clients stay within their allocated
 resources. These quotas are implemented and controlled by the brokers on
@@ -84,13 +86,9 @@ typically 30 windows of 1 second each. This ensures timely correction
 and prevents bursts of traffic followed by long delays, providing a
 better user experience.
 
-For more information, see
-[Enforcement](https://kafka.apache.org/documentation) in the Apache
-Kafka® official documentation and
-[How to add and manage quotas](/docs/products/kafka/howto/manage-quotas)
+<RelatedPages/>
 
-## Further reading
-
-For a deep dive into the workings, advantages, and
-practical application of Kafka quotas in Kafka deployments, see
-[Introducing Kafka Quotas in Aiven for Apache Kafka](https://aiven.io/blog/introducing-kafka-quotas-in-aiven-for-apache-kafka).
+- [Quota enforcement in the Apache Kafka® documentation](https://kafka.apache.org/documentation/#design_quotas)
+- [Manage quotas in Aiven for Apache Kafka®](/docs/products/kafka/howto/manage-quotas)
+- [`avn service quota`](/docs/tools/cli/service/quota)
+- [Introducing Kafka Quotas in Aiven for Apache Kafka](https://aiven.io/blog/introducing-kafka-quotas-in-aiven-for-apache-kafka)

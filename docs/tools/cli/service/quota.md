@@ -7,9 +7,9 @@ Full list of commands for `avn service quota`.
 ## Manage Kafka service quotas
 
 The `avn service quota` command manages quotas for Aiven for Apache Kafka® services.
-Quotas limit the network throughput and CPU usage of producers and consumers, preventing
-individual clients from overloading the cluster. Quotas can be scoped to a specific
-user, a client ID, or both.
+Quotas limit network throughput and CPU usage for producers and consumers. This prevents
+individual clients from overloading the cluster. You can scope quotas to a specific user,
+a client ID, or both.
 
 For an overview of how quotas work, see
 [Quotas in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-quotas).
@@ -27,9 +27,9 @@ At least one quota parameter (`--consumer-byte-rate`, `--producer-byte-rate`, or
 | `service_name`          | Name of the service                                                                                      |
 | `--client-id`           | Client ID to scope the quota to                                                                          |
 | `--user`                | Username to scope the quota to                                                                           |
-| `--consumer-byte-rate`  | Maximum bytes per second a consumer group can read from the cluster (0–1073741824)                       |
-| `--producer-byte-rate`  | Maximum bytes per second a producer group can write to the cluster (0–1073741824)                        |
-| `--request-percentage`  | Maximum percentage of CPU time for request handler I/O and network threads per broker (0–100)            |
+| `--consumer-byte-rate`  | Maximum bytes per second a consumer group can read from the cluster (0—1073741824)                       |
+| `--producer-byte-rate`  | Maximum bytes per second a producer group can write to the cluster (0—1073741824)                        |
+| `--request-percentage`  | Maximum percentage of CPU time for request handler I/O and network threads per broker (0—100)            |
 
 :::note
 To apply a quota to all users or all client IDs, use the keyword `default` as the

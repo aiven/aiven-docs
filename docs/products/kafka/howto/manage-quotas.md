@@ -7,36 +7,33 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Manage quotas for your Aiven for Apache Kafka® service to control network throughput
-and CPU usage per client. For an overview of quotas, see
-[Quotas in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-quotas).
+Manage quotas in your Aiven for Apache Kafka® service to control network throughput and CPU usage per client.
 
 ## Prerequisites
 
-- An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service) running.
-- Access to the [Aiven Console](https://console.aiven.io/) or
-  [Aiven CLI](/docs/tools/cli) installed and authenticated.
+- An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
+- Access to the [Aiven Console](https://console.aiven.io/) or an authenticated [Aiven CLI](/docs/tools/cli).
+- A [personal access token](/docs/platform/howto/create_authentication_token) for API requests.
 
 ## Add quota
 
 <Tabs groupId="quota">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to [Aiven Console](https://console.aiven.io/) and select your
-   Aiven for Apache Kafka service.
-1. Select **Quotas** from the left sidebar and select **Add quota**.
-1. Enter the **Client ID** or **User** for which to set the quota.
-1. Choose one or more quota types and enter the desired value:
-   - **Consumer throttle** (bytes per second): Maximum data rate for consumers.
-   - **Producer throttle** (bytes per second): Maximum data rate for producers.
-   - **CPU throttle** (percentage): Maximum CPU usage for the client.
+1. Log in to [Aiven Console](https://console.aiven.io/) and select your Kafka service.
+1. Click <ConsoleLabel name="quotas" /> in the sidebar.
+1. Click **Add quota**.
+1. Enter the **Client ID** or **User**.
+1. Set one or more quota values:
+   - **Consumer throttle**: Maximum data rate for consumers, in bytes per second.
+   - **Producer throttle**: Maximum data rate for producers, in bytes per second.
+   - **CPU throttle**: Maximum CPU usage for the client, as a percentage.
 
    :::note
-   To apply a quota to all clients or all users, enter `default` in the
-   **Client ID** or **User** field.
+   Enter `default` to apply the quota to all clients or users.
    :::
 
-1. Select **Add**.
+1. Click **Add**.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -64,7 +61,7 @@ avn service quota create kafka-doc \
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Call the [ServiceKafkaQuotaCreate](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaCreate)
+Send a request to the [ServiceKafkaQuotaCreate](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaCreate)
 endpoint:
 
 ```bash
@@ -86,9 +83,11 @@ curl -X POST https://api.aiven.io/v1/project/{project}/service/{service}/quota \
 <Tabs groupId="quota">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to [Aiven Console](https://console.aiven.io/) and select your
-   Aiven for Apache Kafka service.
-1. Select **Quotas** from the left sidebar to see all configured quotas.
+1. Access the [Aiven Console](https://console.aiven.io/) and open your Aiven for Apache
+   Kafka® service.
+1. Click <ConsoleLabel name="quotas" />.
+
+The page lists all configured quotas.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -100,7 +99,7 @@ avn service quota list kafka-doc
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Call the [ServiceKafkaQuotaList](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaList)
+Send a request to the [ServiceKafkaQuotaList](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaList)
 endpoint:
 
 ```bash
@@ -116,15 +115,20 @@ curl https://api.aiven.io/v1/project/{project}/service/{service}/quota \
 <Tabs groupId="quota">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Select **Quotas** from the left sidebar for your Apache Kafka service.
-1. Locate the quota to update and select **Update** from the ellipsis menu.
-1. Modify the quota value as needed and select **Save changes**.
+1. Access the [Aiven Console](https://console.aiven.io/) and open your Aiven for Apache
+   Kafka® service.
+1. Click <ConsoleLabel name="quotas" />.
+1. Find the quota to update.
+1. Click <ConsoleLabel name="actions" /> >
+   **Update**.
+1. Update the quota values.
+1. Click **Save changes**.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-Run `avn service quota create` again with the same `--user` and/or `--client-id`
-to overwrite the existing quota values:
+Run `avn service quota create` again with the same `--user` or `--client-id` to overwrite
+existing values:
 
 ```bash
 avn service quota create kafka-doc \
@@ -135,8 +139,8 @@ avn service quota create kafka-doc \
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Call [ServiceKafkaQuotaCreate](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaCreate)
-again with the updated values to overwrite the existing quota.
+Send another request to the [ServiceKafkaQuotaCreate](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaCreate)
+endpoint with the updated values to overwrite the existing quota.
 
 </TabItem>
 </Tabs>
@@ -146,9 +150,13 @@ again with the updated values to overwrite the existing quota.
 <Tabs groupId="quota">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Select **Quotas** from the left sidebar for your Apache Kafka service.
-1. Locate the quota to delete and select **Delete** from the ellipsis menu.
-1. Select **Delete quota** to confirm.
+1. Access the [Aiven Console](https://console.aiven.io/) and open your Aiven for Apache
+   Kafka® service.
+1. Click <ConsoleLabel name="quotas" />.
+1. Find the quota to delete.
+1. Click <ConsoleLabel name="actions" /> >
+   **Delete**.
+1. Click **Delete quota** to confirm.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -160,7 +168,7 @@ avn service quota delete kafka-doc --user alice
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Call the [ServiceKafkaQuotaDelete](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaDelete)
+Send a request to the [ServiceKafkaQuotaDelete](https://api.aiven.io/doc/#tag/Service:_Kafka/operation/ServiceKafkaQuotaDelete)
 endpoint:
 
 ```bash
