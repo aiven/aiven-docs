@@ -13,9 +13,8 @@ consumers within a specific period, preventing issues like broker
 overload, network congestion, and service disruptions caused by
 excessive or malicious traffic. You can effectively manage resource
 consumption and ensure optimal user performance by implementing quotas.
-You can add and manage quotas using [Aiven
-Console](https://console.aiven.io/), [CLI](/docs/tools/cli/service/quota) and [Aiven
-API](https://api.aiven.io/doc/).
+You can add and manage quotas using [Aiven Console](https://console.aiven.io/),
+[Aiven CLI](/docs/tools/cli/service/quota) and [Aiven API](https://api.aiven.io/doc/).
 
 Using quotas offer several benefits:
 

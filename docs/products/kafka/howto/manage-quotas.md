@@ -65,7 +65,7 @@ Send a request to the [ServiceKafkaQuotaCreate](https://api.aiven.io/doc/#tag/Se
 endpoint:
 
 ```bash
-curl -X POST https://api.aiven.io/v1/project/{project}/service/{service}/quota \
+curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/quota \
   -H "Authorization: Bearer $AIVEN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -74,6 +74,9 @@ curl -X POST https://api.aiven.io/v1/project/{project}/service/{service}/quota \
     "producer_byte_rate": 1048576
   }'
 ```
+
+Replace `PROJECT_NAME` and `SERVICE_NAME` with your Aiven project name and Kafka service
+name.
 
 </TabItem>
 </Tabs>
@@ -103,9 +106,12 @@ Send a request to the [ServiceKafkaQuotaList](https://api.aiven.io/doc/#tag/Serv
 endpoint:
 
 ```bash
-curl https://api.aiven.io/v1/project/{project}/service/{service}/quota \
+curl https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/quota \
   -H "Authorization: Bearer $AIVEN_TOKEN"
 ```
+
+Replace `PROJECT_NAME` and `SERVICE_NAME` with your Aiven project name and Kafka service
+name.
 
 </TabItem>
 </Tabs>
@@ -119,8 +125,7 @@ curl https://api.aiven.io/v1/project/{project}/service/{service}/quota \
    Kafka® service.
 1. Click <ConsoleLabel name="quotas" />.
 1. Find the quota to update.
-1. Click <ConsoleLabel name="actions" /> >
-   **Update**.
+1. Click <ConsoleLabel name="actions" /> > **Update**.
 1. Update the quota values.
 1. Click **Save changes**.
 
@@ -154,8 +159,7 @@ endpoint with the updated values to overwrite the existing quota.
    Kafka® service.
 1. Click <ConsoleLabel name="quotas" />.
 1. Find the quota to delete.
-1. Click <ConsoleLabel name="actions" /> >
-   **Delete**.
+1. Click <ConsoleLabel name="actions" /> > **Delete**.
 1. Click **Delete quota** to confirm.
 
 </TabItem>
@@ -172,9 +176,12 @@ Send a request to the [ServiceKafkaQuotaDelete](https://api.aiven.io/doc/#tag/Se
 endpoint:
 
 ```bash
-curl -X DELETE "https://api.aiven.io/v1/project/{project}/service/{service}/quota?user=alice" \
+curl -X DELETE "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/quota?user=alice" \
   -H "Authorization: Bearer $AIVEN_TOKEN"
 ```
+
+Replace `PROJECT_NAME` and `SERVICE_NAME` with your Aiven project name and Kafka service
+name.
 
 </TabItem>
 </Tabs>

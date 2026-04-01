@@ -27,8 +27,8 @@ At least one quota parameter (`--consumer-byte-rate`, `--producer-byte-rate`, or
 | `service_name`          | Name of the service                                                                                      |
 | `--client-id`           | Client ID to scope the quota to                                                                          |
 | `--user`                | Username to scope the quota to                                                                           |
-| `--consumer-byte-rate`  | Maximum bytes per second a consumer group can read from the cluster (0—1073741824)                       |
-| `--producer-byte-rate`  | Maximum bytes per second a producer group can write to the cluster (0—1073741824)                        |
+| `--consumer-byte-rate`  | Maximum bytes per second that consumer clients with this quota can read from the cluster (0—1073741824) |
+| `--producer-byte-rate`  | Maximum bytes per second that producer clients with this quota can write to the cluster (0—1073741824)  |
 | `--request-percentage`  | Maximum percentage of CPU time for request handler I/O and network threads per broker (0—100)            |
 
 :::note
