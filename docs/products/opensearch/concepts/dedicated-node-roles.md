@@ -133,13 +133,15 @@ compute resources for data-intensive operations.
 Dedicated node roles are defined at the service plan level. When you select a plan with
 dedicated roles:
 
-- Cluster manager nodes are configured as a separate node group with their own instance type
-- Data nodes form another group optimized for storage and compute
-- The configuration is managed automatically by Aiven
-- Cluster manager nodes are excluded from DNS routing for client connections
-- Node roles are assigned during cluster creation and maintained throughout the cluster lifecycle
-- OpenSearch Dashboards is served on every node
-- Dedicated dashboard nodes are not included
+- Cluster manager nodes are configured as a separate node group with their own instance type.
+- Cluster manager nodes are automatically distributed across different availability zones.
+- Data nodes form another group optimized for storage and compute.
+- The configuration is managed automatically by Aiven.
+- Cluster manager nodes are excluded from DNS routing for client connections.
+- Node roles are assigned during cluster creation and maintained throughout the cluster
+  lifecycle.
+- OpenSearch Dashboards is served on every node.
+- Dedicated dashboard nodes are not included.
 
 All standard service operations work with dedicated node roles, including service creation,
 major version upgrades, plan changes, service forking, and node replacement. The platform
