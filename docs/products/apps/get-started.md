@@ -5,12 +5,15 @@ limited: true
 ---
 
 Get started using Aiven Apps by building and deploying an example Python web app that searches for images matching a text description.
-This example creates the app and Aiven for PostgreSQL® service.
+
+This example creates an app and Aiven for PostgreSQL® service.
+The app uses a machine learning model to compare text with images stored in the
+PostgreSQL database. Users enter text and see the four most similar images.
 
 ## Prerequisites
 
 - [Sign up for Aiven](https://console.aiven.io/signup) for free.
-- Fork the [example repository] (https://github.com/Aiven-Labs/app-multimodal-search-CLIP-PostgreSQL).
+- Fork the [example repository](https://github.com/Aiven-Labs/app-multimodal-search-CLIP-PostgreSQL).
 
 ## Deploy the app
 
@@ -19,7 +22,7 @@ This example creates the app and Aiven for PostgreSQL® service.
 1. Connect your GitHub account.
 1. Select your **Account**, the forked repository, and the `main` branch.
 1. Click **Next**.
-1. Click **Scan**. Aiven Apps analyzes the mainifest file.
+1. Click **Scan**. Aiven Apps analyzes the manifest file.
 1. To deploy the app and create the PostgreSQL service, click **Deploy**.
 1. To open the app, in the **Connection information** section,
    click the **Application URL**.
