@@ -60,14 +60,14 @@ and connection pools are copied to the new service.
 
 Use the
 [create service command](https://aiven.io/docs/tools/cli/service-cli#avn-cli-service-create)
-with the `service_to_fork_from` parameter to specify the service to use as the source.
+with the `service-to-fork-from` parameter to specify the service to use as the source.
 If the source service is in a different project, also set
-`project_to_fork_from` in user config.
+`project-to-fork-from` in user config.
 
 The following example creates a fork of a PostgreSQL® service named `source-pg`
 and names it `pg-fork`.
 
-```bash
+```bash{6}
 avn service create pg-fork \
   --plan business-4 \
   --project example-project \
@@ -78,21 +78,21 @@ avn service create pg-fork \
 
 The following example forks a PostgreSQL service from another project:
 
-```bash
+```bash{6-7}
 avn service create pg-fork \
   --plan business-4 \
   --project target-project \
   --service-type pg \
   --cloud google-europe-west1 \
   --service-to-fork-from source-pg \
-  -c project_to_fork_from=source-project
+  --project-to-fork-from source-project
 ```
 
 To specify the backup to fork from, add the `--recovery-target-time` parameter
 and set it to a time between the first and latest available backups. The following
 example creates a fork by specifying the backup:
 
-```bash
+```bash{6-7}
 avn service create pg-fork \
   --plan business-4 \
   --project example-project \
@@ -115,7 +115,7 @@ to the source project name.
 The following example creates a fork of a PostgreSQL service from the latest backup
 of the service `source-pg-service`:
 
-```bash
+```bash{10}
 curl --location 'https://console.aiven.io/v1/project/example-project/service' \
      --header 'Content-Type: application/json' \
      --header 'Authorization: token' \
@@ -132,7 +132,7 @@ curl --location 'https://console.aiven.io/v1/project/example-project/service' \
 
 The following example forks a PostgreSQL service from another project:
 
-```bash
+```bash{10-11}
 curl --location 'https://console.aiven.io/v1/project/target-project/service' \
      --header 'Content-Type: application/json' \
      --header 'Authorization: token' \
@@ -154,7 +154,7 @@ to a time between the first and latest available backups.
 The following example forks a PostgreSQL service from a backup
 taken at a specific point in time:
 
-```bash
+```bash{10-11}
 curl --location 'https://console.aiven.io/v1/project/example-project/service' \
      --header 'Content-Type: application/json' \
      --header 'Authorization: token' \
@@ -183,7 +183,7 @@ in the Google Cloud `europe-west1` region and the fork is in the AWS `eu-central
 
 For a cross-project fork, configure both attributes in user config:
 
-```hcl
+```hcl{8-9}
 resource "aiven_pg" "postgres_fork" {
   project      = "target-project"
   cloud_name   = "google-europe-west1"
