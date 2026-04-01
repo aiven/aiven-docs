@@ -154,6 +154,14 @@ migration process and rollout limitations, see:
 To support this transition, Aiven has extended support for Apache Kafka 3.8 by one year.
 :::
 
+### Aiven for ClickHouse®
+
+| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
+| ------- |-----------------|----------------------------------| ------------------------------- |
+| 25.3    | To be announced | To be announced                  | 2025-12-15                      |
+| 25.8    | To be announced | To be announced                  | 2026-03-25                      |
+
+
 ### Aiven for Apache Flink® {#aiven-for-flink}
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
@@ -169,12 +177,6 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | 9.0.x   | To be announced | To be announced                  | 2026-03-17                      |
 
 ## Aiven single-versioned services EOL
-
-### Aiven for ClickHouse®
-
-| Version | Aiven EOL       |
-| ------- | --------------- |
-| 25.3    | To be announced |
 
 ### Aiven for Dragonfly®
 
