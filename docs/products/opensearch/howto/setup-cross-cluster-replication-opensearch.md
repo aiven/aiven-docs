@@ -41,50 +41,35 @@ Cross cluster replication is not available for the Free and Startup plans.
 </TabItem>
 <TabItem value="API" label="Aiven API">
 
-To set up cross-cluster replication using the Aiven API, use the service integration
-endpoint and specify the `integration_type` as `opensearch_cross_cluster_replication`.
-For more information, see
-[Create service integration](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationCreate).
+To set up cross-cluster replication using the Aiven API, create the follower service
+and include the `opensearch_cross_cluster_replication` integration in the service
+creation request. For more information, see
+[Create service](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate).
 
 ```bash
-curl -X POST https://api.aiven.io/v1/project/<PROJECT_NAME>/integration \
-  -H "Authorization: Bearer <API_TOKEN>" \
+curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
+  -H "Authorization: Bearer API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "source_service": "<LEADER_SERVICE_NAME>",
-    "dest_service": "<FOLLOWER_SERVICE_NAME>",
-    "integration_type": "opensearch_cross_cluster_replication"
+      "service_type": "opensearch",
+      "plan": "business-4",
+      "cloud": "gcp-us-east1",
+      "service_name": "follower-os-cluster",
+      "service_integrations": [
+         {
+            "integration_type": "opensearch_cross_cluster_replication",
+            "source_service": "LEADER_SERVICE_NAME",
+            "user_config": {}
+         }
+      ]
   }'
 ```
 
 Parameters:
 
-- `<PROJECT_NAME>`: Aiven project name.
-- `<LEADER_SERVICE_NAME>`: Leader (source) service name.
-- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) service name.
-- `<API_TOKEN>`: API authentication token.
-
-</TabItem>
-<TabItem value="CLI" label="Aiven CLI">
-
-To set up cross-cluster replication with the [Aiven CLI](/docs/tools/cli), use the
-`avn service integration-create` command and
-specify the `integration-type` as `opensearch_cross_cluster_replication`.
-
-```bash
-avn service integration-create \
-  --project <PROJECT_NAME> \
-  --source-service <LEADER_SERVICE_NAME> \
-  --dest-service <FOLLOWER_SERVICE_NAME> \
-  --integration-type opensearch_cross_cluster_replication
-
-```
-
-Parameters:
-
-- `<PROJECT_NAME>`: Aiven project name.
-- `<LEADER_SERVICE_NAME>`: Leader (source) service name.
-- `<FOLLOWER_SERVICE_NAME>`: Follower (destination) service name.
+- `PROJECT_NAME`: Aiven project name
+- `API_TOKEN`: API authentication token
+- `LEADER_SERVICE_NAME`: Leader service name
 
 </TabItem>
 </Tabs>
@@ -150,26 +135,6 @@ Parameters:
 - `<API_TOKEN>`: API authentication token.
 
 Removing the integration transitions the follower service to a standalone service.
-
-</TabItem>
-<TabItem value="CLI" label="Aiven CLI">
-
-To promote a follower service to standalone using the
-[Aiven CLI](/docs/tools/cli), delete the `opensearch_cross_cluster_replication`
-integration with the following command:
-
-```bash
-avn service integration-delete \
-  --project <PROJECT_NAME> \
-  --integration-id <INTEGRATION_ID>
-```
-
-Parameters:
-
-- `<PROJECT_NAME>`: Aiven project name.
-- `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
-
-Deleting the integration transitions the follower service to a standalone service.
 
 </TabItem>
 </Tabs>
