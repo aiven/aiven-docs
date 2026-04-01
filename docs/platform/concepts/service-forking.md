@@ -42,6 +42,7 @@ and connection pools are copied to the new service.
 - Service integrations are not copied over to the forked versions.
 - You cannot [fork Aiven for ClickHouse®](/docs/products/clickhouse/howto/restore-backup)
   services to a lower amount of nodes.
+- Cross-project forking is supported only within the same organization.
 - Single sign-on (SSO) methods are not copied over to forked Aiven for OpenSearch® services
   because they are linked to specific URLs and endpoints, which change during
   forking. If you don't configure the SSO methods for the forked service, this can
@@ -60,6 +61,8 @@ and connection pools are copied to the new service.
 Use the
 [create service command](https://aiven.io/docs/tools/cli/service-cli#avn-cli-service-create)
 with the `service_to_fork_from` parameter to specify the service to use as the source.
+If the source service is in a different project, also set
+`project_to_fork_from` in user config.
 
 The following example creates a fork of a PostgreSQL® service named `source-pg`
 and names it `pg-fork`.
@@ -71,6 +74,18 @@ avn service create pg-fork \
   --service-type pg \
   --cloud google-europe-west1 \
   --service-to-fork-from source-pg
+```
+
+The following example forks a PostgreSQL service from another project:
+
+```bash
+avn service create pg-fork \
+  --plan business-4 \
+  --project target-project \
+  --service-type pg \
+  --cloud google-europe-west1 \
+  --service-to-fork-from source-pg \
+  -c project_to_fork_from=source-project
 ```
 
 To specify the backup to fork from, add the `--recovery-target-time` parameter
@@ -94,6 +109,8 @@ Use the
 [`ServiceCreate` endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
 and set the `service_to_fork_from` parameter in the `user_config` property
 to the source service.
+If the source service is in another project, also set `project_to_fork_from`
+to the source project name.
 
 The following example creates a fork of a PostgreSQL service from the latest backup
 of the service `source-pg-service`:
@@ -109,6 +126,24 @@ curl --location 'https://console.aiven.io/v1/project/example-project/service' \
         "service_type":"pg",
         "user_config":{
           "service_to_fork_from":"source-pg-service",
+        }
+     }'
+```
+
+The following example forks a PostgreSQL service from another project:
+
+```bash
+curl --location 'https://console.aiven.io/v1/project/target-project/service' \
+     --header 'Content-Type: application/json' \
+     --header 'Authorization: token' \
+     --data '{
+        "cloud":"google-europe-central2",
+        "plan":"business-4",
+        "service_name":"pg-fork",
+        "service_type":"pg",
+        "user_config":{
+          "service_to_fork_from":"source-pg-service",
+          "project_to_fork_from":"source-project"
         }
      }'
 ```
@@ -139,11 +174,28 @@ curl --location 'https://console.aiven.io/v1/project/example-project/service' \
 <TabItem value="terraform" label="Terraform">
 
 Use the `service_to_fork_from` attribute in the user config of your service resource.
+If the source service is in another project, also set `project_to_fork_from`.
 
 The following example creates a fork of a PostgreSQL service. The source service is
 in the Google Cloud `europe-west1` region and the fork is in the AWS `eu-central-1` region.
 
 <TerraformSample filename='postgres/postgres_fork/service.tf' />
+
+For a cross-project fork, configure both attributes in user config:
+
+```hcl
+resource "aiven_pg" "postgres_fork" {
+  project      = "target-project"
+  cloud_name   = "google-europe-west1"
+  plan         = "startup-8"
+  service_name = "pg-fork"
+
+  pg_user_config {
+    service_to_fork_from = "source-pg"
+    project_to_fork_from = "source-project"
+  }
+}
+```
 
 To specify the backup to fork from, set the `recovery_target_time` attribute
 to a time between the first and latest available backups.
