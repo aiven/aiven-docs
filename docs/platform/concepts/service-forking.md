@@ -60,9 +60,9 @@ and connection pools are copied to the new service.
 
 Use the
 [create service command](https://aiven.io/docs/tools/cli/service-cli#avn-cli-service-create)
-with the `service-to-fork-from` parameter to specify the service to use as the source.
-If the source service is in a different project, also set
-`project-to-fork-from` in user config.
+with the `--service-to-fork-from` option to specify the service to use as the source.
+If the source service is in a different project, also set the
+`--project-to-fork-from` option to specify the source project.
 
 The following example creates a fork of a PostgreSQL® service named `source-pg`
 and names it `pg-fork`.
