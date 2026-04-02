@@ -97,13 +97,19 @@ Parameters:
 
 - `ORGANIZATION_ID`: Organization ID that owns the project.
 - `PROJECT_NAME`: Aiven project name.
+- `REQUIRED_MBPS`: Minimum ingress throughput in megabits per second (Mbps). Use with
+  `--ingress` to list only offerings that meet this requirement.
 - `CLOUD_PROVIDER`: Cloud provider, such as `aws`, `google`, or `azure`.
+- `CLOUD_NAME`: Cloud or region identifier for filtering rate output. Use with
+  `--cloud-name` on `avn inkless offering rates` (for example, a value shown in the
+  rates listing for your provider).
 - `CLOUD_REGION`: Cloud region for the service, such as `aws-us-east-1`.
 - `OFFERING_NAME`: Inkless offering returned by `avn inkless offering list`.
 - `SERVICE_NAME`: Name of the Kafka service.
 
-Optional: To enable diskless topics when creating the service, add this option to
-the create command:
+Optional: To enable diskless topics when creating the service, run `avn service create`
+with `kafka_diskless.enabled` set to `true` (in addition to the options in the previous
+step):
 
 ```bash
 -c kafka_diskless.enabled=true
@@ -125,7 +131,8 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 <Tabs groupId="inkless-byoc">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open the project and select <ConsoleLabel name="services" />.
+1. In the [Aiven Console](https://console.aiven.io), open the project and
+   select <ConsoleLabel name="services" />.
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. In **Service tier**, select **Professional**.
@@ -134,7 +141,8 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 1. In **Cloud**, select your BYOC environment and region.
 1. Select a **plan**.
 1. In **Service basics**, enter:
-   - **Name:** Enter a name for the service. You cannot change the name after creation.
+   - **Name:** Enter a name for the service. You cannot change the name after
+     creation.
    - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
      organize your services.
 1. Review the **Service summary**, and click **Create service**.
@@ -155,18 +163,33 @@ Create an Inkless Kafka service in a BYOC environment:
 
    ```bash
    avn service create SERVICE_NAME \
-    --project PROJECT_NAME \
-    --service-type kafka \
-    --cloud CUSTOM_CLOUD_REGION \
-    --plan INKLESS_PLAN \
-    -c kafka_version=4.0 \
-    -c tiered_storage.enabled=true \
-    -c kafka_diskless.enabled=true
+     --project PROJECT_NAME \
+     --service-type kafka \
+     --cloud CUSTOM_CLOUD_REGION \
+     --plan INKLESS_PLAN \
+     -c kafka_version=4.0 \
+     -c tiered_storage.enabled=true
    ```
 
-   :::note
-   Set both `tiered_storage.enabled=true` and `kafka_diskless.enabled=true`.
-   :::
+   Set `tiered_storage.enabled=true` for Inkless on BYOC. Diskless topics are optional,
+   same as in the Console flow on this page: you can use classic topics until you
+   enable diskless.
+
+1. Optional: To enable diskless topics when creating the service, use the following
+   command. It matches the previous step with `-c kafka_diskless.enabled=true` added:
+
+   ```bash
+   avn service create SERVICE_NAME \
+     --project PROJECT_NAME \
+     --service-type kafka \
+     --cloud CUSTOM_CLOUD_REGION \
+     --plan INKLESS_PLAN \
+     -c kafka_version=4.0 \
+     -c tiered_storage.enabled=true \
+     -c kafka_diskless.enabled=true
+   ```
+
+   You can also enable diskless topics later in the service configuration.
 
 Parameters:
 
