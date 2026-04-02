@@ -1443,6 +1443,7 @@ const sidebars: SidebarsConfig = {
 
                 'products/opensearch/concepts/aggregations',
                 'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/dedicated-node-roles',
                 'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
               ],
