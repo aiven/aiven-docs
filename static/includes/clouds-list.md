@@ -209,6 +209,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   <tr>
     <td>asia-pacific</td>
+    <td>azure-indonesia-central</td>
+    <td>Asia, Indonesia: Central Indonesia</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
     <td>azure-southeastasia</td>
     <td>Asia, Singapore: Southeast Asia</td>
   </tr>
@@ -316,6 +321,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>north america</td>
     <td>azure-eastus2</td>
     <td>United States, Virginia: East US 2</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>azure-mexico-central</td>
+    <td>North America, Mexico: Mexico Central</td>
   </tr>
   <tr>
     <td>north america</td>
