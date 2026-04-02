@@ -97,7 +97,7 @@ Parameters:
 
 - `ORGANIZATION_ID`: Organization ID that owns the project.
 - `PROJECT_NAME`: Aiven project name.
-- `REQUIRED_MBPS`: Minimum ingress throughput in megabits per second (Mbps). Use with
+- `REQUIRED_MBPS`: Minimum ingress throughput in megabits per second. Use with
   `--ingress` to list only offerings that meet this requirement.
 - `CLOUD_PROVIDER`: Cloud provider, such as `aws`, `google`, or `azure`.
 - `CLOUD_NAME`: Cloud or region identifier for filtering rate output. Use with
@@ -172,7 +172,7 @@ Create an Inkless Kafka service in a BYOC environment:
    ```
 
    Set `tiered_storage.enabled=true` for Inkless on BYOC. Diskless topics are optional,
-   same as in the Console flow on this page: you can use classic topics until you
+   same as in the Console flow. You can use classic topics until you
    enable diskless.
 
 1. Optional: To enable diskless topics when creating the service, use the following
