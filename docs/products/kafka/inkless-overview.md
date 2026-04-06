@@ -48,9 +48,6 @@ Use Inkless when you need to:
 
 Existing Classic Kafka services continue to run unchanged.
 
-Classic Kafka remains available for existing deployments and is visible in the Aiven
-Console only for projects that already include a Classic Kafka service.
-
 Upgrading or migrating an existing Classic Kafka service to Inkless is not supported at
 this time. The cluster type is fixed at service creation. To use Inkless, create a
 Kafka service and select Inkless as the cluster type.
@@ -58,4 +55,4 @@ Kafka service and select Inkless as the cluster type.
 <RelatedPages />
 
 - [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service)
-- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview )
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
