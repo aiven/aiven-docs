@@ -47,7 +47,8 @@ Each query must meet the following requirements:
   and incremental reads.
 - Do not include `LastModifiedDate` in the `WHERE` clause. The connector applies
   this filter internally.
-- Do not use `ORDER BY`. Bulk API 2.0 async jobs do not support ordered results.
+- Do not use `ORDER BY`. Bulk API 2.0 asynchronous jobs do not support ordered
+  results.
 
 These requirements apply to both standard and custom objects.
 
@@ -86,7 +87,8 @@ Duplicates can occur when:
 - A field not included in the SOQL query is updated, which still updates
   `LastModifiedDate`
 
-To deduplicate downstream, use the Salesforce `Id` field as the unique record key.
+To remove duplicates downstream, use the Salesforce `Id` field as the unique record
+key.
 
 ## Limitations
 
@@ -96,8 +98,8 @@ To deduplicate downstream, use the Salesforce `Id` field as the unique record ke
 - **At-least-once delivery.** Duplicate records can occur. See
   [Delivery semantics and duplicates](#delivery-semantics-and-duplicates).
 - **Salesforce Bulk API quota.** Each polling cycle consumes API quota. Use
-  `salesforce.soql.query.wait` to control polling frequency and stay within your
-  org's limits.
+  `salesforce.soql.query.wait` to control polling frequency and stay within the
+  limits of your Salesforce org.
 
 ## Create a Salesforce source connector configuration file
 
