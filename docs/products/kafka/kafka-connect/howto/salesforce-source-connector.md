@@ -33,6 +33,9 @@ queries on a polling schedule.
 - A **Kafka topic prefix** (`topics.prefix`) for records the connector writes to
   Apache Kafka.
 
+For additional details on how the connector works, see the
+[Salesforce connector for Apache Kafka documentation](https://github.com/aiven-open/salesforce-connector-for-apache-kafka/blob/main/README.md).
+
 ## Define SOQL queries
 
 SOQL (Salesforce Object Query Language) is a SQL-like query language used to retrieve
