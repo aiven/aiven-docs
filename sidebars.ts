@@ -879,6 +879,9 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/mongodb-poll-source-connector',
                         'products/kafka/kafka-connect/howto/mqtt-source-connector',
 
+                        // Salesforce
+                        'products/kafka/kafka-connect/howto/salesforce-source-connector',
+
                         // S (group)
                         {
                           type: 'category',
