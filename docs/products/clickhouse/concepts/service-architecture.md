@@ -3,15 +3,16 @@ title: Aiven for ClickHouse® service architecture
 sidebar_label: Service architecture
 ---
 
-Aiven for ClickHouse® is implemented as a multi-master cluster where the replication of data is managed by ClickHouse itself, the replication of schema and users is managed by ZooKeeper, and data backup and restoration is managed by Astacus.
-Discover the technical design behind Aiven for ClickHouse.
+Aiven for ClickHouse® is implemented as a multi-master cluster where data replication is managed by ClickHouse, schema and user replication is managed by ZooKeeper, and backup and restore operations are managed by Astacus.
+
+Understand the technical design of Aiven for ClickHouse.
 
 ## Deployment modes
 
 Aiven for ClickHouse can be deployed either as a single node, a single
 shard of three nodes, or multiple shards of three nodes each.
 
--   With a single shard, all data is present in all servers and all
+-   With a single shard, all data is available on all nodes and all
     servers can be used for reads and writes (no main server, leader, or
     replica).
 -   With multiple shards, the data is split between all shards and the
@@ -31,8 +32,8 @@ Each Aiven for ClickHouse node runs ClickHouse, ZooKeeper, and Astacus.
 
 ### ZooKeeper
 
-ZooKeeper is responsible for the cross-nodes coordination and
-synchronization of the following replication processes:
+ZooKeeper handles cross-node coordination and synchronization for these
+replication processes:
 
 -   Replication of database changes across the cluster: CREATE, UPDATE,
     or ALTER TABLE (by ClickHouse's `Replicated`
@@ -40,7 +41,8 @@ synchronization of the following replication processes:
 
 -   Replication of table data across the cluster (by ClickHouse's
     `ReplicatedMergeTree`
-    [table engine](/docs/products/clickhouse/concepts/service-architecture#replicated-table-engine)). Data itself is not written to ZooKeeper but
+    [table engine](/docs/products/clickhouse/concepts/service-architecture#replicated-table-engine)).
+    Data itself is not written to ZooKeeper but
     transferred directly between ClickHouse servers.
 
 -   Replication of the storage of Users, Roles, Quotas, Row Policies for
@@ -56,11 +58,11 @@ synchronization of the following replication processes:
 ZooKeeper handles one process per node and is accessible only from
 within the cluster.
 
-### Astacus {#astacus-os}
+### Astacus {#astacus}
 
-[Astacus](https://github.com/aiven/astacus) is an open-source project
-originated at Aiven for coordinating backups of cluster databases,
-including ClickHouse.
+**Astacus** coordinates backup and restore operations for Aiven for
+ClickHouse clusters. It runs on each node and ensures backups are
+consistent across the cluster and restores are applied safely.
 
 ## Data architecture
 
@@ -71,20 +73,18 @@ Aiven for ClickHouse enforces
 -   Full data replication: table rows are the same on all nodes within a
     shard.
 
-[Astacus](/docs/products/clickhouse/concepts/service-architecture#astacus-os) does most of the
-backup and restore operations.
+Astacus coordinates backup and restore operations for the service.
 
 ## Engines: database and table
 
-ClickHouse has engines in two flavors: table engines and database
+ClickHouse has engines in two flavors: Table engines and database
 engines.
 
--   Database engine is responsible for manipulating tables and decides
-    what happens when you try to list, create, or delete a table. It can
-    also be used to restrict a database to specific table engine or to
-    manage replication.
--   Table engine decides how to store data on a disk or how to enable
-    reading data from outside the disk to expose it as a virtual table.
+-   The database engine manipulates tables and decides what happens when
+    you list, create, or delete a table. It can also restrict a database
+    to specific table engines or manage replication.
+-   The table engine decides how data is stored on disk or how data is
+    read from outside the disk and exposed as a virtual table.
 
 ### `Replicated` database engine
 
@@ -102,10 +102,10 @@ other.
 
 ### `Replicated` table engine
 
-The table engine is responsible for the INSERT and SELECT queries. From
+The table engine handles `INSERT` and `SELECT` queries. From
 a wide variety of available table engines, the most common ones belong
-to the `MergeTree` engines family, which is supported in Aiven for
-ClickHouse.
+to the `MergeTree` engine family, which Aiven for ClickHouse
+supports.
 
 For a list of all the table engines that you can use in Aiven for
 ClickHouse, see
@@ -115,15 +115,14 @@ ClickHouse, see
 
 With the `MergeTree` engine, at least one new file is created for each
 INSERT query and each new file is written once and never modified. In
-the background, new files (called *parts*) are re-read, merged, and
+the background, new files (called _parts_) are re-read, merged, and
 rewritten into compact form. Writing data in parts determines the
 performance profile of ClickHouse.
 
--   INSERT queries need to be batched to avoid handling a number of
-    small parts.
--   UPDATE and DELETE queries need to be batched. Removing or updating a
-    single row requires rewriting an entire part with all the rows
-    except the one we want to remove or update.
+-   Batch INSERT queries to avoid creating many small parts.
+-   Batch UPDATE and DELETE queries. Removing or updating a single row
+    requires rewriting an entire part with all rows except the one being
+    removed or updated.
 -   SELECT queries are executed rapidly because all the data found in a
     part is valid and all files can be cached since they never change.
 
@@ -131,13 +130,13 @@ performance profile of ClickHouse.
 
 Each engine of the `MergeTree` family has a matching
 `ReplicatedMergeTree` engine, which additionally enables the replication
-of all writes using [ZooKeeper](#zookeeper). The data itself doesn't travel through ZooKeeper and is
-actually fetched from one ClickHouse server to another. A shared log of
+of all writes using [ZooKeeper](#zookeeper). The data itself doesn't travel through
+ZooKeeper and is actually fetched from one ClickHouse server to another. A shared log of
 update queries is maintained with ZooKeeper. All nodes add entries to
 the queue and watch for changes to execute the queries.
 
 When a query to create a table using the `MergeTree` engine arrives,
 Aiven for ClickHouse automatically rewrites the query to use the
 `ReplicatedMergeTree` engine so that all tables are replicated and all
-servers have the same table data, which in fact makes the group of
-servers a high-availability cluster.
+servers have the same table data, which makes the deployment a
+high-availability cluster.
