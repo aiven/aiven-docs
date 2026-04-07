@@ -19,6 +19,9 @@ Aiven for ClickHouse currently supports the following versions:
 If you do not specify a version when you create a service, the platform uses the default
 version.
 
+For supported versions and end-of-life timelines, see
+[Aiven for ClickHouse end-of-life policy](/docs/platform/reference/eol-for-major-versions#aiven-for-clickhouse).
+
 ## Before you upgrade
 
 Before upgrading your service, complete the following checks:
@@ -29,26 +32,41 @@ Before upgrading your service, complete the following checks:
   first.
 - Verify that your applications and clients support the target version.
 - Ensure recent backups are available.
+- Avoid running long-running queries or heavy ingestion during the upgrade.
 
 Downgrading to an earlier ClickHouse version is not supported.
 
 ## How upgrades work
 
-During a version upgrade, the platform replaces the service nodes with new nodes running
-the selected version.
+During an upgrade, the platform replaces service nodes with new nodes running the
+selected version.
 
 - New service nodes are created with the selected ClickHouse version.
 - The new nodes start alongside the existing nodes.
 - Data is streamed from the existing nodes to the new nodes.
-- Once the migration completes, the service switches to the upgraded nodes.
+- After the migration completes, the service switches to the upgraded nodes.
 - The previous nodes are removed.
 
 This process avoids modifying the existing nodes directly during the upgrade.
 
+During this process:
+
+- Queries connected to nodes being replaced can fail and require retries.
+- New connections are routed to upgraded nodes.
+
+## Service availability during upgrades
+
+The service remains available during the upgrade.
+
+- New nodes are added and receive data before old nodes are removed, which helps keep the
+  service reachable while the upgrade runs.
+- Short interruptions can occur.
+- Latency can increase and throughput can decrease during the upgrade.
+
 ## Upgrade your service
 
-Upgrade a service to a newer supported ClickHouse version using the
-Aiven Console, CLI, API, or Terraform.
+Upgrade the service to a newer supported ClickHouse version using the Aiven Console, CLI,
+API, or Terraform.
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
@@ -71,12 +89,14 @@ Aiven Console, CLI, API, or Terraform.
 
    ```bash
    avn service update SERVICE_NAME \
+     --project PROJECT_NAME \
      -c clickhouse_version="CLICKHOUSE_VERSION"
    ```
 
    Parameters:
 
    - `SERVICE_NAME`: Name of the service
+   - `PROJECT_NAME`: Name of the project
    - `CLICKHOUSE_VERSION`: Target ClickHouse version, for example `25.8`
 
 </TabItem>
@@ -118,7 +138,7 @@ Parameters:
    }
    ```
 
-  Set `CLICKHOUSE_VERSION` to the target ClickHouse version, for example `25.8`.
+   Set `CLICKHOUSE_VERSION` to the target ClickHouse version, for example `25.8`.
 
 1. Apply the change:
 
