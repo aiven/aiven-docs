@@ -6,10 +6,23 @@ limited: true
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 
-To make your app available on public networks, configure which ports to expose it on.
+To make your app available on public networks, you can configure it to listen on ports for HTTP/S traffic.
 Public ports allow traffic between your app and clients on the internet such as browsers.
+You cannot use the following TCP destination ports for outbound
+connections from your application:
 
-You can configure your app to listen on any port for HTTP/S traffic.
+- 23
+- 25
+- 119
+- 135
+- 137
+- 138
+- 139
+- 179
+- 445
+- 465
+- 631
+
 The domain name for your app is in the **Connection information**
 section for the app.
 
