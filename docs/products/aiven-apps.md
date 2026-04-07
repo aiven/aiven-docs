@@ -32,8 +32,3 @@ Aiven Apps offers the following capabilities to streamline your development life
 Aiven Apps is ideal for filtering data streams in real time, building anomaly detection,
 creating admin dashboards, running LLMs and AI Agents securely,
 or shipping other internal tools in a secure and scalable way.
-
-## Get started with Aiven Apps
-
-[Use an example](/docs/products/apps/get-started) to deploy your first app and integrate
-it with Aiven services.

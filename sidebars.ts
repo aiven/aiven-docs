@@ -395,7 +395,6 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       items: [
         'products/aiven-apps',
-        'products/apps/get-started',
         'products/apps/deploy-apps',
         {
           type: 'category',
