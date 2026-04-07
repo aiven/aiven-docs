@@ -8,7 +8,7 @@ Add connectors to your DataHub service to ingest data.
 ## Aiven service connectors
 
 During the limited availability stage, you can use Aiven's
-[DataHub Connector Wizard](https://019ce649-0fff-7093-a754-3a429e8a9479-3000.eur-1.aiven.app)
+[DataHub Connector Wizard](https://019d67e9-03f8-7b0d-a0b0-c5e50cd76651-3000.eur-1.aiven.app)
 to more easily connect your Aiven services to DataHub. The wizard supports
 Aiven for PostgreSQL®, Aiven for MySQL, Aiven for Apache Kafka®, and Aiven for ClickHouse®.
 
@@ -21,7 +21,7 @@ Aiven for PostgreSQL®, Aiven for MySQL, Aiven for Apache Kafka®, and Aiven for
 ### Connect Aiven services
 
 1. Open the
-   [DataHub Connector Wizard](https://019ce649-0fff-7093-a754-3a429e8a9479-3000.eur-1.aiven.app).
+   [DataHub Connector Wizard](https://019d67e9-03f8-7b0d-a0b0-c5e50cd76651-3000.eur-1.aiven.app).
 
 1. In the **Aiven** section, enter your Aiven **API token**.
 
