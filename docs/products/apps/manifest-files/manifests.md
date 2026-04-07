@@ -6,7 +6,7 @@ limited: true
 
 Aiven Apps uses container manifests to understand how to build and deploy your applications. You can define applications using two types of container manifests that work together to create complete solutions.
 
-- **[Docker Compose files](/docs/products/apps/manifest-files/compose-files)** define
+- **[Compose files](/docs/products/apps/manifest-files/compose-files)** define
   multi-service solutions that can reference and orchestrate multiple Containerfiles
   along with data services.
 - **[Containerfiles and Dockerfiles](/docs/products/apps/manifest-files/containerfiles)**

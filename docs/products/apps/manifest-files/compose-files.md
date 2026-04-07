@@ -21,7 +21,7 @@ Aiven recognizes Compose files with the following file naming conventions:
   </thead>
   <tbody>
   <tr>
-    <td>Docker Compose files</td>
+    <td>Compose files</td>
     <td><ul><li>`docker-compose.yml`</li><li>`docker-compose.yaml`</li><li>`compose.yml`</li><li>`compose.yaml`</li></ul></td>
   </tr>
   <tr>
@@ -34,7 +34,7 @@ Aiven recognizes Compose files with the following file naming conventions:
 Aiven automatically analyzes Compose files to detect the apps to build and
 the Aiven services to create.
 
-## Create a Docker Compose file
+## Create a Compose file
 
 Use the following guidelines to create your Compose files for Aiven Apps.
 More information on formatting Compose files is available in the
@@ -144,7 +144,7 @@ services:
       NODE_ENV: production
 ```
 
-## Example Docker Compose files
+## Example Compose files
 
 ### Simple web application with PostgreSQL
 
