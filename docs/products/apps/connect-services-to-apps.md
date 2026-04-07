@@ -7,6 +7,8 @@ limited: true
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Connect your deployed application to [Aiven services](/docs/products/services).
+You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®,
+Aiven for OpenSearch®, or Aiven for Valkey™ service.
 
 ## Connect an Aiven service
 
