@@ -3,7 +3,9 @@ title: Aiven for ClickHouse® service architecture
 sidebar_label: Service architecture
 ---
 
-Aiven for ClickHouse® is implemented as a multi-master cluster where data replication is managed by ClickHouse, schema and user replication is managed by ZooKeeper, and backup and restore operations are managed by Astacus.
+Aiven for ClickHouse® is implemented as a multi-master cluster where data replication is
+managed by ClickHouse, schema and user replication is managed by ZooKeeper, and backup and
+restore are managed by Aiven.
 
 Understand the technical design of Aiven for ClickHouse.
 
@@ -12,11 +14,11 @@ Understand the technical design of Aiven for ClickHouse.
 Aiven for ClickHouse can be deployed either as a single node, a single
 shard of three nodes, or multiple shards of three nodes each.
 
--   With a single shard, all data is available on all nodes and all
-    servers can be used for reads and writes (no main server, leader, or
-    replica).
--   With multiple shards, the data is split between all shards and the
-    data of each shard is present in all nodes of the shard.
+- With a single shard, all data is available on all nodes and all
+  servers can be used for reads and writes (no main server, leader, or
+  replica).
+- With multiple shards, the data is split between all shards and the
+  data of each shard is present in all nodes of the shard.
 
 Each Aiven for ClickHouse service is exposed as a single server URL
 pointing to all servers with connections going randomly to any of the
@@ -28,63 +30,64 @@ each ClickHouse server.
 
 ## Coordinating services
 
-Each Aiven for ClickHouse node runs ClickHouse, ZooKeeper, and Astacus.
+Each Aiven for ClickHouse node runs ClickHouse and ZooKeeper.
 
 ### ZooKeeper
 
 ZooKeeper handles cross-node coordination and synchronization for these
 replication processes:
 
--   Replication of database changes across the cluster: CREATE, UPDATE,
-    or ALTER TABLE (by ClickHouse's `Replicated`
-    [database engine](/docs/products/clickhouse/concepts/service-architecture#replicated-database-engine))
+- Replication of database changes across the cluster: CREATE, UPDATE,
+  or ALTER TABLE (by ClickHouse's `Replicated`
+  [database engine](/docs/products/clickhouse/concepts/service-architecture#replicated-database-engine))
 
--   Replication of table data across the cluster (by ClickHouse's
-    `ReplicatedMergeTree`
-    [table engine](/docs/products/clickhouse/concepts/service-architecture#replicated-table-engine)).
-    Data itself is not written to ZooKeeper but
-    transferred directly between ClickHouse servers.
+- Replication of table data across the cluster (by ClickHouse's
+  `ReplicatedMergeTree`
+  [table engine](/docs/products/clickhouse/concepts/service-architecture#replicated-table-engine)).
+  Data itself is not written to ZooKeeper but
+  transferred directly between ClickHouse servers.
 
--   Replication of the storage of Users, Roles, Quotas, Row Policies for
-    the whole cluster (by ClickHouse).
+- Replication of the storage of Users, Roles, Quotas, Row Policies for
+  the whole cluster (by ClickHouse).
 
-    :::note
-    Storing entities such as Users, Roles, Quotas, and Row Policies in
-    ZooKeeper ensures that Role Based Access Control (RBAC) is applied
-    consistently over the entire cluster. This type of entity storage
-    was developed at Aiven and is now part of the upstream ClickHouse.
-    :::
+  :::note
+  Storing entities such as Users, Roles, Quotas, and Row Policies in
+  ZooKeeper ensures that Role Based Access Control (RBAC) is applied
+  consistently over the entire cluster. This type of entity storage
+  was developed at Aiven and is now part of the upstream ClickHouse.
+  :::
 
 ZooKeeper handles one process per node and is accessible only from
 within the cluster.
 
-### Astacus {#astacus}
+### Backup and restore
 
-**Astacus** coordinates backup and restore operations for Aiven for
-ClickHouse clusters. It runs on each node and ensures backups are
-consistent across the cluster and restores are applied safely.
+[Backup and restore](/docs/products/clickhouse/concepts/disaster-recovery#service-backup)
+for the service is implemented and operated by Aiven. Backups are coordinated across the
+cluster so that restores are applied safely and consistently.
 
 ## Data architecture
 
 Aiven for ClickHouse enforces
 
--   Full schema replication: all databases, tables, users, and grants
-    are the same on all nodes.
--   Full data replication: table rows are the same on all nodes within a
-    shard.
+- Full schema replication: all databases, tables, users, and grants
+  are the same on all nodes.
+- Full data replication: table rows are the same on all nodes within a
+  shard.
 
-Astacus coordinates backup and restore operations for the service.
+For more information about backups and disaster recovery, see
+[Service backup](/docs/products/clickhouse/concepts/disaster-recovery#service-backup).
 
 ## Engines: database and table
 
 ClickHouse has engines in two flavors: Table engines and database
 engines.
 
--   The database engine manipulates tables and decides what happens when
-    you list, create, or delete a table. It can also restrict a database
-    to specific table engines or manage replication.
--   The table engine decides how data is stored on disk or how data is
-    read from outside the disk and exposed as a virtual table.
+- The database engine manipulates tables and decides what happens when
+  you list, create, or delete a table. It can also restrict a database
+  to specific table engines or manage replication.
+- The table engine decides how data is stored on disk or how data is
+  read from outside the disk and exposed as a virtual table.
 
 ### `Replicated` database engine
 
@@ -119,12 +122,12 @@ the background, new files (called _parts_) are re-read, merged, and
 rewritten into compact form. Writing data in parts determines the
 performance profile of ClickHouse.
 
--   Batch INSERT queries to avoid creating many small parts.
--   Batch UPDATE and DELETE queries. Removing or updating a single row
-    requires rewriting an entire part with all rows except the one being
-    removed or updated.
--   SELECT queries are executed rapidly because all the data found in a
-    part is valid and all files can be cached since they never change.
+- Batch INSERT queries to avoid creating many small parts.
+- Batch UPDATE and DELETE queries. Removing or updating a single row
+  requires rewriting an entire part with all rows except the one being
+  removed or updated.
+- SELECT queries are executed rapidly because all the data found in a
+  part is valid and all files can be cached since they never change.
 
 #### `ReplicatedMergeTree` engine
 
