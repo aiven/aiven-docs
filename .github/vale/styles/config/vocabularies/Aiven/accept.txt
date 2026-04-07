@@ -37,6 +37,7 @@ AZs
 Azure
 backfilling
 binlog
+Bitnami
 booleans?
 boot
 BTAR
