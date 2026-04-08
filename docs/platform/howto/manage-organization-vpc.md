@@ -1,7 +1,6 @@
 ---
 title: Manage organization virtual private clouds (VPCs) in Aiven
 sidebar_label: Manage organization VPCs
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

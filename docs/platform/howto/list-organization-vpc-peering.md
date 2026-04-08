@@ -1,7 +1,6 @@
 ---
 title: Set up an organization VPC peering
 sidebar_label: Organization VPC peering
-limited: true
 ---
 
 import DocCardList from '@theme/DocCardList';
