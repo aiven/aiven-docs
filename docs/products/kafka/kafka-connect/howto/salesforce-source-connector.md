@@ -18,22 +18,25 @@ queries on a polling schedule.
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/kafka-connect/howto/enable-connect)
   with Aiven for Kafka Connect enabled, or a
   [dedicated Aiven for Apache Kafka Connect® service](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
-- A **Salesforce connected app** configured for the **client credentials** flow with
+- A Salesforce connected app configured for the client credentials flow with
   these OAuth scopes:
-  - `api`: grants access to Salesforce data using REST and Bulk APIs
-  - `refresh_token` / `offline_access`: allows the connector to maintain session
-    access without user interaction
+  - `api`: Grants access to Salesforce data using REST and Bulk APIs.
+  - `refresh_token` / `offline_access`: Allows the connector to maintain session access
+    without user interaction.
 - Complete client credentials setup per
   [Configure the client credentials flow for external client apps](https://help.salesforce.com/s/articleView?id=xcloud.configure_client_credentials_flow_for_external_client_apps.htm&type=5)
   in the Salesforce documentation. From the connected app, copy:
-  - `salesforce.client.id` (**Consumer Key**)
-  - `salesforce.client.secret` (**Consumer Secret**)
-  - Optional: `salesforce.oauth.uri` when your org uses a custom OAuth endpoint
-- SOQL queries for the Salesforce objects and fields you want to ingest.
-- A **Kafka topic prefix** (`topics.prefix`) for records the connector writes to
-  Apache Kafka.
+  - `salesforce.client.id`: Consumer Key from your connected app.
+  - `salesforce.client.secret`: Consumer Secret from your connected app.
+  - `salesforce.oauth.uri`: The OAuth token endpoint.
+  - `salesforce.uri`: Base URL of your Salesforce instance.
+- SOQL queries for the Salesforce objects and fields to ingest.
+- The `topics.prefix` or `topic` setting. Use `topics.prefix` to write records to
+  object-specific Apache Kafka topics (one topic per Salesforce object). See
+  [Topic naming](#topic-naming). Use `topic` to write all records to a single
+  topic. When `topic` is set, it overrides `topics.prefix`.
 
-For additional details on how the connector works, see the
+For more information about how the connector works, see the
 [Salesforce connector for Apache Kafka documentation](https://github.com/aiven-open/salesforce-connector-for-apache-kafka/blob/main/README.md).
 
 ## Define SOQL queries
@@ -46,12 +49,12 @@ by semicolons (`;`).
 
 Each query must meet the following requirements:
 
-- Include `LastModifiedDate` in the `SELECT` clause. Required for offset tracking
-  and incremental reads.
+- Include `LastModifiedDate` in the `SELECT` clause. This field is required for offset
+  tracking and incremental reads.
 - Do not include `LastModifiedDate` in the `WHERE` clause. The connector applies
   this filter internally.
-- Do not use `ORDER BY`. Bulk API 2.0 asynchronous jobs do not support ordered
-  results.
+- Do not include `ORDER BY` in SOQL queries. The connector applies ordering
+  internally.
 
 These requirements apply to both standard and custom objects.
 
@@ -64,11 +67,13 @@ SELECT Id, FirstName, LastModifiedDate FROM Contact;
 
 ## Topic naming
 
-The connector writes records to topics using this format:
+By default, the connector writes records to topics using this format:
 
 ```text
 <topics.prefix>.bulkApi.<objectName>
 ```
+
+The `bulkApi` segment indicates that records are retrieved using the Salesforce Bulk API.
 
 For example, if `topics.prefix` is `salesforce.test` and the query targets the
 `Account` object, records are written to:
@@ -77,32 +82,45 @@ For example, if `topics.prefix` is `salesforce.test` and the query targets the
 salesforce.test.bulkApi.Account
 ```
 
+If you set `topic`, the connector writes all records to that topic, regardless of
+the number of SOQL queries or objects. When `topic` is set, it overrides
+`topics.prefix` and the per-object naming pattern.
+
 ## Delivery semantics and duplicates
 
 :::caution
 The connector provides at-least-once delivery. Duplicate records can occur.
 :::
 
-Duplicates can occur when:
+If the connector restarts due to uncommitted offsets, an error, or a configuration
+change, it reads again from the last `LastModifiedDate` it processed and includes
+all records with that timestamp. This ensures that if a bulk update in Salesforce
+assigns the same `LastModifiedDate` to many records, none are skipped. As a result,
+some records can be written to Kafka more than once if they were already sent
+before the restart.
 
-- The connector restarts before offsets are committed
-- A record is updated and its `LastModifiedDate` changes
+Duplicates can also occur when:
+
+- A record is updated and its `LastModifiedDate` changes.
 - A field not included in the SOQL query is updated, which still updates
-  `LastModifiedDate`
+  `LastModifiedDate`.
 
 To remove duplicates downstream, use the Salesforce `Id` field as the unique record
 key.
 
 ## Limitations
 
-- **Single task only.** `tasks.max` must be `1`. Setting it higher causes timing issues
-  and offset conflicts.
-- **Polling-based ingestion.** The connector does not stream changes in real time.
-- **At-least-once delivery.** Duplicate records can occur. See
+- Single task only: `tasks.max` must be `1`. If you set a value greater than `1`,
+  configuration validation fails. More than one task is not supported due to timing
+  issues and offset conflicts.
+- Polling-based ingestion: The connector does not stream changes in real time.
+- At-least-once delivery: Duplicate records can occur. For more information, see
   [Delivery semantics and duplicates](#delivery-semantics-and-duplicates).
-- **Salesforce Bulk API quota.** Each polling cycle consumes API quota. Use
-  `salesforce.soql.query.wait` to control polling frequency and stay within the
-  limits of your Salesforce org.
+- Salesforce Bulk API quota: Each polling cycle consumes API quota. Use
+  `salesforce.soql.query.wait` to control how long the connector waits before
+  running queries again. The default is 5 minutes (300 seconds) and the maximum is
+  1 week (604800 seconds). Use longer intervals when data changes are infrequent
+  to reduce API usage.
 
 ## Create a Salesforce source connector configuration file
 
@@ -120,6 +138,7 @@ configuration:
   "salesforce.client.id": "YOUR_CLIENT_ID",
   "salesforce.client.secret": "YOUR_CLIENT_SECRET",
   "salesforce.oauth.uri": "https://login.salesforce.com/services/oauth2/token",
+  "salesforce.uri": "https://YOUR_INSTANCE.my.salesforce.com",
   "salesforce.bulk.api.queries": "SELECT Id, Name, LastModifiedDate FROM Account;",
   "salesforce.soql.query.wait": 3600,
   "salesforce.status.check.wait": 120
@@ -131,18 +150,23 @@ Parameters:
 - `name`: A unique name for the connector.
 - `connector.class`: The Java class for the connector,
   `io.aiven.kafka.connect.salesforce.source.SalesforceSourceConnector`.
-- `tasks.max`: Must be `1`. See [Limitations](#limitations).
-- `topics.prefix`: Prefix used to build Apache Kafka topic names. See
+- `tasks.max`: Must be `1`. Values greater than `1` fail validation. See
+  [Limitations](#limitations).
+- `topics.prefix`: Prefix for Apache Kafka topic names when you do not set `topic`.
+  For more information, see [Topic naming](#topic-naming).
+- Optional: `topic`. Apache Kafka topic that receives all records from every SOQL query.
+  This setting overrides `topics.prefix`. For more information, see
   [Topic naming](#topic-naming).
 - `salesforce.api.version`: Salesforce API version, for example `v65.0`.
 - `salesforce.client.id`: Consumer Key from your Salesforce connected app.
 - `salesforce.client.secret`: Consumer Secret from your Salesforce connected app.
-- `salesforce.bulk.api.queries`: One or more SOQL queries separated by semicolons. See
-  [Define SOQL queries](#define-soql-queries).
-- Optional: `salesforce.oauth.uri`. OAuth token endpoint. Defaults to
-  `https://login.salesforce.com/services/oauth2/token`.
+- `salesforce.oauth.uri`: The OAuth token endpoint.
+- `salesforce.uri`: Base URL of your Salesforce instance, for example
+  `https://YOUR_INSTANCE.my.salesforce.com`.
+- `salesforce.bulk.api.queries`: One or more SOQL queries separated by semicolons.
+  See [Define SOQL queries](#define-soql-queries).
 - Optional: `salesforce.soql.query.wait`. Time in seconds between query executions.
-  Longer intervals reduce Salesforce Bulk API usage. Default is `3600`.
+  Longer intervals reduce Salesforce Bulk API usage. Default is `300`.
 - Optional: `salesforce.status.check.wait`. Time in seconds between Bulk API job
   status checks. Default is `120`.
 - Optional: `max.retries`. Number of retry attempts on failure. When retries are
@@ -150,13 +174,13 @@ Parameters:
 
 ### Output record format
 
-The connector converts each Salesforce record into a Kafka Connect record.
+The connector retrieves data from Salesforce and converts each record into a Kafka
+Connect record.
 
-With the default JSON converter, values are serialized as flat JSON objects whose keys
-correspond to the fields in your SOQL query.
+With the default JSON converter, record values are serialized as flat JSON objects
+whose keys correspond to the fields in your SOQL query.
 
-Example value shape for `SELECT Id, Name, LastModifiedDate FROM Account` when using the
-default JSON converter:
+Example value for `SELECT Id, Name, LastModifiedDate FROM Account`:
 
 ```json
 {
@@ -229,10 +253,10 @@ Verify that data flows to the expected Apache Kafka topics.
 After you create the connector, confirm that records reach the topics you expect. For
 the sample JSON in
 [Create a Salesforce source connector configuration file](#create-a-salesforce-source-connector-configuration-file),
-`Account` records appear in `salesforce.test.bulkApi.Account`. See
-[Topic naming](#topic-naming) for how topic names are built.
+`Account` records appear in `salesforce.test.bulkApi.Account`. For more information, see
+[Topic naming](#topic-naming).
 
 <RelatedPages/>
 
-- [Salesforce connector for Apache Kafka (Aiven-Open on GitHub)](https://github.com/Aiven-Open/salesforce-connector-for-apache-kafka)
+- [Salesforce connector for Apache Kafka on GitHub](https://github.com/Aiven-Open/salesforce-connector-for-apache-kafka)
 - [Salesforce Bulk API 2.0 Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_api_2_0.htm)
