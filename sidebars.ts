@@ -1237,6 +1237,21 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Aiven for DataHub',
+          link: {
+            type: 'doc',
+            id: 'products/datahub',
+          },
+          items: [
+            'products/datahub/get-started',
+            'products/datahub/manage-datahub-users',
+            'products/datahub/enable-oidc-auth-datahub',
+            'products/datahub/connect-datahub-to-services',
+            'products/datahub/datahub-mcp-server',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Aiven for Dragonfly',
           link: {
             type: 'doc',
