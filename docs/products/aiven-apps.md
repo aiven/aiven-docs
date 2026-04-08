@@ -13,7 +13,7 @@ rather than DevOps overhead.
 :::note
 Aiven Apps is in
 [limited availability feature](/docs/platform/concepts/service-and-feature-releases).
-To request access, [contact Aiven](http://aiven.io/apps).
+To request access, contact Aiven.
 :::
 
 ## Key features
