@@ -15,7 +15,8 @@ You can [add an unlimited number of users](/docs/products/datahub/manage-datahub
 with no per-user licensing costs.
 
 :::note
-Aiven for DataHub is in limited availability.
+Aiven for DataHub is in
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 To request access, [contact Aiven](https://aiven.io/datahub#contact-us).
 :::
 
