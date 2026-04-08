@@ -191,6 +191,12 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
+          label: 'Apps',
+          sidebarId: 'apps',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
           label: 'Tools',
           sidebarId: 'tools',
         },
