@@ -29,6 +29,8 @@ Aiven for PostgreSQL®, Aiven for MySQL, Aiven for Apache Kafka®, and Aiven for
 
 1. In the Aiven Console, go to your DataHub service.
 
+1. In the **DataHub resources** section, open the Aiven App that ends in `-gms`.
+
 1. In the **Connection information** section, copy the **Application URL**.
 
 1. In the DataHub Connector Wizard, in **DataHub** section,

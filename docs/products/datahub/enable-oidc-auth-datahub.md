@@ -25,7 +25,7 @@ You can use any OIDC compliant provider such as Auth0, Okta, Google Identity, or
 
 ## Enable OIDC authentication
 
-1. In your DataHub service, go to the **Dependent services** section.
+1. In your DataHub service, go to the **DataHub resources** section.
 1. Open the Aiven App that ends in `-frontend`.
 1. In the **Environment variables** section, click **Edit**.
 1. On the **Secrets** tab, add a secret.

@@ -10,7 +10,7 @@ Start using DataHub by creating and configuring your first service.
 
 :::important
 To avoid issues, don’t make any changes to the plans or other settings of
-the dependent services beyond what is documented.
+the DataHub resources beyond what is documented.
 :::
 
 ## Create a DataHub service
