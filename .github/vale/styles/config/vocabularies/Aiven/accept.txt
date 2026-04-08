@@ -23,7 +23,6 @@ args
 ARN
 ARNs
 Ashburn
-Astacus
 australia
 Auth0
 autojoin

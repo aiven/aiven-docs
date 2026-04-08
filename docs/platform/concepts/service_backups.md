@@ -251,10 +251,9 @@ When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hour
 
 ### Aiven for ClickHouse®
 
-Aiven for ClickHouse® provides automatic daily backups. The
-[Astacus](https://github.com/aiven/astacus) backup manager for
-distributed databases runs on all nodes to coordinate backups of cluster
-databases.
+Aiven for ClickHouse® provides automatic daily backups. Aiven coordinates backups on all
+nodes for cluster databases. For details, see
+[Service backup](/docs/products/clickhouse/concepts/disaster-recovery#service-backup).
 
 Each file to be backed up is encrypted, compressed, and uploaded to an
 object storage (Amazon S3 or Google Cloud Storage) in the same region.
