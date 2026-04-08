@@ -39,7 +39,7 @@ the Aiven services to create.
 Use the following guidelines to create your Compose files for Aiven Apps.
 More information on formatting Compose files is available in the
 [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md)
-and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file_/).
+and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file).
 
 ### Service integrations
 
