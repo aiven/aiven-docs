@@ -31,10 +31,11 @@ queries on a polling schedule.
   - `salesforce.oauth.uri`: The OAuth token endpoint.
   - `salesforce.uri`: Base URL of your Salesforce instance.
 - SOQL queries for the Salesforce objects and fields to ingest.
-- The `topics.prefix` or `topic` setting. Use `topics.prefix` to write records to
-  object-specific Apache Kafka topics (one topic per Salesforce object). See
-  [Topic naming](#topic-naming). Use `topic` to write all records to a single
-  topic. When `topic` is set, it overrides `topics.prefix`.
+- The `topic.prefix` or `topic` setting.
+  - Use `topic.prefix` to write records to object-specific Apache Kafka topics.
+    For more information, see [Topic naming](#topic-naming).
+  - Use `topic` to write all records to a single topic. If you set `topic`, it
+    overrides `topic.prefix`.
 
 For more information about how the connector works, see the
 [Salesforce connector for Apache Kafka documentation](https://github.com/aiven-open/salesforce-connector-for-apache-kafka/blob/main/README.md).
@@ -70,12 +71,12 @@ SELECT Id, FirstName, LastModifiedDate FROM Contact;
 By default, the connector writes records to topics using this format:
 
 ```text
-<topics.prefix>.bulkApi.<objectName>
+<topic.prefix>.bulkApi.<objectName>
 ```
 
 The `bulkApi` segment indicates that records are retrieved using the Salesforce Bulk API.
 
-For example, if `topics.prefix` is `salesforce.test` and the query targets the
+For example, if `topic.prefix` is `salesforce.test` and the query targets the
 `Account` object, records are written to:
 
 ```text
@@ -84,7 +85,7 @@ salesforce.test.bulkApi.Account
 
 If you set `topic`, the connector writes all records to that topic, regardless of
 the number of SOQL queries or objects. When `topic` is set, it overrides
-`topics.prefix` and the per-object naming pattern.
+`topic.prefix` and the per-object naming pattern.
 
 ## Delivery semantics and duplicates
 
@@ -132,7 +133,9 @@ configuration:
   "name": "salesforce-source",
   "connector.class": "io.aiven.kafka.connect.salesforce.source.SalesforceSourceConnector",
   "tasks.max": 1,
-  "topics.prefix": "salesforce.test",
+  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "topic.prefix": "salesforce.test",
   "max.retries": 3,
   "salesforce.api.version": "v65.0",
   "salesforce.client.id": "YOUR_CLIENT_ID",
@@ -152,10 +155,13 @@ Parameters:
   `io.aiven.kafka.connect.salesforce.source.SalesforceSourceConnector`.
 - `tasks.max`: Must be `1`. Values greater than `1` fail validation. See
   [Limitations](#limitations).
-- `topics.prefix`: Prefix for Apache Kafka topic names when you do not set `topic`.
+- `key.converter` and `value.converter`: Set both to
+  `org.apache.kafka.connect.storage.StringConverter`. See
+  [Output record format](#output-record-format).
+- `topic.prefix`: Prefix for Apache Kafka topic names when you do not set `topic`.
   For more information, see [Topic naming](#topic-naming).
 - Optional: `topic`. Apache Kafka topic that receives all records from every SOQL query.
-  This setting overrides `topics.prefix`. For more information, see
+  This setting overrides `topic.prefix`. For more information, see
   [Topic naming](#topic-naming).
 - `salesforce.api.version`: Salesforce API version, for example `v65.0`.
 - `salesforce.client.id`: Consumer Key from your Salesforce connected app.
@@ -177,8 +183,9 @@ Parameters:
 The connector retrieves data from Salesforce and converts each record into a Kafka
 Connect record.
 
-With the default JSON converter, record values are serialized as flat JSON objects
-whose keys correspond to the fields in your SOQL query.
+In the example configuration, `value.converter` is set to
+`org.apache.kafka.connect.storage.StringConverter`. Record values are written as
+strings that contain JSON objects. The JSON keys match the fields in your SOQL query.
 
 Example value for `SELECT Id, Name, LastModifiedDate FROM Account`:
 
@@ -190,11 +197,11 @@ Example value for `SELECT Id, Name, LastModifiedDate FROM Account`:
 }
 ```
 
-If your Apache Kafka cluster uses a schema registry, set the connector `value.converter`
-to match your registry format. For example, for Avro use
-`io.confluent.connect.avro.AvroConverter` and set `value.converter.schema.registry.url`
-to your registry URL. Aiven for Apache Kafka® services use
-[Karapace](/docs/products/kafka/karapace) as the schema registry.
+If your Apache Kafka cluster uses a schema registry, set `value.converter` to match
+your registry format. For example, for Avro use
+`io.confluent.connect.avro.AvroConverter` and set
+`value.converter.schema.registry.url` to your registry URL. Aiven for Apache Kafka®
+services use [Karapace](/docs/products/kafka/karapace) as the schema registry.
 
 ## Create the connector
 
@@ -250,8 +257,8 @@ Verify that data flows to the expected Apache Kafka topics.
 
 ## Verify the connector
 
-After you create the connector, confirm that records reach the topics you expect. For
-the sample JSON in
+After you create the connector, confirm that records reach the topics you expect. In
+the example configuration in
 [Create a Salesforce source connector configuration file](#create-a-salesforce-source-connector-configuration-file),
 `Account` records appear in `salesforce.test.bulkApi.Account`. For more information, see
 [Topic naming](#topic-naming).
