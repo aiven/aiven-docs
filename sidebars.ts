@@ -176,73 +176,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Service management',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-service',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Concepts',
-              items: [
-                'platform/concepts/service-memory-limits',
-                'platform/concepts/out-of-memory-conditions',
-                'platform/concepts/maintenance-window',
-                'platform/howto/custom-plans',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Backup and restore',
-              items: [
-                'platform/concepts/service_backups',
-                'platform/howto/restore_progress_updates',
-                {
-                  type: 'category',
-                  label: 'Backup to another region',
-                  link: {
-                    type: 'doc',
-                    id: 'platform/concepts/backup-to-another-region',
-                  },
-                  items: [
-                    'platform/howto/btar/enable-backup-to-another-region',
-                    'platform/howto/btar/manage-backup-to-another-region',
-                    'platform/howto/btar/disable-backup-to-another-region',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Migrations',
-              items: [
-                'platform/howto/migrate-services-cloud-region',
-                'platform/howto/migrate-services-vpc',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Service scaling',
-              items: [
-                'platform/howto/scale-services',
-                'platform/howto/add-storage-space',
-                'platform/howto/disk-autoscaler',
-              ],
-            },
-
-            'platform/howto/create_new_service',
-            'platform/concepts/service-power-cycle',
-            'platform/concepts/rename-services',
-            'platform/howto/tag-resources',
-            'platform/howto/search-services',
-            'platform/howto/create_new_service_user',
-            'platform/concepts/service-forking',
-            'platform/howto/prepare-for-high-load',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Networking and security',
           items: [
             'platform/concepts/cloud-security',
@@ -379,86 +312,9 @@ const sidebars: SidebarsConfig = {
         'platform/reference/get-resource-IDs',
       ],
     },
-    {
-      type: 'category',
-      label: 'Integrations',
-      className: 'expandedSection',
-      collapsed: false,
-      collapsible: false,
-      items: [
-        'platform/concepts/service-integration',
-        'platform/howto/create-service-integration',
-        {
-          type: 'category',
-          label: 'Monitoring and logs',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-monitoring',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Amazon CloudWatch',
-              link: {
-                type: 'doc',
-                id: 'integrations/cloudwatch',
-              },
-              items: [
-                'integrations/cloudwatch/cloudwatch-metrics',
-                {
-                  type: 'category',
-                  label: 'CloudWatch logs',
-
-                  items: [
-                    'integrations/cloudwatch/cloudwatch-logs-console',
-                    'integrations/cloudwatch/cloudwatch-logs-cli',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Datadog',
-              link: {
-                type: 'doc',
-                id: 'integrations/datadog',
-              },
-              items: [
-                'integrations/datadog/datadog-metrics',
-                'platform/howto/integrations/datadog-increase-metrics-limit',
-                'integrations/datadog/datadog-logs',
-                'integrations/datadog/add-custom-tags-to-datadog',
-              ],
-            },
-            'integrations/send-logs-to-elasticsearch',
-            'integrations/cloudlogging',
-            {
-              type: 'category',
-              label: 'Remote Syslog',
-              link: {
-                type: 'doc',
-                id: 'integrations/rsyslog',
-              },
-              items: [
-                'integrations/rsyslog/logtail',
-                'integrations/rsyslog/loggly',
-              ],
-            },
-            'platform/howto/integrations/access-jmx-metrics-jolokia',
-
-            {
-              type: 'category',
-              label: 'Prometheus',
-              link: {
-                id: 'platform/howto/integrations/prometheus-metrics',
-                type: 'doc',
-              },
-              items: ['integrations/prometheus-system-metrics'],
-            },
-          ],
-        },
-      ],
-    },
+  ],
+  // Tools sidebar
+  tools: [
     {
       type: 'category',
       label: 'Aiven dev tools',
@@ -512,6 +368,7 @@ const sidebars: SidebarsConfig = {
                 'tools/cli/service/integration',
                 'tools/cli/service/kafka-acl',
                 'tools/cli/service/privatelink',
+                'tools/cli/service/quota',
                 'tools/cli/service/schema-registry-acl',
                 'tools/cli/service/service-index',
                 'tools/cli/service/tags',
@@ -528,6 +385,39 @@ const sidebars: SidebarsConfig = {
         'tools/doc-diff-llms',
       ],
     },
+  ],
+  //Apps sidebar
+  apps: [
+    {
+      type: 'category',
+      label: 'Apps',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        'products/aiven-apps',
+        'products/apps/deploy-apps',
+        {
+          type: 'category',
+          label: 'Manifest files',
+          link: {
+            type: 'doc',
+            id: 'products/apps/manifest-files/manifests',
+          },
+          items: [
+            'products/apps/manifest-files/compose-files',
+            'products/apps/manifest-files/containerfiles',
+          ],
+        },
+        'products/apps/connect-services-to-apps',
+        'products/apps/ports',
+        'products/apps/secrets-and-variables',
+      ],
+    },
+  ],
+
+  //Services sidebar
+  services: [
     {
       type: 'category',
       label: 'Services',
@@ -969,6 +859,7 @@ const sidebars: SidebarsConfig = {
                           items: [
                             'products/kafka/kafka-connect/howto/configure-aws-secrets-manager',
                             'products/kafka/kafka-connect/howto/configure-hashicorp-vault',
+                            'products/kafka/kafka-connect/howto/configure-env-secret-provider',
                           ],
                         },
                       ],
@@ -1277,6 +1168,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/configure-backup',
                     'products/clickhouse/howto/manage-users-roles',
                     'products/clickhouse/howto/manage-databases-tables',
+                    'products/clickhouse/howto/manage-clickhouse-versions',
                     'products/clickhouse/howto/query-databases',
                     'products/clickhouse/howto/materialized-views',
                     'products/clickhouse/howto/monitor-performance',
@@ -1328,6 +1220,7 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/clickhouse/reference/supported-table-engines',
+                'products/clickhouse/reference/supported-database-engines',
                 'products/clickhouse/reference/supported-interfaces-drivers',
                 'products/clickhouse/reference/metrics-list',
                 'products/clickhouse/reference/clickhouse-metrics-datadog',
@@ -1340,6 +1233,21 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/limitations',
               ],
             },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Aiven for DataHub',
+          link: {
+            type: 'doc',
+            id: 'products/datahub',
+          },
+          items: [
+            'products/datahub/get-started',
+            'products/datahub/manage-datahub-users',
+            'products/datahub/enable-oidc-auth-datahub',
+            'products/datahub/connect-datahub-to-services',
+            'products/datahub/datahub-mcp-server',
           ],
         },
         {
@@ -1581,6 +1489,8 @@ const sidebars: SidebarsConfig = {
 
                 'products/opensearch/concepts/aggregations',
                 'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
@@ -1590,6 +1500,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'How to',
               items: [
+                'products/opensearch/howto/create-free-tier-opensearch',
                 'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
@@ -2010,6 +1921,153 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/troubleshooting/troubleshoot-connection-issues',
                 'products/valkey/troubleshooting/warning-overcommit_memory',
               ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Service management',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/list-service',
+        {
+          type: 'category',
+          label: 'Concepts',
+          items: [
+            'platform/concepts/service-memory-limits',
+            'platform/concepts/out-of-memory-conditions',
+            'platform/concepts/maintenance-window',
+            'platform/howto/custom-plans',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Backup and restore',
+          items: [
+            'platform/concepts/service_backups',
+            'platform/howto/restore_progress_updates',
+            {
+              type: 'category',
+              label: 'Backup to another region',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/backup-to-another-region',
+              },
+              items: [
+                'platform/howto/btar/enable-backup-to-another-region',
+                'platform/howto/btar/manage-backup-to-another-region',
+                'platform/howto/btar/disable-backup-to-another-region',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Migrations',
+          items: [
+            'platform/howto/migrate-services-cloud-region',
+            'platform/howto/migrate-services-vpc',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Service scaling',
+          items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
+          ],
+        },
+
+        'platform/howto/create_new_service',
+        'platform/concepts/service-power-cycle',
+        'platform/concepts/rename-services',
+        'platform/howto/tag-resources',
+        'platform/howto/search-services',
+        'platform/howto/create_new_service_user',
+        'platform/concepts/service-forking',
+        'platform/howto/prepare-for-high-load',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Integrations',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/concepts/service-integration',
+        'platform/howto/create-service-integration',
+        {
+          type: 'category',
+          label: 'Monitoring and logs',
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-monitoring',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Amazon CloudWatch',
+              link: {
+                type: 'doc',
+                id: 'integrations/cloudwatch',
+              },
+              items: [
+                'integrations/cloudwatch/cloudwatch-metrics',
+                {
+                  type: 'category',
+                  label: 'CloudWatch logs',
+
+                  items: [
+                    'integrations/cloudwatch/cloudwatch-logs-console',
+                    'integrations/cloudwatch/cloudwatch-logs-cli',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Datadog',
+              link: {
+                type: 'doc',
+                id: 'integrations/datadog',
+              },
+              items: [
+                'integrations/datadog/datadog-metrics',
+                'platform/howto/integrations/datadog-increase-metrics-limit',
+                'integrations/datadog/datadog-logs',
+                'integrations/datadog/add-custom-tags-to-datadog',
+              ],
+            },
+            'integrations/send-logs-to-elasticsearch',
+            'integrations/cloudlogging',
+            {
+              type: 'category',
+              label: 'Remote Syslog',
+              link: {
+                type: 'doc',
+                id: 'integrations/rsyslog',
+              },
+              items: [
+                'integrations/rsyslog/logtail',
+                'integrations/rsyslog/loggly',
+              ],
+            },
+            'platform/howto/integrations/access-jmx-metrics-jolokia',
+
+            {
+              type: 'category',
+              label: 'Prometheus',
+              link: {
+                id: 'platform/howto/integrations/prometheus-metrics',
+                type: 'doc',
+              },
+              items: ['integrations/prometheus-system-metrics'],
             },
           ],
         },

@@ -31,17 +31,20 @@ are organized according to their functions:
 We use `Typer` Python [library](https://typer.tiangolo.com/) to create
 CLI commands to run from the terminal. To get the code on your machine and try the commands:
 
-1.  Clone the repository and install the dependencies
+1.  Clone the repository, go to the project directory, and install the dependencies
 
-    ```
+    ```bash
     git clone https://github.com/aiven/demo-opensearch-python
+    cd demo-opensearch-python
     pip install -r requirements.txt
     ```
 
-1.  Download the dataset from Kaggle's [recipe
-    dataset](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json),
-    and save the `full_format_recipes.json` in the current folder of the
-    [demo repository](https://github.com/aiven/demo-opensearch-python).
+    :::note
+    The repository includes a recipe dataset (`full_format_recipes.json`) from
+    [Kaggle](https://www.kaggle.com/hugodarwood/epirecipes?select=full_format_recipes.json).
+    If you encounter an `extra data` error when you load the data, download a fresh copy from Kaggle.
+    Replace the file in the repository.
+    :::
 
 ### Connect to the OpenSearch cluster with Python
 

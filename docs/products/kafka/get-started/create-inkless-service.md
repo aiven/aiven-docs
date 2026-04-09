@@ -10,7 +10,6 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Create an Inkless Apache Kafka® service on Aiven Cloud or using Bring Your Own Cloud (BYOC).
-Inkless runs Kafka 4.x and supports both classic and diskless topics.
 
 ## Prerequisites
 
@@ -34,8 +33,8 @@ configure the service by selecting ingress capacity and retention.
 1. In **Deployment mode**, select **Aiven cloud**.
 1. Select a cloud provider and region.
 1. Select the **Ingress capacity** for the service.
-1. Optional: Enable **Diskless topics**, if available. They are not suitable for
-   smaller workloads.
+1. Optional: Enable **Diskless topics**. You can enable diskless topics later in
+   <ConsoleLabel name="service settings" /> > **Advanced configuration**.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the service name after
@@ -47,11 +46,76 @@ configure the service by selecting ingress capacity and retention.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-:::note
-Inkless on Aiven Cloud uses throughput-based offerings rather than fixed plans.
-The Aiven CLI does not list these offerings.
-Create Inkless services on Aiven Cloud using the Aiven Console.
-:::
+Create an Inkless Kafka service on Aiven Cloud using the Aiven CLI.
+
+1. List available Inkless offerings for the project:
+
+   ```bash
+   avn inkless offering list \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME
+   ```
+
+   The command returns available offerings with their maximum ingress and
+   egress throughput.
+
+1. Optional: Filter offerings by required ingress throughput:
+
+   ```bash
+   avn inkless offering list \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME \
+     --ingress REQUIRED_MBPS
+   ```
+
+1. View pricing rates for the offerings:
+
+   ```bash
+   avn inkless offering rates \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME \
+     --cloud-provider CLOUD_PROVIDER
+   ```
+
+   Optional: Filter rates by offering with `--offering-name OFFERING_NAME` or by
+   region with `--cloud-name CLOUD_NAME`.
+
+1. Create the Inkless Kafka service using an offering as the plan:
+
+   ```bash
+   avn service create SERVICE_NAME \
+     --project PROJECT_NAME \
+     --service-type kafka \
+     --cloud CLOUD_REGION \
+     --plan OFFERING_NAME \
+     -c kafka_version=4.0 \
+     -c tiered_storage.enabled=true \
+     -c inkless.enabled=true
+   ```
+
+Parameters:
+
+- `ORGANIZATION_ID`: Organization ID that owns the project.
+- `PROJECT_NAME`: Aiven project name.
+- `REQUIRED_MBPS`: Minimum ingress throughput in megabits per second. Use with
+  `--ingress` to list only offerings that meet this requirement.
+- `CLOUD_PROVIDER`: Cloud provider, such as `aws`, `google`, or `azure`.
+- `CLOUD_NAME`: Cloud or region identifier for filtering rate output. Use with
+  `--cloud-name` on `avn inkless offering rates` (for example, a value shown in the
+  rates listing for your provider).
+- `CLOUD_REGION`: Cloud region for the service, such as `aws-us-east-1`.
+- `OFFERING_NAME`: Inkless offering returned by `avn inkless offering list`.
+- `SERVICE_NAME`: Name of the Kafka service.
+
+Optional: To enable diskless topics when creating the service, run `avn service create`
+with `kafka_diskless.enabled` set to `true` (in addition to the options in the previous
+step):
+
+```bash
+-c kafka_diskless.enabled=true
+```
+
+You can also enable diskless topics later in the service configuration.
 
 </TabItem>
 </Tabs>
@@ -59,7 +123,7 @@ Create Inkless services on Aiven Cloud using the Aiven Console.
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
 You can run Inkless Kafka clusters in your own cloud account using
-Bring Your Own Cloud (BYOC). Inkless clusters support classic and diskless topics.
+Bring Your Own Cloud (BYOC). Inkless on BYOC supports classic and diskless topics.
 
 Before creating services on BYOC, configure a BYOC environment.
 For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
@@ -67,7 +131,8 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 <Tabs groupId="inkless-byoc">
 <TabItem value="console" label="Console" default>
 
-1. In the Aiven Console, open the project and select <ConsoleLabel name="services" />.
+1. In the [Aiven Console](https://console.aiven.io), open the project and
+   select <ConsoleLabel name="services" />.
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. In **Service tier**, select **Professional**.
@@ -76,7 +141,8 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 1. In **Cloud**, select your BYOC environment and region.
 1. Select a **plan**.
 1. In **Service basics**, enter:
-   - **Name:** Enter a name for the service. You cannot change the name after creation.
+   - **Name:** Enter a name for the service. You cannot change the name after
+     creation.
    - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
      organize your services.
 1. Review the **Service summary**, and click **Create service**.
@@ -86,21 +152,44 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 
 Create an Inkless Kafka service in a BYOC environment:
 
-```bash
-avn service create SERVICE_NAME \
-  --project PROJECT_NAME \
-  --service-type kafka \
-  --cloud CUSTOM_CLOUD_REGION \
-  --plan INKLESS_PLAN \
-  -c kafka_version=4.0 \
-  -c inkless.enabled=true
-```
+1. List available Kafka plans for your BYOC cloud and region. Plans that support Inkless
+   end with `-inkless`.
 
-To enable diskless topics, add the following option:
+   ```bash
+   avn service plans --service-type kafka --cloud CUSTOM_CLOUD_REGION
+   ```
 
-```bash
--c kafka_diskless.enabled=true
-```
+1. Create the service using an Inkless-capable plan:
+
+   ```bash
+   avn service create SERVICE_NAME \
+     --project PROJECT_NAME \
+     --service-type kafka \
+     --cloud CUSTOM_CLOUD_REGION \
+     --plan INKLESS_PLAN \
+     -c kafka_version=4.0 \
+     -c tiered_storage.enabled=true
+   ```
+
+   Set `tiered_storage.enabled=true` for Inkless on BYOC. Diskless topics are optional,
+   same as in the Console flow. You can use classic topics until you
+   enable diskless.
+
+1. Optional: To enable diskless topics when creating the service, use the following
+   command. It matches the previous step with `-c kafka_diskless.enabled=true` added:
+
+   ```bash
+   avn service create SERVICE_NAME \
+     --project PROJECT_NAME \
+     --service-type kafka \
+     --cloud CUSTOM_CLOUD_REGION \
+     --plan INKLESS_PLAN \
+     -c kafka_version=4.0 \
+     -c tiered_storage.enabled=true \
+     -c kafka_diskless.enabled=true
+   ```
+
+   You can also enable diskless topics later in the service configuration.
 
 Parameters:
 
@@ -109,26 +198,13 @@ Parameters:
 - `CUSTOM_CLOUD_REGION`: BYOC region, such as `custom-aws-eu-central-1`.
 - `INKLESS_PLAN`: Inkless-capable plan for the selected BYOC environment.
 
-To list available Inkless-capable plans for a BYOC environment and region:
-
-```bash
-avn service plans --service-type kafka --cloud CUSTOM_CLOUD_REGION
-```
-
-:::note
-Diskless topics require `kafka_diskless.enabled=true`. The selected plan must support
-diskless topics.
-:::
 
 </TabItem>
 </Tabs>
 
-## Topic defaults
+After creating the service, create topics to store data streams. To create topics,
+see [Create Kafka topics](/docs/products/kafka/howto/create-topic).
 
-- **Classic topics:**
-  - Remote storage is enabled automatically when you create a classic topic.
-  - Local retention settings are enforced by the service and cannot be changed.
-- **Diskless topics:** Available only if enabled when creating the service.
 
 <RelatedPages />
 

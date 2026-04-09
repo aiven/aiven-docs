@@ -148,22 +148,6 @@ The following metrics are only available when running Kafka in ZooKeeper mode:
 
 | Metric                                                                                         | Description                                                                                  |
 |------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_50thPercentile`                  | Time taken for leader elections to complete at the 50th percentile                          |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_75thPercentile`                  | Time taken for leader elections to complete at the 75th percentile                          |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_95thPercentile`                  | Time taken for leader elections to complete at the 95th percentile                          |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_98thPercentile`                  | Time taken for leader elections to complete at the 98th percentile                          |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_99thPercentile`                  | Time taken for leader elections to complete at the 99th percentile                          |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_999thPercentile`                 | Time taken for leader elections to complete at the 99.9th percentile                        |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`                           | The total number of leader elections                                                        |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_FifteenMinuteRate`               | Rate of leader elections over the last 15 minutes                                           |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_FiveMinuteRate`                  | Rate of leader elections over the last 5 minutes                                            |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Max`                             | Maximum time taken for a leader election                                                    |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Mean`                            | Mean time taken for leader elections                                                        |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_MeanRate`                        | Mean rate of leader elections                                                               |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Min`                             | Minimum time taken for a leader election                                                    |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_OneMinuteRate`                   | Rate of leader elections over the last minute                                               |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_StdDev`                          | Standard deviation of leader election times                                                 |
-| `kafka_controller_ControllerStats_UncleanLeaderElectionsPerSec_Count`                          | Number of unclean leader elections. Unclean leader elections can lead to data loss     |
 | `kafka_controller_KafkaController_ActiveControllerCount_Value`                                 | Number of active controllers                                                                |
 
 #### KRaft mode and metrics changes
@@ -181,6 +165,22 @@ The following controller metrics are available in KRaft mode:
 
 | Metric                                                          | Description                  |
 | --------------------------------------------------------------- | ---------------------------- |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_50thPercentile`                  | Time taken for leader elections to complete at the 50th percentile                          |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_75thPercentile`                  | Time taken for leader elections to complete at the 75th percentile                          |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_95thPercentile`                  | Time taken for leader elections to complete at the 95th percentile                          |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_98thPercentile`                  | Time taken for leader elections to complete at the 98th percentile                          |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_99thPercentile`                  | Time taken for leader elections to complete at the 99th percentile                          |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_999thPercentile`                 | Time taken for leader elections to complete at the 99.9th percentile                        |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`                           | The total number of leader elections                                                        |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_FifteenMinuteRate`               | Rate of leader elections over the last 15 minutes                                           |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_FiveMinuteRate`                  | Rate of leader elections over the last 5 minutes                                            |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Max`                             | Maximum time taken for a leader election                                                    |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Mean`                            | Mean time taken for leader elections                                                        |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_MeanRate`                        | Mean rate of leader elections                                                               |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Min`                             | Minimum time taken for a leader election                                                    |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_OneMinuteRate`                   | Rate of leader elections over the last minute                                               |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_StdDev`                          | Standard deviation of leader election times                                                 |
+| `kafka_controller_ControllerStats_UncleanLeaderElectionsPerSec_Count`                          | Number of unclean leader elections. Unclean leader elections can lead to data loss     |
 | `kafka_controller_KafkaController_ActiveBrokerCount_Value`      | Number of active brokers     |
 | `kafka_controller_KafkaController_GlobalTopicCount_Value`       | Number of topics             |
 | `kafka_controller_KafkaController_GlobalPartitionCount_Value`   | Number of partitions         |
@@ -202,8 +202,6 @@ The following controller metrics are **not** available in KRaft mode:
 | `kafka_controller_KafkaController_TimedOutBrokerHeartbeatCount_Value`    | Number of timed-out broker heartbeats      |
 | `kafka_controller_KafkaController_ControllerState_Value`                 | Controller state                           |
 | `kafka_controller_KafkaController_MetadataErrorCount_Value`              | Number of metadata errors                  |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`     | Total number of leader elections           |
-| `kafka_controller_ControllerStats_UncleanLeaderElectionsPerSec_Count`    | Number of unclean leader elections         |
 | `kafka_controller_KafkaController_EventQueueOperationsStartedCount_Value` | Number of event queue operations started   |
 | `kafka_controller_KafkaController_EventQueueOperationsTimedOutCount_Value` | Number of event queue operations timed out |
 | `kafka_controller_KafkaController_LastAppliedRecordOffset_Value`         | Last applied record offset                 |

@@ -638,6 +638,125 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 </tbody>
 </table>
 
+## OVHcloud
+
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>asia-pacific</td>
+    <td>avn-ovh-mum</td>
+    <td>Asia, India: Mumbai</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>avn-ovh-sgp1</td>
+    <td>Asia Pacific, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-de1</td>
+    <td>Europe, Germany: Frankfurt</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra1</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra11</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra3</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra5</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra7</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra9</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-mil</td>
+    <td>Europe, Italy: Milan</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-par</td>
+    <td>Europe, France: Paris</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-rbx-a</td>
+    <td>Europe, France: Roubaix</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-sbg5</td>
+    <td>Europe, France: Strasbourg</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-sbg7</td>
+    <td>Europe, France: Strasbourg</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-uk1</td>
+    <td>Europe, United Kingdom: London</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-waw1</td>
+    <td>Europe, Poland: Warsaw</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs1</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs3</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs5</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+</tbody>
+</table>
+
 ## UpCloud
 
 <table>
@@ -664,7 +783,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>upcloud-de-fra</td>
     <td>Europe, Germany: Frankfurt</td>
   </tr>
-    <tr>
+  <tr>
     <td>europe</td>
     <td>upcloud-dk-cph</td>
     <td>Europe, Denmark: Copenhagen</td>
@@ -694,7 +813,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>upcloud-nl-ams</td>
     <td>Europe, Netherlands: Amsterdam</td>
   </tr>
-    <tr>
+  <tr>
     <td>europe</td>
     <td>upcloud-no-svg</td>
     <td>Europe, Norway: Oslo</td>

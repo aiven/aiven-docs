@@ -13,6 +13,10 @@ Some extensions:
 
 :::
 
+## How it works
+
+### List extensions
+
 To list the extensions and their details, such as extension version numbers,
 run the following command in your Aiven for PostgreSQL server:
 
@@ -43,30 +47,37 @@ installed with a few exceptions.
 
 :::
 
+### Install and manage extensions
+
+See [Manage Aiven for PostgreSQL extensions](/docs/products/postgresql/howto/manage-extensions)
+for the instructions.
+
 <!-- vale off -->
 
-## Auditing
+## Supported extensions
+
+### Auditing
 
 -   [pgaudit](https://github.com/pgaudit/pgaudit) provides session and object audit logging
     often required for compliance with government, financial, or ISO certifications.
 -   [tcn](https://www.postgresql.org/docs/current/tcn.html). Triggered
     change notifications.
 
-## Connectivity
+### Connectivity
 
 -   [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html).
     Connect to other PostgreSQL databases from within a database.
 -   [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html).
     Foreign-data wrapper for remote PostgreSQL servers.
 
-## Data types
+### Data types
 
 -   [citext](https://www.postgresql.org/docs/current/citext.html). Data
     type for case-insensitive character strings.
 -   [cube](https://www.postgresql.org/docs/current/cube.html). Data type
     for multidimensional cubes.
 -   [hll](https://github.com/citusdata/postgresql-hll). Type for storing
-    `hyperloglog` data. `PG11 and newer`
+    `hyperloglog` data.
 -   [hstore](https://www.postgresql.org/docs/current/hstore.html). Data
     type for storing sets of (key, value) pairs.
 -   [ip4r](https://github.com/RhodiumToad/ip4r). IPv4 and IPv6 address
@@ -84,7 +95,7 @@ installed with a few exceptions.
 -   [uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html).
     Generate universally unique identifiers (UUIDs).
 
-## Geographical features
+### Geographical features
 
 -   [address_standardizer](https://postgis.net/docs/standardize_address.html).
     Used to parse an address into constituent elements. Generally used
@@ -112,10 +123,10 @@ installed with a few exceptions.
 -   [postgis_topology](https://postgis.net/docs/Topology.html). PostGIS
     topology spatial types and functions.
 
-## Machine learning (ML) and artificial intelligence (AI)
+### Machine learning (ML) and artificial intelligence (AI)
 
 -   [pgvector](https://github.com/pgvector/pgvector) designed for vector
-    similarity search for PostgreSQL. `PG13 and newer`
+    similarity search for PostgreSQL.
 -   [pgvectorscale](https://github.com/timescale/pgvectorscale) complements
     [pgvector](https://github.com/pgvector/pgvector) as a vector data extension for
     PostgreSQL. `PG16 and newer`
@@ -129,14 +140,14 @@ installed with a few exceptions.
     [pgvectorscale releases](https://github.com/timescale/pgvectorscale/releases).
     :::
 
-## Procedural language
+### Procedural language
 
 -   [plperl](https://www.postgresql.org/docs/current/plperl.html).
     PL/Perl procedural language.
 -   [plpgsql](https://www.postgresql.org/docs/current/plpgsql.html).
     PL/pgSQL procedural language.
 
-## Search and text handling
+### Search and text handling
 
 -   [bloom](https://www.postgresql.org/docs/current/bloom.html). Bloom
     access method - signature file based index.
@@ -149,7 +160,7 @@ installed with a few exceptions.
 -   [fuzzystrmatch](https://www.postgresql.org/docs/current/fuzzystrmatch.html).
     Determine similarities and distance between strings.
 -   [pg_similarity](https://github.com/eulerto/pg_similarity). Support
-    similarity queries. `PG13 and newer`
+    similarity queries.
 -   [pg_trgm](https://www.postgresql.org/docs/current/pgtrgm.html). Text
     similarity measurement and index searching based on trigrams.
 -   [pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html).
@@ -158,14 +169,13 @@ installed with a few exceptions.
 -   [unaccent](https://www.postgresql.org/docs/current/unaccent.html).
     Text search dictionary that removes accents.
 
-## Utilities
+### Utilities
 
 -   [aiven_extras](https://github.com/aiven/aiven-extras). This
     extension is meant for use in environments where you want
     non-superusers to be able to use certain database features.
 -   [bool_plperl](https://www.postgresql.org/docs/current/plperl-funcs.html).
     Transform between `bool` and `plperl`.
-    `PG13 and newer`
 -   [intagg](https://www.postgresql.org/docs/current/intagg.html).
     Integer aggregator and enumerator (obsolete).
 -   [intarray](https://www.postgresql.org/docs/current/intarray.html).
@@ -183,10 +193,7 @@ installed with a few exceptions.
 -   [pg_partman](https://github.com/pgpartman/pg_partman). Extension to
     manage partitioned tables by time or ID.
 -   [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html).
-    Prewarm relation data. `PG11 and newer`
--   [pg_prometheus](https://github.com/timescale/pg_prometheus).
-    Prometheus metrics for PostgreSQL.
-    `PG12 and earlier`
+    Prewarm relation data.
 -   [pg_repack](https://pgxn.org/dist/pg_repack/1.4.6/). Reorganize
     tables in PostgreSQL databases with minimal locks.
 -   [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html).
@@ -214,9 +221,6 @@ installed with a few exceptions.
     Information about SSL certificates.
 -   [tablefunc](https://www.postgresql.org/docs/current/tablefunc.html).
     Functions that manipulate whole tables, including `crosstab`.
--   [timetravel](https://www.postgresql.org/docs/6.3/c0503.htm).
-    Functions for implementing time travel.
-    `PG11 and earlier`
 -   [tsm_system_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html).
     TABLESAMPLE method which accepts number of rows as a limit.
 -   [tsm_system_time](https://www.postgresql.org/docs/current/tsm-system-time.html).

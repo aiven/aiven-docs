@@ -23,7 +23,6 @@ args
 ARN
 ARNs
 Ashburn
-Astacus
 australia
 Auth0
 autojoin
@@ -37,6 +36,7 @@ AZs
 Azure
 backfilling
 binlog
+Bitnami
 booleans?
 boot
 BTAR
@@ -61,12 +61,16 @@ config
 Config
 Confluent
 connect
+Containerfile
+Containerfiles
 Coralogix
 Couchbase
 CPU/MS
 CPUs?
 cqlsh
 CRD
+CTE
+CTEs
 cron
 cutover
 Cutover
@@ -78,6 +82,7 @@ datacenters
 Datadog
 datagen
 Datagen
+DataHub
 datagrams
 datasource
 Datastax
@@ -100,6 +105,8 @@ diskio_iops_in_progress
 Diskless
 Distro
 Docker
+Dockerfile
+Dockerfiles
 dockerized
 downsampled
 downsampling
@@ -216,6 +223,8 @@ Klaw
 Kpow
 Kubernetes
 kuromoji
+LLM
+LLMs
 Loggly
 Logstash
 Logtail
@@ -238,6 +247,7 @@ NACLs
 namespace/MS
 namespaces?
 netmask
+Nginx
 NodeJS
 nosqlbench
 npm
@@ -334,6 +344,7 @@ scriptable
 SDKs?
 Security
 serde
+serdes
 serializer
 serverless
 service_account
@@ -402,6 +413,7 @@ UpCloud
 upsert
 URIs?
 UUIDs?
+uv
 Valkey
 vCPU
 vCPUs

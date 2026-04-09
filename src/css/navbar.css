@@ -37,6 +37,18 @@
   color: var(--ifm-link-color);
 }
 
+.navbar__title {
+  display: none;
+}
+
+/* Dropdown */
+.navbar__item .dropdown__menu {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
 .dropdown__link--active {
   background-color: transparent;
   color: var(--ifm-text-color);
@@ -46,8 +58,17 @@
 }
 
 .dropdown__link {
+  padding: 12px 16px;
+  font-weight: 500;
   color: var(--ifm-text-color);
 }
-.navbar__title {
-  display: none;
+
+.dropdown__link:hover {
+  background-color: var(--aiven-nav-active-bg);
+  color: var(--ifm-link-color);
+}
+
+[data-theme='dark'] .dropdown__link:hover {
+  background-color: var(--aiven-nav-active-bg);
+  color: var(--ifm-color-primary);
 }

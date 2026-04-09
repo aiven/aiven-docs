@@ -90,6 +90,13 @@ After the EOL date:
 
 ## Aiven multi-versioned services EOL
 
+### Aiven for MySQL®
+
+| Version | Aiven EOL         | Service creation supported until   | Service creation supported from |
+| ------- | ----------------- | ---------------------------------- | ------------------------------- |
+| 8.0.x   | 2026-10-31        | 2026-04-30                         | 2018-05-18                      |
+| 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-04-30                      |
+
 ### Aiven for OpenSearch®
 
 Aiven for OpenSearch® is the open source continuation of the original
@@ -105,7 +112,7 @@ dependent on the upstream project.
 
 ### Aiven for PostgreSQL®
 
-Aiven for PostgreSQL® major versions will reach EOL on the same date as
+Aiven for PostgreSQL® major versions reach EOL on the same date as
 the upstream open source project's EOL.
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
@@ -147,6 +154,14 @@ migration process and rollout limitations, see:
 To support this transition, Aiven has extended support for Apache Kafka 3.8 by one year.
 :::
 
+### Aiven for ClickHouse®
+
+| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
+| ------- |-----------------|----------------------------------| ------------------------------- |
+| 25.3    | To be announced | To be announced                  | 2025-12-15                      |
+| 25.8    | To be announced | To be announced                  | 2026-03-25                      |
+
+
 ### Aiven for Apache Flink® {#aiven-for-flink}
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
@@ -163,12 +178,6 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 
 ## Aiven single-versioned services EOL
 
-### Aiven for ClickHouse®
-
-| Version | Aiven EOL       |
-| ------- | --------------- |
-| 25.3    | To be announced |
-
 ### Aiven for Dragonfly®
 
 | Version | Aiven EOL       |
@@ -180,12 +189,6 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | Version | Aiven EOL       |
 | ------- | --------------- |
 | 11.6.5  | To be announced |
-
-### Aiven for MySQL®
-
-| Version | Aiven EOL       |
-| ------- | --------------- |
-| 8.0.35  | To be announced |
 
 ## Aiven API lifecycle
 

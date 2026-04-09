@@ -473,7 +473,7 @@ Create a service task
 | `service_name`         | The name of the service                                                                        |
 | `--project`            | Project name (defaults to `None`)                                                              |
 | `--operation`          | Task operation (default: `upgrade_check`, possible values: `migration_check`, `upgrade_check`) |
-| `--target-version`     | Upgrade target version (used for PostgreSQL) (possible values: `11`, `12`, `13`, `14`)         |
+| `--target-version`     | Upgrade target version (used for PostgreSQL)                                                   |
 | `--source-service-uri` | Migration: source URI for migration                                                            |
 | `--ignore-dbs`         | Migration: comma-separated list of databases to be ignored (MySQL only)                        |
 | `--format`             | Format string for output, for example, `{name} {retention_hours}`                                      |

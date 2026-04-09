@@ -16,8 +16,7 @@ interfaces (protocols):
 -   `MySQL Interface`
 
 :::note
-For security reasons, you need TLS (plaintext) to connect to Aiven for
-ClickHouse.
+For security reasons, TLS is required to connect to Aiven for ClickHouse.
 :::
 
 :::note[Unsupported interfaces (protocols)]
