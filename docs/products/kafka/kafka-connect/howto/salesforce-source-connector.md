@@ -1,5 +1,6 @@
 ---
 title: Create a Salesforce source connector for Aiven for Apache Kafka®
+early: true
 sidebar_label: Salesforce source connector
 ---
 
