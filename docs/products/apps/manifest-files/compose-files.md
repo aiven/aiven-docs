@@ -47,8 +47,14 @@ Aiven Apps automatically detects and creates the following data services based
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
 and Aiven for OpenSearch®.
 
-You define the service type and version with the `image` property. The following examples
-show how to specify the image for each supported service.
+You define the service type and version with the `image` property.
+Service names must:
+
+- Consist only of lowercase letters a-z, numbers 0-9, and `-`
+- Begin with a lowercase letter
+- Be between 1 and 64 characters in length
+
+The following examples show how to specify the image for each supported service.
 
 #### Kafka
 
