@@ -882,7 +882,7 @@ const sidebars: SidebarsConfig = {
                         // Salesforce
                         'products/kafka/kafka-connect/howto/salesforce-source-connector',
 
-                        // S (group)
+                        // Stream Reactor
                         {
                           type: 'category',
                           label: 'Stream Reactor',

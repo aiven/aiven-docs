@@ -26,6 +26,7 @@ Apache Kafka topic. The available source connectors include:
 - [JDBC source for PostgreSQL](/docs/products/kafka/kafka-connect/howto/jdbc-source-connector-pg)
 - [JDBC source for SQL Server](/docs/products/kafka/kafka-connect/howto/jdbc-source-connector-sql-server)
 - [MongoDB Kafka Connector (Official)](https://www.mongodb.com/docs/kafka-connector/current/) (supports both source and sink functionality)
+- [Salesforce source connector](/docs/products/kafka/kafka-connect/howto/salesforce-source-connector)
 - [Stream Reactor Cassandra®](https://docs.lenses.io/5.1/connectors/sources/cassandrasourceconnector/)
 - [Stream Reactor MQTT](https://docs.lenses.io/5.1/connectors/sources/mqttsourceconnector/)
 

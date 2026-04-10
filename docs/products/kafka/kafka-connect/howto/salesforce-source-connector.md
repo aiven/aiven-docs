@@ -240,16 +240,18 @@ To create the Salesforce source connector using the
 avn service connector create SERVICE_NAME @salesforce_source_connector.json
 ```
 
-Parameters:
-
-- `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
-- `@salesforce_source_connector.json`: Path to your JSON configuration file.
-
 To check the connector status, run:
 
 ```bash
 avn service connector status SERVICE_NAME CONNECTOR_NAME
 ```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
+- `@salesforce_source_connector.json`: Path to your JSON configuration file.
+- `CONNECTOR_NAME`: Value of the `name` field in the JSON file—the same connector
+  name the `connector status` command expects.
 
 Verify that data flows to the expected Apache Kafka topics.
 
