@@ -44,18 +44,8 @@ You can start a migration only during the following time window:
 
 ### Supported service plans
 
-You can start a migration only if your service uses one of these plans:
-
-- `startup-2`
-- `business-4`
-- `business-8`
-- `business-16`
-- `business-32`
-
-Some plans have additional requirements. For details, see
+All plans are supported, but some plans have additional requirements. For details, see
 [Before you migrate](#before-you-migrate).
-
-Support for more plans will be added in phases.
 
 ## What is KRaft?
 
