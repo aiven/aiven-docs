@@ -8,6 +8,7 @@ import {ButtonSecondary} from "@site/src/components/Buttons";
 import Card from "@site/src/components/Card";
 import Overview from "@site/static/images/content/platform/platform-overview.png";
 import GridContainer from "@site/src/components/GridContainer";
+import AI from "@site/static/images/logos/star-ai.svg";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -289,6 +290,17 @@ Create a service using the Aiven CLI or API.
       to="https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate"
       iconName="code"
       title="Aiven API"
+    />
+</GridContainer>
+
+Create and manage services using AI assistants.
+
+<GridContainer columns={2}>
+    <Card
+      to="/docs/tools/mcp"
+      iconComponent={AI}
+      title="Aiven MCP server"
+      description="Create and manage services using AI assistants like Claude and Cursor."
     />
 </GridContainer>
 

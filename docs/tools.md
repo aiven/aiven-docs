@@ -42,9 +42,15 @@ You can interact with the Aiven platform with various interfaces and tools that 
         description="Use AI to optimize your queries."
     />
     <Card
+        to="/docs/tools/mcp"
+        iconComponent={AI}
+        title="Aiven MCP server"
+        description="Manage Aiven services from AI-powered coding assistants."
+    />
+    <Card
         to="/docs/tools/mcp-server"
         iconName="dataflow02"
-        title="MCP server"
+        title="Documentation MCP server"
         description="Access Aiven documentation from MCP-compatible clients."
     />
 </GridContainer>
