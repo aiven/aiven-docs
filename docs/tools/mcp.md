@@ -7,9 +7,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
-{/* Update mcpUrl to change the MCP server URL across all code samples on this page. */}
+<!-- vale off -->
+{/* Set `mcpUrl` to the MCP server URL; the samples below use this value. */}
 export const mcpUrl = "https://mcp.aiven.live/mcp";
 export const cursorDeepLink = `cursor://anysphere.cursor-deeplink/mcp/install?name=aiven-mcp&config=${typeof btoa !== "undefined" ? btoa(JSON.stringify({url: mcpUrl})) : ""}`;
+<!-- vale on -->
 
 Use the Aiven Model Context Protocol (MCP) server to create and manage Aiven services from
 AI assistants, such as Cursor and Claude Code.
@@ -32,6 +34,7 @@ Use the following server URL when configuring your client:
 <Tabs groupId="mcp-clients">
 <TabItem value="cursor" label="Cursor" default>
 
+<!-- vale off -->
 <a
   href={cursorDeepLink}
   style={{display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 20px', backgroundColor: '#2d2d2d', color: 'white', borderRadius: '8px', textDecoration: 'none', fontSize: '16px', fontWeight: 500, border: 'none', lineHeight: '20px'}}
@@ -50,6 +53,7 @@ Use the following server URL when configuring your client:
   </svg>
   <span>Add to Cursor</span>
 </a>
+<!-- vale on -->
 
 <br /><br />
 
@@ -58,7 +62,9 @@ To add the server manually:
 1. In your project root, create or edit `.cursor/mcp.json`.
 1. Add the following configuration:
 
+   <!-- vale off -->
    <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {type: "http", url: mcpUrl}}}, null, 2)}</CodeBlock>
+   <!-- vale on -->
 
 1. Save the file.
 1. Restart Cursor.
@@ -92,7 +98,9 @@ For more information, see the [Claude Code MCP documentation](https://docs.anthr
 
 1. Add the following configuration to the file:
 
+   <!-- vale off -->
    <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {type: "http", url: mcpUrl}}}, null, 2)}</CodeBlock>
+   <!-- vale on -->
 
 1. Save the file and restart Claude Desktop.
 
@@ -111,7 +119,9 @@ and enabled.
 1. In the `.vscode` directory, create or edit `mcp.json`.
 1. Add the following configuration:
 
+   <!-- vale off -->
    <CodeBlock language="json">{JSON.stringify({servers: {aiven: {type: "http", url: mcpUrl}}}, null, 2)}</CodeBlock>
+   <!-- vale on -->
 
 1. Save the file.
 1. Reload Visual Studio Code.
@@ -130,7 +140,9 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
 
 Most clients use a configuration similar to:
 
+<!-- vale off -->
 <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {url: mcpUrl}}}, null, 2)}</CodeBlock>
+<!-- vale on -->
 
 1. Save the file and restart your client.
 
@@ -257,7 +269,9 @@ connector lifecycle operations including pause, resume, and restart.
 To restrict the server to read-only operations, set the `AIVEN_READ_ONLY`
 environment variable to `true` in your MCP client configuration:
 
+<!-- vale off -->
 <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {type: "http", url: mcpUrl, env: {AIVEN_READ_ONLY: "true"}}}}, null, 2)}</CodeBlock>
+<!-- vale on -->
 
 In read-only mode, the server only allows operations that read data, such as
 listing services, viewing metrics, and running SELECT queries. The server blocks
