@@ -381,6 +381,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'tools/query-optimizer',
+        'tools/mcp',
         'tools/mcp-server',
         'tools/doc-diff-llms',
       ],

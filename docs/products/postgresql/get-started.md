@@ -31,6 +31,12 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 - [psql](https://www.postgresql.org/download/) command line tool installed
 
 </TabItem>
+<TabItem value="mcp" label="MCP">
+
+- An MCP-compatible client such as Cursor, Claude Code, Claude Desktop, or VS Code
+- The [Aiven MCP server](/docs/tools/mcp) configured in your client
+
+</TabItem>
 </Tabs>
 
 ## Create a service
@@ -61,6 +67,17 @@ The following example files are also available in the
 1. Create the `terraform.tfvars` file and add the values for your token and project name.
 
 <TerraformApply />
+
+</TabItem>
+<TabItem value="mcp" label="MCP">
+
+Open your AI assistant and describe the service you want to create. For example:
+
+> Create an Aiven for PostgreSQL service named `my-pg` in the `google-europe-west1`
+> region using the `hobbyist` plan.
+
+The assistant uses the Aiven MCP server to create the service. For setup instructions,
+see [Aiven MCP server](/docs/tools/mcp).
 
 </TabItem>
 </Tabs>
