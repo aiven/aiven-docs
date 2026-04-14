@@ -6,12 +6,7 @@ sidebar_label: Aiven MCP server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-
-<!-- vale off -->
-{/* Set `mcpUrl` to the MCP server URL; the samples below use this value. */}
-export const mcpUrl = "https://mcp.aiven.live/mcp";
-export const cursorDeepLink = `cursor://anysphere.cursor-deeplink/mcp/install?name=aiven-mcp&config=${typeof btoa !== "undefined" ? btoa(JSON.stringify({url: mcpUrl})) : ""}`;
-<!-- vale on -->
+import {cursorDeepLink, mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
 
 Use the Aiven Model Context Protocol (MCP) server to create and manage Aiven services from
 AI assistants, such as Cursor and Claude Code.
