@@ -17,9 +17,10 @@ Diskless topics are **limited availability** on Aiven Cloud.
 
 ## About diskless topics
 
-Diskless topics store topic data in cloud object storage, such as Amazon S3 or Google
-Cloud Storage (GCS), instead of on broker disks. This design simplifies operations,
-reduces cross-availability zone (AZ) traffic, and supports cost-effective scaling.
+Diskless topics store topic data in cloud object storage, such as Amazon S3, Google
+Cloud Storage (GCS), or Azure Blob Storage, instead of on broker disks. This design
+simplifies operations, reduces cross-availability zone (AZ) traffic, and supports
+cost-effective scaling.
 
 Data is batched and written to object storage. Partition metadata and message ordering
 are managed by an internal coordination layer that Aiven deploys and operates to support
