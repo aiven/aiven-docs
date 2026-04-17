@@ -117,6 +117,18 @@ import Link from '@docusaurus/Link'
         <p className="title">Tiered storage move factor</p><div className="description"><p>The percentage of free disk space required on local storage before data is moved to object storage. A value of 0.2 means data is moved when local storage has less than 20% free space.</p></div>
       </td>
     </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="server_settings"/><Link to="#server_settings"><strong>server_settings</strong></Link></p><p><code className="type">object</code></p></div>
+        <div className="description"><p>ClickHouse server settings, which can be found in the `system.server_settings` table.</p></div>
+        <table className="service-param-children">
+          <tbody>
+          
+          <tr><td><div className="param"><p className="name"><Link id="server_settings_vector_similarity_index_cache_size"/><Link to="#server_settings_vector_similarity_index_cache_size"><strong>server_settings.vector_similarity_index_cache_size</strong></Link></p><p><code className="type">number</code></p></div><div className="constraints"><ul><li>max: <code>0.5</code></li><li>default: <code>0.07</code></li></ul></div><p className="title">vector_similarity_index_cache_size</p><div className="description"><p>Fraction of total server memory allocated to the vector similarity index cache. 0 disables the cache. Default is 0.07 (7% of server memory). Only effective on ClickHouse 25.8+.</p></div></td></tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
   </tbody>
 </table>
     
