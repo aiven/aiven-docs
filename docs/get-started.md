@@ -297,9 +297,9 @@ Create and manage services using AI assistants.
 
 <GridContainer columns={2}>
     <Card
-      to="/docs/tools/mcp"
+      to="/docs/tools/mcp-server"
       iconComponent={AI}
-      title="Aiven MCP server"
+      title="Aiven MCP"
       description="Create and manage services using AI assistants like Claude and Cursor."
     />
 </GridContainer>
