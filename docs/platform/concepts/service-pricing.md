@@ -91,8 +91,13 @@ instance size.
 
 ### Developer tier
 
-The Developer tier is available for Aiven for PostgreSQL® and Aiven for MySQL services,
-letting you scale up your service in a cost-effective way. Services on the Developer tier
+Developer tier plans, pricing, and limits vary by product. Each subsection describes
+one offering; for complete specifications, see the linked product pages.
+
+#### Aiven for PostgreSQL® and Aiven for MySQL®
+
+The Developer tier is available for Aiven for PostgreSQL® and Aiven for MySQL® services,
+letting you scale up your service in a cost-effective way. Services on this Developer tier
 are not automatically powered off if they're inactive.
 
 The Developer tier includes:
@@ -116,7 +121,13 @@ Limitations of the Developer tier are:
 -   For PostgreSQL: `max_connections` limit set to `20`
 
 Aiven reserves the right to change the cloud provider, region, or configuration
-of Developer tier services at any point in time.
+of these Developer tier services at any point in time.
+
+#### Aiven for Apache Kafka®
+
+Aiven for Apache Kafka® has a separate [Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier)
+paid plan for development and testing, with its own throughput, storage, retention, and
+pricing.
 
 ### Custom plans
 

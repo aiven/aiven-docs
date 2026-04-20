@@ -548,6 +548,17 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
+                  label: 'Developer tier',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/dev-tier/kafka-dev-tier',
+                  },
+                  items: [
+                    'products/kafka/dev-tier/create-dev-tier-kafka-service',
+                  ],
+                },
+                {
+                  type: 'category',
                   label: 'Create Kafka service',
                   link: {
                     type: 'doc',
@@ -567,6 +578,7 @@ const sidebars: SidebarsConfig = {
                   },
                   items: ['products/kafka/howto/generate-sample-data-manually'],
                 },
+                'products/kafka/howto/set-up-kafka-with-skills',
               ],
             },
             {
