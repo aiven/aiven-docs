@@ -1,5 +1,5 @@
 /**
- * MCP server URL and Cursor install deep link for `docs/tools/mcp.md`.
+ * MCP server URL and Cursor install deep link for `docs/tools/mcp-server.md`.
  * Change `mcpUrl` here to update every sample on that page.
  */
 export const mcpUrl = 'https://mcp.aiven.live/mcp';
