@@ -34,7 +34,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 <TabItem value="mcp" label="MCP">
 
 - An MCP-compatible client such as Cursor, Claude Code, Claude Desktop, or VS Code
-- The [Aiven MCP server](/docs/tools/mcp) configured in your client
+- The [Aiven MCP server](/docs/tools/mcp-server) configured in your client
 
 </TabItem>
 </Tabs>
@@ -77,7 +77,7 @@ Open your AI assistant and describe the service you want to create. For example:
 > region using the `hobbyist` plan.
 
 The assistant uses the Aiven MCP server to create the service. For setup instructions,
-see [Aiven MCP server](/docs/tools/mcp).
+see [Aiven MCP server](/docs/tools/mcp-server).
 
 </TabItem>
 </Tabs>

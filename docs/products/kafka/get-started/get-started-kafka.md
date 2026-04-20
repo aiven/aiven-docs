@@ -73,7 +73,7 @@ Produce data manually to test application integrations or custom workloads.
 
 ## Create and manage Kafka using AI assistants
 
-Use the [Aiven MCP server](/docs/tools/mcp) to create Kafka services, manage
+Use the [Aiven MCP server](/docs/tools/mcp-server) to create Kafka services, manage
 topics, produce and consume messages, and configure connectors from MCP-compatible
 clients such as Cursor, Claude Code, and VS Code.
 
@@ -81,4 +81,4 @@ clients such as Cursor, Claude Code, and VS Code.
 - Describe the service or operation you want in natural language.
 - The assistant creates and manages Kafka resources through the Aiven API.
 
-**Next step:** [Set up the Aiven MCP server](/docs/tools/mcp).
+**Next step:** [Set up the Aiven MCP server](/docs/tools/mcp-server).
