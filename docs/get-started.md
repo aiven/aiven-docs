@@ -92,6 +92,7 @@ Set up your organization and create your first service.
   <Card
     to="https://github.com/aiven/terraform-provider-aiven/blob/main/examples/organization/README.md"
     iconName="terraform"
+    iconColor="#7B42BC"
     title="Organization setup with Terraform"
     description="Follow an example to set up your organization using
     the Aiven Provider for Terraform."
@@ -176,6 +177,7 @@ Add users to groups to streamline access management to your Aiven projects and s
   <Card
     to="https://github.com/aiven/terraform-provider-aiven/tree/main/examples/get-started"
     iconName="terraform"
+    iconColor="#7B42BC"
     title="Create and assign groups with Terraform"
     description="Follow an example to create a user group and give it access to
     a project."
@@ -269,6 +271,7 @@ Aiven Terraform Provider or
      <Card
       to="https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples"
       iconName="terraform"
+      iconColor="#7B42BC"
       title="Aiven Provider for Terraform examples"
     />
     <Card

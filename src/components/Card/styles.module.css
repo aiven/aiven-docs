@@ -14,8 +14,12 @@
   border: solid 1px var(--aiven-card-border);
 }
 
+:global(html[data-theme='dark']) .card a {
+  color: var(--aiven-brand-white);
+}
+
 .icon svg {
-  color: var(--ifm-link-color);
+  color: var(--card-icon-color, var(--aiven-brand-teal));
   max-width: 25px;
   max-height: 25px;
   margin-bottom: 12px;

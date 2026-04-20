@@ -4,9 +4,6 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
-const currentMonth = new Date().getMonth();
-const isJune = currentMonth === 5;
-
 const config: Config = {
   // Testing faster build
   future: {},
@@ -88,18 +85,19 @@ const config: Config = {
       'data-website-id': '97dbdbe6-f293-4969-9d76-2204feaf543b', // this is not a secret
       'data-project-name': 'Aiven Kapa AI',
       'data-user-analytics-cookie-enabled': 'false',
-      'data-project-color': '#3545BE',
-      'data-project-logo': 'https://aiven.io/docs/images/logo-crabby.svg',
+      'data-project-color': '#5FFA74',
+      'data-project-logo':
+        'https://aiven.io/docs/images/aiven_logo_RGB_blk.svg',
       'data-modal-title': 'Ask Aiven docs AI',
       'data-modal-image-width': '38px',
       'data-button-hide': 'true',
       'data-mcp-enabled': 'true',
       'data-mcp-server-url': 'https://aiven-docs.mcp.kapa.ai',
-      'data-modal-header-bg-color': '#F3F6FF',
-      'data-modal-header-border-bottom': '1px solid #CED4DA',
+      'data-modal-header-bg-color': '#F3FDF5',
+      'data-modal-header-border-bottom': '1px solid #D8DBE3',
       'data-font-family': 'Inter',
       'data-modal-disclaimer-font-size': '12px',
-      'data-modal-disclaimer-text-color': '#4A4B57',
+      'data-modal-disclaimer-text-color': '#454C60',
       'data-modal-disclaimer-bg-color': 'transparent',
 
       // Clear button
@@ -108,9 +106,9 @@ const config: Config = {
       'data-thread-clear-button-padding-y': '0',
       'data-thread-clear-button-font-size': '0.875rem',
       'data-thread-clear-button-border-radius': '0.375rem',
-      'data-thread-clear-button-bg-color': '#E3E9FF',
-      'data-thread-clear-button-hover-bg-color': '#d4ddff',
-      'data-thread-clear-button-text-color': '#2c2f36',
+      'data-thread-clear-button-bg-color': '#ECFDF0',
+      'data-thread-clear-button-hover-bg-color': '#DFF8E4',
+      'data-thread-clear-button-text-color': '#05080F',
       'data-thread-clear-button-icon-size': '1rem',
 
       // Copy button
@@ -119,9 +117,9 @@ const config: Config = {
       'data-answer-copy-button-padding-y': '0',
       'data-answer-copy-button-font-size': '0.875rem',
       'data-answer-copy-button-border-radius': '0.375rem',
-      'data-answer-copy-button-bg-color': '#E3E9FF',
-      'data-answer-copy-button-hover-bg-color': '#d4ddff',
-      'data-answer-copy-button-text-color': '#2c2f36',
+      'data-answer-copy-button-bg-color': '#ECFDF0',
+      'data-answer-copy-button-hover-bg-color': '#DFF8E4',
+      'data-answer-copy-button-text-color': '#05080F',
       'data-answer-copy-button-icon-size': '1rem',
 
       // Feedback buttons
@@ -132,7 +130,7 @@ const config: Config = {
       'data-modal-example-questions-title': 'Example questions:',
       'data-modal-example-questions':
         'How do I set up billing for a project in my organization?, How do I migrate data to Aiven for PostgreSQL?, I want to use Terraform to create a Kafka service.',
-      'data-example-question-button-hover-bg-color': '#E3E9FF',
+      'data-example-question-button-hover-bg-color': '#ECFDF0',
       'data-modal-ask-ai-input-placeholder': 'Ask any question about Aiven',
       'data-modal-disclaimer':
         "This AI chatbot generates answers based only on Aiven's documentation, changelog, and some webpages. The responses may contain errors.\n\n" +
@@ -164,7 +162,7 @@ const config: Config = {
     announcementBar: {
       content:
         'Tell us about your experience and help us improve the docs by taking a <a target="_blank" rel="noopener noreferrer" href="https://t.maze.co/443153085">3-minute survey</a>.',
-      backgroundColor: '#818EEC',
+      backgroundColor: '#6F64FF',
       textColor: '#FFFFFF',
       isCloseable: false,
     },
@@ -172,8 +170,8 @@ const config: Config = {
       title: 'aiven',
       logo: {
         alt: 'Aiven docs',
-        src: isJune ? 'images/logo-pride.svg' : 'images/logo.svg',
-        srcDark: isJune ? 'images/logoDark-pride.svg' : 'images/logoDark.svg',
+        src: 'images/aiven_logo_RGB_blk.svg',
+        srcDark: 'images/aiven_logo_RGB_wht.svg',
       },
       items: [
         {
@@ -332,7 +330,7 @@ const config: Config = {
       selector: '.markdown > img',
       background: {
         light: 'rgb(255, 255, 255)',
-        dark: 'rgb(50, 50, 50)',
+        dark: 'rgb(5, 8, 15)',
       },
       config: {
         // options you can specify via https://github.com/francoischalifour/medium-zoom#usage

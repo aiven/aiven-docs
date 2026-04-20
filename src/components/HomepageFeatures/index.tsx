@@ -3,11 +3,20 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 
+type HomeFeatureAccent =
+  | 'deepBlue'
+  | 'lightBlue'
+  | 'purple'
+  | 'yellow'
+  | 'red'
+  | 'orange';
+
 type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
   to: string;
+  accent: HomeFeatureAccent;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -15,18 +24,21 @@ const FeatureList: FeatureItem[] = [
     title: 'Get started',
     Svg: require('@site/static/images/icons/home/rocket.svg').default,
     to: '/docs/get-started',
+    accent: 'deepBlue',
     description: <>Your first steps to set up your account, for free.</>,
   },
   {
     title: 'Managed services',
     Svg: require('@site/static/images/icons/home/database.svg').default,
     to: '/docs/products/services',
+    accent: 'lightBlue',
     description: <>Discover our managed services and how to set them up.</>,
   },
   {
-    title: 'Bring your own cloud',
-    Svg: require('@site/static/images/icons/home/cloud.svg').default,
-    to: '/docs/platform/concepts/byoc',
+    title: 'Apps',
+    Svg: require('@site/static/images/icons/home/console.svg').default,
+    to: '/docs/products/aiven-apps',
+    accent: 'purple',
     description: (
       <>
         Connect your Aiven organization with your own cloud account by creating
@@ -38,6 +50,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Aiven dev tools',
     Svg: require('@site/static/images/icons/home/tool.svg').default,
     to: '/docs/tools',
+    accent: 'yellow',
     description: (
       <>
         Manage your Aiven infrastructure with the Aiven API, Terraform Provider,
@@ -49,6 +62,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Integrations',
     Svg: require('@site/static/images/icons/home/integrations.svg').default,
     to: '/docs/platform/concepts/service-integration',
+    accent: 'red',
     description: (
       <>
         Explore the integrations offered by Aiven to connect your services with
@@ -59,8 +73,9 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'API documentation',
-    Svg: require('@site/static/images/icons/home/tool.svg').default,
+    Svg: require('@site/static/images/icons/home/dataflow-03.svg').default,
     to: '/docs/tools/api',
+    accent: 'orange',
     description: (
       <>
         Interact programmatically with the Aiven platform. Automate your
@@ -71,7 +86,7 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description, to}: FeatureItem) {
+function Feature({title, Svg, description, to, accent}: FeatureItem) {
   return (
     <div className={clsx('col', styles.feature)}>
       <Link to={to}>
@@ -79,7 +94,7 @@ function Feature({title, Svg, description, to}: FeatureItem) {
           <Heading as="h3">{title}</Heading>
         </div>
         <div className={styles.bodyContainer}>
-          <div className={styles.logo}>
+          <div className={styles.logo} data-home-feature-accent={accent}>
             <Svg className={styles.featureSvg} role="img" />
           </div>
           <div className={styles.body}>

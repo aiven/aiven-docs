@@ -4,28 +4,71 @@
  */
 
 .heroBanner {
-  padding: 56px 0;
+  padding: 56px 0 64px;
   text-align: left;
   position: relative;
   overflow: hidden;
   background-color: var(--aiven-hero-bg);
-  color: var(--ifm-heading-color);
-  min-height: 200px;
+  color: var(--aiven-brand-white);
+  min-height: 260px;
 }
 
-.heroTitle {
-  font-family: Poppins;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.heroDecor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
-.heroSubtitle {
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
+
+/*
+ * Curly brace — filled SVG reads very “fat” when scaled up; marketing uses a slimmer
+ * proportion (narrower horizontal mass). scaleX + smaller width approximates that.
+ */
+.heroDecoBrace {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0.58);
+  transform-origin: left center;
+  width: clamp(88px, 12vw, 168px);
+  height: auto;
+  color: var(--aiven-brand-deep-blue);
+  opacity: 0.92;
+}
+
+/* Oversized `*` — upper right, brand purple */
+.heroDecoAsterisk {
+  position: absolute;
+  right: -4%;
+  top: -22%;
+  width: clamp(140px, 38vw, 360px);
+  height: auto;
+  color: var(--aiven-brand-purple);
+  opacity: 0.88;
+  transform: rotate(14deg);
+  transform-origin: center center;
+}
+
+/*
+ * Slash — lower-right, brand yellow. Same clip as asterisk: inside .heroDecor
+ * (overflow:hidden) so anything past the header bottom is cut off flat.
+ */
+.heroDecoSlash {
+  position: absolute;
+  left: auto;
+  top: auto;
+  right: 4%;
+  /* ~¼ of slash height below hero: SVG viewBox 285×136, height scales with width */
+  bottom: calc(-0.25 * 285 / 136 * clamp(76px, 14vw, 140px));
+  width: clamp(76px, 14vw, 140px);
+  height: auto;
+  color: var(--aiven-brand-yellow);
+  opacity: 0.95;
+  transform: rotate(20deg);
+  transform-origin: bottom right;
+  z-index: 1;
+  display: block;
 }
 
 .container {
@@ -34,22 +77,79 @@
   padding: 0;
   width: 100%;
   padding-left: 2.2rem;
+  position: relative;
+  z-index: 1;
 }
+
+.heroTitle {
+  font-family: Poppins;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: inherit;
+}
+
+.heroSubtitle {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  max-width: 36rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
 .buttons {
   margin-top: 2rem;
   display: flex;
   align-items: left;
   justify-content: left;
 }
+
 .buttonHome {
   padding: 8px 12px;
   background-color: var(--aiven-button-primary-bg);
   border-color: var(--aiven-button-primary-bg);
-  color: white;
+  color: var(--aiven-brand-near-black);
 }
+
 .buttonHome:hover,
 .buttonHome:focus {
   background-color: var(--aiven-button-primary-bg-hover);
   border-color: var(--aiven-button-primary-bg-hover);
-  color: white;
+  color: var(--aiven-brand-near-black);
+}
+
+@media (max-width: 996px) {
+  .heroDecoBrace {
+    left: 0;
+    transform: translateY(-50%) scaleX(0.55);
+    width: clamp(72px, 26vw, 132px);
+    opacity: 0.65;
+  }
+
+  .heroDecoAsterisk {
+    right: -14%;
+    top: -28%;
+    width: clamp(100px, 48vw, 240px);
+    opacity: 0.55;
+  }
+
+  .heroDecoSlash {
+    left: auto;
+    top: auto;
+    right: 1%;
+    bottom: calc(-0.25 * 285 / 136 * clamp(60px, 18vw, 100px));
+    width: clamp(60px, 18vw, 100px);
+    opacity: 0.88;
+    color: var(--aiven-brand-yellow);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroDecoAsterisk,
+  .heroDecoSlash {
+    transform: none;
+  }
 }

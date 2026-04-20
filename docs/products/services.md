@@ -7,14 +7,15 @@ import Card from "@site/src/components/Card";
 import GridContainer from "@site/src/components/GridContainer";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";
-import Opensearch from "@site/static/images/logos/opensearch.svg";
+import Opensearch from "@site/static/images/logos/Opensearch.svg";
 import Flink from "@site/static/images/logos/flink.svg";
-import Grafana from "@site/static/images/logos/grafana.svg";
-import Kafka from "@site/static/images/logos/kafka.svg";
-import MySQL from "@site/static/images/logos/mysql.svg";
-import PG from "@site/static/images/logos/pg.svg";
-import Valkey from "@site/static/images/logos/valkey.svg";
-import Metrics from "@site/static/images/logos/metrics.svg";
+import Grafana from "@site/static/images/logos/Grafana.svg";
+import Kafka from "@site/static/images/logos/Apache Kafka.svg";
+import MySQL from "@site/static/images/logos/MySQL.svg";
+import PG from "@site/static/images/logos/PostgreSQL.svg";
+import Valkey from "@site/static/images/logos/Valkey.svg";
+import Metrics from "@site/static/images/logos/Metrics.svg";
+import DataHub from "@site/static/images/logos/DataHub.svg";
 
 Deploy fully managed and scalable open source data technologies as individual services and advanced data pipelines in minutes.
 
@@ -59,13 +60,13 @@ Deploy fully managed and scalable open source data technologies as individual se
   <Card
     to="/docs/products/valkey"
     iconComponent={Valkey}
-    title="Aiven for Valkey"
+    title="Aiven for Valkey™"
     description="An in-memory NoSQL database with a small footprint and high performance."
   />
   <Card
     to="/docs/products/mysql"
     iconComponent={MySQL}
-    title="Aiven for MySQL"
+    title="Aiven for MySQL®"
     description="The relational database with all the integrations you need."
   />
   <Card
@@ -85,5 +86,16 @@ Deploy fully managed and scalable open source data technologies as individual se
     iconComponent={Grafana}
     title="Aiven for Grafana®"
     description="Create dashboards and observe your data."
+  />
+</GridContainer>
+
+## Managed apps
+
+<GridContainer>
+  <Card
+    to="/docs/products/datahub"
+    iconComponent={DataHub}
+    title="Aiven for DataHub"
+    description="Unified governance tool for data discovery, documentation, and lineage."
   />
 </GridContainer>

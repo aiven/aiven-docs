@@ -2,6 +2,12 @@
   margin-right: 0.2em;
   margin-left: 0.2em;
 }
+
+/* Infima defaults hover to --ifm-color-primary (green); keep chrome on link blues */
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--ifm-link-hover-color);
+}
 .navbar-button {
   border-radius: var(--aiven-radius);
   color: var(--ifm-link-color);
@@ -15,10 +21,12 @@
   background-color: transparent;
   color: var(--nav-btn-secondary-text-color);
   border: 1px solid var(--nav-btn-secondary-text-color);
+  border-radius: var(--aiven-radius);
 }
 .navbar-button-secondary:hover {
   border: 1px solid var(--nav-btn-secondary-text-color-hover);
   color: var(--nav-btn-secondary-text-color-hover);
+  background-color: var(--aiven-button-secondary-surface-hover);
 }
 
 .navbar-button-primary {
