@@ -117,6 +117,23 @@ Developer tier uses the same managed Kafka implementation as Professional tier s
 configuration remains consistent when you upgrade. Available options such as cloud, region,
 and plan size can differ by tier.
 
+### Upgrade Kafka with Kafka Connect
+
+When your Developer tier Kafka service uses the included
+[Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started),
+the Kafka service and Kafka Connect must stay on compatible plans. Follow this order
+when upgrading:
+
+1. **Upgrade the Kafka service before Kafka Connect.** Kafka Connect cannot move to a
+   higher plan while Kafka is still on Developer tier.
+1. **Power off Kafka Connect before you change the Kafka plan.** Kafka Connect must be
+   off before you can upgrade the Kafka service plan.
+1. **After Kafka is on the new plan, upgrade Kafka Connect, then power it on.** If Kafka
+   is on a higher plan but Kafka Connect is not, you cannot power it on.
+
+Powering off Kafka Connect preserves the service and configuration. Make sure both
+services use the same plan before powering Kafka Connect on again.
+
 :::note
 You cannot move a Developer tier service back to the Free tier. After you upgrade to
 Professional tier, whether you can move back to Developer tier depends on the service plan.

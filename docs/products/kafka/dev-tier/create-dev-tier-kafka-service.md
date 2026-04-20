@@ -106,6 +106,10 @@ After the service status is **Running**:
 Upgrade to a higher **Professional** tier plan when quotas or features exceed Developer tier
 limits.
 
+If you use **Kafka Connect** on the same service, upgrade Kafka and Connect in the order
+described in
+[Upgrade Kafka with integrated Kafka Connect](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-kafka-with-integrated-kafka-connect).
+
 To upgrade from the service overview:
 
 1. Open your service's <ConsoleLabel name="overview" /> page.
