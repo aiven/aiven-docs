@@ -6,29 +6,28 @@ keywords: [kafka developer tier, kafka dev tier, kafka paid development, kafka p
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Apache Kafka® **Developer tier** is a paid **Classic** Apache Kafka® plan for building, testing, and early stage application development.
-It sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and
-Professional tier plans.
+Aiven for Apache Kafka® **Developer tier** is a paid **Classic** plan that sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and Professional tier plans.
+It provides higher throughput, topic limits, and retention than the Free tier. Each
+service includes Karapace Schema Registry and the REST Proxy.
 
-The service uses the same managed Kafka implementation as other Classic plans, so
-configuration and connection patterns remain consistent across tiers.
+[Service integrations](/docs/platform/concepts/service-integration) are supported where the Developer tier allows them. [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started) is available as a separate service.
 
-Each service includes Karapace Schema Registry, the REST Proxy, and Aiven for Apache Kafka®
-Connect. Capacity, pricing, and limits are listed in
-[Limits and specifications](#limits-and-specifications).
+Capacity, pricing, and limits are listed in [Limits and specifications](#limits-and-specifications).
 
-Manage the service using the [Aiven Console](https://console.aiven.io), the
-[Aiven CLI](/docs/tools/cli), or the API. You can also use Skills on Developer
-and Professional tier services.
+The service uses the same managed Kafka implementation as other Classic plans, so configuration and connection patterns remain consistent across tiers.
+
+Manage the service using the [Aiven Console](https://console.aiven.io), the [Aiven CLI](/docs/tools/cli), or the API. You can also use Skills on Developer and Professional tier services.
+
 
 ## When to use the Developer tier
 
 Use the Developer tier when:
 
-- Throughput, topic count, retention, or storage exceed
+- Throughput, topic limits, retention, or storage exceed
   [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) limits.
-- You need Apache Kafka® Connect or [service integrations](/docs/platform/concepts/service-integration),
-  which are not available on the Free tier.
+- You need a paid Aiven for Apache Kafka® Connect service (integrated with your cluster)
+  or [service integrations](/docs/platform/concepts/service-integration), which are not
+  available on the Free tier.
 - You want to move beyond the Free tier for development or testing without using a
   production-grade Professional plan.
 
@@ -36,11 +35,12 @@ Use the Developer tier when:
 
 The Developer tier includes:
 
-- Apache Kafka® on three nodes (1 CPU, 4 GB RAM per node).
+- Apache Kafka® on two nodes with fixed compute and storage resources.
 - Karapace Schema Registry.
 - REST Proxy.
-- Aiven for Apache Kafka® Connect on a dedicated node with up to two connectors per
-  service.
+- Optional, separately billed
+  [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started) as a
+  standalone service integrated with your cluster.
 - [Service integrations](/docs/platform/concepts/service-integration) where this tier
   supports them.
 - Prometheus-compatible metrics through a [Prometheus integration](/docs/platform/howto/integrations/prometheus-metrics).
@@ -72,17 +72,17 @@ The following applies to Developer tier services.
 
 | Specification | Developer tier |
 |-------------------------------|----------------|
-| Price | $49 USD/month; includes 3 nodes and 1 day retention |
+| Price | $29 USD/month, includes 2 nodes and 1 day retention |
 | Throughput | 1 MB/s ingress / 2 MB/s egress |
 | Topics | Up to 20 |
 | Partitions | Up to 100 total across topics |
-| Retention | 1-7 days; 1 day included; +$10 USD per 2 days |
-| Storage | 50 GB |
+| Retention | 1-7 days, 1 day included, +$10 USD per 2 days |
+| Storage | Fixed local storage per node |
 | SLA | 99% |
 | Kafka services per organization | Up to 5 |
-| Kafka Connect | Yes; max 2 connectors on a dedicated node |
-| Cloud provider | Region only in the Console; cloud selection available on Professional plans |
-| Service integrations | Yes |
+| Kafka Connect | Optional add-on (paid) |
+| Cloud provider | Console: region only, Professional: full cloud/region |
+| Service integrations | Yes, with limitations |
 | Upgrade | To a Professional plan in the Console |
 | Downgrade to free tier | Not supported |
 
@@ -93,14 +93,15 @@ For higher throughput, storage, retention, or connector limits, upgrade the serv
 
 | Feature | Free | Developer | Professional |
 |--------|------|-----------|--------------|
-| Price | $0 | $49/month | Varies by plan |
-| Throughput | Up to 250 KiB/s ingress/egress | 1 MB/s ingress / 2 MB/s egress | Higher, plan-dependent |
+| Price | $0 | $29/month | Varies by plan |
+| Throughput | Up to 250 KiB/s ingress and egress | 1 MB/s ingress, 2 MB/s egress | Higher, plan-dependent |
 | Topics | Up to 5 | Up to 20 | Plan-dependent |
 | Partitions | 1 per topic | Up to 100 total | Plan-dependent |
 | Retention | Fixed | 1—7 days | Plan-dependent |
-| Storage | Fixed | 50 GB | Plan-dependent |
+| Storage | Fixed | Fixed local storage per node | Plan-dependent |
 | SLA | None | 99% | Up to 99.99%, plan-dependent |
-| Kafka Connect | Not supported | Up to 2 connectors | Full support, plan-dependent |
+| Kafka Connect | Not supported | Optional (paid) | Full support, plan-dependent |
+| Service integrations | No | Yes, with limitations | Yes, plan-dependent |
 | Cloud selection | Fixed | Region only | Cloud and region selectable |
 
 ## Upgrade path
@@ -119,10 +120,10 @@ and plan size can differ by tier.
 
 ### Upgrade Kafka with Kafka Connect
 
-When your Developer tier Kafka service uses the included
-[Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started),
-the Kafka service and Kafka Connect must stay on compatible plans. Follow this order
-when upgrading:
+When your Developer tier Kafka project includes an
+[Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started) service
+integrated with your Kafka service, the two services must stay on compatible plans. Follow
+this order when upgrading:
 
 1. **Upgrade the Kafka service before Kafka Connect.** Kafka Connect cannot move to a
    higher plan while Kafka is still on Developer tier.

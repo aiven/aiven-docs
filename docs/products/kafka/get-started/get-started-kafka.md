@@ -22,21 +22,24 @@ For limits, regions, and supported features, see the
 - Basic Kafka workflows are supported, including service creation and sample data
   generation.
 
-**Next step:** [Create a Kafka service using the Free tier](/docs/products/kafka/free-tier/create-free-tier-kafka-service).
+**Continue with:** [Create a Kafka service using the Free tier](/docs/products/kafka/free-tier/create-free-tier-kafka-service).
 
 ## Developer tier
 
-Developer tier is a paid **Classic** plan with higher throughput limits, topic count, and
-retention than the Free tier. Each service includes Apache Kafka® Connect, Karapace Schema
-Registry, REST Proxy, and supported
-[service integrations](/docs/platform/concepts/service-integration).
+The Developer tier is a paid **Classic** plan with higher throughput, topic limits, and
+retention than the
+[Free tier](/docs/products/kafka/free-tier/kafka-free-tier). Each service includes
+Karapace Schema Registry and the REST Proxy.
+[Service integrations](/docs/platform/concepts/service-integration) are supported where
+the Developer tier allows them. [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started)
+is available as a separate service.
 
 Manage the service in the console, CLI, API, or with
 [Skills](/docs/products/kafka/howto/set-up-kafka-with-skills). See
 [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier)
 for quotas, pricing, metrics export, and upgrades.
 
-**Next step:** [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
+**Continue with:** [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
 
 ## Create an Inkless Kafka service
 
@@ -50,7 +53,7 @@ of fixed hardware plans.
   and cost.
 - On BYOC, select the BYOC environment, region, and an Inkless plan.
 
-**Next step:** [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service).
+**Continue with:** [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service).
 
 ## Create a Classic Kafka service
 
@@ -62,26 +65,30 @@ supported plans and cloud providers.
 - Select a plan that defines compute, memory, and storage.
 - Optionally adjust disk capacity, enable tiered storage, and select the Kafka version.
 
-**Next step:** [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service).
+**Continue with:** [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service).
 
 ## Set up a Kafka service using Skills
 
-Skills script **Classic** Kafka provisioning for brokers, topics, ACLs, Karapace Schema
-Registry, and Java producer and consumer samples. Invoke the bundled commands with `npx`
-and the [Aiven CLI](/docs/tools/cli), or call the same commands from an automation layer.
+Use Skills to create and configure a Kafka service from the command line.
 
-**Before you begin:**
+Install the Aiven Skills bundle:
+
+```bash
+npx skills add Aiven-Open/aiven-skills-bundle
+```
+
+To run this command, make sure you have the following:
 
 - [Aiven CLI](/docs/tools/cli) installed and authenticated.
 - Node.js installed so `npm` provides `npx`.
 
 :::note
-Skills operate on **Developer** and **Professional** tier services. Create
-[Free tier](/docs/products/kafka/free-tier/kafka-free-tier) Kafka services in the console.
-Skills create services through the CLI.
+Skills operate on **Developer** and **Professional** tier services.
+Create [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) Kafka services in the
+console.
 :::
 
-**Next step:** [Set up Kafka using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
+**Continue with:** [Set up Kafka using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
 
 ## Generate sample data using the console
 
@@ -92,7 +99,7 @@ the service is working.
 - Consume messages from the topic to verify connectivity.
 - Validate access control, networking, and client configuration.
 
-**Next step:** [Generate sample data in the console](/docs/products/kafka/howto/generate-sample-data).
+**After your service is running, continue with:** [Generate sample data in the console](/docs/products/kafka/howto/generate-sample-data).
 
 ## Generate data manually (optional)
 
@@ -103,7 +110,7 @@ Produce data manually to test application integrations or custom workloads.
   container-based utilities.
 - Use this approach for development, automation, or advanced testing scenarios.
 
-**Next step:** [Generate sample data manually with Docker](/docs/products/kafka/howto/generate-sample-data-manually).
+**After your service is running, continue with:** [Generate sample data manually with Docker](/docs/products/kafka/howto/generate-sample-data-manually).
 
 ## Create and manage Kafka using AI assistants
 
@@ -115,4 +122,4 @@ clients such as Cursor, Claude Code, and VS Code.
 - Describe the service or operation you want in natural language.
 - The assistant creates and manages Kafka resources through the Aiven API.
 
-**Next step:** [Set up the Aiven MCP server](/docs/tools/mcp-server).
+**Continue with:** [Set up the Aiven MCP server](/docs/tools/mcp-server).

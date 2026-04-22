@@ -7,11 +7,9 @@ keywords: [create, kafka, developer tier]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Aiven for Apache Kafka® Developer tier **Classic** service when throughput,
-topics, retention, or storage exceed [Free tier](/docs/products/kafka/free-tier/kafka-free-tier)
-limits, or when you use Kafka Connect or integrations excluded from the Free tier.
-
-For quotas, pricing, and features, see
+Create an Aiven for Apache Kafka® Developer tier **Classic** service when throughput, topic limits, retention, or storage exceed the[Free tier](/docs/products/kafka/free-tier/kafka-free-tier).
+Use it to run Kafka Connect or integrations that are not available on the Free tier. For
+quotas, pricing, and features, see
 [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier).
 
 ## Prerequisites
@@ -58,13 +56,17 @@ When the status changes to **Running**, your Kafka service is ready to use.
 
 ## Create a Developer tier service using Skills
 
-Skills install automation that creates and configures the Kafka service through the CLI.
+Use Skills to create and configure the Kafka service from the command line.
 
 1. Install the Skills bundle:
 
    ```bash
    npx skills add Aiven-Open/aiven-skills-bundle
    ```
+
+   If your tool supports Skills, you can also invoke them through AI-enabled tools such as
+   Claude Code, Cursor, or Copilot Chat by describing the task, for example:
+   `Create a test Kafka service in Aiven`.
 
 1. Run the Kafka service creation Skill:
 
@@ -97,18 +99,21 @@ After the service status is **Running**:
 - **Define topics**: Stay within
   [Developer tier limits](/docs/products/kafka/dev-tier/kafka-dev-tier#limits-and-specifications).
   See [Create a Kafka topic](/docs/products/kafka/howto/create-topic).
-- **Run connectors**: Up to two connectors per service on the dedicated Connect node. See
-  [Get started with Aiven for Apache Kafka Connect](/docs/products/kafka/kafka-connect/get-started)
-  and [list of available connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins).
+- **Run connectors**: Add an [Aiven for Apache Kafka Connect](/docs/products/kafka/kafka-connect/get-started)
+  service and integrate it with this Kafka service. See
+  [list of available connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins).
 
 ## Upgrade the service
 
-Upgrade to a higher **Professional** tier plan when quotas or features exceed Developer tier
-limits.
+Upgrade to a higher **Professional** tier plan when quotas or features exceed Developer
+tier limits.
 
-If you use **Kafka Connect** on the same service, upgrade Kafka and Connect in the order
-described in
-[Upgrade Kafka with integrated Kafka Connect](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-kafka-with-integrated-kafka-connect).
+For upgrade paths between Free, Developer, and **Professional** tiers, see
+[Upgrade path](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-path).
+
+If you use a **Kafka Connect** service integrated with this Kafka service, upgrade Kafka
+and Connect in the order described in
+[Upgrade Kafka with Kafka Connect](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-kafka-with-kafka-connect).
 
 To upgrade from the service overview:
 
