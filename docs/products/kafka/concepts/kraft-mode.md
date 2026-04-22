@@ -42,21 +42,6 @@ You can start a migration only during the following time window:
 - Monday to Friday
 - 00:00 to 14:00 UTC
 
-### Supported service plans
-
-You can start a migration only if your service uses one of these plans:
-
-- `startup-2`
-- `business-4`
-- `business-8`
-- `business-16`
-- `business-32`
-
-Some plans have additional requirements. For details, see
-[Before you migrate](#before-you-migrate).
-
-Support for more plans will be added in phases.
-
 ## What is KRaft?
 
 KRaft is the built-in metadata and consensus management system in Aiven for Apache Kafka
