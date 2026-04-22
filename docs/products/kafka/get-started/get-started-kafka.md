@@ -3,8 +3,7 @@ title: Get started with Aiven for Apache Kafka®
 sidebar_label: Get started
 ---
 
-Create a managed Apache Kafka® service on Aiven, use the Free tier where it fits your workload,
-and send sample data to verify end-to-end streaming.
+Create a managed Apache Kafka® service on Aiven, use the Free tier where it fits your workload, and send sample data to verify end-to-end streaming.
 
 ## Prerequisites
 
@@ -84,8 +83,8 @@ To run this command, make sure you have the following:
 
 :::note
 Skills operate on **Developer** and **Professional** tier services.
-Create [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) Kafka services in the
-console.
+Create [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) Kafka services in
+the console.
 :::
 
 **Continue with:** [Set up Kafka using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).

@@ -94,7 +94,7 @@ instance size.
 Developer tier plans, pricing, and limits vary by product. Each subsection describes
 one offering; for complete specifications, see the linked product pages.
 
-#### Aiven for PostgreSQL® and Aiven for MySQL®
+#### Aiven for PostgreSQL and Aiven for MySQL
 
 The Developer tier is available for Aiven for PostgreSQL® and Aiven for MySQL® services,
 letting you scale up your service in a cost-effective way. Services on this Developer tier

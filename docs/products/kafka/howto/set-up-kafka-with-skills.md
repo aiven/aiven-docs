@@ -6,8 +6,7 @@ keywords: [kafka, skills, automation, cli, developer tier]
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use [Skills to automate Kafka workflows](/docs/products/kafka/dev-tier/kafka-dev-tier#use-skills-to-automate-workflows)
-to create and configure an Aiven for Apache Kafka® service from the command line.
+Use [Skills to automate Kafka workflows](/docs/products/kafka/dev-tier/kafka-dev-tier#use-skills-to-automate-workflows) to create and configure an Aiven for Apache Kafka® service from the command line.
 A Skill can create a service and configure topics, access control lists (ACLs), and
 Karapace Schema Registry.
 

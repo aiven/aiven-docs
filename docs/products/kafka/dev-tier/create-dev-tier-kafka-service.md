@@ -7,7 +7,7 @@ keywords: [create, kafka, developer tier]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Aiven for Apache Kafka® Developer tier **Classic** service when throughput, topic limits, retention, or storage exceed the[Free tier](/docs/products/kafka/free-tier/kafka-free-tier).
+Create an Aiven for Apache Kafka® Developer tier **Classic** service when throughput, topic limits, retention, or storage exceed the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier).
 Use it to run Kafka Connect or integrations that are not available on the Free tier. For
 quotas, pricing, and features, see
 [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier).

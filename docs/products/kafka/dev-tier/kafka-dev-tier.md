@@ -57,7 +57,7 @@ Aiven CLI and `npx`, or through integrations that invoke the same commands.
 
 With Skills, you can:
 
-- Create a Kafka service and configure it end to end.
+- Create a Kafka service and configure it end-to-end.
 - Create topics, users, and permissions.
 - Generate sample data and validate the deployment.
 - Configure connectors and integrations.
@@ -81,7 +81,7 @@ The following applies to Developer tier services.
 | SLA | 99% |
 | Kafka services per organization | Up to 5 |
 | Kafka Connect | Optional add-on (paid) |
-| Cloud provider | Console: region only, Professional: full cloud/region |
+| Cloud provider | Region selection in the console |
 | Service integrations | Yes, with limitations |
 | Upgrade | To a Professional plan in the Console |
 | Downgrade to free tier | Not supported |
