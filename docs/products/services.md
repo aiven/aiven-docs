@@ -7,14 +7,14 @@ import Card from "@site/src/components/Card";
 import GridContainer from "@site/src/components/GridContainer";
 import ClickHouse from "@site/static/images/logos/clickhouse.svg";
 import Dragonfly from "@site/static/images/logos/dragonfly.svg";
-import Opensearch from "@site/static/images/logos/Opensearch.svg";
+import Opensearch from "@site/static/images/logos/opensearch.svg";
 import Flink from "@site/static/images/logos/flink.svg";
-import Grafana from "@site/static/images/logos/Grafana.svg";
+import Grafana from "@site/static/images/logos/grafana.svg";
 import Kafka from "@site/static/images/logos/Apache Kafka.svg";
-import MySQL from "@site/static/images/logos/MySQL.svg";
+import MySQL from "@site/static/images/logos/mysql.svg";
 import PG from "@site/static/images/logos/PostgreSQL.svg";
-import Valkey from "@site/static/images/logos/Valkey.svg";
-import Metrics from "@site/static/images/logos/Metrics.svg";
+import Valkey from "@site/static/images/logos/valkey.svg";
+import Metrics from "@site/static/images/logos/metrics.svg";
 import DataHub from "@site/static/images/logos/DataHub.svg";
 
 Deploy fully managed and scalable open source data technologies as individual services and advanced data pipelines in minutes.
