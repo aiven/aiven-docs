@@ -94,6 +94,8 @@ not supported.
 - During the upgrade, the service status changes to **Rebuilding**.
 - When the upgrade completes, the service status returns to **Running** and the service
   runs in KRaft mode.
+- After the migration completes, the service enters a one-week grace period. Further
+  Kafka version upgrades are not supported during this time.
 
 #### What happens in the background
 
