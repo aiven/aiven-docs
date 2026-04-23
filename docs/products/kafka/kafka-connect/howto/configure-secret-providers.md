@@ -20,6 +20,9 @@ the security of your setup.
 - [AWS Secrets Manager](/docs/products/kafka/kafka-connect/howto/configure-aws-secrets-manager)
   - **Auth method**: `credentials`
   - **Required parameters**: `access key`, `secret key`
+- [Azure Key Vault](/docs/products/kafka/kafka-connect/howto/configure-azure-key-vault)
+  - **Auth method**: `credentials`
+  - **Required parameters**: `client_id`, `tenant_id`, `secret`
 - [HashiCorp Vault](/docs/products/kafka/kafka-connect/howto/configure-hashicorp-vault)
   - **Auth method**: `token`
   - **Required parameters**: `token`, `address`
