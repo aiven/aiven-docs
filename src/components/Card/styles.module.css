@@ -32,6 +32,16 @@
   margin-bottom: 0.8rem;
 }
 
+/* Product highlight option 1: dark text on brand fill; sharp corners (brand / web). */
+.titlePill {
+  background-color: var(--card-title-pill-bg);
+  color: var(--aiven-brand-near-black);
+  padding: 0.12em 0.4em;
+  border-radius: 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 .card a:hover,
 .card a:focus {
   text-decoration: none;

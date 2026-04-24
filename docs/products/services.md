@@ -5,17 +5,6 @@ sidebar_label: Overview
 
 import Card from "@site/src/components/Card";
 import GridContainer from "@site/src/components/GridContainer";
-import ClickHouse from "@site/static/images/logos/clickhouse.svg";
-import Dragonfly from "@site/static/images/logos/dragonfly.svg";
-import Opensearch from "@site/static/images/logos/opensearch.svg";
-import Flink from "@site/static/images/logos/flink.svg";
-import Grafana from "@site/static/images/logos/grafana.svg";
-import Kafka from "@site/static/images/logos/Apache Kafka.svg";
-import MySQL from "@site/static/images/logos/mysql.svg";
-import PG from "@site/static/images/logos/PostgreSQL.svg";
-import Valkey from "@site/static/images/logos/valkey.svg";
-import Metrics from "@site/static/images/logos/metrics.svg";
-import DataHub from "@site/static/images/logos/DataHub.svg";
 
 Deploy fully managed and scalable open source data technologies as individual services and advanced data pipelines in minutes.
 
@@ -24,13 +13,15 @@ Deploy fully managed and scalable open source data technologies as individual se
 <GridContainer>
   <Card
     to="/docs/products/kafka"
-    iconComponent={Kafka}
+    hideIcon
+    titleHighlight="#DF56F2"
     title="Aiven for Apache Kafka®"
     description="Build your streaming data pipelines."
   />
   <Card
     to="/docs/products/flink"
-    iconComponent={Flink}
+    hideIcon
+    titleHighlight="#E65370"
     title="Aiven for Apache Flink®"
     description="Control your event-driven applications and streaming analytics needs."
   />
@@ -41,49 +32,57 @@ Deploy fully managed and scalable open source data technologies as individual se
 <GridContainer>
   <Card
     to="/docs/products/postgresql"
-    iconComponent={PG}
+    hideIcon
+    titleHighlight="#6F64FF"
     title="Aiven for PostgreSQL®"
     description="The object-relational database with exentions and Aiven's AI capabilities."
   />
   <Card
     to="/docs/products/opensearch"
-    iconComponent={Opensearch}
+    hideIcon
+    titleHighlight="#59D2F4"
     title="Aiven for OpenSearch®"
     description="Explore and visualize your data with dashboard and plugins."
   />
   <Card
     to="/docs/products/clickhouse"
-    iconComponent={ClickHouse}
+    hideIcon
+    titleHighlight="#FDCD12"
     title="Aiven for ClickHouse®"
     description="The cloud data warehouse to generate real-time analytical data."
   />
   <Card
     to="/docs/products/valkey"
-    iconComponent={Valkey}
+    hideIcon
+    titleHighlight="#8A8AFF"
     title="Aiven for Valkey™"
     description="An in-memory NoSQL database with a small footprint and high performance."
   />
   <Card
     to="/docs/products/mysql"
-    iconComponent={MySQL}
+    hideIcon
+    titleHighlight="#75E6E4"
     title="Aiven for MySQL®"
     description="The relational database with all the integrations you need."
   />
   <Card
     to="/docs/products/dragonfly"
-    iconComponent={Dragonfly}
+    hideIcon
+    titleHighlight="#8A8AFF"
     title="Aiven for Dragonfly"
     description="A scalable in-memory data store for high-performance."
   />
   <Card
     to="/docs/products/metrics"
-    iconComponent={Metrics}
+    hideIcon
+    titleHighlight="#9CA5FF"
     title="Aiven for Metrics"
     description="Fully managed Thanos metrics – a cost-effective, open source Prometheus solution."
   />
   <Card
     to="/docs/products/grafana"
-    iconComponent={Grafana}
+    hideIcon
+    titleHighlight="#FF965E"
     title="Aiven for Grafana®"
     description="Create dashboards and observe your data."
   />
@@ -94,7 +93,8 @@ Deploy fully managed and scalable open source data technologies as individual se
 <GridContainer>
   <Card
     to="/docs/products/datahub"
-    iconComponent={DataHub}
+    hideIcon
+    titleHighlight="#0AB060"
     title="Aiven for DataHub"
     description="Unified governance tool for data discovery, documentation, and lineage."
   />
