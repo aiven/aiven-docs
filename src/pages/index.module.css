@@ -94,12 +94,13 @@
 }
 
 .heroTitle {
-  font-family: Poppins;
+  font-family: var(--ifm-heading-font-family);
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: normal;
   color: inherit;
+  letter-spacing: var(--aiven-header-letter-spacing);
 }
 
 .heroSubtitle {

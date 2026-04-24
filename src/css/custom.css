@@ -40,8 +40,11 @@
   --ifm-font-family-base: 'Inter', 'Montserrat', system-ui, sans-serif;
   --ifm-font-size-base: 90%;
   --ifm-global-radius: var(--aiven-radius);
-  --ifm-heading-font-family:
-    'Poppins', 'Montserrat', helvetica, system-ui, sans-serif;
+  --ifm-heading-font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+  /* Brand: Inter Semi Bold for titles */
+  --ifm-heading-font-weight: 600;
+  /* Header / display tightening (≈ -2% tracking in design tools) */
+  --aiven-header-letter-spacing: -0.02em;
   --ifm-list-left-padding: 2em;
   --ifm-list-item-margin: 0.4em;
   /* li padding top  */
@@ -65,7 +68,9 @@
   --aiven-button-secondary-border-hover: var(--aiven-grey-70);
   --aiven-button-secondary-surface-hover: rgba(5, 8, 15, 0.06);
   --nav-btn-secondary-text-color: var(--aiven-button-secondary-border);
-  --nav-btn-secondary-text-color-hover: var(--aiven-button-secondary-border-hover);
+  --nav-btn-secondary-text-color-hover: var(
+    --aiven-button-secondary-border-hover
+  );
   /* Active tab label + underline */
   --ifm-tabs-color-active: var(--ifm-link-color);
   --ifm-tabs-color-active-border: var(--ifm-link-color);
@@ -161,16 +166,32 @@ html[data-theme='dark'] {
 
 /* Inline links */
 .theme-doc-markdown
-  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(.pagination-nav__link):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(.aiven-card-link):not(.release-badge),
+  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(
+    .pagination-nav__link
+  ):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(
+    .aiven-card-link
+  ):not(.release-badge),
 .markdown
-  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(.pagination-nav__link):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(.aiven-card-link):not(.release-badge) {
+  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(
+    .pagination-nav__link
+  ):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(
+    .aiven-card-link
+  ):not(.release-badge) {
   color: var(--aiven-inline-link-color);
 }
 
 .theme-doc-markdown
-  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(.pagination-nav__link):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(.aiven-card-link):not(.release-badge):hover,
+  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(
+    .pagination-nav__link
+  ):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(
+    .aiven-card-link
+  ):not(.release-badge):hover,
 .markdown
-  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(.pagination-nav__link):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(.aiven-card-link):not(.release-badge):hover {
+  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(
+    .pagination-nav__link
+  ):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(
+    .aiven-card-link
+  ):not(.release-badge):hover {
   color: var(--aiven-inline-link-hover-color);
 }
 
@@ -204,8 +225,11 @@ html[data-theme='dark'] {
   color: var(--ifm-link-hover-color);
 }
 
+.markdown > header h1,
 .markdown h1:first-child {
   --ifm-h1-font-size: 2.1em;
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: var(--aiven-header-letter-spacing);
 }
 
 .markdown > h2 {
@@ -256,7 +280,14 @@ html[data-theme='light'] .footer--dark {
 
 .navbar__brand {
   font-size: 170%;
-  font-family: 'Ubuntu';
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: var(--aiven-header-letter-spacing);
+}
+
+/* Navbar chrome links (not dropdown panel items — those use .dropdown__link) */
+nav.navbar a.navbar__link {
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: var(--aiven-header-letter-spacing);
 }
 
 html[data-theme='dark'] .theme-doc-sidebar-container {
@@ -364,7 +395,7 @@ html[data-theme='dark'] .tabs {
 
 /* Sidebar section titles */
 .expandedSection > div > a {
-  font-weight: 900;
+  font-weight: 600;
   padding-top: 1em;
   padding-bottom: 0.5em;
 }
