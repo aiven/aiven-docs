@@ -28,12 +28,14 @@ You can interact with the Aiven platform with various interfaces and tools that 
     <Card
         to="/docs/tools/api"
         iconComponent={API}
+        iconColor="var(--aiven-brand-orange)"
         title="Aiven API"
         description="Programmatically interact with and manage your Aiven infrastructure."
     />
     <Card
         to="/docs/tools/cli"
-        iconName="tools"
+        iconName="console"
+        iconColor="var(--aiven-brand-yellow)"
         title="Aiven CLI"
         description="Manage your Aiven services through the command-line interface."
     />
