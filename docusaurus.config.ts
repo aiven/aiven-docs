@@ -164,7 +164,7 @@ const config: Config = {
         'Tell us about your experience and help us improve the docs by taking a <a target="_blank" rel="noopener noreferrer" href="https://t.maze.co/443153085">3-minute survey</a>.',
       backgroundColor: '#6F64FF',
       textColor: '#FFFFFF',
-      isCloseable: false,
+      isCloseable: true,
     },
     navbar: {
       title: 'aiven',
