@@ -76,7 +76,7 @@
   color: var(--ifm-link-color);
 }
 
-[data-theme='dark'] .dropdown__link:hover {
+html[data-theme='dark'] .dropdown__link:hover {
   background-color: var(--aiven-nav-active-bg);
   color: var(--ifm-color-primary);
 }

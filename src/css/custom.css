@@ -84,7 +84,9 @@
   --aiven-card-font-family: var(--ifm-font-family-base);
 }
 
-[data-theme='dark'] {
+html[data-theme='dark'] {
+  /* Thin light dividers */
+  --aiven-chrome-divider: rgba(255, 255, 255, 0.12);
   --aiven-adm-bg-info: var(--aiven-adm-bg-note);
   --aiven-adm-bg-note: var(--ifm-menu-color-background-active);
   /* Same neutral panel as note — tip/warning were #0f2418 / #2a1412 (green/red tint) */
@@ -106,12 +108,12 @@
   --feature-background-color: var(--ifm-card-background-color);
   --feature-border-color: var(--ifm-color-emphasis-200);
   --feature-border-color-hover: var(--ifm-color-emphasis-300);
-  --ifm-background-color: var(--aiven-grey-100);
-  --ifm-background-surface-color: var(--aiven-grey-100);
+  --ifm-background-color: var(--aiven-brand-near-black);
+  --ifm-background-surface-color: var(--aiven-brand-near-black);
   --ifm-color-content: var(--aiven-grey-20);
   --ifm-color-primary-dark: var(--aiven-primary-70);
   --ifm-color-primary-darker: var(--aiven-grey-90);
-  --ifm-color-primary-darkest: var(--aiven-grey-100);
+  --ifm-color-primary-darkest: var(--aiven-brand-near-black);
   --ifm-color-primary-light: var(--aiven-primary-70);
   --ifm-color-primary-lighter: var(--aiven-primary-60);
   --ifm-color-primary-lightest: var(--aiven-primary-50);
@@ -125,7 +127,8 @@
   /* Prose links: lighter stops on dark surfaces (700/600 are for light only) */
   --aiven-inline-link-color: var(--aiven-light-blue-500);
   --aiven-inline-link-hover-color: var(--aiven-light-blue-400);
-  --ifm-toc-border-color: var(--aiven-grey-80) !important;
+  /* Sidebar right edge, desktop TOC column, and other Infima toc borders */
+  --ifm-toc-border-color: var(--aiven-chrome-divider) !important;
   --nav-btn-primary-bg-hover: var(--aiven-primary-70);
   --nav-btn-primary-bg: var(--aiven-brand-green);
   --nav-btn-primary-text-color: var(--ifm-button-color);
@@ -157,11 +160,7 @@
   font-weight: bold;
 }
 
-/*
- * Doc/blog body links (scoped + :not exclusions so buttons/cards stay correct).
- * Light: same blue as --ifm-link-color on chrome. Dark: chrome stays green via
- * --ifm-link-color; prose still uses --aiven-inline-link-* (blue) here.
- */
+/* Inline links */
 .theme-doc-markdown
   a:not(.breadcrumbs__link):not(.table-of-contents__link):not(.pagination-nav__link):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(.aiven-card-link):not(.release-badge),
 .markdown
@@ -233,8 +232,18 @@ nav .menu__link {
   font-size: 98%;
 }
 
-.footer--dark {
+html[data-theme='dark'] .footer--dark {
   --ifm-footer-background-color: var(--aiven-brand-near-black);
+  border-top: 1px solid var(--aiven-chrome-divider);
+}
+
+html[data-theme='light'] .footer--dark {
+  --ifm-footer-background-color: var(--ifm-background-color);
+  --ifm-footer-color: var(--aiven-grey-60);
+  --ifm-footer-link-color: var(--aiven-grey-60);
+  --ifm-footer-link-hover-color: var(--aiven-inline-link-hover-color);
+  --ifm-footer-title-color: var(--aiven-grey-80);
+  border-top: 1px solid var(--aiven-grey-10);
 }
 
 .footer__links {
@@ -251,13 +260,13 @@ nav .menu__link {
   font-family: 'Ubuntu';
 }
 
-[data-theme='dark'] .theme-doc-sidebar-container {
+html[data-theme='dark'] .theme-doc-sidebar-container {
   background-color: var(--aiven-grey-90);
 }
 
-[data-theme='dark'] nav.navbar {
-  background-color: var(--aiven-grey-100);
-  border-bottom: 1px solid var(--aiven-grey-90);
+html[data-theme='dark'] nav.navbar {
+  background-color: var(--aiven-brand-near-black);
+  border-bottom: 1px solid var(--aiven-chrome-divider);
 }
 
 div[class^='announcementBar_'] {
@@ -320,7 +329,7 @@ ul + div {
   border-bottom: 1px solid var(--aiven-grey-20);
 }
 
-[data-theme='dark'] .tabs {
+html[data-theme='dark'] .tabs {
   border-bottom: 1px solid var(--aiven-grey-60);
 }
 
@@ -448,13 +457,13 @@ body .react-tooltip {
   font-style: normal !important;
 }
 
-[data-theme='dark'] .prism-code[class*='language-diff'] .token.deleted {
+html[data-theme='dark'] .prism-code[class*='language-diff'] .token.deleted {
   background-color: rgba(248, 81, 73, 0.15) !important;
   color: #ff7a73 !important;
   font-style: normal !important;
 }
 
-[data-theme='dark'] .prism-code[class*='language-diff'] .token.inserted {
+html[data-theme='dark'] .prism-code[class*='language-diff'] .token.inserted {
   background-color: rgba(95, 250, 116, 0.12) !important;
   color: var(--aiven-brand-green) !important;
   font-style: normal !important;
