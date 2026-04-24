@@ -13,6 +13,18 @@
   min-height: 260px;
 }
 
+/* Dark: divider (--aivn-chrome-divider in custom.css) */
+:global(html[data-theme='dark']) .heroBanner {
+  border-bottom: 1px solid var(--aiven-chrome-divider);
+}
+
+@media (min-width: 1280px) {
+  :global(html[data-theme='dark']) .heroBanner {
+    border-left: 1px solid var(--aiven-chrome-divider);
+    border-right: 1px solid var(--aiven-chrome-divider);
+  }
+}
+
 .heroDecor {
   position: absolute;
   inset: 0;

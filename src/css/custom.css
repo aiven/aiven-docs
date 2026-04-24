@@ -48,7 +48,6 @@
   --ifm-list-paragraph-margin: 0.4;
   /*top margin*/
   --ifm-paragraph-margin-bottom: 0.4em;
-  /* Light: prose + nav — 600 default is brighter than 700; 500 fails AA on white (~3.1:1). Hover 700 for affordance + AAA-ish contrast */
   --aiven-inline-link-color: var(--aiven-light-blue-600);
   --aiven-inline-link-hover-color: var(--aiven-light-blue-700);
   --ifm-link-color: var(--aiven-inline-link-color);
@@ -59,7 +58,7 @@
   --nav-btn-primary-bg: var(--aiven-brand-green);
   --nav-btn-primary-text-color-hover: var(--aiven-brand-near-black);
   --nav-btn-primary-text-color: var(--ifm-button-color);
-  /* Outline secondary: dark on light surfaces (navbar); sharp corners via --aiven-radius */
+  /* Outline secondary: dark on light surfaces (navbar) */
   --aiven-button-secondary-fg: var(--aiven-brand-near-black);
   --aiven-button-secondary-border: var(--aiven-brand-near-black);
   --aiven-button-secondary-fg-hover: var(--aiven-grey-70);
@@ -67,7 +66,7 @@
   --aiven-button-secondary-surface-hover: rgba(5, 8, 15, 0.06);
   --nav-btn-secondary-text-color: var(--aiven-button-secondary-border);
   --nav-btn-secondary-text-color-hover: var(--aiven-button-secondary-border-hover);
-  /* Active tab label + underline — same blue as chrome links (Infima default text = --ifm-color-primary / green) */
+  /* Active tab label + underline */
   --ifm-tabs-color-active: var(--ifm-link-color);
   --ifm-tabs-color-active-border: var(--ifm-link-color);
   --aiven-button-primary-bg: var(--nav-btn-primary-bg);
@@ -76,7 +75,7 @@
   --ifm-button-border-color: var(--ifm-button-background-color);
   --docusaurus-details-bg: hsl(0, 0%, 98%);
   --ifm-card-background-color: var(--aiven-card-bg);
-  /* Neutral cards in light (no primary-05 green tint) */
+  /* Neutral cards in light */
   --aiven-card-bg: var(--aiven-brand-white);
   --aiven-card-border: var(--aiven-grey-10);
   --aiven-card-bg-hover: var(--aiven-grey-0);
