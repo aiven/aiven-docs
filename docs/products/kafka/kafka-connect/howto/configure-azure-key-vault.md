@@ -208,12 +208,13 @@ Parameters:
 You can use secrets stored in Azure Key Vault with any connector. The format for
 referencing secrets is:
 
-```
+```text
 ${PROVIDER_NAME:VAULT_NAME.vault.azure.net:SECRET_NAME}
 ```
 
-Where:
-- `PROVIDER_NAME`: Name of your secret provider configuration (for example, `azure`).
+Parameters:
+
+- `PROVIDER_NAME`: Name of your secret provider configuration, such as `azure`.
 - `VAULT_NAME.vault.azure.net`: Your Azure Key Vault hostname without `https://`.
 - `SECRET_NAME`: Name of the secret in Azure Key Vault.
 
