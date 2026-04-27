@@ -869,6 +869,7 @@ const sidebars: SidebarsConfig = {
                       label: 'Source connectors',
                       items: [
                         // A
+                        'products/kafka/kafka-connect/howto/amqp-source-connector',
                         'products/kafka/kafka-connect/howto/s3-source-connector',
                         'products/kafka/kafka-connect/howto/azure-blob-source',
 

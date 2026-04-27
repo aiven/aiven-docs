@@ -11,6 +11,7 @@ Source connectors enable the integration of data from an existing technology int
 Apache Kafka topic. The available source connectors include:
 
 - [Amazon S3 source connector](https://github.com/Aiven-Open/cloud-storage-connectors-for-apache-kafka)
+- [AMQP source connector](/docs/products/kafka/kafka-connect/howto/amqp-source-connector)
 - [Azure Blob Storage source connector](/docs/products/kafka/kafka-connect/howto/azure-blob-source)
 - [Couchbase](https://github.com/couchbase/kafka-connect-couchbase)
 - [Debezium for MongoDB®](https://debezium.io/docs/connectors/mongodb/)
