@@ -758,3 +758,241 @@ When you remove a
 
 </TabItem>
 </Tabs>
+
+## Manage service CMK associations
+
+Associate a specific customer managed key (CMK) with individual services during creation
+or update. This allows you to use different CMKs for different services, change CMKs for
+existing services, or remove CMK associations altogether.
+
+### Associate a CMK when creating a service
+
+Create a service with a specific CMK by providing the CMK ID in the service creation request.
+
+<Tabs groupId="interface">
+<TabItem value="api" label="API" default>
+
+#### API endpoint
+
+`POST /v1/project/PROJECT_ID/services`
+
+#### Request body parameters
+
+| Parameter | Type   | Required | Description |
+|-----------|--------|----------|-------------|
+| `service_name` | String | True | Name of the service |
+| `service_type` | String | True | Type of service (for example, `pg`, `mysql`, `redis`) |
+| `plan` | String | True | Service plan |
+| `cmk_id` | String | False | Customer managed key (CMK) identifier. If omitted, the
+project's default CMK is used, or Aiven-managed keys if no default is set. |
+
+#### Sample request
+
+```bash
+curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/services \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer AIVEN_API_TOKEN" \
+  -d '{
+        "service_name": "my-pg-service",
+        "service_type": "pg",
+        "plan": "startup-4",
+        "cmk_id": "12345678-1234-1234-1234-12345678abcd"
+      }'
+```
+
+#### Sample response
+
+A successful request returns a `201 CREATED` status code and a JSON object representing
+the newly created service with the CMK association:
+
+```json
+{
+  "service": {
+    "service_name": "my-pg-service",
+    "service_type": "pg",
+    "plan": "startup-4",
+    "state": "REBUILDING",
+    "cmk_id": "12345678-1234-1234-1234-12345678abcd"
+  }
+}
+```
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+#### Command
+
+```bash
+avn service create --project PROJECT_NAME --service-name SERVICE_NAME --service-type SERVICE_TYPE --plan PLAN_NAME --cmk-id CMK_ID
+```
+
+#### Parameters
+
+| Parameter | Type   | Required | Description |
+|-----------|--------|----------|-------------|
+| `--project` | String | True | Project name |
+| `--service-name` | String | True | Name of the service |
+| `--service-type` | String | True | Type of service (for example, `pg`, `mysql`, `redis`) |
+| `--plan` | String | True | Service plan |
+| `--cmk-id` | String | False | Customer managed key (CMK) identifier |
+
+#### Sample request
+
+```bash
+avn service create \
+  --project my-project \
+  --service-name my-pg-service \
+  --service-type pg \
+  --plan startup-4 \
+  --cmk-id 12345678-1234-1234-1234-12345678abcd
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+Use the `cmk_id` parameter in the service resource to associate a CMK at creation time.
+
+#### Sample configuration
+
+```terraform
+resource "aiven_pg" "example" {
+  project                = "my-project"
+  service_name           = "my-pg-service"
+  plan                   = "startup-4"
+  cmk_id                 = "12345678-1234-1234-1234-12345678abcd"
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Change or remove the CMK for an existing service
+
+Update a service to use a different CMK or remove its CMK association.
+
+<Tabs groupId="interface">
+<TabItem value="api" label="API" default>
+
+#### API endpoint
+
+`PUT /v1/project/PROJECT_ID/services/SERVICE_NAME`
+
+#### Path parameters
+
+| Parameter | Type   | Required | Description |
+|-----------|--------|----------|-------------|
+| `PROJECT_ID` | String | True | Project identifier |
+| `SERVICE_NAME` | String | True | Service name |
+
+#### Request body parameters
+
+| Parameter | Type   | Required | Description |
+|-----------|--------|----------|-------------|
+| `cmk_id` | String | False | Customer managed key (CMK) identifier to use for this service. Pass an empty UUID (`00000000-0000-0000-0000-000000000000`) to remove the CMK association and use Aiven-managed keys instead. |
+
+#### Sample request (change CMK)
+
+```bash
+curl -X PUT https://api.aiven.io/v1/project/PROJECT_ID/services/SERVICE_NAME \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer AIVEN_API_TOKEN" \
+  -d '{
+        "cmk_id": "87654321-4321-4321-4321-87654321dcba"
+      }'
+```
+
+#### Sample request (remove CMK association)
+
+```bash
+curl -X PUT https://api.aiven.io/v1/project/PROJECT_ID/services/SERVICE_NAME \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer AIVEN_API_TOKEN" \
+  -d '{
+        "cmk_id": "00000000-0000-0000-0000-000000000000"
+      }'
+```
+
+#### Sample response
+
+A successful request returns a `200 OK` status code and a JSON object representing
+the updated service:
+
+```json
+{
+  "service": {
+    "service_name": "my-pg-service",
+    "service_type": "pg",
+    "state": "REBALANCING",
+    "cmk_id": "87654321-4321-4321-4321-87654321dcba"
+  }
+}
+```
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+#### Command
+
+```bash
+avn service update --project PROJECT_NAME --service-name SERVICE_NAME --cmk-id CMK_ID
+```
+
+#### Parameters
+
+| Parameter | Type   | Required | Description |
+|-----------|--------|----------|-------------|
+| `--project` | String | True | Project name |
+| `--service-name` | String | True | Service name |
+| `--cmk-id` | String | False | Customer managed key (CMK) identifier. Pass `00000000-0000-0000-0000-000000000000` to remove the CMK association. |
+
+#### Sample request (change CMK)
+
+```bash
+avn service update \
+  --project my-project \
+  --service-name my-pg-service \
+  --cmk-id 87654321-4321-4321-4321-87654321dcba
+```
+
+#### Sample request (remove CMK association)
+
+```bash
+avn service update \
+  --project my-project \
+  --service-name my-pg-service \
+  --cmk-id 00000000-0000-0000-0000-000000000000
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+Update the `cmk_id` parameter in your service resource to change or remove CMK association.
+
+#### Sample configuration (change CMK)
+
+```terraform
+resource "aiven_pg" "example" {
+  project                = "my-project"
+  service_name           = "my-pg-service"
+  plan                   = "startup-4"
+  cmk_id                 = "87654321-4321-4321-4321-87654321dcba"
+}
+```
+
+#### Sample configuration (remove CMK)
+
+```terraform
+resource "aiven_pg" "example" {
+  project                = "my-project"
+  service_name           = "my-pg-service"
+  plan                   = "startup-4"
+  cmk_id                 = "00000000-0000-0000-0000-000000000000"
+}
+```
+
+</TabItem>
+</Tabs>
