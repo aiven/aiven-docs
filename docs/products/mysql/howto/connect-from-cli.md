@@ -22,7 +22,7 @@ These are the placeholders to replace in the code sample:
 
 For this example you need the `mysqlsh` client installed. You can
 install this by following the [MySQL shell installation
-documentation](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html).
+documentation](https://dev.mysql.com/doc/mysql-shell/8.4/en/mysql-shell-install.html).
 
 ### Code
 
@@ -62,7 +62,7 @@ These are the placeholders to replace in the code sample:
 
 For this example you need the `mysql` client installed. You can install
 it by following the [MySQL client installation
-documentation](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+documentation](https://dev.mysql.com/doc/refman/8.4/en/mysql.html).
 
 ### Code
 

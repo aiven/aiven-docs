@@ -42,7 +42,7 @@ replication feature.
   between the source and target servers.
 - You have a user account on the source server with sufficient privileges to create a user
   for the replication process.
-- [GTID](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html) is enabled on the
+- [GTID](https://dev.mysql.com/doc/refman/8.4/en/replication-gtids.html) is enabled on the
   source database. Review the current GTID setting by running the following command on the
   source cluster:
 

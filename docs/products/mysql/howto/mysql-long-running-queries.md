@@ -35,7 +35,7 @@ SHOW PROCESSLIST WHERE command = 'Query' AND info NOT LIKE '%PROCESSLIST%';
 
 You can learn more about the `SHOW PROCESSLIST` command from the
 [official
-documentation](https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html).
+documentation](https://dev.mysql.com/doc/refman/8.4/en/show-processlist.html).
 
 You can terminate a query manually using:
 
@@ -47,4 +47,4 @@ where the `pid` is the process ID output by the `SHOW PROCESSLIST`
 command above.
 
 You can learn more about the `KILL QUERY` command from the [MySQL KILL
-documentation](https://dev.mysql.com/doc/refman/8.0/en/kill.html).
+documentation](https://dev.mysql.com/doc/refman/8.4/en/kill.html).
