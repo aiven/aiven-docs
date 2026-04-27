@@ -59,7 +59,7 @@ ALTER TABLE person ADD PRIMARY KEY (social_security_number);
 
 You don't have to explicitly define it as UNIQUE, [as the primary key
 is always unique in
-MySQL](https://dev.mysql.com/doc/refman/8.0/en/primary-key-optimization.html).
+MySQL](https://dev.mysql.com/doc/refman/8.4/en/primary-key-optimization.html).
 
 ## Example: add a new separate id column
 
