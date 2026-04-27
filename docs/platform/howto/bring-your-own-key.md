@@ -1,7 +1,6 @@
 ---
 title: Bring your own key (BYOK)
 sidebar_label: Bring your own key
-limited: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,13 +9,6 @@ import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 
 Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
-
-:::important
-Bring your own key (BYOK) is a
-[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-feature.
-[Contact Aiven](https://aiven.io/contact) to request access.
-:::
 
 ## Prerequisites
 
