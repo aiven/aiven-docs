@@ -1175,3 +1175,123 @@ resource "aiven_pg" "example" {
 
 </TabItem>
 </Tabs>
+
+### View CMK details in service information
+
+When you retrieve service information, the response now includes the `cmk_id` field showing which CMK is actively protecting that service's data. This allows you to verify encryption key usage and track which services are using which CMKs.
+
+<Tabs groupId="interface">
+<TabItem value="api" label="API" default>
+
+#### API endpoint
+
+`GET /v1/project/PROJECT_ID/service/SERVICE_NAME`
+
+#### Sample request
+
+```bash
+curl -X GET https://api.aiven.io/v1/project/PROJECT_ID/service/SERVICE_NAME \
+  -H "Authorization: Bearer AIVEN_API_TOKEN"
+```
+
+#### Sample response
+
+The service details now include the `cmk_id` field:
+
+```json
+{
+  "service": {
+    "service_name": "my-pg-service",
+    "service_type": "pg",
+    "plan": "startup-4",
+    "state": "RUNNING",
+    "cmk_id": "12345678-1234-1234-1234-12345678abcd"
+  }
+}
+```
+
+If the service is not using a CMK, the `cmk_id` field is `null`:
+
+```json
+{
+  "service": {
+    "service_name": "my-mysql-service",
+    "service_type": "mysql",
+    "plan": "startup-4",
+    "state": "RUNNING",
+    "cmk_id": null
+  }
+}
+```
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+#### Command
+
+```bash
+avn service get --project PROJECT_NAME --service-name SERVICE_NAME
+```
+
+The service information includes the CMK ID if one is configured for the service.
+
+</TabItem>
+</Tabs>
+
+### List services associated with a CMK
+
+Find all services in a project that are using a specific customer managed key. This is useful for auditing, capacity planning, or managing CMK usage across your infrastructure.
+
+<Tabs groupId="interface">
+<TabItem value="api" label="API" default>
+
+#### API endpoint
+
+`GET /v1/project/PROJECT_ID/secrets/cmks/CMK_ID/service_associations`
+
+#### Path parameters
+
+| Parameter    | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| `PROJECT_ID` | String | True     | Project identifier |
+| `CMK_ID`     | String | True     | CMK identifier |
+
+#### Sample request
+
+```bash
+curl -X GET https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks/CMK_ID/service_associations \
+  -H "Authorization: Bearer AIVEN_API_TOKEN"
+```
+
+#### Sample response
+
+A successful request returns a `200 OK` status code and a JSON object containing a list of services associated with the CMK:
+
+```json
+{
+  "service_associations": [
+    {
+      "service_name": "my-pg-service",
+      "status": "active"
+    },
+    {
+      "service_name": "my-kafka-cluster",
+      "status": "activating"
+    }
+  ]
+}
+```
+
+#### Response fields
+
+| Field | Description |
+|-------|-------------|
+| `service_name` | Name of the service using this CMK |
+| `status` | Association status: `active` (service is actively using the CMK), or `activating` (service is in the process of transitioning to use this CMK) |
+
+:::note
+If a CMK has no associated services, the `service_associations` array is empty.
+:::
+
+</TabItem>
+</Tabs>
