@@ -13,8 +13,7 @@ Register, list, update, or delete your customer managed keys (CMKs) in Aiven pro
 ## Prerequisites
 
 - **Key management service** (KMS) that supports asymmetric RSA 2048 or RSA 4096
-  keys in Google Cloud, Oracle Cloud Infrastructure (OCI), Amazon Web Services (AWS),
-  or Microsoft Azure
+  keys in Google Cloud, Oracle Cloud Infrastructure (OCI), or Amazon Web Services (AWS)
 
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
   the [Aiven API](/docs/tools/api)
@@ -122,6 +121,186 @@ parameter the `roles/cloudkms.cryptoOperator` role.
 
 </TabItem>
 </Tabs>
+
+## Set up customer-managed keys on your cloud provider
+
+Before registering a CMK with Aiven, set up the key and grant Aiven access on your cloud provider.
+
+### AWS KMS setup
+
+#### Create a KMS key
+
+Create a symmetric encryption key in AWS KMS:
+
+```bash
+aws kms create-key \
+  --description "Aiven CMK for data-at-rest encryption" \
+  --key-usage ENCRYPT_DECRYPT \
+  --origin AWS_KMS
+```
+
+For customer-managed key material:
+
+```bash
+aws kms create-key \
+  --description "Aiven CMK (customer-imported key material)" \
+  --key-usage ENCRYPT_DECRYPT \
+  --origin EXTERNAL
+```
+
+Record the key ARN from the output:
+
+```
+arn:aws:kms:<region>:<account-id>:key/<key-id>
+```
+
+#### Create an alias (optional)
+
+```bash
+aws kms create-alias \
+  --alias-name alias/aiven-cmk \
+  --target-key-id <key-id>
+```
+
+#### Grant Aiven access to your key
+
+1. Get Aiven's IAM role ARN using [List CMK accessors](#list-cmk-accessors)
+
+2. Update your KMS key policy to allow Aiven to encrypt and decrypt. The policy statement should include:
+
+```json
+{
+  "Sid": "Allow Aiven to use this key for CMK operations",
+  "Effect": "Allow",
+  "Principal": {
+    "AWS": "<aiven-cmk-role-arn>"
+  },
+  "Action": [
+    "kms:Encrypt",
+    "kms:Decrypt"
+  ],
+  "Resource": "*"
+}
+```
+
+Apply the updated key policy:
+
+```bash
+aws kms put-key-policy \
+  --key-id <key-id> \
+  --policy-name default \
+  --policy file://key-policy.json
+```
+
+:::note
+Keep your existing root account statement in the key policy to allow IAM policies in your account to manage the key.
+:::
+
+### Google Cloud KMS setup
+
+#### Create a key ring
+
+```bash
+gcloud kms keyrings create <keyring-name> \
+  --location <region> \
+  --project <your-project>
+```
+
+#### Create a CryptoKey
+
+```bash
+gcloud kms keys create <key-name> \
+  --location <region> \
+  --keyring <keyring-name> \
+  --purpose encryption \
+  --project <your-project>
+```
+
+For HSM-backed keys:
+
+```bash
+gcloud kms keys create <key-name> \
+  --location <region> \
+  --keyring <keyring-name> \
+  --purpose encryption \
+  --protection-level hsm \
+  --project <your-project>
+```
+
+Record the key resource name:
+
+```
+projects/<project>/locations/<location>/keyRings/<keyring>/cryptoKeys/<key-name>
+```
+
+#### Grant Aiven access to your key
+
+1. Get Aiven's access group email using [List CMK accessors](#list-cmk-accessors)
+
+2. Grant the `Cloud KMS CryptoKey Encrypter/Decrypter` role to Aiven's group:
+
+```bash
+gcloud kms keys add-iam-policy-binding <key-name> \
+  --location <region> \
+  --keyring <keyring-name> \
+  --project <your-project> \
+  --member "group:<aiven-cmk-group>@aiven.io" \
+  --role "roles/cloudkms.cryptoKeyEncrypterDecrypter"
+```
+
+### Oracle Cloud Infrastructure (OCI) Vault setup
+
+#### Create cross-tenancy IAM policies
+
+1. Get Aiven's tenancy OCID and group OCID using [List CMK accessors](#list-cmk-accessors)
+
+2. Create cross-tenancy IAM policies in your tenancy:
+
+```bash
+oci iam policy create \
+  --compartment-id <your-tenancy-ocid> \
+  --name aiven-cmk-access \
+  --statements '[
+    "define tenancy AivenTenancy as <aiven-tenancy-ocid>",
+    "admit group <aiven-cmk-group-ocid> of tenancy AivenTenancy to use keys in compartment <compartment-name>"
+  ]'
+```
+
+#### Create a Vault
+
+```bash
+oci kms management vault create \
+  --compartment-id <compartment-ocid> \
+  --display-name <vault-name> \
+  --vault-type DEFAULT
+```
+
+For HSM-backed vaults:
+
+```bash
+oci kms management vault create \
+  --compartment-id <compartment-ocid> \
+  --display-name <vault-name> \
+  --vault-type VIRTUAL_PRIVATE
+```
+
+Record the Vault's management endpoint and crypto endpoint.
+
+#### Create a Master Encryption Key
+
+```bash
+oci kms management key create \
+  --compartment-id <compartment-ocid> \
+  --display-name <key-name> \
+  --endpoint <vault-management-endpoint> \
+  --key-shape '{"algorithm": "AES", "length": 32}'
+```
+
+Record the key OCID:
+
+```
+ocid1.key.oc1.<region>.<hash>
+```
 
 ## Manage a project CMK
 
