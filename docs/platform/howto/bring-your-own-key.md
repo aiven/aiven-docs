@@ -8,7 +8,10 @@ import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 
-Register, list, update, or delete your customer managed keys (CMKs) in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
+Register, list, update, or delete your customer managed keys (CMKs), associate CMKs
+with services, and view CMK usage across services in Aiven projects using the
+[Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api),
+or the [Aiven CLI](/docs/tools/cli).
 
 ## Prerequisites
 
@@ -73,11 +76,6 @@ for each provider, for example:
 }
 ```
 
-:::note
-For Google Cloud Key Management Service keys, grant the group in the `access_group`
-parameter the `roles/cloudkms.cryptoOperator` role.
-:::
-
 </TabItem>
 <TabItem value="cli" label="CLI">
 
@@ -114,13 +112,13 @@ For JSON output:
 avn project cmks accessors --project my-project --json
 ```
 
+</TabItem>
+</Tabs>
+
 :::note
 For Google Cloud Key Management Service keys, grant the group in the `access_group`
 parameter the `roles/cloudkms.cryptoOperator` role.
 :::
-
-</TabItem>
-</Tabs>
 
 ## Set up customer-managed keys on your cloud provider
 
@@ -307,6 +305,8 @@ ocid1.key.oc1.<region>.<hash>
 Use the Aiven Provider for Terraform, Aiven API, or Aiven CLI to manage customer managed
 keys (CMKs) for encrypting service data.
 
+For per-service CMK assignment and rotation, see [Manage service CMK associations](#manage-service-cmk-associations).
+
 ### Register CMK resource identifier
 
 Register a customer managed key resource identifier for an Aiven project.
@@ -328,8 +328,8 @@ Register a customer managed key resource identifier for an Aiven project.
 
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
-| `provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, `azure`, or `oci` |
-| `resource`| String | True     | CMK reference (key identifier of max 512 characters: AWS ARN, OCI OCID, Google Cloud resource name, or Azure key identifier) |
+| `provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, or `oci` |
+| `resource` | String | True     | CMK reference (key identifier of max 512 characters: AWS ARN, OCI OCID, or Google Cloud resource name) |
 | `default_cmk` | Boolean | False | Mark this key as default for new service creation |
 
 #### Sample request (AWS)
@@ -369,7 +369,7 @@ the newly registered CMK configuration, for example:
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type, one of `gcp`, `aws`, `azure`, or `oci` |
+| `provider` | Provider type, one of `gcp`, `aws`, or `oci` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
@@ -390,8 +390,8 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `--project`   | String | True     | Project name |
-| `--provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, `oci`, or `azure` |
-| `--resource`| String | True     | CMK reference (key identifier: AWS ARN, OCI OCID, Google Cloud resource name, or Azure key identifier) |
+| `--provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, or `oci` |
+| `--resource` | String | True     | CMK reference (key identifier: AWS ARN, OCI OCID, or Google Cloud resource name) |
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 
@@ -498,7 +498,7 @@ updated CMK configuration, for example:
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type, one of `gcp`, `aws`, `azure`, or `oci` |
+| `provider` | Provider type, one of `gcp`, `aws`, or `oci` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
@@ -1233,7 +1233,17 @@ If the service is not using a CMK, the `cmk_id` field is `null`:
 avn service get --project PROJECT_NAME --service-name SERVICE_NAME
 ```
 
-The service information includes the CMK ID if one is configured for the service.
+#### Sample output
+
+Table format:
+
+```text
+service_name     service_type  state    cmk_id
+===============  ============  =======  ====================================
+my-pg-service    pg            RUNNING  12345678-1234-1234-1234-12345678abcd
+```
+
+If no CMK is associated with the service, the `cmk_id` value is empty or `null` in JSON output.
 
 </TabItem>
 </Tabs>
@@ -1289,9 +1299,28 @@ A successful request returns a `200 OK` status code and a JSON object containing
 | `service_name` | Name of the service using this CMK |
 | `status` | Association status: `active` (service is actively using the CMK), or `activating` (service is in the process of transitioning to use this CMK) |
 
+The response includes services currently associated with the CMK, including services in
+transition (`activating`) and services already using the CMK (`active`). Services not
+associated with the specified CMK are not included.
+
 :::note
 If a CMK has no associated services, the `service_associations` array is empty.
 :::
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+#### Command
+
+The service-association lookup for a specific CMK is currently available through the API endpoint only.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Resource
+
+The Aiven Provider for Terraform does not currently provide a data source or resource for
+listing services associated with a specific CMK. Use the API endpoint for this operation.
 
 </TabItem>
 </Tabs>
