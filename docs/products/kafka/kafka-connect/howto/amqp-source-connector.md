@@ -69,8 +69,7 @@ For each JSON field and serialization details, see **Data Mapping** and
 
 ## Limitations
 
-- Queue support only: The connector supports queue-based AMQP addresses only.
-- AMQP stream support is not available.
+- Queues only. The connector reads AMQP queues, not streams.
 - AMQP broker connection settings are limited to `amqp.host`, `amqp.port`,
   `amqp.user`, and `amqp.password`. For TLS, SASL, or other broker-specific
   options, see the
