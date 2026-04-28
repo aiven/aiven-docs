@@ -23,6 +23,13 @@
   --aiven-light-blue-800: #184561;
   --aiven-light-blue-900: #0a2c42;
 
+  /* Deep blue partial ramp */
+  --aiven-deep-blue-000: #ecefff;
+  --aiven-deep-blue-100: #dde2ff;
+  --aiven-deep-blue-200: #c2c9ff;
+  --aiven-deep-blue-300: #9ca5ff;
+  --aiven-deep-blue-400: #8a8aff;
+
   /* Neutrals — derived from Near Black for surfaces and type */
   --aiven-grey-0: #f4f5f7;
   --aiven-grey-05-2: #eceef2;
