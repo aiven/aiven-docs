@@ -6,18 +6,21 @@ keywords: [kafka developer tier, kafka dev tier, kafka paid development, kafka p
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Apache Kafka® **Developer tier** is a paid **Classic** plan that sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and Professional tier plans.
+Aiven for Apache Kafka® **Developer tier** is a paid **Classic** plan between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and Professional tier plans.
 It provides higher throughput, topic limits, and retention than the Free tier. Each
 service includes Karapace Schema Registry and the REST Proxy.
 
-[Service integrations](/docs/platform/concepts/service-integration) are supported where the Developer tier allows them. [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started) is available as a separate service.
+[Service integrations](/docs/platform/concepts/service-integration) are supported where
+the Developer tier supports them.
+[Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started) is
+available from Developer tier onward as a separate service.
 
-Capacity, pricing, and limits are listed in [Limits and specifications](#limits-and-specifications).
+For capacity, pricing, and service limits, see
+[Limits and specifications](#limits-and-specifications).
 
-The service uses the same managed Kafka implementation as other Classic plans, so configuration and connection patterns remain consistent across tiers.
-
-Manage the service using the [Aiven Console](https://console.aiven.io), the [Aiven CLI](/docs/tools/cli), or the API. You can also use Skills on Developer and Professional tier services.
-
+Manage the service using the [Aiven Console](https://console.aiven.io), the
+[Aiven CLI](/docs/tools/cli), or the API. Skills are supported on Developer and
+Professional tier services.
 
 ## When to use the Developer tier
 
@@ -108,29 +111,30 @@ For higher throughput, storage, retention, or connector limits, upgrade the serv
 
 Upgrade paths:
 
-- From Free tier to Developer tier in place.
-- From Developer tier to **Professional** tier in the Aiven Console.
+- Upgrade from Free tier to Developer tier
+- Upgrade from Developer tier to Professional tier
 
 Upgrade from Free tier to increase capacity and enable connectors and integrations.
 Upgrade to Professional tier for higher throughput, storage, topic limits, and SLA.
 
-Developer tier uses the same managed Kafka implementation as Professional tier services, so
-configuration remains consistent when you upgrade. Available options such as cloud, region,
-and plan size can differ by tier.
+Your service configuration remains consistent as you upgrade. Available cloud, region, and
+plan options can differ by tier.
 
 ### Upgrade Kafka with Kafka Connect
 
-When your Developer tier Kafka project includes an
+When your Developer tier Kafka service includes an
 [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started) service
-integrated with your Kafka service, the two services must stay on compatible plans. Follow
-this order when upgrading:
+integrated with it, the two services must stay on compatible plans. Follow this order
+when upgrading:
 
-1. **Upgrade the Kafka service before Kafka Connect.** Kafka Connect cannot move to a
-   higher plan while Kafka is still on Developer tier.
-1. **Power off Kafka Connect before you change the Kafka plan.** Kafka Connect must be
-   off before you can upgrade the Kafka service plan.
-1. **After Kafka is on the new plan, upgrade Kafka Connect, then power it on.** If Kafka
-   is on a higher plan but Kafka Connect is not, you cannot power it on.
+1. Upgrade the Kafka service before the Kafka Connect service. The Kafka Connect
+   service cannot move to a higher plan while the Kafka service is still on Developer tier.
+1. Power off the Kafka Connect service before you change the Kafka service plan.
+   The Kafka Connect service must be powered off before you can upgrade the Kafka
+   service plan.
+1. After the Kafka service is on the new plan, upgrade the Kafka Connect service, then
+   power it on.** If the Kafka service is on a higher plan but the Kafka Connect service
+   is not, you cannot power it on.
 
 Powering off Kafka Connect preserves the service and configuration. Make sure both
 services use the same plan before powering Kafka Connect on again.

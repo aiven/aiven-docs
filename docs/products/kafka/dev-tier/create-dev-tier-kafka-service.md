@@ -115,6 +115,12 @@ If you use a **Kafka Connect** service integrated with this Kafka service, upgra
 and Connect in the order described in
 [Upgrade Kafka with Kafka Connect](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-kafka-with-kafka-connect).
 
+:::note
+Before you upgrade this Kafka service, power off any connected **Kafka Connect** service
+on **Professional** tier. A **Professional** Kafka Connect service cannot run with a
+**Developer** tier Kafka service during the upgrade transition.
+:::
+
 To upgrade from the service overview:
 
 1. Open your service's <ConsoleLabel name="overview" /> page.
