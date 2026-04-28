@@ -26,16 +26,15 @@ and
 - A configured AMQP queue with available messages.
 - The following AMQP connection details:
   - `amqp.host`: Hostname or IP address of the AMQP broker.
-  - `amqp.port`: Port for the AMQP broker. Default is `5672`. Use the port your
-    broker documents for non-TLS or TLS AMQP connections.
+  - `amqp.port`: Port for the AMQP broker. Use the port your broker documents for
+    AMQP connections.
   - `amqp.address`: Queue address to consume from. For many brokers, including
     RabbitMQ, this value is the queue name.
   - `amqp.user`: Username for authentication.
   - `amqp.password`: Password for authentication.
 
 Use the hostname, port, and credentials from your AMQP broker documentation.
-If the connection fails, confirm that the port matches your broker's non-TLS or
-TLS AMQP endpoint.
+If the connection fails, confirm that the port matches your broker's AMQP endpoint.
 
 ## Connector behavior
 
@@ -51,8 +50,8 @@ For each message:
 - The record is written to the configured Apache Kafka topic.
 
 :::caution
-The connector provides at-least-once delivery behavior. Duplicate records can occur,
-especially after task restarts, retries, or AMQP message redelivery.
+The connector does not guarantee that every message on the AMQP queue is written to
+Apache Kafka. Messages available while the connector is not running can be missed.
 :::
 
 If a source message includes a stable `messageId`, use that field for downstream
@@ -69,11 +68,11 @@ For each JSON field and serialization details, see **Data Mapping** and
 
 ## Limitations
 
+- Delivery is not guaranteed. Messages available while the connector is not
+  running can be missed.
 - Queues only. The connector reads AMQP queues, not streams.
 - AMQP broker connection settings are limited to `amqp.host`, `amqp.port`,
-  `amqp.user`, and `amqp.password`. For TLS, SASL, or other broker-specific
-  options, see the
-  [AMQP connector for Apache Kafka on GitHub](https://github.com/Aiven-Open/amqp-connector-for-apache-kafka).
+  `amqp.user`, and `amqp.password`.
 - For a single queue, keep `tasks.max` at `1`. Additional tasks create separate
   consumers. Depending on the broker, this can cause competing consumers,
   duplicate or reordered processing, or no added throughput. Increase `tasks.max`
@@ -103,8 +102,8 @@ For more detail on serialization, see **Data Serialization** in the
 With `StringConverter`, the record value is **plain UTF-8 text**, a single string that
 contains the JSON. Consumers parse that string as JSON.
 
-`JsonConverter` makes Kafka Connect serialize the value as JSON according to converter
-settings. The output can include schema metadata or wrapper structures.
+`JsonConverter` serializes the connector output as JSON without generating a schema
+for the AMQP message structure.
 
 Example value payload inside the JSON string when using `StringConverter`:
 
@@ -134,7 +133,7 @@ Create a file named `amqp_source_connector.json` and add the following configura
   "value.converter": "org.apache.kafka.connect.storage.StringConverter",
   "topic": "amqp.messages",
   "amqp.host": "AMQP_HOST",
-  "amqp.port": 5672,
+  "amqp.port": AMQP_PORT,
   "amqp.address": "QUEUE_NAME",
   "amqp.user": "AMQP_USERNAME",
   "amqp.password": "AMQP_PASSWORD"
@@ -156,8 +155,8 @@ Parameters:
   - `org.apache.kafka.connect.json.JsonConverter`
 - `topic`: Apache Kafka topic that receives AMQP messages.
 - `amqp.host`: Hostname or IP address of the AMQP broker.
-- `amqp.port`: AMQP broker port (connector default `5672`; must match the non-TLS
-  or TLS endpoint documented by your broker).
+- `amqp.port`: AMQP broker port. Set this as a JSON number that matches your broker
+  configuration.
 - `amqp.address`: AMQP queue address to consume from—for RabbitMQ, usually the queue
   name or receiver address for that queue.
 - `amqp.user`: Username for authentication.
