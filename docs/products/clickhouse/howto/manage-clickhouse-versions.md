@@ -7,17 +7,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Aiven for ClickHouse® supports multiple ClickHouse versions. You can select a version when creating a service and upgrade the service to a newer supported version later.
+Aiven for ClickHouse® supports multiple ClickHouse versions. You can choose a version when you create a service and upgrade to a newer supported version later.
 
 ## Supported ClickHouse versions
 
-Aiven for ClickHouse currently supports the following versions:
+Aiven for ClickHouse supports the following major versions:
 
-- **25.3** (default)
-- **25.8**
+- `25.3`: default for services created before May 5, 2026
+- `25.8`: default for services created on or after May 5, 2026
 
-If you do not specify a version when you create a service, the platform uses the default
-version.
+If you don't specify a version when you create a service, Aiven uses the default
+version in effect on the creation date.
+
+Aiven doesn't automatically upgrade existing `25.3` services to `25.8`. When using
+infrastructure as code (for example, the [Aiven Provider for Terraform](/docs/tools/terraform)
+or the [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)), set `clickhouse_version`
+to specify the major version for new services. To upgrade the ClickHouse version of an
+existing service, see [Upgrade your service](#upgrade-your-service).
 
 For supported versions and end-of-life timelines, see
 [Aiven for ClickHouse end-of-life policy](/docs/platform/reference/eol-for-major-versions#aiven-for-clickhouse).
