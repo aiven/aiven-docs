@@ -91,14 +91,13 @@ instance size.
 
 ### Developer tier
 
-Developer tier plans, pricing, and limits vary by product. Each subsection describes
-one offering; for complete specifications, see the linked product pages.
+Developer tier plans, pricing, and limits vary by product. Developer tier services are
+not automatically powered off when inactive.
 
 #### Aiven for PostgreSQL and Aiven for MySQL
 
 The Developer tier is available for Aiven for PostgreSQL® and Aiven for MySQL® services,
-letting you scale up your service in a cost-effective way. Services on this Developer tier
-are not automatically powered off if they're inactive.
+letting you scale up your service in a cost-effective way.
 
 The Developer tier includes:
 

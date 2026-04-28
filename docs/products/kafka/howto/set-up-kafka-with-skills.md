@@ -39,7 +39,7 @@ npx skills run kafka-create-service
 ```
 
 Follow the prompts to choose your project, cloud, and region from the options the Skill
-shows, and your service tier (**Developer** or **Professional**).
+shows, and your service tier: **Developer** or **Professional**.
 
 :::note
 If you select **Developer** tier, the **Aiven Console** only asks for a **region** when

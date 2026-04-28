@@ -54,7 +54,7 @@ A Developer tier service includes:
 
 **Skills** are ready-to-run workflows that automate common Kafka tasks, such as:
 
-- Creating a Kafka service and configuring it end to end.
+- Creating a Kafka service and configuring it end-to-end.
 - Creating topics, users, and permissions.
 - Generating sample data and validating the deployment.
 - Configuring connectors and integrations.
