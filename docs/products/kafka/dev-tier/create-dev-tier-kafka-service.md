@@ -7,7 +7,7 @@ keywords: [create, kafka, developer tier]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Aiven for Apache Kafka® Developer tier **Classic** service when throughput, topic limits, retention, or storage exceed the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier).
+Create an Aiven for Apache Kafka® Developer tier Classic Kafka service when throughput, topic limits, retention, or storage exceed the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier).
 Use it to run Kafka Connect or integrations that are not available on the Free tier. For
 quotas, pricing, and features, see
 [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier).
@@ -16,15 +16,17 @@ quotas, pricing, and features, see
 
 - An Aiven account. Sign up or sign in using the [Aiven Console](https://console.aiven.io).
 - A project where you can create paid services.
-- For paid charges, billing set up for your organization if you use billing groups or
-  payment methods on file. See [Billing and payment](/docs/platform/concepts/billing-and-payment).
+- If you use paid services, set up billing for your organization. See
+  [Billing and payment](/docs/platform/concepts/billing-and-payment).
+- To create the service with Skills, install the [Aiven CLI](/docs/tools/cli) and
+  authenticate. You also need [Node.js](https://nodejs.org/) to run `npx` commands.
 
 ## Choose how to create the service
 
-Create a Developer tier service using one of the following:
+Use one of the following:
 
-- **Aiven Console**: guided setup.
-- **Skills**: CLI-driven setup with `npx` and the Aiven CLI.
+- **Aiven Console**: guided setup in the browser.
+- **Skills**: command-line setup with `npx` and the Aiven CLI.
 
 ## Create a Developer tier service using the Aiven Console
 
@@ -35,8 +37,8 @@ Create a Developer tier service using one of the following:
 1. Choose your **Region**.
 
    :::note
-   On Developer tier, you select a region only. The Console indicates that you can choose
-   a specific cloud provider on the **Professional** tier.
+   On the Developer tier, you can select a region only. To choose a specific cloud
+   provider, you need the Professional tier.
    :::
 
 1. In **Retention**, select a retention period between **1 day** and **7 days**.
@@ -77,9 +79,10 @@ Use Skills to create and configure the Kafka service from the command line.
 1. Follow the prompts to select your project, **Developer** tier, and **region** options.
 
    :::note
-   On **Developer** tier, the console collects a **region** only. Cloud selection is
-   available on **Professional** tier plans. The Skill can still prompt for cloud and region
-   so the CLI can place the service. Select the options the Skill lists for Developer tier.
+   When you create a Developer tier service in the Aiven Console, you only choose a
+   **region**. On **Professional** tier plans, you can also choose the cloud provider. The
+   Skill can still ask for **cloud** and **region** so the CLI can create the service.
+   Select the options the Skill lists for Developer tier.
    :::
 
 The Skill creates and configures the service. When the run completes, the Kafka service is
@@ -88,60 +91,67 @@ ready to use.
 For the full Skills workflow, see
 [Set up Aiven for Apache Kafka® using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
 
-## After service creation
+## After you create the service
 
-After the service status is **Running**:
+When the service status is **Running**, you can:
 
-- **Connect a client**: Open **Quick connect** on the service for connection parameters and
-  sample code. See [Connect to Aiven for Apache Kafka®](/docs/products/kafka/howto/list-code-samples).
-- **Run sample workload**: Use the sample data generator for produce and consume checks. See
+- **Connect a client**: On your service's <ConsoleLabel name="overview" /> page, open
+  **Quick connect** for connection details and sample code. See
+  [Connect to Aiven for Apache Kafka®](/docs/products/kafka/howto/list-code-samples).
+- **Run a sample workload**: Use the sample data generator to test produce and consume
+  operations. See
   [Generate sample data for Aiven for Apache Kafka®](/docs/products/kafka/howto/generate-sample-data).
-- **Define topics**: Stay within
+- **Create topics**: Keep topic and partition counts within the
   [Developer tier limits](/docs/products/kafka/dev-tier/kafka-dev-tier#limits-and-specifications).
   See [Create a Kafka topic](/docs/products/kafka/howto/create-topic).
 - **Run connectors**: Add an [Aiven for Apache Kafka Connect](/docs/products/kafka/kafka-connect/get-started)
-  service and integrate it with this Kafka service. See
+  service and integrate it with your Kafka service. See the
   [list of available connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins).
 
 ## Upgrade the service
 
-Upgrade to a higher **Professional** tier plan when quotas or features exceed Developer
-tier limits.
+Upgrade to a Professional tier plan when Developer tier limits no longer meet
+your needs. For upgrade paths between Free, Developer, and Professional tiers,
+see [Upgrade path](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-path).
 
-For upgrade paths between Free, Developer, and **Professional** tiers, see
-[Upgrade path](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-path).
+You can upgrade from the service overview or from service settings.
 
-If you use a **Kafka Connect** service integrated with this Kafka service, upgrade Kafka
-and Connect in the order described in
-[Upgrade Kafka with Kafka Connect](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-kafka-with-kafka-connect).
+### Before you upgrade
 
-:::note
-Before you upgrade this Kafka service, power off any connected **Kafka Connect** service
-on **Professional** tier. A **Professional** Kafka Connect service cannot run with a
-**Developer** tier Kafka service during the upgrade transition.
-:::
+If your Kafka service is integrated with a Kafka Connect service, power off the
+Kafka Connect service before you upgrade the Kafka service. You cannot upgrade the
+Kafka service while an integrated Kafka Connect service is powered on.
 
-To upgrade from the service overview:
+After you upgrade the Kafka service, upgrade the Kafka Connect service to the
+same tier before you power it back on. Both services must stay on the same
+tier.
+
+For details, see
+[Kafka and Kafka Connect tier compatibility](/docs/products/kafka/dev-tier/kafka-dev-tier#kafka-and-kafka-connect-tier-compatibility).
+
+### Upgrade from the service overview
 
 1. Open your service's <ConsoleLabel name="overview" /> page.
 1. In **Service usage**, click **Upgrade**.
+1. Select **Professional**, choose a cloud provider, region, and plan, and then
+   click **Upgrade service**.
 
-Or upgrade from service settings:
+### Upgrade from service settings
 
 1. In your service, click <ConsoleLabel name="servicesettings" />.
 1. In **Service summary**, click **Upgrade**.
-1. Select **Professional**, choose a cloud provider, region, and plan, then click
-   **Upgrade service**.
+1. Select **Professional**, choose a cloud provider, region, and plan, and then
+   click **Upgrade service**.
 
-Upgrades from Free tier to Developer tier stay on the same service. Upgrades to
-Professional tier follow the console steps for cloud, region, and plan.
+### Limitations
 
-:::note
-Downgrading from Developer tier to Free tier is not supported. After you upgrade to
-**Professional** tier, returning to Developer tier depends on the plan. Use the
-[Aiven Console](https://console.aiven.io) to review allowed plan changes. See
+- Downgrading from Developer tier to Free tier is not supported.
+- After you upgrade to Professional tier, the downgrade options available to
+  you depend on the plan you chose. To review supported plan changes, use the
+  [Aiven Console](https://console.aiven.io).
+
+For more information, see
 [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier).
-:::
 
 <RelatedPages />
 

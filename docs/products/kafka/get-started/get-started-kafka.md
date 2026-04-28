@@ -25,13 +25,13 @@ For limits, regions, and supported features, see the
 
 ## Developer tier
 
-The Developer tier is a paid **Classic** plan with higher throughput, topic limits, and
-retention than the
+The Developer tier is a paid Classic Kafka plan with higher throughput, topic limits,
+and retention than the
 [Free tier](/docs/products/kafka/free-tier/kafka-free-tier). Each service includes
 Karapace Schema Registry and the REST Proxy.
-[Service integrations](/docs/platform/concepts/service-integration) are supported where
-the Developer tier allows them. [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started)
-is available as a separate service.
+[Service integrations](/docs/platform/concepts/service-integration) are supported with
+limitations on the Developer tier. [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started)
+is available as a separately billed service.
 
 Manage the service in the console, CLI, API, or with
 [Skills](/docs/products/kafka/howto/set-up-kafka-with-skills). See
