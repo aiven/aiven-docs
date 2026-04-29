@@ -171,6 +171,7 @@ The following controller metrics are available in KRaft mode:
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_98thPercentile`                  | Time taken for leader elections to complete at the 98th percentile                          |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_99thPercentile`                  | Time taken for leader elections to complete at the 99th percentile                          |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_999thPercentile`                 | Time taken for leader elections to complete at the 99.9th percentile                        |
+| `kafka_controller_ControllerStats_ElectionFromEligibleLeaderReplicasPerSec_Count`              | Rate of leader elections successfully completed from eligible leader replicas               |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_Count`                           | The total number of leader elections                                                        |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_FifteenMinuteRate`               | Rate of leader elections over the last 15 minutes                                           |
 | `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs_FiveMinuteRate`                  | Rate of leader elections over the last 5 minutes                                            |
@@ -294,6 +295,7 @@ health of network requests made to the Apache Kafka brokers.
 | `kafka_network_RequestChannel_ResponseQueueSize_Value`         | Size of the response queue                                                      |
 | `kafka_network_RequestMetrics_RequestsPerSec_Count`            | Total number of requests per second.                                             |
 | `kafka_network_RequestMetrics_TotalTimeMs_95thPercentile`      | Total time for requests at the 95th percentile                                  |
+| `kafka_network_RequestMetrics_TotalTimeMs_99thPercentile`      | 99th percentile of total time taken to process incoming network requests          |
 | `kafka_network_RequestMetrics_TotalTimeMs_Count`               | Total number of requests                                                        |
 | `kafka_network_RequestMetrics_TotalTimeMs_Mean`                | Mean total time for requests                                                    |
 | `kafka_network_SocketServer_NetworkProcessorAvgIdlePercent_Value` | Average idle percentage of the network processor                              |
@@ -331,6 +333,8 @@ for all topics and only list metrics for individual topics, filter with `topic!=
 | `kafka_server_BrokerTopicMetrics_TotalProduceRequestsPerSec_Count`               | Total number of produce requests per second. This metric is collected per host and not per topic |
 | `kafka_server_DelayedOperationPurgatory_NumDelayedOperations_Value`              | Number of delayed operations in purgatory. |
 | `kafka_server_DelayedOperationPurgatory_PurgatorySize_Value`                     | Size of the purgatory queue. |
+| `kafka_server_FetchRequestPurgatory_PurgatorySize_Value`                         | Current number of fetch requests waiting in purgatory (for example, waiting for enough data to satisfy `fetch.min.bytes`) |
+| `kafka_server_ProducerRequestPurgatory_PurgatorySize_Value`                      | Current number of produce requests waiting in purgatory (for example, waiting for acknowledgments from followers) |
 | `kafka_server_KafkaRequestHandlerPool_RequestHandlerAvgIdlePercent_OneMinuteRate` | Average idle percentage of request handlers over the last minute |
 | `kafka_server_KafkaServer_BrokerState_Value`                                     | State of the broker |
 | `kafka_server_ReplicaManager_IsrExpandsPerSec_Count`                             | Number of ISR expansions per second |
@@ -339,6 +343,21 @@ for all topics and only list metrics for individual topics, filter with `topic!=
 | `kafka_server_ReplicaManager_PartitionCount_Value`                               | Number of partitions |
 | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount_Value`                    | Number of partitions under the minimum ISR |
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions_Value`                    | Number of under-replicated partitions |
+| `kafka_server_ReplicaFetcherManager_MaxLag_Value`                                | Maximum message lag measured across all active replica fetcher threads |
+| `kafka_server_GroupMetadataManager_NumGroups`                                    | Total number of groups (consumer, streams, and so on) managed by the broker's group metadata manager |
+| `kafka_server_GroupMetadataManager_NumGroupsPreparingRebalance`                  | Number of groups currently in the preparing-to-rebalance state |
+| `kafka_server_GroupMetadataManager_NumOffsets`                                   | Total number of consumer offsets currently tracked by the group metadata manager |
+| `kafka_server_group_coordinator_metrics_batch_flush_rate`                        | Rate at which offset commit batches are flushed to the `__consumer_offsets` topic |
+| `kafka_server_group_coordinator_metrics_batch_flush_time_ms_max`                 | Maximum time taken to flush offset commit batches |
+| `kafka_server_group_coordinator_metrics_batch_linger_time_ms_max`                | Maximum time offset commits linger in memory before being batched and flushed |
+| `kafka_server_group_coordinator_metrics_consumer_group_count`                    | Number of active consumer groups handled by this coordinator |
+| `kafka_server_group_coordinator_metrics_consumer_group_rebalance_count`          | Total count of rebalances executed for consumer groups |
+| `kafka_server_group_coordinator_metrics_consumer_group_rebalance_rate`           | Rate of rebalances occurring across consumer groups |
+| `kafka_server_group_coordinator_metrics_event_processing_time_ms_max`            | Maximum time taken to process an event in the group coordinator |
+| `kafka_server_group_coordinator_metrics_event_purgatory_time_ms_max`             | Maximum time coordinator events spend waiting in purgatory before processing |
+| `kafka_server_group_coordinator_metrics_event_queue_size`                        | Current number of events waiting in the group coordinator's event queue |
+| `kafka_server_group_coordinator_metrics_event_queue_time_ms_max`                 | Maximum time events spend enqueued before processing begins |
+| `kafka_server_group_coordinator_metrics_group_count`                             | Total number of all types of groups handled by this coordinator |
 | `kafka_server_group_coordinator_metrics_group_completed_rebalance_count`         | Number of completed group rebalances |
 | `kafka_server_group_coordinator_metrics_group_completed_rebalance_rate`          | Rate of completed group rebalances |
 | `kafka_server_group_coordinator_metrics_offset_commit_count`                     | Number of offset commits |
@@ -347,6 +366,13 @@ for all topics and only list metrics for individual topics, filter with `topic!=
 | `kafka_server_group_coordinator_metrics_offset_deletion_rate`                    | Rate of offset deletions |
 | `kafka_server_group_coordinator_metrics_offset_expiration_count`                 | Number of offset expirations |
 | `kafka_server_group_coordinator_metrics_offset_expiration_rate`                  | Rate of offset expirations |
+| `kafka_server_group_coordinator_metrics_num_partitions`                          | Number of `__consumer_offsets` partitions managed by this broker |
+| `kafka_server_group_coordinator_metrics_partition_load_time_avg`                 | Average time taken to load a group metadata partition from disk into memory |
+| `kafka_server_group_coordinator_metrics_partition_load_time_max`                 | Maximum time taken to load a group metadata partition |
+| `kafka_server_group_coordinator_metrics_streams_group_count`                     | Number of Kafka Streams application groups handled by this coordinator |
+| `kafka_server_group_coordinator_metrics_streams_group_rebalance_count`           | Total count of rebalances specifically for Kafka Streams groups |
+| `kafka_server_group_coordinator_metrics_streams_group_rebalance_rate`            | Rate of rebalances specifically for Kafka Streams groups |
+| `kafka_server_group_coordinator_metrics_thread_idle_ratio_avg`                   | Average idle time ratio for the group coordinator background threads |
 
 ### Tiered storage metrics
 
@@ -369,3 +395,19 @@ data copying, fetching, deleting, and their associated lags and errors.
 | `kafka_server_BrokerTopicMetrics_RemoteDeleteErrorsPerSec_Count` | Number of errors per second encountered during remote delete                                                |
 | `kafka_server_BrokerTopicMetrics_RemoteDeleteLagBytes_Value`     | Number of bytes in non-active segments marked for deletion but not yet deleted from remote storage           |
 | `kafka_server_BrokerTopicMetrics_RemoteDeleteLagSegments_Value`  | Number of non-active segments marked for deletion but not yet deleted from remote storage                   |
+| `kafka_server_BrokerTopicMetrics_BuildRemoteLogAuxStateErrorsPerSec_Count` | Rate of errors occurring while building remote log auxiliary state |
+| `kafka_server_BrokerTopicMetrics_BuildRemoteLogAuxStateRequestsPerSec_Count` | Rate of requests to build auxiliary state for remote tiered storage logs |
+| `kafka_server_BrokerTopicMetrics_RemoteLogMetadataCount_Value`   | Total count of remote log metadata entries |
+| `kafka_server_BrokerTopicMetrics_RemoteLogSizeBytes_Value`       | Total size in bytes of log segments currently stored in remote tiered storage |
+| `kafka_server_BrokerTopicMetrics_RemoteLogSizeComputationTime_Value` | Time taken to compute the aggregate size of the remote logs |
+| `kafka_server_DelayedRemoteFetchMetrics_ExpiresPerSec_Count`    | Rate at which delayed fetch requests from remote storage expire before being fulfilled |
+| `kafka_log_remote_RemoteLogManager_RemoteLogManagerTasksAvgIdlePercent_Value` | Average idle percentage of tasks within the Remote Log Manager |
+| `kafka_log_remote_RemoteLogManager_RemoteLogReaderFetchRateAndTimeMs_Count` | Total count of fetch operations initiated by the remote log reader |
+| `kafka_log_remote_RemoteLogManager_RemoteLogReaderFetchRateAndTimeMs_Mean` | Mean latency of fetch operations performed by the remote log reader |
+| `kafka_log_remote_RemoteLogManager_RemoteLogReaderFetchRateAndTimeMs_99thPercentile` | 99th percentile latency of fetch operations performed by the remote log reader |
+| `org_apache_kafka_storage_internals_log_RemoteStorageThreadPool_RemoteLogReaderAvgIdlePercent_OneMinuteRate` | One-minute moving average of the idle percentage of the remote log reader thread pool |
+| `org_apache_kafka_storage_internals_log_RemoteStorageThreadPool_RemoteLogReaderTaskQueueSize_Value` | Current number of pending tasks in the remote log reader's execution queue |
+| `kafka_server_RemoteLogManager_remote_copy_throttle_time_remote_copy_throttle_time_avg` | Average time that remote copy operations were artificially throttled |
+| `kafka_server_RemoteLogManager_remote_copy_throttle_time_remote_copy_throttle_time_max` | Maximum time that remote copy operations were artificially throttled |
+| `kafka_server_RemoteLogManager_remote_fetch_throttle_time_remote_fetch_throttle_time_avg` | Average time that remote fetch operations were artificially throttled |
+| `kafka_server_RemoteLogManager_remote_fetch_throttle_time_remote_fetch_throttle_time_max` | Maximum time that remote fetch operations were artificially throttled |
