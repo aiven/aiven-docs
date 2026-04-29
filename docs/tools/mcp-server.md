@@ -1,17 +1,19 @@
 ---
 title: Aiven MCP
 sidebar_label: Aiven MCP
+limited: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import {cursorDeepLink, mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Aiven offers two Model Context Protocol (MCP) servers for use with AI assistants:
 
-- **[Aiven MCP server](#aiven-mcp-server)**: Create and manage Aiven services
-  directly from AI assistants such as Cursor and Claude Code. Use this to
+- **[Aiven MCP server](#aiven-mcp-server)** (<LimitedBadge/>): Create and manage Aiven
+  services directly from AI assistants such as Cursor and Claude Code. Use this to
   create services like PostgreSQL® and Apache Kafka®, deploy apps, run
   queries, and manage your resources.
 - **[Documentation MCP server](#documentation-mcp-server)**: Access Aiven
@@ -19,6 +21,11 @@ Aiven offers two Model Context Protocol (MCP) servers for use with AI assistants
   Aiven features and troubleshooting from within your AI assistant.
 
 ## Aiven MCP server
+
+:::note
+The Aiven MCP server is in <LimitedBadge/>. Request access during the authentication
+flow when you first connect.
+:::
 
 Use the Aiven MCP server to create and manage Aiven services from AI assistants,
 such as Cursor and Claude Code. You can create, update, and delete Aiven services
