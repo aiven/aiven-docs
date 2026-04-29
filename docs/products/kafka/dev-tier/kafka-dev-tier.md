@@ -78,7 +78,6 @@ The following specifications apply to Developer tier services.
 | Partitions                      | Up to 100 total across topics                             |
 | Retention                       | 1 to 7 days; 1 day included, +$10 per additional 2 days   |
 | Storage                         | Fixed local storage per node                              |
-| Kafka services per organization | Up to 5                                                   |
 | Kafka Connect                   | Optional add-on, billed separately                        |
 | Cloud provider                  | Region selection in the console                           |
 | Service integrations            | Yes, with limitations                                     |
