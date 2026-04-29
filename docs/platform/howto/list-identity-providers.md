@@ -24,8 +24,8 @@ and can set up SCIM at the same time.
 
 ## Limitations
 
-You can link each verified domain to only one IdP. If you set up user provisioning with
-SCIM, you should only make changes to user details in the IdP.
+If you set up user provisioning with SCIM,
+only make changes to user details in the IdP.
 
 ## Security best practices
 
