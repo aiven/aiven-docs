@@ -44,24 +44,24 @@ perform encrypt/decrypt operations on your behalf.
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
 
-### API endpoint
+#### API endpoint
 
 `GET /v1/project/PROJECT_ID/secrets/cmks/accessors`
 
-### Path parameters
+#### Path parameters
 
 | Parameter    | Type   | Required | Description |
 |--------------|--------|----------|-------------|
 | `PROJECT_ID` | String | True     | Project identifier |
 
-### Sample request
+#### Sample request
 
 ```bash
 curl -X GET https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks/accessors \
   -H "Authorization: Bearer AIVEN_API_TOKEN"
 ```
 
-### Sample response
+#### Sample response
 
 A successful request returns a `200 OK` status code and a JSON object with the accessors
 for each provider, for example:
@@ -79,28 +79,28 @@ for each provider, for example:
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-### Command
+#### Command
 
 ```bash
 avn project cmks accessors --project PROJECT_NAME
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter    | Type   | Required | Description |
 |--------------|--------|----------|-------------|
 | `--project`  | String | True     | Project name |
 | `--json`     | Flag   | False    | Output in JSON format |
 
-### Sample request
+#### Sample request
 
 ```bash
 avn project cmks accessors --project my-project
 ```
 
-### Sample output
+#### Sample output
 
-```
+```txt
 PROVIDER  DETAILS
 ========  =======
 gcp       access_group  access.example.12345678-1234-1234-1234-123456789abc@aiven.io
@@ -148,7 +148,7 @@ aws kms create-key \
 
 Record the key ARN from the output:
 
-```
+```txt
 arn:aws:kms:<region>:<account-id>:key/<key-id>
 ```
 
@@ -162,9 +162,9 @@ aws kms create-alias \
 
 #### Grant Aiven access to your key
 
-1. Get Aiven's IAM role ARN using [List CMK accessors](#list-cmk-accessors)
-
-2. Update your KMS key policy to allow Aiven to encrypt and decrypt. The policy statement should include:
+1. Get Aiven's IAM role ARN using [List CMK accessors](#list-cmk-accessors).
+1. Update your KMS key policy to allow Aiven to encrypt and decrypt. The policy statement
+   should include:
 
 ```json
 {
@@ -191,7 +191,8 @@ aws kms put-key-policy \
 ```
 
 :::note
-Keep your existing root account statement in the key policy to allow IAM policies in your account to manage the key.
+Keep your existing root account statement in the key policy to allow IAM policies in your
+account to manage the key.
 :::
 
 ### Google Cloud KMS setup
@@ -227,15 +228,14 @@ gcloud kms keys create <key-name> \
 
 Record the key resource name:
 
-```
+```txt
 projects/<project>/locations/<location>/keyRings/<keyring>/cryptoKeys/<key-name>
 ```
 
 #### Grant Aiven access to your key
 
-1. Get Aiven's access group email using [List CMK accessors](#list-cmk-accessors)
-
-2. Grant the `Cloud KMS CryptoKey Encrypter/Decrypter` role to Aiven's group:
+1. Get Aiven's access group email using [List CMK accessors](#list-cmk-accessors).
+1. Grant the `Cloud KMS CryptoKey Encrypter/Decrypter` role to Aiven's group:
 
 ```bash
 gcloud kms keys add-iam-policy-binding <key-name> \
@@ -250,9 +250,8 @@ gcloud kms keys add-iam-policy-binding <key-name> \
 
 #### Create cross-tenancy IAM policies
 
-1. Get Aiven's tenancy OCID and group OCID using [List CMK accessors](#list-cmk-accessors)
-
-2. Create cross-tenancy IAM policies in your tenancy:
+1. Get Aiven's tenancy OCID and group OCID using [List CMK accessors](#list-cmk-accessors).
+1. Create cross-tenancy IAM policies in your tenancy:
 
 ```bash
 oci iam policy create \
@@ -296,7 +295,7 @@ oci kms management key create \
 
 Record the key OCID:
 
-```
+```txt
 ocid1.key.oc1.<region>.<hash>
 ```
 
@@ -409,7 +408,7 @@ avn project cmks create \
 
 Table format:
 
-```
+```txt
 property      value
 ============  ================================================
 id            12345678-1234-1234-1234-12345678abcd
@@ -536,7 +535,7 @@ avn project cmks update \
 
 Table format:
 
-```
+```txt
 property      value
 ============  ================================================
 id            12345678-1234-1234-1234-12345678abcd
@@ -654,7 +653,7 @@ avn project cmks get \
 
 Table format:
 
-```
+```txt
 property      value
 ============  ================================================
 id            a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7
@@ -1250,7 +1249,8 @@ If no CMK is associated with the service, the `cmk_id` value is empty or `null` 
 
 ### List services associated with a CMK
 
-Find all services in a project that are using a specific customer managed key. This is useful for auditing, capacity planning, or managing CMK usage across your infrastructure.
+Find all services in a project that are using a specific customer managed key. This is
+useful for auditing, capacity planning, or managing CMK usage across your infrastructure.
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -1275,7 +1275,8 @@ curl -X GET https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks/CMK_ID/servi
 
 #### Sample response
 
-A successful request returns a `200 OK` status code and a JSON object containing a list of services associated with the CMK:
+A successful request returns a `200 OK` status code and a JSON object containing a list of
+services associated with the CMK:
 
 ```json
 {
@@ -1312,7 +1313,8 @@ If a CMK has no associated services, the `service_associations` array is empty.
 
 #### Command
 
-The service-association lookup for a specific CMK is currently available through the API endpoint only.
+The service-association lookup for a specific CMK is currently available through the API
+endpoint only.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
