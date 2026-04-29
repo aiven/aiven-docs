@@ -122,7 +122,8 @@ parameter the `roles/cloudkms.cryptoOperator` role.
 
 ## Set up customer-managed keys on your cloud provider
 
-Before registering a CMK with Aiven, set up the key and grant Aiven access on your cloud provider.
+Before registering a CMK with Aiven, set up the key and grant Aiven access on your cloud
+provider.
 
 ### AWS KMS setup
 
@@ -304,7 +305,8 @@ ocid1.key.oc1.<region>.<hash>
 Use the Aiven Provider for Terraform, Aiven API, or Aiven CLI to manage customer managed
 keys (CMKs) for encrypting service data.
 
-For per-service CMK assignment and rotation, see [Manage service CMK associations](#manage-service-cmk-associations).
+For per-service CMK assignment and rotation, see
+[Manage service CMK associations](#manage-service-cmk-associations).
 
 ### Register CMK resource identifier
 
@@ -821,8 +823,9 @@ CLI.
 Delete a customer managed key configuration.
 
 :::note
-This function renders the services linked to the key inoperable. Migrate the services to
-either another CMK or Aiven managed keys to avoid any service disruption.
+You can delete a CMK only when it has no service associations in `active`, `activating`,
+or `deactivating` status. Move each linked service to another CMK or remove the CMK
+association before deletion.
 :::
 
 <Tabs groupId="interface">
@@ -865,6 +868,15 @@ deleted CMK configuration, for example:
 }
 ```
 
+If the CMK is still associated with one or more services, the request returns
+`409 Conflict`.
+
+```json
+{
+  "message": "CMK cannot be deleted because it is still associated with one or more services"
+}
+```
+
 </TabItem>
 <TabItem value="cli" label="CLI">
 
@@ -902,8 +914,8 @@ For JSON output, use `--json` flag.
 #### Resource
 
 :::warning
-Deleting a CMK renders services linked to the key inoperable. Ensure services are migrated
-to another CMK or Aiven-managed keys before deletion.
+Deleting a CMK fails when the CMK is still associated with one or more services.
+Move each linked service to another CMK or remove the CMK association first.
 :::
 
 Remove or comment out the
@@ -930,8 +942,8 @@ terraform destroy -target=aiven_cmk.example
 When you remove a
 [CMK resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk):
 
-- The CMK configuration is deleted from the Aiven project.
-- Services using this CMK become inoperable.
+- Terraform apply fails if the CMK is still associated with one or more services.
+- After all associations are removed, the CMK configuration is deleted from the Aiven project.
 - The resource is removed from Terraform state.
 
 </TabItem>
@@ -1177,7 +1189,9 @@ resource "aiven_pg" "example" {
 
 ### View CMK details in service information
 
-When you retrieve service information, the response now includes the `cmk_id` field showing which CMK is actively protecting that service's data. This allows you to verify encryption key usage and track which services are using which CMKs.
+When you retrieve service information, the response now includes the `cmk_id` field
+showing which CMK is actively protecting that service's data. This allows you to verify
+encryption key usage and track which services are using which CMKs.
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -1242,7 +1256,8 @@ service_name     service_type  state    cmk_id
 my-pg-service    pg            RUNNING  12345678-1234-1234-1234-12345678abcd
 ```
 
-If no CMK is associated with the service, the `cmk_id` value is empty or `null` in JSON output.
+If no CMK is associated with the service, the `cmk_id` value is empty or `null` in JSON
+output.
 
 </TabItem>
 </Tabs>
