@@ -9,6 +9,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateServiceFreeDBLegacy from "@site/static/includes/create-service-console-free-db-legacy.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import TerraformPrereqs from "@site/static/includes/terraform-get-started-prerequisites.md";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
@@ -34,7 +35,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 <TabItem value="mcp" label="MCP">
 
 - An MCP-compatible client such as Cursor, Claude Code, Claude Desktop, or VS Code
-- The [Aiven MCP server](/docs/tools/mcp-server) configured in your client
+- A configured Aiven MCP server <LimitedBadge/> in your client
 
 </TabItem>
 </Tabs>
@@ -70,6 +71,11 @@ The following example files are also available in the
 
 </TabItem>
 <TabItem value="mcp" label="MCP">
+
+:::note
+The Aiven MCP server is in <LimitedBadge/>. Request access during the authentication
+flow when you first connect.
+:::
 
 Open your AI assistant and describe the service you want to create. For example:
 

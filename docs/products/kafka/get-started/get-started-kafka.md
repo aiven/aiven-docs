@@ -3,6 +3,8 @@ title: Get started with Aiven for Apache Kafka®
 sidebar_label: Get started
 ---
 
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+
 Create a managed Apache Kafka® service on Aiven, use the Free tier where it fits your workload, and send sample data to verify end-to-end streaming.
 
 ## Prerequisites
@@ -112,6 +114,11 @@ Produce data manually to test application integrations or custom workloads.
 **After your service is running, continue with:** [Generate sample data manually with Docker](/docs/products/kafka/howto/generate-sample-data-manually).
 
 ## Create and manage Kafka using AI assistants
+
+:::note
+The Aiven MCP server is in <LimitedBadge/>. Request access during the authentication
+flow when you first connect.
+:::
 
 Use the [Aiven MCP server](/docs/tools/mcp-server) to create Kafka services, manage
 topics, produce and consume messages, and configure connectors from MCP-compatible
