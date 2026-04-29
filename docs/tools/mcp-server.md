@@ -99,6 +99,44 @@ To add the server manually:
 
 For more information, see the [Cursor MCP documentation](https://cursor.com/docs/context/mcp).
 
+<br />
+
+#### Alternative: local installation
+
+You can also run the server locally using npx. This requires an
+[Aiven API token](/docs/platform/howto/create_authentication_token).
+
+1. In your project root, create or edit the `.cursor/mcp.json` file.
+1. Add the following configuration:
+
+   ```json
+   {
+     "mcpServers": {
+       "aiven-mcp": {
+         "command": "npx",
+         "args": ["-y", "mcp-aiven"],
+         "env": {
+           "AIVEN_TOKEN": "your-token-here"
+         }
+       }
+     }
+   }
+   ```
+
+1. Replace `your-token-here` with your Aiven API token.
+1. Save the file and restart Cursor.
+
+#### Verify the connection
+
+1. Open Cursor Chat with **Cmd+L** on macOS or **Ctrl+L** on Windows/Linux.
+1. Try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If prompted to allow tool execution, click **Allow**.
+1. To confirm the server is registered, go to **Settings** > **Tools & MCP** and
+   check that **aiven** appears with a connected status.
+
 </TabItem>
 <TabItem value="claude-code" label="Claude Code">
 
@@ -112,6 +150,32 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
 1. Sign in to Aiven and select your organization.
 
 For more information, see the [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/tutorials/set-up-mcp).
+
+<br />
+
+#### Alternative: local installation
+
+You can also run the server locally using npx. This requires an
+[Aiven API token](/docs/platform/howto/create_authentication_token).
+
+1. Open a terminal.
+1. Run the following command:
+
+   ```bash
+   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -- npx -y mcp-aiven
+   ```
+
+1. Replace `your-token-here` with your Aiven API token.
+1. Run `/mcp` in Claude Code to verify the server is registered.
+
+#### Verify the connection
+
+1. Run `/mcp` in Claude Code to verify the server is registered.
+1. Try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If your client prompts you to allow tool execution, approve the request.
 
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
@@ -133,6 +197,43 @@ For more information, see the [Claude Code MCP documentation](https://docs.anthr
 1. Save the file and restart Claude Desktop.
 
 For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/quickstart/user).
+
+<br />
+
+#### Alternative: local installation
+
+You can also run the server locally using npx. This requires an
+[Aiven API token](/docs/platform/howto/create_authentication_token).
+
+1. Open the Claude Desktop configuration file.
+1. Add the following configuration:
+
+   ```json
+   {
+     "mcpServers": {
+       "aiven-mcp": {
+         "command": "npx",
+         "args": ["-y", "mcp-aiven"],
+         "env": {
+           "AIVEN_TOKEN": "your-token-here"
+         }
+       }
+     }
+   }
+   ```
+
+1. Replace `your-token-here` with your Aiven API token.
+1. Save the file and restart Claude Desktop.
+
+#### Verify the connection
+
+1. Open a new conversation.
+1. Verify that the MCP tools icon appears in the input area.
+1. Try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If prompted to allow tool execution, click **Allow**.
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
@@ -158,6 +259,44 @@ and enabled.
 
 For more information, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
 
+<br />
+
+#### Alternative: local installation
+
+You can also run the server locally using npx. This requires an
+[Aiven API token](/docs/platform/howto/create_authentication_token).
+
+1. In the `.vscode` directory, create or edit the `mcp.json` file.
+1. Add the following configuration:
+
+   ```json
+   {
+     "servers": {
+       "aiven-mcp": {
+         "command": "npx",
+         "args": ["-y", "mcp-aiven"],
+         "env": {
+           "AIVEN_TOKEN": "your-token-here"
+         }
+       }
+     }
+   }
+   ```
+
+1. Replace `your-token-here` with your Aiven API token.
+1. Save the file and reload VS Code.
+
+#### Verify the connection
+
+1. Open Copilot Chat in VS Code.
+1. Open the Command Palette and run **MCP: List Servers**.
+1. Confirm that **aiven** appears in the list.
+1. Try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If prompted to allow tool execution, click **Allow**.
+
 </TabItem>
 <TabItem value="other" label="Other clients">
 
@@ -174,58 +313,34 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
 Some clients require a transport type, such as `"type": "http"`. If the configuration
 fails, see your client documentation.
 
-</TabItem>
-</Tabs>
+<br />
 
-### Verify the connection {#verify-aiven-mcp}
+#### Alternative: local installation
 
-<Tabs groupId="aiven-mcp-clients">
-<TabItem value="cursor" label="Cursor" default>
+You can also run the server locally using npx. This requires an
+[Aiven API token](/docs/platform/howto/create_authentication_token).
 
-1. Open Cursor Chat with **Cmd+L** on macOS or **Ctrl+L** on Windows/Linux.
-1. Try a prompt such as:
+1. Open your MCP client configuration.
+1. Add the following configuration:
 
-   > List my Aiven projects.
+   ```json
+   {
+     "mcpServers": {
+       "aiven-mcp": {
+         "command": "npx",
+         "args": ["-y", "mcp-aiven"],
+         "env": {
+           "AIVEN_TOKEN": "your-token-here"
+         }
+       }
+     }
+   }
+   ```
 
-1. If prompted to allow tool execution, click **Allow**.
-1. To confirm the server is registered, go to **Settings** > **Tools & MCP** and
-   check that **aiven** appears with a connected status.
+1. Replace `your-token-here` with your Aiven API token.
+1. Save the file and restart your client.
 
-</TabItem>
-<TabItem value="claude-code" label="Claude Code">
-
-1. Run `/mcp` in Claude Code to verify the server is registered.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If your client prompts you to allow tool execution, approve the request.
-
-</TabItem>
-<TabItem value="claude-desktop" label="Claude Desktop">
-
-1. Open a new conversation.
-1. Verify that the MCP tools icon appears in the input area.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If prompted to allow tool execution, click **Allow**.
-
-</TabItem>
-<TabItem value="vscode" label="VS Code">
-
-1. Open Copilot Chat in VS Code.
-1. Open the Command Palette and run **MCP: List Servers**.
-1. Confirm that **aiven** appears in the list.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If prompted to allow tool execution, click **Allow**.
-
-</TabItem>
-<TabItem value="other" label="Other clients">
+#### Verify the connection
 
 1. Open your AI assistant.
 1. Try a prompt such as:
