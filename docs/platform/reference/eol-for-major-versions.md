@@ -182,7 +182,7 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 
 | Version | Aiven EOL       |
 | ------- | --------------- |
-| 1.21.4  | To be announced |
+| 1.34.2  | To be announced |
 
 ### Aiven for Grafana®
 
