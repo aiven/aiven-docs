@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: var(--aiven-grey-90);
+  color: white;
+  border-radius: var(--aiven-radius);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  line-height: 20px;
+  width: fit-content;
+  transition: background-color 0.2s;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--aiven-grey-80);
+  color: white;
+  text-decoration: none;
+}
+
+.button svg {
+  display: block;
+  flex: none;
+}
+
+.manualSetup {
+  margin-top: 8px;
+}
