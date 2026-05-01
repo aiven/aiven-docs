@@ -525,12 +525,6 @@ import Link from '@docusaurus/Link'
         <p className="title">Name of another project to fork a service from. This has effect only when a new service is being created.</p>
       </td>
     </tr>
-    <tr>
-      <td>
-        <div className="param"><p className="name"><Link id="elasticsearch_version"/><Link to="#elasticsearch_version"><strong>elasticsearch_version</strong></Link></p><p><code className="type">string,null</code></p></div>
-        <p className="title">Elasticsearch version</p>
-      </td>
-    </tr>
   </tbody>
 </table>
     
