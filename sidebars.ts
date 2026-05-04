@@ -1525,7 +1525,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Querying & Data Analysis',
+              label: 'Querying and data analysis',
               items: [
                 {
                   type: 'category',
