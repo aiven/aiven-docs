@@ -15,7 +15,7 @@ You can interact with the Aiven platform with various interfaces and tools that 
     <Card
         to="/docs/tools/terraform"
         iconName="terraform"
-        iconColor="#7B42BC"
+        iconColor="var(--aiven-terraform-provider-purple)"
         title="Aiven Terraform Provider"
         description="Automate infrastructure provisioning and management on the Aiven Platform."
     />
