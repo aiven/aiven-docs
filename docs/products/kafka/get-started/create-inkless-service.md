@@ -1,7 +1,7 @@
 ---
 title: Create an Inkless Kafka service
 sidebar_label: Create Inkless Kafka service
-keywords: [create, kafka, cluster, inkless, byoc]
+keywords: [create, kafka, cluster, inkless, byoc, google cloud]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -18,8 +18,9 @@ Create an Inkless Apache Kafka® service on Aiven Cloud or using Bring Your Own 
 
 ## Create an Inkless service on Aiven Cloud
 
-Inkless services are available on the **Professional** tier. On Aiven Cloud,
-configure the service by selecting ingress capacity and retention.
+Inkless services are available on the Professional tier. On Aiven Cloud, configure the
+service by selecting ingress capacity and retention. Inkless runs on Amazon Web
+Services (AWS), Google Cloud, and Microsoft Azure.
 
 <Tabs groupId="inkless-aiven-cloud">
 <TabItem value="console" label="Console" default>
@@ -31,7 +32,7 @@ configure the service by selecting ingress capacity and retention.
 1. In **Service tier**, select **Professional**.
 1. In **Cluster type**, select **Inkless**.
 1. In **Deployment mode**, select **Aiven cloud**.
-1. Select a cloud provider and region.
+1. Under **Cloud**, select **AWS**, **Google**, or **Azure**, then choose a region.
 1. Select the **Ingress capacity** for the service.
 1. Optional: Enable **Diskless topics**. You can enable diskless topics later in
    <ConsoleLabel name="service settings" /> > **Advanced configuration**.
@@ -99,7 +100,8 @@ Parameters:
 - `PROJECT_NAME`: Aiven project name.
 - `REQUIRED_MBPS`: Minimum ingress throughput in megabits per second. Use with
   `--ingress` to list only offerings that meet this requirement.
-- `CLOUD_PROVIDER`: Cloud provider, such as `aws`, `google`, or `azure`.
+- `CLOUD_PROVIDER`: Cloud provider for rate listings: `aws`, `google` (Google Cloud),
+  or `azure`.
 - `CLOUD_NAME`: Cloud or region identifier for filtering rate output. Use with
   `--cloud-name` on `avn inkless offering rates` (for example, a value shown in the
   rates listing for your provider).
@@ -198,13 +200,11 @@ Parameters:
 - `CUSTOM_CLOUD_REGION`: BYOC region, such as `custom-aws-eu-central-1`.
 - `INKLESS_PLAN`: Inkless-capable plan for the selected BYOC environment.
 
-
 </TabItem>
 </Tabs>
 
 After creating the service, create topics to store data streams. To create topics,
 see [Create Kafka topics](/docs/products/kafka/howto/create-topic).
-
 
 <RelatedPages />
 

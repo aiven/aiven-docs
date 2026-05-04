@@ -48,8 +48,8 @@ of fixed hardware plans.
 
 - Select **Inkless** as the service type.
 - Choose **Aiven cloud** or **Bring your own cloud (BYOC)** as the deployment mode.
-- On Aiven cloud, provide expected ingress, egress, and retention to estimate capacity
-  and cost.
+- On Aiven cloud, select **AWS**, **Google**, or **Azure** and a region;
+  then provide expected ingress, egress, and retention to estimate capacity and cost.
 - On BYOC, select the BYOC environment, region, and an Inkless plan.
 
 **Continue with:** [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service).
