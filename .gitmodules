@@ -1,3 +1,0 @@
-[submodule "external/terraform-provider"]
-	path = external/terraform-provider
-	url = https://github.com/aiven/terraform-provider-aiven.git
