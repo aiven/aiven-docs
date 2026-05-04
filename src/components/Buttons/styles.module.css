@@ -1,5 +1,5 @@
 .button {
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
   padding: 10px;
   font-size: 110%;
@@ -20,12 +20,10 @@
 .buttonPrimary:hover,
 .buttonPrimary:focus {
   background-color: var(--aiven-button-primary-bg-hover);
-  border-color: var(--aiven-button-primary-bg-hover);
   color: var(--aiven-brand-near-black) !important;
 }
 
 .buttonSecondary {
-  background-color: transparent;
   color: var(--aiven-button-secondary-fg);
   border: 1px solid var(--aiven-button-secondary-border);
   border-radius: var(--aiven-radius);
