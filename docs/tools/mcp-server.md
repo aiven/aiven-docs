@@ -6,9 +6,10 @@ limited: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
-import {cursorDeepLink, mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
+import {mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import MCPConfigSection from "@site/src/components/MCPConfigSection";
+import CursorConfigTab from "@site/src/components/CursorConfigTab";
 
 Aiven offers two Model Context Protocol (MCP) servers for use with AI assistants:
 
@@ -41,7 +42,7 @@ cloud regions. Supported services and features include:
   connector lifecycle operations including pause, resume, and restart.
 
 To restrict the server to non-destructive operations, you can enable
-[read-only mode](#read-only-mode).
+read-only mode in the configuration tabs below.
 
 ### Authentication
 
@@ -60,42 +61,7 @@ to Aiven and select your organization. The server refreshes tokens automatically
 <Tabs groupId="aiven-mcp-clients">
 <TabItem value="cursor" label="Cursor" default>
 
-<!-- vale off -->
-<a
-  href={cursorDeepLink}
-  style={{display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 20px', backgroundColor: '#2d2d2d', color: 'white', borderRadius: '8px', textDecoration: 'none', fontSize: '16px', fontWeight: 500, border: 'none', lineHeight: '20px'}}
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    aria-hidden="true"
-    focusable="false"
-    style={{display: 'block', flex: 'none'}}
-  >
-    <path d="M21 7.5L12 2L3 7.5M21 7.5L12 13M21 7.5V16.5L12 22M3 7.5L12 13M3 7.5V16.5L12 22M12 13V22" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"/>
-  </svg>
-  <span>Add to Cursor</span>
-</a>
-<!-- vale on -->
-
-<br /><br />
-
-To add the server manually:
-
-1. In your project root, create or edit the `.cursor/mcp.json` file.
-1. Add the following configuration:
-
-   <!-- vale off -->
-   <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {type: "http", url: mcpUrl}}}, null, 2)}</CodeBlock>
-   <!-- vale on -->
-
-1. Save the file.
-1. Restart Cursor.
-1. Open **Settings** > **Tools & MCP**.
-1. Select **aiven** and click **Connect**.
+<CursorConfigTab baseUrl={mcpUrl} />
 
 For more information, see the [Cursor MCP documentation](https://cursor.com/docs/context/mcp).
 
@@ -109,6 +75,7 @@ You can also run the server locally using npx. This requires an
 1. In your project root, create or edit the `.cursor/mcp.json` file.
 1. Add the following configuration:
 
+
    ```json
    {
      "mcpServers": {
@@ -116,12 +83,15 @@ You can also run the server locally using npx. This requires an
          "command": "npx",
          "args": ["-y", "mcp-aiven"],
          "env": {
-           "AIVEN_TOKEN": "your-token-here"
+           "AIVEN_TOKEN": "your-token-here",
+           "AIVEN_READ_ONLY": "false"
          }
        }
      }
    }
    ```
+
+   Set `AIVEN_READ_ONLY` to `"true"` to enable read-only mode.
 
 1. Replace `your-token-here` with your Aiven API token.
 1. Save the file and restart Cursor.
@@ -143,7 +113,11 @@ You can also run the server locally using npx. This requires an
 1. Open a terminal.
 1. Run the following command:
 
-   <CodeBlock language="bash">{`claude mcp add --transport http aiven ${mcpUrl}`}</CodeBlock>
+   <MCPConfigSection
+     baseUrl={mcpUrl}
+     format="bash"
+     configTemplate={(url) => `claude mcp add --transport http aiven ${url}`}
+   />
 
 1. To verify the server is registered, in Claude Code run `/mcp`. The first time
    you use the server, your browser opens.
@@ -161,9 +135,12 @@ You can also run the server locally using npx. This requires an
 1. Open a terminal.
 1. Run the following command:
 
+
    ```bash
-   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -- npx -y mcp-aiven
+   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -- npx -y mcp-aiven
    ```
+
+   Set `AIVEN_READ_ONLY=true` to enable read-only mode.
 
 1. Replace `your-token-here` with your Aiven API token.
 1. Run `/mcp` in Claude Code to verify the server is registered.
@@ -190,9 +167,11 @@ You can also run the server locally using npx. This requires an
 
 1. Add the following configuration to the file:
 
-   <!-- vale off -->
-   <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {type: "http", url: mcpUrl}}}, null, 2)}</CodeBlock>
-   <!-- vale on -->
+   <MCPConfigSection
+     baseUrl={mcpUrl}
+     format="json"
+     configTemplate={(url) => ({mcpServers: {aiven: {type: "http", url}}})}
+   />
 
 1. Save the file and restart Claude Desktop.
 
@@ -208,6 +187,7 @@ You can also run the server locally using npx. This requires an
 1. Open the Claude Desktop configuration file.
 1. Add the following configuration:
 
+
    ```json
    {
      "mcpServers": {
@@ -215,12 +195,15 @@ You can also run the server locally using npx. This requires an
          "command": "npx",
          "args": ["-y", "mcp-aiven"],
          "env": {
-           "AIVEN_TOKEN": "your-token-here"
+           "AIVEN_TOKEN": "your-token-here",
+           "AIVEN_READ_ONLY": "false"
          }
        }
      }
    }
    ```
+
+   Set `AIVEN_READ_ONLY` to `"true"` to enable read-only mode.
 
 1. Replace `your-token-here` with your Aiven API token.
 1. Save the file and restart Claude Desktop.
@@ -248,9 +231,11 @@ and enabled.
 1. In the `.vscode` directory, create or edit the `mcp.json` file.
 1. Add the following configuration:
 
-   <!-- vale off -->
-   <CodeBlock language="json">{JSON.stringify({servers: {aiven: {type: "http", url: mcpUrl}}}, null, 2)}</CodeBlock>
-   <!-- vale on -->
+   <MCPConfigSection
+     baseUrl={mcpUrl}
+     format="json"
+     configTemplate={(url) => ({servers: {aiven: {type: "http", url}}})}
+   />
 
 1. Save the file.
 1. Reload VS Code.
@@ -269,6 +254,7 @@ You can also run the server locally using npx. This requires an
 1. In the `.vscode` directory, create or edit the `mcp.json` file.
 1. Add the following configuration:
 
+
    ```json
    {
      "servers": {
@@ -276,12 +262,15 @@ You can also run the server locally using npx. This requires an
          "command": "npx",
          "args": ["-y", "mcp-aiven"],
          "env": {
-           "AIVEN_TOKEN": "your-token-here"
+           "AIVEN_TOKEN": "your-token-here",
+           "AIVEN_READ_ONLY": "false"
          }
        }
      }
    }
    ```
+
+   Set `AIVEN_READ_ONLY` to `"true"` to enable read-only mode.
 
 1. Replace `your-token-here` with your Aiven API token.
 1. Save the file and reload VS Code.
@@ -301,12 +290,15 @@ You can also run the server locally using npx. This requires an
 <TabItem value="other" label="Other clients">
 
 1. Open your MCP client configuration.
-1. Add the Aiven MCP server using the URL <CodeBlock language="text">{mcpUrl}</CodeBlock>
-   Most clients use a configuration similar to:
+1. Add the Aiven MCP server using the following configuration:
 
-   <!-- vale off -->
-   <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {url: mcpUrl}}}, null, 2)}</CodeBlock>
-   <!-- vale on -->
+   <MCPConfigSection
+     baseUrl={mcpUrl}
+     format="json"
+     configTemplate={(url) => ({mcpServers: {aiven: {url}}})}
+   />
+
+   Most clients use a configuration similar to the above.
 
 1. Save the file and restart your client.
 
@@ -373,22 +365,8 @@ Aiven secures the platform and API. You are responsible for the following:
   (principle of least privilege) and rotating them regularly.
 - **Reviewing AI agent actions** before they run, especially for write or delete
   operations on production resources.
-- **Configuring MCP servers securely**, including choosing
-  [read-only mode](/docs/tools/mcp-server#read-only-mode) where appropriate to
-  restrict the server to non-destructive operations.
-
-### Read-only mode
-
-To restrict the server to read-only operations, set the `AIVEN_READ_ONLY`
-environment variable to `true` in your MCP client configuration:
-
-<!-- vale off -->
-<CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {type: "http", url: mcpUrl, env: {AIVEN_READ_ONLY: "true"}}}}, null, 2)}</CodeBlock>
-<!-- vale on -->
-
-In read-only mode, the server only allows operations that read data, such as
-listing services, viewing metrics, and running SELECT queries. The server blocks
-write operations, such as creating services or modifying data.
+- **Configuring MCP servers securely**, including enabling read-only mode (available
+  on the configuration tabs above) to restrict the server to non-destructive operations.
 
 ## Documentation MCP server
 
