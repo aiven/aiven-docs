@@ -27,18 +27,15 @@ For limits, regions, and supported features, see the
 
 ## Developer tier
 
-The Developer tier is a paid Classic Kafka plan with higher throughput, topic limits,
-and retention than the
-[Free tier](/docs/products/kafka/free-tier/kafka-free-tier). Each service includes
-Karapace Schema Registry and the REST Proxy.
-[Service integrations](/docs/platform/concepts/service-integration) are supported with
-limitations on the Developer tier. [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started)
-is available as a separately billed service.
+The **Developer tier** is a paid service tier for **Classic Kafka** that sits between the
+[Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and Professional tier. Use it
+for development, prototyping, test, or production workloads when you need more capacity or
+paid-only features than the Free tier, without choosing a Professional plan.
 
+For limits, pricing, Karapace, Connect, integrations, and upgrades, see
+[Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier).
 Manage the service in the console, CLI, API, or with
-[Skills](/docs/products/kafka/howto/set-up-kafka-with-skills). See
-[Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier)
-for quotas, pricing, metrics export, and upgrades.
+[Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
 
 **Continue with:** [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
 
