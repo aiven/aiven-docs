@@ -22,7 +22,7 @@ export default function MCPConfigToggle({ onReadOnlyChange }: MCPConfigTogglePro
           onChange={(e) => handleChange(e.target.checked)}
           className={styles.checkbox}
         />
-        Read-only mode
+        Install in read-only mode
       </label>
       <p className={styles.description}>Allows only read-only operations, such as listing services, viewing metrics, and running read-only queries.</p>
     </div>
