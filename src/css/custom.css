@@ -51,8 +51,8 @@
   --ifm-list-paragraph-margin: 0.4;
   /*top margin*/
   --ifm-paragraph-margin-bottom: 0.4em;
-  --aiven-inline-link-color: var(--aiven-light-blue-600);
-  --aiven-inline-link-hover-color: var(--aiven-light-blue-700);
+  --aiven-inline-link-color: var(--aiven-deep-blue);
+  --aiven-inline-link-hover-color: var(--aiven-deep-blue-400);
   --ifm-link-color: var(--aiven-inline-link-color);
   --ifm-link-hover-color: var(--aiven-inline-link-hover-color);
   --ifm-menu-color-active: var(--aiven-inline-link-color);
@@ -130,7 +130,7 @@ html[data-theme='dark'] {
   --ifm-menu-color: var(--aiven-grey-20);
   /* Inline links: match body text; hover uses light grey */
   --aiven-inline-link-color: var(--ifm-font-color-base);
-  --aiven-inline-link-hover-color: var(--aiven-grey-300);
+  --aiven-inline-link-hover-color: var(--aiven-brand-green);
   /* Sidebar right edge, desktop TOC column, and other Infima toc borders */
   --ifm-toc-border-color: var(--aiven-chrome-divider) !important;
   --nav-btn-primary-bg: var(--aiven-brand-green);
