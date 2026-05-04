@@ -964,7 +964,7 @@ Create a service with a specific CMK by providing the CMK ID in the service crea
 
 #### API endpoint
 
-`POST /v1/project/PROJECT_ID/services`
+`POST /v1/project/PROJECT_ID/service`
 
 #### Request body parameters
 
@@ -979,7 +979,7 @@ project's default CMK is used, or Aiven-managed keys if no default is set. |
 #### Sample request
 
 ```bash
-curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/services \
+curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/service \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer AIVEN_API_TOKEN" \
   -d '{
@@ -1067,7 +1067,7 @@ Update a service to use a different CMK or remove its CMK association.
 
 #### API endpoint
 
-`PUT /v1/project/PROJECT_ID/services/SERVICE_NAME`
+`PUT /v1/project/PROJECT_ID/service/SERVICE_NAME`
 
 #### Path parameters
 
@@ -1085,7 +1085,7 @@ Update a service to use a different CMK or remove its CMK association.
 #### Sample request (change CMK)
 
 ```bash
-curl -X PUT https://api.aiven.io/v1/project/PROJECT_ID/services/SERVICE_NAME \
+curl -X PUT https://api.aiven.io/v1/project/PROJECT_ID/service/SERVICE_NAME \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer AIVEN_API_TOKEN" \
   -d '{
@@ -1096,7 +1096,7 @@ curl -X PUT https://api.aiven.io/v1/project/PROJECT_ID/services/SERVICE_NAME \
 #### Sample request (remove CMK association)
 
 ```bash
-curl -X PUT https://api.aiven.io/v1/project/PROJECT_ID/services/SERVICE_NAME \
+curl -X PUT https://api.aiven.io/v1/project/PROJECT_ID/service/SERVICE_NAME \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer AIVEN_API_TOKEN" \
   -d '{
