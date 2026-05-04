@@ -8,10 +8,11 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Create an Aiven for Apache Kafka® Developer tier service in the [Aiven Console](https://console.aiven.io) or with Skills.
-Use it when the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) no longer
-meets your throughput, topic, retention, or storage needs, or when you need
-[Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started) or
-[service integrations](/docs/platform/concepts/service-integration).
+Use it when the
+[Free tier](/docs/products/kafka/free-tier/kafka-free-tier) no longer meets your needs,
+or when you require capabilities not available on the Free tier, such as
+[service integrations](/docs/platform/concepts/service-integration) or
+[Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started).
 
 For quotas, pricing, and features, see
 [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier).
@@ -38,7 +39,7 @@ Use one of the following:
 1. Click **Create service**.
 1. Select **Aiven for Apache Kafka®**.
 1. In **Service tier**, select **Developer**.
-1. In **Cloud**, choose your geographical region from the broad areas shown, such as North
+1. In **Cloud**, select your geographical region from the broad areas shown, such as North
    America or Europe. The **Service summary** shows this under **Cloud**.
 
    :::note
@@ -83,9 +84,9 @@ Use Skills to create and configure the Kafka service from the command line.
    npx skills run kafka-create-service
    ```
 
-1. Follow the prompts to select your project, **Developer** tier, and geographical and
-   cloud options. The Skill might ask for cloud or geographical values that the Aiven CLI
-   needs. Choose the options that the Skill lists for the Developer tier.
+1. Follow the prompts to select your project, **Developer** tier, and **Cloud**. The Skill
+   might ask for cloud values that the Aiven CLI needs. Select the values that the Skill
+   lists for the Developer tier.
 
 The Skill creates and configures the service. When the run completes, the Kafka service is
 ready to use.
@@ -155,7 +156,6 @@ For details, see
 - After upgrading to the Professional tier, available downgrade options depend on
   the selected plan. Review supported changes in the
   [Aiven Console](https://console.aiven.io).
-
 
 <RelatedPages />
 

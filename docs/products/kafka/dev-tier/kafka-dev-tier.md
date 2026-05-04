@@ -6,7 +6,7 @@ keywords: [kafka developer tier, kafka dev tier, kafka paid development, kafka p
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Apache Kafka® **Developer tier** is a paid service tier for **Classic Kafka** that sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and Professional tier.
+Aiven for Apache Kafka® Developer tier is a paid service tier for Classic Kafka that sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and Professional tier.
 Use it for development, prototyping, testing, or production workloads that need more
 throughput, more topics, longer retention, more storage, or
 [service integrations](/docs/platform/concepts/service-integration) than the Free tier
@@ -53,11 +53,12 @@ A Developer tier service includes:
 - Generating sample data and validating the deployment.
 - Configuring connectors and integrations.
 
-Skills are available on Developer tier and Professional tier services. You run them with
-[`npx skills`](/docs/products/kafka/howto/set-up-kafka-with-skills) or through another
-environment that supports Skills, such as an editor or AI assistant. Skills use the
-[Aiven CLI](/docs/tools/cli) internally and require an authenticated CLI session. For
-details, see
+Skills are available on Developer tier and Professional tier services.
+Run them with
+[`npx skills`](/docs/products/kafka/howto/set-up-kafka-with-skills) or in another
+environment that supports Skills, such as an editor or AI assistant.
+Skills use [Aiven CLI](/docs/tools/cli) internally and require an authenticated CLI
+session. For details, see
 [Set up Aiven for Apache Kafka® using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
 
 Manage Developer tier services from the [Aiven Console](https://console.aiven.io), the
@@ -73,10 +74,10 @@ The following specifications apply to Developer tier services.
 | Nodes                           | 2                                                         |
 | Throughput                      | 1 MB/s ingress, 2 MB/s egress                             |
 | Topics                          | Up to 20                                                  |
-| Partitions                      | Up to 100 per topic (2000 max across the service)        |
+| Partitions                      | Up to 100 per topic and 2000 max across the service      |
 | Replication factor              | 1                                                         |
 | Metadata mode                   | KRaft                                                     |
-| Retention                       | 1 day ($29), 3 days ($59), 5 days ($79), or 7 days ($99)  |
+| Retention                       | 1 day: $29, 3 days: $59, 5 days: $79, or 7 days: $99       |
 | Storage                         | Fixed local storage per node                              |
 | Kafka Connect                   | Optional service, billed separately                        |
 | Cloud                           | Geographical region in the Aiven Console. Pricing varies by cloud |
@@ -109,7 +110,7 @@ a Professional plan in the [Aiven Console](https://console.aiven.io).
 | Service integrations            | Not supported                     | Kafka Connect, Prometheus     | Yes, plan-dependent          |
 | Cloud and geographical region   | Fixed                             | Geographical region only      | Cloud and geographical region selectable |
 
-For replication factor 3 or similar production redundancy, use a **Professional** plan.
+For replication factor 3 or similar production redundancy, use a Professional plan.
 Starting with Apache Kafka 3.9, new services use [KRaft](/docs/products/kafka/concepts/kraft-mode)
 for metadata instead of ZooKeeper.
 

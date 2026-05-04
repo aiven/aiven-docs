@@ -27,10 +27,11 @@ For limits, regions, and supported features, see the
 
 ## Developer tier
 
-The **Developer tier** is a paid service tier for **Classic Kafka** that sits between the
-[Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and Professional tier. Use it
-for development, prototyping, test, or production workloads when you need more capacity or
-paid-only features than the Free tier, without choosing a Professional plan.
+The Developer tier is a paid service tier for Classic Kafka.
+It sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier) and
+Professional tier.
+Use it for development, prototyping, testing, or production workloads.
+It provides more capacity and paid-only features than the Free tier.
 
 For limits, pricing, Karapace, Connect, integrations, and upgrades, see
 [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier).
