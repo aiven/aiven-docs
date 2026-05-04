@@ -51,8 +51,8 @@
   --ifm-list-paragraph-margin: 0.4;
   /*top margin*/
   --ifm-paragraph-margin-bottom: 0.4em;
-  --aiven-inline-link-color: var(--aiven-brand-deep-blue);
-  --aiven-inline-link-hover-color: var(--aiven-deep-blue-400);
+  --aiven-inline-link-color: var(--aiven-light-blue-600);
+  --aiven-inline-link-hover-color: var(--aiven-light-blue-700);
   --ifm-link-color: var(--aiven-inline-link-color);
   --ifm-link-hover-color: var(--aiven-inline-link-hover-color);
   --ifm-menu-color-active: var(--aiven-inline-link-color);
@@ -128,9 +128,9 @@ html[data-theme='dark'] {
   --ifm-link-hover-color: var(--aiven-primary-70);
   --ifm-menu-color-active: var(--aiven-primary-60);
   --ifm-menu-color: var(--aiven-grey-20);
-  /* Prose links: lighter stops on dark surfaces (700/600 are for light only) */
-  --aiven-inline-link-color: var(--aiven-light-blue-500);
-  --aiven-inline-link-hover-color: var(--aiven-light-blue-400);
+  /* Inline links: match body text; hover uses light grey */
+  --aiven-inline-link-color: var(--ifm-font-color-base);
+  --aiven-inline-link-hover-color: var(--aiven-grey-300);
   /* Sidebar right edge, desktop TOC column, and other Infima toc borders */
   --ifm-toc-border-color: var(--aiven-chrome-divider) !important;
   --nav-btn-primary-bg-hover: var(--aiven-primary-70);
@@ -195,6 +195,24 @@ html[data-theme='dark'] {
   color: var(--aiven-inline-link-hover-color);
 }
 
+/* Inline link underlines */
+.theme-doc-markdown
+  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(
+    .pagination-nav__link
+  ):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(
+    .aiven-card-link
+  ):not(.release-badge):not(.hash-link),
+.markdown
+  a:not(.breadcrumbs__link):not(.table-of-contents__link):not(
+    .pagination-nav__link
+  ):not(.theme-edit-this-page):not(.button):not(.aiven-btn-link):not(
+    .aiven-card-link
+  ):not(.release-badge):not(.hash-link) {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.15em;
+}
+
 /* Release badges: label color from --aiven-badge-label-color (see colors.css) */
 .release-badge {
   color: var(--aiven-badge-label-color);
@@ -216,7 +234,7 @@ html[data-theme='dark'] {
   color: inherit;
 }
 
-/* TOC links are excluded from prose rules; Infima uses --ifm-color-primary for active (green) */
+/* TOC links are excluded from prose rules */
 .table-of-contents__link.table-of-contents__link--active {
   color: var(--ifm-link-color);
 }
