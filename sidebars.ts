@@ -1499,7 +1499,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Index and cluster',
+              label: 'Index & cluster',
               items: [
                 {
                   type: 'category',
@@ -1525,7 +1525,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Querying and data analysis',
+              label: 'Querying & data analysis',
               items: [
                 {
                   type: 'category',
@@ -1544,7 +1544,7 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Searching and aggregation',
+                  label: 'Searching & aggregation',
                   link: {
                     id: 'products/opensearch/howto/list-search-service',
                     type: 'doc',
@@ -1575,7 +1575,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Backups and migration',
+              label: 'Backups & migration',
               items: [
                 'products/opensearch/howto/manage-snapshots',
                 'products/opensearch/howto/restore_opensearch_backup',
@@ -1621,7 +1621,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Security and access',
+              label: 'Security & access',
               items: [
                 'products/opensearch/concepts/access_control',
                 'products/opensearch/howto/control_access_to_content',
