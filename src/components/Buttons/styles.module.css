@@ -14,13 +14,13 @@
 
 .buttonPrimary {
   background-color: var(--aiven-button-primary-bg);
-  color: var(--aiven-brand-near-black);
+  color: var(--nav-btn-primary-text-color);
   border: 1px solid var(--aiven-button-primary-bg);
 }
 .buttonPrimary:hover,
 .buttonPrimary:focus {
   background-color: var(--aiven-button-primary-bg-hover);
-  color: var(--aiven-brand-near-black) !important;
+  color: var(--nav-btn-primary-text-color-hover) !important;
 }
 
 .buttonSecondary {
@@ -43,7 +43,7 @@
   gap: 8px;
   background-color: var(--aiven-button-primary-bg);
   border: 1px solid var(--aiven-button-primary-bg);
-  color: var(--aiven-brand-near-black);
+  color: var(--nav-btn-primary-text-color);
   cursor: pointer;
   font-family: var(--aiven-card-font-family);
   margin: 0 16px 0 6px;
@@ -52,7 +52,7 @@
 .kapaAIButton:hover,
 .kapaAIButton:focus,
 .kapaAIButton:active {
-  color: var(--aiven-brand-near-black) !important;
+  color: var(--nav-btn-primary-text-color-hover) !important;
   background-color: var(--aiven-button-primary-bg-hover);
   border-color: var(--aiven-button-primary-bg-hover);
 }

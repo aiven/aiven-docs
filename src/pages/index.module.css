@@ -121,14 +121,14 @@
   padding: 8px 12px;
   background-color: var(--aiven-button-primary-bg);
   border-color: var(--aiven-button-primary-bg);
-  color: var(--aiven-brand-near-black);
+  color: var(--nav-btn-primary-text-color);
 }
 
 .buttonHome:hover,
 .buttonHome:focus {
   background-color: var(--aiven-button-primary-bg-hover);
   border-color: var(--aiven-button-primary-bg-hover);
-  color: var(--aiven-brand-near-black);
+  color: var(--nav-btn-primary-text-color-hover);
 }
 
 @media (max-width: 996px) {

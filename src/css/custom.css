@@ -57,10 +57,11 @@
   --ifm-link-hover-color: var(--aiven-inline-link-hover-color);
   --ifm-menu-color-active: var(--aiven-inline-link-color);
   --ifm-menu-color: var(--aiven-grey-60);
-  --nav-btn-primary-bg-hover: var(--aiven-primary-300);
-  --nav-btn-primary-bg: var(--aiven-brand-green);
-  --nav-btn-primary-text-color-hover: var(--aiven-brand-near-black);
-  --nav-btn-primary-text-color: var(--ifm-button-color);
+  /* Primary CTA: teal (light); dark theme overrides below */
+  --nav-btn-primary-bg-hover: var(--aiven-primary-teal-500);
+  --nav-btn-primary-bg: var(--aiven-brand-teal);
+  --nav-btn-primary-text-color: var(--aiven-brand-white);
+  --nav-btn-primary-text-color-hover: var(--aiven-brand-white);
   /* Outline secondary: dark on light surfaces (navbar) */
   --aiven-button-secondary-fg: var(--aiven-brand-near-black);
   --aiven-button-secondary-border: var(--aiven-brand-near-black);
@@ -134,8 +135,9 @@ html[data-theme='dark'] {
   /* Sidebar right edge, desktop TOC column, and other Infima toc borders */
   --ifm-toc-border-color: var(--aiven-chrome-divider) !important;
   --nav-btn-primary-bg: var(--aiven-brand-green);
+  --nav-btn-primary-bg-hover: var(--aiven-primary-300);
   --nav-btn-primary-text-color: var(--ifm-button-color);
-  --nav-btn-primary-text-hover-color: var(--aiven-brand-near-black);
+  --nav-btn-primary-text-color-hover: var(--aiven-brand-near-black);
   /* Outline secondary: white on dark UI (matches marketing ghost buttons) */
   --aiven-button-secondary-fg: var(--aiven-brand-white);
   --aiven-button-secondary-border: var(--aiven-brand-white);

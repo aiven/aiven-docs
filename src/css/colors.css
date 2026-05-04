@@ -66,6 +66,18 @@
   --aiven-primary-100: #0a4016;
   --aiven-primary-300: #8DFF9C;
 
+  /* Primary ramp — Aiven Teal */
+  --aiven-primary-teal-000: #f0fefe;
+  --aiven-primary-teal-100: #d9f9f8;
+  --aiven-primary-teal-200: #b7f2f1;
+  --aiven-primary-teal-300: #75e6e4;
+  --aiven-primary-teal-400: #2ed0cd;
+  --aiven-primary-teal-500: #1bb2b0;
+  --aiven-primary-teal-600: #007b78;
+  --aiven-primary-teal-700: #004a48;
+  --aiven-primary-teal-800: #003130;
+  --aiven-primary-teal-900: #001a19;
+
   /* Accent orange — CTAs (from brand Orange) */
   --aiven-orange-5: #fff5ed;
   --aiven-orange-90: #e86830;
