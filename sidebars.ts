@@ -1521,11 +1521,16 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'category',
-              label: 'Get started',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/get-started',
-              },
+              label: 'Getting started',
+              items: [
+                'products/opensearch/get-started',
+                'products/opensearch/howto/sample-dataset',
+                'products/opensearch/concepts/opensearch-vs-elasticsearch',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'How to connect',
               items: [
                 {
                   type: 'category',
@@ -1540,12 +1545,11 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/opensearch-with-curl',
                   ],
                 },
-                'products/opensearch/howto/sample-dataset',
               ],
             },
             {
               type: 'category',
-              label: 'Indices and data management',
+              label: 'Index and cluster',
               items: [
                 'products/opensearch/concepts/indices',
                 'products/opensearch/concepts/shards-number',
@@ -1563,11 +1567,12 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
                   ],
                 },
+                'products/opensearch/concepts/high-availability-for-opensearch',
               ],
             },
             {
               type: 'category',
-              label: 'Search and aggregations',
+              label: 'Querying and data analytics',
               link: {
                 id: 'products/opensearch/howto/list-search-service',
                 type: 'doc',
@@ -1577,26 +1582,37 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/opensearch-search-and-python',
                 'products/opensearch/howto/opensearch-and-nodejs',
                 'products/opensearch/howto/opensearch-aggregations-and-nodejs',
+                {
+                  type: 'category',
+                  label: 'OpenSearch Dashboards',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/dashboards',
+                  },
+                  items: [
+                    'products/opensearch/dashboards/get-started',
+                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                  ],
+                },
               ],
             },
             {
               type: 'category',
-              label: 'OpenSearch Dashboards',
-              link: {
-                type: 'doc',
-                id: 'products/opensearch/dashboards',
-              },
+              label: 'Service management',
               items: [
-                'products/opensearch/dashboards/get-started',
-                'products/opensearch/dashboards/howto/dev-tools-usage-example',
-                'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
-                'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
-                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
+                'products/opensearch/reference/advanced-params',
+                'products/opensearch/reference/opensearch-limitations',
+                'products/opensearch/reference/plugins',
+                'products/opensearch/reference/list-of-plugins-for-each-version',
+                'products/opensearch/reference/low-space-watermarks',
+                'products/opensearch/howto/handle-low-disk-space',
+                'products/opensearch/howto/os-version-upgrade',
               ],
             },
             {
               type: 'category',
-              label: 'Backups, snapshots, and data migration',
+              label: 'Backups and migration',
               items: [
                 'products/opensearch/howto/manage-snapshots',
                 'products/opensearch/howto/restore_opensearch_backup',
@@ -1633,7 +1649,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Monitoring and observability',
+              label: 'Observability and monitoriing',
               items: [
                 'products/opensearch/howto/os-metrics',
                 'products/opensearch/howto/integrate-with-grafana',
@@ -1644,7 +1660,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Security and access control',
+              label: 'Security and access',
               link: {
                 type: 'doc',
                 id: 'products/opensearch/howto/list-opensearch-security',
@@ -1673,25 +1689,12 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/jwt-authentication',
                   ],
                 },
+                'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
+                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
                 'products/opensearch/howto/control_access_to_content',
                 'products/opensearch/howto/audit-logs',
               ],
             },
-            {
-              type: 'category',
-              label: 'Service management and maintenance',
-              items: [
-                'products/opensearch/reference/advanced-params',
-                'products/opensearch/concepts/high-availability-for-opensearch',
-                'products/opensearch/reference/opensearch-limitations',
-                'products/opensearch/reference/plugins',
-                'products/opensearch/reference/list-of-plugins-for-each-version',
-                'products/opensearch/reference/low-space-watermarks',
-                'products/opensearch/howto/handle-low-disk-space',
-                'products/opensearch/howto/os-version-upgrade',
-              ],
-            },
-            'products/opensearch/concepts/opensearch-vs-elasticsearch',
           ],
         },
         {
