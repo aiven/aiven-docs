@@ -90,7 +90,6 @@ avn project cmks accessors --project PROJECT_NAME
 | Parameter    | Type   | Required | Description |
 |--------------|--------|----------|-------------|
 | `--project`  | String | True     | Project name |
-| `--json`     | Flag   | False    | Output in JSON format |
 
 #### Sample request
 
@@ -100,16 +99,20 @@ avn project cmks accessors --project my-project
 
 #### Sample output
 
-```txt
-PROVIDER  DETAILS
-========  =======
-gcp       access_group  access.example.12345678-1234-1234-1234-123456789abc@aiven.io
-```
+The output is always in the JSON format:
 
-For JSON output:
-
-```bash
-avn project cmks accessors --project my-project --json
+```json
+{
+    "aws": {
+        "principal": "arn:aws:iam::012345678901:role/role-name"
+    },
+    "gcp": {
+        "access_group": "access.example.12345678-1234-1234-1234-123456789abc@aiven.io"
+    },
+    "oci": {
+        "access_group": "ocid1.group.oc1..abcdABCD...."
+    }
+}
 ```
 
 </TabItem>
@@ -632,7 +635,13 @@ specified CMK configuration, for example:
 #### Command
 
 ```bash
-avn project cmks get --project PROJECT_NAME --cmk-id CMK_ID
+avn project cmks get --project PROJECT_NAME --cmk-id CMK_ID -v
+```
+
+For JSON output, use `--json` flag:
+
+```bash
+avn project cmks get --project PROJECT_NAME --cmk-id CMK_ID -v [--json]
 ```
 
 #### Parameters
@@ -648,7 +657,8 @@ avn project cmks get --project PROJECT_NAME --cmk-id CMK_ID
 ```bash
 avn project cmks get \
   --project my-project \
-  --cmk-id a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7
+  --cmk-id a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7 \
+  -v
 ```
 
 #### Sample output (OCI)
@@ -656,18 +666,35 @@ avn project cmks get \
 Table format:
 
 ```txt
-property      value
-============  ================================================
-id            a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7
-provider      oci
-default_cmk   False
-resource      ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-status        current
-created_at    YYYY-MM-DDTHH:MM:SSZ
-updated_at    YYYY-MM-DDTHH:MM:SSZ
+ID                                    PROVIDER  RESOURCE                                                   DEFAULT_CMK  STATUS   CREATED_AT                   UPDATED_AT
+====================================  ========  =========================================================  ===========  =======  ===========================  ===========================
+12345678-1234-1234-1234-12345678abcd  oci       ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  false        current  2026-05-05T10:55:52.719109Z  2026-05-05T13:04:59.294447Z
+
+Associated services:
+SERVICE_NAME  STATUS
+============  ======
+my-pg         active
 ```
 
-For JSON output, use `--json` flag.
+JSON format:
+
+```json
+{
+    "created_at": "2026-05-05T10:55:52.719109Z",
+    "default_cmk": false,
+    "id": "12345678-1234-1234-1234-12345678abcd",
+    "provider": "oci",
+    "resource": "ocid1.key.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "service_associations": [
+        {
+            "service_name": "my-pg",
+            "status": "active"
+        }
+    ],
+    "status": "current",
+    "updated_at": "2026-05-05T13:04:59.294447Z"
+}
+```
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -1013,7 +1040,7 @@ the newly created service with the CMK association:
 #### Command
 
 ```bash
-avn service create --project PROJECT_NAME --service-name SERVICE_NAME --service-type SERVICE_TYPE --plan PLAN_NAME --cmk-id CMK_ID
+avn service create --project PROJECT_NAME --service-type SERVICE_TYPE --plan PLAN_NAME --cmk-id CMK_ID SERVICE_NAME
 ```
 
 #### Parameters
@@ -1021,7 +1048,6 @@ avn service create --project PROJECT_NAME --service-name SERVICE_NAME --service-
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `--project` | String | True | Project name |
-| `--service-name` | String | True | Name of the service |
 | `--service-type` | String | True | Type of service (for example, `pg`, `mysql`, `redis`) |
 | `--plan` | String | True | Service plan |
 | `--cmk-id` | String | False | Customer managed key (CMK) identifier |
@@ -1031,10 +1057,10 @@ avn service create --project PROJECT_NAME --service-name SERVICE_NAME --service-
 ```bash
 avn service create \
   --project my-project \
-  --service-name my-pg-service \
   --service-type pg \
   --plan startup-4 \
-  --cmk-id 12345678-1234-1234-1234-12345678abcd
+  --cmk-id 12345678-1234-1234-1234-12345678abcd \
+  my-pg-service
 ```
 
 </TabItem>
@@ -1126,7 +1152,7 @@ the updated service:
 #### Command
 
 ```bash
-avn service update --project PROJECT_NAME --service-name SERVICE_NAME --cmk-id CMK_ID
+avn service update --project PROJECT_NAME --cmk-id CMK_ID SERVICE_NAME
 ```
 
 #### Parameters
@@ -1134,7 +1160,6 @@ avn service update --project PROJECT_NAME --service-name SERVICE_NAME --cmk-id C
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `--project` | String | True | Project name |
-| `--service-name` | String | True | Service name |
 | `--cmk-id` | String | False | Customer managed key (CMK) identifier. Pass `00000000-0000-0000-0000-000000000000` to remove the CMK association. |
 
 #### Sample request (change CMK)
@@ -1142,8 +1167,8 @@ avn service update --project PROJECT_NAME --service-name SERVICE_NAME --cmk-id C
 ```bash
 avn service update \
   --project my-project \
-  --service-name my-pg-service \
-  --cmk-id 87654321-4321-4321-4321-87654321dcba
+  --cmk-id 87654321-4321-4321-4321-87654321dcba \
+  my-pg-service
 ```
 
 #### Sample request (remove CMK association)
@@ -1151,8 +1176,8 @@ avn service update \
 ```bash
 avn service update \
   --project my-project \
-  --service-name my-pg-service \
-  --cmk-id 00000000-0000-0000-0000-000000000000
+  --cmk-id 00000000-0000-0000-0000-000000000000 \
+  my-pg-service
 ```
 
 </TabItem>
@@ -1243,21 +1268,39 @@ If the service is not using a CMK, the `cmk_id` field is `null`:
 #### Command
 
 ```bash
-avn service get --project PROJECT_NAME --service-name SERVICE_NAME
+avn service get --project PROJECT_NAME SERVICE_NAME
 ```
 
 #### Sample output
 
-Table format:
+The output is always in the JSON format:
 
-```text
-service_name     service_type  state    cmk_id
-===============  ============  =======  ====================================
-my-pg-service    pg            RUNNING  12345678-1234-1234-1234-12345678abcd
+```json
+{
+  "service": {
+    "service_name": "my-pg-service",
+    "service_type": "pg",
+    "plan": "startup-4",
+    "state": "RUNNING",
+    "cmk_id": "12345678-1234-1234-1234-12345678abcd"
+  }
+}
 ```
 
 If no CMK is associated with the service, the `cmk_id` value is empty or `null` in JSON
-output.
+output:
+
+```json
+{
+  "service": {
+    "service_name": "my-mysql-service",
+    "service_type": "mysql",
+    "plan": "startup-4",
+    "state": "RUNNING",
+    "cmk_id": null
+  }
+}
+```
 
 </TabItem>
 </Tabs>
