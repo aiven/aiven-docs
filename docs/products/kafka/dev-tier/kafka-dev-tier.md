@@ -46,7 +46,7 @@ A Developer tier service includes:
 
 ### Automate workflows with Skills
 
-**Skills** are ready-to-run workflows that automate common Kafka tasks, such as:
+Skills are ready-to-run workflows that automate common Kafka tasks, such as:
 
 - Creating a Kafka service and configuring it end-to-end.
 - Creating topics, users, and permissions.
@@ -77,7 +77,7 @@ The following specifications apply to Developer tier services.
 | Partitions                      | Up to 100 per topic and 2000 max across the service      |
 | Replication factor              | 1                                                         |
 | Metadata mode                   | KRaft                                                     |
-| Retention                       | 1 day: $29, 3 days: $59, 5 days: $79, or 7 days: $99       |
+| Retention                       | 1-7 days. Pricing varies by option and is shown in the Aiven Console|
 | Storage                         | Fixed local storage per node                              |
 | Kafka Connect                   | Optional service, billed separately                        |
 | Cloud                           | Geographical region in the Aiven Console. Pricing varies by cloud |
