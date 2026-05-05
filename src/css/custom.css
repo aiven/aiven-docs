@@ -60,7 +60,7 @@
   /* Primary CTA: teal (light); dark theme overrides below */
   --nav-btn-primary-bg-hover: var(--aiven-primary-teal-500);
   --nav-btn-primary-bg: var(--aiven-brand-teal);
-  --nav-btn-primary-text-color: var(--aiven-brand-white);
+  --nav-btn-primary-text-color: var(--aiven-brand-near-black);
   --nav-btn-primary-text-color-hover: var(--aiven-brand-white);
   /* Outline secondary: dark on light surfaces (navbar) */
   --aiven-button-secondary-fg: var(--aiven-brand-near-black);
