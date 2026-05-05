@@ -1,36 +1,97 @@
 :root {
-  --aiven-grey-0: rgba(247, 247, 250, 1);
-  --aiven-grey-05-2: rgba(237, 237, 240, 1);
-  --aiven-grey-05: rgba(237, 237, 240, 1);
-  --aiven-grey-10: rgba(225, 225, 227, 1);
-  --aiven-grey-20: rgba(210, 210, 214, 1);
-  --aiven-grey-30: rgba(180, 180, 187, 1);
-  --aiven-grey-40: rgba(150, 150, 160, 1);
-  --aiven-grey-50: rgba(120, 120, 133, 1);
-  --aiven-grey-60: rgba(90, 91, 106, 1);
-  --aiven-grey-70: rgba(74, 75, 87, 1);
-  --aiven-grey-80: rgba(58, 58, 68, 1);
-  --aiven-grey-90: rgba(41, 42, 49, 1);
-  --aiven-grey-100: rgba(25, 25, 29, 1);
-  --aiven-grey-primary: rgb(24, 26, 36);
-  --aiven-blue-5: rgb(207, 238, 252);
-  --aiven-blue-10: rgb(127, 209, 247);
-  --aiven-blue-20: rgb(76, 194, 247);
-  --aiven-blue-30: rgb(40, 180, 244);
-  --aiven-blue-100: #02569a;
-  --aiven-primary-05: rgba(243, 246, 255, 1);
-  --aiven-primary-10: rgba(227, 233, 255, 1);
-  --aiven-primary-40: rgba(185, 197, 239, 1);
-  --aiven-primary-60: rgba(129, 142, 236, 1);
-  --aiven-primary-70: rgba(88, 101, 205, 1);
-  --aiven-primary-80: rgba(53, 69, 190, 1);
-  --aiven-primary-90: rgba(34, 47, 149, 1);
-  --aiven-primary-100: rgba(14, 22, 82, 1);
-  --aiven-orange-5: rgba(255, 243, 232, 1);
-  --aiven-orange-90: rgba(240, 77, 0, 1);
-  --aiven-primary-orange: rgba(255, 82, 0, 1);
-  --aquarium-colors-info-70: #0399e3;
-  --aquarium-colors-error-70: #d80005;
-  --aquarium-colors-success-70: #00b300;
-  --aquarium-colors-warning-90: #ff9003;
+  /* Canonical brand palette (Aiven brand guide) */
+  --aiven-brand-green: #5ffa74;
+  --aiven-brand-teal: #2ed0cd;
+  --aiven-brand-deep-blue: #6f64ff;
+  --aiven-brand-light-blue: #59d2f4; /* = light blue 300 */
+  --aiven-brand-purple: #df56f2;
+  --aiven-brand-yellow: #ffe55e;
+  --aiven-brand-red: #f85149;
+  --aiven-brand-orange: #ff965e;
+  --aiven-brand-near-black: #05080f;
+  --aiven-brand-white: #ffffff;
+
+  /* Light blue ramp (brand “Deep blue” / light blue scale) */
+  --aiven-light-blue-000: #ecfcff;
+  --aiven-light-blue-100: #d0f4fd;
+  --aiven-light-blue-200: #a7e8fa;
+  --aiven-light-blue-300: #59d2f4;
+  --aiven-light-blue-400: #27bbe9;
+  --aiven-light-blue-500: #0b9ecf;
+  --aiven-light-blue-600: #0c7dae;
+  --aiven-light-blue-700: #076188;
+  --aiven-light-blue-800: #184561;
+  --aiven-light-blue-900: #0a2c42;
+
+  /* Deep blue partial ramp */
+  --aiven-deep-blue-000: #ecefff;
+  --aiven-deep-blue-100: #dde2ff;
+  --aiven-deep-blue-200: #c2c9ff;
+  --aiven-deep-blue-300: #9ca5ff;
+  --aiven-deep-blue-400: #8a8aff;
+
+  /* Neutrals — derived from Near Black for surfaces and type */
+  --aiven-grey-0: #f4f5f7;
+  --aiven-grey-05-2: #eceef2;
+  --aiven-grey-05: #e4e6ec;
+  --aiven-grey-10: #d8dbe3;
+  --aiven-grey-20: #c5c9d4;
+  --aiven-grey-30: #9ca2b3;
+  --aiven-grey-40: #757c90;
+  --aiven-grey-50: #5a6278;
+  --aiven-grey-60: #454c60;
+  --aiven-grey-70: #353b4d;
+  --aiven-grey-80: #252a3a;
+  --aiven-grey-90: #161a28;
+  --aiven-grey-100: #0d1018;
+  --aiven-grey-300: #D6D6D6;
+  --aiven-grey-primary: #05080f;
+
+  /* Legacy blue aliases — map to brand light blue ramp (cards, borders) */
+  --aiven-blue-5: var(--aiven-light-blue-000);
+  --aiven-blue-10: var(--aiven-light-blue-100);
+  --aiven-blue-20: var(--aiven-light-blue-200);
+  --aiven-blue-30: var(--aiven-light-blue-300);
+  --aiven-blue-100: var(--aiven-light-blue-700);
+
+  /* Primary ramp — Aiven Green; darker stops for accessible links and buttons */
+  --aiven-primary-05: #ecfdf0;
+  --aiven-primary-10: #dff8e4;
+  --aiven-primary-40: #86f49a;
+  --aiven-primary-50: #6ef085;
+  --aiven-primary-60: #5ffa74;
+  --aiven-primary-70: #34d957;
+  --aiven-primary-80: #198f34;
+  --aiven-primary-90: #126f28;
+  --aiven-primary-100: #0a4016;
+  --aiven-primary-300: #8DFF9C;
+
+  /* Primary ramp — Aiven Teal */
+  --aiven-primary-teal-000: #f0fefe;
+  --aiven-primary-teal-100: #d9f9f8;
+  --aiven-primary-teal-200: #b7f2f1;
+  --aiven-primary-teal-300: #75e6e4;
+  --aiven-primary-teal-400: #2ed0cd;
+  --aiven-primary-teal-500: #1bb2b0;
+  --aiven-primary-teal-600: #007b78;
+  --aiven-primary-teal-700: #004a48;
+  --aiven-primary-teal-800: #003130;
+  --aiven-primary-teal-900: #001a19;
+
+  /* Accent orange — CTAs (from brand Orange) */
+  --aiven-orange-5: #fff5ed;
+  --aiven-orange-90: #e86830;
+  --aiven-primary-orange: #ff965e;
+
+  /* Terraform Provider - Hashicorp's brand purple */
+  --aiven-terraform-provider-purple: #7B42BC;
+
+  /* Semantic colors used in admonitions and UI accents */
+  --aquarium-colors-info-70: #198f34;
+  --aquarium-colors-error-70: #f85149;
+  --aquarium-colors-success-70: #1fa84a;
+  --aquarium-colors-warning-90: #e67300;
+
+  /* `.release-badge` (Early / Limited) — single place to tune label color */
+  --aiven-badge-label-color: var(--aiven-grey-70);
 }

@@ -14,8 +14,12 @@
   border: solid 1px var(--aiven-card-border);
 }
 
+:global(html[data-theme='dark']) .card a {
+  color: var(--aiven-brand-white);
+}
+
 .icon svg {
-  color: var(--ifm-link-color);
+  color: var(--card-icon-color, var(--aiven-brand-teal));
   max-width: 25px;
   max-height: 25px;
   margin-bottom: 12px;
@@ -26,6 +30,16 @@
   font-weight: 600;
   line-height: 1.6rem;
   margin-bottom: 0.8rem;
+}
+
+/* Product highlight option 1: dark text on brand fill; sharp corners (brand / web). */
+.titlePill {
+  background-color: var(--card-title-pill-bg);
+  color: var(--aiven-brand-near-black);
+  padding: 0.12em 0.4em;
+  border-radius: 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .card a:hover,

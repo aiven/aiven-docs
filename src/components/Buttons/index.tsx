@@ -6,7 +6,9 @@ import Link from '@docusaurus/Link';
 export default function Button({children, to}): ReactElement {
   return (
     <p>
-      <Link to={to} className={clsx(styles.button, styles.buttonPrimary)}>
+      <Link
+        to={to}
+        className={clsx('aiven-btn-link', styles.button, styles.buttonPrimary)}>
         {children}
       </Link>
     </p>
@@ -16,7 +18,9 @@ export default function Button({children, to}): ReactElement {
 export function ButtonSecondary({children, to}): ReactElement {
   return (
     <p>
-      <Link to={to} className={clsx(styles.button, styles.buttonSecondary)}>
+      <Link
+        to={to}
+        className={clsx('aiven-btn-link', styles.button, styles.buttonSecondary)}>
         {children}
       </Link>
     </p>

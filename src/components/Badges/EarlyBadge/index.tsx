@@ -14,7 +14,7 @@ export default function EarlyBadge(): JSX.Element {
         data-tooltip-id={tooltipId}
         data-tooltip-content="Early availability features and services are available for testing and may change."
         data-tooltip-place="top"
-        className={clsx(stylesGeneric.badge, styles.badge)}>
+        className={clsx('release-badge', stylesGeneric.badge, styles.badge)}>
         Early availability
       </a>
       <Tooltip id={tooltipId} />

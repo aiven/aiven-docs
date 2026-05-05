@@ -6,7 +6,7 @@ sidebar_label: Get started
 import Button from "@site/src/components/Buttons";
 import {ButtonSecondary} from "@site/src/components/Buttons";
 import Card from "@site/src/components/Card";
-import Overview from "@site/static/images/content/platform/platform-overview.png";
+import Marketecture from "@site/static/images/content/platform/Marketecture Master EDIT.svg";
 import GridContainer from "@site/src/components/GridContainer";
 import AI from "@site/static/images/logos/star-ai.svg";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
@@ -22,7 +22,12 @@ security, and observability in one unified control plane. You can access the pla
 through the Aiven Console, Aiven API, Aiven Provider for Terraform, Aiven CLI, and
 Aiven Operator for Kubernetes®.
 
-<img src={Overview} className="centered" alt="Illustration of the platform" width="54%" />
+<Marketecture
+  className="centered"
+  width="54%"
+  role="img"
+  aria-label="Illustration of the platform"
+/>
 
 ## Try the Aiven Platform for free
 
@@ -92,6 +97,7 @@ Set up your organization and create your first service.
   <Card
     to="https://github.com/aiven/terraform-provider-aiven/blob/main/examples/organization/README.md"
     iconName="terraform"
+    iconColor="var(--aiven-terraform-provider-purple)"
     title="Organization setup with Terraform"
     description="Follow an example to set up your organization using
     the Aiven Provider for Terraform."
@@ -176,6 +182,7 @@ Add users to groups to streamline access management to your Aiven projects and s
   <Card
     to="https://github.com/aiven/terraform-provider-aiven/tree/main/examples/get-started"
     iconName="terraform"
+    iconColor="var(--aiven-terraform-provider-purple)"
     title="Create and assign groups with Terraform"
     description="Follow an example to create a user group and give it access to
     a project."
@@ -269,6 +276,7 @@ Aiven Terraform Provider or
      <Card
       to="https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/examples"
       iconName="terraform"
+      iconColor="var(--aiven-terraform-provider-purple)"
       title="Aiven Provider for Terraform examples"
     />
     <Card

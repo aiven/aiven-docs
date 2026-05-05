@@ -1,9 +1,10 @@
 .alert {
   --ifm-alert-background-color: var(--aiven-adm-bg-note);
-  border-left: 0px;
+  --ifm-alert-border-color: var(--aiven-adm-icon-note);
+  border-left: 4px solid var(--ifm-alert-border-color);
   border-radius: 4px;
-  --ifm-link-color: var(--aiven-adm-link-color);
-  --ifm-link-hover-color: var(--aiven-primary-70);
+  --ifm-link-color: var(--aiven-inline-link-color);
+  --ifm-link-hover-color: var(--aiven-inline-link-hover-color);
   --ifm-link-decoration: none;
   padding: 12px;
 }
@@ -14,7 +15,7 @@
   font-family: Inter;
   color: var(--aiven-adm-title-color);
   text-transform: capitalize;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .alert>div:first-child>span {
@@ -23,9 +24,18 @@
 }
 
 .alert>div:first-child>span>svg {
-  /* Icon */
+  /* Icon — default / unscoped variants; note uses .alert--secondary below */
   height: 1em;
-  fill: var(--aquarium-colors-info-70);
+  fill: var(--aiven-adm-icon-note);
+}
+
+/* :::note → alert--secondary */
+.alert--secondary {
+  --ifm-alert-border-color: var(--aiven-adm-icon-note);
+}
+
+.alert--secondary > div:first-child > span > svg {
+  fill: var(--aiven-adm-icon-note);
 }
 
 .alert>div:last-child {
@@ -36,26 +46,30 @@
 
 .alert--success {
   --ifm-alert-background-color: var(--aiven-adm-bg-tip);
+  --ifm-alert-border-color: var(--aiven-adm-icon-tip);
 }
 
-.alert--success>div:first-child>span>svg {
-  fill: var(--aquarium-colors-success-70);
+.alert--success > div:first-child > span > svg {
+  fill: var(--aiven-adm-icon-tip);
 }
 
 .alert--warning {
   --ifm-alert-background-color: var(--aiven-adm-bg-warning);
+  --ifm-alert-border-color: var(--aiven-adm-icon-warning);
 }
 
-.alert--warning>div:first-child>span>svg {
-  fill: var(--aquarium-colors-error-70);
+.alert--warning > div:first-child > span > svg {
+  fill: var(--aiven-adm-icon-warning);
 }
 
 .alert--info {
   --ifm-alert-background-color: var(--aiven-adm-bg-info);
+  --ifm-alert-border-color: var(--aiven-adm-icon-important);
 }
 
-.alert--info>div:first-child>span>svg {
-  fill: var(--aquarium-colors-warning-90);
+/* :::important maps to alert--info in Classic theme */
+.alert--info > div:first-child > span > svg {
+  fill: var(--aiven-adm-icon-important);
 }
 
 .alert a {

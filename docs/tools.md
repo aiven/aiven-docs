@@ -7,6 +7,7 @@ import Card from "@site/src/components/Card";
 import GridContainer from "@site/src/components/GridContainer";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 import AI from "@site/static/images/logos/star-ai.svg";
+import API from "@site/static/images/icons/home/dataflow-03.svg";
 
 You can interact with the Aiven platform with various interfaces and tools that best suit your workflow.
 
@@ -14,6 +15,7 @@ You can interact with the Aiven platform with various interfaces and tools that 
     <Card
         to="/docs/tools/terraform"
         iconName="terraform"
+        iconColor="var(--aiven-terraform-provider-purple)"
         title="Aiven Terraform Provider"
         description="Automate infrastructure provisioning and management on the Aiven Platform."
     />
@@ -25,13 +27,15 @@ You can interact with the Aiven platform with various interfaces and tools that 
     />
     <Card
         to="/docs/tools/api"
-        iconName="tools"
+        iconComponent={API}
+        iconColor="var(--aiven-brand-orange)"
         title="Aiven API"
         description="Programmatically interact with and manage your Aiven infrastructure."
     />
     <Card
         to="/docs/tools/cli"
-        iconName="tools"
+        iconName="console"
+        iconColor="var(--aiven-brand-yellow)"
         title="Aiven CLI"
         description="Manage your Aiven services through the command-line interface."
     />

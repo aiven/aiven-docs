@@ -53,15 +53,39 @@
 .logo {
   padding: 2px;
   margin-right: 16px;
-  background-image: url('/static/images/icons/home/background.svg');
-  background-repeat: no-repeat;
-  background-position: left top;
-  height: 56px;
-  width: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--aiven-primary-orange);
+  flex-shrink: 0;
+}
+
+.logo[data-home-feature-accent='deepBlue'] {
+  color: var(--aiven-brand-deep-blue);
+}
+
+.logo[data-home-feature-accent='lightBlue'] {
+  color: var(--aiven-brand-light-blue);
+}
+
+.logo[data-home-feature-accent='purple'] {
+  color: var(--aiven-brand-purple);
+}
+
+.logo[data-home-feature-accent='yellow'] {
+  color: var(--aiven-brand-yellow);
+}
+
+.logo[data-home-feature-accent='red'] {
+  color: var(--aiven-brand-red);
+}
+
+.logo[data-home-feature-accent='orange'] {
+  color: var(--aiven-brand-orange);
+}
+
+/* Brand yellow is very light on pale surfaces — keep hue, add contrast */
+:global(html[data-theme='light']) .logo[data-home-feature-accent='yellow'] {
+  color: color-mix(in srgb, var(--aiven-brand-yellow) 52%, var(--aiven-brand-near-black) 48%);
 }
 .body {
   color: var(--ifm-color-content);

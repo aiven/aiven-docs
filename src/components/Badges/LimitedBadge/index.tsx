@@ -14,7 +14,7 @@ export default function LimitedBadge(): JSX.Element {
         data-tooltip-id={tooltipId}
         data-tooltip-content="You can try limited availability features and services by contacting the sales team."
         data-tooltip-place="top"
-        className={clsx(stylesGeneric.badge, styles.badge)}>
+        className={clsx('release-badge', stylesGeneric.badge, styles.badge)}>
         Limited availability
       </a>
       <Tooltip id={tooltipId} />
