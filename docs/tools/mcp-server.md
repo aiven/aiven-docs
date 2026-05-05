@@ -11,52 +11,24 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import MCPConfigSection from "@site/src/components/MCPConfigSection";
 import CursorConfigTab from "@site/src/components/CursorConfigTab";
 
-Aiven offers two Model Context Protocol (MCP) servers for use with AI assistants:
-
-- **[Aiven MCP server](#aiven-mcp-server)** (<LimitedBadge/>): Create and manage Aiven
-  services directly from AI assistants such as Cursor and Claude Code. Use this to
-  create services like PostgreSQL® and Apache Kafka®, deploy apps, run
-  queries, and manage your resources.
-- **[Documentation MCP server](#documentation-mcp-server)**: Access Aiven
-  documentation from MCP-compatible clients. Use this to get answers about
-  Aiven features and troubleshooting from within your AI assistant.
-
-## Aiven MCP server
-
 :::note
-The Aiven MCP server is in <LimitedBadge/>. Request access during the authentication
-flow when you first connect.
+The Aiven MCP server is in <LimitedBadge/>. Request access when you first connect.
 :::
 
-Use the Aiven MCP server to create and manage Aiven services from AI assistants,
-such as Cursor and Claude Code. You can create, update, and delete Aiven services
-across all supported service types. It also supports browsing available plans and
-pricing, viewing service metrics and logs, and managing service configurations and
-cloud regions. Supported services and features include:
+Create and manage Aiven services from AI assistants such as Cursor and Claude Code,
+including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
+Enable read-only mode in the configuration tabs below to restrict the server to
+non-destructive operations.
 
-- **PostgreSQL®**: Create and manage databases, execute SQL queries,
-  manage PgBouncer connection pools, get AI-powered query optimization
-  recommendations, view query performance statistics, and list available extensions.
-- **Apache Kafka®**: Create and manage topics, produce and consume messages,
-  configure Kafka Connect connectors, browse Schema Registry subjects, and manage
-  connector lifecycle operations including pause, resume, and restart.
-
-To restrict the server to non-destructive operations, you can enable
-read-only mode in the configuration tabs below.
-
-### Authentication
-
-The Aiven MCP server uses OAuth 2.0 with Proof Key for Code Exchange (PKCE) for
-authentication. The first time you use the server, your browser opens so you can sign in
-to Aiven and select your organization. The server refreshes tokens automatically.
-
-### Prerequisites
+## Prerequisites
 
 - An [Aiven account](https://console.aiven.io/signup)
-- An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop, or
-  Visual Studio Code (VS Code)
+- An MCP-compatible client (Cursor, Claude Code, Claude Desktop, or VS Code)
 
-### Configure your MCP client {#configure-aiven-mcp}
+Authentication uses OAuth 2.0 with PKCE; your browser opens on first connect so you
+can sign in and authorize MCP access.
+
+## Install the Aiven MCP {#configure-aiven-mcp}
 
 <Tabs groupId="aiven-mcp-clients">
 <TabItem value="cursor" label="Cursor" default>
@@ -66,35 +38,6 @@ to Aiven and select your organization. The server refreshes tokens automatically
 For more information, see the [Cursor MCP documentation](https://cursor.com/docs/context/mcp).
 
 <br />
-
-#### Alternative: local installation
-
-You can also run the server locally using npx. This requires an
-[Aiven API token](/docs/platform/howto/create_authentication_token).
-
-1. In your project root, create or edit the `.cursor/mcp.json` file.
-1. Add the following configuration:
-
-
-   ```json
-   {
-     "mcpServers": {
-       "aiven-mcp": {
-         "command": "npx",
-         "args": ["-y", "mcp-aiven"],
-         "env": {
-           "AIVEN_TOKEN": "your-token-here",
-           "AIVEN_READ_ONLY": "false"
-         }
-       }
-     }
-   }
-   ```
-
-   Set `AIVEN_READ_ONLY` to `"true"` to enable read-only mode.
-
-1. Replace `your-token-here` with your Aiven API token.
-1. Save the file and restart Cursor.
 
 #### Verify the connection
 
@@ -126,24 +69,6 @@ You can also run the server locally using npx. This requires an
 For more information, see the [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/tutorials/set-up-mcp).
 
 <br />
-
-#### Alternative: local installation
-
-You can also run the server locally using npx. This requires an
-[Aiven API token](/docs/platform/howto/create_authentication_token).
-
-1. Open a terminal.
-1. Run the following command:
-
-
-   ```bash
-   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -- npx -y mcp-aiven
-   ```
-
-   Set `AIVEN_READ_ONLY=true` to enable read-only mode.
-
-1. Replace `your-token-here` with your Aiven API token.
-1. Run `/mcp` in Claude Code to verify the server is registered.
 
 #### Verify the connection
 
@@ -178,35 +103,6 @@ You can also run the server locally using npx. This requires an
 For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/quickstart/user).
 
 <br />
-
-#### Alternative: local installation
-
-You can also run the server locally using npx. This requires an
-[Aiven API token](/docs/platform/howto/create_authentication_token).
-
-1. Open the Claude Desktop configuration file.
-1. Add the following configuration:
-
-
-   ```json
-   {
-     "mcpServers": {
-       "aiven-mcp": {
-         "command": "npx",
-         "args": ["-y", "mcp-aiven"],
-         "env": {
-           "AIVEN_TOKEN": "your-token-here",
-           "AIVEN_READ_ONLY": "false"
-         }
-       }
-     }
-   }
-   ```
-
-   Set `AIVEN_READ_ONLY` to `"true"` to enable read-only mode.
-
-1. Replace `your-token-here` with your Aiven API token.
-1. Save the file and restart Claude Desktop.
 
 #### Verify the connection
 
@@ -246,35 +142,6 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
 
 <br />
 
-#### Alternative: local installation
-
-You can also run the server locally using npx. This requires an
-[Aiven API token](/docs/platform/howto/create_authentication_token).
-
-1. In the `.vscode` directory, create or edit the `mcp.json` file.
-1. Add the following configuration:
-
-
-   ```json
-   {
-     "servers": {
-       "aiven-mcp": {
-         "command": "npx",
-         "args": ["-y", "mcp-aiven"],
-         "env": {
-           "AIVEN_TOKEN": "your-token-here",
-           "AIVEN_READ_ONLY": "false"
-         }
-       }
-     }
-   }
-   ```
-
-   Set `AIVEN_READ_ONLY` to `"true"` to enable read-only mode.
-
-1. Replace `your-token-here` with your Aiven API token.
-1. Save the file and reload VS Code.
-
 #### Verify the connection
 
 1. Open Copilot Chat in VS Code.
@@ -307,13 +174,108 @@ fails, see your client documentation.
 
 <br />
 
-#### Alternative: local installation
+#### Verify the connection
 
-You can also run the server locally using npx. This requires an
-[Aiven API token](/docs/platform/howto/create_authentication_token).
+1. Open your AI assistant.
+1. Try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If your client prompts you to allow tool execution, approve the request.
+
+</TabItem>
+<TabItem value="local" label="Local installation">
+
+Run the server locally using `npx` instead of the hosted server. Requires
+an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
+`AIVEN_READ_ONLY="true"` to enable read-only mode.
+
+<Tabs groupId="aiven-mcp-local-clients">
+<TabItem value="cursor" label="Cursor" default>
+
+1. In your project root, create or edit the `.cursor/mcp.json` file.
+1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
+
+   ```json
+   {
+     "mcpServers": {
+       "aiven-mcp": {
+         "command": "npx",
+         "args": ["-y", "mcp-aiven"],
+         "env": {
+           "AIVEN_TOKEN": "your-token-here",
+           "AIVEN_READ_ONLY": "false"
+         }
+       }
+     }
+   }
+   ```
+
+1. Save the file and restart Cursor.
+
+</TabItem>
+<TabItem value="claude-code" label="Claude Code">
+
+1. Open a terminal.
+1. Run the following command, replacing `your-token-here` with your Aiven API token:
+
+   ```bash
+   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -- npx -y mcp-aiven
+   ```
+
+1. Run `/mcp` in Claude Code to verify the server is registered.
+
+</TabItem>
+<TabItem value="claude-desktop" label="Claude Desktop">
+
+1. Open the Claude Desktop configuration file.
+1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
+
+   ```json
+   {
+     "mcpServers": {
+       "aiven-mcp": {
+         "command": "npx",
+         "args": ["-y", "mcp-aiven"],
+         "env": {
+           "AIVEN_TOKEN": "your-token-here",
+           "AIVEN_READ_ONLY": "false"
+         }
+       }
+     }
+   }
+   ```
+
+1. Save the file and restart Claude Desktop.
+
+</TabItem>
+<TabItem value="vscode" label="VS Code">
+
+1. In the `.vscode` directory, create or edit the `mcp.json` file.
+1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
+
+   ```json
+   {
+     "servers": {
+       "aiven-mcp": {
+         "command": "npx",
+         "args": ["-y", "mcp-aiven"],
+         "env": {
+           "AIVEN_TOKEN": "your-token-here",
+           "AIVEN_READ_ONLY": "false"
+         }
+       }
+     }
+   }
+   ```
+
+1. Save the file and reload VS Code.
+
+</TabItem>
+<TabItem value="other" label="Other clients">
 
 1. Open your MCP client configuration.
-1. Add the following configuration:
+1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
 
    ```json
    {
@@ -329,234 +291,35 @@ You can also run the server locally using npx. This requires an
    }
    ```
 
-1. Replace `your-token-here` with your Aiven API token.
 1. Save the file and restart your client.
-
-#### Verify the connection
-
-1. Open your AI assistant.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If your client prompts you to allow tool execution, approve the request.
 
 </TabItem>
 </Tabs>
 
-### Security and responsibility
+</TabItem>
+</Tabs>
+
+## Security and responsibility
 
 :::important
 MCP tools can perform destructive operations on your Aiven services, including
-creating, modifying, and deleting services, databases, topics, and data. AI agents can
-run operations from natural language prompts that are easy to misinterpret. Using the
-Aiven MCP server can result in damage to or loss of data. Whether to enable MCP access
-is your organization's decision. Evaluate the risks before you grant AI agents access
-to your resources.
+creating, modifying, and deleting services, databases, topics, and data.
+
+AI agents run operations from natural language prompts, which can be
+misinterpreted. Using the Aiven MCP server can result in damage to or loss of data.
+
+Decide whether to enable MCP access in your organization after evaluating the risks.
 :::
 
 Under the [shared responsibility model](https://aiven.io/responsibility-matrix),
 security and compliance for MCP usage are shared between Aiven and your organization.
 Aiven secures the platform and API. You are responsible for the following:
 
-- **Deciding whether to enable MCP** in your organization and evaluating the
+- **Decide whether to enable MCP** in your organization and evaluate the
   associated risks.
-- **Controlling access** by scoping API tokens to the minimum permissions needed
+- **Control access** by scoping API tokens to the minimum permissions needed
   (principle of least privilege) and rotating them regularly.
-- **Reviewing AI agent actions** before they run, especially for write or delete
+- **Review AI agent actions** before they run, especially for write or delete
   operations on production resources.
-- **Configuring MCP servers securely**, including enabling read-only mode (available
-  on the configuration tabs above) to restrict the server to non-destructive operations.
-
-## Documentation MCP server
-
-The Aiven documentation MCP server lets you access Aiven documentation from MCP-compatible
-clients. The server is hosted by [Kapa](https://docs.kapa.ai/integrations/mcp/overview)
-and retrieves content from the latest published documentation.
-
-### Prerequisites {#docs-prerequisites}
-
-- An MCP-compatible client
-- A Google account for authentication (required by some clients)
-
-### MCP server URL {#docs-server-url}
-
-Use the following server URL when configuring your client:
-
-```text
-https://aiven-docs.mcp.kapa.ai
-```
-
-### Configure your MCP client {#configure-docs-mcp}
-
-<Tabs groupId="docs-mcp-clients">
-<TabItem value="cursor" label="Cursor" default>
-
-1. In your project root, create or edit the `.cursor/mcp.json` file.
-1. Add the following configuration:
-
-   ```json
-   {
-     "mcpServers": {
-       "aiven-docs": {
-         "type": "http",
-         "url": "https://aiven-docs.mcp.kapa.ai"
-       }
-     }
-   }
-   ```
-
-1. Save the file.
-1. Restart Cursor.
-1. Open **Settings** > **Tools & MCP**.
-1. Select **aiven-docs** and click **Connect**.
-1. Sign in with your Google account when prompted.
-
-For more information, see the [Cursor MCP documentation](https://cursor.com/docs/context/mcp).
-
-</TabItem>
-<TabItem value="claude-code" label="Claude Code">
-
-1. Open a terminal.
-1. Run the following command:
-
-   ```bash
-   claude mcp add --transport http aiven-docs https://aiven-docs.mcp.kapa.ai
-   ```
-
-1. Sign in with your Google account when prompted.
-1. Run `/mcp` in Claude Code to verify the server is registered.
-
-For more information, see the [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/tutorials/set-up-mcp).
-
-</TabItem>
-<TabItem value="claude-desktop" label="Claude Desktop">
-
-1. Open the Claude Desktop configuration file. If it does not exist, create it:
-
-   - **macOS:**
-     `~/Library/Application Support/Claude/claude_desktop_config.json`
-
-   - **Windows:**
-     `%APPDATA%\Claude\claude_desktop_config.json`
-
-1. Add the following to the configuration file:
-
-   ```json
-   {
-     "mcpServers": {
-       "aiven-docs": {
-         "type": "http",
-         "url": "https://aiven-docs.mcp.kapa.ai"
-       }
-     }
-   }
-   ```
-
-1. Save the file.
-1. Restart Claude Desktop.
-1. Sign in with your Google account when prompted.
-
-For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/quickstart/user).
-
-</TabItem>
-<TabItem value="vscode" label="VS Code">
-
-:::note
-Requires VS Code 1.102 or later with the GitHub Copilot extension installed
-and enabled.
-:::
-
-1. Open your workspace in VS Code.
-1. In the workspace root, create a `.vscode` directory.
-1. In the `.vscode` directory, create or edit the `mcp.json` file.
-1. Add the following configuration:
-
-   ```json
-   {
-     "servers": {
-       "aiven-docs": {
-         "type": "http",
-         "url": "https://aiven-docs.mcp.kapa.ai"
-       }
-     }
-   }
-   ```
-
-1. Save the file.
-1. Reload VS Code.
-1. Open the Command Palette and run **MCP: List Servers**.
-1. Confirm that **aiven-docs** appears in the list.
-1. Sign in with your Google account when prompted.
-
-For more information, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
-
-</TabItem>
-<TabItem value="chatgpt-web" label="ChatGPT (Web)">
-
-:::note
-ChatGPT UI labels and navigation may change. Refer to the
-[OpenAI documentation](https://developers.openai.com/api/docs/guides/developer-mode)
-if the steps do not match your interface.
-:::
-
-1. Open ChatGPT in a web browser.
-1. Click **Settings**.
-1. Select **Apps**, then select **Advanced settings**.
-1. Click the **Developer mode** toggle.
-1. Select **Apps** > **Create app**.
-1. Enter the following:
-   - **Name:** Aiven
-   - **Description (optional):** Aiven documentation MCP server
-   - **MCP Server URL:** `https://aiven-docs.mcp.kapa.ai`
-1. Click **Create**.
-1. Sign in with your Google account when prompted.
-1. Confirm that **Aiven** appears under **Settings** > **Apps**.
-
-For more information, see the [OpenAI Developer mode documentation](https://developers.openai.com/api/docs/guides/developer-mode).
-
-</TabItem>
-<TabItem value="other" label="Other clients">
-
-1. Open your MCP client configuration.
-1. Add the Aiven documentation MCP server using the following URL:
-
-   ```text
-   https://aiven-docs.mcp.kapa.ai
-   ```
-
-Most clients accept a configuration similar to:
-
-```json
-{
-  "mcpServers": {
-    "aiven-docs": {
-      "url": "https://aiven-docs.mcp.kapa.ai"
-    }
-  }
-}
-```
-
-1. Save the file and restart your client.
-1. Sign in with your Google account when prompted.
-
-Some clients require specifying the transport type, for example `"type": "http"`. Refer
-to your client documentation if the configuration fails.
-
-</TabItem>
-</Tabs>
-
-### Verify the connection {#verify-docs-mcp}
-
-After connecting the MCP server:
-
-1. Open your AI client, such as Copilot Chat in VS Code or Chat in Cursor.
-1. Ask a question about Aiven documentation, such as:
-
-   - How do I create a topic in Aiven for Apache Kafka®?
-   - How do I migrate snapshot data to Aiven for OpenSearch®?
-
-1. If prompted to allow tool execution, click **Allow**.
-1. Confirm that the response includes references to Aiven documentation.
-
-If the response includes references to Aiven documentation, the MCP server is connected.
+- **Configure MCP servers securely**, including enabling read-only mode to
+  restrict the server to non-destructive operations.

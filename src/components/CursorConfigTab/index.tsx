@@ -20,7 +20,8 @@ export default function CursorConfigTab({ baseUrl }: CursorConfigTabProps): JSX.
 
   return (
     <div className={styles.container}>
-      <a href={deepLink} className={styles.button}>
+      <p>For one-click installation:</p>
+      <a href={deepLink} className={styles.button} key={`cursor-deeplink-${isReadOnly}`}>
         <CursorIcon />
         <span>Add to Cursor</span>
       </a>
