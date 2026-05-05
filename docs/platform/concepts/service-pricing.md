@@ -133,8 +133,8 @@ pricing.
 The Aiven for Valkey Developer tier includes:
 
 -   Single node
--   2 CPUs per virtual machine
--   4 GB RAM
+-   2 CPUs per VM
+-   4 GB RAM per VM
 -   Monitoring for metrics and logs
 -   Backups
 -   [Basic tier support](/docs/platform/howto/support)
