@@ -13,6 +13,18 @@ with services, and view CMK usage across services in Aiven projects using the
 [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api),
 or the [Aiven CLI](/docs/tools/cli).
 
+## Encryption scope
+
+BYOK encrypts the following using your CMKs:
+
+- **Service data at rest**: CMKs protect all data stored by the service.
+- **Data in transit between the service and backups**: Encryption occurs on the service
+  node before data leaves the cluster, so backup transfers use your CMK.
+- **Backups**: All backups created by Aiven services are encrypted with your CMK.
+
+Data in transit between your applications and Aiven services is not encrypted with your
+CMK. Aiven uses self-signed certificates for that connection.
+
 ## Prerequisites
 
 - **Key management service** (KMS) that supports asymmetric RSA 2048 or RSA 4096
