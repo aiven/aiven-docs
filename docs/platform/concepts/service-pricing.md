@@ -130,7 +130,7 @@ pricing.
 
 #### Aiven for Valkey™
 
-The Aiven for Valkey developer tier includes:
+The Aiven for Valkey Developer tier includes:
 
 -   Single node
 -   2 CPUs per virtual machine
@@ -139,7 +139,7 @@ The Aiven for Valkey developer tier includes:
 -   Backups
 -   [Basic tier support](/docs/platform/howto/support)
 
-Limitations of the Aiven for Valkey developer tier are:
+Limitations of the Aiven for Valkey Developer tier are:
 
 -   No choice of cloud provider or specific cloud region
 -   Cannot create services in VPCs
@@ -148,7 +148,7 @@ Limitations of the Aiven for Valkey developer tier are:
 -   No forking
 
 Aiven reserves the right to change the cloud provider, region, or configuration
-of Aiven for Valkey developer tier services at any point in time.
+of Aiven for Valkey Developer tier services at any point in time.
 
 ### Custom plans
 
