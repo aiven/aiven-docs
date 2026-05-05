@@ -142,7 +142,7 @@ The Aiven for Valkey developer tier includes:
 Limitations of the Aiven for Valkey developer tier are:
 
 -   No choice of cloud provider or specific cloud region
--   Cannot create the service in a VPC
+-   Cannot create services in VPCs
 -   No static IPs
 -   No integrations
 -   No forking
