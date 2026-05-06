@@ -880,6 +880,11 @@ For more information or access, contact your account team.
   <tbody>
   <tr>
     <td>Asia-Pacific</td>
+    <td>ap-melbourne-1</td>
+    <td>Australia, Australia Southeast: Melbourne</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
     <td>ap-mumbai-1</td>
     <td>India, India West: Mumbai</td>
   </tr>
@@ -915,6 +920,16 @@ For more information or access, contact your account team.
   </tr>
   <tr>
     <td>Europe</td>
+    <td>eu-milan-1</td>
+    <td>Italy, Italy Northwest: Milan</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-turin-1</td>
+    <td>Italy, Italy Northwest: Turin</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
     <td>uk-london-1</td>
     <td>United Kingdom, UK South: London</td>
   </tr>
@@ -922,6 +937,16 @@ For more information or access, contact your account team.
     <td>Middle East</td>
     <td>me-dubai-1</td>
     <td>UAE, UAE East: Dubai</td>
+  </tr>
+  <tr>
+    <td>Middle East</td>
+    <td>me-jeddah-1</td>
+    <td>Saudi Arabia, Saudi Arabia West: Jeddah</td>
+  </tr>
+  <tr>
+    <td>Middle East</td>
+    <td>me-riyadh-1</td>
+    <td>Saudi Arabia, Saudi Arabia Central: Riyadh</td>
   </tr>
   <tr>
     <td>North America</td>
