@@ -17,13 +17,10 @@ or the [Aiven CLI](/docs/tools/cli).
 
 BYOK encrypts the following using your CMKs:
 
+- **Backups**: All backups created by Aiven services are encrypted with your CMK.
 - **Service data at rest**: CMKs protect all data stored by the service.
 - **Data in transit between the service and backups**: Encryption occurs on the service
   node before data leaves the cluster, so backup transfers use your CMK.
-- **Backups**: All backups created by Aiven services are encrypted with your CMK.
-
-Data in transit between your applications and Aiven services is not encrypted with your
-CMK. Aiven uses self-signed certificates for that connection.
 
 ## Prerequisites
 
@@ -254,8 +251,6 @@ Record the key OCID:
 ```txt
 ocid1.key.oc1.<region>.<hash>
 ```
-
-
 
 ## Manage a project CMK
 
