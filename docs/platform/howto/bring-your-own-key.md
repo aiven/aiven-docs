@@ -28,7 +28,7 @@ CMK. Aiven uses self-signed certificates for that connection.
 ## Prerequisites
 
 - **Key management service** (KMS) that supports asymmetric RSA 2048 or RSA 4096
-  keys in Google Cloud, Oracle Cloud Infrastructure (OCI), or Amazon Web Services (AWS)
+  keys in Google Cloud or Oracle Cloud Infrastructure (OCI)
 
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
   the [Aiven API](/docs/tools/api)
@@ -115,9 +115,6 @@ The output is always in the JSON format:
 
 ```json
 {
-    "aws": {
-        "principal": "arn:aws:iam::012345678901:role/role-name"
-    },
     "gcp": {
         "access_group": "access.example.12345678-1234-1234-1234-123456789abc@aiven.io"
     },
@@ -139,77 +136,6 @@ parameter the `roles/cloudkms.cryptoOperator` role.
 
 Before registering a CMK with Aiven, set up the key and grant Aiven access on your cloud
 provider.
-
-### AWS KMS setup
-
-#### Create a KMS key
-
-Create a symmetric encryption key in AWS KMS:
-
-```bash
-aws kms create-key \
-  --description "Aiven CMK for data-at-rest encryption" \
-  --key-usage ENCRYPT_DECRYPT \
-  --origin AWS_KMS
-```
-
-For customer-managed key material:
-
-```bash
-aws kms create-key \
-  --description "Aiven CMK (customer-imported key material)" \
-  --key-usage ENCRYPT_DECRYPT \
-  --origin EXTERNAL
-```
-
-Record the key ARN from the output:
-
-```txt
-arn:aws:kms:<region>:<account-id>:key/<key-id>
-```
-
-#### Create an alias (optional)
-
-```bash
-aws kms create-alias \
-  --alias-name alias/aiven-cmk \
-  --target-key-id <key-id>
-```
-
-#### Grant Aiven access to your key
-
-1. Get Aiven's IAM role ARN using [List CMK accessors](#list-cmk-accessors).
-1. Update your KMS key policy to allow Aiven to encrypt and decrypt. The policy statement
-   should include:
-
-```json
-{
-  "Sid": "Allow Aiven to use this key for CMK operations",
-  "Effect": "Allow",
-  "Principal": {
-    "AWS": "<aiven-cmk-role-arn>"
-  },
-  "Action": [
-    "kms:Encrypt",
-    "kms:Decrypt"
-  ],
-  "Resource": "*"
-}
-```
-
-Apply the updated key policy:
-
-```bash
-aws kms put-key-policy \
-  --key-id <key-id> \
-  --policy-name default \
-  --policy file://key-policy.json
-```
-
-:::note
-Keep your existing root account statement in the key policy to allow IAM policies in your
-account to manage the key.
-:::
 
 ### Google Cloud KMS setup
 
@@ -344,24 +270,24 @@ Register a customer managed key resource identifier for an Aiven project.
 
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
-| `provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, or `oci` |
-| `resource` | String | True     | CMK reference (key identifier of max 512 characters: AWS ARN, OCI OCID, or Google Cloud resource name) |
+| `provider`   | String | True     | Cloud provider hosting the KMS: `gcp` or `oci` |
+| `resource` | String | True     | CMK reference (key identifier of max 512 characters: OCI OCID or Google Cloud resource name) |
 | `default_cmk` | Boolean | False | Mark this key as default for new service creation |
 
-#### Sample request (AWS)
+#### Sample request (GCP)
 
 ```bash
 curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer AIVEN_API_TOKEN" \
   -d '{
-        "provider": "aws",
-        "resource": "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234",
+        "provider": "gcp",
+        "resource": "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key",
         "default_cmk": true
       }'
 ```
 
-#### Sample response (AWS)
+#### Sample response (GCP)
 
 A successful request returns a `201 CREATED` status code and a JSON object representing
 the newly registered CMK configuration, for example:
@@ -370,9 +296,9 @@ the newly registered CMK configuration, for example:
 {
   "cmk": {
     "id": "12345678-1234-1234-1234-12345678abcd",
-    "provider": "aws",
+    "provider": "gcp",
     "default_cmk": true,
-    "resource": "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234",
+    "resource": "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key",
     "status": "current",
     "created_at": "YYYY-MM-DDTHH:MM:SSZ",
     "updated_at": "YYYY-MM-DDTHH:MM:SSZ"
@@ -385,7 +311,7 @@ the newly registered CMK configuration, for example:
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type, one of `gcp`, `aws`, or `oci` |
+| `provider` | Provider type, one of `gcp` or `oci` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
@@ -406,22 +332,22 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `--project`   | String | True     | Project name |
-| `--provider`   | String | True     | Cloud provider hosting the KMS: `aws`, `gcp`, or `oci` |
-| `--resource` | String | True     | CMK reference (key identifier: AWS ARN, OCI OCID, or Google Cloud resource name) |
+| `--provider`   | String | True     | Cloud provider hosting the KMS: `gcp` or `oci` |
+| `--resource` | String | True     | CMK reference (key identifier: OCI OCID or Google Cloud resource name) |
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 
-#### Sample request (AWS)
+#### Sample request (GCP)
 
 ```bash
 avn project cmks create \
   --project my-project \
-  --provider aws \
-  --resource "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234" \
+  --provider gcp \
+  --resource "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key" \
   --default-cmk
 ```
 
-#### Sample output (AWS)
+#### Sample output (GCP)
 
 Table format:
 
@@ -429,9 +355,9 @@ Table format:
 property      value
 ============  ================================================
 id            12345678-1234-1234-1234-12345678abcd
-provider      aws
+provider      gcp
 default_cmk   True
-resource      arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234
+resource      projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key
 status        current
 created_at    YYYY-MM-DDTHH:MM:SSZ
 updated_at    YYYY-MM-DDTHH:MM:SSZ
@@ -514,7 +440,7 @@ updated CMK configuration, for example:
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type, one of `gcp`, `aws`, or `oci` |
+| `provider` | Provider type, one of `gcp` or `oci` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
