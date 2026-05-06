@@ -52,6 +52,7 @@ target technology. The available sink connectors include:
 - [JDBC sink](https://github.com/aiven/jdbc-connector-for-apache-kafka/blob/master/docs/sink-connector.md)
 - [MongoDB sink (Lenses)](/docs/products/kafka/kafka-connect/howto/mongodb-sink-lenses)
 - [OpenSearch®](/docs/products/kafka/kafka-connect/howto/opensearch-sink)
+- [Salesforce sink connector](/docs/products/kafka/kafka-connect/howto/salesforce-sink-connector)
 - [Snowflake](https://docs.snowflake.com/en/user-guide/kafka-connector)
 - [Splunk](https://github.com/splunk/kafka-connect-splunk)
 - [Stream Reactor Cassandra®](https://docs.lenses.io/5.1/connectors/sinks/cassandrasinkconnector/)
