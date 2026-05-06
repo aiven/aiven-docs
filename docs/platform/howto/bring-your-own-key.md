@@ -274,7 +274,7 @@ Register a customer managed key resource identifier for an Aiven project.
 | `resource` | String | True     | CMK reference (key identifier of max 512 characters: OCI OCID or Google Cloud resource name) |
 | `default_cmk` | Boolean | False | Mark this key as default for new service creation |
 
-#### Sample request (GCP)
+#### Sample request (Google Cloud)
 
 ```bash
 curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
@@ -287,7 +287,7 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
       }'
 ```
 
-#### Sample response (GCP)
+#### Sample response (Google Cloud)
 
 A successful request returns a `201 CREATED` status code and a JSON object representing
 the newly registered CMK configuration, for example:
@@ -337,7 +337,7 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 
-#### Sample request (GCP)
+#### Sample request (Google Cloud)
 
 ```bash
 avn project cmks create \
@@ -347,7 +347,7 @@ avn project cmks create \
   --default-cmk
 ```
 
-#### Sample output (GCP)
+#### Sample output (Google Cloud)
 
 Table format:
 
