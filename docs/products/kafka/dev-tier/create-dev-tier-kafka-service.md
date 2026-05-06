@@ -48,13 +48,13 @@ Use one of the following:
    message in the **Cloud** section of the Aiven Console.
    :::
 
-1. In **Retention**, select a retention period between **1 day** and **7 days**.
+1. In **Retention**, select a retention period between **1 day** and **3 days**.
 
    :::note
    Your estimated monthly cost depends on **retention**, **Cloud**, and geographical
    region. Check the **Service summary** for the price that applies to your selections.
 
-   Retention options are 1 day, 3 days, 5 days, or 7 days, with pricing adjusted
+   Retention options are 1 day, 2 days, or 3 days, with pricing adjusted
    accordingly.
    :::
 
@@ -129,7 +129,7 @@ If your Kafka service is integrated with a Kafka Connect service:
 - After upgrading Kafka, upgrade the Kafka Connect service to the same tier
   before powering it on again.
 
-Both services must run on the same tier.
+Run both services on the same tier.
 
 For details, see
 [Kafka and Kafka Connect tier compatibility](/docs/products/kafka/dev-tier/kafka-dev-tier#kafka-and-kafka-connect-tier-compatibility).

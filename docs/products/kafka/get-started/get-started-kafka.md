@@ -5,12 +5,30 @@ sidebar_label: Get started
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
-Create a managed Apache Kafka® service on Aiven, use the Free tier where it fits your workload, and send sample data to verify end-to-end streaming.
+Create a managed Apache Kafka® service on Aiven.
+Choose the tier and deployment model that fit your workload, then send sample data
+to verify end-to-end streaming.
 
 ## Prerequisites
 
 - Create an Aiven account and sign in to the [Aiven Console](https://console.aiven.io).
 - Create or select an Aiven project with permission to create services.
+
+## Choose your path
+
+Choose one of the following paths based on your workload and platform
+needs:
+
+- Start with [Free tier](#free-tier) for no-cost, low-throughput Kafka
+  workloads.
+- Use [Developer tier](#developer-tier) for paid development and smaller
+  production workloads.
+- Create [Inkless Kafka](#create-an-inkless-kafka-service) for
+  cloud-object-storage-backed topics.
+- Create [Classic Kafka](#create-a-classic-kafka-service) for fixed plans
+  with local broker storage.
+- Use [Skills](#set-up-a-kafka-service-using-skills) for command-line
+  setup and configuration.
 
 ## Free tier
 
@@ -38,7 +56,7 @@ For limits, pricing, Karapace, Connect, integrations, and upgrades, see
 Manage the service in the console, CLI, API, or with
 [Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
 
-**Continue with:** [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
+**Continue with:** [Create a Kafka service using the Developer tier](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
 
 ## Create an Inkless Kafka service
 
@@ -47,7 +65,7 @@ storage rather than on local disks. Compute capacity is sized based on stream lo
 of fixed hardware plans.
 
 - Select **Inkless** as the service type.
-- Choose **Aiven cloud** or **Bring your own cloud (BYOC)** as the deployment mode.
+- Select **Aiven cloud** or **Bring your own cloud (BYOC)** as the deployment mode.
 - On Aiven cloud, select **AWS**, **Google**, or **Azure** and a region;
   then provide expected ingress, egress, and retention to estimate capacity and cost.
 - On BYOC, select the BYOC environment, region, and an Inkless plan.
@@ -60,7 +78,7 @@ Classic Kafka uses fixed plans with local broker storage. Tiered storage is avai
 supported plans and cloud providers.
 
 - Select **Classic Kafka** as the service type.
-- Choose **Aiven cloud** or **BYOC** as the deployment mode.
+- Select **Aiven cloud** or **BYOC** as the deployment mode.
 - Select a plan that defines compute, memory, and storage.
 - Optionally adjust disk capacity, enable tiered storage, and select the Kafka version.
 

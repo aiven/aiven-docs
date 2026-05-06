@@ -70,14 +70,14 @@ The following specifications apply to Developer tier services.
 
 | Specification                   | Developer tier                                            |
 |---------------------------------|-----------------------------------------------------------|
-| Price                           | Starts at $29 per month for 1 day retention; pricing varies by Cloud and geographical region |
+| Price                           | Starts at $35 per month for 1 day retention; pricing varies by cloud and geographical region |
 | Nodes                           | 2                                                         |
 | Throughput                      | 1 MB/s ingress, 2 MB/s egress                             |
 | Topics                          | Up to 20                                                  |
 | Partitions                      | Up to 100 per topic and 2000 max across the service      |
 | Replication factor              | 1                                                         |
 | Metadata mode                   | KRaft                                                     |
-| Retention                       | 1-7 days. Pricing varies by option and is shown in the Aiven Console|
+| Retention                       | 1, 2, or 3 days. Pricing varies by option and is shown in the Aiven Console |
 | Storage                         | Fixed local storage per node                              |
 | Kafka Connect                   | Optional service, billed separately                        |
 | Cloud                           | Geographical region in the Aiven Console. Pricing varies by cloud |
@@ -85,7 +85,7 @@ The following specifications apply to Developer tier services.
 | Upgrade                         | To a Professional tier from the Aiven Console             |
 | Downgrade to Free tier          | Not supported                                             |
 
-Developer tier pricing depends on retention, **Cloud**, and geographical region. Review
+Developer tier pricing depends on retention, cloud, and geographical region. Review
 current pricing during service creation in the [Aiven Console](https://console.aiven.io)
 and on [Aiven for Apache Kafka® pricing](https://aiven.io/pricing?product=kafka).
 
@@ -96,14 +96,14 @@ a Professional plan in the [Aiven Console](https://console.aiven.io).
 
 | Feature                         | Free                              | Developer                     | Professional                 |
 |---------------------------------|-----------------------------------|-------------------------------|------------------------------|
-| Price                           | $0                                | Starts at $29 per month       | Varies by plan               |
+| Price                           | $0                                | Starts at $35 per month       | Varies by plan               |
 | Throughput                      | Up to 250 KB/s ingress and egress | 1 MB/s ingress, 2 MB/s egress | Higher, plan-dependent       |
 | Topics                          | Up to 5                           | Up to 20                      | Plan-dependent               |
 | Partitions                      | 1 per topic                       | Up to 100 per topic           | Plan-dependent               |
 | Nodes                           | 1                                 | 2                             | Plan-dependent               |
 | Replication factor              | 1                                 | 1                             | Plan-dependent               |
 | Metadata mode                   | KRaft                             | KRaft                         | KRaft                        |
-| Retention                       | Fixed                             | 1 to 7 days                   | Plan-dependent               |
+| Retention                       | Fixed                             | 1, 2, or 3 days               | Plan-dependent               |
 | Storage                         | Fixed                             | Fixed local storage per node  | Plan-dependent               |
 | SLA                             | None                              | 99%                           | Up to 99.99%, plan-dependent |
 | Kafka Connect                   | Not supported                     | Optional, billed separately   | Full support, plan-dependent |
