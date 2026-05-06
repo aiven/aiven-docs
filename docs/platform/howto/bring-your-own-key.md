@@ -193,15 +193,29 @@ gcloud kms keys add-iam-policy-binding <key-name> \
 #### Create cross-tenancy IAM policies
 
 1. Get Aiven's tenancy OCID and group OCID using [List CMK accessors](#list-cmk-accessors).
-1. Create cross-tenancy IAM policies in your tenancy:
+1. Create cross-tenancy IAM policies in your tenancy to grant Aiven access to the key:
 
 ```bash
 oci iam policy create \
-  --compartment-id <your-tenancy-ocid> \
+  --compartment-id <customer-tenancy-ocid> \
   --name aiven-cmk-access \
   --statements '[
     "define tenancy AivenTenancy as <aiven-tenancy-ocid>",
-    "admit group <aiven-cmk-group-ocid> of tenancy AivenTenancy to use keys in compartment <compartment-name>"
+    "define group AivenCMKGroup as <aiven-cmk-group-ocid>",
+    "admit group AivenCMKGroup of tenancy AivenTenancy to use keys in compartment <compartment-name>"
+  ]'
+```
+
+Optional: Restrict access to a specific key by adding a condition to the `admit` statement:
+
+```bash
+oci iam policy create \
+  --compartment-id <customer-tenancy-ocid> \
+  --name aiven-cmk-access \
+  --statements '[
+    "define tenancy AivenTenancy as <aiven-tenancy-ocid>",
+    "define group AivenCMKGroup as <aiven-cmk-group-ocid>",
+    "admit group AivenCMKGroup of tenancy AivenTenancy to use keys in compartment <compartment-name> where target.key.id = \"<key-ocid>\""
   ]'
 ```
 
@@ -240,6 +254,8 @@ Record the key OCID:
 ```txt
 ocid1.key.oc1.<region>.<hash>
 ```
+
+
 
 ## Manage a project CMK
 
