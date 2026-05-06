@@ -1,6 +1,7 @@
 ---
 title: Create a Salesforce sink connector for Aiven for Apache Kafka®
 sidebar_label: Salesforce sink connector
+early: true
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
