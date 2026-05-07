@@ -103,7 +103,7 @@ Custom keystores are configured in the `user_config` of your Aiven for OpenSearc
 service. Use the following API request to store credentials:
 
 ```bash
-curl -s --url "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/update" \
+curl -s --url "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
   --header "Authorization: Bearer TOKEN" \
   --header "Content-Type: application/json" \
   -X PUT -d '{
