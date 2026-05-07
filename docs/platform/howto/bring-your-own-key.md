@@ -1022,7 +1022,7 @@ Use the `cmk_id` parameter in the service resource to associate a CMK at creatio
 #### Sample configuration
 
 ```terraform
-resource "aiven_cmk" "example_user" {
+resource "aiven_cmk" "example_key" {
   project      = "my-project"
   cmk_provider = "gcp"
   resource     = "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key"
@@ -1033,7 +1033,7 @@ resource "aiven_pg" "example" {
   project                = "my-project"
   service_name           = "my-pg-service"
   plan                   = "startup-4"
-  cmk_id                 = aiven_cmk.example_user.cmk_id
+  cmk_id                 = aiven_cmk.example_key.cmk_id
 }
 ```
 
@@ -1146,7 +1146,7 @@ Update the `cmk_id` parameter in your service resource to change or remove CMK a
 #### Sample configuration (change CMK)
 
 ```terraform
-resource "aiven_cmk" "example_user_new" {
+resource "aiven_cmk" "example_key_new" {
   project      = "my-project"
   cmk_provider = "gcp"
   resource     = "projects/aiven-example/locations/us-central1/keyRings/example-keyring/cryptoKeys/example-key-v2"
@@ -1157,7 +1157,7 @@ resource "aiven_pg" "example" {
   project                = "my-project"
   service_name           = "my-pg-service"
   plan                   = "startup-4"
-  cmk_id                 = aiven_cmk.example_user_new.cmk_id
+  cmk_id                 = aiven_cmk.example_key_new.cmk_id
 }
 ```
 
