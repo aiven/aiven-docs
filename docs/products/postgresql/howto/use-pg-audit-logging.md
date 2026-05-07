@@ -292,7 +292,7 @@ Example: **[OpenSearch Dashboards](/docs/products/opensearch/dashboards/get-star
    1. Apply the filter.
 1. Preview and analyze the logs.
 
-<img src={AuditLogsOpenSearchDashboards} class="image"/>
+<img src={AuditLogsOpenSearchDashboards} class="image" alt="PgAudit logs in OpenSearch Dashboards"/>
 
 :::note
 If the index pattern in OpenSearch Dashboards had been configured before you enabled the
