@@ -817,6 +817,8 @@ const sidebars: SidebarsConfig = {
               label: 'Reference',
               items: [
                 'products/kafka/reference/advanced-params',
+                'products/kafka/reference/advanced-params-inkless-saas',
+                'products/kafka/reference/advanced-params-inkless-saas-topic',
                 'products/kafka/reference/kafka-metrics-prometheus',
               ],
             },
