@@ -58,7 +58,6 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/technical-emails',
                 'platform/howto/view-project-logs',
                 'platform/howto/manage-unassigned-projects',
-                'platform/howto/reactivate-suspended-project',
               ],
             },
             'platform/concepts/carbon-footprint',
@@ -94,6 +93,7 @@ const sidebars: SidebarsConfig = {
             },
             'platform/howto/download-invoices',
             'platform/howto/trial-credits',
+            'platform/howto/reactivate-suspended-project',
           ],
         },
         {
