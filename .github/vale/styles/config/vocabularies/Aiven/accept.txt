@@ -72,6 +72,7 @@ CRD
 CTE
 CTEs
 cron
+crypto
 cutover
 Cutover
 cURL
