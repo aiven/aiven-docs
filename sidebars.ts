@@ -1475,11 +1475,14 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Getting started',
+              link: {
+                id: 'products/opensearch/get-started',
+                type: 'doc',
+              },
               items: [
-                'products/opensearch/get-started',
+                'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/howto/create-free-tier-opensearch',
                 'products/opensearch/howto/sample-dataset',
-                'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/concepts/opensearch-vs-elasticsearch',
               ],
             },
@@ -1501,18 +1504,9 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Index & cluster',
               items: [
-                {
-                  type: 'category',
-                  label: 'Indices',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/concepts/indices',
-                  },
-                  items: [
-                    'products/opensearch/concepts/index-replication',
-                    'products/opensearch/concepts/when-create-index',
-                  ],
-                },
+                'products/opensearch/concepts/indices',
+                'products/opensearch/concepts/index-replication',
+                'products/opensearch/concepts/when-create-index',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/howto/reindex-opensearch',
                 'products/opensearch/howto/set_index_retention_patterns',
