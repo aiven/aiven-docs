@@ -2,23 +2,21 @@
 title: Reactivate suspended projects
 ---
 
-If you have bills past due and didn't set up a payment method, you may
-receive this error when trying to log in to the console:
+If you have bills past due and didn't set up a payment method, your account may be suspended.
 
-```
-ERROR
+When you try to log in with a suspended account, you see the error:
+**Project suspended, access prohibited**.
 
-Project suspended, access prohibited
-```
-
-## Reactivate a suspended project
-
-To get access to the project again, open a support case by emailing
-`support@aiven.io` with the following information:
+To reactivate your account, email the Aiven billing team at
+[billing@aiven.io](mailto:billing@aiven.io) with the following information:
 
 -   Your full name
--   Name of the project
--   Email address associated with the account
+-   The name of your organization
+-   The email address associated with the account
 
-After you regain access, you can
-[provide a payment method](/docs/platform/howto/manage-payment-card) to avoid this issue in the future.
+:::note
+The billing team operates during Finnish business hours.
+:::
+
+To avoid suspensions, [add a payment method](/docs/platform/howto/manage-payment-card)
+to your organization.
