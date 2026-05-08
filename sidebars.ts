@@ -1502,19 +1502,24 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Index & cluster',
+              label: 'Indexing',
               items: [
                 'products/opensearch/concepts/indices',
-                'products/opensearch/concepts/index-replication',
                 'products/opensearch/concepts/when-create-index',
-                'products/opensearch/concepts/shards-number',
                 'products/opensearch/howto/reindex-opensearch',
                 'products/opensearch/howto/set_index_retention_patterns',
-                'products/opensearch/howto/custom-dictionary-files',
-                'products/opensearch/concepts/high-availability-for-opensearch',
-                'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/index-replication',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cluster architecture and replication',
+              items: [
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
                 'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/shards-number',
               ],
             },
             {
@@ -1548,6 +1553,7 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/opensearch-search-and-python',
                     'products/opensearch/howto/opensearch-and-nodejs',
                     'products/opensearch/howto/opensearch-aggregations-and-nodejs',
+                    'products/opensearch/howto/custom-dictionary-files',
                   ],
                 },
               ],
