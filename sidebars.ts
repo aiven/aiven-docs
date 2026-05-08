@@ -1537,6 +1537,7 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/dashboards/get-started',
                     'products/opensearch/dashboards/howto/dev-tools-usage-example',
                     'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                    'products/opensearch/howto/opensearch-alerting-api',
                     'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
                     'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
                   ],
@@ -1560,15 +1561,26 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Service management',
+              label: 'Configuring services',
               items: [
                 'products/opensearch/howto/os-version-upgrade',
-                'products/opensearch/howto/opensearch-alerting-api',
-                'products/opensearch/howto/handle-low-disk-space',
-                'products/opensearch/howto/resolve-shards-too-large',
+                'products/opensearch/reference/advanced-params',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Plugins',
+              items: [
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
-                'products/opensearch/reference/advanced-params',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Troubleshooting',
+              items: [
+                'products/opensearch/howto/handle-low-disk-space',
+                'products/opensearch/howto/resolve-shards-too-large',
                 'products/opensearch/reference/low-space-watermarks',
                 'products/opensearch/reference/opensearch-limitations',
               ],
