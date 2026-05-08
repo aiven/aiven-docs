@@ -9,8 +9,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 The Salesforce sink connector writes records from Apache Kafka® topics to Salesforce objects, such as `Account` or `Contact`.
-It consumes Kafka records, converts them to CSV format, and submits them as Salesforce
-Bulk API 2.0 insert jobs.
+It consumes Kafka records and submits them as Salesforce Bulk API 2.0 insert jobs.
 
 :::note
 The connector provides at-least-once delivery. If records are retried before Kafka
