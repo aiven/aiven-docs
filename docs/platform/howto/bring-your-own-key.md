@@ -192,9 +192,14 @@ gcloud kms keys add-iam-policy-binding <key-name> \
 
 ### Oracle Cloud Infrastructure (OCI) Vault setup
 
+OCI key validation can fail with a generic error when the key region is not available
+for BYOK. If key validation fails after you confirm the key OCID and IAM policy,
+contact Aiven support.
+
 #### Create cross-tenancy IAM policies
 
 1. Get Aiven's tenancy OCID and group OCID using [List CMK accessors](#list-cmk-accessors).
+1. Create the policy in the root compartment of your tenancy.
 1. Create cross-tenancy IAM policies in your tenancy to grant Aiven access to the key:
 
 ```bash
@@ -202,11 +207,13 @@ oci iam policy create \
   --compartment-id <customer-tenancy-ocid> \
   --name aiven-cmk-access \
   --statements '[
-    "define tenancy AivenTenancy as <aiven-tenancy-ocid>",
-    "define group AivenCMKGroup as <aiven-cmk-group-ocid>",
-    "admit group AivenCMKGroup of tenancy AivenTenancy to use keys in compartment <compartment-name>"
+    "define tenancy AT as <aiven-tenancy-ocid>",
+    "define group AG as <aiven-cmk-group-ocid>",
+    "admit group AG of tenancy AT to use keys in tenancy"
   ]'
 ```
+
+All three statements are required. Do not remove the `define group` statement.
 
 Optional: Restrict access to a specific key by adding a condition to the `admit` statement:
 
@@ -215,9 +222,9 @@ oci iam policy create \
   --compartment-id <customer-tenancy-ocid> \
   --name aiven-cmk-access \
   --statements '[
-    "define tenancy AivenTenancy as <aiven-tenancy-ocid>",
-    "define group AivenCMKGroup as <aiven-cmk-group-ocid>",
-    "admit group AivenCMKGroup of tenancy AivenTenancy to use keys in compartment <compartment-name> where target.key.id = \"<key-ocid>\""
+    "define tenancy AT as <aiven-tenancy-ocid>",
+    "define group AG as <aiven-cmk-group-ocid>",
+    "admit group AG of tenancy AT to use keys in tenancy where target.key.id = \"<key-ocid>\""
   ]'
 ```
 
@@ -940,6 +947,8 @@ existing services, or remove CMK associations altogether.
 
 Create a service with a specific CMK by providing the CMK ID in the service creation request.
 
+Set `cloud` to control the cloud region for the new service.
+
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
 
@@ -954,6 +963,7 @@ Create a service with a specific CMK by providing the CMK ID in the service crea
 | `service_name` | String | True | Name of the service |
 | `service_type` | String | True | Type of service (for example, `pg`, `mysql`, `redis`) |
 | `plan` | String | True | Service plan |
+| `cloud` | String | False | Cloud region for the service, for example `google-europe-west3` |
 | `cmk_id` | String | False | Customer managed key (CMK) identifier. If omitted, the
 project's default CMK is used, or Aiven-managed keys if no default is set. |
 
@@ -967,6 +977,7 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/service \
         "service_name": "my-pg-service",
         "service_type": "pg",
         "plan": "startup-4",
+        "cloud": "google-europe-west3",
         "cmk_id": "12345678-1234-1234-1234-12345678abcd"
       }'
 ```
@@ -982,6 +993,7 @@ the newly created service with the CMK association:
     "service_name": "my-pg-service",
     "service_type": "pg",
     "plan": "startup-4",
+    "cloud_name": "google-europe-west3",
     "state": "REBUILDING",
     "cmk_id": "12345678-1234-1234-1234-12345678abcd"
   }
@@ -994,7 +1006,13 @@ the newly created service with the CMK association:
 #### Command
 
 ```bash
-avn service create --project PROJECT_NAME --service-type SERVICE_TYPE --plan PLAN_NAME --cmk-id CMK_ID SERVICE_NAME
+avn service create \
+  --project PROJECT_NAME \
+  --service-type SERVICE_TYPE \
+  --plan PLAN_NAME \
+  --cloud CLOUD_NAME \
+  --cmk-id CMK_ID \
+  SERVICE_NAME
 ```
 
 #### Parameters
@@ -1004,6 +1022,7 @@ avn service create --project PROJECT_NAME --service-type SERVICE_TYPE --plan PLA
 | `--project` | String | True | Project name |
 | `--service-type` | String | True | Type of service (for example, `pg`, `mysql`, `redis`) |
 | `--plan` | String | True | Service plan |
+| `--cloud` | String | False | Cloud region for the service |
 | `--cmk-id` | String | False | Customer managed key (CMK) identifier |
 
 #### Sample request
@@ -1013,6 +1032,7 @@ avn service create \
   --project my-project \
   --service-type pg \
   --plan startup-4 \
+  --cloud google-europe-west3 \
   --cmk-id 12345678-1234-1234-1234-12345678abcd \
   my-pg-service
 ```
@@ -1038,6 +1058,7 @@ resource "aiven_pg" "example" {
   project                = "my-project"
   service_name           = "my-pg-service"
   plan                   = "startup-4"
+  cloud_name             = "google-europe-west3"
   cmk_id                 = aiven_cmk.example_key.cmk_id
 }
 ```
@@ -1101,6 +1122,7 @@ the updated service:
   "service": {
     "service_name": "my-pg-service",
     "service_type": "pg",
+    "cloud_name": "google-europe-west3",
     "state": "REBALANCING",
     "cmk_id": "87654321-4321-4321-4321-87654321dcba"
   }
@@ -1162,6 +1184,7 @@ resource "aiven_pg" "example" {
   project                = "my-project"
   service_name           = "my-pg-service"
   plan                   = "startup-4"
+  cloud_name             = "google-europe-west3"
   cmk_id                 = aiven_cmk.example_key_new.cmk_id
 }
 ```
@@ -1173,6 +1196,7 @@ resource "aiven_pg" "example" {
   project                = "my-project"
   service_name           = "my-pg-service"
   plan                   = "startup-4"
+  cloud_name             = "google-europe-west3"
   cmk_id                 = "00000000-0000-0000-0000-000000000000"
 }
 ```
@@ -1210,6 +1234,7 @@ The service details now include the `cmk_id` field:
     "service_name": "my-pg-service",
     "service_type": "pg",
     "plan": "startup-4",
+    "cloud_name": "google-europe-west3",
     "state": "RUNNING",
     "cmk_id": "12345678-1234-1234-1234-12345678abcd"
   }
@@ -1224,6 +1249,7 @@ If the service is not using a CMK, the `cmk_id` field is `null`:
     "service_name": "my-mysql-service",
     "service_type": "mysql",
     "plan": "startup-4",
+    "cloud_name": "google-europe-west3",
     "state": "RUNNING",
     "cmk_id": null
   }
@@ -1249,6 +1275,7 @@ The output is always in the JSON format:
     "service_name": "my-pg-service",
     "service_type": "pg",
     "plan": "startup-4",
+    "cloud_name": "google-europe-west3",
     "state": "RUNNING",
     "cmk_id": "12345678-1234-1234-1234-12345678abcd"
   }
@@ -1264,6 +1291,7 @@ output:
     "service_name": "my-mysql-service",
     "service_type": "mysql",
     "plan": "startup-4",
+    "cloud_name": "google-europe-west3",
     "state": "RUNNING",
     "cmk_id": null
   }
