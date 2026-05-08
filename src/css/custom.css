@@ -517,3 +517,13 @@ html[data-theme='dark'] .prism-code[class*='language-diff'] .token.inserted {
   color: var(--aiven-brand-green) !important;
   font-style: normal !important;
 }
+/* Agent-readable documentation directive */
+.agent-docs-directive {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

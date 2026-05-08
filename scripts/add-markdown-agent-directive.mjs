@@ -1,0 +1,38 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+const BUILD_DIR = 'build';
+const baseUrl = process.env.BASEURL || '/docs/';
+const llmsTxtUrl = `${baseUrl.replace(/\/$/, '')}/llms.txt`;
+const DIRECTIVE = `> For the complete documentation index, see [llms.txt](${llmsTxtUrl}).\n\n`;
+
+async function findMarkdownFiles(dir) {
+  const entries = await fs.readdir(dir, {withFileTypes: true});
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      files.push(...(await findMarkdownFiles(fullPath)));
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
+const files = await findMarkdownFiles(BUILD_DIR);
+
+for (const file of files) {
+  const content = await fs.readFile(file, 'utf8');
+
+  if (!content.startsWith(DIRECTIVE)) {
+    await fs.writeFile(file, DIRECTIVE + content);
+  }
+}
+
+console.log(
+  `Added markdown agent directive to ${files.length} markdown files.`,
+);
