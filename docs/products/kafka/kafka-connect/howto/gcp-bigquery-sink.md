@@ -171,15 +171,60 @@ For schema evolution, you can also set:
 - `allowNewBigQueryFields`: Add new fields from Kafka schemas to BigQuery tables
 - `allowBigQueryRequiredFieldRelaxation`: Relax `REQUIRED` fields back to `NULLABLE`
 
+If multiple connector tasks or connector instances write to the same BigQuery table,
+you can also set:
+
+- `mediateConcurrentSchemaUpdates`: Retry failed schema updates and check whether another
+  connector already applied the required schema change. Default: `false`
+- `concurrentSchemaUpdateRetryWaitMs`: Time to wait before each retry attempt when
+  `mediateConcurrentSchemaUpdates` is enabled, in milliseconds. Allowed range: `0` to
+  `300000` (up to five minutes). Default: `10000`
+- `concurrentSchemaUpdateMaxRetries`: Maximum number of retry attempts. Default: `3`
+
 :::warning
 Automatic schema evolution reduces control over table definitions and may cause errors
 if message schemas change in ways BigQuery cannot support.
+:::
+
+:::note
+Enable `mediateConcurrentSchemaUpdates` when multiple connector tasks or connector instances
+write to the same BigQuery table and schema evolution is enabled. This setting helps recover
+from concurrent schema update failures, but it does not remove BigQuery limits, including
+limits on table metadata updates.
 :::
 
 For authentication, set:
 
 - `keySource`: Format of the Google Cloud service account key, set to `JSON`
 - `keyfile`: Google Cloud service account key as an escaped string
+
+## Track write attempts for deduplication
+
+To help downstream systems distinguish rows written by different Kafka Connect `put()` attempts,
+enable write-attempt tracking.
+
+Set both of the following:
+
+```json
+{
+  "kafkaDataFieldName": "__kafka",
+  "trackPutAttempts": "true"
+}
+```
+
+When `trackPutAttempts` is enabled, the connector adds a `putAttemptId` field to the Kafka
+metadata struct in each BigQuery row. The connector generates one ULID value for each
+Kafka Connect `put()` call. If Kafka Connect retries the same records in a later `put()` call,
+the retried rows get a different `putAttemptId`.
+
+This setting does not prevent duplicate rows. Use `putAttemptId` with Kafka metadata,
+such as topic, partition, and offset, to support downstream deduplication.
+
+:::important
+If you enable `trackPutAttempts` on an existing BigQuery table that already has a Kafka metadata
+field, also set `allowNewBigQueryFields` to `true`. The connector must add `putAttemptId` as a
+new nullable subfield in the existing metadata `RECORD` schema.
+:::
 
 ## Create a BigQuery sink connector
 
@@ -223,7 +268,7 @@ Parameters:
 
 ### Sink a JSON topic
 
-Suppose you have a topic `iot_measurements` containing JSON messages with an inline schema:
+The topic `iot_measurements` contains JSON messages with an inline schema:
 
 ```json
 {
@@ -267,7 +312,7 @@ For efficiency, prefer Avro format with Karapace Schema Registry.
 
 ### Sink an Avro topic
 
-Suppose you have a topic `students` with messages in Avro format and schemas stored in Karapace.
+The topic `students` contains messages in Avro format, with schemas stored in Karapace.
 
 Connector configuration:
 
@@ -333,4 +378,48 @@ Connector configuration:
 Parameters:
 
 - `useStorageWriteApi`: Enables direct streaming into BigQuery
-- `commitInterval`: Flush interval for Storage Write API batches (in ms)
+- `commitInterval`: Flush interval for Storage Write API batches, in milliseconds
+
+### Enable schema update retries
+
+Use this configuration when multiple connector tasks or connector instances write to the same
+BigQuery table and schema evolution is enabled.
+
+```json
+{
+  "allowNewBigQueryFields": "true",
+  "mediateConcurrentSchemaUpdates": "true",
+  "concurrentSchemaUpdateRetryWaitMs": "10000",
+  "concurrentSchemaUpdateMaxRetries": "3"
+}
+```
+
+Parameters:
+
+- `allowNewBigQueryFields`: Allows the connector to add new fields to BigQuery tables
+- `mediateConcurrentSchemaUpdates`: Enables retry-and-reconcile handling for concurrent schema
+  updates
+- `concurrentSchemaUpdateRetryWaitMs`: Sets the wait time before each retry, in milliseconds
+  (allowed range `0` to `300000`; default `10000`)
+- `concurrentSchemaUpdateMaxRetries`: Sets the maximum number of retry attempts
+
+### Track write attempts
+
+Use this configuration to add write-attempt metadata to BigQuery rows for downstream
+deduplication.
+
+```json
+{
+  "kafkaDataFieldName": "__kafka",
+  "trackPutAttempts": "true"
+}
+```
+
+Parameters:
+
+- `kafkaDataFieldName`: Adds Kafka metadata to BigQuery rows under the specified field name
+- `trackPutAttempts`: Adds a ULID-based `putAttemptId` to the Kafka metadata struct for each
+  `put()` call
+
+If the BigQuery table already exists and has a Kafka metadata field, also set
+`allowNewBigQueryFields` to `true`.
