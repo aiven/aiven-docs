@@ -62,6 +62,8 @@ perform encrypt/decrypt operations on your behalf.
 
 `GET /v1/project/PROJECT_ID/secrets/cmks/accessors`
 
+Reference: [CMKAccessorsList API](https://api.aiven.io/doc/#tag/Secrets/operation/CMKAccessorsList)
+
 #### Path parameters
 
 | Parameter    | Type   | Required | Description |
@@ -85,6 +87,10 @@ for each provider, for example:
   "accessors": {
     "gcp": {
       "access_group": "access.example.12345678-1234-1234-1234-123456789abc@aiven.io"
+    },
+    "oci": {
+      "access_group": "ocid1.group.oc1..abcdABCD....",
+      "access_tenant": "ocid1.tenancy.oc1..abcdABCD...."
     }
   }
 }
@@ -121,7 +127,8 @@ The output is always in the JSON format:
         "access_group": "access.example.12345678-1234-1234-1234-123456789abc@aiven.io"
     },
     "oci": {
-        "access_group": "ocid1.group.oc1..abcdABCD...."
+      "access_group": "ocid1.group.oc1..abcdABCD....",
+      "access_tenant": "ocid1.tenancy.oc1..abcdABCD...."
     }
 }
 ```
@@ -199,6 +206,8 @@ contact Aiven support.
 #### Create cross-tenancy IAM policies
 
 1. Get Aiven's tenancy OCID and group OCID using [List CMK accessors](#list-cmk-accessors).
+   Use OCI `access_tenant` for `<aiven-tenancy-ocid>` and OCI `access_group` for
+   `<aiven-cmk-group-ocid>`.
 1. Create the policy in the root compartment of your tenancy.
 1. Create cross-tenancy IAM policies in your tenancy to grant Aiven access to the key:
 
