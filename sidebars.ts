@@ -1561,28 +1561,28 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Configuring services',
+              label: 'Service management',
               items: [
                 'products/opensearch/howto/os-version-upgrade',
                 'products/opensearch/reference/advanced-params',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Plugins',
-              items: [
-                'products/opensearch/reference/plugins',
-                'products/opensearch/reference/list-of-plugins-for-each-version',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Troubleshooting',
-              items: [
-                'products/opensearch/howto/handle-low-disk-space',
-                'products/opensearch/howto/resolve-shards-too-large',
-                'products/opensearch/reference/low-space-watermarks',
-                'products/opensearch/reference/opensearch-limitations',
+                {
+                  type: 'category',
+                  label: 'Plugins',
+                  items: [
+                    'products/opensearch/reference/plugins',
+                    'products/opensearch/reference/list-of-plugins-for-each-version',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Troubleshooting',
+                  items: [
+                    'products/opensearch/howto/handle-low-disk-space',
+                    'products/opensearch/howto/resolve-shards-too-large',
+                    'products/opensearch/reference/low-space-watermarks',
+                    'products/opensearch/reference/opensearch-limitations',
+                  ],
+                },
               ],
             },
             {
