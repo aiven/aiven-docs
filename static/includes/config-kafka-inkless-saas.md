@@ -913,7 +913,7 @@ import Link from '@docusaurus/Link'
 
             <div className="constraints">
               <ul>
-                  <li>range: <code>-1</code> or between <code>60000</code> and <code>9223372036854775807</code></li>
+                  <li>range: <code>60000</code> - <code>9223372036854775807</code></li>
                   <li>min: <code>-1</code></li>
               </ul>
             </div>

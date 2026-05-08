@@ -80,7 +80,7 @@ import Link from '@docusaurus/Link'
             <div className="constraints">
               <ul>
                 {{#if this.orBetween}}
-                  <li>range: <code>{{this.minimum}}</code> or between <code>{{this.orBetween.[0]}}</code> and <code>{{this.orBetween.[1]}}</code></li>
+                  <li>range: <code>{{this.orBetween.[0]}}</code> - <code>{{this.orBetween.[1]}}</code></li>
                 {{/if}}
                 {{#if this.minimum}}
                   <li>min: <code>{{this.minimum}}</code></li>
