@@ -11,7 +11,7 @@ export default function DocRootWrapper(props: Props): JSX.Element {
 
   return (
     <>
-      <div className="agent-docs-directive">
+      <div className="agent-docs-directive" aria-hidden="true">
         For the complete documentation index, see{' '}
         <a href={llmsTxtUrl} tabIndex={-1}>
           llms.txt

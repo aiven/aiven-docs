@@ -24,15 +24,15 @@ async function findMarkdownFiles(dir) {
 }
 
 const files = await findMarkdownFiles(BUILD_DIR);
+let modified = 0;
 
 for (const file of files) {
   const content = await fs.readFile(file, 'utf8');
 
   if (!content.startsWith(DIRECTIVE)) {
     await fs.writeFile(file, DIRECTIVE + content);
+    modified++;
   }
 }
 
-console.log(
-  `Added markdown agent directive to ${files.length} markdown files.`,
-);
+console.log(`Added directive to ${modified}/${files.length} markdown files.`);

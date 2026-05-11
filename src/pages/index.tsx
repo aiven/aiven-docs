@@ -53,19 +53,7 @@ export default function Home(): JSX.Element {
         siteConfig.tagline +
         '. One unified platform to stream, store, and serve data on any cloud.'
       }>
-      <div
-        className="agent-docs-directive"
-        style={{
-          position: 'absolute',
-          width: '1px',
-          height: '1px',
-          padding: 0,
-          margin: '-1px',
-          overflow: 'hidden',
-          clip: 'rect(0,0,0,0)',
-          whiteSpace: 'nowrap',
-          border: 0,
-        }}>
+      <div className="agent-docs-directive" aria-hidden="true">
         For the complete documentation index, see{' '}
         <a href={llmsTxtUrl} tabIndex={-1}>
           llms.txt

@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises';
 
 const LLMS_FILE = 'build/llms.txt';
-const FULL_INDEX_URL = 'https://aiven.io/llms-full.txt';
+const baseUrl = process.env.BASEURL || '/docs/';
+const FULL_INDEX_URL = `https://aiven.io${baseUrl.replace(/\/$/, '')}/llms-full.txt`;
 const MAX_CHARS = 48000;
 const FOOTER = [
   '',
@@ -20,15 +21,17 @@ const content = await fs.readFile(LLMS_FILE, 'utf8');
 const lines = content.split('\n');
 
 const trimmedLines = [];
+let charCount = 0;
 
 for (const line of lines) {
-  const nextContent = [...trimmedLines, line].join('\n');
+  const lineLength = line.length + 1;
 
-  if (nextContent.length > maxBodyChars) {
+  if (charCount + lineLength > maxBodyChars) {
     break;
   }
 
   trimmedLines.push(line);
+  charCount += lineLength;
 }
 
 const finalContent = `${trimmedLines.join('\n')}${FOOTER}`;
