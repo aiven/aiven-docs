@@ -53,7 +53,7 @@
 /platform/howto/billing-azure-marketplace-subscription /docs/marketplace-setup  301
 /platform/howto/billing-google-cloud-platform-marketplace-subscription /docs/marketplace-setup  301
 /platform/howto/byoc/create-custom-cloud               /docs/platform/howto/byoc/create-cloud/create-custom-cloud  301
-./platform/howto/byoc/gcp                               /docs/platform/howto/byoc/create-cloud/create-google-custom-cloud  301
+/platform/howto/byoc/gcp                               /docs/platform/howto/byoc/create-cloud/create-google-custom-cloud  301
 /platform/howto/change-billing-contact                 /docs/platform/howto/use-billing-groups  301
 /platform/howto/change-support-tier                    /docs/platform/howto/support  301
 /platform/howto/cleanup-powered-off-services           /docs/platform/concepts/service-power-cycle  301
