@@ -109,6 +109,7 @@ dependent on the upstream project.
 | 2.17.x  | 2026-07-26      | Automatic upgrade to 2.19                   | 2026-07-26                       | 2024-10-15                      |
 | 2.19.x  | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2025-09-15                      |
 | 3.3.x   | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2026-01-20                      |
+| 3.6.x   | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2026-05-15                      |
 
 ### Aiven for PostgreSQL®
 
