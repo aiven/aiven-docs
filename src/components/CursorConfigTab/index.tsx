@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CodeBlock from '@theme/CodeBlock';
-import MCPConfigToggle from '../MCPConfigToggle';
+import MCPConfigToggle, { buildMcpUrl, type MCPConfigState } from '../MCPConfigToggle';
 import CursorIcon from '@site/static/images/icons/cursor.svg';
 import styles from './styles.module.css';
 
@@ -9,19 +9,20 @@ type CursorConfigTabProps = {
 };
 
 export default function CursorConfigTab({ baseUrl }: CursorConfigTabProps): JSX.Element {
-  const [isReadOnly, setIsReadOnly] = useState(false);
+  const [state, setState] = useState<MCPConfigState>({ readOnly: true, scopes: [] });
 
-  const url = isReadOnly ? `${baseUrl}?read_only=true` : baseUrl;
+  const url = buildMcpUrl(baseUrl, state);
   const configJson = JSON.stringify({ mcpServers: { aiven: { type: 'http', url } } }, null, 2);
 
   const cursorConfig = { url, type: 'http' };
   const encodedConfig = typeof btoa !== 'undefined' ? btoa(JSON.stringify(cursorConfig)) : '';
   const deepLink = `cursor://anysphere.cursor-deeplink/mcp/install?name=aiven-mcp&config=${encodedConfig}`;
+  const cacheKey = `${state.readOnly}-${state.scopes.join(',')}`;
 
   return (
     <div className={styles.container}>
       <p>For one-click installation:</p>
-      <a href={deepLink} className={styles.button} key={`cursor-deeplink-${isReadOnly}`}>
+      <a href={deepLink} className={styles.button} key={`cursor-deeplink-${cacheKey}`}>
         <CursorIcon />
         <span>Add to Cursor</span>
       </a>
@@ -30,10 +31,10 @@ export default function CursorConfigTab({ baseUrl }: CursorConfigTabProps): JSX.
         <p>To add the server manually:</p>
         <ol>
           <li>In your project root, create or edit the <code>.cursor/mcp.json</code> file.</li>
-          <li>Add the following configuration:</li>
+          <li>Choose your options below, then copy the generated configuration into the file:</li>
         </ol>
-        <MCPConfigToggle onReadOnlyChange={setIsReadOnly} />
-        <CodeBlock language="json" key={`cursor-config-${isReadOnly}`}>{configJson}</CodeBlock>
+        <MCPConfigToggle onChange={setState} />
+        <CodeBlock language="json" key={`cursor-config-${cacheKey}`}>{configJson}</CodeBlock>
         <ol start={3}>
           <li>Save the file.</li>
           <li>Restart Cursor.</li>

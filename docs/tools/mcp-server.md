@@ -7,23 +7,19 @@ limited: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import {mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import MCPConfigSection from "@site/src/components/MCPConfigSection";
 import CursorConfigTab from "@site/src/components/CursorConfigTab";
-
-:::note
-The Aiven MCP server is in <LimitedBadge/>. Request access when you first connect.
-:::
 
 Create and manage Aiven services from AI assistants such as Cursor and Claude Code,
 including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
 Enable read-only mode in the configuration tabs below to restrict the server to
-non-destructive operations.
+non-destructive operations, or limit tools to specific services to keep the
+assistant focused.
 
 ## Prerequisites
 
 - An [Aiven account](https://console.aiven.io/signup)
-- An MCP-compatible client (Cursor, Claude Code, Claude Desktop, or VS Code)
+- An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop, or VS Code
 
 Authentication uses OAuth 2.0 with PKCE; your browser opens on first connect so you
 can sign in and authorize MCP access.
@@ -54,7 +50,7 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
 <TabItem value="claude-code" label="Claude Code">
 
 1. Open a terminal.
-1. Run the following command:
+1. Choose your options below, then run the generated command:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -90,7 +86,7 @@ For more information, see the [Claude Code MCP documentation](https://docs.anthr
    - **Windows:**
      `%APPDATA%\Claude\claude_desktop_config.json`
 
-1. Add the following configuration to the file:
+1. Choose your options below, then add the generated configuration to the file:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -125,7 +121,7 @@ and enabled.
 1. Open your workspace in VS Code.
 1. In the workspace root, create a `.vscode` directory.
 1. In the `.vscode` directory, create or edit the `mcp.json` file.
-1. Add the following configuration:
+1. Choose your options below, then add the generated configuration to the file:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -157,7 +153,7 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
 <TabItem value="other" label="Other clients">
 
 1. Open your MCP client configuration.
-1. Add the Aiven MCP server using the following configuration:
+1. Choose your options below, then add the generated configuration to your client:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
