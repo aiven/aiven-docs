@@ -1,7 +1,19 @@
 #!/usr/bin/env sh
 
+# Block direct push to main
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ "$current_branch" = "main" ]; then
+    echo "----------------------------------------------------------"
+    echo "❌ ERROR: Direct push to 'main' is disabled locally."
+    echo "Please create a branch and open a Pull Request."
+    echo "----------------------------------------------------------"
+    exit 1
+fi
+
+# Vale checks
 IFS=$'\n'
 files=$(git diff --name-only main... | grep -E '\.mdx?$') || true
 for file in $files; do
-	vale --minAlertLevel=error $file
+    vale --minAlertLevel=error "$file"
 done
