@@ -86,8 +86,7 @@ const config: Config = {
       'data-project-name': 'Aiven Kapa AI',
       'data-user-analytics-cookie-enabled': 'false',
       'data-project-color': '#5FFA74',
-      'data-project-logo':
-        'https://aiven.io/docs/images/aiven_logo_RGB_blk.svg',
+      'data-project-logo': 'https://aiven.io/docs/images/crabby_RGB_blk.svg',
       'data-modal-title': 'Ask Aiven docs AI',
       'data-modal-image-width': '38px',
       'data-button-hide': 'true',
