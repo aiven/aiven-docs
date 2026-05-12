@@ -29,7 +29,7 @@ This lets you use the same payment information across different projects
 within your organization, including those in other organizational units.
 
 You receive a consolidated invoice for all projects
-assigned to a billing group. Many customers use billing groups to combine costs
+assigned to a billing group. Use billing groups to combine costs
 based on categories like an organization's departments or IT environments.
 
 You create and manage billing groups at the organization level, and
@@ -50,8 +50,8 @@ Alternatively, you can
 [request to pay by bank transfer](/docs/platform/howto/manage-bank-transfers).
 
 When you redeem Aiven [credits](/docs/platform/howto/trial-credits),
-they're assigned to a billing group as a payment method
-and are automatically used to cover charges of any project assigned to that billing group.
+they're assigned to a billing group as a payment method.
+Credits are automatically used to cover charges of any project assigned to that billing group.
 
 <RelatedPages/>
 
