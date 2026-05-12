@@ -29,9 +29,13 @@ offsets are committed, Salesforce can receive duplicate records.
   - Bulk API 2.0 access enabled.
   - The target Salesforce object already exists, for example `Account` or `Contact`.
 - A Kafka topic that contains the records to send to Salesforce.
-- Kafka records that use a `Struct` value schema.
-- Field names in record values that match Salesforce field API names on the target
-  object.
+- Kafka records that use one of the following value formats:
+  - `Struct` values with a schema
+  - `Map` values with a schema
+  - Schemaless `Map` values, such as JSON records produced when
+    `value.converter.schemas.enable` is set to `false`
+- Field names in `Struct` values or keys in `Map` values that match Salesforce field
+  API names on the target object.
 
 ## Create a Salesforce sink connector configuration file
 
@@ -57,6 +61,9 @@ Create a file named `salesforce_sink_connector.json` with the following configur
 }
 ```
 
+The example uses schema-based JSON values. To use schemaless JSON values, set
+`value.converter.schemas.enable` to `false`.
+
 Parameters:
 
 - `name`: Name of the connector.
@@ -67,8 +74,9 @@ Parameters:
 - `value.converter`: Converter for Kafka record values. Use
   `org.apache.kafka.connect.json.JsonConverter` for JSON. For Avro, use the appropriate
   converter and set `schema.registry.url`.
-- `value.converter.schemas.enable`: Set to `true` when using `JsonConverter` so Kafka
-  Connect can deserialize values as `Struct` records with a schema.
+- `value.converter.schemas.enable`: Set to `true` to use schema-based JSON values.
+  Set to `false` to use schemaless JSON values. The connector supports both
+  schema-based `Struct` values and schemaless `Map` values.
 - `salesforce.bulk.api.sink.object`: Salesforce object to write records to, such as
   `Account` or `Contact`.
 - `salesforce.client.id`: OAuth 2.0 client ID from your Salesforce connected app.
@@ -84,7 +92,8 @@ Parameters:
 - `offset.flush.interval.ms`: How often, in milliseconds, Kafka Connect flushes
   records to Salesforce. Default: `60000`. Each flush is submitted as one Bulk API 2.0
   insert job. A larger interval reduces Salesforce API calls but produces larger
-  batches that take longer to process and may need a higher `offset.flush.timeout.ms`.
+  batches that take longer to process and can require a higher
+  `offset.flush.timeout.ms`.
 - `offset.flush.timeout.ms`: Maximum time in milliseconds for a flush before Kafka
   Connect marks it failed. Default: `5000`. The configuration examples use `30000` when
   each flush includes many records or when Salesforce Bulk API responses are slower than
@@ -160,8 +169,8 @@ For a sample record shape when writing to `Contact`, see
 
 ## Example record for Salesforce {#example-record-for-salesforce}
 
-If the connector writes to the Salesforce `Contact` object, a Kafka record value can look
-like this:
+If the connector writes to the Salesforce `Contact` object, a Kafka record value can use
+schema-based or schemaless JSON. For schemaless JSON, the value can look like this:
 
 ```json
 {
@@ -171,13 +180,15 @@ like this:
 }
 ```
 
-The connector maps those fields to Salesforce columns `FirstName`, `LastName`, and
-`Email`.
+The connector uses the JSON keys as Salesforce field API names: `FirstName`,
+`LastName`, and `Email`.
 
 ## Data format
 
-The connector expects Kafka records with a `Struct` schema in the value field. It maps
-`Struct` field names to Salesforce object field API names.
+The connector accepts Kafka record values as `Struct` or `Map` values.
+
+For `Struct` values, use field names that match Salesforce object field API names.
+For `Map` values, use keys that match Salesforce object field API names.
 
 For example, the following Kafka record value:
 
@@ -189,7 +200,7 @@ For example, the following Kafka record value:
 }
 ```
 
-is written to Salesforce with the following columns:
+is written to Salesforce using the following field names:
 
 ```text
 Name,Email,ExternalId__c
@@ -200,9 +211,12 @@ For custom Salesforce fields, use the Salesforce API field name, such as
 
 ## Schema behavior
 
-The connector detects field names dynamically from the records buffered during each
-flush. If records in the same flush contain different fields, the connector creates one
-CSV header that includes all detected fields.
+The connector detects Salesforce field names dynamically from the records buffered
+during each flush. For `Struct` values, it uses schema field names. For `Map` values,
+it uses map keys.
+
+If records in the same flush contain different fields or keys, the connector creates
+one CSV header that includes all detected Salesforce field names.
 
 For example, if one record contains `Name` and `Email`, and another record contains
 `Name` and `ExternalId__c`, the generated CSV header includes all three fields:
@@ -211,19 +225,19 @@ For example, if one record contains `Name` and `Email`, and another record conta
 Email,ExternalId__c,Name
 ```
 
-Records that do not contain a detected field are sent with an empty value in that
-column.
+Records that do not contain a detected field or key are sent with an empty value in
+that column.
 
-To reduce schema-related failures, keep records in a topic consistent with the target
-Salesforce object schema.
+To reduce failures, keep records in a topic consistent with the target Salesforce
+object schema.
 
 ## How it works
 
 When Kafka Connect flushes records, the connector:
 
 1. Collects buffered records for that flush interval.
-1. Reads the schemas from the buffered records.
-1. Detects field names from records that use a `Struct` value schema.
+1. Detects field names from the buffered records.
+1. Uses schema field names for `Struct` values and map keys for `Map` values.
 1. Creates CSV data with a header row that contains the detected field names.
 1. Sends the CSV data to Salesforce as a Bulk API 2.0 multipart insert job.
 1. Polls Salesforce until the job reaches a final state.
@@ -237,15 +251,16 @@ The Salesforce sink connector has the following limitations:
   are not supported.
 - **At-least-once delivery:** The connector can write the same record more than once if
   a task restarts or Kafka Connect replays records before offsets are committed.
-- **Struct values only:** The connector processes only records with a `Struct` value
-  schema. Records with other value schemas are skipped. If the errant record reporter is
-  configured, skipped records are reported as errant records. If no `Struct` values are
-  found in a flush, the batch can fail.
-- **No automatic data mapping:** The connector does not transform field names or
-  values. Kafka record field names must match Salesforce field API names.
-- **Dynamic schema:** Field names are discovered dynamically from buffered records.
-  Inconsistent schemas across records in the same flush interval produce sparse rows
-  with empty values for missing fields.
+- **Supported value types:** The connector processes `Struct` and `Map` values.
+  Records with other value types are skipped. If the errant record reporter is
+  configured, skipped records are reported as errant records. If a flush contains
+  no supported values (`Struct` or `Map`), the batch can fail.
+- **No automatic data mapping:** The connector does not transform field names, keys,
+  or values. Use Kafka record field names or keys that match Salesforce field API
+  names.
+- **Dynamic fields:** Field names and keys are discovered dynamically from buffered
+  records. Inconsistent fields or keys across records in the same flush interval
+  produce sparse rows with empty values where a field is missing.
 - **Single batch per flush:** All records buffered within one flush interval are
   submitted as a single Salesforce Bulk API 2.0 job. Large batches may approach
   Salesforce API limits or exceed the Kafka Connect flush timeout.
