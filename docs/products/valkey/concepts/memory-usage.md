@@ -16,7 +16,7 @@ Aiven for Valkey is specifically designed to manage.
 Data eviction policy is one of the most important caching settings and it
 is available in the Aiven Console.
 
-Aiven for Valkey offers a `maxmemory` setting that determines the maximum amount
+Aiven for Valkey sets the `maxmemory` config, which determines the maximum amount
 of data that can be stored. The data eviction policy specifies what happens when this
 limit is reached. By default, all Aiven for Valkey services have the eviction policy
 set to *No eviction*. If you continue storing data without removing anything, write
@@ -28,9 +28,6 @@ the `allkeys-lru` eviction policy. This policy starts dropping the old keys base
 the least recently used strategy when `maxmemory` is reached. Another way to handle
 the situation is to drop random keys.
 
-Regardless of the eviction policy chosen, the system will only drop the keys with an
-expiration time set, prioritizing keys with the shortest time-to-live (TTL).
-
 :::note
 If you continue to write data, you will eventually reach the `maxmemory` limit, regardless
 of the eviction policy you use.
@@ -39,14 +36,23 @@ of the eviction policy you use.
 ## High memory and high change rate behavior
 
 For all new Aiven for Valkey services, the `maxmemory` setting is configured to **70% of
-available RAM** (minus management overhead) plus 10% for replication log.
+available RAM** (minus management overhead) plus 5% for replication log for multi-node
+services.
 This configuration limits the memory usage to below 100%, accommodating operations
 that require additional memory:
 
-- When a new Valkey node connects to the master, the master node forks a copy of itself,
-  transmitting the current memory contents to the new node.
+- When a new Valkey replica connects to the primary, the service process on the primary
+  node forks and creates an RDB snapshot, which is streamed to the new Valkey replica
+  node.
 - A similar forking process occurs when the state of the Valkey service is persisted to
-  disk, which for Aiven for Valkey, happens **every 10 minutes**.
+  disk, which for Aiven for Valkey happens **every 10 minutes by default**.
+
+:::tip
+
+- To reduce snapshot frequency, set `frequent_snapshots=false`.
+- To disable persistence, set `valkey_persistence=off`.
+
+:::
 
 :::note
 When a fork occurs, all memory pages of the new process are identical to
@@ -55,13 +61,13 @@ cause the memory configurations to diverge, increasing actual memory allocation.
 
 **Example**
 
-If the forked process took 4 minutes to perform the task, with new data
+If the forked process took 4 minutes to write the RDB snapshot to disk, with new data
 written at 5 megabytes per second, the system memory usage can increase by approximately
 1.2 gigabytes during that time.
 :::
 
 The duration of backup and replication operations depends on the total amount
-f memory in use. As the size of the plan increases, the memory usage also increases,
+of memory in use. As the size of the plan increases, the memory usage also increases,
 which can cause a memory divergence. Therefore, the amount of memory reserved for
 completing these operations without using a swap is directly proportional to the total
 memory available.
@@ -82,7 +88,7 @@ and the specifics of the Aiven plan.
 
 :::tip
 Writing at about 5 megabytes per second is manageable in most situations. However,
-attempting to write at about 50 megabytes per second is likely lead to failures,
+attempting to write at about 50 megabytes per second is likely to lead to failures,
 particularly when memory usage approaches the allowed maximum or during the
 initialization of a new node.
 :::
@@ -90,31 +96,26 @@ initialization of a new node.
 ## Initial synchronization
 
 During system upgrades or in a high-availability setup in case of node failure,
-a new Valkey node needs to be synchronized with the current master. The new node starts
-with an empty state, connects to the master, and requests a full copy of its current
-state. After receiving this copy, the new node begins following the replication stream
-from the master to achieve complete synchronization.
-
-Initial synchronization is CPU intensive, and because Valkey
-does not distribute the workload across multiple CPU cores, the maximum transfer speed is
-typically around 50 megabytes per second. Additionally, the new node initially persists
-data on disk, entering a separate loading phase with speeds in the low hundreds of
-megabytes per second. For a data set of 20 gigabytes, the initial sync phase takes
-about 6 minutes with today's hardware, and speed improvements are limited.
+a new Valkey replica node needs to be synchronized with the current primary. The new
+node starts with an empty state, connects to the primary, and requests a full copy of
+its current state. After receiving this copy, the new node begins following the
+replication stream from the primary to achieve complete synchronization.
 
 Once initial synchronization is complete, the new node begins to follow the replication
-stream from the master. The size of the replication log is set to 10% of the total
-memory the underlying Redis technology can use. For a 28 gigabyte plan, this is just
-under 2 gigabytes.
+stream from the primary. The value of the replica client output buffer limit is set to
+20% of the total memory Valkey is allowed to use. For a 28 gigabyte plan, this is
+around 4 gibibytes. Under memory pressure conditions, the value is set to 10%.
 
-If the volume of changes during the 6 minute initial sync exceeds the replication
-log size, the new node cannot start following the replication stream and undergoes
-another initial sync.
+If the volume of changes during the initial sync exceeds the replica client output
+buffer limit, the primary node logs `Client [...] scheduled to be closed ASAP for
+overcoming of output buffer limits.` The replica is disconnected, the buffer is
+cleared, and the replication process starts from scratch.
 
 :::tip
 Writing new changes at 5 megabytes per second, totaling 1.8 gigabytes over 6 minutes,
 allows the new node to start up successfully. A higher constant rate of change can
-cause the synchronization to fail unless the replication log size is increased.
+cause the synchronization to fail unless the replica client output buffer limit is
+increased.
 :::
 
 ## Mitigation
