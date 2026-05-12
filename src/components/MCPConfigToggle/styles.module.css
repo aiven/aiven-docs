@@ -1,33 +1,70 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   margin: 12px 0;
-  padding: 12px;
+  padding: 12px 14px;
   background-color: var(--aiven-card-bg);
   border-radius: var(--aiven-radius);
   border: 1px solid var(--aiven-card-border);
+  font-family: var(--aiven-card-font-family);
+  font-size: 13px;
+  color: var(--ifm-color-content);
 }
 
-.label {
+.section {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 8px 16px;
+}
+
+.sectionLabel {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ifm-color-content-secondary, var(--ifm-color-content));
+  flex: 0 0 110px;
+}
+
+.separator {
+  height: 1px;
+  background-color: var(--aiven-card-border);
+}
+
+.scopeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   cursor: pointer;
-  font-weight: 500;
-  color: var(--ifm-color-content);
-  font-family: var(--aiven-card-font-family);
 }
 
 .checkbox {
-  width: 18px;
-  height: 18px;
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  margin: 0;
   cursor: pointer;
   accent-color: var(--aiven-primary-orange);
 }
 
-.description {
+.warning {
   margin: 0;
-  font-size: 14px;
-  color: var(--ifm-color-content);
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ifm-color-warning-darkest, #8a5a00);
+  background-color: var(--ifm-color-warning-contrast-background, #fff8e1);
+  border-left: 3px solid var(--ifm-color-warning, #e6a700);
+  border-radius: 4px;
+}
+
+.warning a {
+  color: inherit;
+  text-decoration: underline;
 }
