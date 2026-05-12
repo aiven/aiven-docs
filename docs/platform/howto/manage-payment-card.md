@@ -5,12 +5,12 @@ title: Manage payment cards
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-You can add credit cards as a payment method to your organization and use them across different [billing groups](/docs/platform/howto/use-billing-groups) to pay for your Aiven services.
+Add credit cards to your organization and use them across different [billing groups](/docs/platform/howto/use-billing-groups) to pay for your Aiven services.
 
 ## Add a payment card
 
-You can add a payment card to your organization and use it as the payment method for
-your billing groups. You must be an
+You can add a credit card as a payment method in your organization and
+assign it to different billing groups. You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to access this feature.
 
