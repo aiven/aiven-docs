@@ -5,11 +5,7 @@ title: Manage payment cards
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
-The default payment method for new customers is credit card. All costs accrued over a calendar month are charged on the first day of the following month.
-
-You can add credit cards as a payment method to your organization and use
-them across different [billing groups](/docs/platform/howto/use-billing-groups)
-to pay for your Aiven services.
+You can add credit cards as a payment method to your organization and use them across different [billing groups](/docs/platform/howto/use-billing-groups) to pay for your Aiven services.
 
 ## Add a payment card
 
