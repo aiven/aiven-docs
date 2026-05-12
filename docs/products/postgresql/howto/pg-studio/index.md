@@ -9,9 +9,7 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import DocCardList from '@theme/DocCardList';
 
-Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language.
-
-It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
+Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language. It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
 
 :::important
 PG Studio is an <EarlyBadge/> feature.
@@ -22,7 +20,8 @@ PG Studio is an <EarlyBadge/> feature.
 PG Studio supports:
 
 - Writing SQL in plain English or any other language
-- Autocompleting SQL queries with the `Tab` key, based on PostgreSQL commands and your schema
+- Autocompleting SQL queries with the `Tab` key, based on PostgreSQL commands and your
+  schema
 - Visualizing your database structure with an interactive schema map
 - Exploring schemas and table relationships
 - Explaining queries and database objects
@@ -30,9 +29,14 @@ PG Studio supports:
 
 ## PG Studio components
 
-- **Schema visualization:** View your database structure as an interactive diagram showing tables, columns and relationships. Open it from **Open schema map** or request it from the **AI Assistant** panel.
-- **SQL editor:** Write and edit SQL across multiple tabs, and run queries to view results in the results panel.
-- **AI Assistant panel:** Describe what you need in natural language. The assistant generates SQL or explains queries, tables and relationships using your database schema.
+- **Schema visualization:** View your database structure as an interactive diagram showing
+  tables, columns and relationships. Open it from **Open schema map** or request it from
+  the **AI Assistant** panel. Click the copy icon next to a table name to copy it to the
+  clipboard.
+- **SQL editor:** Write and edit SQL across multiple tabs, and run queries to view results
+  in the results panel.
+- **AI Assistant panel:** Describe what you need in natural language. The assistant
+  generates SQL or explains queries, tables and relationships using your database schema.
 
 ## Get started with PG Studio
 
