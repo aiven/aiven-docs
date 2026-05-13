@@ -150,6 +150,8 @@ geocoding
 geohash
 Geomap
 geospatial
+gibibyte
+gibibytes
 GitHub
 go
 Google Cloud Platform
