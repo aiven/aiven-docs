@@ -138,7 +138,7 @@ flow when you first connect.
 
 Use the [Aiven MCP server](/docs/tools/mcp-server) to create Kafka services, manage
 topics, produce and consume messages, and configure connectors from MCP-compatible
-clients such as Cursor, Claude Code, and VS Code.
+clients such as Cursor, Claude Code, VS Code, and Gemini CLI.
 
 - Configure the Aiven MCP server in your AI assistant.
 - Describe the service or operation you want in natural language.

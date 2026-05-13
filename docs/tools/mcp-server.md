@@ -19,7 +19,8 @@ assistant focused.
 ## Prerequisites
 
 - An [Aiven account](https://console.aiven.io/signup)
-- An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop, or VS Code
+- An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
+  VS Code, or Gemini CLI
 
 Authentication uses OAuth 2.0 with PKCE; your browser opens on first connect so you
 can sign in and authorize MCP access.
@@ -148,6 +149,33 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
    > List my Aiven projects.
 
 1. If prompted to allow tool execution, click **Allow**.
+
+</TabItem>
+<TabItem value="gemini-cli" label="Gemini CLI">
+
+1. Create or edit the `~/.gemini/settings.json` file.
+1. Add the following configuration:
+
+   <MCPConfigSection
+     baseUrl={mcpUrl}
+     format="json"
+     configTemplate={(url) => ({mcpServers: {aiven: {httpUrl: url}}})}
+   />
+
+1. Save the file.
+1. Run `gemini` to start the CLI.
+1. Run `/mcp auth aiven` to sign in via your browser.
+1. Run `/mcp list` to confirm the server is connected.
+
+<br />
+
+#### Verify the connection
+
+1. In the Gemini CLI, try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If prompted to allow tool execution, approve the request.
 
 </TabItem>
 <TabItem value="other" label="Other clients">
