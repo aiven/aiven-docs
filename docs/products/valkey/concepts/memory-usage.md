@@ -36,8 +36,8 @@ of the eviction policy you use.
 ## High memory and high change rate behavior
 
 For all new Aiven for Valkey services, the `maxmemory` setting is configured to **70% of
-available RAM** (minus management overhead) plus 5% for replication log for multi-node
-services.
+available RAM** (minus management overhead) plus 5% for the replication backlog for
+multi-node services.
 This configuration limits the memory usage to below 100%, accommodating operations
 that require additional memory:
 
