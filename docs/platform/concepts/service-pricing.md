@@ -121,7 +121,7 @@ Limitations of the Aiven for OpenSearch Developer tier are:
 -   No choice of cloud provider or specific cloud region
 -   Cannot create the service in a VPC
 -   No static IPs
--   No integrations
+-   No dynamic disk scaling
 -   No forking
 
 Aiven reserves the right to change the cloud provider, region, or configuration
