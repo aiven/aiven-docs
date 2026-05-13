@@ -2,7 +2,7 @@
 
 <!-- vale off -->
 
-This guide is the single source of truth for writing and reviewing documentation in the [Aiven docs](https://github.com/aiven/aiven-docs) repository. The site is built with Docusaurus 3 and published at [aiven.io/docs](https://aiven.io/docs). It covers the Aiven Platform and managed services (for example, Apache Kafka®, PostgreSQL®, OpenSearch®, MySQL, ClickHouse®, Apache Flink®, Grafana®, and others).
+This guide is the single source of truth for writing and reviewing documentation in the [Aiven docs](https://github.com/aiven/aiven-docs) repository. The site is built with Docusaurus and published at [aiven.io/docs](https://aiven.io/docs). It covers the Aiven Platform and managed services (for example, Apache Kafka®, PostgreSQL®, OpenSearch®, MySQL, ClickHouse®, Apache Flink®, Grafana®, and others).
 
 **How to use this guide**
 
@@ -41,22 +41,23 @@ When reviewing PRs:
 
 ## Voice and tone
 
-Documentation is scanned more than it is read line by line. Aim for clarity and directness over flourish.
+Documentation is scanned more than it is read line by line. Aim for clarity and directness.
 
-- Go straight to the point; include only what the reader needs for the task or concept.
+- Include only what the reader needs for the task or concept.
 - **[MEDIUM]** Chunk content into short sections with clear headings.
 - Keep paragraphs to **3–5 sentences** where possible.
 - Use lists to break up dense prose when items are parallel options, steps, or examples.
-- Concept topics (architecture, background) may be longer; task and reference topics should stay minimal. **Straight to the point does not mean incomplete.**
-- **[CRITICAL]** Avoid filler or judgmental words such as **just**, **easily**, **simply**, and **quickly** in procedures and descriptions of difficulty.
-  - **Example**: Write **Click Save**, not "Just click **Save**".
+- Conceptual topics such as architecture or background information may be longer; task and reference topics should stay minimal.
+- **[CRITICAL]** Avoid filler or judgmental words such as **just**, **easily**, **simply**, and **quickly**.
+  - **Example**: Write Click **Save**, not "Just click **Save**".
   - **Example**: Write **You can configure…**, not "You can easily configure…".
 
 **[MEDIUM]** Remove sentences that do not add information (for example, avoid generic openers such as "This section describes how to…" when the heading already states the topic).
+**[MEDIUM]** Avoid duplicating information in an article.
 
 ### Techniques for revision
 
-- **[MEDIUM]** If a sentence feels overloaded, ask what single claim it makes; split or delete anything that does not support that claim.
+- **[MEDIUM]** If a sentence is over the word limit, ask what the main message is; split it up or delete anything that is superfluous.
 - **[MEDIUM]** Read critical steps aloud; if a sentence is awkward spoken, simplify it.
 - **[MEDIUM]** Vary sentence openings so every line does not begin with "You can" or "To …".
 
@@ -64,7 +65,7 @@ Documentation is scanned more than it is read line by line. Aim for clarity and 
 
 ## Writing for a global audience
 
-- Use **US English** and American spelling.
+- Use **US English**.
 - **[MEDIUM]** Prefer simple, direct wording for international readers; avoid idioms and slang.
 - **[MEDIUM]** Use phrasal verbs sparingly (for example, prefer "connects" over "hooks up") when a single verb is clear.
 - **[MEDIUM]** Use consistent terminology; repeat a noun if it aids clarity.
@@ -72,11 +73,10 @@ Documentation is scanned more than it is read line by line. Aim for clarity and 
 - **[MEDIUM]** Avoid weasel words ("often", "probably", "possibly") when you can state facts or scope instead.
 - **[MEDIUM]** Avoid **need** and **must** where the imperative is clearer (_Create a project_ rather than _You must create a project_).
 - **[MEDIUM]** Use a serial comma before the final item in a list of three or more items.
-- **[MEDIUM]** Use prepositions consistently (for example, pick either "on the Features page" or "on the Features screen" and stay consistent within a doc).
 
 For accessibility of plain language (short sentences, defined terms), see [Inclusive language](#inclusive-language).
 
-### Simple English and common mistakes
+### Plain English do's and don'ts
 
 | Category | Do | Don't |
 |----------|----|-------|
@@ -161,21 +161,21 @@ Product and reference docs should read correctly months later. Time-based words 
 | The following options are not supported: | The following options are not currently supported: |
 | The integration supports these auth modes: | The integration now supports these auth modes: |
 
-**Exceptions:** Release notes, blog posts, and time-stamped announcements may use time language when accurate. Procedural lines such as "The service stops soon after you run the delete command" are fine when they describe an immediate transition.
+**Exceptions:** Admonitions with information about limited or early available features may use time language, but these should be used sparingly. Procedural lines such as "The service stops soon after you run the delete command" are fine when they describe an immediate transition.
 
-**[MEDIUM]** In capability docs, avoid promising roadmap items. Do not document **future** features or SKUs unless they are approved for public mention and tied to a named release or date in the same document.
+**[MEDIUM]** In capability docs, avoid promising roadmap items. Do not document **future** features unless they are tied to a named release or date in the same document.
 
 ---
 
 ## Person
 
 - Address the reader as **you** in procedural and conceptual docs unless a different subject is clearer (for example, "the connector sends…").
-- Avoid **we** unless it refers unambiguously to Aiven and adds clarity; do not use **we** to mean "you and the reader."
-- Do not use **please** in procedures; see [Politeness](#politeness-and-tone-minor-mechanics) under punctuation and formatting.
+- Avoid **we**; use "Aiven" or the relevant team name (for example, "the Aiven support team").
+- Do not use **please**; see [Politeness](#politeness-and-tone-minor-mechanics) under punctuation and formatting.
 
 ### Consistency
 
-- **[MEDIUM]** Use the same term for the same concept across a page (for example, pick either **project** or **organization** per context, not both for the same object).
+- **[MEDIUM]** Use the same term for the same concept across a page.
 - **[MEDIUM]** Do not start every paragraph with **You** when the subject is obviously the reader; rephrase for variety without hiding the actor.
 
 ---
@@ -193,10 +193,11 @@ Use a capital letter after a colon when a complete sentence follows, and for run
 
 - **[CRITICAL]** Do not use **ampersands (&)** or **"and/or"** in body text. Write **and** or **or**, or split into two clauses.
 - Use slashes sparingly; prefer **or** or a short list.
+- When using slashes, don't put a space before and after the slash.
 
 ### Parentheses
 
-- **[MEDIUM]** Avoid parentheses for asides; fold the thought into the sentence or cut it.
+- **[MEDIUM]** Avoid parentheses for asides; fold the thought into the sentence or add another sentence.
 
 ### Quotation marks
 
@@ -205,41 +206,70 @@ Use a capital letter after a colon when a complete sentence follows, and for run
 ### Bold, italics, and inline code
 
 - **[CRITICAL]** **Bold**: use **only** for **UI elements** and **run-in headings in lists**. Use `**double asterisks**`.
-- Italics: use sparingly for _new terms you are defining_. Use `_single underscores_`.
-- **[CRITICAL]** Inline code (`` `backticks` ``): use for attribute names and values, commands, CLI utilities, data types, database objects, DNS types, enums, environment variables, paths, filenames, HTTP methods and status codes, IP addresses, placeholder names in prose, and URLs inside commands.
-- **UI + code**: When a UI control name is also a technical identifier, use bold + code: **`pg_stat_monitor_enable`**.
+- Italics: use sparingly and only for _new terms you are defining_. Use `_single underscores_`.
+
+**Inline code** (Markdown: `` `backticks` ``):
+
+- In ordinary prose (not code blocks), use code font for text the reader types or copies verbatim, to show clear boundaries of literals, and to separate identifiers from surrounding words.
+- **[CRITICAL]** Use inline code for technical identifiers and literals, including the following when they appear as names or values rather than as general concepts:
+  - Attribute names and values; class, method, and function names; language keywords.
+  - Command-line utility names; sample command output when you quote it inline.
+  - Data types; database objects (for example tables, columns, rows); defined constants and enum values.
+  - DNS record types; HTML and XML element names (do not wrap the element name in angle brackets).
+  - Environment variables; filenames, extensions, paths, folders, and directories.
+  - HTTP verbs; HTTP content-type values; HTTP status codes (put the numeric code and its name in code font, for example `404 Not Found`).
+  - IAM role names and similar policy identifiers when they are fixed strings.
+  - IP addresses; namespaces and package names when they are literal identifiers; port numbers.
+  - Query parameter names and values; placeholders for values the user substitutes.
+  - URLs, domains, and other strings when they appear as part of a command, API payload, or configuration literal.
+  - Text the user enters into a field when you show the exact string.
+- **[CRITICAL]** **UI + code**: When a UI label represents or displays a technical identifier, user-defined name, or system-generated value, use **bold and** code: **`pg_stat_monitor_enable`**, **`my-pg-service`**.
+- **[CRITICAL]** For a labeled control whose value is dynamic, put the label in bold and the value in bold + code. Example: In the **Service name** list, select **`prod-pg`**.
+
+**Ordinary (non-code) font** by default:
+
+- **[MEDIUM]** Product, service, and organization names; domain names and home pages in narrative text.
+- **[MEDIUM]** URLs the reader should open in a browser: prefer a descriptive link, not a bare URL string (see cross-reference and link guidelines elsewhere in this guide).
+
+If you are describing any of the above explicitly as typed input, pasted output, or a code-level entity, use code font for that occurrence.
+
+**Further inline-code conventions**
+
+- **[MEDIUM]** **Booleans**: format literal values (`true`, `false`, `0`, `1`) as code. If you describe the truth or falsity of a condition in plain English, do not format the words _true_ and _false_ as code.
+- **[MEDIUM]** **CLI vs product name**: format the command in code (`avn`, `psql`, `kcat`). Use ordinary font for the human-facing product or project name when spelling differs (for example, the `psql` client and PostgreSQL®).
+- **[MEDIUM]** **Email addresses**: code font when the reader must enter or copy the address as machine input; a normal `mailto` link or plain contact text when the address is for human correspondence.
+- **[MEDIUM]** **Method names**: omit the class prefix unless it is needed to avoid ambiguity. Recommended: call the `close` method. Not recommended: call the `File.close` method when `close` is enough on its own.
+- **[CRITICAL]** **HTTP status codes**: use the term **status code**, not _response code_ or _error code_. Example: Returns an HTTP `503 Service Unavailable` status code. Omit _HTTP_ when context is obvious. For ranges use forms like an HTTP `2xx` status code, status code `400`, or status codes in the `200`–`299` range, keeping numeric parts in code font.
+- **[MEDIUM]** **Grammar**: do not use code tokens as inflected English verbs or nouns. Preferred: send a `POST` request. Avoid: using `POST` as a verb for the payload. Avoid possessives or plurals applied directly to a token; add a noun (for example, write the value of the `TOKEN` variable, not a possessive formed on the token itself).
+- **[MEDIUM]** Do not put quotation marks around code-styled text unless the quotation marks are part of the literal.
 
 | Example | Do | Don't |
 |---------|----|-------|
 | UI element | Click **Account** > **Settings**. | Click "Account" and "Settings". |
 | Code | Set `db_id` to `ABC`. | Set the "db_id" parameter to _ABC_. |
 | Strong negation in UI | Do **not** click **Delete**. | Do _not_ click **Delete**. |
+| Status code | Returns a `429 Too Many Requests` status code. | Returns HTTP response code 429. |
+| Grammar | Send a `GET` request to fetch the resource. | `GET` the resource. |
 
 ### Full stops (periods)
 
 Use a full stop at the end of a complete sentence, including in list items that are sentences.
 
-**Titles and UI labels** often omit a final period even when they read like a phrase (for example, dialog titles):
-
-- Action required
-- Confirm selection
-- Integrating with the service
-
 ### Politeness and tone (minor mechanics)
 
-Do not use **please** or other unnecessary politeness in instructions.
+Do not use **please** or other unnecessary politeness in the documentation.
 
 ### Documentation element summary
 
 | Information type | Style |
 |------------------|--------|
 | Interface element | Bold (`**`) |
-| User input / typed values | Code (`` ` ``) |
+| User input or typed values | Code (`` ` ``) |
 | First introduction of a new term | Italics (`_`) |
 
 ### Latin abbreviations
 
-- **[CRITICAL]** Do not use **i.e.** or **e.g.** Use **that is** or **for example**.
+- **[CRITICAL]** Do not use **i.e.** or **e.g.**. Use **that is** or **for example**.
 
 ### Introducing examples in a sentence
 
