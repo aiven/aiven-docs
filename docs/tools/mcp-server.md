@@ -52,8 +52,8 @@ to Aiven and select your organization. The server refreshes tokens automatically
 ### Prerequisites
 
 - An [Aiven account](https://console.aiven.io/signup)
-- An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop, or
-  Visual Studio Code (VS Code)
+- An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
+  Visual Studio Code (VS Code), or Gemini CLI
 
 ### Configure your MCP client {#configure-aiven-mcp}
 
@@ -298,6 +298,41 @@ You can also run the server locally using npx. This requires an
 1. If prompted to allow tool execution, click **Allow**.
 
 </TabItem>
+<TabItem value="gemini-cli" label="Gemini CLI">
+
+1. Install the Gemini CLI:
+
+   ```bash
+   npm install -g @google/gemini-cli
+   ```
+
+   Or, on macOS:
+
+   ```bash
+   brew install gemini-cli
+   ```
+
+1. Create or edit the `~/.gemini/settings.json` file.
+1. Add the following configuration:
+
+   <!-- vale off -->
+   <CodeBlock language="json">{JSON.stringify({mcpServers: {aiven: {httpUrl: mcpUrl}}}, null, 2)}</CodeBlock>
+   <!-- vale on -->
+
+1. Save the file.
+1. Run `gemini` to start the CLI.
+1. Run `/mcp auth aiven` to sign in via your browser.
+1. Run `/mcp list` to confirm the server is connected.
+
+#### Verify the connection
+
+1. In the Gemini CLI, try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If prompted to allow tool execution, approve the request.
+
+</TabItem>
 <TabItem value="other" label="Other clients">
 
 1. Open your MCP client configuration.
@@ -536,6 +571,39 @@ if the steps do not match your interface.
 1. Confirm that **Aiven** appears under **Settings** > **Apps**.
 
 For more information, see the [OpenAI Developer mode documentation](https://developers.openai.com/api/docs/guides/developer-mode).
+
+</TabItem>
+<TabItem value="gemini-cli" label="Gemini CLI">
+
+1. Install the Gemini CLI:
+
+   ```bash
+   npm install -g @google/gemini-cli
+   ```
+
+   Or, on macOS:
+
+   ```bash
+   brew install gemini-cli
+   ```
+
+1. Create or edit the `~/.gemini/settings.json` file.
+1. Add the following configuration:
+
+   ```json
+   {
+     "mcpServers": {
+       "aiven-docs": {
+         "httpUrl": "https://aiven-docs.mcp.kapa.ai"
+       }
+     }
+   }
+   ```
+
+1. Save the file.
+1. Run `gemini` to start the CLI.
+1. Run `/mcp auth aiven-docs` to sign in via your browser.
+1. Run `/mcp list` to confirm the server is connected.
 
 </TabItem>
 <TabItem value="other" label="Other clients">

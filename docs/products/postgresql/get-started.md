@@ -34,7 +34,7 @@ Start using Aiven for PostgreSQL® by creating a service, connecting to it, and 
 </TabItem>
 <TabItem value="mcp" label="MCP">
 
-- An MCP-compatible client such as Cursor, Claude Code, Claude Desktop, or VS Code
+- An MCP-compatible client such as Cursor, Claude Code, Claude Desktop, VS Code, or Gemini CLI
 - A configured Aiven MCP server <LimitedBadge/> in your client
 
 </TabItem>
