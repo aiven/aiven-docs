@@ -20,7 +20,7 @@ if (maxBodyChars <= 0) {
 const content = await fs.readFile(LLMS_FILE, 'utf8');
 const lines = content.split('\n');
 
-const trimmedLines = [];
+const includedLines = [];
 let charCount = 0;
 
 for (const line of lines) {
@@ -30,12 +30,12 @@ for (const line of lines) {
     break;
   }
 
-  trimmedLines.push(line);
+  includedLines.push(line);
   charCount += lineLength;
 }
 
-const finalContent = `${trimmedLines.join('\n')}${FOOTER}`;
+const finalContent = `${includedLines.join('\n')}${FOOTER}`;
 
 await fs.writeFile(LLMS_FILE, finalContent);
 
-console.log(`Trimmed ${LLMS_FILE} to ${finalContent.length} characters.`);
+console.log(`Limited ${LLMS_FILE} to ${finalContent.length} characters (max ${MAX_CHARS}).`);
