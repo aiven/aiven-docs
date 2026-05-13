@@ -407,4 +407,4 @@ Parameters:
 
 - [Access Control Lists in Aiven for Apache Kafka®](/docs/products/kafka/concepts/acl)
 - [Manage service users in Aiven for Apache Kafka®](/docs/products/kafka/howto/add-manage-service-users)
-- [Apache Kafka documentation](https://kafka.apache.org/documentation/#operations_resources_and_protocols)
+- [Apache Kafka documentation](https://kafka.apache.org/42/security/authorization-and-acls/#operations-and-resources-on-protocols)

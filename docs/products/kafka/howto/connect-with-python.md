@@ -86,9 +86,9 @@ For consumers you will also need:
 
 For more information on `auto_offset_reset`, see the Kafka documentation
 on
-[auto.offset.reset](https://kafka.apache.org/documentation/#consumerconfigs_auto.offset.reset)
+[auto.offset.reset](https://kafka.apache.org/42/configuration/consumer-configs/#consumerconfigs_auto.offset.reset)
 and [Consumer
-Position](https://kafka.apache.org/documentation/#design_consumerposition).
+Position](https://kafka.apache.org/42/design/design/#consumer-position).
 
 ## Connect a producer
 
