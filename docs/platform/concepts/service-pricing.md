@@ -111,6 +111,7 @@ The Aiven for OpenSearch Developer tier includes:
 -   1 CPU per virtual machine
 -   4 GB RAM
 -   30 GB storage
+-   2 shards, maximum 20 shards per node
 -   Up to 50 concurrent connections
 -   Daily backups
 -   Aiven and third-party service integrations
