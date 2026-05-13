@@ -41,7 +41,12 @@ project.
 Aiven for Apache Kafka is available on multiple service tiers and deployment models.
 
 - **Free** supports evaluation and experimentation with limited throughput and storage.
-- **Professional** supports production workloads and Kafka Connect.
+- **Developer** is a paid tier for Classic Kafka that sits between Free and
+  Professional. It offers higher throughput, more topics and storage, and longer
+  retention than Free, and supports service integrations and optional Kafka Connect
+  billed separately.
+- **Professional** supports production workloads and full Kafka Connect support on both
+  Inkless and classic Kafka services (plan-dependent).
 
 Kafka services can run on **Aiven Cloud** or **Bring Your Own Cloud (BYOC)**.
 Availability of tiers and features varies by service type and deployment model.
@@ -60,14 +65,16 @@ Apache Kafka Connect is the standard framework for moving data between Kafka and
 systems.
 
 Aiven for Apache Kafka® Connect provides managed source and sink connectors for common
-databases, storage systems, and data platforms. Kafka Connect is available on the
-Professional tier for both Inkless and classic Kafka services.
+databases, storage systems, and data platforms. On Classic Kafka, Kafka Connect is
+optional on the Developer tier (billed separately) and supported on the Professional
+tier. On Inkless Kafka, Kafka Connect is available on the Professional tier.
 
 ## Get started
 
 If you are new to Aiven for Apache Kafka®, start with the following topics:
 
 - [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
+- [Kafka Developer tier overview](/docs/products/kafka/dev-tier/kafka-dev-tier)
 - [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service)
 - [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
