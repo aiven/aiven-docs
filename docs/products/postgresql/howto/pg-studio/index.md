@@ -9,7 +9,13 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import DocCardList from '@theme/DocCardList';
 
+<<<<<<< HEAD
 Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language. It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
+=======
+Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language.
+
+It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
+>>>>>>> 30ef844a (update: PG Studio IA improvements (#1545))
 
 :::important
 PG Studio is an <EarlyBadge/> feature.
