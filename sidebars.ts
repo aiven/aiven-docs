@@ -1725,7 +1725,21 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/create-manual-backups',
                     'products/postgresql/howto/restore-backup',
                     'products/postgresql/howto/ai-insights',
-                    'products/postgresql/howto/pg-studio',
+                    {
+                      type: 'category',
+                      label: 'PG Studio',
+                      link: {
+                        type: 'doc',
+                        id: 'products/postgresql/howto/pg-studio/index',
+                      },
+                      items: [
+                        'products/postgresql/howto/pg-studio/get-started',
+                        'products/postgresql/howto/pg-studio/use-ai-assistant',
+                        'products/postgresql/howto/pg-studio/write-run-queries',
+                        'products/postgresql/howto/pg-studio/manage-queries',
+                        'products/postgresql/howto/pg-studio/security-connections',
+                      ],
+                    },
                     'products/postgresql/howto/claim-public-schema-ownership',
                     'products/postgresql/howto/manage-pool',
                     'products/postgresql/howto/pgbouncer-stats',
