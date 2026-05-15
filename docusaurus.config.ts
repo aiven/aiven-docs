@@ -4,6 +4,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+const currentMonth = new Date().getMonth();
+const isJune = currentMonth === 5;
+
 const config: Config = {
   // Testing faster build
   future: {},
@@ -161,8 +164,8 @@ const config: Config = {
       title: 'aiven',
       logo: {
         alt: 'Aiven docs',
-        src: 'images/aiven_logo_RGB_blk.svg',
-        srcDark: 'images/aiven_logo_RGB_wht.svg',
+        src: isJune ? 'images/rainbowcrab.svg' : 'images/aiven_logo_RGB_blk.svg',
+        srcDark: isJune ? 'images/rainbowcrab.svg' : 'images/aiven_logo_RGB_wht.svg',
       },
       items: [
         {
