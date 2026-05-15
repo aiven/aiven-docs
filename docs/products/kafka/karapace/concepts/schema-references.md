@@ -1,5 +1,6 @@
 ---
 title: Schema references in Karapace
+sidebar_label: Schema references
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
