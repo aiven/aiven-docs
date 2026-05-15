@@ -99,10 +99,6 @@ PG Studio applies these limits to query execution:
 - Maximum result size: 5,000 rows
 - **Rate limiting:** Two query executions every two seconds per user per service; one
   AI request every two seconds per user per service.
-- **Write query safeguards:** When you run a write query, PG Studio prompts you to confirm
-  before executing.
-- **Fork testing option:** You can test write queries on a database fork instead of modifying
-  live data directly.
 
 ## Explore tables in the query editor
 
