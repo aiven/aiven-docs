@@ -50,14 +50,14 @@ Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceC
 endpoint and configure the `service_integrations` object so that:
 
 - `integration_type` is set to `read_replica`.
-- `source_service_name` is set as needed.
+- `source_service` is set as needed.
 
 </TabItem>
 <TabItem value="tf" label="Terraform">
 
 Use
 [the `aiven_service_integration` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
-resource. Set `integration_type` to `read_replica` and `source_service_name` as needed.
+resource. Set `integration_type` to `read_replica` and `source_service` as needed.
 
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
