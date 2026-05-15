@@ -1112,6 +1112,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Concepts',
                   items: [
                     'products/kafka/karapace/concepts/schema-registry-authorization',
+                    'products/kafka/karapace/concepts/schema-references',
                     'products/kafka/karapace/concepts/acl-definition',
                     'products/kafka/karapace/concepts/kafka-rest-proxy-authorization',
                   ],
@@ -1121,6 +1122,7 @@ const sidebars: SidebarsConfig = {
                   label: 'How to',
                   items: [
                     'products/kafka/karapace/howto/enable-karapace',
+                    'products/kafka/karapace/howto/register-schemas-with-references',
                     'products/kafka/karapace/howto/enable-schema-registry-authorization',
                     'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
                     'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
