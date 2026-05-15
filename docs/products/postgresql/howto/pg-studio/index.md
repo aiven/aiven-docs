@@ -23,6 +23,7 @@ PG Studio supports:
 - Autocompleting SQL queries with the `Tab` key, based on PostgreSQL commands and your
   schema
 - Visualizing your database structure with an interactive schema map
+- Exploring tables in a **Tables** view with data preview
 - Exploring schemas and table relationships
 - Explaining queries and database objects
 - Running queries with live results
@@ -33,6 +34,8 @@ PG Studio supports:
   tables, columns and relationships. Open it from **Open schema map** or request it from
   the **AI Assistant** panel. Click the copy icon next to a table name to copy it to the
   clipboard.
+- **Tables view:** Browse tables in your selected schema and preview up to 100 rows.
+  Open a table tab to start writing SQL.
 - **SQL editor:** Write and edit SQL across multiple tabs, and run queries to view results
   in the results panel.
 - **AI Assistant panel:** Describe what you need in natural language. The assistant

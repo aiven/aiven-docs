@@ -57,6 +57,24 @@ PG Studio applies these limits to query execution:
 - Maximum result size: 5,000 rows
 - **Rate limiting:** One request every two seconds per user per service.
 
+## Explore tables in the query editor
+
+Use **Tables** in the query editor to browse your database tables and start to run SQL
+queries. The table list uses your selected source database and schema.
+
+To use the **Tables** view:
+
+1. Open PG Studio.
+1. Select **Tables** in the query editor.
+1. Select a source database and schema.
+1. Select a table from the list.
+
+When you open a table, PG Studio shows up to 100 rows.
+
+From **Tables**, you can open a table tab and use it as a starting point for
+querying that table.
+For column definitions and relationships, use **Open schema map**.
+
 ## Related pages
 
 - [Use AI Assistant](/docs/products/postgresql/howto/pg-studio/use-ai-assistant)
