@@ -128,6 +128,28 @@ Aiven for Apache Kafka® has a separate [Developer tier](/docs/products/kafka/de
 paid plan for development and testing, with its own throughput, storage, retention, and
 pricing.
 
+#### Aiven for Valkey™
+
+The Aiven for Valkey Developer tier includes:
+
+-   Single node
+-   2 CPUs per VM
+-   4 GB RAM per VM
+-   Monitoring for metrics and logs
+-   Backups
+-   [Basic tier support](/docs/platform/howto/support)
+
+Limitations of the Aiven for Valkey Developer tier are:
+
+-   No choice of cloud provider or specific cloud region
+-   Cannot create services in VPCs
+-   No static IPs
+-   No integrations
+-   No forking
+
+Aiven reserves the right to change the cloud provider, region, or configuration
+of Aiven for Valkey Developer tier services at any point in time.
+
 ### Custom plans
 
 Aiven service plans are optimized for the different clouds and to facilitate migration
