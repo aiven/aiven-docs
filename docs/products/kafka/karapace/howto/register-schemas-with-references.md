@@ -23,6 +23,10 @@ Karapace resolves linked schemas during compatibility checks.
 
 Avro schema references require Karapace 6.1.0 or later.
 
+In each `references` entry, `name` is a label only and can be any value. Karapace
+resolves the reference from the fully qualified type name in your schema (for example
+`com.example.Country`), together with `subject` and `version`.
+
 Register a `Country` schema, an `Address` schema that references `Country`, a `Job`
 schema, and a `Person` schema that references `Address` and `Job`.
 
@@ -56,6 +60,10 @@ schema, and a `Person` schema that references `Address` and `Job`.
        ]
      }'
    ```
+
+   In this request, `country.avsc` is only a label. Karapace resolves the `Country`
+   record through the `com.example.Country` type in the schema, together with
+   `subject` and `version`.
 
 1. Register the `Job` schema:
 

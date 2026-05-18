@@ -16,18 +16,19 @@ For example, if a `Country` record is used by `Address`, and `Address` is used b
 
 Karapace supports schema references for:
 
-- Avro
+- Avro (Karapace 6.1.0 or later)
 - Protobuf
 
 :::note
-Schema references are not supported for JSON Schema.
+Schema references are not supported for JSON Schema. If you register a JSON Schema
+with a `references` array, Karapace returns an HTTP `422 Unprocessable Entity` status code.
 :::
 
 ## How schema references work
 
 When you register a schema that uses types defined in other subjects, include a
-`references` array. Each entry lists the reference `name`, the subject where the
-schema is registered (`subject`), and the version to resolve (`version`).
+`references` array. Each entry lists `name`, `subject`, and `version`. For Avro,
+`name` is a label. For Protobuf, `name` must match the `import` path.
 
 Each reference points to a specific schema version. Karapace loads those schema
 versions and uses the linked definitions when validating schemas or checking
@@ -65,10 +66,12 @@ POST /subjects/{subject}/versions
 
 Each object in `references` uses the following fields:
 
-- **`name`**: A name that identifies the reference within the schema. For Avro, use a
-  file-style name such as `address.avsc`; this value does not need to match an actual
-  file on disk. For Protobuf, use the import path from the Protobuf schema, such as
-  `address.proto`.
+- **`name`**: Identifies the reference in the registration payload. For Avro, use a
+  file-style label such as `address.avsc`; the `.avsc` suffix is a convention, not a
+  requirement. For Protobuf, set `name` to the import path, such as `address.proto`,
+  which must match the `import` statement exactly. Resolution behavior differs by
+  format; see [Avro references](#avro-references) and
+  [Protobuf references](#protobuf-references).
 - **`subject`**: The subject where the referenced schema is registered in Karapace.
 - **`version`**: The schema version to reference.
 
@@ -77,9 +80,11 @@ Register every referenced schema before you register a schema that lists it in
 
 ## Avro references
 
-In Avro, each `references` entry links your schema to another Avro schema that is
-already registered under its own subject—for example, an `Address` record that includes
-a `Country` type defined elsewhere.
+In Avro, the `name` field is a label only. Karapace resolves each reference from the
+Avro type names in your schema, together with the `subject` and `version` fields. For
+example, an `Address` record that uses a `Country` type includes a `references` entry
+with `subject` and `version` pointing to the registration that contains the `Country`
+record.
 
 Use
 [Register schemas with references in Karapace](/docs/products/kafka/karapace/howto/register-schemas-with-references)
@@ -87,9 +92,10 @@ for complete `curl` examples that register dependent Avro schemas.
 
 ## Protobuf references
 
-Protobuf uses the same `references` array as Avro. Set `name` to the import path from
-your `.proto` file, such as `address.proto`. The value must match the `import`
-statement exactly.
+Protobuf uses the same `references` array as Avro. Unlike Avro, Karapace uses the
+`name` field to resolve the reference. Set `name` to the import path from your
+`.proto` file, such as `address.proto`. The value must match the `import` statement
+exactly.
 
 Use
 [Register schemas with references in Karapace](/docs/products/kafka/karapace/howto/register-schemas-with-references)
