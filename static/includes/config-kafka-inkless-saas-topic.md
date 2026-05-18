@@ -24,7 +24,7 @@ import Link from '@docusaurus/Link'
             </div>
 
               <div className="description">
-                <p>The retention policy to use on old segments. Possible values include &#x27;delete&#x27;, &#x27;compact&#x27;, or a comma-separated list of them. The default policy (&#x27;delete&#x27;) will discard old segments when their retention time or size limit has been reached. The &#x27;compact&#x27; setting will enable log compaction on the topic.</p>
+                <p>The retention policy to use on old segments. The default policy (&#x27;delete&#x27;) will discard old segments when their retention time or size limit has been reached. The &#x27;compact&#x27; setting will enable log compaction on the topic. The &#x27;compact&#x27; setting is not supported for diskless topics.</p>
               </div>
         </td>
       </tr>
@@ -173,7 +173,7 @@ import Link from '@docusaurus/Link'
             </div>
 
               <div className="description">
-                <p>When a producer sets acks to &#x27;all&#x27; (or &#x27;-1&#x27;), this configuration specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful. If this minimum cannot be met, then the producer will raise an exception (either NotEnoughReplicas or NotEnoughReplicasAfterAppend). When used together, min.insync.replicas and acks allow you to enforce greater durability guarantees. A typical scenario would be to create a topic with a replication factor of 3, set min.insync.replicas to 2, and produce with acks of &#x27;all&#x27;. This will ensure that the producer raises an exception if a majority of replicas do not receive a write.</p>
+                <p>When a producer sets acks to &#x27;all&#x27; (or &#x27;-1&#x27;), min.insync.replicas specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful. This configuration is not supported for Diskless topics. (Default: 1)</p>
               </div>
         </td>
       </tr>
@@ -269,7 +269,7 @@ import Link from '@docusaurus/Link'
             </div>
 
               <div className="description">
-                <p>Indicates whether diskless should be enabled. This is only available for BYOC services with Diskless feature enabled.</p>
+                <p>Indicates whether diskless should be enabled. (Default: false)</p>
               </div>
         </td>
       </tr>
@@ -292,7 +292,7 @@ import Link from '@docusaurus/Link'
             </div>
 
               <div className="description">
-                <p>Indicates whether tiered storage should be enabled. This is only available for services with Tiered Storage feature enabled.</p>
+                <p>Indicates whether tiered storage should be enabled. If neither diskless.enable or remote.storage.enable are specified then this configuration is automatically set to &#x27;true&#x27; when topic is created. (Default: false)</p>
               </div>
         </td>
       </tr>
