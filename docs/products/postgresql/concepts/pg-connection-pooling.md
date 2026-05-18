@@ -1,6 +1,6 @@
 ---
 title: Aiven for PostgreSQL® connection pooling with PgBouncer
-sidebar_label: Connection pooling
+sidebar_label: PgBouncer connection pooling
 ---
 
 import VerifyPasswordEncryption from "@site/static/includes/pg-password-encryption.md";
