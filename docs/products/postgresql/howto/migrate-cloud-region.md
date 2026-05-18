@@ -1,5 +1,6 @@
 ---
 title: Migrate to a different cloud provider or region
+sidebar_label: Change cloud or region
 ---
 
 import ChangeCloud from "@site/static/includes/change-cloud-console.md";

@@ -1,6 +1,6 @@
 ---
 title: Prevent PostgreSQL® full disk issues
-sidebar_label: Prevent full disk issues
+sidebar_label: Prevent full disk
 ---
 
 import ChangeServicePlan from "@site/static/includes/change-service-plan-console.md";

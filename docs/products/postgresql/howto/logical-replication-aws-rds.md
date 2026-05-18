@@ -1,5 +1,6 @@
 ---
 title: Enable logical replication on Amazon RDS PostgreSQL®
+sidebar_label: LR on Amazon RDS PostgreSQL®
 ---
 
 If you have not enabled logical replication on RDS already, the

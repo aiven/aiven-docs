@@ -1,5 +1,6 @@
 ---
-title: Connect to Aiven for PostgreSQL®
+title: Connect to Aiven for PostgreSQL® services
+sidebar_label: Connect to PG services
 ---
 
 import DocCardList from '@theme/DocCardList';
