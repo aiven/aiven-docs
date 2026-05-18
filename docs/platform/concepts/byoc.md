@@ -146,8 +146,8 @@ from Aiven repositories).
 <LimitedBadge/> Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data) are stored using
-two S3 buckets. If you want to enable this optional feature for any new BYOC clouds
-you create, contact [Aiven support](mailto:support@aiven.io).
+two S3 buckets. To enable this optional feature for your new BYOC clouds,
+[contact Aiven](https://aiven.io/contact).
 
 </TabItem>
 <TabItem value="2" label="AWS public">
@@ -166,8 +166,8 @@ directly. To restrict access to your service, you can use the
 <LimitedBadge/> Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data) are stored using
-two S3 buckets. If you want to enable this optional feature for any new BYOC clouds
-you create, contact [Aiven support](mailto:support@aiven.io).
+two S3 buckets. To enable this optional feature for your new BYOC clouds,
+[contact Aiven](https://aiven.io/contact).
 
 </TabItem>
 <TabItem value="3" label="Google Cloud private">
