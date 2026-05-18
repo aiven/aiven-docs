@@ -89,6 +89,7 @@ datasource
 Datastax
 datastore
 DB
+DBs
 DBeaver
 dblink
 DBMS
