@@ -89,7 +89,7 @@ Create an Inkless Kafka service on Aiven Cloud using the Aiven CLI.
      --service-type kafka \
      --cloud CLOUD_REGION \
      --plan OFFERING_NAME \
-     -c kafka_version=4.0 \
+     -c kafka_version=4.1 \
      -c tiered_storage.enabled=true \
      -c inkless.enabled=true
    ```
@@ -169,7 +169,7 @@ Create an Inkless Kafka service in a BYOC environment:
      --service-type kafka \
      --cloud CUSTOM_CLOUD_REGION \
      --plan INKLESS_PLAN \
-     -c kafka_version=4.0 \
+     -c kafka_version=4.1 \
      -c tiered_storage.enabled=true
    ```
 
@@ -186,7 +186,7 @@ Create an Inkless Kafka service in a BYOC environment:
      --service-type kafka \
      --cloud CUSTOM_CLOUD_REGION \
      --plan INKLESS_PLAN \
-     -c kafka_version=4.0 \
+     -c kafka_version=4.1 \
      -c tiered_storage.enabled=true \
      -c kafka_diskless.enabled=true
    ```
