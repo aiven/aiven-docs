@@ -15,33 +15,6 @@ All new Aiven for Apache Kafka services running Apache Kafka 3.9 or later use KR
 by default.
 :::
 
-## Limited migration rollout
-
-If you have an existing service that uses ZooKeeper and want to migrate to KRaft,
-review the following limitations before you start. For the full migration process,
-see [Migration from ZooKeeper to KRaft](#migration-from-zookeeper-to-kraft).
-
-You can start a KRaft migration for eligible Aiven for Apache Kafka services. The
-migration capability is rolled out gradually across all Aiven for Apache Kafka services.
-During this rollout, the following temporary limitations apply. These limitations will
-be removed in phases.
-
-These restrictions do not apply when creating a new service that runs on KRaft with
-Apache Kafka version 3.9 or later.
-
-### Limit on concurrent migrations
-
-A limited number of migrations can run at the same time across all Aiven for Apache Kafka
-services. If the maximum number of concurrent migrations is reached, the request returns
-an error.
-
-### Migration window
-
-You can start a migration only during the following time window:
-
-- Monday to Friday
-- 00:00 to 14:00 UTC
-
 ## What is KRaft?
 
 KRaft is the built-in metadata and consensus management system in Aiven for Apache Kafka
@@ -77,9 +50,6 @@ Separating these roles improves metadata management efficiency without affecting
 performance.
 
 ## Migration from ZooKeeper to KRaft
-
-Before you migrate, review [Limited migration rollout](#limited-migration-rollout) for
-migration windows, supported service plans, and limits on concurrent migrations.
 
 The migration occurs as part of the upgrade to Apache Kafka 3.9. It is fully automated and
 does not require manual steps. After the migration completes, reverting to ZooKeeper is
