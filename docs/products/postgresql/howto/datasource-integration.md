@@ -1,6 +1,6 @@
 ---
 title: Connect two PostgreSQL® services via datasource integration
-sidebar_label: Connect two PostgreSQL® services
+sidebar_label: Connect two PG services
 ---
 
 There are two types of datasource integrations you can use with Aiven for PostgreSQL®:
