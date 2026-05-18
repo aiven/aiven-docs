@@ -1,5 +1,6 @@
 ---
 title: Use of deprecated TLS versions
+sidebar_label: Deprecated TLS versions
 ---
 
 TLS versions `TLSv1` and `TLSv1.1` are considered insecure, and are no longer supported in Aiven for PostgreSQL® deployments.
