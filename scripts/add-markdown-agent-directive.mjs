@@ -7,7 +7,13 @@ const llmsTxtUrl = `${baseUrl.replace(/\/$/, '')}/llms.txt`;
 const DIRECTIVE = `> For the complete documentation index, see [llms.txt](${llmsTxtUrl}).\n\n`;
 
 async function findMarkdownFiles(dir) {
-  const entries = await fs.readdir(dir, {withFileTypes: true});
+  let entries;
+  try {
+    entries = await fs.readdir(dir, {withFileTypes: true});
+  } catch (err) {
+    throw new Error(`Failed to read directory ${dir}: ${err.message}`, {cause: err});
+  }
+
   const files = [];
 
   for (const entry of entries) {
@@ -23,16 +29,23 @@ async function findMarkdownFiles(dir) {
   return files;
 }
 
-const files = await findMarkdownFiles(BUILD_DIR);
-let modified = 0;
+async function main() {
+  const files = await findMarkdownFiles(BUILD_DIR);
+  let modified = 0;
 
-for (const file of files) {
-  const content = await fs.readFile(file, 'utf8');
+  for (const file of files) {
+    const content = await fs.readFile(file, 'utf8');
 
-  if (!content.startsWith(DIRECTIVE)) {
-    await fs.writeFile(file, DIRECTIVE + content);
-    modified++;
+    if (!content.startsWith(DIRECTIVE)) {
+      await fs.writeFile(file, DIRECTIVE + content);
+      modified++;
+    }
   }
+
+  console.log(`Added directive to ${modified}/${files.length} markdown files.`);
 }
 
-console.log(`Added directive to ${modified}/${files.length} markdown files.`);
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
