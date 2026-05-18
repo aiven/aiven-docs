@@ -1684,8 +1684,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Getting started',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/get-started',
+              },
               items: [
-                'products/postgresql/get-started',
                 'products/postgresql/reference/terminology',
                 'products/postgresql/concepts/pg-free-tier',
                 'products/postgresql/howto/pagila',
@@ -1694,7 +1697,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'How to connect',
+              label: 'Connect to PG services',
               items: [
                 {
                   type: 'category',
@@ -1763,6 +1766,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/ai-insights',
                 'products/postgresql/howto/identify-pg-slow-queries',
                 'products/postgresql/howto/optimize-pg-slow-queries',
+                'products/postgresql/howto/pg-long-running-queries',
               ],
             },
             {
@@ -1791,7 +1795,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/pg-reads-failover-to-primary',
                 {
                   type: 'category',
-                  label: 'Cross-region disaster recovery',
+                  label: 'X-region disaster recovery',
                   link: {
                     type: 'doc',
                     id: 'products/postgresql/crdr',
@@ -1840,13 +1844,14 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Migrate',
                   items: [
-                    'products/postgresql/concepts/aiven-db-migrate',
-                    'products/postgresql/howto/migrate-cloud-region',
                     'products/postgresql/howto/migrate-db-to-aiven-via-console',
+                    'products/postgresql/concepts/aiven-db-migrate',
                     'products/postgresql/howto/migrate-aiven-db-migrate',
+                    'products/postgresql/howto/run-aiven-db-migrate-python',
+
                     'products/postgresql/howto/migrate-pg-dump-restore',
                     'products/postgresql/howto/migrate-using-bucardo',
-                    'products/postgresql/howto/run-aiven-db-migrate-python',
+                    'products/postgresql/howto/migrate-cloud-region',
                   ],
                 },
               ],
@@ -1856,17 +1861,17 @@ const sidebars: SidebarsConfig = {
               label: 'Observability & monitoring',
               items: [
                 'products/postgresql/reference/pg-metrics',
-                'products/postgresql/reference/log-formats-supported',
-                'products/postgresql/howto/visualize-grafana',
                 'products/postgresql/howto/report-metrics-grafana',
+                'products/postgresql/howto/visualize-grafana',
                 'products/postgresql/howto/monitor-database-with-datadog',
-                'products/postgresql/howto/monitor-with-pgwatch2',
                 'products/postgresql/howto/monitor-pgbouncer-with-datadog',
+                'products/postgresql/howto/monitor-with-pgwatch2',
+
+                'products/postgresql/reference/log-formats-supported',
                 'products/postgresql/howto/pg-object-size',
-                'products/postgresql/howto/pg-long-running-queries',
                 {
                   type: 'category',
-                  label: 'PGAudit',
+                  label: 'pgaudit logging',
                   link: {
                     type: 'doc',
                     id: 'products/postgresql/howto/list-pgaudit',

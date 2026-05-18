@@ -1,6 +1,6 @@
 ---
 title: Cross-region disaster recovery in Aiven for PostgreSQL®
-sidebar_label: Cross-region disaster recovery
+sidebar_label: X-region disaster recovery
 ---
 
 import DocCardList from '@theme/DocCardList';

@@ -1,6 +1,6 @@
 ---
 title: pgvector for AI-powered search in Aiven for PostgreSQL®
-sidebar_label: AI-powered pgvector search
+sidebar_label: pgvector search
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

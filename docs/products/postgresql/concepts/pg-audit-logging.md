@@ -1,6 +1,6 @@
 ---
 title: Aiven for PostgreSQL® audit logging
-sidebar_label: Audit logging
+sidebar_label: pgaudit overview
 ---
 
 The path to optimal data security, compliance, incident management, and system performance starts with [collecting robust audit logs](/docs/products/postgresql/howto/use-pg-audit-logging).

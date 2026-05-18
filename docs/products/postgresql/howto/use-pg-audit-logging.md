@@ -1,6 +1,6 @@
 ---
 title: Collect audit logs in Aiven for PostgreSQL®
-sidebar_label: Collect audit logs
+sidebar_label: Collect pgaudit logs
 ---
 
 import Tabs from '@theme/Tabs';
