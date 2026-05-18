@@ -4,26 +4,25 @@ sidebar_label: Get started
 keywords: [quick start]
 ---
 
-To use Karapace, enable **Karapace Schema registry** and **REST APIs** on your Aiven for Apache Kafka® service, see [Enable Karapace schema registry and REST APIs](/docs/products/kafka/karapace/howto/enable-karapace).
+To use Karapace, enable **Karapace schema registry** and **REST APIs** on your Aiven for Apache Kafka® service.
+For instructions, see
+[Enable Karapace schema registry and REST APIs](/docs/products/kafka/karapace/howto/enable-karapace).
 
 ## Next steps
 
--   Learn more about
-    [Karapace schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization) and
-    [ACLs definition](/docs/products/kafka/karapace/concepts/acl-definition).
--   Learn more about how to enable
-    [Karapace schema registry authorization](/docs/products/kafka/karapace/howto/enable-schema-registry-authorization) and how to
-    [manage Karapace schema registry authorization](/docs/products/kafka/karapace/howto/manage-schema-registry-authorization).
--   Learn more about how to enable
-    [Apache Kafka REST proxy authorization](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy) and how to
-    [Enable Karapace Kafka REST authorization](/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization).
+- Use [schema references for Avro and Protobuf](/docs/products/kafka/karapace/concepts/schema-references)
+  to reuse shared schemas across subjects.
+- Read about [Karapace schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization)
+  and [schema registry ACL definitions](/docs/products/kafka/karapace/concepts/acl-definition).
+- Enable [Karapace schema registry authorization](/docs/products/kafka/karapace/howto/enable-schema-registry-authorization).
+  Manage access in [Manage schema registry authorization](/docs/products/kafka/karapace/howto/manage-schema-registry-authorization).
+- Enable [OAuth2/OIDC for the Apache Kafka® REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
+  and [Apache Kafka® REST proxy authorization](/docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization).
 
 ## More resources
 
--   For information on how to manage Kafka schema registry ACL resources
-    on Terraform, see
-    [Manage resources via Terraform](/docs/products/kafka/karapace/howto/manage-schema-registry-authorization).
--   For more information on how to set up Karapace with Aiven for Apache
-    Kafka® using [Aiven Terraform
-    Provider](https://registry.terraform.io/providers/aiven/aiven/latest/docs), see
-    [the `aiven_kafka` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka).
+- To manage Kafka schema registry ACL resources with Terraform, refer to
+  [Manage resources via Terraform](/docs/products/kafka/karapace/howto/manage-schema-registry-authorization).
+- To set up Karapace with Aiven for Apache Kafka® using Terraform, refer to the
+  [Aiven provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+  and the [`aiven_kafka` resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka).
