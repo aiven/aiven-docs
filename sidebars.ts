@@ -1687,6 +1687,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/get-started',
                 'products/postgresql/reference/terminology',
+                'products/postgresql/concepts/pg-free-tier',
                 'products/postgresql/howto/pagila',
                 'products/postgresql/reference/resource-capability',
               ],
@@ -1777,6 +1778,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/reference/advanced-params',
               ],
             },
+            'products/postgresql/howto/list-manage-cluster',
             {
               type: 'category',
               label: 'High availability & disaster recovery',
@@ -1853,6 +1855,7 @@ const sidebars: SidebarsConfig = {
               label: 'Observability & monitoring',
               items: [
                 'products/postgresql/reference/pg-metrics',
+                'products/postgresql/reference/log-formats-supported',
                 'products/postgresql/howto/visualize-grafana',
                 'products/postgresql/howto/report-metrics-grafana',
                 'products/postgresql/howto/monitor-database-with-datadog',
@@ -1884,9 +1887,12 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Supported extensions',
+                  link: {
+                    id: 'products/postgresql/reference/list-of-extensions',
+                    type: 'doc',
+                  },
                   items: [
                     'products/postgresql/howto/manage-extensions',
-                    'products/postgresql/reference/list-of-extensions',
                     'products/postgresql/reference/list-of-extensions-for-each-version',
                     'products/postgresql/concepts/timescaledb',
                     'products/postgresql/howto/use-dblink-extension',
@@ -1923,9 +1929,6 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/readonly-user',
               ],
             },
-            'products/postgresql/concepts/pg-free-tier',
-            'products/postgresql/howto/list-manage-cluster',
-            'products/postgresql/reference/log-formats-supported',
           ],
         },
         {
