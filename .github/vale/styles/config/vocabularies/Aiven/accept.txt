@@ -88,6 +88,7 @@ datagrams
 datasource
 Datastax
 datastore
+DB
 DBeaver
 dblink
 DBMS
