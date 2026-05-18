@@ -816,9 +816,20 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Reference',
               items: [
-                'products/kafka/reference/advanced-params',
-                'products/kafka/reference/advanced-params-inkless-saas',
-                'products/kafka/reference/advanced-params-inkless-saas-topic',
+                {
+                  type: 'category',
+                  label: 'Advanced parameters',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/reference/advanced-params-index',
+                  },
+                  items: [
+                    'products/kafka/reference/advanced-params-free-tier',
+                    'products/kafka/reference/advanced-params-dev-tier',
+                    'products/kafka/reference/advanced-params',
+                    'products/kafka/reference/advanced-params-inkless',
+                  ],
+                },
                 'products/kafka/reference/kafka-metrics-prometheus',
               ],
             },

@@ -1,9 +1,9 @@
 ---
-title: Advanced parameters for Aiven for Apache Kafka®
-sidebar_label: Advanced parameters
+title: Advanced parameters for Aiven for Apache Kafka® Classic
+sidebar_label: Classic Kafka
 ---
 
-See the configuration options available for Aiven for Apache Kafka®:
+View the configuration options for Aiven for Apache Kafka® Classic.
 
 import Reference from '@site/static/includes/config-kafka.md';
 
