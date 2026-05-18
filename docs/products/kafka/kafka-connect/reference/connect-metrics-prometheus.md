@@ -44,4 +44,4 @@ Apache Kafka Connect service.
 <RelatedPages/>
 
 - [Aiven for Apache Kafka® metrics available via Prometheus](/docs/products/kafka/reference/kafka-metrics-prometheus)
-- [Connect Monitoring section of the Apache Kafka® documentation](https://kafka.apache.org/documentation/#connect_monitoring)
+- [Connect Monitoring section of the Apache Kafka® documentation](https://kafka.apache.org/42/operations/monitoring/#connect-monitoring)

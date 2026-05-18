@@ -91,7 +91,7 @@ If you request one of these metrics while the topic is inactive, Jolokia returns
 response. This behavior is expected and does not indicate an issue with Kafka or Jolokia.
 
 For more information, see the
-[Kafka JMX documentation](https://kafka.apache.org/38/documentation.html#remote_jmx).
+[Kafka JMX documentation](https://kafka.apache.org/42/operations/monitoring/#security-considerations-for-remote-monitoring-using-jmx).
 
 ## Example cURL requests
 
