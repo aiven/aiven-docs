@@ -146,7 +146,8 @@ from Aiven repositories).
 <LimitedBadge/> Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data) are stored using
-two S3 buckets.
+two S3 buckets. If you want to enable this optional feature for any new BYOC clouds
+you create, contact [Aiven support](mailto:support@aiven.io).
 
 </TabItem>
 <TabItem value="2" label="AWS public">
@@ -165,7 +166,8 @@ directly. To restrict access to your service, you can use the
 <LimitedBadge/> Object storage in your AWS cloud account is where your service's
 [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
 [cold data](/docs/platform/howto/byoc/store-data) are stored using
-two S3 buckets.
+two S3 buckets. If you want to enable this optional feature for any new BYOC clouds
+you create, contact [Aiven support](mailto:support@aiven.io).
 
 </TabItem>
 <TabItem value="3" label="Google Cloud private">
@@ -222,11 +224,6 @@ All Aiven communication is encrypted.
 Depending on the BYOC service, Aiven takes
 [regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
 in time recovery (PITR), and disaster recovery.
-
-<LimitedBadge/>
-If you
-[enable tiered storage](/docs/platform/howto/byoc/store-data#enable-tiered-storage-in-an-aws-custom-cloud),
-AWS BYOC service backups are stored in Amazon S3 buckets within your AWS account.
 
 :::important
 
