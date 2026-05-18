@@ -804,54 +804,6 @@ import Link from '@docusaurus/Link'
         <td>
             <div className="param">
               <p className="name">
-                <Link id="kafka.log_local_retention_ms" to="#kafka.log_local_retention_ms">
-                  <strong>kafka.log_local_retention_ms</strong>
-                </Link>
-              </p>
-              <p>
-                <code className="type" title="integer">integer</code>
-              </p>
-            </div>
-
-            <div className="constraints">
-              <ul>
-                  <li>min: <code>900000</code></li>
-              </ul>
-            </div>
-
-              <div className="description">
-                <p>The number of milliseconds to keep the local log segments before it gets eligible for deletion. If set to -2, the value of log.retention.ms is used. The effective value should always be less than or equal to log.retention.ms value. (Default: -2)</p>
-              </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-            <div className="param">
-              <p className="name">
-                <Link id="kafka.log_local_retention_bytes" to="#kafka.log_local_retention_bytes">
-                  <strong>kafka.log_local_retention_bytes</strong>
-                </Link>
-              </p>
-              <p>
-                <code className="type" title="integer">integer</code>
-              </p>
-            </div>
-
-            <div className="constraints">
-              <ul>
-                  <li>min: <code>5368709120</code></li>
-              </ul>
-            </div>
-
-              <div className="description">
-                <p>The maximum size of local log segments that can grow for a partition before it gets eligible for deletion. If set to -2, the value of log.retention.bytes is used. The effective value should always be less than or equal to log.retention.bytes value. (Default: -2)</p>
-              </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-            <div className="param">
-              <p className="name">
                 <Link id="kafka.log_retention_bytes" to="#kafka.log_retention_bytes">
                   <strong>kafka.log_retention_bytes</strong>
                 </Link>
@@ -942,7 +894,7 @@ import Link from '@docusaurus/Link'
             </div>
 
               <div className="description">
-                <p>Enable auto-creation of topics. (Default: false)</p>
+                <p>Enable auto-creation of topics. (Default: true)</p>
               </div>
         </td>
       </tr>
@@ -992,7 +944,7 @@ import Link from '@docusaurus/Link'
             </div>
 
               <div className="description">
-                <p>Replication factor for auto-created topics (Default: 3)</p>
+                <p>Replication factor for created topics. For Classic topics, the default is 3. For Diskless topics, the default is 1.</p>
               </div>
         </td>
       </tr>
