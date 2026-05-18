@@ -1,5 +1,6 @@
 ---
 title: Migrate between PostgreSQL® instances using aiven-db-migrate in Python
+sidebar_label: aiven-db-migrate in Python
 ---
 
 The `aiven-db-migrate` tool is an open source project available on

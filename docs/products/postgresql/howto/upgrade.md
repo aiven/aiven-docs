@@ -1,6 +1,6 @@
 ---
 title: Perform a PostgreSQL® major version upgrade
-sidebar_label: Upgrade to a major version
+sidebar_label: Major version upgrade
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

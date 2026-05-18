@@ -1,6 +1,6 @@
 ---
 title: Use the PostgreSQL® pg_repack extension
-sidebar_label: Use the pg_repack extension
+sidebar_label: Use pg_repack
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
