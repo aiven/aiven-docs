@@ -46,10 +46,16 @@ To use PG Studio, you need the `service:data:write` permission at the organizati
 or project level. This permission is included in the **Admin**, **Developer**, and
 **Operator** roles.
 
-## Organization-level setting
+## Organization-level controls
 
-When you [enable query editors for your organization](/docs/products/postgresql/howto/pg-studio/get-started#turn-pg-studio-on-or-off-for-an-organization),
-PG Studio gets enabled by default.
+Organization admins control PostgreSQL query execution and AI features separately.
+
+- If query execution is off, PG Studio stays visible and shows an organization-level
+  message.
+- If AI features are off, AI actions in PG Studio are unavailable.
+
+For setup steps, see
+[Configure PG Studio access for an organization](/docs/products/postgresql/howto/pg-studio/get-started#configure-pg-studio-access-for-an-organization).
 
 ## Related pages
 
