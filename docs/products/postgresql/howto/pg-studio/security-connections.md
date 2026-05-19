@@ -56,14 +56,13 @@ or project level. This permission is included in the **Admin**, **Developer**, a
 
 ## Organization-level controls
 
-Organization admins control PostgreSQL query execution and AI features separately.
+Organization admins
+[control PostgreSQL query execution and AI features](/docs/products/postgresql/howto/pg-studio/get-started#configure-pg-studio-access-for-an-organization)
+separately.
 
 - If query execution is off, PG Studio stays visible and shows an organization-level
   message.
 - If AI features are off, AI actions in PG Studio are unavailable.
-
-For setup steps, see
-[Configure PG Studio access for an organization](/docs/products/postgresql/howto/pg-studio/get-started#configure-pg-studio-access-for-an-organization).
 
 ## Related pages
 
