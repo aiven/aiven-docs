@@ -1275,10 +1275,16 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/datahub/get-started',
-            'products/datahub/manage-datahub-users',
-            'products/datahub/enable-oidc-auth-datahub',
             'products/datahub/connect-datahub-to-services',
             'products/datahub/datahub-mcp-server',
+            {
+              type: 'category',
+              label: 'Admin',
+              items: [
+                'products/datahub/manage-datahub-users',
+                'products/datahub/enable-oidc-auth-datahub',
+              ],
+            },
           ],
         },
         {
