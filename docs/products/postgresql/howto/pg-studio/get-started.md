@@ -26,20 +26,14 @@ To use PG Studio, you need:
 
 ## Turn PG Studio on or off for an organization
 
-Organization admins can control query editor access for the whole organization.
-This setting applies to all projects in that organization.
+Organization admins can turn on PG Studio for their organizations. This setting applies to
+all projects in those organizations.
 
-To change query editor access:
+To enable PG Studio for your organization:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open the organization.
-1. Go to the organization query editor access setting.
-1. Turn query editors on or off.
-
-When query editors are turned off, users cannot use PG Studio in that organization.
-
-:::note
-Turning off query editors also disables the query editor for Aiven for ClickHouse®.
-:::
+1. Go to **Admin** > **Platform management** > **Feature management**.
+1. In the **PostgreSQL** section, find **PG Studio** and use the toggle to enable it.
 
 ## Open PG Studio
 
