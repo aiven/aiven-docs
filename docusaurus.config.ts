@@ -7,6 +7,9 @@ import rehypeKatex from 'rehype-katex';
 const currentMonth = new Date().getMonth();
 const isJune = currentMonth === 5;
 
+const baseUrl = process.env.BASEURL || '/docs/';
+const llmsTxtUrl = `${baseUrl.replace(/\/$/, '')}/llms.txt`;
+
 const config: Config = {
   // Testing faster build
   future: {},
@@ -14,7 +17,7 @@ const config: Config = {
   tagline: 'Your AI-ready Open Source Data Platform',
   favicon: 'images/favicon.ico',
   url: 'https://aiven.io/',
-  baseUrl: process.env.BASEURL || '/docs/',
+  baseUrl,
   organizationName: 'Aiven',
   projectName: 'docs',
   onBrokenLinks: 'throw',
@@ -34,6 +37,14 @@ const config: Config = {
       attributes: {
         name: 'zd-site-verification',
         content: '1tsz6w2s2we597lbplg9ou',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'alternate',
+        type: 'text/plain',
+        href: llmsTxtUrl,
       },
     },
   ],
@@ -164,8 +175,12 @@ const config: Config = {
       title: 'aiven',
       logo: {
         alt: 'Aiven docs',
-        src: isJune ? 'images/rainbowcrab.svg' : 'images/aiven_logo_RGB_blk.svg',
-        srcDark: isJune ? 'images/rainbowcrab.svg' : 'images/aiven_logo_RGB_wht.svg',
+        src: isJune
+          ? 'images/rainbowcrab.svg'
+          : 'images/aiven_logo_RGB_blk.svg',
+        srcDark: isJune
+          ? 'images/rainbowcrab.svg'
+          : 'images/aiven_logo_RGB_wht.svg',
       },
       items: [
         {

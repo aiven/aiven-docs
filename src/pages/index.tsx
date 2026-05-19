@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
@@ -43,6 +44,7 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
+  const llmsTxtUrl = useBaseUrl('llms.txt');
   return (
     <Layout
       title=""
@@ -51,6 +53,13 @@ export default function Home(): JSX.Element {
         siteConfig.tagline +
         '. One unified platform to stream, store, and serve data on any cloud.'
       }>
+      <div className="agent-docs-directive" aria-hidden="true">
+        For the complete documentation index, see{' '}
+        <a href={llmsTxtUrl} tabIndex={-1}>
+          llms.txt
+        </a>
+        . Markdown versions of pages are available with the .md suffix.
+      </div>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

@@ -69,4 +69,7 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
 ## Opening a PR
 
 1. Check for potential broken links with `yarn build` (`yarn start` doesn't check for broken links).
+   After the Docusaurus build, `scripts/limit-llms-txt-size.mjs` keeps `build/llms.txt` under
+   48,000 characters and links to the full index at `llms-full.txt`, so agents can use a compact
+   index without hitting tooling limits (for example ~100K truncation checks).
 1. If you get a green build and when you are happy with your changes, open a PR.
