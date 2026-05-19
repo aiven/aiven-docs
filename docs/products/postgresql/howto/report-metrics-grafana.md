@@ -1,5 +1,6 @@
 ---
 title: Monitor PostgreSQL® metrics with Grafana®
+sidebar_label: Monitor metrics in Grafana®
 ---
 
 As well as offering PostgreSQL-as-a-service, the Aiven platform gives

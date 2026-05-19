@@ -1,5 +1,6 @@
 ---
-title: About aiven-db-migrate
+title: Prepare for migrating PostgreSQL® to Aiven using aiven-db-migrate
+sidebar_label: aiven-db-migrate prep
 ---
 
 The `aiven-db-migrate` tool is the recommended approach for migrating your PostgreSQL® to Aiven.
@@ -27,7 +28,7 @@ The following are the two basic requirements for a migration:
 
 1.  The source server is publicly available or there is a virtual
     private cloud (VPC) peering connection between the private networks
-2.  A user account with access to the destination cluster from an
+1.  A user account with access to the destination cluster from an
     external IP, as configured in `pg_hba.conf` on the source cluster is
     present.
 
@@ -36,7 +37,7 @@ be valid:
 
 1.  PostgreSQL® version 10 or newer
 
-2.  Credentials with superuser access to the source cluster or the
+1.  Credentials with superuser access to the source cluster or the
     `aiven-extras` extension installed (see also: [Aiven Extras on
     GitHub](https://github.com/aiven/aiven-extras))
 
@@ -56,26 +57,26 @@ The `aiven-db-migrate` migration tool checks the following requirements
 before it starts the actual migration:
 
 1.  A connection can be established to both source and target servers
-2.  The source and target server are not the same
-3.  A connection can be established to all source databases, ignoring
+1.  The source and target server are not the same
+1.  A connection can be established to all source databases, ignoring
     `template0`, `template1`, and admin databases
-4.  There is enough disk space on the target for 130% of the total size
+1.  There is enough disk space on the target for 130% of the total size
     of the source databases (ignoring `template0`, `template1`, and
     admin databases)
-5.  There are at least as many free logical replication slots as there
+1.  There are at least as many free logical replication slots as there
     are databases to migrate
-6.  A connection can be established to any target database that already
+1.  A connection can be established to any target database that already
     exists on both source and target servers
-7.  The target version is the same as or newer than the source version
-8.  All languages installed in the source are available in the target
-9.  All extensions in the source are installed or available in the
+1.  The target version is the same as or newer than the source version
+1.  All languages installed in the source are available in the target
+1.  All extensions in the source are installed or available in the
     target
-10. Source extensions not installed in the target can be installed:
+1. Source extensions not installed in the target can be installed:
     -   by connecting as a superuser
     -   without requiring superuser access
     -   by inclusion in the allowed extensions list
     -   by being a trusted extension (for PostgreSQL® 13 and newer)
-11. In addition, for using the logical replication method:
+1. In addition, for using the logical replication method:
     -   The source version is PostgreSQL 10 or newer
     -   The source `wal_level` is set to `logical`
     -   The user connecting to the source has superuser access or the

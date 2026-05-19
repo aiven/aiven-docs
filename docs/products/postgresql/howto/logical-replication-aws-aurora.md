@@ -1,5 +1,6 @@
 ---
 title: Enable logical replication on Amazon Aurora PostgreSQL®
+sidebar_label: LR on Amazon Aurora PostgreSQL®
 ---
 
 If you have not enabled logical replication on Aurora already, the

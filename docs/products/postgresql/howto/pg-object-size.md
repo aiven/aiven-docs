@@ -1,5 +1,6 @@
 ---
 title: Check the size of a database, a table or an index
+sidebar_label: DB, table, index size
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

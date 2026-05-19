@@ -1,6 +1,6 @@
 ---
 title: Enable and use pgvector on Aiven for PostgreSQL®
-sidebar_label: Enable and use pgvector
+sidebar_label: Use pgvector
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

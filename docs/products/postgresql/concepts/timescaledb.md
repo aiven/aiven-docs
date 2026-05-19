@@ -1,5 +1,6 @@
 ---
-title: About TimescaleDB
+title: Use TimescaleDB with Aiven for PostgreSQL®
+sidebar_label: Use TimescaleDB
 ---
 
 [TimescaleDB](https://github.com/timescale/timescaledb) is an open-source database designed to make your existing relational database scalable for time series data.

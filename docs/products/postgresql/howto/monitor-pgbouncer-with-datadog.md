@@ -1,6 +1,6 @@
 ---
 title: Monitor PgBouncer with Datadog for Aiven for PostgreSQL®
-sidebar_label: Monitor PgBouncer in Datadog
+sidebar_label: PgBouncer metrics in Datadog
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

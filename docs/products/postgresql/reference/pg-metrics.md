@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL® metrics exposed in Grafana®
-sidebar_label: Metrics exposed in Grafana®
+sidebar_label: Metrics in Grafana®
 ---
 
 The metrics/dashboard integration in the Aiven console enables you to push PostgreSQL® metrics to an external endpoint like Datadog or to create an integration and a prebuilt dashboard in Aiven for Grafana®.

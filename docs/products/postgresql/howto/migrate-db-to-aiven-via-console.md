@@ -1,5 +1,6 @@
 ---
-title: Migrate PostgreSQL® databases to Aiven using the console
+title: Migrate PostgreSQL® databases to Aiven using the Aiven Console
+sidebar_label: Migrate via console
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,6 +1,6 @@
 ---
 title: Use the PostgreSQL® pg_cron extension
-sidebar_label: Use the pg_cron extension
+sidebar_label: Use pg_cron
 ---
 
 The `pg_cron` extension is a cron-based job scheduler for PostgreSQL (10 or higher) that runs inside the database.

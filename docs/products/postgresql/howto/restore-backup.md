@@ -1,6 +1,6 @@
 ---
 title: Restore PostgreSQL® from a backup
-sidebar_label: Restore from a backup
+sidebar_label: Restore from backups
 ---
 
 import ForkService from "@site/static/includes/fork-service-console.md";

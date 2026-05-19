@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot connection pooling issues in Aiven for PostgreSQL®
-sidebar_label: Pooling issues
+sidebar_label: Connection pooling issues
 ---
 
 import VerifyPasswordEncryption from "@site/static/includes/pg-password-encryption.md";

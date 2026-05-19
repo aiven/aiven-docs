@@ -88,6 +88,8 @@ datagrams
 datasource
 Datastax
 datastore
+DB
+DBs
 DBeaver
 dblink
 DBMS
@@ -283,6 +285,7 @@ pg_dump
 pgAdmin
 PGAudit
 PgBouncer
+pg_cron
 pg_dump
 PGHoard
 pglookout

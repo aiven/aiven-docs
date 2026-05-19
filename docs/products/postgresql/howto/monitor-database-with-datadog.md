@@ -1,5 +1,6 @@
 ---
 title: Monitor a database with Datadog
+sidebar_label: Monitor metrics in Datadog
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,5 +1,6 @@
 ---
-title: Migrate to Aiven for PostgreSQL® with pg_dump and pg_restore
+title: Migrate PostgreSQL® databases to Aiven using pg_dump and pg_restore
+sidebar_label: pg_dump & pg_restore
 ---
 
 Aiven for PostgreSQL® supports the same tools as a regular PostgreSQL database, so you can migrate using the standard `pg_dump` and `pg_restore` tools.
