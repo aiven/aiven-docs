@@ -426,6 +426,7 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       items: [
         'products/services',
+        'platform/howto/search-services',
         {
           type: 'category',
           label: 'Aiven for Apache Flink®',
@@ -2082,7 +2083,6 @@ const sidebars: SidebarsConfig = {
         'platform/concepts/service-power-cycle',
         'platform/concepts/rename-services',
         'platform/howto/tag-resources',
-        'platform/howto/search-services',
         'platform/howto/create_new_service_user',
         'platform/concepts/service-forking',
         'platform/howto/prepare-for-high-load',
