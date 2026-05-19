@@ -6,6 +6,9 @@ description: Use the SQL editor to write, edit, and execute queries.
 
 Use the SQL editor in PG Studio to write, edit, and execute queries.
 
+If your organization disables query execution for PostgreSQL, PG Studio stays visible but
+you cannot run queries.
+
 ## Write SQL manually
 
 1. In the SQL editor, enter your query.
