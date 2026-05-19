@@ -1683,7 +1683,7 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'category',
-              label: 'Getting started',
+              label: 'Get started',
               link: {
                 type: 'doc',
                 id: 'products/postgresql/get-started',
