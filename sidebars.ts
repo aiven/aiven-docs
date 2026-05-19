@@ -1474,7 +1474,7 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'category',
-              label: 'Getting started',
+              label: 'Get started',
               link: {
                 id: 'products/opensearch/get-started',
                 type: 'doc',
@@ -1488,7 +1488,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'How to connect',
+              label: 'Connect to OS services',
               link: {
                 id: 'products/opensearch/howto/list-connect-to-service',
                 type: 'doc',
