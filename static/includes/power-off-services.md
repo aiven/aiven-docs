@@ -41,7 +41,7 @@ When you power on a service:
 -   The service starts with the stored configuration parameters.
 -   The latest time-based backup is restored.
 -   Maintenance updates are automatically applied.
--   If a oint in time recovery backup is available, the database transaction log
+-   If a point in time recovery backup is available, the database transaction logs
     are replayed to recover the service data to a specific point in time.
 
 The restoration takes from a few minutes to a few hours, depending on
