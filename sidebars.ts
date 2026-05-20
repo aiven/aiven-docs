@@ -1031,6 +1031,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/redis-streamreactor-sink',
 
                         // S
+                        'products/kafka/kafka-connect/howto/salesforce-sink-connector',
                         'products/kafka/kafka-connect/howto/snowflake-sink',
                         'products/kafka/kafka-connect/howto/splunk-sink',
                       ],
