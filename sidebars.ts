@@ -1287,6 +1287,7 @@ const sidebars: SidebarsConfig = {
                 'products/datahub/enable-oidc-auth-datahub',
               ],
             },
+            'products/datahub/tag-datahub-services',
           ],
         },
         {
