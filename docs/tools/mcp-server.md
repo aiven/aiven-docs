@@ -21,6 +21,8 @@ assistant focused.
 - An [Aiven account](https://console.aiven.io/signup)
 - An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
   VS Code, or Gemini CLI
+- MCP access enabled for your organization by an admin in the Aiven Console
+  under **Admin settings** > **Authentication** > **Allow MCP connection**
 
 Authentication uses OAuth 2.0 with PKCE; your browser opens on first connect so you
 can sign in and authorize MCP access.
