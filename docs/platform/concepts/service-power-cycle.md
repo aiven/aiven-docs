@@ -5,7 +5,6 @@ title: Power on/off a service
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
-import AutoDelete from "@site/static/includes/auto-delete-poweredoff.md";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
@@ -58,7 +57,7 @@ Whenever a service is powered off:
   See [Backups at Aiven][backup].
 
 :::important
-<AutoDelete/>
+Services powered off for more than **180** days are automatically deleted.
 :::
 
 :::note
