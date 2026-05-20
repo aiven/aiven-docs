@@ -6,6 +6,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TagServices from "@site/static/includes/tag-services.md";
 
 Use tags to add metadata to Aiven resources to categorize them or run custom logic on them. Tags can be attached to projects and services.
 
@@ -30,12 +31,13 @@ Within a resource, the tag keys must be unique.
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In your project, click **Settings**.
-1. In the **Billing tags** or **Project tags** click **Add tag**.
+1. In the project, click <ConsoleLabel name="projectsettings"/>.
+1. In the **Tags** section, click **Project** or **Billing**.
    - Billing tags are returned in the invoice API and displayed on PDF
      invoices for the project.
    - Project tags are returned for resources in the API and displayed
      in the list of projects.
+1. Click **Add tags**.
 1. Enter a key and value for each tag.
 1. Click **Save changes**.
 
@@ -55,16 +57,11 @@ For billing tags, prefix the `key` with `billing:`. For example:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/) and select
-   your organization and your project from the top navigation bar.
-1. On the **Services** page of your project, select the service to tag.
-1. On the service page, select <ConsoleLabel name="service settings"/> from the sidebar.
+1. In the service, click <ConsoleLabel name="service settings"/>.
 1. In the **Service status** section, click
    <ConsoleLabel name="actions"/> > **Add service tags**.
-1. In the **Tag this service** dialog, enter a key and its value in the
-   **Service Tags** fields.
-1. Click **Add tag** to add additional tags.
-1. Click **Save changes** to apply the tags.
+1. Enter a key and value for each tag.
+1. Click **Save changes**.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
