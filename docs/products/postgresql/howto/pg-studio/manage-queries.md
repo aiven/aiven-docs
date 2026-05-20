@@ -8,7 +8,8 @@ PG Studio lets you save useful SQL and revisit recently executed statements, so 
 
 ## Save queries
 
-Save a query so you can open and run it again later. Saved queries are user-specific. Other users in the same Aiven for PostgreSQL service can't see your saved queries.
+Save a query so you can open and run it again later. Saved queries are user-specific. Other
+users in the same Aiven for PostgreSQL service can't see your saved queries.
 
 To save a query:
 
@@ -20,7 +21,11 @@ PG Studio saves the query using the current tab name. The query appears in **Sav
 
 ## Access saved queries and query history
 
-**Saved queries** shows both your explicitly saved queries and your recent query history, so you can return to any previous work.
+**Saved queries** shows both your explicitly saved queries and your recent query history,
+so you can return to any previous work.
+
+For write query history and fork-based rollback, see
+[View and revert write query history](/docs/products/postgresql/howto/pg-studio/write-run-queries#view-and-revert-write-query-history).
 
 To open a saved query or a recent query:
 
@@ -45,7 +50,8 @@ To delete a saved query:
 1. Click **Delete** to remove the query from your saved list.
 
 :::note
-Deleting a query removes it only from your saved queries list in the editor. It does not delete any database objects created earlier by running SQL in your database.
+Deleting a query removes it only from your saved queries list in the editor. It does not
+delete any database objects created earlier by running SQL in your database.
 :::
 
 ## Related pages
