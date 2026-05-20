@@ -1368,7 +1368,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Maintenance',
-              items: ['products/datahub/restore-datahub-indices'],
+              items: ['products/datahub/upgrade-datahub-version','products/datahub/restore-datahub-indices'],
             },
           ],
         },
