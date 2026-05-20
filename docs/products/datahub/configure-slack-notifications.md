@@ -23,15 +23,15 @@ and setting environment variables on the actions app.
 1. On the **OAuth & Permissions** page, add these
    [app scopes](https://docs.slack.dev/app-management/quickstart-app-settings#scopes):
 
-- `chat:write`: Post messages as the Slack bot
-- `chat:write.public`: Post in public channels without being a member
-- `channels:read`: Look up channel IDs
+   - `chat:write`: Post messages as the Slack bot
+   - `chat:write.public`: Post in public channels without being a member
+   - `channels:read`: Look up channel IDs
 
 1. [Install the app](https://docs.slack.dev/app-management/quickstart-app-settings#installing).
 
 1. Get the following app credentials:
 
-   - [Slack bot token](https://api.slack.com/authentication/token-types#bot): On the
+   - [Slack bot token](https://api.slack.com/authentication/token-types#bot): On
      the **OAuth & Permissions** page. Bot tokens begin with `xoxb-`.
    - [Signing secret](https://api.slack.com/authentication/verifying-requests-from-slack):
      From the **Basic Info** section.
@@ -61,7 +61,9 @@ and setting environment variables on the actions app.
    | `DATAHUB_ACTIONS_SLACK_ENABLED` | `true` |
    | `DATAHUB_ACTIONS_SLACK_CHANNEL` | Your Slack channel ID. |
    | `DATAHUB_ACTIONS_SLACK_DATAHUB_BASE_URL` | The DataHub **Application URL** from the **Connection information**. Adds links in messages. |
-   | `DATAHUB_ACTIONS_SLACK_SUPPRESS_SYSTEM_ACTIVITY` | Optional. To get low level system activity notifications such as datasets being ingested, set to `false`. Defaults to `true`. |
+   | `DATAHUB_ACTIONS_SLACK_SUPPRESS_SYSTEM_ACTIVITY` | Optional. To get low-level system activity notifications such as datasets being ingested, set to `false`. Defaults to `true`. |
+
+1. Click **Save**.
 
 After setting the variables, the actions app restarts automatically.
 

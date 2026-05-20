@@ -11,11 +11,6 @@ Get activity notifications for your DataHub service in a Microsoft Teams channel
 You can enable Teams notifications by creating a Power Automate flow in Teams
 and setting environment variables on the actions app.
 
-:::note
-Teams webhook delivery is rate-limited to about one message per second.
-If many changes happen at once, they queue and might arrive with a slight delay.
-:::
-
 ## Prerequisites
 
 - A Microsoft Teams team and channel where you can add workflows.
@@ -61,6 +56,8 @@ If many changes happen at once, they queue and might arrive with a slight delay.
    |-----|-------|
    | `DATAHUB_ACTIONS_TEAMS_ENABLED` | `true` |
    | `DATAHUB_ACTIONS_TEAMS_DATAHUB_BASE_URL` | The DataHub **Application URL** from the **Connection information**. Adds links in messages. Defaults to `http://localhost:9002`. |
+
+1. Click **Save**.
 
 After setting the variables, the actions app restarts automatically.
 
