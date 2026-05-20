@@ -6,12 +6,12 @@ Use tags to add metadata to Aiven services to categorize them or run custom logi
 Typical uses include:
 
 - Tagging for governance to deploy services with specific tags only.
-- Tagging for internal cost reporting, ownership, allocation and accountability.
+- Tagging for internal cost reporting, ownership, allocation, and accountability.
 
 A tag is a key/value pair:
 
 - **Key**: A case-sensitive string that starts with a letter and consists
-  of letters, numbers, dashes and underscores.
+  of letters, numbers, dashes, and underscores.
   The maximum length for a key is 64 characters.
 - **Value**: A string value limited to 64 UTF-8 characters.
 
