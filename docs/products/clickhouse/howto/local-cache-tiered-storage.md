@@ -1,6 +1,6 @@
 ---
-title: Local on-disk cache for remote files in Aiven for ClickHouse®'s tiered storage
-sidebar_label: Local on-disk cache for remote files
+title: Manage local cache for remote files in Aiven for ClickHouse®'s tiered storage
+sidebar_label: Manage local cache
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

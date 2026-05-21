@@ -1,9 +1,9 @@
 ---
-title: Aiven for ClickHouse® metrics exposed in Grafana®
+title: Aiven for ClickHouse® monitoring dashboard metrics shown in Grafana®
+sidebar_label: Grafana dashboard metrics
 ---
 
-Browse through metrics that are available via Grafana® for Aiven for
-ClickHouse® services.
+Browse the Aiven for ClickHouse® service metrics shown in the Grafana® monitoring dashboard.
 
 ## Current counts
 

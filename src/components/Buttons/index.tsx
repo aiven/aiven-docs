@@ -20,7 +20,11 @@ export function ButtonSecondary({children, to}): ReactElement {
     <p>
       <Link
         to={to}
-        className={clsx('aiven-btn-link', styles.button, styles.buttonSecondary)}>
+        className={clsx(
+          'aiven-btn-link',
+          styles.button,
+          styles.buttonSecondary,
+        )}>
         {children}
       </Link>
     </p>

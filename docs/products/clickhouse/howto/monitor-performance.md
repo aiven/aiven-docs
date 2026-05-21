@@ -1,6 +1,6 @@
 ---
 title: Monitor Aiven for ClickHouse® metrics with Aiven for Grafana®
-sidebar_label: Monitor with Grafana
+sidebar_label: Monitor metrics with Grafana
 ---
 
 import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
@@ -8,7 +8,7 @@ import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
 Push Aiven for ClickHouse® metrics to Aiven for Metrics or Aiven for PostgreSQL®, and integrate with Aiven for Grafana® to monitor your metrics on Grafana dashboards.
 
 For more information on the metrics, see
-[Aiven for ClickHouse® metrics exposed in Aiven for Grafana®](/docs/products/clickhouse/reference/metrics-list).
+[monitoring dashboard metrics shown in Grafana®](/docs/products/clickhouse/reference/metrics-list).
 
 ## Metrics storage options
 

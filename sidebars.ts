@@ -1158,7 +1158,7 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'category',
-              label: 'Getting started',
+              label: 'Get started',
               link: {
                 type: 'doc',
                 id: 'products/clickhouse/get-started',
@@ -1192,7 +1192,11 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Tables and views',
+                  label: 'Databases, tables, and views',
+                  link: {
+                    type: 'doc',
+                    id: 'products/clickhouse/concepts/databases-tables-views',
+                  },
                   items: [
                     'products/clickhouse/howto/manage-databases-tables',
                     'products/clickhouse/reference/supported-table-engines',
@@ -1202,7 +1206,7 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Data types and indexing',
+                  label: 'Indexes and data types',
                   items: [
                     'products/clickhouse/concepts/indexing',
                     'products/clickhouse/concepts/strings',
@@ -1222,8 +1226,11 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Query external data',
+                  link: {
+                    type: 'doc',
+                    id: 'products/clickhouse/concepts/federated-queries',
+                  },
                   items: [
-                    'products/clickhouse/concepts/federated-queries',
                     'products/clickhouse/howto/run-federated-queries',
                     'products/clickhouse/reference/supported-table-functions',
                     'products/clickhouse/reference/supported-input-output-formats',
@@ -1249,20 +1256,41 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Data movement',
+              items: ['products/clickhouse/howto/copy-data-across-instances'],
+            },
+            {
+              type: 'category',
               label: 'Observability',
               items: [
-                'products/clickhouse/howto/monitor-performance',
+                {
+                  type: 'category',
+                  label: 'Grafana',
+                  items: [
+                    'products/clickhouse/howto/monitor-performance',
+                    'products/clickhouse/howto/connect-to-grafana',
+                  ],
+                },
                 'products/clickhouse/howto/fetch-query-statistics',
-                'products/clickhouse/howto/connect-to-grafana',
-                'products/clickhouse/reference/metrics-list',
-                'products/clickhouse/reference/clickhouse-metrics-datadog',
-                'products/clickhouse/reference/clickhouse-metrics-prometheus',
-                'products/clickhouse/reference/clickhouse-system-tables',
+                {
+                  type: 'category',
+                  label: 'Metrics reference',
+                  items: [
+                    'products/clickhouse/reference/metrics-list',
+                    'products/clickhouse/reference/clickhouse-metrics-datadog',
+                    'products/clickhouse/reference/clickhouse-metrics-prometheus',
+                    'products/clickhouse/reference/clickhouse-system-tables',
+                  ],
+                },
               ],
             },
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/concepts/service-management',
+              },
               items: [
                 'products/clickhouse/howto/secure-service',
                 'products/clickhouse/howto/list-manage-cluster',
@@ -1277,10 +1305,9 @@ const sidebars: SidebarsConfig = {
               label: 'Tiered storage',
               link: {
                 type: 'doc',
-                id: 'products/clickhouse/howto/list-tiered-storage',
+                id: 'products/clickhouse/concepts/clickhouse-tiered-storage',
               },
               items: [
-                'products/clickhouse/concepts/clickhouse-tiered-storage',
                 'products/clickhouse/howto/enable-tiered-storage',
                 'products/clickhouse/howto/configure-tiered-storage',
                 'products/clickhouse/howto/check-data-tiered-storage',
@@ -1290,16 +1317,11 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Backups and restore',
+              label: 'Backup and restore',
               items: [
                 'products/clickhouse/howto/configure-backup',
                 'products/clickhouse/howto/restore-backup',
               ],
-            },
-            {
-              type: 'category',
-              label: 'Data movement',
-              items: ['products/clickhouse/howto/copy-data-across-instances'],
             },
             {
               type: 'category',

@@ -1,6 +1,6 @@
 ---
 title: Formats for Aiven for ClickHouse® - Aiven for Apache Kafka® data exchange
-sidebar_label: ClickHouse-Kafka data exchange formats
+sidebar_label: Kafka integration formats
 ---
 
 When connecting Aiven for ClickHouse® to Aiven for Apache Kafka® using Aiven integrations, data exchange is possible with the following formats only:

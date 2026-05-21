@@ -1,5 +1,6 @@
 ---
 title: Indexing and data processing in ClickHouse®
+sidebar_label: Indexing and data processing
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

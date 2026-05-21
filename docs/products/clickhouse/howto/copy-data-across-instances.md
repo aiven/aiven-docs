@@ -1,5 +1,6 @@
 ---
-title: Copy data from one ClickHouse® server to another
+title: Copy data between Aiven for ClickHouse® services
+sidebar_label: Copy data between services
 ---
 
 You can copy data from one ClickHouse® server to another using the `remoteSecure()` function.
