@@ -6,6 +6,10 @@ sidebar_label: Optimal shards number
 A key component of using OpenSearch® is determining the optimal number of shards for your index.
 Learn how to choose the appropriate number of shards and maximizing performance.
 
+For a broader overview of index configuration, including shard sizing guidelines, see the
+[Setting the number and size of shards](/docs/products/opensearch/concepts/indices#setting-the-number-and-size-of-shards)
+section in [Manage indices](/docs/products/opensearch/concepts/indices).
+
 ## Considerations for optimal shard count
 
 OpenSearch® has a default shard count limit of 1024 per index, and Aiven

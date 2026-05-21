@@ -1502,59 +1502,91 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Manage cluster',
+              items: [
+                'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/cross-cluster-replication-opensearch',
+                'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Indexing',
               items: [
-                'products/opensearch/concepts/indices',
+                {
+                  type: 'doc',
+                  id: 'products/opensearch/concepts/indices',
+                  label: 'Manage indices',
+                },
                 'products/opensearch/concepts/when-create-index',
+                'products/opensearch/concepts/shards-number',
                 'products/opensearch/howto/reindex-opensearch',
                 'products/opensearch/howto/set_index_retention_patterns',
                 'products/opensearch/concepts/index-replication',
+                'products/opensearch/howto/resolve-shards-too-large',
               ],
             },
             {
               type: 'category',
-              label: 'Cluster architecture and replication',
+              label: 'OpenSearch® Dashboards',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/dashboards',
+              },
               items: [
-                'products/opensearch/concepts/cross-cluster-replication-opensearch',
-                'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
-                'products/opensearch/concepts/high-availability-for-opensearch',
-                'products/opensearch/concepts/dedicated-node-roles',
-                'products/opensearch/concepts/shards-number',
+                'products/opensearch/dashboards/get-started',
+                'products/opensearch/dashboards/howto/dev-tools-usage-example',
+                'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
+                'products/opensearch/howto/opensearch-alerting-api',
+                'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
+                'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
               ],
             },
             {
               type: 'category',
-              label: 'Querying & data analysis',
+              label: 'Search & aggregate data',
+              link: {
+                id: 'products/opensearch/howto/list-search-service',
+                type: 'doc',
+              },
               items: [
+                'products/opensearch/concepts/aggregations',
+                'products/opensearch/howto/opensearch-search-and-python',
+                'products/opensearch/howto/opensearch-and-nodejs',
+                'products/opensearch/howto/opensearch-aggregations-and-nodejs',
+                'products/opensearch/howto/custom-dictionary-files',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Security & access',
+              items: [
+                'products/opensearch/concepts/access_control',
+                'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
-                  label: 'OpenSearch® Dashboards',
+                  label: 'OpenSearch Security',
                   link: {
-                    type: 'doc',
-                    id: 'products/opensearch/dashboards',
+                    id: 'products/opensearch/concepts/os-security',
                   },
                   items: [
-                    'products/opensearch/dashboards/get-started',
-                    'products/opensearch/dashboards/howto/dev-tools-usage-example',
-                    'products/opensearch/dashboards/howto/opensearch-alerting-dashboard',
-                    'products/opensearch/howto/opensearch-alerting-api',
-                    'products/opensearch/howto/opensearch-dashboard-multi_tenancy',
-                    'products/opensearch/troubleshooting/troubleshooting-opensearch-dashboards',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Searching & aggregation',
-                  link: {
-                    id: 'products/opensearch/howto/list-search-service',
-                    type: 'doc',
-                  },
-                  items: [
-                    'products/opensearch/concepts/aggregations',
-                    'products/opensearch/howto/opensearch-search-and-python',
-                    'products/opensearch/howto/opensearch-and-nodejs',
-                    'products/opensearch/howto/opensearch-aggregations-and-nodejs',
-                    'products/opensearch/howto/custom-dictionary-files',
+                    'products/opensearch/concepts/opensearch-security-considerations',
+                    {
+                      type: 'category',
+                      label: 'Manage OpenSearch Security',
+                      link: {
+                        id: 'products/opensearch/howto/list-opensearch-security',
+                        type: 'doc',
+                      },
+                      items: [
+                        'products/opensearch/howto/enable-opensearch-security',
+                        'products/opensearch/howto/saml-sso-authentication',
+                        'products/opensearch/howto/oidc-authentication',
+                        'products/opensearch/howto/jwt-authentication',
+                        'products/opensearch/howto/audit-logs',
+                      ],
+                    },
                   ],
                 },
               ],
@@ -1578,7 +1610,6 @@ const sidebars: SidebarsConfig = {
                   label: 'Troubleshooting',
                   items: [
                     'products/opensearch/howto/handle-low-disk-space',
-                    'products/opensearch/howto/resolve-shards-too-large',
                     'products/opensearch/reference/low-space-watermarks',
                     'products/opensearch/reference/opensearch-limitations',
                   ],
@@ -1623,45 +1654,12 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Observability & monitoring',
+              label: 'Integrations',
               items: [
                 'products/opensearch/howto/os-metrics',
                 'products/opensearch/howto/enable-slow-query-log',
                 'products/opensearch/howto/opensearch-log-integration',
                 'products/opensearch/howto/integrate-with-grafana',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Security & access',
-              items: [
-                'products/opensearch/concepts/access_control',
-                'products/opensearch/howto/control_access_to_content',
-                {
-                  type: 'category',
-                  label: 'OpenSearch Security',
-                  link: {
-                    id: 'products/opensearch/concepts/os-security',
-                  },
-                  items: [
-                    'products/opensearch/concepts/opensearch-security-considerations',
-                    {
-                      type: 'category',
-                      label: 'Manage OpenSearch Security',
-                      link: {
-                        id: 'products/opensearch/howto/list-opensearch-security',
-                        type: 'doc',
-                      },
-                      items: [
-                        'products/opensearch/howto/enable-opensearch-security',
-                        'products/opensearch/howto/saml-sso-authentication',
-                        'products/opensearch/howto/oidc-authentication',
-                        'products/opensearch/howto/jwt-authentication',
-                        'products/opensearch/howto/audit-logs',
-                      ],
-                    },
-                  ],
-                },
               ],
             },
           ],
