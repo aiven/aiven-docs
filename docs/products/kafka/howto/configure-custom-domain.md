@@ -96,7 +96,7 @@ Parameters:
 ### Step 3: Wait for certificate provisioning
 
 After you configure the custom domain, Aiven automatically requests a TLS certificate
-from Let’s Encrypt.
+from Let's Encrypt.
 
 Certificate provisioning typically completes within a few minutes. No additional action
 is required.
