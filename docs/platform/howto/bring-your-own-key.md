@@ -342,7 +342,7 @@ az keyvault update \
 
 #### Step 3: Create an RSA key
 
-Create an RSA key with the **Encrypt** and **Decrypt** operations enabled.
+Create an RSA key with the **wrapKey** and **unwrapKey** operations enabled.
 
 Software-protected key:
 
@@ -352,27 +352,33 @@ az keyvault key create \
   --name <key-name> \
   --kty RSA \
   --size 2048 \
-  --ops encrypt decrypt
+  --ops wrapKey unwrapKey
 ```
 
 HSM-backed key (for higher security requirements):
 
+:::note
+HSM-backed keys require an Azure Managed HSM, which must be provisioned separately
+before creating keys. Provisioning takes a few minutes and incurs an hourly cost.
+See the [Azure Managed HSM quickstart](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/quick-create-cli)
+for setup instructions.
+:::
+
 ```bash
 az keyvault key create \
-  --vault-name <vault-name> \
+  --hsm-name <hsm-name> \
   --name <key-name> \
   --kty RSA-HSM \
   --size 2048 \
-  --ops encrypt decrypt
+  --ops wrapKey unwrapKey
 ```
 
 Supported key sizes are `2048`, `3072`, and `4096`.
 
 Record the key URL, which becomes the resource identifier you register with Aiven:
 
-```txt
-https://<vault-name>.vault.azure.net/keys/<key-name>
-```
+- Software-protected key: `https://<vault-name>.vault.azure.net/keys/<key-name>`
+- HSM-backed key: `https://<hsm-name>.vault.azure.net/keys/<key-name>`
 
 If you include a specific version in the URL, Aiven uses that version exclusively.
 Omitting the version means Aiven always uses the latest active version.
@@ -385,8 +391,8 @@ Find the object ID of the Aiven service principal in your tenant:
 az ad sp show --id <aiven-application-id> --query id -o tsv
 ```
 
-Assign the **Key Vault Crypto User** built-in role to the Aiven service principal.
-This role grants only cryptographic permissions (`encrypt`, `decrypt`) — Aiven cannot
+**Software-protected key** — assign the **Key Vault Crypto User** built-in role to the
+Aiven service principal. This role grants only key wrapping permissions — Aiven cannot
 manage, rotate, or delete your key.
 
 Scope to the specific key (recommended):
@@ -405,6 +411,28 @@ az role assignment create \
   --assignee <aiven-service-principal-object-id> \
   --role "Key Vault Crypto User" \
   --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+```
+
+**HSM-backed key** — use the Managed HSM CLI command and assign the **Managed HSM Crypto User** role instead:
+
+Scope to the specific key (recommended):
+
+```bash
+az keyvault role assignment create \
+  --hsm-name <hsm-name> \
+  --role "Managed HSM Crypto User" \
+  --assignee-object-id <aiven-service-principal-object-id> \
+  --scope /keys/<key-name>
+```
+
+Or scope to all keys in the HSM:
+
+```bash
+az keyvault role assignment create \
+  --hsm-name <hsm-name> \
+  --role "Managed HSM Crypto User" \
+  --assignee-object-id <aiven-service-principal-object-id> \
+  --scope /keys
 ```
 
 :::note
@@ -547,7 +575,6 @@ Register a customer managed key resource identifier for an Aiven project.
 |-----------|--------|----------|-------------|
 | `provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, `azure`, or `aws` |
 | `resource` | String | True     | CMK reference (key identifier of max 512 characters). Format depends on provider: GCP resource name, OCI OCID, Azure Key Vault key URL, or AWS KMS key ARN |
-| `tenant_id` | String | Conditional | Azure AD tenant ID of your Azure subscription. Required when `provider` is `azure` |
 | `default_cmk` | Boolean | False | Mark this key as default for new service creation |
 
 #### Sample request (Google Cloud)
@@ -591,7 +618,6 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
   -d '{
         "provider": "azure",
         "resource": "https://my-vault.vault.azure.net/keys/my-cmk-key",
-        "tenant_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
         "default_cmk": true
       }'
 ```
@@ -669,7 +695,6 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 | `--project`   | String | True     | Project name |
 | `--provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, `azure`, or `aws` |
 | `--resource` | String | True     | CMK reference. Format depends on provider: GCP resource name, OCI OCID, Azure Key Vault key URL, or AWS KMS key ARN |
-| `--tenant-id` | String | Conditional | Azure AD tenant ID. Required when `--provider` is `azure` |
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 
@@ -706,7 +731,6 @@ avn project cmks create \
   --project my-project \
   --provider azure \
   --resource "https://my-vault.vault.azure.net/keys/my-cmk-key" \
-  --tenant-id "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" \
   --default-cmk
 ```
 
