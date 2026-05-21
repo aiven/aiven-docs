@@ -1,6 +1,6 @@
 ---
 title: Create alerts with OpenSearch® Dashboards
-sidebar_label: Create alerts
+sidebar_label: Create alerts in OS Dashboards
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
