@@ -1237,10 +1237,9 @@ const sidebars: SidebarsConfig = {
               label: 'Integrations',
               link: {
                 type: 'doc',
-                id: 'products/clickhouse/howto/list-integrations',
+                id: 'products/clickhouse/concepts/data-integration-overview',
               },
               items: [
-                'products/clickhouse/concepts/data-integration-overview',
                 'products/clickhouse/howto/data-service-integration',
                 'products/clickhouse/howto/integration-databases',
                 'products/clickhouse/howto/integrate-kafka',

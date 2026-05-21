@@ -1,6 +1,6 @@
 ---
 title: Set up Aiven for ClickHouse® data source integrations
-sidebar_label: Integrate with data source
+sidebar_label: Set up data source integrations
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -277,5 +277,4 @@ information are deleted.
 -   [Aiven for ClickHouse® data service integration](/docs/products/clickhouse/concepts/data-integration-overview)
     -   [Managed credentials integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-credentials-integration)
     -   [Managed databases integration](/docs/products/clickhouse/concepts/data-integration-overview#managed-databases-integration)
--   [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)
--   [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations)
+-   [Create and manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)
