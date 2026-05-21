@@ -1,5 +1,6 @@
 ---
-title: Indices
+title: Manage indices in Aiven for OpenSearch®
+sidebar_label: Manage indices
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

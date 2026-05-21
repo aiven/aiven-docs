@@ -1502,7 +1502,20 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Manage cluster',
+              label: 'Manage a service',
+              items: [
+                'products/opensearch/howto/os-version-upgrade',
+                'products/opensearch/reference/advanced-params',
+                'products/opensearch/reference/plugins',
+                'products/opensearch/reference/list-of-plugins-for-each-version',
+                'products/opensearch/reference/opensearch-limitations',
+                'products/opensearch/howto/handle-low-disk-space',
+                'products/opensearch/reference/low-space-watermarks',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Manage a cluster',
               items: [
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/concepts/dedicated-node-roles',
@@ -1514,11 +1527,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Indexing',
               items: [
-                {
-                  type: 'doc',
-                  id: 'products/opensearch/concepts/indices',
-                  label: 'Manage indices',
-                },
+                'products/opensearch/concepts/indices',
                 'products/opensearch/concepts/when-create-index',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/howto/reindex-opensearch',
@@ -1587,31 +1596,6 @@ const sidebars: SidebarsConfig = {
                         'products/opensearch/howto/audit-logs',
                       ],
                     },
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Service management',
-              items: [
-                'products/opensearch/howto/os-version-upgrade',
-                'products/opensearch/reference/advanced-params',
-                {
-                  type: 'category',
-                  label: 'Plugins',
-                  items: [
-                    'products/opensearch/reference/plugins',
-                    'products/opensearch/reference/list-of-plugins-for-each-version',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Troubleshooting',
-                  items: [
-                    'products/opensearch/howto/handle-low-disk-space',
-                    'products/opensearch/reference/low-space-watermarks',
-                    'products/opensearch/reference/opensearch-limitations',
                   ],
                 },
               ],
