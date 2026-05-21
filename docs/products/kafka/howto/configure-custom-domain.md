@@ -28,17 +28,21 @@ protocol.
 
 ### Step 1: Create a DNS CNAME record
 
-Create a CNAME record for your custom domain in your DNS provider. The record must point
-your custom domain to the Kafka service hostname.
+Create a `CNAME` record for your custom domain in your DNS provider.
+Point the record to the Aiven hostname that matches custom domain certificate
+provisioning.
 
-Use one of the following targets:
-
-- `SUBDOMAIN.example.com` → `PROJECT_NAME-SERVICE_NAME.aivencloud.com`:
-   Use this target when the service is accessed through private networking.
+Use the following target:
 
 - `SUBDOMAIN.example.com` → `public-PROJECT_NAME-SERVICE_NAME.aivencloud.com`:
-   Use this target when the service is accessed through public networking.
+  Use this target for public access.
+  Use this target for VPC or other private-network access when you configure
+  `custom_domain`.
+  Aiven creates the certificate for the `public-*` hostname and for your custom
+  domain.
 
+If your service uses a VPC or another private network path, clients can still use the
+custom domain. The `CNAME` target remains `public-PROJECT_NAME-SERVICE_NAME.aivencloud.com`.
 ### Step 2: Configure the custom domain
 
 Set the custom domain in the Kafka service configuration.
