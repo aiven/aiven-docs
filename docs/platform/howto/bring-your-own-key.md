@@ -97,8 +97,7 @@ for each provider, for example:
       "access_tenant": "ocid1.tenancy.oc1..abcdABCD...."
     },
     "azure": {
-      "application_id": "12345678-1234-1234-1234-123456789abc",
-      "tenant_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+      "app_id": "12345678-1234-1234-1234-123456789abc"
     },
     "aws": {
       "role_arn": "arn:aws:iam::123456789012:role/aiven-cmk-anchor"
@@ -142,8 +141,7 @@ The output is always in the JSON format:
       "access_tenant": "ocid1.tenancy.oc1..abcdABCD...."
     },
     "azure": {
-      "application_id": "12345678-1234-1234-1234-123456789abc",
-      "tenant_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+      "app_id": "12345678-1234-1234-1234-123456789abc"
     },
     "aws": {
       "role_arn": "arn:aws:iam::123456789012:role/aiven-cmk-anchor"
@@ -161,7 +159,7 @@ Use the accessor values returned by this endpoint when granting Aiven access to 
   `roles/cloudkms.cryptoOperator` role on your key.
 - **OCI Vault**: Use `access_tenant` and `access_group` OCIDs to create cross-tenancy
   IAM policies.
-- **Azure Key Vault**: Use the `application_id` to create a service principal in your
+- **Azure Key Vault**: Use the `app_id` to create a service principal in your
   Azure AD tenant (see [Azure Key Vault setup](#azure-key-vault-setup)).
 - **AWS KMS**: Use the `role_arn` as the trusted principal in your KMS key policy (see
   [AWS KMS setup](#aws-kms-setup)).
@@ -308,7 +306,7 @@ on your key.
 
 #### Step 1: Create a service principal for Aiven's application
 
-Get Aiven's `application_id` and `tenant_id` using
+Get Aiven's `app_id` using
 [List CMK accessors](#list-cmk-accessors), then register Aiven's application as a
 service principal in your Azure AD tenant:
 
