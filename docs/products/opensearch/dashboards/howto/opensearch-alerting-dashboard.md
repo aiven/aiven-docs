@@ -44,7 +44,7 @@ To configure an alert, you need the following:
     a notification configured to be sent through a specified channel when trigger
     conditions are met. You can define multiple actions.
 
-This guide shows how to create an alert that:
+Sample requirements for an alert you can create in OpenSearch® Dashboards:
 
 - Checks `CPU load`
 - Uses the `sample-host-health` index as the data source
