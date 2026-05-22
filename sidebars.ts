@@ -1171,7 +1171,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Connect',
+              label: 'Connect to service',
               link: {
                 type: 'doc',
                 id: 'products/clickhouse/howto/list-connect-to-service',
@@ -1214,7 +1214,7 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Query data',
+                  label: 'Run queries',
                   items: [
                     'products/clickhouse/howto/query-databases',
                     'products/clickhouse/howto/use-shards-with-distributed-table',
@@ -1232,54 +1232,9 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/clickhouse/howto/run-federated-queries',
+                    'products/clickhouse/howto/copy-data-across-instances',
                     'products/clickhouse/reference/supported-table-functions',
-                    'products/clickhouse/reference/supported-input-output-formats',
                     'products/clickhouse/reference/s3-supported-file-formats',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Integrations',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/concepts/data-integration-overview',
-              },
-              items: [
-                'products/clickhouse/howto/data-service-integration',
-                'products/clickhouse/howto/integration-databases',
-                'products/clickhouse/howto/integrate-kafka',
-                'products/clickhouse/howto/integrate-postgresql',
-                'products/clickhouse/howto/connect-with-jdbc',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Data movement',
-              items: ['products/clickhouse/howto/copy-data-across-instances'],
-            },
-            {
-              type: 'category',
-              label: 'Observability',
-              items: [
-                {
-                  type: 'category',
-                  label: 'Grafana',
-                  items: [
-                    'products/clickhouse/howto/monitor-performance',
-                    'products/clickhouse/howto/connect-to-grafana',
-                  ],
-                },
-                'products/clickhouse/howto/fetch-query-statistics',
-                {
-                  type: 'category',
-                  label: 'Metrics reference',
-                  items: [
-                    'products/clickhouse/reference/metrics-list',
-                    'products/clickhouse/reference/clickhouse-metrics-datadog',
-                    'products/clickhouse/reference/clickhouse-metrics-prometheus',
-                    'products/clickhouse/reference/clickhouse-system-tables',
                   ],
                 },
               ],
@@ -1299,6 +1254,11 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/reference/advanced-params',
                 'products/clickhouse/reference/limitations',
               ],
+            },
+            {
+              type: 'category',
+              label: 'High availability and disaster recovery',
+              items: ['products/clickhouse/concepts/disaster-recovery'],
             },
             {
               type: 'category',
@@ -1325,8 +1285,44 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'High availability and disaster recovery',
-              items: ['products/clickhouse/concepts/disaster-recovery'],
+              label: 'Observability and monitoring',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Grafana',
+                  items: [
+                    'products/clickhouse/howto/monitor-performance',
+                    'products/clickhouse/howto/connect-to-grafana',
+                  ],
+                },
+                'products/clickhouse/howto/fetch-query-statistics',
+                {
+                  type: 'category',
+                  label: 'Metrics reference',
+                  items: [
+                    'products/clickhouse/reference/metrics-list',
+                    'products/clickhouse/reference/clickhouse-metrics-datadog',
+                    'products/clickhouse/reference/clickhouse-metrics-prometheus',
+                    'products/clickhouse/reference/clickhouse-system-tables',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Integrations',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/concepts/data-integration-overview',
+              },
+              items: [
+                'products/clickhouse/howto/data-service-integration',
+                'products/clickhouse/howto/integration-databases',
+                'products/clickhouse/howto/integrate-kafka',
+                'products/clickhouse/reference/supported-input-output-formats',
+                'products/clickhouse/howto/integrate-postgresql',
+                'products/clickhouse/howto/connect-with-jdbc',
+              ],
             },
           ],
         },
