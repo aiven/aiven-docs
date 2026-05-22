@@ -8,10 +8,7 @@ import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 
-Register, list, update, or delete your customer managed keys (CMKs), associate CMKs
-with services, and view CMK usage across services in Aiven projects using the
-[Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api),
-or the [Aiven CLI](/docs/tools/cli).
+Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
 :::important
 Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature.
@@ -34,6 +31,7 @@ BYOK encrypts the following using your CMKs:
   - **Google Cloud KMS**: asymmetric RSA 2048 or RSA 4096 keys
   - **Oracle Cloud Infrastructure (OCI) Vault**: AES keys
   - **AWS KMS**: symmetric encryption keys (`ENCRYPT_DECRYPT`)
+
 <!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
   - **Azure Key Vault**: RSA keys (software-protected or HSM-backed)
 -->
@@ -176,10 +174,12 @@ Use the accessor values returned by this endpoint when granting Aiven access to 
   IAM policies.
 - **AWS KMS**: Use the `role_arn` as the trusted principal in your KMS key policy (see
   [AWS KMS setup](#aws-kms-setup)).
+
 <!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
 - **Azure Key Vault**: Use the `app_id` to create a service principal in your
   Azure AD tenant (see [Azure Key Vault setup](#azure-key-vault-setup)).
 -->
+
 :::
 
 ## Set up customer-managed keys on your cloud provider
