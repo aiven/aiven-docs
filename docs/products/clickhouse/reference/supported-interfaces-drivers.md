@@ -1,5 +1,6 @@
 ---
 title: Interfaces and drivers supported in Aiven for ClickHouse®
+sidebar_label: Interfaces and drivers
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

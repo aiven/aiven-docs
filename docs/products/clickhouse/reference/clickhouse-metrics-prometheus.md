@@ -1,5 +1,6 @@
 ---
 title: Aiven for ClickHouse® metrics available via Prometheus
+sidebar_label: Metrics in Prometheus
 ---
 
 List of all metrics available via Prometheus for Aiven for ClickHouse® services.

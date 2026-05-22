@@ -24,7 +24,7 @@ There are a few ways of classifying integration types supported in Aiven for Cli
 Aiven for ClickHouse supports observability integrations and data source integrations,
 which have different purposes:
 
-- [Observability integration](/docs/products/clickhouse/howto/list-integrations) is
+- [Observability integration](/docs/products/clickhouse/howto/monitor-performance) is
   connecting to other services (either Aiven-managed or external ones) to expose and
   process logs and metrics.
 - Data service integration is connecting to other services (either Aiven-managed or external)
@@ -132,5 +132,4 @@ needed in real-time or near-real-time.
 <RelatedPages/>
 
 - [Set up Aiven for ClickHouse® data service integration](/docs/products/clickhouse/howto/data-service-integration)
-- [Manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)
-- [Integrate your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/list-integrations)
+- [Create and manage Aiven for ClickHouse® integration databases](/docs/products/clickhouse/howto/integration-databases)

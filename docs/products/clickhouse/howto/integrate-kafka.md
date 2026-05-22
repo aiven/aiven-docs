@@ -1,5 +1,6 @@
 ---
 title: Connect Apache Kafka® to Aiven for ClickHouse®
+sidebar_label: Connect with Apache Kafka
 ---
 
 import Tabs from '@theme/Tabs';

@@ -149,7 +149,10 @@
 /products/clickhouse/concepts/features-overview        /docs/products/clickhouse  301
 /products/clickhouse/howto                             /docs/products/clickhouse/howto/list-connect-to-service  301
 /products/clickhouse/howto/list-get-started              /docs/products/clickhouse/get-started  301
+/products/clickhouse/howto/list-integrations             /docs/products/clickhouse/concepts/data-integration-overview  301
 /products/clickhouse/howto/list-manage-service           /docs/products/clickhouse/howto/manage-users-roles  301
+/products/clickhouse/howto/list-tiered-storage           /docs/products/clickhouse/concepts/clickhouse-tiered-storage  301
+/products/clickhouse/howto/list-tiered-storage/          /docs/products/clickhouse/concepts/clickhouse-tiered-storage  301
 /products/clickhouse/howto/load-dataset                  /docs/products/clickhouse/get-started#load-a-dataset  301
 /products/clickhouse/list-overview                       /docs/products/clickhouse  301
 /products/clickhouse/reference                           /docs/products/clickhouse/reference/advanced-params  301

@@ -1,5 +1,6 @@
 ---
 title: ClickHouse® as a columnar database
+sidebar_label: Columnar databases
 ---
 
 ClickHouse® is a columnar databases that handles data with specific benefits.

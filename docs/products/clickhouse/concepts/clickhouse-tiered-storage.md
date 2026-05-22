@@ -89,6 +89,16 @@ Aiven backs up data that resides on network-attached block storage and in object
 storage.
 :::
 
+## Access tiered storage details {#access-tiered-storage-details}
+
+When you [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage,
+you can preview its details in the [Aiven Console](https://console.aiven.io/) from the service
+<ConsoleLabel name="overview"/>:
+
+- Click <ConsoleLabel name="tieredstorage"/> or
+- Click <ConsoleLabel name="databasesandtables"/> > your table > <ConsoleLabel name="actions"/> >
+  <ConsoleLabel name="viewdetails"/> > **Tiered storage**.
+
 ## Typical use case
 
 In your Aiven for ClickHouse service, a significant amount of
@@ -125,19 +135,19 @@ threshold to control how your data is stored between the two layers.
 
 -   In the [Aiven Console](https://console.aiven.io/), there can be a mismatch in the
     displayed amount of data in object storage between what's shown in
-    [<ConsoleLabel name="tieredstorage"/>](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+    [<ConsoleLabel name="tieredstorage"/>](#access-tiered-storage-details)
     and
-    [Storage details](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details).
+    [Storage details](#access-tiered-storage-details).
 
     This is because:
 
     - Information in
-      [<ConsoleLabel name="tieredstorage"/>](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+      [<ConsoleLabel name="tieredstorage"/>](#access-tiered-storage-details)
       is updated every hour.
 
       :::tip
       To check if you successfully transferred data to object storage, display
-      [Storage details](/docs/products/clickhouse/howto/list-tiered-storage#access-tiered-storage-details)
+      [Storage details](#access-tiered-storage-details)
       of your table in the [Aiven Console](https://console.aiven.io/).
       :::
 

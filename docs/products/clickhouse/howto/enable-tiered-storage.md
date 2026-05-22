@@ -10,28 +10,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Enable the [tiered storage feature](/docs/products/clickhouse/concepts/clickhouse-tiered-storage) on a table in your Aiven for ClickHouse® service.
 
-### Limitations
-
--   You can enable tiered storage on the Aiven tenant
-    (in non-[BYOC](/docs/platform/concepts/byoc) environments) if your Aiven for
-    ClickHouse service is hosted on Azure, AWS, or GCP.
--   When
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage), the tiered
-    storage feature cannot be deactivated.
-
-    :::tip
-    As a workaround, you can create a table (without enabling tiered
-    storage on it) and copy the data from the original table (with the
-    tiered storage
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)) to the new table.
-    As soon as the data is copied to the
-    new table, you can remove the original table.
-    :::
-
--   With the tiered storage feature
-    [activated](/docs/products/clickhouse/howto/enable-tiered-storage), it's
-    not possible to connect to an external existing
-    object storage or cloud storage bucket.
+Before you enable tiered storage, review the [limitations](/docs/products/clickhouse/concepts/clickhouse-tiered-storage#tiered-storage-limitations).
 
 ## Prerequisites
 

@@ -38,9 +38,7 @@ export default function Card({
     titleHighlight !== undefined ? (
       <span
         className={styles.titlePill}
-        style={
-          {'--card-title-pill-bg': titleHighlight} as React.CSSProperties
-        }>
+        style={{'--card-title-pill-bg': titleHighlight} as React.CSSProperties}>
         {title}
       </span>
     ) : (

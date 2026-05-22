@@ -1,5 +1,6 @@
 ---
 title: Enable reading and writing data across shards in Aiven for ClickHouse®
+sidebar_label: Use shards with distributed tables
 ---
 
 If your Aiven for ClickHouse® service uses multiple shards, the data is replicated only between nodes of the same shard.

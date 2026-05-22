@@ -1,5 +1,6 @@
 ---
 title: Create materialized views in ClickHouse®
+sidebar_label: Create materialized views
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
