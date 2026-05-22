@@ -1523,7 +1523,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Indexing',
+              label: 'Indices & storage',
               items: [
                 'products/opensearch/concepts/indices',
                 'products/opensearch/concepts/when-create-index',
