@@ -33,8 +33,10 @@ BYOK encrypts the following using your CMKs:
   supported cloud providers:
   - **Google Cloud KMS**: asymmetric RSA 2048 or RSA 4096 keys
   - **Oracle Cloud Infrastructure (OCI) Vault**: AES keys
-  - **Azure Key Vault**: RSA keys (software-protected or HSM-backed)
   - **AWS KMS**: symmetric encryption keys (`ENCRYPT_DECRYPT`)
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+  - **Azure Key Vault**: RSA keys (software-protected or HSM-backed)
+-->
 
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
   the [Aiven API](/docs/tools/api)
@@ -96,15 +98,25 @@ for each provider, for example:
       "access_group": "ocid1.group.oc1..abcdABCD....",
       "access_tenant": "ocid1.tenancy.oc1..abcdABCD...."
     },
-    "azure": {
-      "app_id": "12345678-1234-1234-1234-123456789abc"
-    },
     "aws": {
       "role_arn": "arn:aws:iam::123456789012:role/aiven-cmk-anchor"
     }
   }
 }
 ```
+
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+```json
+{
+  "accessors": {
+    ...
+    "azure": {
+      "app_id": "12345678-1234-1234-1234-123456789abc"
+    },
+    ...
+  }
+}
+-->
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -140,14 +152,17 @@ The output is always in the JSON format:
       "access_group": "ocid1.group.oc1..abcdABCD....",
       "access_tenant": "ocid1.tenancy.oc1..abcdABCD...."
     },
-    "azure": {
-      "app_id": "12345678-1234-1234-1234-123456789abc"
-    },
     "aws": {
       "role_arn": "arn:aws:iam::123456789012:role/aiven-cmk-anchor"
     }
 }
 ```
+
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+    "azure": {
+      "app_id": "12345678-1234-1234-1234-123456789abc"
+    },
+-->
 
 </TabItem>
 </Tabs>
@@ -159,10 +174,12 @@ Use the accessor values returned by this endpoint when granting Aiven access to 
   `roles/cloudkms.cryptoOperator` role on your key.
 - **OCI Vault**: Use `access_tenant` and `access_group` OCIDs to create cross-tenancy
   IAM policies.
-- **Azure Key Vault**: Use the `app_id` to create a service principal in your
-  Azure AD tenant (see [Azure Key Vault setup](#azure-key-vault-setup)).
 - **AWS KMS**: Use the `role_arn` as the trusted principal in your KMS key policy (see
   [AWS KMS setup](#aws-kms-setup)).
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+- **Azure Key Vault**: Use the `app_id` to create a service principal in your
+  Azure AD tenant (see [Azure Key Vault setup](#azure-key-vault-setup)).
+-->
 :::
 
 ## Set up customer-managed keys on your cloud provider
@@ -296,6 +313,8 @@ Record the key OCID:
 ```txt
 ocid1.key.oc1.<region>.<hash>
 ```
+
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
 
 ### Azure Key Vault setup
 
@@ -439,6 +458,8 @@ the service principal from your tenant. This immediately prevents any further
 cryptographic operations by Aiven.
 :::
 
+-->
+
 ### AWS KMS setup
 
 Aiven authenticates to your AWS KMS key using cross-account IAM access. You grant
@@ -571,8 +592,8 @@ Register a customer managed key resource identifier for an Aiven project.
 
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
-| `provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, `azure`, or `aws` |
-| `resource` | String | True     | CMK reference (key identifier of max 512 characters). Format depends on provider: GCP resource name, OCI OCID, Azure Key Vault key URL, or AWS KMS key ARN |
+| `provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, or `aws` |
+| `resource` | String | True     | CMK reference (key identifier of max 512 characters). Format depends on provider: GCP resource name, OCI OCID, or AWS KMS key ARN |
 | `default_cmk` | Boolean | False | Mark this key as default for new service creation |
 
 #### Sample request (Google Cloud)
@@ -607,6 +628,8 @@ the newly registered CMK configuration, for example:
 }
 ```
 
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+
 #### Sample request (Azure)
 
 ```bash
@@ -635,6 +658,8 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
   }
 }
 ```
+
+-->
 
 #### Sample request (AWS)
 
@@ -670,7 +695,7 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type: `gcp`, `oci`, `azure`, or `aws` |
+| `provider` | Provider type: `gcp`, `oci`, or `aws` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
@@ -691,8 +716,8 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `--project`   | String | True     | Project name |
-| `--provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, `azure`, or `aws` |
-| `--resource` | String | True     | CMK reference. Format depends on provider: GCP resource name, OCI OCID, Azure Key Vault key URL, or AWS KMS key ARN |
+| `--provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, or `aws` |
+| `--resource` | String | True     | CMK reference. Format depends on provider: GCP resource name, OCI OCID, or AWS KMS key ARN |
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 
@@ -722,6 +747,8 @@ created_at    YYYY-MM-DDTHH:MM:SSZ
 updated_at    YYYY-MM-DDTHH:MM:SSZ
 ```
 
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+
 #### Sample request (Azure)
 
 ```bash
@@ -731,6 +758,8 @@ avn project cmks create \
   --resource "https://my-vault.vault.azure.net/keys/my-cmk-key" \
   --default-cmk
 ```
+
+-->
 
 #### Sample request (AWS)
 
@@ -819,7 +848,7 @@ updated CMK configuration, for example:
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type: `gcp`, `oci`, `azure`, or `aws` |
+| `provider` | Provider type: `gcp`, `oci`, or `aws` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
@@ -946,6 +975,8 @@ specified CMK configuration, for example:
 }
 ```
 
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+
 #### Sample response (Azure)
 
 ```json
@@ -961,6 +992,8 @@ specified CMK configuration, for example:
   }
 }
 ```
+
+-->
 
 #### Sample response (AWS)
 
