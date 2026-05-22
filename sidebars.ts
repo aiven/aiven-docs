@@ -1488,7 +1488,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Connect to OS services',
+              label: 'Connect to services',
               link: {
                 id: 'products/opensearch/howto/list-connect-to-service',
                 type: 'doc',
@@ -1502,7 +1502,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Manage a service',
+              label: 'Manage services',
               items: [
                 'products/opensearch/howto/os-version-upgrade',
                 'products/opensearch/reference/advanced-params',
@@ -1513,7 +1513,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Manage a cluster',
+              label: 'Manage clusters',
               items: [
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/concepts/dedicated-node-roles',
@@ -1523,7 +1523,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Indices & storage',
+              label: 'Indices and storage',
               items: [
                 'products/opensearch/concepts/indices',
                 'products/opensearch/concepts/when-create-index',
@@ -1554,7 +1554,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Search & aggregate data',
+              label: 'Search and aggregate data',
               link: {
                 id: 'products/opensearch/howto/list-search-service',
                 type: 'doc',
@@ -1570,7 +1570,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Security & access',
+              label: 'Security and access',
               items: [
                 'products/opensearch/concepts/access_control',
                 'products/opensearch/howto/control_access_to_content',
@@ -1603,7 +1603,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Backups & migration',
+              label: 'Backups and migration',
               items: [
                 'products/opensearch/howto/restore_opensearch_backup',
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
@@ -1639,7 +1639,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Observability & monitoring',
+              label: 'Integrations',
               items: [
                 'products/opensearch/howto/opensearch-log-integration',
                 'products/opensearch/howto/os-metrics',
