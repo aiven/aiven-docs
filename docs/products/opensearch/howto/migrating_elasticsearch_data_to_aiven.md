@@ -1,5 +1,6 @@
 ---
 title: Migrate Elasticsearch data to Aiven for OpenSearch®
+sidebar_label: Migrate ES data to Aiven
 ---
 
 import Tabs from '@theme/Tabs';

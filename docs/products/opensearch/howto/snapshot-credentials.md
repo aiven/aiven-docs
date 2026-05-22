@@ -1,6 +1,6 @@
 ---
 title: Store and manage snapshot repository credentials in Aiven for OpenSearch®
-sidebar_label: Manage snapshot credentials
+sidebar_label: Manage credentials
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

@@ -1,6 +1,6 @@
 ---
 title: Create and manage snapshots in Aiven for OpenSearch®
-sidebar_label: Manage snapshots
+sidebar_label: Manage a snapshot
 ---
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

@@ -1605,14 +1605,12 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Backups & migration',
               items: [
-                'products/opensearch/howto/manage-snapshots',
                 'products/opensearch/howto/restore_opensearch_backup',
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
-                'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
                 {
                   type: 'category',
-                  label: 'Manage custom repositories',
+                  label: 'Manage custom repos',
                   link: {
                     id: 'products/opensearch/howto/manage-custom-repo/list-manage-custom-repo',
                     type: 'doc',
@@ -1623,9 +1621,10 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/snapshot-credentials',
                   ],
                 },
+                'products/opensearch/howto/manage-snapshots',
                 {
                   type: 'category',
-                  label: 'Migrate external snapshots',
+                  label: 'Migrate snapshots to Aiven',
                   link: {
                     type: 'doc',
                     id: 'products/opensearch/howto/migrate-external-snapshots-aiven-opensearch',
@@ -1635,14 +1634,15 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                   ],
                 },
+                'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
               ],
             },
             {
               type: 'category',
-              label: 'Integrations',
+              label: 'Observability & monitoring',
               items: [
-                'products/opensearch/howto/os-metrics',
                 'products/opensearch/howto/opensearch-log-integration',
+                'products/opensearch/howto/os-metrics',
                 'products/opensearch/howto/integrate-with-grafana',
               ],
             },
