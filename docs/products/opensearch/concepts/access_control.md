@@ -1,6 +1,6 @@
 ---
 title: Access control in Aiven for OpenSearch®
-sidebar_label: Access control
+sidebar_label: Control access to services
 ---
 
 Access control is a crucial security measure that allows you to control who can access your data and resources. By setting up access control rules, you can restrict access to sensitive data and prevent unauthorized changes or deletions.
