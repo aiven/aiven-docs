@@ -1572,31 +1572,32 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Security and access',
               items: [
-                'products/opensearch/concepts/access_control',
-                'products/opensearch/howto/control_access_to_content',
+                {
+                  type: 'category',
+                  label: 'Access control',
+                  items: [
+                    'products/opensearch/concepts/access_control',
+                    'products/opensearch/howto/control_access_to_content',
+                  ],
+                },
                 {
                   type: 'category',
                   label: 'OpenSearch Security',
                   link: {
+                    type: 'doc',
                     id: 'products/opensearch/concepts/os-security',
                   },
                   items: [
-                    'products/opensearch/concepts/opensearch-security-considerations',
                     {
-                      type: 'category',
-                      label: 'Manage OpenSearch Security',
-                      link: {
-                        id: 'products/opensearch/howto/list-opensearch-security',
-                        type: 'doc',
-                      },
-                      items: [
-                        'products/opensearch/howto/enable-opensearch-security',
-                        'products/opensearch/howto/saml-sso-authentication',
-                        'products/opensearch/howto/oidc-authentication',
-                        'products/opensearch/howto/jwt-authentication',
-                        'products/opensearch/howto/audit-logs',
-                      ],
+                      type: 'doc',
+                      id: 'products/opensearch/concepts/opensearch-security-considerations',
+                      label: 'Before enabling OpenSearch Security',
                     },
+                    'products/opensearch/howto/enable-opensearch-security',
+                    'products/opensearch/howto/saml-sso-authentication',
+                    'products/opensearch/howto/oidc-authentication',
+                    'products/opensearch/howto/jwt-authentication',
+                    'products/opensearch/howto/audit-logs',
                   ],
                 },
               ],
