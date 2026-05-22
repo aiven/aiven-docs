@@ -1588,11 +1588,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/opensearch/concepts/os-security',
                   },
                   items: [
-                    {
-                      type: 'doc',
-                      id: 'products/opensearch/concepts/opensearch-security-considerations',
-                      label: 'Before enabling OpenSearch Security',
-                    },
+                    'products/opensearch/concepts/opensearch-security-considerations',
                     'products/opensearch/howto/enable-opensearch-security',
                     'products/opensearch/howto/saml-sso-authentication',
                     'products/opensearch/howto/oidc-authentication',
