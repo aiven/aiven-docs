@@ -1509,8 +1509,6 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
                 'products/opensearch/reference/opensearch-limitations',
-                'products/opensearch/howto/handle-low-disk-space',
-                'products/opensearch/reference/low-space-watermarks',
               ],
             },
             {
@@ -1534,6 +1532,8 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/set_index_retention_patterns',
                 'products/opensearch/concepts/index-replication',
                 'products/opensearch/howto/resolve-shards-too-large',
+                'products/opensearch/howto/handle-low-disk-space',
+                'products/opensearch/reference/low-space-watermarks',
               ],
             },
             {
