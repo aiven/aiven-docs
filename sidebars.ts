@@ -1570,37 +1570,6 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Security and access',
-              items: [
-                {
-                  type: 'category',
-                  label: 'Access control',
-                  items: [
-                    'products/opensearch/concepts/access_control',
-                    'products/opensearch/howto/control_access_to_content',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'OpenSearch Security',
-                  link: {
-                    type: 'doc',
-                    id: 'products/opensearch/howto/list-opensearch-security',
-                  },
-                  items: [
-                    'products/opensearch/concepts/os-security',
-                    'products/opensearch/concepts/opensearch-security-considerations',
-                    'products/opensearch/howto/enable-opensearch-security',
-                    'products/opensearch/howto/saml-sso-authentication',
-                    'products/opensearch/howto/oidc-authentication',
-                    'products/opensearch/howto/jwt-authentication',
-                    'products/opensearch/howto/audit-logs',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
               label: 'Backups and migration',
               items: [
                 'products/opensearch/howto/restore_opensearch_backup',
@@ -1642,6 +1611,37 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/opensearch-log-integration',
                 'products/opensearch/howto/os-metrics',
                 'products/opensearch/howto/integrate-with-grafana',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Security and access',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Access control',
+                  items: [
+                    'products/opensearch/concepts/access_control',
+                    'products/opensearch/howto/control_access_to_content',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'OpenSearch Security',
+                  link: {
+                    type: 'doc',
+                    id: 'products/opensearch/howto/list-opensearch-security',
+                  },
+                  items: [
+                    'products/opensearch/concepts/os-security',
+                    'products/opensearch/concepts/opensearch-security-considerations',
+                    'products/opensearch/howto/enable-opensearch-security',
+                    'products/opensearch/howto/saml-sso-authentication',
+                    'products/opensearch/howto/oidc-authentication',
+                    'products/opensearch/howto/jwt-authentication',
+                    'products/opensearch/howto/audit-logs',
+                  ],
+                },
               ],
             },
           ],
