@@ -17,20 +17,20 @@ Aiven for Apache Kafka® provides [multiple authentication methods](/docs/produc
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Access the [Aiven Console](https://console.aiven.io) and select your
-   Aiven for Apache Kafka service.
+1. In the [Aiven Console](https://console.aiven.io), select your
+   Aiven for Apache Kafka® service.
 1. Click <ConsoleLabel name="Service settings"/>.
 1. Scroll to **Advanced configuration** and click **Configure**.
 1. Click <ConsoleIcon name="Add config options"/>.
 1. Select `kafka_authentication_methods.sasl` from the list and set the value to **Enabled**.
 1. Click **Save configurations**.
 
-The **Connection information** in the <ConsoleLabel name="overview"/> page now
-allows connections via SASL or Client certificate.
+The **Connection information** on the <ConsoleLabel name="overview"/> page now
+allows connections using SASL or client certificate authentication.
 
 :::note
-Although these connections use a different port, the host, CA, and user
-credentials remain consistent.
+SASL and client certificate connections use different ports. The host, CA, and user
+credentials remain the same.
 :::
 
 </TabItem>
@@ -94,23 +94,47 @@ Set the `kafka_authentication_methods.sasl` attribute in [your `aiven_kafka` res
 
 ## Configure SASL mechanisms
 
-After [enabling SASL authentication](#enable-sasl-authentication), fine-tune the active SASL mechanisms for your
-Aiven for Apache Kafka service. By default, all mechanisms (PLAIN, SCRAM-SHA-256,
-SCRAM-SHA-512) are enabled. Configure these settings only to disable any mechanisms.
+After [enabling SASL authentication](#enable-sasl-authentication), configure the SASL
+mechanisms that clients can use.
+
+Aiven for Apache Kafka® supports the following SASL mechanisms:
+
+- **PLAIN**
+- **SCRAM-SHA-256**
+- **SCRAM-SHA-512**
+- **OAUTHBEARER**
+
+Use `kafka_sasl_mechanisms` to enable or disable **PLAIN**, **SCRAM-SHA-256**, and
+**SCRAM-SHA-512**. These three mechanisms are enabled by default. Configure these
+settings only to disable mechanisms that you do not need.
+
+To enable **OAUTHBEARER**, set `kafka.sasl_oauthbearer_jwks_endpoint_url`. For optional
+OIDC settings, see
+[Enable OAuth2/OIDC authentication for Apache Kafka®](/docs/products/kafka/howto/enable-oidc).
+
+You can use **OAUTHBEARER** with **PLAIN**, **SCRAM-SHA-256**, and **SCRAM-SHA-512**, or
+use **OAUTHBEARER** as the only SASL mechanism.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Access the [Aiven Console](https://console.aiven.io) and select your
+1. In the [Aiven Console](https://console.aiven.io), select your
    Aiven for Apache Kafka® service.
 1. Click <ConsoleLabel name="Service settings"/>.
 1. Scroll to **Advanced configuration** and click **Configure**.
-1. In the **Advanced configuration** window, set the corresponding
-   `kafka_sasl_mechanisms` value to either `Enabled` or `Disabled`:
+1. In the **Advanced configuration** window, configure one or more SASL mechanisms:
 
-   - **PLAIN**: `kafka_sasl_mechanisms.plain`
-   - **SCRAM-SHA-256**: `kafka_sasl_mechanisms.scram_sha_256`
-   - **SCRAM-SHA-512**: `kafka_sasl_mechanisms.scram_sha_512`
+   - To enable or disable **PLAIN**, set `kafka_sasl_mechanisms.plain` to **Enabled**
+     or **Disabled**.
+   - To enable or disable **SCRAM-SHA-256**, set `kafka_sasl_mechanisms.scram_sha_256`
+     to **Enabled** or **Disabled**.
+   - To enable or disable **SCRAM-SHA-512**, set `kafka_sasl_mechanisms.scram_sha_512`
+     to **Enabled** or **Disabled**.
+   - To enable **OAUTHBEARER**, set `kafka.sasl_oauthbearer_jwks_endpoint_url` to your
+     provider's JWKS URL.
+
+   Optional: For OAuth/OIDC-only authentication, disable `kafka_sasl_mechanisms.plain`,
+   `kafka_sasl_mechanisms.scram_sha_256`, and `kafka_sasl_mechanisms.scram_sha_512`.
 
 1. Click **Save configurations**.
 
@@ -126,9 +150,10 @@ Configure SASL mechanisms for your Aiven for Apache Kafka service using
    avn service list
    ```
 
-  Note the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
+   Note the `SERVICE_NAME` of your Aiven for Apache Kafka® service.
 
-1. Configure specific mechanisms:
+1. Configure **PLAIN** and **SCRAM** mechanisms. By default, all three are enabled; set
+   a mechanism to `false` to disable it:
 
    ```bash
    avn service update SERVICE_NAME             \
@@ -140,17 +165,32 @@ Configure SASL mechanisms for your Aiven for Apache Kafka service using
    Parameters:
 
    - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
-   - `kafka_sasl_mechanisms.plain`: Set to `true` to enable the **PLAIN** mechanism.
-   - `kafka_sasl_mechanisms.scram_sha_256`: Set to `true` to enable the
-     **SCRAM-SHA-256** mechanism.
-   - `kafka_sasl_mechanisms.scram_sha_512`: Set to `true` to enable the
-     **SCRAM-SHA-512** mechanism.
+   - `kafka_sasl_mechanisms.plain`: Set to `true` or `false` to enable or disable
+     **PLAIN**.
+   - `kafka_sasl_mechanisms.scram_sha_256`: Set to `true` or `false` to enable or
+     disable **SCRAM-SHA-256**.
+   - `kafka_sasl_mechanisms.scram_sha_512`: Set to `true` or `false` to enable or
+     disable **SCRAM-SHA-512**.
+
+1. To enable **OAUTHBEARER**, set `kafka.sasl_oauthbearer_jwks_endpoint_url`. The
+   following example enables OAuth/OIDC-only authentication:
+
+   ```bash
+   avn service update SERVICE_NAME \
+       -c kafka.sasl_oauthbearer_jwks_endpoint_url="https://my-jwks-endpoint.example.com/jwks" \
+       -c kafka_sasl_mechanisms.plain=false \
+       -c kafka_sasl_mechanisms.scram_sha_256=false \
+       -c kafka_sasl_mechanisms.scram_sha_512=false
+   ```
+
+   To keep **PLAIN** or **SCRAM** mechanisms enabled, omit the corresponding
+   `kafka_sasl_mechanisms` settings. SASL must already be enabled on the service.
 
 </TabItem>
 <TabItem value="api" label="API">
 
 Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-API to enable SASL authentication on an existing service:
+API to configure SASL mechanisms on an existing service:
 
 ```bash
 curl -X PUT "https://console.aiven.io/v1/project/{project_name}/service/{service_name}" \
@@ -160,6 +200,14 @@ curl -X PUT "https://console.aiven.io/v1/project/{project_name}/service/{service
            "user_config": {
              "kafka_authentication_methods": {
                "sasl": true
+             },
+             "kafka": {
+               "sasl_oauthbearer_jwks_endpoint_url": "https://my-jwks-endpoint.example.com/jwks"
+             },
+             "kafka_sasl_mechanisms": {
+               "plain": false,
+               "scram_sha_256": false,
+               "scram_sha_512": false
              }
            }
          }'
@@ -170,43 +218,57 @@ Parameters:
 - `project_name`: Name of your Aiven project.
 - `service_name`: Name of your Aiven for Apache Kafka service.
 - `API_TOKEN`: API token for authentication.
-- `kafka_sasl_mechanisms.plain`: Set to `true` or `false` to enable or disable the
-  **PLAIN** mechanism.
+- `kafka_authentication_methods.sasl`: Set to `true` if SASL is not already enabled.
+- `kafka.sasl_oauthbearer_jwks_endpoint_url`: JWKS endpoint URL; enables
+  **OAUTHBEARER** when set.
+- `kafka_sasl_mechanisms.plain`: Set to `true` or `false` to enable or disable
+  **PLAIN**.
 - `kafka_sasl_mechanisms.scram_sha_256`: Set to `true` or `false` to enable or disable
-  the **SCRAM-SHA-256** mechanism.
+  **SCRAM-SHA-256**.
 - `kafka_sasl_mechanisms.scram_sha_512`: Set to `true` or `false` to enable or disable
-  the **SCRAM-SHA-512** mechanism.
+  **SCRAM-SHA-512**.
+
+To keep **PLAIN** or **SCRAM** mechanisms enabled, omit the `kafka_sasl_mechanisms`
+block or set the values to `true`.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
 Use the `kafka_sasl_mechanisms` attribute in [your `aiven_kafka` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka#kafka_sasl_mechanisms)
-and set the value to either `Enabled` or `Disabled`:
+to enable or disable SASL mechanisms. Set each mechanism to `true` or `false`:
 
 - **PLAIN**: `kafka_sasl_mechanisms.plain`
 - **SCRAM-SHA-256**: `kafka_sasl_mechanisms.scram_sha_256`
 - **SCRAM-SHA-512**: `kafka_sasl_mechanisms.scram_sha_512`
+
+To enable **OAUTHBEARER**, set `sasl_oauthbearer_jwks_endpoint_url` in the `kafka`
+block of `user_config`. See
+[Enable OAuth2/OIDC authentication for Apache Kafka®](/docs/products/kafka/howto/enable-oidc).
 
 </TabItem>
 </Tabs>
 
 :::note
 
-- At least one SASL mechanism must remain enabled. Disabling all results in an error.
-- `OAUTHBEARER` is enabled if `sasl_oauthbearer_jwks_endpoint_url` is specified.
+At least one SASL mechanism must be available when SASL authentication is enabled.
+**OAUTHBEARER** is available when `kafka.sasl_oauthbearer_jwks_endpoint_url` is set.
+**PLAIN**, **SCRAM-SHA-256**, and **SCRAM-SHA-512** can be disabled independently.
+
+Disabling all three `kafka_sasl_mechanisms` options without setting a JWKS URL results
+in an error.
 
 :::
 
 ## Enable public CA for SASL authentication
 
-After [enabling SASL authentication](#enable-sasl-authentication), enable the public CA
-if Kafka clients cannot install or trust the default project CA.
+After you enable SASL authentication, you can enable the public CA for clients that
+cannot install or trust the default project CA.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Access the [Aiven Console](https://console.aiven.io) and select your
-   Aiven for Apache Kafka service.
+1. In the [Aiven Console](https://console.aiven.io), select your
+   Aiven for Apache Kafka® service.
 1. Click <ConsoleLabel name="Service settings"/>.
 1. Go to the **Cloud and network** section, click <ConsoleLabel name="actions" /> >
   **More network configurations**.
@@ -263,7 +325,9 @@ curl -X PUT "https://console.aiven.io/v1/project/{project_name}/service/{service
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-This example creates a Kafka service with SASL authentication enabled and configures SCRAM-SHA-256 as the SASL mechanism. It also includes a data source to output the port number for SASL authentication using a public CA.
+This Terraform example enables SASL authentication and public CA for SASL on a Kafka
+service. It configures SCRAM-SHA-256 and includes a data source that outputs the SASL
+port for connections that use the public CA.
 
 The complete example is available in the [Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/kafka/kafka_sasl_authentication) on GitHub.
 
@@ -278,7 +342,7 @@ The complete example is available in the [Aiven Terraform Provider repository](h
 
 - The public certificate is issued and validated by [Let's Encrypt](https://letsencrypt.org),
   a widely trusted certification authority. For details, see
-  [How It Works](https://letsencrypt.org/how-it-works)
+  [How it works](https://letsencrypt.org/how-it-works).
 
 - When enabling the public CA over a PrivateLink connection, network configuration may
   take several minutes before clients can connect. A new port must be allocated and the
@@ -288,5 +352,5 @@ The complete example is available in the [Aiven Terraform Provider repository](h
 
 <RelatedPages/>
 
-- [Enable OAUTH2/OIDC authentication for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-oidc)
+- [Enable OAuth2/OIDC authentication for Aiven for Apache Kafka®](/docs/products/kafka/howto/enable-oidc)
 - [Authentication types](/docs/products/kafka/concepts/auth-types)

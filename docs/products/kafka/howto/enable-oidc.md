@@ -1,5 +1,5 @@
 ---
-title: Enable OAUTH2/OIDC authentication for Apache Kafka®
+title: Enable OAuth2/OIDC authentication for Apache Kafka®
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,13 +8,9 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Apache Kafka® enables secure client authentication using OIDC/OAuth2, allowing clients to verify users through an authorization server.
-
-By activating this, you can use
-token-based authentication and integrate with identity providers.
-Setting the JSON Web Key Set (JWKS) JWKS endpoint via the Aiven console
-activates the OIDC mechanism for Kafka, which triggers a rolling restart
-of the Kafka brokers. This restart does not cause service downtime.
+Aiven for Apache Kafka® supports OAuth2/OIDC authentication for Kafka clients.
+Use OAuth2/OIDC authentication to let clients authenticate with tokens issued by an
+identity provider.
 
 :::note
 To use the `OAUTHBEARER` mechanism, you must enable `kafka_authentication_methods.sasl`.
@@ -25,25 +21,22 @@ disabled independently. See
 
 ## Prerequisites
 
-Aiven for Apache Kafka integrates with a wide range of OpenID Connect
-identity providers (IdPs). However, the exact configuration steps can
-differ based on your chosen IdP. Refer to your Identity Provider's
-official documentation for specific configuration guidelines.
+Before you begin, make sure you have:
 
-Before proceeding with the setup, ensure you have:
-
-- [Aiven for Apache Kafka®](/docs/products/kafka/get-started/create-kafka-service) service running.
-- **Access to an OIDC provider**: Options include Auth0, Okta, Google
-  Identity Platform, Azure, or any other OIDC compliant provider.
+- An [Aiven for Apache Kafka®](/docs/products/kafka/get-started/create-kafka-service)
+  service.
+- Access to an OIDC provider, such as Auth0, Okta, Google Identity Platform,
+  Azure, or another OIDC-compliant provider.
 - Required configuration details from your OIDC provider:
-  - **JWKS Endpoint URL**: URL to retrieve the JSON Web Key Set
-    (JWKS).
-  - **Subject Claim Name**: Typically `sub`, but this can vary depending
-    on your OIDC provider.
-  - **Issuer URL or Identifier**: Identifies and verifies the JWT
-    issuer.
-  - **Audience identifiers**: Validates the JWT's intended
-    recipients. For multiple audiences, make a note of all.
+  - **JWKS endpoint URL**: URL to retrieve the JSON Web Key Set (JWKS).
+  - **Subject claim name**: Typically `sub`, but this can vary depending on your
+    OIDC provider.
+  - **Issuer URL or identifier**: Identifies and verifies the JWT issuer.
+  - **Audience identifiers**: Validates the JWT's intended recipients. For
+    multiple audiences, make a note of all.
+
+Configuration steps vary by identity provider. See your provider's documentation
+for JWKS URL, issuer, and audience values.
 
 ## Enable OAuth2/OIDC for Apache Kafka®
 
@@ -57,7 +50,16 @@ Before proceeding with the setup, ensure you have:
 1. Scroll to **Advanced configuration** and click **Configure**.
 1. In the **Advanced configuration** window, click
    <ConsoleIcon name="Add config options"/>.
-1. Set the OIDC parameters as detailed in the [OIDC Parameters](#oidc-parameters) section.
+1. Enable SASL authentication by setting `kafka_authentication_methods.sasl` to
+   **Enabled**.
+1. Configure the JWKS endpoint by setting
+   `kafka.sasl_oauthbearer_jwks_endpoint_url` to your provider's JWKS URL.
+1. Optionally, configure other OIDC parameters, such as expected issuer,
+   expected audience, and subject claim. See
+   [OIDC parameters](#oidc-parameters) for details.
+1. Optional: For OAuth/OIDC-only authentication, disable
+   `kafka_sasl_mechanisms.plain`, `kafka_sasl_mechanisms.scram_sha_256`, and
+   `kafka_sasl_mechanisms.scram_sha_512`.
 1. Click **Save configurations**.
 
 </TabItem>
@@ -74,18 +76,25 @@ service using [Aiven CLI](/docs/tools/cli):
 
    Note the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
 
-1. Enable OAuth2/OIDC authentication for your service:
+1. Enable OAuth2/OIDC authentication for your service. The following example enables
+   OAuth2/OIDC authentication and disables PLAIN and SCRAM mechanisms:
 
    ```bash
    avn service update <SERVICE_NAME> \
-       -c kafka.sasl_oauthbearer_expected_audience="my-audience, another-audience" \
-       -c kafka.sasl_oauthbearer_expected_issuer="https://my-issuer.example.com" \
+       -c kafka_authentication_methods.sasl=true \
        -c kafka.sasl_oauthbearer_jwks_endpoint_url="https://my-jwks-endpoint.example.com/jwks" \
-       -c kafka.sasl_oauthbearer_sub_claim_name="custom-sub"
+       -c kafka.sasl_oauthbearer_expected_issuer="https://my-issuer.example.com" \
+       -c kafka.sasl_oauthbearer_expected_audience="my-audience" \
+       -c kafka_sasl_mechanisms.plain=false \
+       -c kafka_sasl_mechanisms.scram_sha_256=false \
+       -c kafka_sasl_mechanisms.scram_sha_512=false
    ```
 
-For detailed explanations on the OIDC parameters, see the
-[OIDC Parameters](#oidc-parameters) section.
+   To keep PLAIN or SCRAM mechanisms enabled, omit the corresponding
+   `kafka_sasl_mechanisms` settings. Optional issuer and audience settings can also
+   be omitted.
+
+For details about the OIDC parameters, see [OIDC parameters](#oidc-parameters).
 
 </TabItem>
 </Tabs>
@@ -111,8 +120,7 @@ Set the following OIDC parameters:
     of `kafka.sasl_oauthbearer_jwks_endpoint_url`. No additional configuration is needed.
     :::
 
-
-- Optional: `kafka.sasl_oauthbearer_sub_claim_name`
+- `kafka.sasl_oauthbearer_sub_claim_name` (optional)
   - **Description**: Name of the JWT's subject claim for broker
     verification. It is typically set to `sub`.
     Corresponds to the Apache Kafka parameter
@@ -125,18 +133,18 @@ Set the following OIDC parameters:
     supported.
     :::
 
-- Optional: `kafka.sasl_oauthbearer_expected_issuer`
+- `kafka.sasl_oauthbearer_expected_issuer` (optional)
   - **Description**: Specifies the JWT's issuer for the broker to
     verify. Corresponds to the Apache Kafka parameter
     `sasl.oauthbearer.expected.issuer`.
   - **Value**: Enter the issuer URL or identifier provided by your
     OIDC provider.
-- Optional: `kafka.sasl_oauthbearer_expected_audience`
+- `kafka.sasl_oauthbearer_expected_audience` (optional)
   - **Description**: Validates the intended JWT audience for the
     broker. Corresponds to the Apache Kafka parameter
     `sasl.oauthbearer.expected.audience`. It is used if your OIDC provider
     specifies an audience.
-  - **Value**: Input the audience identifiers given by your OIDC
+  - **Value**: Enter the audience identifiers given by your OIDC
     provider. If there are multiple audiences, separate them
     with commas.
 
@@ -145,11 +153,10 @@ see [Apache Kafka documentation](https://kafka.apache.org/documentation/) on
 configuration options starting with `sasl.oauthbearer`.
 
 :::warning
-Adjusting OIDC configurations, such as enabling, disabling, or
-modifying settings, can lead to a rolling restart of Apache Kafka brokers.
-As a result, the brokers may temporarily operate with different configurations. To
-minimize any operational disruptions, plan to implement these changes during a
-maintenance window or at a time that ensures a minimal impact on your operations.
+Changing OIDC settings, such as enabling, disabling, or modifying settings, can
+lead to a rolling restart of Apache Kafka brokers. As a result, the brokers may
+temporarily operate with different configurations. To reduce operational impact,
+apply these changes during a maintenance window.
 :::
 
 <RelatedPages/>
