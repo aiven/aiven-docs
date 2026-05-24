@@ -133,7 +133,7 @@ use **OAUTHBEARER** as the only SASL mechanism.
    - To enable **OAUTHBEARER**, set `kafka.sasl_oauthbearer_jwks_endpoint_url` to your
      provider's JWKS URL.
 
-   Optional: For OAuth/OIDC-only authentication, disable `kafka_sasl_mechanisms.plain`,
+   Optional: For OAuth2/OIDC-only authentication, disable `kafka_sasl_mechanisms.plain`,
    `kafka_sasl_mechanisms.scram_sha_256`, and `kafka_sasl_mechanisms.scram_sha_512`.
 
 1. Click **Save configurations**.
@@ -152,8 +152,9 @@ Configure SASL mechanisms for your Aiven for Apache Kafka service using
 
    Note the `SERVICE_NAME` of your Aiven for Apache Kafka® service.
 
-1. Configure **PLAIN** and **SCRAM** mechanisms. By default, all three are enabled; set
-   a mechanism to `false` to disable it:
+1. Configure **PLAIN** and **SCRAM** mechanisms. By default, **PLAIN**,
+   **SCRAM-SHA-256**, and **SCRAM-SHA-512** are enabled; set a mechanism
+   to `false` to disable it:
 
    ```bash
    avn service update SERVICE_NAME             \
@@ -173,7 +174,7 @@ Configure SASL mechanisms for your Aiven for Apache Kafka service using
      disable **SCRAM-SHA-512**.
 
 1. To enable **OAUTHBEARER**, set `kafka.sasl_oauthbearer_jwks_endpoint_url`. The
-   following example enables OAuth/OIDC-only authentication:
+   following example enables OAuth2/OIDC-only authentication:
 
    ```bash
    avn service update SERVICE_NAME \

@@ -54,7 +54,7 @@ for JWKS URL, issuer, and audience values.
    **Enabled**.
 1. Configure the JWKS endpoint by setting
    `kafka.sasl_oauthbearer_jwks_endpoint_url` to your provider's JWKS URL.
-1. Optionally, configure other OIDC parameters, such as expected issuer,
+1. Optional: Configure other OIDC parameters, such as expected issuer,
    expected audience, and subject claim. See
    [OIDC parameters](#oidc-parameters) for details.
 1. Optional: For OAuth/OIDC-only authentication, disable
