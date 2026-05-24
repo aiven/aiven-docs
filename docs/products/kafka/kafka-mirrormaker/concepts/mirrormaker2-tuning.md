@@ -95,7 +95,7 @@ being replicated:
 
 ### Producer and consumer settings
 
-These [integration configuration](#integration-configurations) parameters control how
+These [integration configurations](#integration-configurations) parameters control how
 MirrorMaker 2 producers and consumers communicate with the source and target Kafka
 clusters. Set them on the service integration resource. If you do not set a parameter,
 Kafka applies its built-in default. These settings apply to MirrorMaker 2 integrations
