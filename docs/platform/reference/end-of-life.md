@@ -58,15 +58,26 @@ The recommended alternatives to Aiven for AlloyDB Omni are:
 
 ## Aiven for Dragonfly
 
-**EOA date**: June 5, 2026
+### Service impact
 
-After the end-of-availability (EOA) date, you can no longer create Aiven for Dragonfly
-services. Your existing services remain operational until the EOL date.
+#### EOA date: June 5, 2026
 
-**EOL date**: September 30, 2026
+After the end-of-availability (EOA) date, you can
+**no longer create new services**.
+Your existing services remain operational until the EOL date.
 
-After the end-of-life (EOL) date, all running Aiven for Dragonfly services are powered off
-and deleted, making data from these services inaccessible.
+#### EOL date: September 30, 2026
+
+After the end-of-life (EOL) date, all running
+**services are powered off and deleted**, making data from these services inaccessible.
+
+### Migration
 
 The recommended alternative that offers high performance, scalability, and security is
 the managed, in-memory NoSQL database service: [Aiven for Valkey™](/docs/products/valkey).
+See the
+[guide for migrating from Aiven for Dragonfly to Aiven for Valkey™](/docs/products/metrics/howto/migrate-influxdb-thanos).
+
+To ensure uninterrupted service, complete your migration before the EOL date.
+For further assistance, contact [Aiven support team](mailto:support@aiven.io) or your
+account team.
