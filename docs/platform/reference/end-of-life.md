@@ -56,6 +56,17 @@ The recommended alternatives to Aiven for AlloyDB Omni are:
 - [Aiven for ClickHouse®](/docs/products/clickhouse)
 - [Aiven for MySQL®](/docs/products/mysql)
 
-To ensure uninterrupted service, complete your migration before December 5, 2025.
-For further assistance, contact the [Aiven support team](mailto:support@aiven.io) or your
-account team.
+## Aiven for Dragonfly
+
+**EOA date**: June 5, 2026
+
+After the end-of-availability (EOA) date, you can no longer create Aiven for Dragonfly
+services. Your existing services remain operational until the EOL date.
+
+**EOL date**: September 30, 2026
+
+After the end-of-life (EOL) date, all running Aiven for Dragonfly services are powered off
+and deleted, making data from these services inaccessible.
+
+The recommended alternative that offers high performance, scalability, and security is
+the managed, in-memory NoSQL database service: [Aiven for Valkey™](/docs/products/valkey).
