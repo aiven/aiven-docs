@@ -79,5 +79,5 @@ See the
 [guide for migrating from Aiven for Dragonfly to Aiven for Valkey™](/docs/products/metrics/howto/migrate-influxdb-thanos).
 
 To ensure uninterrupted service, complete your migration before the EOL date.
-For further assistance, contact [Aiven support team](mailto:support@aiven.io) or your
+For further assistance, contact the [Aiven support team](mailto:support@aiven.io) or your
 account team.
