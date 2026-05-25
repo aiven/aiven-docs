@@ -40,6 +40,7 @@
     "handlebars": "^4.7.9",
     "lodash": "^4.18.1",
     "lodash-es": "^4.18.1",
+    "posthog-docusaurus": "^2.0.5",
     "prism-react-renderer": "^2.4.1",
     "raw-loader": "^4.0.2",
     "react": "^18.0.0",

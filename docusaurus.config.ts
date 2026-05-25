@@ -156,6 +156,19 @@ const config: Config = {
     './src/plugins/svg-fix/index.ts',
     'docusaurus-plugin-image-zoom',
     [
+      'posthog-docusaurus',
+      {
+        apiKey: process.env.POSTHOG_PUBLIC_KEY,
+        appUrl: 'https://eu.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_heatmaps: false,
+        disable_session_recording: true,
+        opt_out_capturing_by_default: true,
+      },
+    ],
+    [
       '@signalwire/docusaurus-plugin-llms-txt',
       {
         siteTitle: 'Aiven docs',
@@ -309,6 +322,9 @@ const config: Config = {
             {
               label: 'Security',
               href: 'https://aiven.io/security-compliance',
+            },
+            {
+              html: '<button type="button" class="optanon-toggle-display footer__link-item" aria-label="Click here to change cookie settings" style="background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left;">Cookie settings</button>',
             },
           ],
         },

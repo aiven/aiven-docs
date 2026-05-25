@@ -7201,6 +7201,7 @@ __metadata:
     handlebars: "npm:^4.7.9"
     lodash: "npm:^4.18.1"
     lodash-es: "npm:^4.18.1"
+    posthog-docusaurus: "npm:^2.0.5"
     prism-react-renderer: "npm:^2.4.1"
     raw-loader: "npm:^4.0.2"
     react: "npm:^18.0.0"
@@ -14787,6 +14788,13 @@ __metadata:
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
   checksum: 10c0/48138207cf5ef5581be1bfe2cb65ccfe0ac75e43888ba045afc8ed6043d7b56aeb3b9a9fe5b353ff554be943cd0cc15d826ccb991525159175971e5ee8ab0237
+  languageName: node
+  linkType: hard
+
+"posthog-docusaurus@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "posthog-docusaurus@npm:2.0.5"
+  checksum: 10c0/280bf8762cde093faaf8f7d195fcb8d767dbb88fe8813f552f044fb58e0b78758ee9fb058af2f7d004654554c3e0b3899e5aef5e932abb7f75edeabc40267242
   languageName: node
   linkType: hard
 
