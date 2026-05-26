@@ -61,5 +61,11 @@ cloud-list:
 delete-unused-images:
 	node "$(SCRIPTS)/delete_unused_images.js"
 
+# Ignore localized sitemap URLs that can fail independently of docs content.
 check-links:
-	docker run --rm ghcr.io/linkchecker/linkchecker:latest  -r 1 --no-warnings --check-extern https://aiven.io/docs/sitemap.xml
+	docker run --rm ghcr.io/linkchecker/linkchecker:latest \
+		-r 1 \
+		--no-warnings \
+		--check-extern \
+		--ignore-url='^https://aiven\.io/(fr|de)/sitemap\.xml$$' \
+		https://aiven.io/docs/sitemap.xml
