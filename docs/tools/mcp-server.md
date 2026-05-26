@@ -1,7 +1,7 @@
 ---
 title: Aiven MCP
 sidebar_label: Aiven MCP
-limited: true
+early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -333,6 +333,11 @@ creating, modifying, and deleting services, databases, topics, and data.
 
 AI agents run operations from natural language prompts, which can be
 misinterpreted. Using the Aiven MCP server can result in damage to or loss of data.
+
+Aiven secures the MCP server and data in transit. Your selected AI agent
+provider determines how the agent uses your data, including whether it uses
+that data for training. Review the provider's terms before you enable the
+integration.
 
 Decide whether to enable MCP access in your organization after evaluating the risks.
 :::
