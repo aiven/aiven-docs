@@ -37,7 +37,7 @@ Kafka® service or to an external Kafka cluster through an integration endpoint.
 <Tabs groupId="update-method">
 <TabItem value="cli" label="Aiven CLI" default>
 
-Use [`avn service integration-update`](/docs/tools/cli/service/integration#avn-service-integration-update)
+Use [`avn service integration-update`](/docs/tools/cli/service/integration#avn_service_integration_update)
 to update producer and consumer settings on a MirrorMaker 2 integration.
 
 1. List the service integrations for the MirrorMaker 2 service:
