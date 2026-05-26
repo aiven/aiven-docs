@@ -34,7 +34,7 @@ can sign in and authorize MCP access.
 
 <CursorConfigTab baseUrl={mcpUrl} />
 
-For more information, see the [Cursor MCP documentation](https://cursor.com/docs/context/mcp).
+For more information, see the [Cursor MCP documentation](https://cursor.com/docs/mcp).
 
 <br />
 
@@ -65,7 +65,7 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
    you use the server, your browser opens.
 1. Sign in to Aiven and select your organization.
 
-For more information, see the [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/tutorials/set-up-mcp).
+For more information, see the [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp).
 
 <br />
 
@@ -99,7 +99,7 @@ For more information, see the [Claude Code MCP documentation](https://docs.anthr
 
 1. Save the file and restart Claude Desktop.
 
-For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/quickstart/user).
+For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/docs/develop/connect-local-servers).
 
 <br />
 
