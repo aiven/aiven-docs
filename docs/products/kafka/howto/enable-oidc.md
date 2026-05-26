@@ -38,13 +38,11 @@ for JWKS URL, issuer, and audience values.
 
 ## Configure OAuth 2.0/OIDC settings
 
-To use OAuth 2.0/OIDC only, enable SASL authentication, set
-`kafka.sasl_oauthbearer_jwks_endpoint_url`, and disable `PLAIN`, `SCRAM-SHA-256`, and
-`SCRAM-SHA-512`.
+Set `kafka.sasl_oauthbearer_jwks_endpoint_url` to enable `OAUTHBEARER`.
 
-Set `kafka.sasl_oauthbearer_jwks_endpoint_url` to enable `OAUTHBEARER`. Optionally
-[disable PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512](/docs/products/kafka/howto/kafka-sasl-auth#configure-sasl-mechanisms)
-if clients authenticate only with OAuth 2.0/OIDC.
+To use only OAuth 2.0/OIDC authentication, enable SASL authentication, set
+`kafka.sasl_oauthbearer_jwks_endpoint_url`, and
+[disable PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512](/docs/products/kafka/howto/kafka-sasl-auth#configure-sasl-mechanisms).
 
 :::note
 When SASL authentication is enabled, at least one SASL mechanism must be available.
@@ -52,7 +50,7 @@ When SASL authentication is enabled, at least one SASL mechanism must be availab
 `kafka.sasl_oauthbearer_jwks_endpoint_url` is set.
 :::
 
-Enable OAuth 2.0/OIDC authentication using one of the following methods.
+Configure OAuth 2.0/OIDC authentication using one of the following methods.
 
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Aiven Console" default>
@@ -83,7 +81,7 @@ Enable OAuth 2.0/OIDC authentication using one of the following methods.
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-To enable OAuth 2.0/OIDC authentication for your Aiven for Apache Kafka service
+To configure OAuth 2.0/OIDC authentication for your Aiven for Apache Kafka service
 using the [Aiven CLI](/docs/tools/cli):
 
 Each `avn service update` that changes OIDC or SASL settings triggers a rolling
@@ -114,10 +112,11 @@ when applying multiple changes.
    This enables the `OAUTHBEARER` mechanism. `PLAIN`, `SCRAM-SHA-256`, and
    `SCRAM-SHA-512` remain enabled by default.
 
-   **Optional:** Add issuer, audience, and subject claim verification, or set
-   `PLAIN`, `SCRAM-SHA-256`, and `SCRAM-SHA-512` to `false` to use only OAuth 2.0/OIDC
-   authentication. Example with issuer, audience, subject claim verification, and
-   OAuth-only SASL configuration:
+   **Optional:** Add issuer, audience, and subject claim verification. To use only
+   OAuth 2.0/OIDC authentication, set `kafka_sasl_mechanisms.plain`,
+   `kafka_sasl_mechanisms.scram_sha_256`, and `kafka_sasl_mechanisms.scram_sha_512` to
+   `false`. Example with issuer, audience, subject claim verification, and OAuth-only
+   SASL configuration:
 
    ```bash
    avn service update SERVICE_NAME \
