@@ -229,6 +229,7 @@
 /products/kafka/kafka-mirrormaker/concepts                 /docs/products/kafka/kafka-mirrormaker/concepts/disaster-recovery-migration  301
 /products/kafka/kafka-mirrormaker/howto/integrate-external-kafka-cluster   /docs/products/kafka/howto/integrate-external-kafka-cluster  301
 /products/kafka/kafka-mirrormaker/howto/setup-mirrormaker-monitoring   /docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow  301
+/products/kafka/kafka-mirrormaker/concepts/mirrormaker2-tuning         /docs/products/kafka/kafka-mirrormaker/concepts/configuration-layers  301
 /products/kafka/kafka-mirrormaker/reference                            /docs/products/kafka/kafka-mirrormaker/reference/advanced-params  301
 /products/kafka/karapace/concepts                                      /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
 /products/kafka/karapace/howto                                         /docs/products/kafka/karapace/howto/enable-karapace  301

@@ -1076,7 +1076,7 @@ const sidebars: SidebarsConfig = {
                       ],
                     },
                     'products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex',
-                    'products/kafka/kafka-mirrormaker/concepts/mirrormaker2-tuning',
+                    'products/kafka/kafka-mirrormaker/concepts/configuration-layers',
                     'products/kafka/kafka-mirrormaker/concepts/permissions-internal-topics',
                   ],
                 },
@@ -1085,6 +1085,7 @@ const sidebars: SidebarsConfig = {
                   label: 'How to',
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
+                    'products/kafka/kafka-mirrormaker/howto/update-integration-configurations',
                     'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                     'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',

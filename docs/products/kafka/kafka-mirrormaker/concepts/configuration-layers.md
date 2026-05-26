@@ -1,9 +1,11 @@
 ---
-title: Configuration layers in Aiven for Apache Kafka® MirrorMaker 2
-sidebar_label: Configuration layers
+title: Configuration and tuning for Aiven for Apache Kafka® MirrorMaker 2
+sidebar_label: Configuration and tuning
 ---
 
-Learn how Aiven for Apache Kafka® MirrorMaker 2 organizes parameters across configuration layers and how changes affect replication behavior and service restarts.
+import RelatedPages from "@site/src/components/RelatedPages";
+
+Learn where Aiven for Apache Kafka® MirrorMaker 2 settings are configured across service, replication-flow, and integration layers, which parameters affect performance, and what restarts when you change them.
 
 ## Configuration layers
 
@@ -95,11 +97,14 @@ being replicated:
 
 ### Producer and consumer settings
 
-These [integration configurations](#integration-configurations) parameters control how
+These [integration configuration](#integration-configurations) parameters control how
 MirrorMaker 2 producers and consumers communicate with the source and target Kafka
 clusters. Set them on the service integration resource. If you do not set a parameter,
 Kafka applies its built-in default. These settings apply to MirrorMaker 2 integrations
 with both Aiven for Apache Kafka services and external Kafka clusters.
+
+To update these settings, see
+[Update integration configurations](/docs/products/kafka/kafka-mirrormaker/howto/update-integration-configurations).
 
 | Parameter | Description | Maximum value |
 |-----------|-------------|---------------|
@@ -114,3 +119,11 @@ with both Aiven for Apache Kafka services and external Kafka clusters.
 | `producer_max_request_size` | Maximum size of a single producer request, in bytes. | — |
 | `producer_request_timeout_ms` | Timeout for producer requests to the broker, in milliseconds. | 600,000 ms (10 minutes) |
 | `producer_send_buffer_bytes` | Size of the TCP send buffer for the producer, in bytes. A value of `-1` uses the OS default. | 100 MiB |
+
+<RelatedPages/>
+
+- [Update integration configurations](/docs/products/kafka/kafka-mirrormaker/howto/update-integration-configurations)
+- [Advanced parameters for Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker/reference/advanced-params)
+- [Set up an Apache Kafka® MirrorMaker 2 replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow)
+- [Topics included in a replication flow](/docs/products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex)
+- [Known issues](/docs/products/kafka/kafka-mirrormaker/reference/known-issues)
