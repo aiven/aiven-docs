@@ -1,6 +1,6 @@
 ---
 title: Aiven for OpenSearch® metrics available via Prometheus
-sidebar_label: OpenSearch metrics with Prometheus
+sidebar_label: Monitor OS with Prometheus
 ---
 
 import Tabs from "@theme/Tabs";

@@ -1,13 +1,12 @@
 ---
-title: Troubleshoot OpenSearch® Dashboards
-sidebar_label: Troubleshoot
+title: OpenSearch® Dashboards incompatible version issues
+sidebar_label: Incompatible versions
 ---
 
-## OpenSearch® Dashboard is unavailable
+OpenSearch® Dashboards version must match your OpenSearch cluster version.
 
-OpenSearch Dashboards requires that the version of OpenSearch on your
-cluster be the same. If OpenSearch Dashboards is unavailable, you will
-see the following error message in the OpenSearch Dashboards logs:
+If OpenSearch Dashboards is unavailable, you see the following error message in the
+OpenSearch Dashboards logs:
 
 ```none
 This version of OpenSearch Dashboards (v1.3.2) is incompatible with the following OpenSearch nodes

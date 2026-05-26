@@ -1,6 +1,7 @@
 ---
 title: OpenSearch® cross-cluster replication
 limited: true
+sidebar_label: X-cluster replication
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

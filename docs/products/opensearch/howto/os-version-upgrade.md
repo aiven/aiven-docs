@@ -1,6 +1,6 @@
 ---
 title: Upgrade Aiven for OpenSearch®
-sidebar_label: Upgrade version
+sidebar_label: Upgrade a version
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

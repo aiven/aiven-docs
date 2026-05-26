@@ -1,5 +1,6 @@
 ---
 title: OpenSearch Security for Aiven for OpenSearch®
+sidebar_label: OS Security overview
 ---
 
 OpenSearch Security is a powerful feature that enhances the security of

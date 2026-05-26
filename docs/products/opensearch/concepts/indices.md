@@ -1,5 +1,6 @@
 ---
-title: Indices
+title: Manage indices in Aiven for OpenSearch®
+sidebar_label: Manage indices
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -40,6 +41,9 @@ field for your project identifier. Query the data with OpenSearch filtering. Thi
 is more efficient for managing your OpenSearch service.
 
 ## Setting the number and size of shards
+
+For detailed guidance on choosing the right shard count, see
+[Optimal shards number](/docs/products/opensearch/concepts/shards-number).
 
 The number of shards you need depends on the amount of data you have. As a general
 guideline, allocate shard sizes between a few gigabytes and a few tens of gigabytes:

@@ -328,6 +328,8 @@ reindexed
 reindexing
 remoteSecure
 renewables
+repo
+repos
 requesters
 resharding
 Resharding
