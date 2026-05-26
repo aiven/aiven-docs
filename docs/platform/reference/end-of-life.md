@@ -76,7 +76,7 @@ After the end-of-life (EOL) date, all running
 The recommended alternative that offers high performance, scalability, and security is
 the managed, in-memory NoSQL database service: [Aiven for Valkey™](/docs/products/valkey).
 See the
-[guide for migrating from Aiven for Dragonfly to Aiven for Valkey™](/docs/products/metrics/howto/migrate-influxdb-thanos).
+[guide for migrating from Aiven for Dragonfly to Aiven for Valkey™](/docs/products/valkey/get-started).
 
 To ensure uninterrupted service, complete your migration before the EOL date.
 For further assistance, contact the [Aiven support team](mailto:support@aiven.io) or your
