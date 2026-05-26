@@ -60,8 +60,8 @@ to update producer and consumer settings on a MirrorMaker 2 integration.
    ```bash
    avn service integration-update SERVICE_INTEGRATION_ID \
      --project PROJECT_NAME \
-     -c consumer_fetch_min_bytes=1024 \
-     -c producer_linger_ms=100
+     -c kafka_mirrormaker.consumer_fetch_min_bytes=1024 \
+     -c kafka_mirrormaker.producer_linger_ms=100
    ```
 
 Parameters:
@@ -150,15 +150,45 @@ Check that the updated values are applied.
 <Tabs groupId="update-method">
 <TabItem value="cli" label="Aiven CLI" default>
 
-1. Retrieve the MirrorMaker 2 service configuration:
+1. List each `kafka_mirrormaker` integration and its `user_config`:
 
    ```bash
    avn service get MIRRORMAKER_SERVICE_NAME \
-     --project PROJECT_NAME --json
+     --project PROJECT_NAME --json | \
+     jq '[.service_integrations[] | select(.integration_type == "kafka_mirrormaker") | {service_integration_id, user_config}]'
    ```
 
-1. In the output, under `service_integrations`, find the `kafka_mirrormaker` integration
-   and confirm that the `user_config` values match your update.
+   Example output:
+
+   ```json
+   [
+     {
+       "service_integration_id": "1c2c30f8-413b-4c7c-b393-97165d875952",
+       "user_config": {
+         "cluster_alias": "my-kafka-endpoint-sasl"
+       }
+     },
+     {
+       "service_integration_id": "57042a2e-aae3-4be3-bcfc-e2c1294b1af3",
+       "user_config": {
+         "cluster_alias": "my-kafka"
+       }
+     },
+     {
+       "service_integration_id": "a89ca005-e9f1-46a9-9ffb-9f85c517323a",
+       "user_config": {
+         "cluster_alias": "my-kafka-endpoint-ssl",
+         "kafka_mirrormaker": {
+           "consumer_fetch_min_bytes": 1024,
+           "producer_linger_ms": 100
+         }
+       }
+     }
+   ]
+   ```
+
+1. Find the `service_integration_id` you updated and confirm that the
+   `kafka_mirrormaker` block under `user_config` contains your updated values.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
