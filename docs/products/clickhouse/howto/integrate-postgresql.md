@@ -67,8 +67,7 @@ default these settings are set to the `public` schema in the
 steps.
 
 :::note
-Currently the configurations can be set only with the help of CLI
-command
+These configurations can be set only with the CLI command
 [avn service integration-update](/docs/tools/cli/service/integration#avn_service_integration_update).
 :::
 

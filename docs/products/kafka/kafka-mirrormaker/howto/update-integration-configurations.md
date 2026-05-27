@@ -31,8 +31,9 @@ Aiven API, or Aiven Provider for Terraform to update them.
 ## Update integration configurations
 
 Producer and consumer settings are stored on each `kafka_mirrormaker` service
-integration, whether that integration connects MirrorMaker 2 to an Aiven for Apache
-Kafka® service or to an external Kafka cluster through an integration endpoint.
+integration. This applies whether the integration connects MirrorMaker 2 to an
+Aiven for Apache Kafka® service or to an external Kafka cluster through an
+integration endpoint.
 
 <Tabs groupId="update-method">
 <TabItem value="cli" label="Aiven CLI" default>
