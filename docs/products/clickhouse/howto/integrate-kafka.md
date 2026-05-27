@@ -119,7 +119,7 @@ on a table level either in the [Aiven Console](https://console.aiven.io/) or the
      ```
 
 1.  Run
-    [avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
+    [avn service integration-update](/docs/tools/cli/service/integration#avn_service_integration_update)
     with the service integration id and your integration settings. Replace
     `SERVICE_INTEGRATION_ID`, `CONNECTOR_TABLE_NAME`, `DATA_FORMAT` and `CONSUMER_NAME`
     with your values:

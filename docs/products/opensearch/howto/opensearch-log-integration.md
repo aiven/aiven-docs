@@ -343,7 +343,7 @@ You can change the configuration of the `index prefix` and
    in columns `SOURCE` and `DEST`.
 
 1. Use the
-   [avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update)
+   [avn service integration-update](/docs/tools/cli/service/integration#avn_service_integration_update)
    command to update the log integration configuration:
 
    ```bash {3-4}

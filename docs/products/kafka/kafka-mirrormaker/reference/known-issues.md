@@ -6,7 +6,7 @@ title: Known issues
 
 The following are known issues that are expected to be resolved in
 version 3.3.0. See
-[recommended tuning parameters](/docs/products/kafka/kafka-mirrormaker/concepts/mirrormaker2-tuning) to mitigate the impact of these issues.
+[recommended tuning parameters](/docs/products/kafka/kafka-mirrormaker/concepts/configuration-layers) to mitigate the impact of these issues.
 
 -   **MirrorMaker 2 offset sync is incorrect if the target partition is
     empty**: [https://issues.apache.org/jira/browse/KAFKA-12635](https://issues.apache.org/jira/browse/KAFKA-12635)

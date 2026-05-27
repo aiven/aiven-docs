@@ -67,9 +67,8 @@ default these settings are set to the `public` schema in the
 steps.
 
 :::note
-Currently the configurations can be set only with the help of CLI
-command
-[avn service integration-update](/docs/tools/cli/service/integration#avn%20service%20integration-update).
+These configurations can be set only with the CLI command
+[avn service integration-update](/docs/tools/cli/service/integration#avn_service_integration_update).
 :::
 
 1.  Get *the service integration id* by requesting the full list of

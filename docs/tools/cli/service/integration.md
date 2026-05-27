@@ -238,7 +238,7 @@ schema_registry_proxy            Proxy Schema Registry requests                 
 signalfx                         Receive service metrics from service                                  signalfx                         Send service metrics to SignalFX                            kafka
 ```
 
-### `avn service integration-update` {#avn service integration-update}
+### `avn service integration-update` {#avn_service_integration_update}
 
 Updates an existing service integration.
 
