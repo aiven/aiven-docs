@@ -27,8 +27,8 @@ CREATE EXTENSION timescaledb CASCADE;
 
 After enabling the extension, you can create TimescaleDB hypertables and
 make use of its features for working with time-series data. For further
-information, have a look at the [Getting
-Started](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/)
+information, have a look at the
+[Hypertables and chunks](https://www.tigerdata.com/docs/reference/timescaledb/hypertables)
 guide from Timescale.
 
 More information about
