@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -86,16 +86,17 @@ const config: Config = {
     },
   ],
   scripts: [
-    {src: '/docs/page_scripts/snowplow.js', async: true},
+    { src: '/docs/page_scripts/snowplow.js', async: true },
     {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       'data-document-language': 'true',
       type: 'text/javascript',
       'data-domain-script': '0623fbc6-a463-4822-a7a4-fdb5afcc3afb',
     },
-    {src: '/docs/page_scripts/onetrust.js', async: true},
+    { src: '/docs/page_scripts/onetrust.js', async: true },
     {
       src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+      async: true,
       'data-website-id': '97dbdbe6-f293-4969-9d76-2204feaf543b', // this is not a secret
       'data-project-name': 'Aiven Kapa AI',
       'data-user-analytics-cookie-enabled': 'false',
@@ -150,7 +151,7 @@ const config: Config = {
         'For best results, include information like which tool you are using (Console, API, CLI, Terraform), the service type, and other details.\n\n' +
         "**Don't include personal or sensitive information in your questions.** For more information, review Aiven's [website terms of use](https://aiven.io/website-terms) and kapa.ai's [privacy policy](https://www.kapa.ai/content/privacy-policy).",
     },
-    {src: '/docs/page_scripts/kapa-ai-trigger.js'},
+    { src: '/docs/page_scripts/kapa-ai-trigger.js' },
   ],
   plugins: [
     './src/plugins/svg-fix/index.ts',
