@@ -294,9 +294,10 @@
 /products/valkey/reference                                 /docs/products/valkey/reference/advanced-params  301
 /tools/mcp                                                 /docs/tools/mcp-server  301
 /tools/aiven-console/howto/create-accounts                 /docs/platform/howto/manage-org-users  301
+/tools/aiven-console/howto/create-manage-teams             /docs/platform/howto/manage-groups  301
 /tools/cli/account                                         /docs/tools/cli  301
 /tools/cli/account.html                                    /docs/tools/cli  301
-/tools/cli/account/account-team                            /docs/tools/aiven-console/howto/create-manage-teams  301
+/tools/cli/account/account-team                            /docs/platform/howto/manage-groups  301
 /tools/cli/billing-group                                   /docs/platform/concepts/billing-and-payment  301
 /tools/cli/project                                         /docs/tools/cli  301
 /tools/cli/service                                         /docs/tools/cli/service-cli  301
@@ -306,6 +307,7 @@
 /tools/cli/user/user-access-token                          /docs/tools/cli/user  301
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform  301
 /tools/terraform/get-started                               /docs/tools/terraform  301
+/tools/terraform/howto/migrate-from-teams-to-groups        /docs/tools/terraform  301
 /tools/terraform/howto/terraform-logging                   /docs/tools/terraform  301
 /tools/terraform/howto/upgrade-to-opensearch               /docs/products/opensearch/get-started  301
 /tools/terraform/index.html                                /docs/tools/terraform  301

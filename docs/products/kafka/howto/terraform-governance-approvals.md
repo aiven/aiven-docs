@@ -79,7 +79,7 @@ see [Rotate credentials](/docs/products/kafka/howto/rotate-credentials).
 
 Governance enforces approval policies to maintain security and compliance:
 
-- If an approver is a member of multiple user groups, their approval applies to all teams
+- If an approver is a member of multiple user groups, their approval applies to all groups
   they belong to.
 - If a second approval is required, another member of the same user group must approve.
 - The pull request creator must be a member of the user group that owns the Apache
