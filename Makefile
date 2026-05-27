@@ -63,9 +63,11 @@ delete-unused-images:
 
 # Ignore localized sitemap URLs that can fail independently of docs content.
 check-links:
-	docker run --rm ghcr.io/linkchecker/linkchecker:latest \
+	docker run --rm \
+		-v "$(CURDIR)/scripts/linkchecker-ignore.rc:/linkchecker-ignore.rc:ro" \
+		ghcr.io/linkchecker/linkchecker:latest \
+		-f /linkchecker-ignore.rc \
 		-r 1 \
 		--no-warnings \
 		--check-extern \
-		--ignore-url='^https://aiven\.io/(fr|de)/sitemap\.xml$$' \
 		https://aiven.io/docs/sitemap.xml
