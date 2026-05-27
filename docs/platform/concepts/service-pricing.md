@@ -94,6 +94,40 @@ instance size.
 Developer tier plans, pricing, and limits vary by product. Developer tier services are
 not automatically powered off when inactive.
 
+#### Aiven for Apache Kafka®
+
+Aiven for Apache Kafka® has a separate [Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier)
+paid plan for development and testing, with its own throughput, storage, retention, and
+pricing.
+
+#### Aiven for OpenSearch
+
+The Aiven for OpenSearch Developer tier provides you with always-on OpenSearch for
+prototypes and personal projects.
+
+The Aiven for OpenSearch Developer tier includes:
+
+-   Single node
+-   1 CPU per virtual machine
+-   4 GB RAM
+-   30 GB storage
+-   2 shards, maximum 20 shards per node
+-   Up to 50 concurrent connections
+-   Daily backups
+-   Aiven and third-party service integrations
+-   [Basic tier support](/docs/platform/howto/support)
+
+Limitations of the Aiven for OpenSearch Developer tier are:
+
+-   No choice of cloud provider or specific cloud region
+-   Cannot create the service in a VPC
+-   No static IPs
+-   No dynamic disk scaling
+-   No forking
+
+Aiven reserves the right to change the cloud provider, region, or configuration
+of these Developer tier services at any point in time.
+
 #### Aiven for PostgreSQL and Aiven for MySQL
 
 The Developer tier is available for Aiven for PostgreSQL® and Aiven for MySQL® services,
@@ -121,12 +155,6 @@ Limitations of the Developer tier are:
 
 Aiven reserves the right to change the cloud provider, region, or configuration
 of these Developer tier services at any point in time.
-
-#### Aiven for Apache Kafka®
-
-Aiven for Apache Kafka® has a separate [Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier)
-paid plan for development and testing, with its own throughput, storage, retention, and
-pricing.
 
 ### Custom plans
 
