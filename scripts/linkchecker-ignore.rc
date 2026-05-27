@@ -1,0 +1,6 @@
+; Ignore localized sitemap URLs that return 500 from the main site,
+; not from broken docs content.
+[output]
+ignoreerrors=
+  ^https://aiven\.io/fr/sitemap\.xml$ 500
+  ^https://aiven\.io/de/sitemap\.xml$ 500
