@@ -18,7 +18,7 @@ the indices from the source of truth `metadata_aspect_v2` SQL table. It
 replays every aspect from the database back into search and graph stores.
 
 You can run this at any time. Events are replayed asynchronously
-and existing reads keep working.
+and existing reads keep working. Always test reindexing in a staging environment first.
 
 ## Run the restore indices task
 
@@ -30,7 +30,7 @@ and existing reads keep working.
    | Key | Value | Description |
    |-----|-------|-------------|
    | `UPGRADE_JOB` | `RestoreIndices` | The restore indices task. |
-   | `KAFKA_SCHEMAREGISTRY_URL` | `GMS_URL/schema-registry/api/` | Optional. Queries Kafka topic schemas for re-emitting events. |
+   | `KAFKA_SCHEMAREGISTRY_URL` | `GMS_URL/schema-registry/api/` | Queries Kafka topic schemas for re-emitting events. |
 
    The `GMS_URL` is the DataHub application URL with `/api/gms` appended.
 
@@ -40,7 +40,7 @@ and existing reads keep working.
    |-----|-------|
    | `-a clean` | Wipes each index before repopulating. Use when an index has stale documents that you don't want to carry over. |
    | `-a batchSize` | Number of records per batch. |
-   | `-a urnBasedPagination` | Use URN-based pagination instead of offset-based. Set to `true` for large datasets to avoid skipping rows on busy systems. |
+   | `-a urnBasedPagination` | Uses URN-based pagination instead of offset-based. Set to `true` for large datasets. |
    | `-a aspectNames` | Comma-separated list of aspect names to reindex. Use to speed up partial recoveries. For example, `aspectNames=datasetProperties,ownership`. |
    | `-a urnLike` | SQL `LIKE` pattern to filter URNs. Use to target specific entity types. For example, `urnLike=urn:li:dataset:%` to reindex all datasets. |
 
