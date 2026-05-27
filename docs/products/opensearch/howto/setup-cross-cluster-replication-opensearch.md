@@ -2,6 +2,7 @@
 title: Set up cross-cluster replication for Aiven for OpenSearch®
 limited: true
 sidebar_label: Set up x-cluster replication
+unlisted: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
