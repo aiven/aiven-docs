@@ -1319,7 +1319,15 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/clickhouse/howto/data-service-integration',
                 'products/clickhouse/howto/integration-databases',
-                'products/clickhouse/concepts/query-kafka-topic-data',
+                {
+                  type: 'category',
+                  label: 'Query Kafka topic data',
+                  link: {
+                    type: 'doc',
+                    id: 'products/clickhouse/concepts/query-kafka-topic-data',
+                  },
+                  items: ['products/clickhouse/howto/query-kafka-topic-data'],
+                },
                 'products/clickhouse/howto/integrate-kafka',
                 'products/clickhouse/reference/supported-input-output-formats',
                 'products/clickhouse/howto/integrate-postgresql',

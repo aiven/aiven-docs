@@ -667,6 +667,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Query editor</b>
         </>
       );
+    case 'queryinclickhouse':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} />
+          <b>Query in ClickHouse</b>
+        </>
+      );
     case 'opensearchindexes':
       return (
         <>
