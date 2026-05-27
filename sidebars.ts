@@ -1600,8 +1600,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/concepts/dedicated-node-roles',
-                'products/opensearch/concepts/cross-cluster-replication-opensearch',
-                'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
               ],
             },
             {
