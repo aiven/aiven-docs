@@ -15,6 +15,7 @@ interfaces (protocols):
 -   `HTTPS`
 -   `Native TCP`
 -   `MySQL Interface`
+-   `Arrow Flight`
 
 :::note
 For security reasons, TLS is required to connect to Aiven for ClickHouse.

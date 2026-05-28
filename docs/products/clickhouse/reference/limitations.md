@@ -44,16 +44,6 @@ a
       <td>N/A</td>
     </tr>
     <tr>
-      <td>Service integrations</td>
-        <ul>
-          <li>You can integrate your Aiven for ClickHouse service with PostgreSQL®
-          and Apache Kafka® only.</li>
-          <li>[Integrations of Aiven for ClickHouse and Apache Kafka](/docs/products/clickhouse/howto/integrate-kafka)
-          support the maximum of 400 virtual connector tables.</li>
-        </ul>
-      <td>N/A</td>
-    </tr>
-    <tr>
       <td>Table engines support</td>
       <td>
         <ul>
@@ -117,17 +107,6 @@ a
       <td>
           Use a distributed table with sharded plans. See
           <a href="/docs/products/clickhouse/howto/use-shards-with-distributed-table">Query data across shards</a>.
-      </td>
-    </tr>
-    <tr>
-      <td>ON CLUSTER queries</td>
-      <td>
-          Aiven for ClickHouse doesn't support ON CLUSTER queries because it
-          actually runs each data definition query on all the servers of the
-          cluster without using <code>ON CLUSTER</code>.
-      </td>
-      <td>
-          Run queries without <code>ON CLUSTER</code >.
       </td>
     </tr>
     <tr>

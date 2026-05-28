@@ -36,7 +36,7 @@ import Link from '@docusaurus/Link'
         <p className="title">Allow access to selected service ports from private networks</p>
         <table className="service-param-children">
           <tbody>
-          
+
           <tr><td><div className="param"><p className="name"><Link id="private_access_clickhouse"/><Link to="#private_access_clickhouse"><strong>private_access.clickhouse</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Allow clients to connect to clickhouse with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="private_access_clickhouse_arrowflight"/><Link to="#private_access_clickhouse_arrowflight"><strong>private_access.clickhouse_arrowflight</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Allow clients to connect to clickhouse_arrowflight with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="private_access_clickhouse_https"/><Link to="#private_access_clickhouse_https"><strong>private_access.clickhouse_https</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Allow clients to connect to clickhouse_https with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations</p></td></tr>
@@ -52,7 +52,7 @@ import Link from '@docusaurus/Link'
         <p className="title">Allow access to selected service components through Privatelink</p>
         <table className="service-param-children">
           <tbody>
-          
+
           <tr><td><div className="param"><p className="name"><Link id="privatelink_access_clickhouse"/><Link to="#privatelink_access_clickhouse"><strong>privatelink_access.clickhouse</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Enable clickhouse</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="privatelink_access_clickhouse_arrowflight"/><Link to="#privatelink_access_clickhouse_arrowflight"><strong>privatelink_access.clickhouse_arrowflight</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Enable clickhouse_arrowflight</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="privatelink_access_clickhouse_https"/><Link to="#privatelink_access_clickhouse_https"><strong>privatelink_access.clickhouse_https</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Enable clickhouse_https</p></td></tr>
@@ -68,7 +68,7 @@ import Link from '@docusaurus/Link'
         <p className="title">Allow access to selected service ports from the public Internet</p>
         <table className="service-param-children">
           <tbody>
-          
+
           <tr><td><div className="param"><p className="name"><Link id="public_access_clickhouse"/><Link to="#public_access_clickhouse"><strong>public_access.clickhouse</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Allow clients to connect to clickhouse from the public internet for service nodes that are in a project VPC or another type of private network</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="public_access_clickhouse_arrowflight"/><Link to="#public_access_clickhouse_arrowflight"><strong>public_access.clickhouse_arrowflight</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Allow clients to connect to clickhouse_arrowflight from the public internet for service nodes that are in a project VPC or another type of private network</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="public_access_clickhouse_https"/><Link to="#public_access_clickhouse_https"><strong>public_access.clickhouse_https</strong></Link></p><p><code className="type">boolean</code></p></div><p className="title">Allow clients to connect to clickhouse_https from the public internet for service nodes that are in a project VPC or another type of private network</p></td></tr>
@@ -126,7 +126,7 @@ import Link from '@docusaurus/Link'
         <div className="description"><p>ClickHouse server settings, which can be found in the `system.server_settings` table.</p></div>
         <table className="service-param-children">
           <tbody>
-          
+
           <tr><td><div className="param"><p className="name"><Link id="server_settings_vector_similarity_index_cache_size"/><Link to="#server_settings_vector_similarity_index_cache_size"><strong>server_settings.vector_similarity_index_cache_size</strong></Link></p><p><code className="type">number</code></p></div><div className="constraints"><ul><li>max: <code>0.5</code></li><li>default: <code>0.07</code></li></ul></div><p className="title">vector_similarity_index_cache_size</p><div className="description"><p>Fraction of total server memory allocated to the vector similarity index cache. 0 disables the cache. Default is 0.07 (7% of server memory). Only effective on ClickHouse 25.8+.</p></div></td></tr>
           </tbody>
         </table>
@@ -138,7 +138,7 @@ import Link from '@docusaurus/Link'
         <div className="description"><p>ClickHouse session settings, which can be found in the `system.settings` table.</p></div>
         <table className="service-param-children">
           <tbody>
-          
+
           <tr><td><div className="param"><p className="name"><Link id="session_settings_compatibility"/><Link to="#session_settings_compatibility"><strong>session_settings.compatibility</strong></Link></p><p><code className="type">string,null</code></p></div><div className="description"><p>When set, ClickHouse applies backward-compatible behavior from the specified version. Automatically set to the previous version on major version upgrade. Set to null to disable compatibility mode once all incompatibilities have been resolved. Takes effect after the next service restart/upgrade.</p></div></td></tr>
           </tbody>
         </table>
@@ -146,4 +146,3 @@ import Link from '@docusaurus/Link'
     </tr>
   </tbody>
 </table>
-    
