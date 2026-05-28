@@ -69,7 +69,8 @@ event analysis, historical reporting, and high-volume log or metrics analysis.
 
 ## Limitations
 
-- The Kafka service and the ClickHouse service must be in the same cloud region.
+- The Kafka service and the ClickHouse service must be in the same cloud region to
+  reduce network latency and data transfer costs.
 - If data does not appear in the destination table after deployment, check the ClickHouse
   service logs for ingestion errors.
 - Failed messages are not sent to a separate dead letter queue.
