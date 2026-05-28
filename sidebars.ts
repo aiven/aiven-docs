@@ -1210,6 +1210,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Indexes and data types',
                   items: [
                     'products/clickhouse/concepts/indexing',
+                    'products/clickhouse/concepts/choose-order-by-key',
                     'products/clickhouse/concepts/strings',
                   ],
                 },
