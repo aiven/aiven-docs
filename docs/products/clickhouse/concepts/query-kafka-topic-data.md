@@ -5,9 +5,10 @@ sidebar_label: Query Kafka topic data
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Query Kafka topic data in Aiven for ClickHouse® by connecting an Aiven for Apache Kafka® topic.
-Analyze live or historical event data with SQL without manually creating a Kafka engine
-table, materialized view, or destination ClickHouse table.
+Query Kafka topic data in Aiven for ClickHouse® by connecting an Aiven for Apache Kafka® topic to a ClickHouse table.
+Use this managed setup to store Kafka topic data in ClickHouse and analyze live or
+historical event data with SQL, without manually creating a Kafka engine table,
+materialized view, or destination ClickHouse table.
 
 To set up the integration in the Aiven Console, see
 [Set up Kafka topic querying in Aiven for ClickHouse®](/docs/products/clickhouse/howto/set-up-kafka-topic-querying).
@@ -16,47 +17,55 @@ To set up the integration in the Aiven Console, see
 
 Query Kafka topic data when you want to:
 
-- Run SQL queries against live or historical event data from a Kafka topic.
-- Build dashboards from Kafka topic data.
-- Store event data in ClickHouse for analytics or reporting.
-- Replace a manually configured Kafka-to-ClickHouse ingestion setup with a managed setup.
+- Analyze live or historical Kafka topic data using SQL.
+- Build dashboards or reports from Kafka topic data stored in ClickHouse.
+- Reduce the manual setup required to ingest Kafka data into ClickHouse.
 
 ## How it works
 
-When you connect Kafka topic data to ClickHouse, Aiven creates a managed integration
-between the Kafka service and the ClickHouse service. The setup uses the selected Kafka
-topic as the source and a destination MergeTree table in ClickHouse.
+When you connect a Kafka topic to ClickHouse, Aiven creates a managed integration
+between the two services. The setup uses the selected Kafka topic as the source and
+writes the data to a destination ClickHouse table that uses the MergeTree engine.
 
-Automated schema mapping requires Avro messages and Aiven for Apache Kafka® Schema
-Registry. Aiven reads the schema from Schema Registry using the topic name strategy and
-maps the fields to ClickHouse column types.
+You can start the setup from a Kafka topic in the Aiven Console. During setup, select an
+existing ClickHouse service or create one, then review and edit the schema and table
+configuration before deployment.
 
-During setup, you can review and edit the suggested schema and table configuration before
-deployment. If Aiven cannot find a compatible schema, define the ClickHouse table columns
-manually.
+### Schema mapping
 
-You can start the setup from the Aiven Console. The available entry points can vary
-depending on your service configuration.
+Automated schema mapping is available for Avro messages with Aiven for Apache Kafka®
+Schema Registry. The schema must be registered using the topic name strategy, such as
+`<topic-name>-value`.
 
-## Ingestion and the Kafka table engine
+When a compatible Avro schema is available, Aiven maps the Avro fields to ClickHouse
+column types and shows them in the schema preview.
 
-Kafka topic data ingestion uses the ClickHouse Kafka table engine, which is also used in
-[manual Kafka integration](/docs/products/clickhouse/howto/integrate-kafka).
+Before deployment, you can review the mapped columns. If Aiven cannot find a compatible
+Avro schema, you can define the ClickHouse table columns during setup.
 
-Aiven creates and manages the Kafka engine table, materialized view, and destination
-MergeTree table. You query the MergeTree table in ClickHouse and do not need to create
-the ingestion pipeline manually.
+### Ingestion start point
 
-## Choose where ingestion starts
-
-During setup, you can choose whether ingestion starts from new messages only or from an
-earlier point in the topic, when available.
+During setup, choose whether ingestion starts from new messages only or from an earlier
+point in the topic, when available.
 
 If you start from new messages only, Aiven ingests messages produced after you deploy the
-setup.
+setup. If you start from an earlier point, Aiven includes existing topic data based on
+the selected start point.
 
-If you start from an earlier point, Aiven includes existing topic data based on the
-selected start point.
+### Managed ClickHouse resources
+
+Kafka topic data ingestion uses the ClickHouse Kafka table engine.
+
+Aiven creates and manages the Kafka engine table, materialized view, and destination
+ClickHouse table. This reduces the manual setup required to store Kafka topic data in
+ClickHouse. You query the destination table in ClickHouse and do not need to create the
+ingestion pipeline manually.
+
+## Query data in ClickHouse
+
+After the setup is deployed and data starts flowing, query the destination table using
+ClickHouse SQL. You can use the table for real-time analytics, operational dashboards,
+event analysis, historical reporting, and high-volume log or metrics analysis.
 
 ## Limitations
 
@@ -65,10 +74,10 @@ selected start point.
   service logs for ingestion errors.
 - Failed messages are not sent to a separate dead letter queue.
 - You cannot change some table settings, such as the sorting key, after table creation.
-- Automated schema mapping requires Avro messages and Aiven for Apache Kafka® Schema
-  Registry using the topic name strategy. Without a compatible schema, define ClickHouse
-  columns manually or use
-  [manual Kafka integration](/docs/products/clickhouse/howto/integrate-kafka).
+- Automated schema mapping is available only for Avro messages with Aiven for Apache
+  Kafka® Schema Registry when the schema is registered using the topic name strategy,
+  such as `<topic-name>-value`. Without a compatible Avro schema, define ClickHouse
+  columns during setup.
 - Automatic schema evolution is not supported. If the Kafka topic schema changes, the
   ClickHouse resources might need to be updated manually or the integration might need to
   be recreated. New Avro fields are ignored unless matching columns are added to the
