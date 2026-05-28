@@ -11,4 +11,5 @@ function OptanonWrapper() {
     // enable fully anonymous tracking
     snowplow('clearUserData', {preserveSession: true});
   }
+  window.dispatchEvent(new Event('OneTrustGroupsUpdated'));
 }
