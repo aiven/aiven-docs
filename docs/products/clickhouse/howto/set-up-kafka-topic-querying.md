@@ -24,8 +24,8 @@ Before you begin, make sure you have:
 - An Aiven for ClickHouse® service in the same cloud region as the Kafka service, or
   permission to create one during setup.
 - [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace)
-  enabled, and Avro used for the topic schema and messages to auto-detect ClickHouse
-  columns.
+  is enabled, and Avro is used for the topic schema and messages to auto-detect
+  ClickHouse columns.
 
 :::note
 Query Kafka topic data is not available in every cloud and region. If **Query in ClickHouse**
