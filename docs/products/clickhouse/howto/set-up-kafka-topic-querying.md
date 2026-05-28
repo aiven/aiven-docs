@@ -1,6 +1,6 @@
 ---
 title: Set up Kafka topic querying in Aiven for ClickHouse®
-sidebar_label: Set up querying
+sidebar_label: Set up Kafka topic querying
 description: Send data from an Aiven for Apache Kafka® topic to Aiven for ClickHouse® and query it with SQL.
 ---
 
