@@ -1751,7 +1751,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Connect to PG services',
+              label: 'Connect to service',
               items: [
                 {
                   type: 'category',
@@ -1800,7 +1800,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Querying & data analysis',
+              label: 'Querying and data analysis',
               items: [
                 {
                   type: 'category',
@@ -1840,7 +1840,7 @@ const sidebars: SidebarsConfig = {
             'products/postgresql/howto/list-manage-cluster',
             {
               type: 'category',
-              label: 'High availability & disaster recovery',
+              label: 'High availability and disaster recovery',
               items: [
                 'products/postgresql/concepts/high-availability',
                 'products/postgresql/concepts/upgrade-failover',
@@ -1859,7 +1859,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/crdr/enable-crdr',
                     {
                       type: 'category',
-                      label: 'Failover & failback',
+                      label: 'Failover and failback',
                       link: {
                         id: 'products/postgresql/crdr/failover/list-failover',
                         type: 'doc',
@@ -1871,7 +1871,7 @@ const sidebars: SidebarsConfig = {
                     },
                     {
                       type: 'category',
-                      label: 'Switchover & switchback',
+                      label: 'Switchover and switchback',
                       link: {
                         id: 'products/postgresql/crdr/switchover/list-switchover',
                         type: 'doc',
@@ -1887,7 +1887,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Storage, backups & migration',
+              label: 'Storage, backups, and migration',
               items: [
                 'products/postgresql/concepts/pg-backups',
                 'products/postgresql/howto/create-manual-backups',
@@ -1912,7 +1912,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Observability & monitoring',
+              label: 'Observability and monitoring',
               items: [
                 'products/postgresql/reference/pg-metrics',
                 'products/postgresql/howto/report-metrics-grafana',
@@ -1939,7 +1939,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Integrations & extensions',
+              label: 'Integrations and extensions',
               items: [
                 {
                   type: 'category',
@@ -1958,7 +1958,7 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'AI & vector search',
+                  label: 'AI and vector search',
                   items: [
                     'products/postgresql/concepts/pgvector',
                     'products/postgresql/howto/use-pgvector',
@@ -1980,7 +1980,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'User & schema',
+              label: 'User and schema',
               items: [
                 'products/postgresql/concepts/dba-tasks-pg',
                 'products/postgresql/howto/claim-public-schema-ownership',
