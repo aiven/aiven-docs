@@ -13,8 +13,8 @@ ClickHouse® takes care of running queries in the distributed mode over
 the entire cluster. In the standard ClickHouse, the queries `CREATE`,
 `ALTER`, `RENAME` and `DROP` only affect the server where they are run.
 In contrast, we ensure the proper distribution across all cluster
-machines behind the scenes. You don't need to remember using
-`ON CLUSTER` for every query.
+machines behind the scenes. You don't need to use `ON CLUSTER` for data
+definition queries against a `Replicated` database.
 
 :::important
 There are limitations on the number of concurrent queries and the number of concurrent
