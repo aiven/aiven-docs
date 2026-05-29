@@ -1,6 +1,6 @@
 ---
 title: Aiven for PostgreSQL® upgrade and failover procedures
-sidebar_label: Upgrade & failover
+sidebar_label: Upgrade and failover
 ---
 
 Aiven for PostgreSQL® Business and Premium plans include **standby read-replica** servers. If the primary server fails, a standby replica server is automatically promoted as new primary server.
