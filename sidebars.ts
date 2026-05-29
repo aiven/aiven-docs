@@ -114,7 +114,6 @@ const sidebars: SidebarsConfig = {
                 'platform/concepts/managed-users',
                 'platform/concepts/discovered-organizations',
                 'platform/howto/manage-groups',
-                'tools/aiven-console/howto/create-manage-teams',
               ],
             },
             {
@@ -332,7 +331,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'tools/terraform/howto/migrate-from-teams-to-groups',
             'tools/terraform/howto/use-opentofu',
           ],
         },
