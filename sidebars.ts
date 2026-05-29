@@ -2063,7 +2063,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Storage, backups, and migration',
+              label: 'Migrate',
               items: [
                 'products/valkey/howto/migrate-redis-aiven-cli',
                 'products/valkey/howto/migrate-redis-aiven-via-console',
