@@ -1992,78 +1992,105 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/valkey/get-started',
-            'products/valkey/concepts/valkey-free-tier',
             {
               type: 'category',
-              label: 'Concepts',
+              label: 'Get started',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/get-started',
+              },
               items: [
-                'products/valkey/concepts/high-availability',
-                'products/valkey/concepts/lua-scripts',
-                'products/valkey/concepts/memory-usage',
-                'products/valkey/concepts/read-replica',
-                'products/valkey/concepts/valkey-cluster',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'How to',
-              items: [
-                {
-                  type: 'category',
-                  label: 'Connect to Aiven for Valkey™',
-                  link: {
-                    type: 'doc',
-                    id: 'products/valkey/howto/connect-services',
-                  },
-                  items: [
-                    'products/valkey/howto/connect-valkey-cli',
-                    'products/valkey/howto/connect-go',
-                    'products/valkey/howto/connect-node',
-                    'products/valkey/howto/connect-php',
-                    'products/valkey/howto/connect-python',
-                    'products/valkey/howto/connect-java',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Manage service',
-                  items: [
-                    'products/valkey/howto/benchmark-performance',
-                    'products/valkey/howto/configure-acl-permissions',
-                    'products/valkey/howto/estimate-max-number-of-connections',
-                    'products/valkey/howto/manage-ssl-connectivity',
-                    'products/valkey/howto/create-valkey-read-replica',
-                    'products/valkey/howto/valkey-version-upgrade',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Migrate data',
-                  items: [
-                    'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
-                    'products/valkey/howto/migrate-redis-aiven-cli',
-                    'products/valkey/howto/migrate-redis-aiven-via-console',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Reference',
-              items: [
-                'products/valkey/reference/advanced-params',
-                'products/valkey/reference/restricted-commands',
-                'products/valkey/reference/valkey-metrics-in-prometheus',
+                'products/valkey/concepts/valkey-free-tier',
                 'products/valkey/reference/valkey-modules',
               ],
             },
             {
               type: 'category',
-              label: 'Troubleshooting',
+              label: 'Connect to service',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/howto/connect-services',
+              },
               items: [
+                'products/valkey/howto/connect-valkey-cli',
+                'products/valkey/howto/connect-go',
+                'products/valkey/howto/connect-node',
+                'products/valkey/howto/connect-php',
+                'products/valkey/howto/connect-python',
+                'products/valkey/howto/connect-java',
+                'products/valkey/howto/estimate-max-number-of-connections',
                 'products/valkey/troubleshooting/troubleshoot-connection-issues',
-                'products/valkey/troubleshooting/warning-overcommit_memory',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Query and analyze data',
+              items: [
+                'products/valkey/concepts/lua-scripts',
+                'products/valkey/howto/benchmark-performance',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Service management',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Maintenance and upgrades',
+                  items: [
+                    'products/valkey/howto/valkey-version-upgrade',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Performance and tuning',
+                  items: [
+                    'products/valkey/concepts/memory-usage',
+                    'products/valkey/troubleshooting/warning-overcommit_memory',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Advanced parameters',
+                  items: [
+                    'products/valkey/reference/advanced-params',
+                    'products/valkey/reference/restricted-commands',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'High availability and recovery',
+              items: [
+                'products/valkey/concepts/high-availability',
+                'products/valkey/concepts/valkey-cluster',
+                'products/valkey/concepts/read-replica',
+                'products/valkey/howto/create-valkey-read-replica',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Storage, backups, and migration',
+              items: [
+                'products/valkey/howto/migrate-redis-aiven-cli',
+                'products/valkey/howto/migrate-redis-aiven-via-console',
+                'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Observability and monitoring',
+              items: [
+                'products/valkey/reference/valkey-metrics-in-prometheus',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Security and access',
+              items: [
+                'products/valkey/howto/configure-acl-permissions',
+                'products/valkey/howto/manage-ssl-connectivity',
               ],
             },
           ],
