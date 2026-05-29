@@ -228,12 +228,25 @@ In the response, inspect `maintenance.controlled_switchover`:
   "maintenance": {
     "controlled_switchover": {
       "enabled": true,
-      "state": "SCHEDULED",
-      "scheduled_start_time": "2026-02-27T10:01:00.000000Z"
+      "state": "COMPLETED",
+      "scheduled_start_time": "2026-02-27T10:01:00.000000Z",
+      "completed_at": "2026-02-27T10:02:00.000000Z",
+      "termination_reason": "Controlled switchover"
     }
   }
 }
 ```
+
+The `controlled_switchover` object includes the following fields:
+
+- `enabled`: Whether controlled switchover is configured for the service.
+- `state`: The current switchover state. See the state values that follow.
+- `scheduled_start_time`: The time when switchover is scheduled to start. Can be
+  `null` for some states.
+- `completed_at`: The time when switchover completed. Can be `null` if switchover
+  has not completed.
+- `termination_reason`: The reason for switchover completion, such as
+  `old generation node timed out`. Can be `null`.
 
 State values:
 
@@ -241,9 +254,13 @@ State values:
 - `PENDING`: Maintenance started, and new nodes are not ready.
 - `SCHEDULED`: New nodes are ready, and switchover is scheduled.
 - `RUNNING`: Switchover is in progress.
-- `COMPLETED`: Switchover finished.
+- `COMPLETED`: Switchover finished within a controlled switchover window.
+- `COMPLETED_EARLY`: Switchover finished outside a controlled switchover window,
+  for example when the old primary node failed during the wait.
 
-`scheduled_start_time` can be `null` for some states.
+If the old service nodes time out or fail outside a configured window, Aiven
+promotes the new primary and completes the switchover early, without waiting for
+the next window. In this case, `state` is `COMPLETED_EARLY`.
 
 ## Best practices
 
