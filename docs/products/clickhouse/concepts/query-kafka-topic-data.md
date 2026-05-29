@@ -49,8 +49,8 @@ During setup, choose whether ingestion starts from new messages only or from an 
 point in the topic, when available.
 
 If you start from new messages only, Aiven ingests messages produced after you deploy the
-setup. If you start from an earlier point, Aiven includes existing topic data based on
-the selected start point.
+setup. If you start from an earlier point, Aiven includes existing topic data based on the
+start point you select.
 
 ### Managed ClickHouse resources
 
@@ -73,7 +73,9 @@ event analysis, historical reporting, and high-volume log or metrics analysis.
   reduce network latency and data transfer costs.
 - If data does not appear in the destination table after deployment, check the ClickHouse
   service logs for ingestion errors.
-- Failed messages are not sent to a separate dead letter queue.
+- Failed messages are not sent to a dead letter queue by default. To change this, set
+  `handle_error_mode` to `dead_letter_queue` in the Kafka engine advanced configuration. In
+  the Aiven Console, this setting is available under **Databases and tables**.
 - You cannot change some table settings, such as the sorting key, after table creation.
 - Automated schema mapping is available only for Avro messages with Aiven for Apache
   Kafka® Schema Registry when the schema is registered using the topic name strategy,
@@ -83,8 +85,8 @@ event analysis, historical reporting, and high-volume log or metrics analysis.
   ClickHouse resources might need to be updated manually or the integration might need to
   be recreated. New Avro fields are ignored unless matching columns are added to the
   ClickHouse table. Removed or incompatible fields can cause ingestion errors.
-- High-throughput topics can generate additional network transfer costs if the Kafka and
-  ClickHouse services run in different availability zones.
+- The integration is not available for free and developer tier Aiven for Apache Kafka®
+  services.
 
 <RelatedPages/>
 

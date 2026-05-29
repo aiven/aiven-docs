@@ -128,6 +128,13 @@ between classic and diskless topics.
 After creation, the topic appears on the <ConsoleLabel name="topics" /> page.
 The **Topic type** column shows **Classic** or **Diskless**.
 
+:::tip
+Analyze your topic data with SQL by sending it to Aiven for ClickHouse®. From the topic's
+<ConsoleLabel name="actions" /> menu, click **Query in ClickHouse** to set up a managed
+integration. See
+[Query Kafka topic data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/query-kafka-topic-data).
+:::
+
 </TabItem>
 
 <TabItem value="cli" label="CLI">
@@ -211,3 +218,4 @@ with [`aiven_kafka_topic`](https://registry.terraform.io/providers/aiven/aiven/l
 - [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic)
 - [Automatically create topics](/docs/products/kafka/howto/create-topics-automatically)
 - [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage)
+- [Query Kafka topic data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/query-kafka-topic-data)

@@ -77,7 +77,9 @@ for your Aiven for Apache Kafka service to use the **Schemas** tab.
 1. To return to the topic overview page in the Apache Kafka topic catalog,
    click **Open topic catalog**.
 
+
 <RelatedPages/>
 
 - [Aiven for Apache Kafka® topic catalog overview](/docs/products/kafka/concepts/topic-catalog-overview)
 - [View and manage Apache Kafka topic catalog](/docs/products/kafka/howto/view-kafka-topic-catalog)
+- [Query Kafka topic data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/query-kafka-topic-data)
