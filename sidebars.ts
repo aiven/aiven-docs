@@ -2037,9 +2037,7 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Maintenance and upgrades',
-                  items: [
-                    'products/valkey/howto/valkey-version-upgrade',
-                  ],
+                  items: ['products/valkey/howto/valkey-version-upgrade'],
                 },
                 {
                   type: 'category',
@@ -2049,14 +2047,8 @@ const sidebars: SidebarsConfig = {
                     'products/valkey/troubleshooting/warning-overcommit_memory',
                   ],
                 },
-                {
-                  type: 'category',
-                  label: 'Advanced parameters',
-                  items: [
-                    'products/valkey/reference/advanced-params',
-                    'products/valkey/reference/restricted-commands',
-                  ],
-                },
+                'products/valkey/reference/advanced-params',
+                'products/valkey/reference/restricted-commands',
               ],
             },
             {
@@ -2081,9 +2073,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Observability and monitoring',
-              items: [
-                'products/valkey/reference/valkey-metrics-in-prometheus',
-              ],
+              items: ['products/valkey/reference/valkey-metrics-in-prometheus'],
             },
             {
               type: 'category',
