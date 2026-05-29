@@ -12,20 +12,26 @@ Find out what technologies and tools you can use to interact with Aiven for Clic
 Aiven for ClickHouse® supports the following fundamental underlying
 interfaces (protocols):
 
--   `HTTPS`
--   `Native TCP`
--   `MySQL Interface`
--   `Arrow Flight`
+- `HTTPS`
+- `Native TCP`
+- `MySQL Interface`
+- `Arrow Flight`
+
+:::note
+`Arrow Flight` is available for new services running ClickHouse 25.8 LTS.
+To get the connection details, use the [Aiven API](/docs/tools/api),
+[Aiven CLI](/docs/tools/cli), or [Aiven MCP server](/docs/tools/mcp-server).
+:::
 
 :::note
 For security reasons, TLS is required to connect to Aiven for ClickHouse.
 :::
 
-:::note[Unsupported interfaces (protocols)]
--   `HTTP`
--   `gRPC`
--   `PostgreSQL`
-:::
+The following interfaces (protocols) are not supported:
+
+- `HTTP`
+- `gRPC`
+- `PostgreSQL`
 
 For the full list of interfaces and protocols supported in ClickHouse,
 see [Drivers and
@@ -38,11 +44,11 @@ There are a number of drivers (libraries) that use one of
 (library) of your choice and use it for connecting to your Aiven for
 ClickHouse service.
 
--   See
-    [how to use different drivers (libraries) for connecting to Aiven for ClickHouse](/docs/products/clickhouse/howto/list-connect-to-service).
--   For the full list of drivers and libraries that support connecting
-    to ClickHouse, see [Drivers and
-    Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
+- See
+  [how to use different drivers (libraries) for connecting to Aiven for ClickHouse](/docs/products/clickhouse/howto/list-connect-to-service).
+- For the full list of drivers and libraries that support connecting
+  to ClickHouse, see [Drivers and
+  Interfaces](https://clickhouse.com/docs/en/interfaces/overview).
 
 :::note
 You can connect to Aiven for ClickHouse with any driver that uses TLS
@@ -51,6 +57,6 @@ and one of the supported protocols.
 
 <RelatedPages/>
 
--   [How to connect to Aiven for ClickHouse using different libraries](/docs/products/clickhouse/howto/list-connect-to-service)
--   [Drivers and interfaces supported in
-    ClickHouse](https://clickhouse.com/docs/en/interfaces/overview)
+- [How to connect to Aiven for ClickHouse using different libraries](/docs/products/clickhouse/howto/list-connect-to-service)
+- [Drivers and interfaces supported in
+  ClickHouse](https://clickhouse.com/docs/en/interfaces/overview)
