@@ -19,9 +19,10 @@ to access this feature in the Aiven Console.
 1.  Optional: Select the billing groups to assign the address to
     and click **Assign address**.
     :::note
-    The address is added as both the billing and shipping address for the billing group.
+    The address is added as both the billing and shipping address for the billing groups.
     You can [change the billing or shipping address](/docs/platform/howto/use-billing-groups#update-a-billing-group)
-    in the billing group.
+    in the billing groups.
+    :::
 
 ## Update an address
 
