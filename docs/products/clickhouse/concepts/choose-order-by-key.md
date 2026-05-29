@@ -1,11 +1,11 @@
 ---
-title: Choose ORDER BY and partitioning keys for MergeTree tables
-sidebar_label: Choose ORDER BY and partitioning keys
+title: Choose ORDER BY and partition keys for MergeTree tables
+sidebar_label: Choose ORDER BY and partition keys
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-In Aiven for ClickHouse®, the `ORDER BY`, `PRIMARY KEY`, and `PARTITION BY` for a MergeTree table work together to control how data is sorted, indexed, and grouped on disk.
+In Aiven for ClickHouse®, the `ORDER BY`, `PRIMARY KEY`, and `PARTITION BY` for a `MergeTree` table work together to control how data is sorted, indexed, and grouped on disk.
 ClickHouse uses this layout to skip irrelevant
 data during queries and store similar values together for better compression.
 
@@ -133,8 +133,8 @@ ORDER BY (tenant_id, event_type, event_time)
 ```
 
 Avoid high-cardinality partition keys, such as user IDs, request IDs, trace IDs, or event
-IDs. They can create too many partitions and make table operations slower. Aim for dozens
-or hundreds of partitions, not thousands.
+IDs. They can create too many partitions and make table operations slower. Aim for
+dozens or hundreds of partitions, not thousands.
 
 For small tables or tables without a clear retention pattern, you can omit `PARTITION BY`.
 
