@@ -48,7 +48,7 @@ billing contact emails, invoice emails, or other billing details:
 1.  Find the billing group to update and click **Edit**.
 1.  Update the billing group and click **Save changes**.
 
-## Assign a billing group to a project{/*assign-a-billing-group-to-a-project*/}
+## Assign a billing group to a project {#assign-a-billing-group-to-a-project}
 
 You can assign any billing group in your organization to a project. To assign
 a billing group from another organization, you have to
@@ -64,7 +64,7 @@ to access this feature in the Aiven Console.
 
 ## Delete a billing group
 
-To delete a billing group, [move all projects](#assign-a-billing-group-to-a-projectassign-a-billing-group-to-a-project) assigned to it to a
+To delete a billing group, [move all projects](#assign-a-billing-group-to-a-project) assigned to it to a
 different billing group first.
 
 You must be an
