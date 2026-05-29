@@ -1,5 +1,5 @@
 ---
-title: Manage payment cards
+title: Manage credit cards
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -7,7 +7,7 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Add credit cards to your organization and use them across different [billing groups](/docs/platform/howto/use-billing-groups) to pay for your Aiven services.
 
-## Add a payment card
+## Add a card
 
 You can add a credit card as a payment method in your organization and
 assign it to different billing groups. You must be an
@@ -16,18 +16,17 @@ to access this feature.
 
 1. Click **Billing**.
 1. Click <ConsoleLabel name="paymentmethods"/>.
-1. On the **Payment cards** tab in the **Add payment card** section,
-   enter the credit card details.
 1. Click **Add card**.
+1. Enter the credit card details and click **Add card**.
 1. Optional: Select billing groups to assign the card to and click **Assign payment card**.
-   The card won't be charged for monthly payments if you don't add it to a billing group.
+   The card won't be charged for monthly payments if you don't assign it to a billing group.
 
-## Delete a payment card
+## Delete a card
 
-To delete a payment card,
+To delete a credit card,
 [remove it from all billing groups](/docs/platform/howto/use-billing-groups) first.
 
 1. Click **Billing**.
 1. Click <ConsoleLabel name="paymentmethods"/>.
-1. On the **Payment cards** tab, find the card to delete.
-1. Click <ConsoleIcon name="delete"/> and confirm.
+1. On the **Cards** tab, find the card to delete.
+1. Click <ConsoleLabel name="delete"/>.
