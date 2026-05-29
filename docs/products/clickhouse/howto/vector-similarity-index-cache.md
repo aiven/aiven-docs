@@ -72,6 +72,16 @@ The best value depends on:
 As a rule of thumb, set the ratio so the protected SLRU segment can hold the largest
 per-part HNSW index without eviction.
 
+## Prerequisites
+
+- An Aiven for ClickHouse service running ClickHouse 25.8 or later.
+- A table with an HNSW vector similarity index and an active vector search workload.
+- Access to the [Aiven Console](https://console.aiven.io/) to update advanced
+  configuration.
+- A SQL client, such as the
+  [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli), to run
+  the monitoring queries.
+
 ## Configure the cache ratio
 
 You can update `server_settings.vector_similarity_index_cache_size_ratio` without
@@ -86,6 +96,10 @@ restarting the service.
 1. Click **Save configuration**.
 
 Aiven applies the setting without a service restart.
+
+The total cache size usually stays at its default. Adjust
+`server_settings.vector_similarity_index_cache_size` only if evictions continue after
+raising the ratio.
 
 ## Monitor cache health
 
@@ -107,7 +121,7 @@ steady-state vector search queries, ClickHouse evicts vector index data. Increas
 :::note
 Do not rely on hit rate alone to assess cache health. A high hit rate can coexist with
 evictions if ClickHouse reloads and reinserts indexes repeatedly. For stable vector
-search performance, `VectorSimilarityIndexCacheWeightLost` should stay at `0` during
+search performance, keep `VectorSimilarityIndexCacheWeightLost` at `0` during
 steady-state queries.
 :::
 
