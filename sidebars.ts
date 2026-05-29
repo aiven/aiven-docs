@@ -2053,7 +2053,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'High availability and recovery',
+              label: 'High availability and disaster recovery',
               items: [
                 'products/valkey/concepts/high-availability',
                 'products/valkey/concepts/valkey-cluster',
