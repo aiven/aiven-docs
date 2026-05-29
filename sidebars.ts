@@ -1240,6 +1240,17 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/reference/s3-supported-file-formats',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Query Kafka topic data',
+                  link: {
+                    type: 'doc',
+                    id: 'products/clickhouse/concepts/query-kafka-topic-data',
+                  },
+                  items: [
+                    'products/clickhouse/howto/set-up-kafka-topic-querying',
+                  ],
+                },
               ],
             },
             {

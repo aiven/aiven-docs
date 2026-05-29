@@ -9,8 +9,11 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 The ClickHouse sink connector delivers data from Apache Kafka® topics to a ClickHouse database for efficient querying and analysis.
 
 :::tip
-You can also
-[connect Aiven for ClickHouse® with Apache Kafka® or Aiven for Apache Kafka® using ClickHouse Kafka Engine](/docs/products/clickhouse/howto/integrate-kafka).
+You can also:
+
+- [Query Apache Kafka® topic data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/query-kafka-topic-data)
+  using a managed setup that connects a Kafka topic to a ClickHouse table.
+- [Connect Aiven for ClickHouse® with Apache Kafka® or Aiven for Apache Kafka® using ClickHouse Kafka Engine](/docs/products/clickhouse/howto/integrate-kafka).
 :::
 
 ## Prerequisites
