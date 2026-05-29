@@ -246,7 +246,7 @@ The `controlled_switchover` object includes the following fields:
 - `completed_at`: The time when switchover completed. Can be `null` if switchover
   has not completed.
 - `termination_reason`: The reason for switchover completion, such as
-  `Controlled switchover` or `old generation node timed out`. Can be `null`.
+  `old generation node timed out`. Can be `null`.
 
 State values:
 
