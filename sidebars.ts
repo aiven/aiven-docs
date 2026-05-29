@@ -1571,7 +1571,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Connect to services',
+              label: 'Connect to service',
               link: {
                 id: 'products/opensearch/howto/list-connect-to-service',
                 type: 'doc',
@@ -1581,25 +1581,6 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/connect-with-nodejs',
                 'products/opensearch/howto/connect-with-python',
                 'products/opensearch/howto/upgrade-clients-to-opensearch',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Manage services',
-              items: [
-                'products/opensearch/howto/os-version-upgrade',
-                'products/opensearch/reference/advanced-params',
-                'products/opensearch/reference/plugins',
-                'products/opensearch/reference/list-of-plugins-for-each-version',
-                'products/opensearch/reference/opensearch-limitations',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Manage clusters',
-              items: [
-                'products/opensearch/concepts/high-availability-for-opensearch',
-                'products/opensearch/concepts/dedicated-node-roles',
               ],
             },
             {
@@ -1647,6 +1628,19 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/opensearch-aggregations-and-nodejs',
                 'products/opensearch/howto/custom-dictionary-files',
                 'products/opensearch/howto/enable-slow-query-log',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Service management',
+              items: [
+                'products/opensearch/howto/os-version-upgrade',
+                'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/high-availability-for-opensearch',
+                'products/opensearch/reference/advanced-params',
+                'products/opensearch/reference/plugins',
+                'products/opensearch/reference/list-of-plugins-for-each-version',
+                'products/opensearch/reference/opensearch-limitations',
               ],
             },
             {
@@ -1800,7 +1794,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Querying and data analysis',
+              label: 'Query and analyze data',
               items: [
                 {
                   type: 'category',
