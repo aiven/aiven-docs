@@ -13,6 +13,5 @@ To add credits to a billing group:
 
 1. Click **Billing**.
 1. Click <ConsoleLabel name="billinggroups"/>.
-1. Click the name of the billing group.
-1. Click **Credits**.
-1. Enter the credit code and click **Claim credits**.
+1. Find the billing group and click **Details**.
+1. On the **Credits** tab, enter the credit code and click **Claim credits**.

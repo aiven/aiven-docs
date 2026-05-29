@@ -92,7 +92,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'platform/howto/download-invoices',
-            'platform/howto/trial-credits',
+            'platform/howto/credits',
             'platform/howto/reactivate-suspended-project',
           ],
         },

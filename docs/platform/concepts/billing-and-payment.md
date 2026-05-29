@@ -49,7 +49,7 @@ or Azure [marketplace subscriptions](/docs/platform/howto/list-marketplace-payme
 Alternatively, you can
 [request to pay by bank transfer](/docs/platform/howto/manage-bank-transfers).
 
-When you redeem Aiven [credits](/docs/platform/howto/trial-credits),
+When you redeem Aiven [credits](/docs/platform/howto/credits),
 they're assigned to a billing group as a payment method.
 Credits are automatically used to cover charges of any project assigned to that billing group.
 
