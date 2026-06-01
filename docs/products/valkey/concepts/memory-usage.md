@@ -1,6 +1,6 @@
 ---
 title: Memory management and persistence in Aiven for Valkey™
-sidebar_label: Memory management and persistence
+sidebar_label: Memory management
 ---
 
 Learn how Aiven for Valkey™ addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
