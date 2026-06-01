@@ -30,27 +30,7 @@ can sign in and authorize MCP access.
 ## Install the Aiven MCP {#configure-aiven-mcp}
 
 <Tabs groupId="aiven-mcp-clients">
-<TabItem value="cursor" label="Cursor" default>
-
-<CursorConfigTab baseUrl={mcpUrl} />
-
-For more information, see the [Cursor MCP documentation](https://cursor.com/docs/mcp).
-
-<br />
-
-#### Verify the connection
-
-1. Open Cursor Chat with **Cmd+L** on macOS or **Ctrl+L** on Windows/Linux.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If prompted to allow tool execution, click **Allow**.
-1. To confirm the server is registered, go to **Settings** > **Tools & MCP** and
-   check that **aiven** appears with a connected status.
-
-</TabItem>
-<TabItem value="claude-code" label="Claude Code">
+<TabItem value="claude-code" label="Claude Code" default>
 
 1. Open a terminal.
 1. Choose your options below, then run the generated command:
@@ -77,6 +57,26 @@ For more information, see the [Claude Code MCP documentation](https://code.claud
    > List my Aiven projects.
 
 1. If your client prompts you to allow tool execution, approve the request.
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
+
+<CursorConfigTab baseUrl={mcpUrl} />
+
+For more information, see the [Cursor MCP documentation](https://cursor.com/docs/mcp).
+
+<br />
+
+#### Verify the connection
+
+1. Open Cursor Chat with **Cmd+L** on macOS or **Ctrl+L** on Windows/Linux.
+1. Try a prompt such as:
+
+   > List my Aiven projects.
+
+1. If prompted to allow tool execution, click **Allow**.
+1. To confirm the server is registered, go to **Settings** > **Tools & MCP** and
+   check that **aiven** appears with a connected status.
 
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
@@ -217,7 +217,19 @@ an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
 `AIVEN_READ_ONLY="true"` to enable read-only mode.
 
 <Tabs groupId="aiven-mcp-local-clients">
-<TabItem value="cursor" label="Cursor" default>
+<TabItem value="claude-code" label="Claude Code" default>
+
+1. Open a terminal.
+1. Run the following command, replacing `your-token-here` with your Aiven API token:
+
+   ```bash
+   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -- npx -y mcp-aiven
+   ```
+
+1. Run `/mcp` in Claude Code to verify the server is registered.
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
 
 1. In your project root, create or edit the `.cursor/mcp.json` file.
 1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
@@ -238,18 +250,6 @@ an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
    ```
 
 1. Save the file and restart Cursor.
-
-</TabItem>
-<TabItem value="claude-code" label="Claude Code">
-
-1. Open a terminal.
-1. Run the following command, replacing `your-token-here` with your Aiven API token:
-
-   ```bash
-   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -- npx -y mcp-aiven
-   ```
-
-1. Run `/mcp` in Claude Code to verify the server is registered.
 
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
