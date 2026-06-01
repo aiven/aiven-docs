@@ -8,20 +8,20 @@ Inter is a variable font with these axes:
   wght
 
 This means all the styles are contained in a single file:
-  Inter-VariableFont_slnt,wght.ttf
+  Inter-VariableFont_slnt,wght.woff2
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
 in those cases you can use the static font files for Inter:
-  static/Inter-Thin.ttf
-  static/Inter-ExtraLight.ttf
-  static/Inter-Light.ttf
-  static/Inter-Regular.ttf
-  static/Inter-Medium.ttf
-  static/Inter-SemiBold.ttf
-  static/Inter-Bold.ttf
-  static/Inter-ExtraBold.ttf
-  static/Inter-Black.ttf
+  static/Inter-Thin.woff2
+  static/Inter-ExtraLight.woff2
+  static/Inter-Light.woff2
+  static/Inter-Regular.woff2
+  static/Inter-Medium.woff2
+  static/Inter-SemiBold.woff2
+  static/Inter-Bold.woff2
+  static/Inter-ExtraBold.woff2
+  static/Inter-Black.woff2
 
 Get started
 -----------
@@ -62,7 +62,7 @@ Android Apps
 
 License
 -------
-Please read the full license text (OFL.txt) to understand the permissions,
+Please read the full license text (LICENSE.txt) to understand the permissions,
 restrictions and requirements for usage, redistribution, and modification.
 
 You can use them in your products & projects – print or digital,

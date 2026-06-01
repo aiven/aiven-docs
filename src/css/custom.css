@@ -37,10 +37,10 @@
   --ifm-color-primary: var(--aiven-primary-80);
   --ifm-container-width: 1380px;
   --ifm-dropdown-hover-background-color: var(--ifm-background-color);
-  --ifm-font-family-base: 'Inter', 'Montserrat', system-ui, sans-serif;
+  --ifm-font-family-base: 'Inter', 'Helvetica', system-ui, sans-serif;
   --ifm-font-size-base: 90%;
   --ifm-global-radius: var(--aiven-radius);
-  --ifm-heading-font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+  --ifm-heading-font-family: 'Inter', 'Helvetica', system-ui, sans-serif;
   /* Brand: Inter Semi Bold for titles */
   --ifm-heading-font-weight: 600;
   /* Header / display tightening (≈ -2% tracking in design tools) */
