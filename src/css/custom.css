@@ -51,7 +51,7 @@
   --ifm-list-paragraph-margin: 0.4;
   /*top margin*/
   --ifm-paragraph-margin-bottom: 0.4em;
-  --aiven-inline-link-color: var(--aiven-deep-blue-400);
+  --aiven-inline-link-color: var(--aiven-deep-blue-600);
   --aiven-inline-link-hover-color: var(--aiven-deep-blue-300);
   --ifm-link-color: var(--aiven-inline-link-color);
   --ifm-link-hover-color: var(--aiven-inline-link-hover-color);
