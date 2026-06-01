@@ -1,6 +1,6 @@
 ---
 title: Aiven for Valkey™ metrics available via Prometheus
-sidebar_label: Metrics in Prometheus
+sidebar_label: Service metrics in Prometheus
 ---
 
 import Tabs from "@theme/Tabs";

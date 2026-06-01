@@ -1,6 +1,6 @@
 ---
 title: Aiven for Valkey™ read replica
-sidebar_label: Read replica
+sidebar_label: Read replica overview
 early: true
 ---
 
