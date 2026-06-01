@@ -1357,6 +1357,11 @@ const sidebars: SidebarsConfig = {
                 'products/datahub/enable-oidc-auth-datahub',
               ],
             },
+            {
+              type: 'category',
+              label: 'Maintenance',
+              items: ['products/datahub/restore-datahub-indices'],
+            },
           ],
         },
         {
