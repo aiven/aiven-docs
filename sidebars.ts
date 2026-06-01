@@ -1351,7 +1351,7 @@ const sidebars: SidebarsConfig = {
             'products/datahub/datahub-mcp-server',
             {
               type: 'category',
-              label: 'Admin',
+              label: 'Service management',
               items: [
                 'products/datahub/manage-datahub-users',
                 'products/datahub/enable-oidc-auth-datahub',
@@ -1363,12 +1363,15 @@ const sidebars: SidebarsConfig = {
                     'products/datahub/configure-teams-notifications',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Maintenance and upgrades',
+                  items: [
+                    'products/datahub/upgrade-datahub-version',
+                    'products/datahub/restore-datahub-indices',
+                  ],
+                },
               ],
-            },
-            {
-              type: 'category',
-              label: 'Maintenance',
-              items: ['products/datahub/upgrade-datahub-version','products/datahub/restore-datahub-indices'],
             },
           ],
         },
