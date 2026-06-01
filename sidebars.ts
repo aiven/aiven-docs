@@ -1355,6 +1355,14 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/datahub/manage-datahub-users',
                 'products/datahub/enable-oidc-auth-datahub',
+                {
+                  type: 'category',
+                  label: 'Notifications',
+                  items: [
+                    'products/datahub/configure-slack-notifications',
+                    'products/datahub/configure-teams-notifications',
+                  ],
+                },
               ],
             },
             {
