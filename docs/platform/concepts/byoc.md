@@ -219,6 +219,12 @@ Firewall rules are enforced on the subnet level.
 You can integrate your services using standard VPC peering techniques.
 All Aiven communication is encrypted.
 
+:::tip
+For AWS custom clouds, you can also choose a compliance deployment model (`pci_dss` or
+`hipaa`) to run services under PCI DSS or HIPAA requirements. See
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+:::
+
 ## BYOC service backups
 
 Depending on the BYOC service, Aiven takes
