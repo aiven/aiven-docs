@@ -20,6 +20,14 @@ replays every aspect from the database back into search and graph stores.
 You can run this at any time. Events are replayed asynchronously
 and existing reads keep working. Always test reindexing in a staging environment first.
 
+## Prerequisites
+
+Get the URL for the GMS app:
+
+1. In your DataHub service, in the **DataHub resources** section,
+   open the Aiven App that ends in `-gms`.
+1. In the **Connection information** section, copy the **Application URL**.
+
 ## Run the restore indices task
 
 1. In your DataHub service, go to the **DataHub resources** section.
@@ -30,9 +38,9 @@ and existing reads keep working. Always test reindexing in a staging environment
    | Key | Value | Description |
    |-----|-------|-------------|
    | `UPGRADE_JOB` | `RestoreIndices` | The restore indices task. |
-   | `KAFKA_SCHEMAREGISTRY_URL` | `GMS_URL/schema-registry/api/` | Queries Kafka topic schemas for re-emitting events. |
+   | `KAFKA_SCHEMAREGISTRY_URL` | `GMS_APP_URL/schema-registry/api/` | Queries Kafka topic schemas for re-emitting events. |
 
-   The `GMS_URL` is the DataHub application URL with `/api/gms` appended.
+   The `GMS_APP_URL` is the application URL for the GMS app.
 
 1. Optional: Add `UPGRADE_JOB_ARGS` to include additional arguments:
 
