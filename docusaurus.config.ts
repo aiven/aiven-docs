@@ -42,6 +42,16 @@ const config: Config = {
     {
       tagName: 'link',
       attributes: {
+        rel: 'preload',
+        href: '/fonts/Inter/InterVariable.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
         rel: 'alternate',
         type: 'text/plain',
         href: llmsTxtUrl,
