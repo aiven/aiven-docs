@@ -225,39 +225,53 @@ If the Dragonfly and Valkey versions differ significantly, some keys may fail to
 restore. Test with a small key set first.
 :::
 
-### Method C: Use RIOT for live replication
+### Method C: Use RedisShake for live replication
 
-[RIOT (Redis Input/Output Tools)](https://developer.redis.com/riot/) supports
-live replication between Redis-compatible services and handles reconnection and
-error recovery.
+[RedisShake](https://github.com/tair-opensource/RedisShake) is a vendor-neutral,
+actively maintained tool for migrating and synchronizing data between
+Redis-compatible services. It performs an initial bulk sync, followed by a stream
+of ongoing writes until you stop it.
 
-1. Install RIOT:
-
-   ```bash
-   brew install redis-developer/tap/riot
-   # or download from https://github.com/redis-developer/riot/releases
-   ```
-
-1. Start live replication from Dragonfly to Valkey:
+1. Download the latest RedisShake release for your platform from the
+   [RedisShake releases page](https://github.com/tair-opensource/RedisShake/releases)
+   and extract it. Alternatively, run it with Docker:
 
    ```bash
-   riot \
-     --source-host <dragonfly-host> \
-     --source-port <dragonfly-port> \
-     --source-password <dragonfly-password> \
-     --source-tls \
-     --target-host <valkey-host> \
-     --target-port <valkey-port> \
-     --target-password <valkey-password> \
-     --target-tls \
-     replicate \
-     --mode live
+   docker pull ghcr.io/tair-opensource/redisshake:latest
    ```
 
-   RIOT first performs an initial bulk sync, then switches to live replication
-   mode to capture ongoing writes.
+1. Create a `shake.toml` configuration file that defines the Dragonfly source and
+   the Valkey target. Both Aiven services require TLS:
 
-1. Stop RIOT once replication is caught up and you are ready to cut over.
+   ```toml
+   [sync_reader]
+   address = "<dragonfly-host>:<dragonfly-port>"
+   password = "<dragonfly-password>"
+   tls = true
+
+   [redis_writer]
+   address = "<valkey-host>:<valkey-port>"
+   password = "<valkey-password>"
+   tls = true
+   ```
+
+1. Start the migration:
+
+   ```bash
+   ./redis-shake shake.toml
+   ```
+
+   RedisShake first performs an initial bulk sync, then continues streaming new
+   writes to Valkey until you stop it.
+
+1. Stop RedisShake once replication is caught up and you are ready to cut over.
+
+:::note
+RedisShake does not support resumable (checkpoint) transfers: if it restarts, it
+performs a full resynchronization. Use it for a one-time migration rather than long-running
+continuous synchronization. Changes to cluster topology during migration are not
+supported.
+:::
 
 ## Step 4: Verify the migration
 
@@ -298,7 +312,7 @@ After loading data into Valkey, verify that the migration is complete:
 When the data is verified and your application is tested:
 
 1. Stop writes to the Dragonfly service, or route them to Valkey first.
-1. If using live replication (Method B script or RIOT), let replication
+1. If using live replication (Method B script or RedisShake), let replication
    catch up, then stop it.
 1. Update your application connection strings to point to the Aiven for Valkey
    service.
