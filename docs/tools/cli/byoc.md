@@ -60,6 +60,7 @@ Modifies a custom cloud configuration.
 | `--cloud-region`    | No       | Cloud region where the custom cloud runs                                                                                |
 | `--reserved-cidr`   | No       | IP address range of the VPC in your cloud account for Aiven services created in the custom cloud                        |
 | `--display-name`    | No       | Name of the custom cloud                                                                                                |
+| `--contact-email`   | No       | Customer contact as `email="EMAIL",real_name="NAME",role="ROLE"`. Repeatable. Replaces the full contact list.           |
 
 ## Tag a custom cloud
 
