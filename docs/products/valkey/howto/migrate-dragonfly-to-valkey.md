@@ -1,6 +1,6 @@
 ---
 title: Migrate from Aiven for Dragonfly® to Aiven for Valkey™
-sidebar_label: From Dragonfly® to Aiven for Valkey™
+sidebar_label: From Dragonfly® to Valkey™
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
