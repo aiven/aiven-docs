@@ -493,6 +493,29 @@ body .react-tooltip {
   z-index: 10000;
 }
 
+/* Floating "Ask AI" on text selection (Kapa highlight-to-ask) */
+.kapa-highlight-ask-button {
+  position: absolute;
+  z-index: 10000;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  border-radius: var(--aiven-radius, 0.375rem);
+  font-family: var(--aiven-card-font-family, inherit);
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--aiven-button-primary-bg);
+  background-color: var(--aiven-button-primary-bg);
+  color: var(--nav-btn-primary-text-color);
+  box-shadow: 0 2px 8px rgba(5, 8, 15, 0.15);
+}
+
+.kapa-highlight-ask-button:hover,
+.kapa-highlight-ask-button:focus {
+  background-color: var(--aiven-button-primary-bg-hover);
+  border-color: var(--aiven-button-primary-bg-hover);
+  color: var(--nav-btn-primary-text-color-hover);
+}
+
 /* Diff syntax highlighting */
 .prism-code[class*='language-diff'] .token.deleted {
   background-color: rgba(248, 81, 73, 0.2) !important;

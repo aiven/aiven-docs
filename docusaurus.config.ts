@@ -373,7 +373,10 @@ const config: Config = {
       },
     },
   } satisfies Preset.ThemeConfig,
-  clientModules: [require.resolve('./static/page_scripts/tracking.ts')],
+  clientModules: [
+    require.resolve('./static/page_scripts/tracking.ts'),
+    require.resolve('./static/page_scripts/highlightAskKapa.ts'),
+  ],
 };
 
 export default config;
