@@ -535,7 +535,7 @@ cryptographic operations by Aiven.
 
 Aiven authenticates to your AWS KMS key using cross-account IAM access. You grant
 access by adding Aiven's IAM role ARN as a trusted principal in your KMS key policy.
-No resources need to be created in Aiven's AWS account — everything is controlled
+No resources need to be created in Aiven's AWS account—everything is controlled
 through your key policy.
 
 #### Step 1: Create a KMS key
