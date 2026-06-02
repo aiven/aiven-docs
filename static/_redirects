@@ -96,6 +96,7 @@
 /platform/howto/saml/setup-saml-onelogin               /docs/platform/howto/saml/add-onelogin-idp  301
 /platform/howto/service-metrics                        /docs/platform/howto/list-monitoring  301
 /platform/howto/static-ip-addresses                    /docs/platform/concepts/static-ips  301
+/platform/howto/trial-credits                          /docs/platform/howto/credits  301
 /platform/howto/update-tax-status                      /docs/platform/concepts/tax-information  301
 /platform/ip-addresses                                 /docs/platform/reference/service-ip-address  301
 /platform/privatelink                                  /docs/platform/howto/use-aws-privatelinks  301
