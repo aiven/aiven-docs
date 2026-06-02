@@ -13,15 +13,19 @@ declare global {
   }
 }
 
-function applyPosthogConsent() {
-  if (!window.posthog) return;
+function applyPosthogConsent(retries = 50) {
+  const ph = window.posthog;
+  if (!ph || typeof ph.startSessionRecording !== 'function') {
+    if (retries > 0) setTimeout(() => applyPosthogConsent(retries - 1), 100);
+    return;
+  }
   const groups = window.OnetrustActiveGroups || '';
   if (groups.includes('115')) {
-    window.posthog.opt_in_capturing();
-    window.posthog.startSessionRecording({sampling: false});
+    ph.opt_in_capturing();
+    ph.startSessionRecording({sampling: false});
   } else {
-    window.posthog.opt_out_capturing();
-    window.posthog.stopSessionRecording();
+    ph.opt_out_capturing();
+    ph.stopSessionRecording();
   }
 }
 
