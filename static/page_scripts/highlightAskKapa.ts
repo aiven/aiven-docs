@@ -4,11 +4,7 @@ declare global {
   interface Window {
     Kapa?: {
       (command: 'open'): void;
-      open?: (opts: {
-        mode?: string;
-        query?: string;
-        submit?: boolean;
-      }) => void;
+      open?: (opts: {mode?: string; query?: string; submit?: boolean}) => void;
     };
   }
 }
@@ -31,9 +27,7 @@ function selectionInsideEditable(): boolean {
       ? (node as Element)
       : node.parentElement;
   if (!el) return false;
-  const interactive = el.closest(
-    'input, textarea, [contenteditable="true"]',
-  );
+  const interactive = el.closest('input, textarea, [contenteditable="true"]');
   return Boolean(interactive);
 }
 
@@ -42,7 +36,7 @@ function openKapaWithQuery(text: string): void {
   if (!k) return;
   const query = `${HIGHLIGHT_QUERY_PREFIX}${text}`;
   if (typeof k.open === 'function') {
-    k.open({mode: 'ai', query, submit: false});
+    k.open({mode: 'ai', query, submit: true});
   } else {
     k('open');
   }
