@@ -12,8 +12,7 @@ built-in console migration wizard is not available for your source service type.
 
 :::note
 The Aiven Console migration wizard supports migration **into** Dragonfly from
-Valkey or Caching, but not from Dragonfly to Valkey. This guide covers that
-migration path.
+Valkey or Caching, but not from Dragonfly to Valkey.
 :::
 
 ## Prerequisites
