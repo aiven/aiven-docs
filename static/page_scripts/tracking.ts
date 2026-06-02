@@ -18,10 +18,14 @@ function applyPosthogConsent() {
   const groups = window.OnetrustActiveGroups || '';
   if (groups.includes('115')) {
     window.posthog.opt_in_capturing();
-    window.posthog.startSessionRecording({sampling: false});
+    if (typeof window.posthog.startSessionRecording === 'function') {
+      window.posthog.startSessionRecording({sampling: false});
+    }
   } else {
     window.posthog.opt_out_capturing();
-    window.posthog.stopSessionRecording();
+    if (typeof window.posthog.stopSessionRecording === 'function') {
+      window.posthog.stopSessionRecording();
+    }
   }
 }
 
