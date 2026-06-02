@@ -62,7 +62,9 @@ the current tab sequentially and displays the results in separate tabs.
 1. View the results in the results panel. When more than one statement runs, each result
    appears in its own tab labeled **Query 1**, **Query 2**, and so on:
    - A green tab border indicates the statement ran successfully.
-   - A red tab border indicates the statement encountered an error.
+   - A red tab border indicates the statement encountered an error. If a statement fails,
+     execution stops and remaining statements are not run. Results from statements that
+     completed before the error are preserved.
    - Click **×** on a tab to close it. When only one result tab remains, the tab bar is
      hidden automatically.
 
@@ -126,7 +128,7 @@ PG Studio applies these limits to query execution:
 - Maximum result size: 5,000 rows (single query) or 1,000 rows per statement
   (multiple queries)
 - Maximum statements per run: 10
-- **Rate limiting:** Two query executions every two seconds per user per service; one
+- **Rate limiting:** 10 query executions per 10 seconds per user per service; one
   AI request every two seconds per user per service.
 
 ## Explore tables in the query editor
