@@ -13,7 +13,7 @@ built-in console migration wizard is not available for your source service type.
 :::note
 The Aiven Console migration wizard supports migration **into** Dragonfly from
 Valkey or Caching, but not the reverse direction. This guide covers the
-reverse path: Dragonfly → Valkey.
+reverse path: Dragonfly to Valkey.
 :::
 
 ## Prerequisites
@@ -23,7 +23,7 @@ Before starting:
 - A running [Aiven for Valkey](/docs/products/valkey/get-started) target service.
 - A running Aiven for Dragonfly source service.
 - [`redis-cli`](https://redis.io/docs/ui/cli/) installed locally (version 7.x or later).
-- Connection details for both services — available on the **Overview** page of each
+- Connection details for both services—available on the **Overview** page of each
   service in the [Aiven Console](https://console.aiven.io/).
 - Enough disk space locally to store the RDB dump file from your Dragonfly service.
 
@@ -278,7 +278,7 @@ After loading data into Valkey, verify that the migration is complete:
      DBSIZE
    ```
 
-1. Spot-check a sample of keys to confirm values, types, and TTLs transferred
+1. Spot-check a sample of keys to confirm values, types, and time-to-live (TTL) values transferred
    correctly:
 
    ```bash
