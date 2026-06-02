@@ -110,7 +110,9 @@ function init(): void {
   });
 }
 
-init();
+if (typeof window !== 'undefined') {
+  init();
+}
 
 const module: ClientModule = {
   onRouteUpdate() {
