@@ -84,6 +84,12 @@
   --aiven-button-pill-font-size: 12px;
   --aiven-button-pill-font-weight: 400;
   --aiven-button-pill-line-height: 1.5;
+  /* Compact ghost pill — dark surface (Figma docs-ask-ai 1:31) */
+  --aiven-button-pill-dark-fg: var(--aiven-brand-white);
+  --aiven-button-pill-dark-bg: var(--aiven-grey-95);
+  --aiven-button-pill-dark-border: var(--aiven-grey-600);
+  --aiven-button-pill-dark-bg-hover: var(--aiven-grey-90);
+  --aiven-button-pill-dark-border-hover: var(--aiven-grey-60);
   /* Active tab label + underline */
   --ifm-tabs-color-active: var(--ifm-link-color);
   --ifm-tabs-color-active-border: var(--ifm-link-color);
@@ -505,7 +511,7 @@ body .react-tooltip {
   z-index: 10000;
 }
 
-/* Floating "Ask AI" on text selection (Kapa highlight-to-ask) — Figma docs-ask-ai node 1:18 */
+/* Floating "Ask AI" on text selection — pill tokens: light 1:18, dark 1:31 (docs-ask-ai) */
 .kapa-highlight-ask-button {
   position: absolute;
   z-index: 10000;
@@ -535,6 +541,19 @@ body .react-tooltip {
   background-color: var(--aiven-button-pill-bg-hover);
   border-color: var(--aiven-button-pill-border-hover);
   color: var(--aiven-button-pill-fg);
+}
+
+html[data-theme='dark'] .kapa-highlight-ask-button {
+  color: var(--aiven-button-pill-dark-fg);
+  background-color: var(--aiven-button-pill-dark-bg);
+  border-color: var(--aiven-button-pill-dark-border);
+}
+
+html[data-theme='dark'] .kapa-highlight-ask-button:hover,
+html[data-theme='dark'] .kapa-highlight-ask-button:focus {
+  background-color: var(--aiven-button-pill-dark-bg-hover);
+  border-color: var(--aiven-button-pill-dark-border-hover);
+  color: var(--aiven-button-pill-dark-fg);
 }
 
 /* Diff syntax highlighting */
