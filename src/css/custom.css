@@ -72,6 +72,18 @@
   --nav-btn-secondary-text-color-hover: var(
     --aiven-button-secondary-border-hover
   );
+  /* Compact ghost pill — white surface, muted label, grey border (Figma Text/XS + Neutrals/300) */
+  --aiven-button-pill-fg: #444547;
+  --aiven-button-pill-bg: var(--aiven-brand-white);
+  --aiven-button-pill-border: var(--aiven-grey-300);
+  --aiven-button-pill-bg-hover: var(--aiven-grey-0);
+  --aiven-button-pill-border-hover: var(--aiven-grey-20);
+  --aiven-button-pill-padding-y: 4px;
+  --aiven-button-pill-padding-x: 10px;
+  --aiven-button-pill-radius: 99px;
+  --aiven-button-pill-font-size: 12px;
+  --aiven-button-pill-font-weight: 400;
+  --aiven-button-pill-line-height: 1.5;
   /* Active tab label + underline */
   --ifm-tabs-color-active: var(--ifm-link-color);
   --ifm-tabs-color-active-border: var(--ifm-link-color);
@@ -493,27 +505,36 @@ body .react-tooltip {
   z-index: 10000;
 }
 
-/* Floating "Ask AI" on text selection (Kapa highlight-to-ask) */
+/* Floating "Ask AI" on text selection (Kapa highlight-to-ask) — Figma docs-ask-ai node 1:18 */
 .kapa-highlight-ask-button {
   position: absolute;
   z-index: 10000;
-  transform: translateX(-50%);
-  padding: 6px 12px;
-  border-radius: var(--aiven-radius, 0.375rem);
-  font-family: var(--aiven-card-font-family, inherit);
-  font-weight: 500;
+  transform: translate(-50%, calc(-100% - 8px));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--aiven-button-pill-padding-y) var(--aiven-button-pill-padding-x);
+  border-radius: var(--aiven-button-pill-radius);
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--aiven-button-pill-font-size);
+  font-weight: var(--aiven-button-pill-font-weight);
+  line-height: var(--aiven-button-pill-line-height);
+  white-space: nowrap;
   cursor: pointer;
-  border: 1px solid var(--aiven-button-primary-bg);
-  background-color: var(--aiven-button-primary-bg);
-  color: var(--nav-btn-primary-text-color);
-  box-shadow: 0 2px 8px rgba(5, 8, 15, 0.15);
+  border: 1px solid var(--aiven-button-pill-border);
+  background-color: var(--aiven-button-pill-bg);
+  color: var(--aiven-button-pill-fg);
+}
+
+.kapa-highlight-ask-button[hidden] {
+  display: none !important;
 }
 
 .kapa-highlight-ask-button:hover,
 .kapa-highlight-ask-button:focus {
-  background-color: var(--aiven-button-primary-bg-hover);
-  border-color: var(--aiven-button-primary-bg-hover);
-  color: var(--nav-btn-primary-text-color-hover);
+  background-color: var(--aiven-button-pill-bg-hover);
+  border-color: var(--aiven-button-pill-border-hover);
+  color: var(--aiven-button-pill-fg);
 }
 
 /* Diff syntax highlighting */

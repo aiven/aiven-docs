@@ -19,7 +19,7 @@ const HIGHLIGHT_QUERY_PREFIX = 'Tell me more about this:\n\n';
 
 function getSelectedText(): string {
   const sel = window.getSelection();
-  if (!sel || sel.rangeCount === 0) return '';
+  if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return '';
   return sel.toString().trim();
 }
 
@@ -67,7 +67,7 @@ function positionButton(btn: HTMLButtonElement): void {
   if (!sel || sel.rangeCount === 0) return;
   const range = sel.getRangeAt(0);
   const rect = range.getBoundingClientRect();
-  const top = window.scrollY + rect.bottom + 8;
+  const top = window.scrollY + rect.top;
   const left = window.scrollX + rect.left + rect.width / 2;
   btn.style.top = `${top}px`;
   btn.style.left = `${left}px`;
@@ -91,6 +91,18 @@ function init(): void {
   });
 
   document.addEventListener(
+    'mousedown',
+    (e) => {
+      const target = e.target as Node;
+      if (target !== btn && !btn.contains(target)) {
+        window.clearTimeout(hideTimer);
+        hideButton(btn);
+      }
+    },
+    true,
+  );
+
+  document.addEventListener(
     'mouseup',
     () => {
       window.clearTimeout(hideTimer);
@@ -112,6 +124,7 @@ function init(): void {
   );
 
   document.addEventListener('selectionchange', () => {
+    window.clearTimeout(hideTimer);
     if (!getSelectedText()) hideButton(btn);
   });
 }
