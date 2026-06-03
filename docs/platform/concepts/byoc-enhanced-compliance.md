@@ -53,9 +53,10 @@ following controls:
   [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
   [cold data](/docs/platform/howto/byoc/store-data) in object storage in your own AWS
   account. Aiven-owned buckets are not used, so your data stays in your account.
-- **No data export through forking or migration**: To keep your data in your AWS account,
-  you cannot fork or migrate a service running in an enhanced compliance cloud to a
-  non-compliance cloud.
+- **No forking or cross-cloud migration**: You cannot fork or migrate a service running in
+  an enhanced compliance cloud to another cloud. This keeps your data in your AWS account
+  and prevents a migrated service from depending on backup storage left behind in its
+  original cloud.
 
 ## Requirements and limitations
 
