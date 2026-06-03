@@ -153,53 +153,53 @@ the dump directly into Valkey.
 Use this approach to migrate a subset of keys or to keep both services in sync
 during a gradual cutover.
 
-Run the following script to iterate over all keys and copy them to Valkey:
+Run the migration in batches so that each key isn't a separate network round
+trip. Issuing `PTTL`, `DUMP`, and `RESTORE` one key at a time is slow for large
+datasets. Instead, use a client that pipelines commands, such as the Python
+[`redis`](https://pypi.org/project/redis/) library, which batches reads from the
+source and writes to the target:
 
-```bash
-#!/bin/bash
+```python
+import redis
 
-SRC_HOST="<dragonfly-host>"
-SRC_PORT="<dragonfly-port>"
-SRC_PASS="<dragonfly-password>"
+BATCH_SIZE = 500
 
-DST_HOST="<valkey-host>"
-DST_PORT="<valkey-port>"
-DST_PASS="<valkey-password>"
+src = redis.Redis(
+    host="<dragonfly-host>", port=<dragonfly-port>,
+    password="<dragonfly-password>", ssl=True,
+)
+dst = redis.Redis(
+    host="<valkey-host>", port=<valkey-port>,
+    password="<valkey-password>", ssl=True,
+)
 
-CURSOR=0
+cursor = 0
+while True:
+    cursor, keys = src.scan(cursor=cursor, count=BATCH_SIZE)
 
-while true; do
-  # Scan a batch of keys
-  RESULT=$(redis-cli -h "$SRC_HOST" -p "$SRC_PORT" \
-    --tls --no-auth-warning -a "$SRC_PASS" \
-    SCAN "$CURSOR" COUNT 100)
+    if keys:
+        # Pipeline the PTTL and DUMP reads from the source.
+        read = src.pipeline(transaction=False)
+        for key in keys:
+            read.pttl(key)
+            read.dump(key)
+        results = read.execute()
 
-  CURSOR=$(echo "$RESULT" | head -1)
-  KEYS=$(echo "$RESULT" | tail -n +2)
+        # Pipeline the RESTORE writes to the target.
+        write = dst.pipeline(transaction=False)
+        for i, key in enumerate(keys):
+            ttl, payload = results[2 * i], results[2 * i + 1]
+            if payload is None:
+                continue
+            write.restore(key, ttl if ttl and ttl > 0 else 0, payload, replace=True)
+        write.execute()
 
-  for KEY in $KEYS; do
-    TTL=$(redis-cli -h "$SRC_HOST" -p "$SRC_PORT" \
-      --tls --no-auth-warning -a "$SRC_PASS" \
-      PTTL "$KEY")
-
-    DUMP=$(redis-cli -h "$SRC_HOST" -p "$SRC_PORT" \
-      --tls --no-auth-warning -a "$SRC_PASS" \
-      DUMP "$KEY")
-
-    if [ "$TTL" -le 0 ]; then
-      TTL=0
-    fi
-
-    redis-cli -h "$DST_HOST" -p "$DST_PORT" \
-      --tls --no-auth-warning -a "$DST_PASS" \
-      RESTORE "$KEY" "$TTL" "$DUMP" REPLACE
-  done
-
-  if [ "$CURSOR" -eq 0 ]; then
-    break
-  fi
-done
+    if cursor == 0:
+        break
 ```
+
+Install the client with `pip install redis` before running the script. Increase
+`BATCH_SIZE` to trade memory for throughput.
 
 :::note
 `DUMP` and `RESTORE` use a serialization format that is Redis-version-specific.
