@@ -5,7 +5,7 @@ sidebar_label: Configure backups
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
-import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
+import EditBackUpSchedule from "@site/static/includes/service-backups-instructions.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
