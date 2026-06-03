@@ -6,9 +6,9 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Create addresses in the billing section of the Aiven Platform and use them as billing and shipping addresses in your billing groups.
 
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console.
+You must have the `organization:billing:write`
+[permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to create and manage billing addresses.
 
 ## Create an address
 

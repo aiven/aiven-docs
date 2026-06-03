@@ -10,11 +10,11 @@ Billing groups let you set up billing profiles and use them across different pro
 in your organization. A consolidated [invoice](/docs/platform/howto/use-billing-groups)
 is created for each billing group.
 
-## Create a billing group
+You must have the `organization:billing:write`
+[permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to create and manage billing groups.
 
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console.
+## Create a billing group
 
 1.  In the organization, click **Billing**.
 
@@ -36,10 +36,6 @@ to access this feature in the Aiven Console.
 
 ## Update a billing group
 
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console.
-
 To change the name, payment method, billing and shipping addresses, VAT ID,
 billing contact emails, invoice emails, or other billing details:
 
@@ -56,7 +52,7 @@ a billing group from another organization, you have to
 
 You must be an organization admin or have the manage projects
 [permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console.
+to assign billing groups.
 
 1.  In the project, click **Settings**.
 1.  In the **Project settings** section, choose a billing group to assign the project to.
@@ -66,10 +62,6 @@ to access this feature in the Aiven Console.
 
 To delete a billing group, [move all projects](#assign-a-billing-group-to-a-project) assigned to it to a
 different billing group first.
-
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console.
 
 1.  In the organization, click **Billing**.
 1.  Click <ConsoleLabel name="billinggroups"/>.
