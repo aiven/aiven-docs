@@ -175,6 +175,7 @@ To support this transition, Aiven has extended support for Apache Kafka 3.8 by o
 | ------- |-----------------|----------------------------------| ------------------------------- |
 | 8.1.x   | To be announced | To be announced                  | 2025-11-18                      |
 | 9.0.x   | To be announced | To be announced                  | 2026-03-17                      |
+| 9.1.x   | To be announced | To be announced                  | 2026-06-03                      |
 
 ## Aiven single-versioned services EOL
 
