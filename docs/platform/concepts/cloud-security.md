@@ -120,7 +120,7 @@ Aiven has partnered with GitHub in scanning for service token leaks and
 will inform customers of tokens being made public through an email
 notification. For more details, check [Improving security: Aiven and
 GitHub's secret scanning
-partnership](https://aiven.io/blog/aiven-and-github's-secret-scanning-partnership).
+partnership](https://aiven.io/blog/aiven-and-github-secret-scanning-partnership).
 
 Aiven operators never access customer data, unless explicitly requested
 to do so by the customer in order to troubleshoot a technical issue.
@@ -148,7 +148,7 @@ report download link for a project, run:
 avn project generate-sbom --project PROJECT_NAME --output csv
 ```
 
-SBOM reports are only available when all services within the project have 
+SBOM reports are only available when all services within the project have
 the latest maintenance patches applied.
 
 ## Time synchronization
