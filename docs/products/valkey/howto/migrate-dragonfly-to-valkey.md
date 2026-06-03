@@ -21,7 +21,7 @@ Before starting:
 
 - A running [Aiven for Valkey](/docs/products/valkey/get-started) target service.
 - A running Aiven for Dragonfly source service.
-- [`redis-cli`](https://redis.io/docs/ui/cli/) installed locally (version 7.x or later).
+- [`valkey-cli`](https://valkey.io/topics/cli/) installed locally.
 - Connection details for both services—available on the **Overview** page of each
   service in the [Aiven Console](https://console.aiven.io/).
 - Enough disk space locally to store the RDB dump file from your Dragonfly service.
@@ -51,7 +51,7 @@ supported commands and data type behavior. Before migrating:
 
 ## Step 1: Extract data from Aiven for Dragonfly
 
-Use `redis-cli` to create a full RDB snapshot of your Dragonfly service.
+Use `valkey-cli` to create a full RDB snapshot of your Dragonfly service.
 
 1. Retrieve the connection details for your Dragonfly service from the
    [Aiven Console](https://console.aiven.io/) **Overview** page:
@@ -62,7 +62,7 @@ Use `redis-cli` to create a full RDB snapshot of your Dragonfly service.
 1. Download a fresh RDB snapshot using the `--rdb` flag:
 
    ```bash
-   redis-cli -h <dragonfly-host> -p <dragonfly-port> \
+   valkey-cli -h <dragonfly-host> -p <dragonfly-port> \
      --tls --no-auth-warning \
      -a <dragonfly-password> \
      --rdb dragonfly-dump.rdb
@@ -75,7 +75,7 @@ Use `redis-cli` to create a full RDB snapshot of your Dragonfly service.
 
 :::note
 Aiven for Dragonfly services are SSL-secured by default. Always include
-`--tls` in your `redis-cli` commands.
+`--tls` in your `valkey-cli` commands.
 :::
 
 ## Step 2: Inspect and transform data
@@ -128,7 +128,7 @@ Choose one of the following methods based on your use case.
 
 ### Method A: Restore from RDB file (recommended for full migrations)
 
-Use `redis-cli` with the `--pipe` flag and the `rdb` command to stream keys from
+Use `valkey-cli` with the `--pipe` flag and the `rdb` command to stream keys from
 the dump directly into Valkey.
 
 1. Convert the RDB dump to Redis protocol format:
@@ -140,7 +140,7 @@ the dump directly into Valkey.
 1. Pipe the data into Aiven for Valkey:
 
    ```bash
-   redis-cli -h <valkey-host> -p <valkey-port> \
+   valkey-cli -h <valkey-host> -p <valkey-port> \
      --tls --no-auth-warning \
      -a <valkey-password> \
      --pipe < dump.resp
@@ -156,19 +156,19 @@ during a gradual cutover.
 Run the migration in batches so that each key isn't a separate network round
 trip. Issuing `PTTL`, `DUMP`, and `RESTORE` one key at a time is slow for large
 datasets. Instead, use a client that pipelines commands, such as the Python
-[`redis`](https://pypi.org/project/redis/) library, which batches reads from the
+[`valkey`](https://pypi.org/project/valkey/) library, which batches reads from the
 source and writes to the target:
 
 ```python
-import redis
+import valkey
 
 BATCH_SIZE = 500
 
-src = redis.Redis(
+src = valkey.Valkey(
     host="<dragonfly-host>", port=<dragonfly-port>,
     password="<dragonfly-password>", ssl=True,
 )
-dst = redis.Redis(
+dst = valkey.Valkey(
     host="<valkey-host>", port=<valkey-port>,
     password="<valkey-password>", ssl=True,
 )
@@ -198,7 +198,7 @@ while True:
         break
 ```
 
-Install the client with `pip install redis` before running the script. Increase
+Install the client with `pip install valkey` before running the script. Increase
 `BATCH_SIZE` to trade memory for throughput.
 
 :::note
@@ -263,12 +263,12 @@ After loading data into Valkey, verify that the migration is complete:
 
    ```bash
    # On Dragonfly
-   redis-cli -h <dragonfly-host> -p <dragonfly-port> \
+   valkey-cli -h <dragonfly-host> -p <dragonfly-port> \
      --tls --no-auth-warning -a <dragonfly-password> \
      DBSIZE
 
    # On Valkey
-   redis-cli -h <valkey-host> -p <valkey-port> \
+   valkey-cli -h <valkey-host> -p <valkey-port> \
      --tls --no-auth-warning -a <valkey-password> \
      DBSIZE
    ```
@@ -277,11 +277,11 @@ After loading data into Valkey, verify that the migration is complete:
    correctly:
 
    ```bash
-   redis-cli -h <valkey-host> -p <valkey-port> \
+   valkey-cli -h <valkey-host> -p <valkey-port> \
      --tls --no-auth-warning -a <valkey-password> \
      TYPE <key-name>
 
-   redis-cli -h <valkey-host> -p <valkey-port> \
+   valkey-cli -h <valkey-host> -p <valkey-port> \
      --tls --no-auth-warning -a <valkey-password> \
      TTL <key-name>
    ```
