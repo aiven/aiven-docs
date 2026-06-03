@@ -59,28 +59,7 @@ Use `redis-cli` to create a full RDB snapshot of your Dragonfly service.
    - **Port**
    - **Password** (default user)
 
-1. Trigger a background save to ensure the snapshot is current:
-
-   ```bash
-   redis-cli -h <dragonfly-host> -p <dragonfly-port> \
-     --tls --no-auth-warning \
-     -a <dragonfly-password> \
-     BGSAVE
-   ```
-
-   Wait for the save to complete:
-
-   ```bash
-   redis-cli -h <dragonfly-host> -p <dragonfly-port> \
-     --tls --no-auth-warning \
-     -a <dragonfly-password> \
-     LASTSAVE
-   ```
-
-   Run `LASTSAVE` again after a few seconds and compare the Unix timestamps. When
-   the value increments, the background save is complete.
-
-1. Download the RDB snapshot using the `--rdb` flag:
+1. Download a fresh RDB snapshot using the `--rdb` flag:
 
    ```bash
    redis-cli -h <dragonfly-host> -p <dragonfly-port> \
@@ -89,7 +68,10 @@ Use `redis-cli` to create a full RDB snapshot of your Dragonfly service.
      --rdb dragonfly-dump.rdb
    ```
 
-   This produces a `dragonfly-dump.rdb` file in your current directory.
+   The `--rdb` flag connects as a replica and streams a current point-in-time
+   snapshot directly to a `dragonfly-dump.rdb` file in your current directory. You
+   don't need to trigger a save first—Aiven for Dragonfly doesn't support the
+   `BGSAVE` or `SAVE` commands.
 
 :::note
 Aiven for Dragonfly services are SSL-secured by default. Always include
