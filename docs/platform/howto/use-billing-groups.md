@@ -50,7 +50,7 @@ You can assign any billing group in your organization to a project. To assign
 a billing group from another organization, you have to
 [move the project to that organization](/docs/platform/howto/manage-project#move-a-project).
 
-You must be an organization admin or have the manage projects
+You must be an organization admin or have the `organization:projects:write`
 [permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to assign billing groups.
 

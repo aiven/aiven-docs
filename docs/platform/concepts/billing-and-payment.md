@@ -10,9 +10,6 @@ The [costs for all services](/docs/platform/concepts/service-pricing)
 in a project are charged to the [payment method](#payment-methods)
 of the billing group assigned to that project.
 
-To view or manage billing information, you must be an
-organization admin or have one of the billing
-[permissions](/docs/platform/concepts/permissions).
 
 ## Billing groups
 
