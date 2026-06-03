@@ -31,8 +31,8 @@ When you create an AWS custom cloud, you choose a deployment model. In addition 
 - `hipaa`: For workloads that must comply with the Health Insurance Portability and
   Accountability Act (HIPAA).
 
-Both models enforce the same controls today. They remain separate so that you can record
-which standard applies and so that their requirements can evolve independently.
+Both models currently apply largely the same controls. They remain separate so that you can
+record which standard applies and so that their requirements can evolve independently.
 
 ## How enhanced compliance clouds differ
 
@@ -53,8 +53,9 @@ following controls:
   [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
   [cold data](/docs/platform/howto/byoc/store-data) in object storage in your own AWS
   account. Aiven-owned buckets are not used, so your data stays in your account.
-- **No data export through forking**: To prevent data from leaving your account, you cannot
-  fork a service running in an enhanced compliance cloud to a non-compliance cloud.
+- **No data export through forking or migration**: To keep your data in your AWS account,
+  you cannot fork or migrate a service running in an enhanced compliance cloud to a
+  non-compliance cloud.
 
 ## Requirements and limitations
 
