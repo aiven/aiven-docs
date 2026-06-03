@@ -66,7 +66,7 @@ For the full command reference, see [Valkey Search commands](https://valkey.io/c
 
 ### Cluster mode
 
-Valkey Search is supported on Aiven for Valkey cluster plans. Aiven manages the networking required for inter-node search coordination.
+Valkey Search is supported on Aiven for Valkey cluster plans.
 
 ### Further reading
 
