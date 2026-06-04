@@ -5,7 +5,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 ## Fork from a specific point in time
 
 <Tabs groupId="group1">
-<TabItem value="Console" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 1. In your service, click <ConsoleLabel name="backups"/> in the sidebar.
 1. Click **Fork & restore**.
@@ -14,14 +14,14 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 1. Click **Create fork**.
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
+<TabItem value="cli" label="CLI">
 
 Add the `--recovery-target-time` parameter to the
-[create service command](https://aiven.io/docs/tools/cli/service-cli#avn-cli-service-create)
+[create service command](/docs/tools/cli/service-cli#avn-cli-service-create)
 and set it to a time between the first and latest available backups.
 
 </TabItem>
-<TabItem value="API" label="API">
+<TabItem value="api" label="API">
 
 Set the `recovery_target_time` parameter in the `user_config` property of the
 [`ServiceCreate` endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)

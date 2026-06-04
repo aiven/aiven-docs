@@ -5,15 +5,15 @@ import ForkService from "@site/static/includes/fork-service-console.md";
 ## Fork a service
 
 <Tabs groupId="group1">
-<TabItem value="Console" label="Console" default>
+<TabItem value="console" label="Console" default>
 
 <ForkService/>
 
 </TabItem>
-<TabItem value="CLI" label="CLI">
+<TabItem value="cli" label="CLI">
 
 Use the
-[create service command](https://aiven.io/docs/tools/cli/service-cli#avn-cli-service-create)
+[create service command](/docs/tools/cli/service-cli#avn-cli-service-create)
 with:
 
 - `--service-to-fork-from`: the name of the service to use as the source.
@@ -21,15 +21,15 @@ with:
   set this to the project name the source service is in.
 
 </TabItem>
-<TabItem value="API" label="API">
+<TabItem value="api" label="API">
 
 Use the
 [`ServiceCreate` endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
 and in the `user_config` property set:
 
-  - `service_to_fork_from`: the name of the source service.
-  - `project_to_fork_from`: to fork a service in a different project, set this
-    to the name of the project the source service is in.
+- `service_to_fork_from`: the name of the source service.
+- `project_to_fork_from`: to fork a service in a different project, set this
+   to the name of the project the source service is in.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
