@@ -17,7 +17,7 @@ To edit the backup schedule for your service:
 <TabItem value="api" label="Aiven API">
 
 Call the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-endpoint, and the following properties to the `user_config` object:
+endpoint, and add the following properties to the `user_config` object:
 
 ```bash {7-8}
 curl --request PUT                                                        \
@@ -32,7 +32,7 @@ curl --request PUT                                                        \
   }'
 ```
 
-Where:
+Replace the following:
 
 - `SERVICE_NAME`: the name of your service.
 - `PROJECT_NAME`: the name of your project.
@@ -45,7 +45,7 @@ Where:
 <TabItem value="cli" label="Aiven CLI">
 
 Run the [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update) command,
-and the following properties to the `user_config` object:
+and add the following properties to the `user_config` object:
 
 ```bash {4-5}
 avn service update SERVICE_NAME \
@@ -56,7 +56,7 @@ avn service update SERVICE_NAME \
   }'
 ```
 
-Where:
+Replace the following:
 
 - `SERVICE_NAME`: the name of your service.
 - `PROJECT_NAME`: the name of your project.
