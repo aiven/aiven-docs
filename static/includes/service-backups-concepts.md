@@ -11,7 +11,4 @@ from their original location.
 Whenever a service is powered on from a powered-off state, the latest available
 backup is automatically restored.
 
-Backups are automatically deleted
-<strong>{Variables.backup_policy} days</strong> after the service's deletion date.
-
-
+Backups are automatically deleted 30 days after the service's deletion date.
