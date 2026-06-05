@@ -301,7 +301,7 @@
 /tools/cli/account/account-team                            /docs/platform/howto/manage-groups  301
 /tools/cli/billing-group                                   /docs/platform/concepts/billing-and-payment  301
 /tools/cli/project                                         /docs/tools/cli  301
-/tools/cli/service                                         /docs/tools/cli/service-cli  301
+/tools/cli/service.html                                    /docs/tools/cli/service-cli  301
 /tools/cli/service/m3                                      /docs/tools/cli/service-cli#avn-service-metrics  301
 /tools/cli/service/alloydbomni                             /docs/tools/cli/service-cli  301
 /tools/cli/ticket                                          /docs/platform/howto/support  301
