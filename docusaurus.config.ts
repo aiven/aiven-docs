@@ -42,6 +42,33 @@ const config: Config = {
     {
       tagName: 'link',
       attributes: {
+        rel: 'preload',
+        href: `${baseUrl}fonts/Inter/InterVariable.woff2`,
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'style',
+      attributes: {
+        type: 'text/css',
+        rel: 'stylesheet',
+      },
+      innerHTML: `
+        @font-face {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url(${baseUrl}fonts/Inter/InterVariable.woff2) format('woff2');
+        }
+      `,
+
+    },
+    {
+      tagName: 'link',
+      attributes: {
         rel: 'alternate',
         type: 'text/plain',
         href: llmsTxtUrl,
@@ -66,7 +93,6 @@ const config: Config = {
         },
         theme: {
           customCss: [
-            './src/css/fonts.css',
             './src/css/colors.css',
             './src/css/navbar.css',
             './src/css/admonitions.css',

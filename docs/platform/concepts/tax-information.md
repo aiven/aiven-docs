@@ -2,6 +2,8 @@
 title: Tax information for Aiven services
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Aiven services are provided by Aiven Ltd, a private limited company incorporated in Finland, but operating in various countries. None of Aiven's marketed prices include value-added or other taxes.
 
 ## Aiven's tax status
@@ -42,17 +44,15 @@ sales taxes, depending on the local tax legislation of the customer.
 
 ## Add a VAT ID to a billing group
 
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature in the Aiven Console.
+You must have the `organization:billing:write`
+[permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+to add a VAT ID to a billing group.
 
 1.  Click **Billing**.
-1.  Click **Billing groups**.
-1.  Select the billing group to update.
-1.  Click **Billing information**.
-1.  Optional: In the **Company details** section, click **Edit**, update
-    the billing country, and click **Save**.
-1.  In the **Billing details** section, click **Edit**.
-1.  Enter your **VAT ID** and click **Save**.
+1.  Click <ConsoleLabel name="billinggroups"/>.
+1.  Find the billing group to update and click **Details**.
+1.  Click **Billing details**.
+1.  In the **Other details** section, click **Change**.
+1.  Enter your **VAT ID** and click **Save changes**.
 
 It can take up to an hour for the new tax status to be visible on the invoice estimates.

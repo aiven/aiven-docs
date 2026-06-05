@@ -92,7 +92,7 @@ const sidebars: SidebarsConfig = {
               ],
             },
             'platform/howto/download-invoices',
-            'platform/howto/trial-credits',
+            'platform/howto/credits',
             'platform/howto/reactivate-suspended-project',
           ],
         },
@@ -1351,16 +1351,27 @@ const sidebars: SidebarsConfig = {
             'products/datahub/datahub-mcp-server',
             {
               type: 'category',
-              label: 'Admin',
+              label: 'Service management',
               items: [
                 'products/datahub/manage-datahub-users',
                 'products/datahub/enable-oidc-auth-datahub',
+                {
+                  type: 'category',
+                  label: 'Notifications',
+                  items: [
+                    'products/datahub/configure-slack-notifications',
+                    'products/datahub/configure-teams-notifications',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Maintenance and upgrades',
+                  items: [
+                    'products/datahub/upgrade-datahub-version',
+                    'products/datahub/restore-datahub-indices',
+                  ],
+                },
               ],
-            },
-            {
-              type: 'category',
-              label: 'Maintenance',
-              items: ['products/datahub/restore-datahub-indices'],
             },
           ],
         },

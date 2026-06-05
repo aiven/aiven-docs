@@ -10,12 +10,6 @@ The [costs for all services](/docs/platform/concepts/service-pricing)
 in a project are charged to the [payment method](#payment-methods)
 of the billing group assigned to that project.
 
-Billing information, invoices, a breakdown of charges by category, and billing groups
-are available in the **Billing** section of the Aiven Console. To access this section,
-you must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions).
-Other users have read-only access to some billing information like billing group details
-and invoices using the API.
 
 ## Billing groups
 
@@ -49,7 +43,7 @@ or Azure [marketplace subscriptions](/docs/platform/howto/list-marketplace-payme
 Alternatively, you can
 [request to pay by bank transfer](/docs/platform/howto/manage-bank-transfers).
 
-When you redeem Aiven [credits](/docs/platform/howto/trial-credits),
+When you redeem Aiven [credits](/docs/platform/howto/credits),
 they're assigned to a billing group as a payment method.
 Credits are automatically used to cover charges of any project assigned to that billing group.
 
