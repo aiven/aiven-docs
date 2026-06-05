@@ -158,10 +158,33 @@ of these Developer tier services at any point in time.
 
 ### Custom plans
 
-Aiven service plans are optimized for the different clouds and to facilitate migration
-between them. If the available plans aren't a good fit for your workload,
-you can [request a custom plan](/docs/platform/howto/custom-plans)
-to suit your specific needs.
+If the service plans don't fit your use cases, you can request a custom plan.
+Customers often request custom plans for special cases,
+like a very high throughput cluster.
+
+Custom plans are available for all Aiven service types. The starting price
+is $5,000 USD per month. You can adjust the following in custom plans:
+
+- Storage capacity
+- Backup frequency
+- Number of nodes
+- CPU/RAM configuration per node
+
+There can be limitations depending on the cloud provider, region,
+available instance types, and service type.
+
+#### Request a custom plan
+
+To get a quote for a custom plan:
+
+Contact the [sales team](https://aiven.io/contact) with
+the following information:
+
+- **Cloud**: The cloud provider and region, for example: Google Cloud `us-east1`.
+- **Service type**: For example: Aiven for PostgreSQL®.
+- **Aiven project**: The name of the project to add the custom plan to.
+- **Configuration**: The storage, backup frequency, or other variables to
+  change from the default plan.
 
 ### Credit card fees
 

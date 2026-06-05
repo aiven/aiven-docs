@@ -12,7 +12,7 @@ Adjust the plan of your services at any time to scale your services as needed an
 changing your plan.
 
 If you can't find a suitable plan, you can
-[request a custom plan](/docs/platform/howto/custom-plans).
+[request a custom plan](/docs/platform/concepts/service-pricing).
 
 :::tip
 If you plan to upgrade your service plan, do it immediately
