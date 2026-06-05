@@ -29,7 +29,7 @@ and in the `user_config` property set:
 
 - `service_to_fork_from`: the name of the source service.
 - `project_to_fork_from`: to fork a service in a different project, set this
-   to the name of the project the source service is in.
+  to the name of the project the source service is in.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -39,7 +39,7 @@ Use the `service_to_fork_from` attribute in the user config of your service reso
 To fork a service in a different project, set the `project_to_fork_from` attribute.
 
 More information on the service resources and their configuration options
-are available in the
+is available in the
 [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 </TabItem>

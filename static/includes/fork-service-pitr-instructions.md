@@ -34,7 +34,7 @@ Set the `recovery_target_time` attribute in the user config of your service
 resource to a time between the first and latest available backups.
 
 More information on the service resources and their configuration options
-are available in the
+is available in the
 [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
 
 </TabItem>
