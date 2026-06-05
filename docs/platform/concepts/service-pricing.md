@@ -51,43 +51,22 @@ to a more appropriately sized VM if one becomes available from the cloud provide
 
 The Free tier is available for the following service types:
 
-- Aiven for Apache Kafka®
-- Aiven for MySQL®
-- Aiven for OpenSearch®
-- Aiven for PostgreSQL®
-- Aiven for Valkey™
+- [Aiven for Apache Kafka®](/docs/products/kafka/free-tier/kafka-free-tier)
+- [Aiven for MySQL®](/docs/products/mysql/concepts/mysql-free-tier)
+- [Aiven for OpenSearch®](/docs/products/opensearch/concepts/opensearch-free-tier)
+- [Aiven for PostgreSQL®](/docs/products/postgresql/concepts/pg-free-tier)
+- [Aiven for Valkey™](/docs/products/valkey/concepts/valkey-free-tier)
 
 You don't need a credit card to sign up and you can use them indefinitely free of charge.
 
 <FreeTierDisclaimer/>
+
 You can run free services alongside a [free 30-day trial](#free-trials)
 without affecting your trial credits. Free services also continue running after
 your trial has expired.
 
-The following pages have more information about the features and limitations
-for each service available on the Free tier:
-
-- [Aiven for Apache Kafka® free tier](/docs/products/kafka/free-tier/kafka-free-tier)
-- [Aiven for MySQL® free tier](/docs/products/mysql/concepts/mysql-free-tier)
-- [Aiven for OpenSearch® free tier](/docs/products/opensearch/concepts/opensearch-free-tier)
-- [Aiven for PostgreSQL® free tier](/docs/products/postgresql/concepts/pg-free-tier)
-- [Aiven for Valkey™ free tier](/docs/products/valkey/concepts/valkey-free-tier)
-
 You can upgrade your free service to a paid plan at any time by adding
 a payment method to the project's billing group or by starting a free trial.
-To upgrade a free service:
-
-1. Go to the service **Overview** page.
-1. In the **Service plan usage** section, click **Upgrade plan**.
-
-The upgrade happens immediately; however, it can take up to 3 hours for
-Basic tier support to be available.
-
-You can also downgrade a paid plan to the free tier as long as:
-
-- The data you have in that trial or paid service fits into the smaller
-instance size.
-- The free tier is available in the same cloud as the paid plan.
 
 ### Developer tier
 
