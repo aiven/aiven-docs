@@ -64,7 +64,11 @@ For complete documentation on Valkey JSON commands and usage, see the
 
 ## Valkey Search
 
-Valkey Search is a high-performance search engine module that supports vector search, full-text search, numeric filtering, and tag filtering. It enables indexing data stored in Valkey Hash or Valkey JSON data types and querying it with low latency.
+Valkey Search is a high-performance search engine module that supports vector search,
+full-text search, numeric filtering, and tag filtering. It enables indexing data stored in
+Valkey Hash or Valkey JSON data types and querying it with low latency.
+
+Valkey Search is available on Aiven for Valkey services running Valkey 9 and later.
 
 ### Configuration
 
@@ -77,7 +81,8 @@ Valkey Search is a high-performance search engine module that supports vector se
 Valkey Search allows you to:
 
 - Create indexes over Valkey Hash and Valkey JSON data
-- Run vector similarity searches using Approximate Nearest Neighbor (HNSW) or exact K-Nearest Neighbor (KNN) algorithms
+- Run vector similarity searches using Approximate Nearest Neighbor (HNSW) or exact
+  K-Nearest Neighbor (KNN) algorithms
 - Apply numeric, tag, and full-text filters in hybrid queries
 - Aggregate search results using `FT.AGGREGATE`
 - Monitor index status and backfill progress using `FT.INFO`
