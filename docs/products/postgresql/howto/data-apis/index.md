@@ -8,7 +8,7 @@ limited: true
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import DocCardList from "@theme/DocCardList";
 
-Data APIs expose the tables and views in your Aiven for PostgreSQL® database as secure REST endpoints, without backend code.
+Data APIs expose the tables in your Aiven for PostgreSQL® database as secure REST endpoints, without backend code.
 
 :::note
 Data APIs is a <LimitedBadge/> feature.
@@ -17,8 +17,8 @@ To request access, [contact Aiven](https://aiven.io/contact).
 
 Data APIs appears as **REST API** in your service menu, next to PG Studio.
 The feature is powered by [PostgREST](https://postgrest.org), which generates a RESTful
-API directly from your database schema. When your schema changes, the endpoints update
-to match it.
+API directly from your database schema. When your schema changes, the endpoints update to
+match it.
 
 ## What Data APIs offers
 
@@ -26,23 +26,21 @@ Data APIs provides the following:
 
 - **Instant REST endpoints**: Expose a database as REST endpoints from the Aiven Console,
   without writing or hosting an API server.
-- **Schema-driven endpoints**: Each table and view gets endpoints for the `GET`, `POST`,
-  `PATCH`, and `DELETE` methods, based on your database schema.
+- **Schema-driven endpoints**: Each table gets endpoints for the `GET`, `POST`, `PATCH`,
+  and `DELETE` methods, based on your database schema.
 - **Ready-to-use code snippets**: Copy `curl`, JavaScript, or Python snippets for each
   endpoint.
 - **Authentication with your own identity provider**: Verify requests against the JSON Web
   Tokens (JWTs) issued by your identity provider (IdP).
 - **Authorization with PostgreSQL roles**: Control access with standard PostgreSQL roles
   and table privileges.
-- **An OpenAPI specification**: Browse and integrate the API from an automatically
-  generated OpenAPI specification.
 
 ## How it works
 
 When you enable Data APIs for a database, Aiven deploys a managed application that runs
 PostgREST alongside your service and connects it to the selected database. PostgREST reads
-the database schema and publishes a REST endpoint for each table and view. Clients call
-these endpoints over HTTPS and authenticate with a JWT issued by your IdP.
+the database schema and publishes a REST endpoint for each table in the `public` schema.
+Clients call these endpoints over HTTPS and authenticate with a JWT issued by your IdP.
 
 Each database that you expose runs as an independent application with its own status and
 base URL. You can enable Data APIs for more than one database in the same service.

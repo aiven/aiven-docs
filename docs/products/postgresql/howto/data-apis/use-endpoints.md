@@ -6,39 +6,41 @@ description: View REST endpoints, copy code snippets, and call your data over HT
 
 After you enable Data APIs for a database, you can browse the available endpoints and call them over HTTPS.
 
-## View available endpoints
+## Find the base URL
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL®
    service.
 1. Click **REST API**.
-1. Select the database with the REST API enabled.
+1. In **Target database**, select the database with the REST API enabled.
 
-The Aiven Console lists the endpoints grouped by schema and table. Each table and view
-provides endpoints for the following methods:
+The **Connection Info** section shows the **Base URL** for the REST API. All endpoints are
+relative to this base URL. For example, a `products` table is available at the `/products`
+path under the base URL.
+
+## View available endpoints
+
+The Aiven Console lists the endpoints grouped by schema. Each row shows the table name, the
+endpoint path, the available methods, and the primary key. Each table provides endpoints for
+the following methods:
 
 - `GET`: Read rows.
 - `POST`: Insert rows.
 - `PATCH`: Update rows.
 - `DELETE`: Delete rows.
 
-The available methods for each request depend on the privileges granted to the role in your
-token. For details, see
+The methods that succeed for a request depend on the privileges of the role in the token.
+For details, see
 [Authorize requests with PostgreSQL roles](/docs/products/postgresql/howto/data-apis/authentication#authorize-requests-with-postgresql-roles).
-
-## Find the base URL
-
-The Aiven Console shows the base URL for the REST API. All endpoints are relative to this
-base URL. For example, a `products` table in the `public` schema is available at the
-`/products` path under the base URL.
 
 ## Copy a code snippet
 
-For each endpoint, the Aiven Console provides ready-to-use snippets:
+Select a table to expand its code snippets:
 
-1. Select the table and the method to call.
-1. Select **curl**, **JavaScript**, or **Python**.
-1. Copy the snippet.
-1. Replace the placeholder token with a JWT from your identity provider.
+1. Select the table to see its snippets.
+1. Select the method to call.
+1. Select the language: **curl**, **JavaScript**, or **Python**.
+1. Click **Copy to clipboard**.
+1. In the snippet, replace the placeholder token with a JWT from your identity provider.
 
 ## Call an endpoint
 
@@ -46,34 +48,30 @@ Send the JWT issued by your identity provider in the `Authorization` header as a
 token. The following examples use `REST_API_BASE_URL` for the base URL and `JWT_TOKEN` for
 the token.
 
-Read all rows from the `products` table:
+Read rows from the `products` table and select specific columns:
 
 ```bash
-curl "https://REST_API_BASE_URL/products" \
-  -H "Authorization: Bearer JWT_TOKEN"
-```
-
-Filter rows with query parameters. For example, return products with a price below 10:
-
-```bash
-curl "https://REST_API_BASE_URL/products?price=lt.10" \
+curl "https://REST_API_BASE_URL/products?select=id,name,price" \
   -H "Authorization: Bearer JWT_TOKEN"
 ```
 
 Insert a row:
 
 ```bash
-curl "https://REST_API_BASE_URL/products" \
-  -H "Authorization: Bearer JWT_TOKEN" \
+curl -X POST "https://REST_API_BASE_URL/products" \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer JWT_TOKEN" \
   -d '{"name": "Notebook", "price": 9.99}'
+```
+
+Update a row that matches a filter:
+
+```bash
+curl -X PATCH "https://REST_API_BASE_URL/products?id=eq.1" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer JWT_TOKEN" \
+  -d '{"price": 12.99}'
 ```
 
 For the full query syntax, including filtering, ordering, and pagination, see the
 [PostgREST documentation](https://postgrest.org/en/stable/references/api.html).
-
-## Use the OpenAPI specification
-
-Data APIs generate an OpenAPI specification from your database schema. Use it to explore the
-API or to generate client code. The specification reflects the current schema and the tables
-that the requesting role can access.
