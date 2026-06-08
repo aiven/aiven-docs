@@ -1838,6 +1838,20 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/pg-studio/security-connections',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Data APIs',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/howto/data-apis/index',
+                  },
+                  items: [
+                    'products/postgresql/howto/data-apis/get-started',
+                    'products/postgresql/howto/data-apis/authentication',
+                    'products/postgresql/howto/data-apis/use-endpoints',
+                    'products/postgresql/howto/data-apis/manage',
+                  ],
+                },
                 'products/postgresql/howto/ai-insights',
                 'products/postgresql/howto/identify-pg-slow-queries',
                 'products/postgresql/howto/optimize-pg-slow-queries',
