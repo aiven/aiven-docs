@@ -132,7 +132,7 @@ const config: Config = {
       'data-modal-image-width': '38px',
       'data-button-hide': 'true',
       'data-mcp-enabled': 'true',
-      'data-mcp-server-url': 'https://aiven-docs.mcp.kapa.ai',
+      'data-mcp-server-url': 'https://mcp.aiven.live/mcp',
       'data-modal-header-bg-color': '#F3FDF5',
       'data-modal-header-border-bottom': '1px solid #D8DBE3',
       'data-font-family': 'Inter',
