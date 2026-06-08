@@ -14,7 +14,7 @@ radius of the environment to prevent inadvertent data sharing.
 <!-- vale off -->
 Users of an ECE **must** encrypt all regulated data before reaching
 an Aiven service. As part of the increased compliance of the
-environment, enhanced logging is enabled for - `stderr`, `stout`, and
+environment, enhanced logging is enabled for - `stderr`, `stdout`, and
 `stdin`.
 <!-- vale on -->
 
