@@ -21,13 +21,13 @@ the charges for multiple projects by assigning them to a
 
 The cost of an Aiven service plan is all-inclusive and covers:
 
--   Virtual machine costs
--   Network costs
--   Backup costs
--   Setup and maintenance costs
--   Migration between clouds or plans
--   Migration to another region
--   [Credit card and processing fees payable by Aiven](#credit-card-fees)
+- Virtual machine costs
+- Network costs
+- Backup costs
+- Setup and maintenance costs
+- Migration between clouds or plans
+- Migration to another region
+- [Credit card and processing fees payable by Aiven](#credit-card-fees)
 
 There are additional costs for some features such as PrivateLink and
 additional storage. Network traffic is not charged separately, but your
@@ -159,7 +159,7 @@ of these Developer tier services at any point in time.
 ### Custom plans
 
 If the service plans don't fit your use cases, you can request a custom plan.
-Customers often request custom plans for special cases,
+Custom plans are most useful for special cases,
 like a very high throughput cluster.
 
 Custom plans are available for all Aiven service types. The starting price
