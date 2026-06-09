@@ -1220,6 +1220,7 @@ const sidebars: SidebarsConfig = {
                     'products/clickhouse/howto/query-databases',
                     'products/clickhouse/howto/use-shards-with-distributed-table',
                     'products/clickhouse/howto/clickhouse-query-cache',
+                    'products/clickhouse/howto/vector-similarity-index-cache',
                     'products/clickhouse/howto/create-dictionary',
                     'products/clickhouse/howto/sql-user-defined-functions',
                   ],
