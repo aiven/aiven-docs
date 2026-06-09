@@ -11,7 +11,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Apache Kafka® supports OAuth 2.0/OIDC authentication for Kafka clients.
 Use OAuth 2.0/OIDC authentication to let clients authenticate with tokens issued by an
-identity provider.
+identity provider, or by an identity broker such as Outbound Identity Federation.
 
 ## Prerequisites
 
