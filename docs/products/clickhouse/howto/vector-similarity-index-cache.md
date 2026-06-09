@@ -4,7 +4,7 @@ sidebar_label: Vector similarity index cache
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import ConsoleLabel, {ConsoleIcon} from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Tune the vector similarity index cache in Aiven for ClickHouse® to improve vector search performance for Hierarchical Navigable Small World (HNSW) indexes.
 
@@ -90,7 +90,8 @@ restarting the service.
 1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for ClickHouse
    service.
 1. Click <ConsoleLabel name="Service settings"/>.
-1. In **Advanced configuration**, click <ConsoleIcon name="Add config options"/>.
+1. In <ConsoleLabel name="Advanced configuration"/>, click
+   <ConsoleLabel name="Add config options"/>.
 1. Find `server_settings.vector_similarity_index_cache_size_ratio`.
 1. Set the value to `0.4` or higher.
 1. Click **Save configuration**.
