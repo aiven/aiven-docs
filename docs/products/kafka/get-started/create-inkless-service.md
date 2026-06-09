@@ -42,7 +42,8 @@ Services (AWS), Google Cloud, and Microsoft Azure.
      creation.
    - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
      organize your services.
-1. Review the **Service summary**, and click **Create service**.
+1. Review the **Cost estimation** in the **Service summary** panel, then click
+   **Create service**.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -121,6 +122,26 @@ You can also enable diskless topics later in the service configuration.
 
 </TabItem>
 </Tabs>
+
+## Review the cost estimate
+
+Before you create an Inkless Kafka service, review the estimated monthly cost in the
+**Service summary** panel.
+
+The estimate is based on your selected plan, cloud and region, ingress capacity, and
+retention.
+
+For Inkless Kafka services with network pricing, the estimate includes compute, storage,
+and network usage. Network usage is estimated from the expected data produced to and
+consumed from Kafka topics.
+
+:::note
+The estimated monthly cost is based on your selected configuration and 730 hours of
+usage per month. Your final cost depends on actual usage during the billing period.
+:::
+
+After the service is created, you can view actual usage, accrued spend, and projected
+monthly cost in **Overview** > **Service utilization**.
 
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
