@@ -120,7 +120,7 @@ For a cost estimate and analysis, contact your account team.
 ## BYOC architecture
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS private" default>
+<TabItem value="1" label="AWS BYOC private" default>
 
 <img src={byocAwsPrivate} className="centered" alt="BYOC AWS private architecture" width="100%" />
 
@@ -150,7 +150,7 @@ two S3 buckets. To enable this optional feature for your new BYOC clouds,
 [contact Aiven](https://aiven.io/contact).
 
 </TabItem>
-<TabItem value="2" label="AWS public">
+<TabItem value="2" label="AWS BYOC public">
 
 <img src={byocAwsPublic} className="centered" alt="BYOC AWS public architecture" width="100%" />
 
@@ -170,7 +170,7 @@ two S3 buckets. To enable this optional feature for your new BYOC clouds,
 [contact Aiven](https://aiven.io/contact).
 
 </TabItem>
-<TabItem value="5" label="AWS HIPAA">
+<TabItem value="5" label="AWS BYOC ECE HIPAA">
 
 <img src={byocAwsPrivate} className="centered" alt="BYOC AWS HIPAA architecture" width="100%" />
 
@@ -195,7 +195,7 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="6" label="AWS PCI DSS">
+<TabItem value="6" label="AWS BYOC ECE PCI DSS">
 
 <img src={byocAwsPrivate} className="centered" alt="BYOC AWS PCI DSS architecture" width="100%" />
 
@@ -220,7 +220,7 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="3" label="Google Cloud private">
+<TabItem value="3" label="Google Cloud BYOC private">
 
 <img src={byocGcpPrivate} className="centered" alt="BYOC Google Cloud private architecture" width="100%" />
 
@@ -249,7 +249,7 @@ from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="Google Cloud public">
+<TabItem value="4" label="Google Cloud BYOC public">
 
 <img src={byocGcpPublic} className="centered" alt="BYOC Google Cloud public architecture" width="100%" />
 
