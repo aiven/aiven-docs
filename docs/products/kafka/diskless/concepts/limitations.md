@@ -17,10 +17,11 @@ Diskless topics rely on an internal metadata service that is managed automatical
 as part of the Kafka service. This service stores the metadata required for
 diskless topics to function.
 
-If no diskless topics exist for some time, the service may be powered off.
+If a service has no diskless topics for two days, Aiven automatically
+disables diskless topics and turns off the metadata service.
 
-When you re-enable diskless topics, there may be a short delay before you can
-create or use them while the service starts.
+When you re-enable diskless topics, you might experience a short delay before you
+can create or use them while the metadata service starts.
 
 ### Aiven Cloud deployments
 
