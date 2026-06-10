@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create and manage service users in Aiven for Apache Kafka to enable secure access and interaction with your service.
+Create and manage service users in Aiven for Apache Kafka® to enable secure access and interaction with your service.
 
 :::note
 Users with `Admin` permission can create topics with any name because
@@ -33,34 +33,35 @@ After creating a user, download their access key and certificate from the **User
 Run the following command to create a service user:
 
 ```bash
-avn service user-create <service-name> --username <user-name>
+avn service user-create SERVICE_NAME --username USER_NAME
 ```
 
-Parameters:
+Replace the following:
 
-- `<service-name>`: Name of the Aiven service.
-- `<user-name>`: Username for the new service user.
+- `SERVICE_NAME`: the name of the Aiven service
+- `USER_NAME`: the username for the new service user
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Use the [ServiceUserCreate](https://api.aiven.io/doc/#operation/ServiceUserCreate) API endpoint to create a service user:
+Use the [ServiceUserCreate](https://api.aiven.io/doc/#operation/ServiceUserCreate)
+API endpoint to create a service user:
 
 ```bash
-curl -X POST https://api.aiven.io/v1/project/<project-name>/service/<service-name>/user \
-  -H "Authorization: Bearer <api-token>" \
+curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user \
+  -H "Authorization: Bearer API_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"username": "<user-name>"}'
+  -d '{"username": "USER_NAME"}'
 ```
 
-Parameters:
+Replace the following:
 
-- `<project-name>`: Name of the Aiven project.
-- `<service-name>`: Name of the Aiven service.
-- `<user-name>`: Username for the new service user.
-- `<api-token>`: Aiven API
+- `PROJECT_NAME`: the name of the Aiven project
+- `SERVICE_NAME`: the name of the Aiven service
+- `USER_NAME`: the username for the new service user
+- `API_TOKEN`: Aiven API
   [token](https://aiven.io/docs/platform/howto/create_authentication_token)
-  for authentication.
+  for authentication
 
 </TabItem>
 </Tabs>
@@ -75,8 +76,7 @@ Parameters:
 1. Click <ConsoleLabel name="serviceusers" /> in the sidebar to view the list of users.
 1. To view the password, click <ConsoleLabel name="show password" /> in the password
    field for the respective user.
-1. Click <ConsoleLabel name="actions" /> in the respective user row and choose the
-   desired operation:
+1. Click <ConsoleLabel name="actions" /> in the user row and choose an action:
    - Click <ConsoleLabel name="reset" /> to reset the credentials.
    - Click <ConsoleLabel name="delete user" /> to delete the user.
 
@@ -87,72 +87,80 @@ Parameters:
 - View users:
 
   ```bash
-  avn service user-list <service-name>
+  avn service user-list SERVICE_NAME
   ```
 
-  Replace `<service-name>` with the name of your Aiven service.
+  Replace `SERVICE_NAME` with the name of your Aiven service.
 
 - Reset user credentials:
 
   ```bash
-  avn service user-password-reset <service-name> --username <user-name>
+  avn service user-password-reset SERVICE_NAME --username USER_NAME
   ```
 
-  Parameters:
-  - `<service-name>`: Name of the Aiven service.
-  - `<user-name>`: Username of the service user.
+  Replace the following:
+
+  - `SERVICE_NAME`: the name of the Aiven service
+  - `USER_NAME`: the username of the service user
 
 - Delete a user:
 
   ```bash
-  avn service user-delete <service-name> --username <user-name>
+  avn service user-delete SERVICE_NAME --username USER_NAME
   ```
 
-  Parameters:
-  - `<service-name>`: Name of the Aiven service.
-  - `<user-name>`: Username of the service user.
+  Replace the following:
+
+  - `SERVICE_NAME`: the name of the Aiven service
+  - `USER_NAME`: the username of the service user
 
 </TabItem>
 
 <TabItem value="api" label="Aiven API">
 
-- View users:
+- View user details:
+
+  Use the username-specific endpoint to get details for a service user.
 
   ```bash
-  curl -X GET https://api.aiven.io/v1/project/<project-name>/service/<service-name>/user \
-    -H "Authorization: Bearer <api-token>"
+  curl -X GET https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user/USER_NAME \
+    -H "Authorization: Bearer API_TOKEN"
   ```
 
-  Parameters:
-  - `<project-name>`: Name of the Aiven project.
-  - `<service-name>`: Name of the Aiven service.
-  - `<api-token>`: Aiven API token for authentication.
+  Replace the following:
+
+  - `PROJECT_NAME`: the name of the Aiven project
+  - `SERVICE_NAME`: the name of the Aiven service
+  - `USER_NAME`: the username of the service user
+  - `API_TOKEN`: Aiven API token for authentication
 
 - Reset user credentials:
 
   ```bash
-  curl -X POST https://api.aiven.io/v1/project/<project-name>/service/<service-name>/user/<user-name>/reset-credentials \
-    -H "Authorization: Bearer <api-token>"
+  curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user/USER_NAME/reset-credentials \
+    -H "Authorization: Bearer API_TOKEN"
   ```
 
-  Parameters:
-  - `<project-name>`: Name of the Aiven project.
-  - `<service-name>`: Name of the Aiven service.
-  - `<user-name>`: Username of the service user.
-  - `<api-token>`: Aiven API token for authentication.
+  Replace the following:
+
+  - `PROJECT_NAME`: the name of the Aiven project
+  - `SERVICE_NAME`: the name of the Aiven service
+  - `USER_NAME`: the username of the service user
+  - `API_TOKEN`: Aiven API token for authentication
 
 - Delete a user:
 
   ```bash
-  curl -X DELETE https://api.aiven.io/v1/project/<project-name>/service/<service-name>/user/<user-name> \
-    -H "Authorization: Bearer <api-token>"
+  curl -X DELETE https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user/USER_NAME \
+    -H "Authorization: Bearer API_TOKEN"
   ```
 
-  Parameters:
-  - `<project-name>`: Name of the Aiven project.
-  - `<service-name>`: Name of the Aiven service.
-  - `<user-name>`: Username of the service user.
-  - `<api-token>`: Aiven API token for authentication.
+  Replace the following:
+
+  - `PROJECT_NAME`: the name of the Aiven project
+  - `SERVICE_NAME`: the name of the Aiven service
+  - `USER_NAME`: the username of the service user
+  - `API_TOKEN`: Aiven API token for authentication
 
 </TabItem>
 </Tabs>
@@ -160,5 +168,4 @@ Parameters:
 <RelatedPages/>
 
 - [Access Control Lists in Aiven for Apache Kafka®](/docs/products/kafka/concepts/acl)
-- [Manage service users in Aiven for Apache Kafka®](/docs/products/kafka/howto/add-manage-service-users)
 - [Manage access control lists in Aiven for Apache Kafka®](/docs/products/kafka/howto/manage-acls)
