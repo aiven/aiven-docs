@@ -37,7 +37,7 @@ selected service capacity, and actual storage and network usage.
 
 ## When to use Inkless
 
-Use Inkless when you need to:
+Use Inkless to:
 
 - Scale storage without managing broker disk capacity.
 - Retain large volumes of data for extended periods.
@@ -50,7 +50,7 @@ Existing Classic Kafka services continue to run unchanged.
 
 Upgrading or migrating an existing Classic Kafka service to Inkless is not supported at
 this time. The cluster type is fixed at service creation. To use Inkless, create a
-Kafka service and select Inkless as the cluster type.
+Kafka service with Inkless as the cluster type.
 
 <RelatedPages />
 

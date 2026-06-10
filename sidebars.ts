@@ -620,7 +620,6 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/get-started/create-inkless-service',
-                    'products/kafka/get-started/network-pricing',
                     'products/kafka/get-started/create-classic-kafka-service',
                   ],
                 },
