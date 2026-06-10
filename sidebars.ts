@@ -330,9 +330,7 @@ const sidebars: SidebarsConfig = {
             id: 'tools/terraform',
             type: 'doc',
           },
-          items: [
-            'tools/terraform/howto/use-opentofu',
-          ],
+          items: ['tools/terraform/howto/use-opentofu'],
         },
         'tools/kubernetes',
         {
@@ -1374,6 +1372,7 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
+            'products/datahub/fork-datahub-service',
           ],
         },
         {
