@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create and manage service users in Aiven for Apache Kafka to enable secure access and interaction with your service.
+Create and manage service users in Aiven for Apache Kafka® to enable secure access and interaction with your service.
 
 :::note
 Users with `Admin` permission can create topics with any name because
@@ -75,8 +75,7 @@ Parameters:
 1. Click <ConsoleLabel name="serviceusers" /> in the sidebar to view the list of users.
 1. To view the password, click <ConsoleLabel name="show password" /> in the password
    field for the respective user.
-1. Click <ConsoleLabel name="actions" /> in the respective user row and choose the
-   desired operation:
+1. Click <ConsoleLabel name="actions" /> in the user row and select an action:
    - Click <ConsoleLabel name="reset" /> to reset the credentials.
    - Click <ConsoleLabel name="delete user" /> to delete the user.
 
@@ -99,6 +98,7 @@ Parameters:
   ```
 
   Parameters:
+
   - `<service-name>`: Name of the Aiven service.
   - `<user-name>`: Username of the service user.
 
@@ -109,6 +109,7 @@ Parameters:
   ```
 
   Parameters:
+
   - `<service-name>`: Name of the Aiven service.
   - `<user-name>`: Username of the service user.
 
@@ -116,16 +117,20 @@ Parameters:
 
 <TabItem value="api" label="Aiven API">
 
-- View users:
+- View user details:
+
+  Use the username-specific endpoint to get details for a service user.
 
   ```bash
-  curl -X GET https://api.aiven.io/v1/project/<project-name>/service/<service-name>/user \
+  curl -X GET https://api.aiven.io/v1/project/<project-name>/service/<service-name>/user/<user-name> \
     -H "Authorization: Bearer <api-token>"
   ```
 
   Parameters:
+
   - `<project-name>`: Name of the Aiven project.
   - `<service-name>`: Name of the Aiven service.
+  - `<user-name>`: Username of the service user.
   - `<api-token>`: Aiven API token for authentication.
 
 - Reset user credentials:
@@ -136,6 +141,7 @@ Parameters:
   ```
 
   Parameters:
+
   - `<project-name>`: Name of the Aiven project.
   - `<service-name>`: Name of the Aiven service.
   - `<user-name>`: Username of the service user.
@@ -149,6 +155,7 @@ Parameters:
   ```
 
   Parameters:
+
   - `<project-name>`: Name of the Aiven project.
   - `<service-name>`: Name of the Aiven service.
   - `<user-name>`: Username of the service user.
@@ -160,5 +167,4 @@ Parameters:
 <RelatedPages/>
 
 - [Access Control Lists in Aiven for Apache Kafka®](/docs/products/kafka/concepts/acl)
-- [Manage service users in Aiven for Apache Kafka®](/docs/products/kafka/howto/add-manage-service-users)
 - [Manage access control lists in Aiven for Apache Kafka®](/docs/products/kafka/howto/manage-acls)
