@@ -1,5 +1,5 @@
 import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import type {Config, PluginConfig} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -10,7 +10,7 @@ const isJune = currentMonth === 5;
 const baseUrl = process.env.BASEURL || '/docs/';
 const llmsTxtUrl = `${baseUrl.replace(/\/$/, '')}/llms.txt`;
 
-const posthogPlugin = process.env.POSTHOG_PUBLIC_KEY
+const posthogPlugin: PluginConfig = process.env.POSTHOG_PUBLIC_KEY
   ? [
       'posthog-docusaurus',
       {
@@ -213,7 +213,7 @@ const config: Config = {
         },
       },
     ],
-  ].filter(Boolean),
+  ],
   themeConfig: {
     image: 'images/site-preview.png',
     navbar: {
