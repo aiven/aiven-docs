@@ -5,15 +5,16 @@ sidebar_label: Network pricing
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-For Inkless Kafka services, Aiven bills compute, storage, and network usage as
+For eligible Inkless Kafka services, Aiven bills compute, storage, and network usage as
 separate components. Instead of including assumed network usage in the compute price,
 network usage is priced separately based on actual traffic through your Kafka topics.
 
 This shows how your service capacity, retained data, and topic traffic
 contribute to your monthly cost.
 
-Network pricing does not apply to Classic Kafka services or to Free and Developer tier
-Inkless services.
+Network pricing is enabled at the organization level and shown in the
+[Aiven Console](https://console.aiven.io) where available. It does not apply to Classic
+Kafka services or to Free and Developer tier Inkless services.
 
 ## Pricing components
 
@@ -44,7 +45,27 @@ selected configuration. An estimate is a projection, not a commitment. Your fina
 depends on actual usage during the billing period.
 
 For instructions, see
-[Review the cost estimate](./create-inkless-service.md#review-the-cost-estimate).
+[Review the cost estimate](/docs/products/kafka/get-started/create-inkless-service#review-the-cost-estimate).
+
+## View usage and costs
+
+For services with network pricing, the [Aiven Console](https://console.aiven.io) shows
+usage and cost information.
+
+To review usage and costs, open the service and go to **Overview** >
+**Service utilization**. You can review:
+
+- Current billing period usage
+- Accrued spend
+- Projected monthly cost
+- Data produced to topics
+- Data consumed from topics
+
+Where available, network usage is shown separately for Classic topics and Diskless
+topics.
+
+The projected monthly cost is an estimate based on current usage. It can change during
+the billing period as workload patterns change.
 
 ## Cost drivers
 
@@ -71,9 +92,6 @@ To manage costs, review the factors that affect compute, storage, and network us
 - Monitor usage during the billing period to identify unexpected changes.
 
 ## Limitations
-
-Network pricing does not apply to Classic Kafka services or to Free and Developer tier
-Inkless services.
 
 Network surcharges, such as inter-region egress, internet egress, cross-AZ traffic, or
 VPC-related traffic, are not included in the initial release.
