@@ -38,7 +38,7 @@ can sign in and authorize MCP access.
    <MCPConfigSection
      baseUrl={mcpUrl}
      format="bash"
-     configTemplate={(url) => `claude mcp add --transport http aiven ${url}`}
+     configTemplate={(url) => `claude mcp add --transport http aiven "${url}"`}
    />
 
 1. To verify the server is registered, in Claude Code run `/mcp`. The first time
