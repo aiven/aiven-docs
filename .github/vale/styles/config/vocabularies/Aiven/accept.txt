@@ -397,7 +397,14 @@ Tenant
 Terraform
 Terraforming
 Thanos
+tiered
 tiering
+ISM
+rollover
+rollovers
+watermarks?
+force-merge
+backfills
 TimescaleDB
 tokenizer
 tokenizers
