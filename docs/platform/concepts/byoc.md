@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.png";
 import byocAwsEceHipaa from "@site/static/images/content/figma/aws-byoc-ece-hipaa.png";
-import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-dci-dss.png";
+import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-pci-dss.png";
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
