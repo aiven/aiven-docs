@@ -10,6 +10,22 @@ const isJune = currentMonth === 5;
 const baseUrl = process.env.BASEURL || '/docs/';
 const llmsTxtUrl = `${baseUrl.replace(/\/$/, '')}/llms.txt`;
 
+const posthogPlugin = process.env.POSTHOG_PUBLIC_KEY
+  ? [
+      'posthog-docusaurus',
+      {
+        apiKey: process.env.POSTHOG_PUBLIC_KEY,
+        appUrl: 'https://eu.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_heatmaps: false,
+        disable_session_recording: true,
+        opt_out_capturing_by_default: true,
+      },
+    ]
+  : null;
+
 const config: Config = {
   // Testing faster build
   future: {},
@@ -183,19 +199,7 @@ const config: Config = {
   plugins: [
     './src/plugins/svg-fix/index.ts',
     'docusaurus-plugin-image-zoom',
-    [
-      'posthog-docusaurus',
-      {
-        apiKey: process.env.POSTHOG_PUBLIC_KEY,
-        appUrl: 'https://eu.i.posthog.com',
-        autocapture: false,
-        capture_pageview: false,
-        capture_pageleave: false,
-        capture_heatmaps: false,
-        disable_session_recording: true,
-        opt_out_capturing_by_default: true,
-      },
-    ],
+    posthogPlugin,
     [
       '@signalwire/docusaurus-plugin-llms-txt',
       {
@@ -209,7 +213,7 @@ const config: Config = {
         },
       },
     ],
-  ],
+  ].filter(Boolean),
   themeConfig: {
     image: 'images/site-preview.png',
     navbar: {
