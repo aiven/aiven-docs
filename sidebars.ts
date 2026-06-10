@@ -535,6 +535,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/kafka/inkless-overview',
+            'products/kafka/get-started/network-pricing',
             {
               type: 'category',
               label: 'Get started',
@@ -574,7 +575,6 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/get-started/create-inkless-service',
-                    'products/kafka/get-started/network-pricing',
                     'products/kafka/get-started/create-classic-kafka-service',
                   ],
                 },

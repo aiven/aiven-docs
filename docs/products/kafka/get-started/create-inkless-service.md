@@ -135,13 +135,16 @@ For Inkless Kafka services with network pricing, the estimate includes compute, 
 and network usage. Network usage is estimated from the expected data produced to and
 consumed from Kafka topics.
 
+For more information, see
+[Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
+
 :::note
 The estimated monthly cost is based on your selected configuration and 730 hours of
 usage per month. Your final cost depends on actual usage during the billing period.
 :::
 
-After the service is created, you can view actual usage, accrued spend, and projected
-monthly cost in **Overview** > **Service utilization**.
+After you create a service with usage-based pricing, view actual usage, accrued spend,
+and projected monthly cost in **Overview** > **Service utilization**.
 
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
