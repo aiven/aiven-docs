@@ -323,6 +323,7 @@ Redis OSS
 redis_ssl
 redis_timeout
 Redli
+queryable
 refcard
 reindex
 reindexed
