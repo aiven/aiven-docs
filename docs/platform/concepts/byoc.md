@@ -7,6 +7,8 @@ keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deploym
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.png";
+import byocAwsEceHipaa from "@site/static/images/content/figma/aws-byoc-ece-hipaa.png";
+import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-dci-dss.png";
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
@@ -172,7 +174,7 @@ two S3 buckets. To enable this optional feature for your new BYOC clouds,
 </TabItem>
 <TabItem value="5" label="AWS BYOC ECE HIPAA">
 
-<img src={byocAwsPrivate} className="centered" alt="BYOC AWS HIPAA architecture" width="100%" />
+<img src={byocAwsEceHipaa} className="centered" alt="BYOC AWS HIPAA architecture" width="100%" />
 
 The AWS `hipaa` deployment model is for healthcare workloads that handle protected health
 information (PHI) under HIPAA. It builds on the AWS private model and shares its network
@@ -197,7 +199,7 @@ For the full list of controls, requirements, and limitations, see
 </TabItem>
 <TabItem value="6" label="AWS BYOC ECE PCI DSS">
 
-<img src={byocAwsPrivate} className="centered" alt="BYOC AWS PCI DSS architecture" width="100%" />
+<img src={byocAwsEcePciDss} className="centered" alt="BYOC AWS PCI DSS architecture" width="100%" />
 
 The AWS `pci_dss` deployment model is for payment workloads that require cardholder data
 environment (CDE) isolation under PCI DSS. It builds on the AWS private model and shares its
