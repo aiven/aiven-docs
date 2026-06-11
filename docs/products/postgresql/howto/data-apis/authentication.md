@@ -1,31 +1,51 @@
 ---
-title: Configure authentication for Data APIs
+title: Configure authentication for Data API
 sidebar_label: Authentication
-description: Configure JWKS-based authentication and PostgreSQL role authorization for Data APIs.
+description: Authenticate Data API requests with an API key or your own identity provider, and authorize with PostgreSQL roles.
 ---
 
-Data APIs verify every request against the JSON Web Tokens (JWTs) issued by your own identity provider (IdP).
+Data API authenticates every request with a bearer token in the `Authorization` header.
 
-You keep control of authentication. Your IdP issues the tokens, and the REST API validates
-them against the public keys at your JWKS URL. Aiven does not store or issue end-user
-credentials.
+You can use either of the following tokens:
 
-## Authentication flow
+- An **API key** issued by Aiven, available in the Aiven Console.
+- A **JWT** issued by your own identity provider (IdP) and verified against your JWKS URL.
 
-1. A client authenticates with your IdP and receives a signed JWT.
-1. The client sends a request to a REST endpoint with the token in the `Authorization`
-   header as a bearer token.
-1. The REST API fetches your IdP's public keys from the JWKS URL and verifies the token
-   signature. If you set an audience, the API also checks the `aud` claim.
-1. The REST API runs the query in your Aiven for PostgreSQL® database with the privileges
-   of the role named in the token.
+In both cases, the token carries a role, and your Aiven for PostgreSQL® database enforces
+that role's privileges.
 
-## Configure the JWKS URL
+## Authenticate with the API key
+
+The API key is a bearer token that Aiven issues for the database. Find it in the **Data
+API** page, in the **Connection info** section:
+
+1. In the [Aiven Console](https://console.aiven.io/login), open your service and click
+   **Data** > **Data API**.
+1. Select the database.
+1. In **Connection info**, next to **API Key**, click the reveal icon to show the key, then
+   copy it.
+
+Send the key as a bearer token:
+
+```bash
+curl "https://REST_API_BASE_URL/products" \
+  -H "Authorization: Bearer API_KEY"
+```
+
+To rotate the key, regenerate it from **Connection info**. Regenerating invalidates the
+previous key, so update any clients that use it.
+
+## Authenticate with your identity provider
+
+Instead of the API key, end users can authenticate with the JWTs issued by your IdP. You
+provide your JWKS URL when you
+[enable Data API](/docs/products/postgresql/howto/data-apis/get-started), and Data API
+verifies each token against the public keys at that URL.
+
+### Configure the JWKS URL
 
 The _JSON Web Key Set (JWKS) URL_ is the endpoint where your IdP publishes the public keys
-used to verify token signatures. Enter this URL when you
-[enable the REST API](/docs/products/postgresql/howto/data-apis/get-started). The URL is
-required and must use HTTPS.
+used to verify token signatures. The URL is required and must use HTTPS.
 
 The URL format depends on your IdP. The following are common patterns:
 
@@ -33,60 +53,70 @@ The URL format depends on your IdP. The following are common patterns:
 - **Okta**: `https://OKTA_DOMAIN/oauth2/default/v1/keys`
 - **Microsoft Entra ID**: `https://login.microsoftonline.com/TENANT_ID/discovery/v2.0/keys`
 
-Replace `TENANT_NAME`, `OKTA_DOMAIN`, and `TENANT_ID` with the values from your IdP. For
-the exact URL, see your IdP's documentation. The token issuer (`iss` claim) is derived from
-the JWKS URL.
+Replace `TENANT_NAME`, `OKTA_DOMAIN`, and `TENANT_ID` with the values from your IdP. For the
+exact URL, see your IdP's documentation.
 
-Because the REST API reads the keys from the JWKS URL, key rotation is automatic. When your
-IdP rotates its signing keys, the API picks up the new keys from the same URL. You don't
-need to update any configuration in the Aiven Console.
+Because Data API reads the keys from the JWKS URL, key rotation is automatic. When your IdP
+rotates its signing keys, Data API picks up the new keys from the same URL. You don't need
+to update any configuration in the Aiven Console.
 
-## Configure the audience
+### Configure the audience
 
-The _audience_ identifies the intended recipient of a token, such as a specific tenant or
-application. The audience is optional. When you set it, the REST API rejects any token
-whose `aud` claim doesn't match the value you configured.
-
-To use audience validation, set the same audience value in your IdP and in the **Audience**
-field when you enable the REST API.
+The _audience_ identifies the intended recipient of a token, such as a specific API or
+tenant. Set the same audience value in your IdP and in the **Audience** field when you
+enable Data API. Data API rejects any token whose `aud` claim doesn't match.
 
 ## Authorize requests with PostgreSQL roles
 
-Data APIs use standard PostgreSQL roles and table privileges for authorization. The REST API
-runs each request with a PostgreSQL role and the database enforces that role's privileges.
+Data API uses standard PostgreSQL roles and table privileges for authorization. You create
+the roles and grant the privileges, and the token carries a `role` claim that names the role
+to use. PostgreSQL then enforces that role's privileges.
 
-### Default access
+### Create a role and grant privileges
 
-When you enable a REST API, Aiven creates a `web_anon` role and grants it `SELECT` on the
-existing tables in the `public` schema. Requests that don't include a valid token run with
-the `web_anon` role.
-
-As a result, the tables in the `public` schema are readable through the base URL by default.
-To restrict anonymous reads, revoke the privileges from `web_anon`:
+Connect to your database and create a role with the privileges to expose:
 
 ```sql
-REVOKE SELECT ON ALL TABLES IN SCHEMA public FROM web_anon;
+-- Create the role
+CREATE ROLE api_worker NOLOGIN;
+
+-- Grant schema access
+GRANT USAGE ON SCHEMA public TO api_worker;
+
+-- Grant table and sequence privileges
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO api_worker;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO api_worker;
+
+-- Link the role to the PostgREST authenticator
+GRANT api_worker TO authenticator;
 ```
 
-### Role-based access with tokens
+Adjust the granted privileges to match what each role should be able to do. A role with
+`SELECT` only can read data, while a leaked token for that role can't modify it.
 
-To run requests with a specific role, include a `role` claim in the token, set to the name
-of a PostgreSQL role:
+### Add the role to your IdP tokens
 
-1. Connect to your database and create a role with the privileges to expose:
+Configure your IdP to include a `role` claim in its tokens, set to the PostgreSQL role name,
+such as `api_worker`. The following example adds the claim in Auth0:
 
-   ```sql
-   CREATE ROLE api_reader NOLOGIN;
-   GRANT USAGE ON SCHEMA public TO api_reader;
-   GRANT SELECT, INSERT ON products TO api_reader;
+1. In Auth0, go to **Actions** > **Library**, then click **Create Action** >
+   **Build from Scratch**.
+1. Name the action, set the trigger to **Machine to Machine**, and add the following code:
+
+   ```javascript
+   exports.onExecuteCredentialsExchange = async (event, api) => {
+     // Replace 'api_worker' with the name of your PostgreSQL role
+     api.accessToken.setCustomClaim('role', 'api_worker');
+   };
    ```
 
-1. Configure your IdP to include a `role` claim in its tokens, set to the role name, such as
-   `api_reader`.
+1. Click **Save Draft**, then **Deploy**.
+1. Go to **Actions** > **Triggers**, click **Credentials Exchange**, and add the action to
+   the flow between **Start** and **Complete**.
+1. Click **Apply**.
 
-When a request includes a token with the `role` claim, the REST API runs the query with that
-role. A request with the `api_reader` role can read and insert rows in `products`, but a
-delete returns an error because the role lacks the `DELETE` privilege.
+When requesting a token, include the audience parameter so the IdP issues a token valid for
+Data API.
 
 :::tip
 Grant each role only the privileges it needs. The token controls which role runs the query,
