@@ -57,7 +57,8 @@ The Free tier is available for the following service types:
 - Aiven for PostgreSQL®
 - Aiven for Valkey™
 
-You don't need a credit card to sign up and you can use them indefinitely free of charge.
+You don't need a credit card to create a free service
+and you can use them indefinitely free of charge.
 
 <FreeTierDisclaimer/>
 You can run free services alongside a [free 30-day trial](#free-trials)
