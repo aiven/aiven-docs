@@ -42,16 +42,6 @@ To view all assets ingested by a connector:
 1. In your DataHub service, click <ConsoleLabel name="datahubconnectors"/>.
 1. Find the connector and click <ConsoleLabel name="actions"/> > **View details**.
 
-## Change connector assets
-
-To change the assets ingested by a connector:
-
-1. In your DataHub service, click <ConsoleLabel name="datahubconnectors"/>.
-1. Find the connector and click <ConsoleLabel name="actions"/> > **View details**.
-1. Click **Change assets**.
-1. Add or remove assets.
-1. Click **Next** and **Add**.
-
 ## Remove an Aiven service connector
 
 To remove an Aiven service connector:
