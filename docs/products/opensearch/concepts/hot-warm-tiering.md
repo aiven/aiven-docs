@@ -46,7 +46,7 @@ graph LR
 
 ## Dynamic Disk Sizing
 
-[Dynamic Disk Sizing](/docs/platform/concepts/dynamic-disk-sizing) is tier-aware for tiered
+[Dynamic Disk Sizing](/docs/platform/howto/add-storage-space) is tier-aware for tiered
 plans. You can add disk capacity to hot nodes and warm nodes independently without affecting
 the other group.
 
@@ -66,4 +66,4 @@ supported.
 - [Manage hot/warm data tiering](/docs/products/opensearch/howto/hot-warm-tiering)
 - [Dedicated node roles in Aiven for OpenSearch®](/docs/products/opensearch/concepts/dedicated-node-roles)
 - [Index State Management policies](/docs/products/opensearch/howto/migrate-ism-policies)
-- [Dynamic Disk Sizing](/docs/platform/concepts/dynamic-disk-sizing)
+- [Dynamic Disk Sizing](/docs/platform/howto/add-storage-space)
