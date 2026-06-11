@@ -2007,7 +2007,7 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Data APIs',
+                  label: 'Data API',
                   link: {
                     type: 'doc',
                     id: 'products/postgresql/howto/data-apis/index',

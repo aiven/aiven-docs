@@ -1,28 +1,28 @@
 ---
-title: Data APIs for Aiven for PostgreSQL®
-sidebar_label: Data APIs
-keywords: ["REST API", "PostgREST", "Data APIs", "REST endpoints", "JWT", "JWKS", "identity provider"]
+title: Data API for Aiven for PostgreSQL®
+sidebar_label: Data API
+keywords: ["Data API", "REST API", "PostgREST", "REST endpoints", "JWT", "JWKS", "identity provider", "API key"]
 limited: true
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import DocCardList from "@theme/DocCardList";
 
-Data APIs expose the tables in your Aiven for PostgreSQL® database as secure REST endpoints, without backend code.
+Data API turns your Aiven for PostgreSQL® database into a backend by exposing its tables as secure REST endpoints, without backend code.
 
 :::note
-Data APIs is a <LimitedBadge/> feature.
+Data API is a <LimitedBadge/> feature.
 To request access, [contact Aiven](https://aiven.io/contact).
 :::
 
-Data APIs appears as **REST API** in your service menu, next to PG Studio.
-The feature is powered by [PostgREST](https://postgrest.org), which generates a RESTful
-API directly from your database schema. When your schema changes, the endpoints update to
-match it.
+Data API appears under the **Data** section of your service's left sidebar in the Aiven
+Console. It auto-generates an API directly from your database schema, powered by
+[PostgREST](https://postgrest.org). When your schema changes, the endpoints update to match
+it.
 
-## What Data APIs offers
+## What Data API offers
 
-Data APIs provides the following:
+Data API provides the following:
 
 - **Instant REST endpoints**: Expose a database as REST endpoints from the Aiven Console,
   without writing or hosting an API server.
@@ -30,27 +30,28 @@ Data APIs provides the following:
   and `DELETE` methods, based on your database schema.
 - **Ready-to-use code snippets**: Copy `curl`, JavaScript, or Python snippets for each
   endpoint.
-- **Authentication with your own identity provider**: Verify requests against the JSON Web
-  Tokens (JWTs) issued by your identity provider (IdP).
+- **Flexible authentication**: Authenticate requests with an API key from the Aiven
+  Console, or with the JSON Web Tokens (JWTs) issued by your own identity provider (IdP).
 - **Authorization with PostgreSQL roles**: Control access with standard PostgreSQL roles
   and table privileges.
 
 ## How it works
 
-When you enable Data APIs for a database, Aiven deploys a managed application that runs
+When you enable Data API for a database, Aiven deploys a managed application that runs
 PostgREST alongside your service and connects it to the selected database. PostgREST reads
 the database schema and publishes a REST endpoint for each table in the `public` schema.
-Clients call these endpoints over HTTPS and authenticate with a JWT issued by your IdP.
+Clients call these endpoints over HTTPS and authenticate with a bearer token.
 
 Each database that you expose runs as an independent application with its own status and
-base URL. You can enable Data APIs for more than one database in the same service.
+base URL. You can enable Data API for more than one database in the same service.
 
 ## Limitations
 
 - The Aiven for PostgreSQL service must run inside a
   [VPC](/docs/platform/concepts/vpcs).
-- Each REST API serves one database. To expose more databases, enable Data APIs for each
-  one separately.
+- Data API must be available for your service's plan and cloud.
+- Each Data API serves one database. To expose more databases, enable Data API for each one
+  separately.
 
 ## Related pages
 
