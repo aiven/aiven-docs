@@ -74,7 +74,7 @@ for each service available on the Free tier:
 - [Aiven for Valkey™ free tier](/docs/products/valkey/concepts/valkey-free-tier)
 
 You can upgrade your free service to a paid plan at any time by adding
-a payment method to the project's billing group or by starting a free trial.
+a payment method to the project's billing group.
 To upgrade a free service:
 
 1. Go to the service **Overview** page.
@@ -180,7 +180,7 @@ or visible to Aiven, so they cannot be included in the prices or waived.
 Aiven offers a free trial for 30 days with $300 USD of credits to explore
 the Aiven Platform. You don't need a credit card to sign up. You can use trial credits
 for any paid services and paid features like virtual private cloud peering. The trial
-starts when you create a service on any paid tier.
+starts when you create your Aiven user account.
 
 Trials include:
 
