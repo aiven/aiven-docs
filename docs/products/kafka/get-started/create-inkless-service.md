@@ -19,7 +19,7 @@ Create an Inkless Apache Kafka® service on Aiven Cloud or using Bring Your Own 
 ## Create an Inkless service on Aiven Cloud
 
 Inkless services are available on the Professional tier. On Aiven Cloud, configure the
-service by selecting ingress capacity and retention. Inkless runs on Amazon Web
+service by selecting stream load and retention. Inkless runs on Amazon Web
 Services (AWS), Google Cloud, and Microsoft Azure.
 
 <Tabs groupId="inkless-aiven-cloud">
@@ -33,9 +33,11 @@ Services (AWS), Google Cloud, and Microsoft Azure.
 1. In **Cluster type**, select **Inkless**.
 1. In **Deployment mode**, select **Aiven cloud**.
 1. Under **Cloud**, select **AWS**, **Google**, or **Azure**, then choose a region.
-1. Select the **Ingress capacity** for the service.
-1. Optional: Enable **Diskless topics**. You can enable diskless topics later in
-   <ConsoleLabel name="service settings" /> > **Advanced configuration**.
+1. In **Stream load**, select the expected traffic for the service.
+   For custom stream load, set the maximum ingress and egress.
+1. Optional: Enable **Diskless topics** if the option is shown. You can enable
+   diskless topics later in <ConsoleLabel name="service settings" /> >
+   **Advanced configuration**.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the service name after
@@ -128,11 +130,11 @@ You can also enable diskless topics later in the service configuration.
 Before you create an Inkless Kafka service, review the estimated monthly cost in the
 **Service summary** panel.
 
-The estimate is based on your selected plan, cloud and region, ingress capacity, and
+The estimate is based on your selected plan, cloud and region, expected traffic, and
 retention.
 
 For Inkless Kafka services with network pricing, the estimate includes compute, storage,
-and network usage. Network usage is estimated from the expected data produced to and
+and network usage. Network usage is estimated from expected data produced to and
 consumed from Kafka topics.
 
 For more information, see
@@ -143,8 +145,8 @@ The estimated monthly cost is based on your selected configuration and 730 hours
 usage per month. Your final cost depends on actual usage during the billing period.
 :::
 
-After you create a service with usage-based pricing, view actual usage, accrued spend,
-and projected monthly cost in **Overview** > **Service utilization**.
+After you create a service with usage-based pricing, view usage and costs in
+**Overview** > **Service utilization**.
 
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
