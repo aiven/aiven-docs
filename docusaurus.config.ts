@@ -1,5 +1,5 @@
 import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import type {Config, PluginConfig} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -9,6 +9,22 @@ const isJune = currentMonth === 5;
 
 const baseUrl = process.env.BASEURL || '/docs/';
 const llmsTxtUrl = `${baseUrl.replace(/\/$/, '')}/llms.txt`;
+
+const posthogPlugin: PluginConfig = process.env.POSTHOG_PUBLIC_KEY
+  ? [
+      'posthog-docusaurus',
+      {
+        apiKey: process.env.POSTHOG_PUBLIC_KEY,
+        appUrl: 'https://eu.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_heatmaps: false,
+        disable_session_recording: true,
+        opt_out_capturing_by_default: true,
+      },
+    ]
+  : null;
 
 const config: Config = {
   // Testing faster build
@@ -183,19 +199,7 @@ const config: Config = {
   plugins: [
     './src/plugins/svg-fix/index.ts',
     'docusaurus-plugin-image-zoom',
-    [
-      'posthog-docusaurus',
-      {
-        apiKey: process.env.POSTHOG_PUBLIC_KEY,
-        appUrl: 'https://eu.i.posthog.com',
-        autocapture: false,
-        capture_pageview: false,
-        capture_pageleave: false,
-        capture_heatmaps: false,
-        disable_session_recording: true,
-        opt_out_capturing_by_default: true,
-      },
-    ],
+    posthogPlugin,
     [
       '@signalwire/docusaurus-plugin-llms-txt',
       {
