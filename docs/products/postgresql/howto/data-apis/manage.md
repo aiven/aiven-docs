@@ -1,63 +1,60 @@
 ---
-title: Manage Data APIs
-sidebar_label: Manage Data APIs
-description: Check status, expose more databases, and turn off a REST API.
+title: Manage Data API
+sidebar_label: Manage Data API
+description: Check status, expose more databases, and turn off the Data API.
 ---
 
-After you enable Data APIs, you can monitor each REST API, expose more databases, and turn off an API you no longer need.
+After you enable Data API, you can monitor it, expose more databases, and turn it off for a database you no longer need.
 
-To manage your REST APIs, open your Aiven for PostgreSQL® service in the
-[Aiven Console](https://console.aiven.io/login) and click **REST API**.
+To manage Data API, open your Aiven for PostgreSQL® service in the
+[Aiven Console](https://console.aiven.io/login) and click **Data** > **Data API**.
 
-## Check the status of a REST API
+## Check the status
 
-Each database that you expose runs as an independent application with its own status. Select
-the database in **Target database** to see its status:
+Each database that you expose runs as an independent application with its own status:
 
-- **Deploying**: The application is deploying or applying a change. You can preview the
-  endpoints, but requests might not succeed.
+- **Building**: The application is deploying or applying a change. Setup and requests might
+  not succeed yet.
 - **Running**: The application is healthy and serving requests.
 - **Error**: The deployment failed. For next steps, see [Troubleshooting](#troubleshooting).
 
 ## Expose more databases
 
-A REST API serves one database. To expose another database in the same service:
+A Data API serves one database. To expose another database in the same service, select it in
+the **Database** list and set up Data API for it. Each database keeps its own status, API
+URL, and authentication settings.
 
-1. Click **+ Add database**.
-1. Select an available database.
-1. Click **Enable**.
+## Rotate credentials
 
-Each database keeps its own status, base URL, and authentication settings.
+- **API key**: Regenerate the key from **Connection info**. Regenerating invalidates the
+  previous key, so update any clients that use it.
+- **Identity provider keys**: Key rotation is automatic. Data API reads your IdP's public
+  keys from the JWKS URL and picks up rotated keys from the same URL. For more information,
+  see [Configure the JWKS URL](/docs/products/postgresql/howto/data-apis/authentication#configure-the-jwks-url).
 
-## Rotate signing keys
+## Turn off Data API
 
-Key rotation is automatic. The REST API reads your identity provider's public keys from the
-JWKS URL, so it picks up rotated keys from the same URL without any change in the Aiven
-Console. For more information, see
-[Configure the JWKS URL](/docs/products/postgresql/howto/data-apis/authentication#configure-the-jwks-url).
-
-## Turn off a REST API
-
-Turn off a REST API to stop serving endpoints for a database:
-
-1. In **Target database**, select the database with the REST API to turn off.
-1. Click the disable icon (**Disable REST API for this database**).
-
-The endpoints stop responding after the application is removed. Turning off a REST API
-doesn't change the data in your database.
+Turn off Data API to stop serving endpoints for a database. Select the database, then turn
+off its Data API. The endpoints stop responding after the application is removed. Turning off
+Data API doesn't change the data in your database.
 
 ## Troubleshooting
 
-### The service is not in a VPC
+### Data API is not available for the service
 
-Data APIs can only be deployed for an Aiven for PostgreSQL service that runs inside a
-[VPC](/docs/platform/concepts/vpcs). If the service isn't in a VPC, the Aiven Console reports
-the requirement before deployment. Move the service to a VPC, then enable the REST API. For
-more information, see [Manage project VPCs](/docs/platform/howto/manage-project-vpc).
+Data API must be available for your service's plan and cloud. If it isn't, the Aiven Console
+shows **The Data API is not available for your service**. Data API also requires the service
+to run inside a [VPC](/docs/platform/concepts/vpcs). For more information, see
+[Manage project VPCs](/docs/platform/howto/manage-project-vpc).
 
-### The deployment fails or times out
+### The service is still building
 
-If the application can't be deployed, the status changes to **Error**. The deployment also
-stops if it doesn't complete within 30 minutes. Turn off the REST API, confirm that the
-service meets the [prerequisites](/docs/products/postgresql/howto/data-apis/get-started#prerequisites),
-and enable it again.
+Setup is unavailable while the service is building. Wait until the service is **Running**,
+then enable Data API.
+
+### The deployment fails
+
+If the application can't be deployed, the status changes to **Error**. Turn off Data API,
+confirm that the service meets the
+[prerequisites](/docs/products/postgresql/howto/data-apis/get-started#prerequisites), and
+enable it again.
