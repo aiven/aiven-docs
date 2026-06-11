@@ -55,17 +55,17 @@ usage and cost information.
 To review usage and costs, open the service and go to **Overview** >
 **Service utilization**. You can review:
 
-- Current billing period usage
-- Accrued spend
-- Projected monthly cost
+- Ingress capacity and usage
+- Egress capacity and usage
+- Ingress spend
+- Egress spend
 - Data produced to topics
 - Data consumed from topics
+- Predicted usage for the billing period
 
 Where available, network usage is shown separately for Classic topics and Diskless
-topics.
-
-The projected monthly cost is an estimate based on current usage. It can change during
-the billing period as workload patterns change.
+topics. Predicted usage estimates future usage for the billing period based on recent
+usage patterns. The estimate can change as new usage data is processed.
 
 ## Cost drivers
 
@@ -73,8 +73,10 @@ The following factors affect your estimated or actual cost:
 
 - **Service plan**: Determines the compute rate.
 - **Cloud and region**: Prices vary by region.
-- **Topic type**: Classic topics and Diskless topics have different network rates.
-  For current rates, see the [Aiven pricing page](https://aiven.io/pricing).
+- **Topic type**: Classic topics and Diskless topics can have different ingress and
+  egress rates. For current rates, see the [Aiven pricing page](https://aiven.io/pricing).
+- **Traffic split**: The share of traffic that uses Classic topics or Diskless topics
+  affects network usage costs.
 - **Data produced**: Higher ingress can increase network usage costs, depending on
   the topic type.
 - **Data consumed**: More consumer groups, repeated reads, or retries can increase
