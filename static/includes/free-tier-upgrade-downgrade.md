@@ -1,5 +1,5 @@
 You can upgrade your free service to a paid plan at any time by adding
-a payment method to the project's billing group or by starting a free trial.
+a payment method to the project's billing group.
 To upgrade a free service:
 
 1. Go to the service **Overview** page.

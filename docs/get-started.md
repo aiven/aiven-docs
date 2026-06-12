@@ -31,7 +31,7 @@ Aiven Operator for Kubernetes®.
 
 ## Try the Aiven Platform for free
 
-Sign up for a free trial to explore the Aiven Platform and try out our services.
+Sign up for a free trial to explore the Aiven Platform and try Aiven's managed services.
 
 Aiven services are also available on the AWS, Azure, and Google Cloud marketplaces.
 

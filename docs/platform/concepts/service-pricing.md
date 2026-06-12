@@ -57,7 +57,8 @@ The Free tier is available for the following service types:
 - [Aiven for PostgreSQL®](/docs/products/postgresql/concepts/pg-free-tier)
 - [Aiven for Valkey™](/docs/products/valkey/concepts/valkey-free-tier)
 
-You don't need a credit card to sign up and you can use them indefinitely free of charge.
+You don't need a credit card to create a free service
+and you can use them indefinitely free of charge.
 
 <FreeTierDisclaimer/>
 
@@ -157,7 +158,7 @@ or visible to Aiven, so they cannot be included in the prices or waived.
 Aiven offers a free trial for 30 days with $300 USD of credits to explore
 the Aiven Platform. You don't need a credit card to sign up. You can use trial credits
 for any paid services and paid features like virtual private cloud peering. The trial
-starts when you create a service on any paid tier.
+starts when you create your Aiven user account.
 
 Trials include:
 
