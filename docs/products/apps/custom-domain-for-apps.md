@@ -31,7 +31,7 @@ app hostname.
 1. Click **Create application** > **Worker**. You can also use an existing
    Worker or deploy with [Wrangler](https://developers.cloudflare.com/workers/wrangler/).
 
-1. Configure the Worker. The following example forwards requests to the
+1. Configure the Worker. The following example forwards requests to
   an Aiven App host while preserving the original request method, body, and headers:
 
    ```js
