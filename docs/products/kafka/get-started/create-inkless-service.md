@@ -145,13 +145,14 @@ The estimated monthly cost is based on your selected configuration and 730 hours
 usage per month. Your final cost depends on actual usage during the billing period.
 :::
 
-After you create a service with usage-based pricing, view usage and costs in
+After you create a service with usage-based pricing, view usage in
 **Overview** > **Service utilization**.
 
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
 You can run Inkless Kafka clusters in your own cloud account using
-Bring Your Own Cloud (BYOC). Inkless on BYOC supports classic and diskless topics.
+Bring Your Own Cloud (BYOC). Inkless on BYOC supports Classic topics and Diskless
+topics.
 
 Before creating services on BYOC, configure a BYOC environment.
 For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
@@ -180,8 +181,8 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 
 Create an Inkless Kafka service in a BYOC environment:
 
-1. List available Kafka plans for your BYOC cloud and region. Plans that support Inkless
-   end with `-inkless`.
+1. List available Kafka plans for your BYOC cloud and region, and select a plan that
+   supports Inkless services.
 
    ```bash
    avn service plans --service-type kafka --cloud CUSTOM_CLOUD_REGION
