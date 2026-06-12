@@ -535,7 +535,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/kafka/inkless-overview',
-            'products/kafka/get-started/network-pricing',
             {
               type: 'category',
               label: 'Get started',
@@ -627,6 +626,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/diskless/concepts/limitations',
                   ],
                 },
+                'products/kafka/concepts/network-pricing',
                 {
                   type: 'category',
                   label: 'Tiered storage',
