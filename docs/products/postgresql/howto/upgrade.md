@@ -107,5 +107,6 @@ available.
 
 <RelatedPages/>
 
+- [Control maintenance updates with upgrade pipelines](/docs/platform/howto/controlled-upgrade)
 - [Service maintenance](/docs/platform/concepts/maintenance-window)
 - [Upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)

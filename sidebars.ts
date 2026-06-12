@@ -2130,6 +2130,7 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/maintenance-window',
           ],
         },
+        'platform/howto/controlled-upgrade',
         {
           type: 'category',
           label: 'Backup and restore',
