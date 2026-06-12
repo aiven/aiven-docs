@@ -5,7 +5,7 @@ sidebar_label: Configure backups
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
-import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
+import EditBackUpSchedule from "@site/static/includes/service-backups-instructions.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -34,64 +34,12 @@ for your Aiven for ClickHouse® service.
 A backup process can only start when the previous backup process completes.
 :::
 
-<Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
-
 <EditBackUpSchedule/>
-
-</TabItem>
-<TabItem value="api" label="Aiven API">
-Call the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-endpoint, and add property assignments in the `user_config` object:
-
-```bash{7-8}
-curl --request PUT                                                        \
-  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME \
-  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                      \
-  --header 'content-type: application/json'                               \
-  --data '{
-      "user_config": {
-          "backup_hour": BACKUP_HOUR,
-          "backup_minute": BACKUP_MINUTE
-      }
-  }'
-```
-
-Replace the following placeholders with meaningful values:
-
-- `SERVICE_NAME`: the name of your service
-- `PROJECT_NAME`: the name of your project
-- `BACKUP_HOUR`: the hour when the service backup is started, an integer from `0` to `23`
-- `BACKUP_MINUTE`: the minute when the service backup is started, an integer from `0` to `59`
-
-</TabItem>
-<TabItem value="cli" label="Aiven CLI">
-Run the [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update) command,
-and add property assignments in the `user_config` object:
-
-```bash{4-5}
-avn service update SERVICE_NAME \
-  --project PROJECT_NAME        \
-  --user-config '{
-      "backup_hour": BACKUP_HOUR,
-      "backup_minute": BACKUP_MINUTE
-  }'
-```
-
-Replace the following placeholders with meaningful values:
-
-- `SERVICE_NAME`: the name of your service
-- `PROJECT_NAME`: the name of your project
-- `BACKUP_HOUR`: the hour when the service backup is started, an integer from `0` to `23`
-- `BACKUP_MINUTE`: the minute when the service backup is started, an integer from `0` to `59`
-
-</TabItem>
-</Tabs>
 
 ## Restore defaults
 
 <Tabs groupId="group1">
-<TabItem value="gui" label="Aiven Console" default>
+<TabItem value="console" label="Console" default>
 The [Aiven Console](https://console.aiven.io) doesn't support restoring defaults. Use
 the Aiven [API](/docs/tools/api) or [CLI](/docs/tools/cli).
 </TabItem>

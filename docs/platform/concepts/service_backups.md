@@ -5,7 +5,6 @@ title: Service backups
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import EditBackUpSchedule from "@site/static/includes/edit-backup-schedule.md";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
-import Variables from "@site/static/variables.json";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -56,7 +55,7 @@ To view a service's backups in the Aiven Console:
 ## Backup deletion and service recovery
 
 A service's backups are automatically deleted
-<strong>{Variables.backup_policy} days</strong> after the service's deletion date.
+30 days after the service's deletion date.
 
 To recover a service, contact [Aiven support](mailto:support@aiven.io). Recovering
 a service might incur an additional cost.
