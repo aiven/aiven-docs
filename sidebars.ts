@@ -1532,7 +1532,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Manage service',
+              label: 'Service management',
               items: [
                 'products/mysql/howto/manage-mysql-version',
                 {
@@ -1548,11 +1548,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Manage cluster and replication',
-              link: {
-                type: 'doc',
-                id: 'products/mysql/howto/list-manage-cluster',
-              },
+              label: 'High availability and  disaster recovery',
               items: [
                 'products/mysql/concepts/high-availability',
                 'products/mysql/concepts/mysql-replication',
