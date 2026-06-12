@@ -44,7 +44,7 @@ Services (AWS), Google Cloud, and Microsoft Azure.
      creation.
    - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
      organize your services.
-1. Review the **Cost estimation** in the **Service summary** panel, then click
+1. Review the cost estimate in the **Service summary** panel, then click
    **Create service**.
 
 </TabItem>
@@ -151,7 +151,7 @@ After you create a service with usage-based pricing, view usage in
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
 You can run Inkless Kafka clusters in your own cloud account using
-Bring Your Own Cloud (BYOC). Inkless on BYOC supports Classic topics and Diskless
+Bring Your Own Cloud (BYOC). Inkless on BYOC supports classic topics and diskless
 topics.
 
 Before creating services on BYOC, configure a BYOC environment.
