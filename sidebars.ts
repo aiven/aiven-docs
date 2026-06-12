@@ -1546,6 +1546,7 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
+            'products/mysql/howto/list-manage-cluster',
             {
               type: 'category',
               label: 'High availability and  disaster recovery',
