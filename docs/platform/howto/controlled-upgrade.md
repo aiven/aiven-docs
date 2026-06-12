@@ -513,6 +513,7 @@ Create a pipeline that promotes updates from development to staging to productio
      --organization-id ORGANIZATION_ID \
      --source-project dev-project \
      --destination-project staging-project \
+     --auto-validation-delay-days 3 \
      pg-dev pg-staging
    ```
 
@@ -523,6 +524,7 @@ Create a pipeline that promotes updates from development to staging to productio
      --organization-id ORGANIZATION_ID \
      --source-project staging-project \
      --destination-project prod-project \
+     --auto-validation-delay-days 7 \
      pg-staging pg-prod
    ```
 
