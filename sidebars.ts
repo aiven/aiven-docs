@@ -2128,7 +2128,6 @@ const sidebars: SidebarsConfig = {
             'platform/concepts/service-memory-limits',
             'platform/concepts/out-of-memory-conditions',
             'platform/concepts/maintenance-window',
-            'platform/howto/custom-plans',
           ],
         },
         {

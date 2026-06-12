@@ -59,6 +59,7 @@
 /platform/howto/cleanup-powered-off-services           /docs/platform/concepts/service-power-cycle  301
 /platform/howto/console-fork-service                   /docs/platform/concepts/service-forking  301
 /platform/howto/create-billing-groups                  /docs/platform/howto/use-billing-groups  301
+/platform/howto/custom-plans                           /docs/platform/concepts/service-pricing  301
 /platform/howto/download-ca-cert                       /docs/platform/concepts/tls-ssl-certificates  301
 /platform/howto/enable-aiven-password                  /docs/platform/reference/password-policy  301
 /platform/howto/list-account                           /docs/platform/howto/list-user  301
