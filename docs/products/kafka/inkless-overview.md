@@ -26,14 +26,15 @@ Inkless changes how Kafka services store and manage data:
 
 ## Billing and cost
 
-Inkless uses object storage and network traffic differently from Classic Kafka.
+Diskless topics store retained data directly in object storage. Aiven manages the
+internal service components that Inkless requires and does not bill them separately.
 
-- **Diskless topics** store retained data directly in object storage.
-- **Internal service components** required for Inkless operation are fully managed by
-  Aiven and are not billed separately.
+For eligible Inkless services, Aiven bills compute, storage, and network usage as
+separate components. Billing also depends on the deployment model, selected service
+plan, and actual usage.
 
-Billing depends on the deployment model (Aiven Cloud or Bring Your Own Cloud), the
-selected service capacity, and actual storage and network usage.
+For more information about how network usage is measured and priced, see
+[Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
 
 ## When to use Inkless
 
@@ -55,4 +56,5 @@ Kafka service with Inkless as the cluster type.
 <RelatedPages />
 
 - [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service)
+- [Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

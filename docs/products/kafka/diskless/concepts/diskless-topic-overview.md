@@ -72,6 +72,8 @@ This allows you to:
 
 For a detailed comparison, see [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
 
+For information about how compute, storage, and network usage are billed for eligible
+Inkless Kafka services, see [Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
 
 <RelatedPages/>
 

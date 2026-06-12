@@ -580,6 +580,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/log-compaction',
                     'products/kafka/concepts/kraft-mode',
                     'products/kafka/concepts/kafka-rest-api',
+                    'products/kafka/concepts/network-pricing',
                   ],
                 },
                 'products/kafka/inkless-overview',
