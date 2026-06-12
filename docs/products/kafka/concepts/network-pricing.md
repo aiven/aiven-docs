@@ -7,10 +7,10 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 For eligible Inkless Kafka services, Aiven bills compute, storage, and network usage as
 separate components. Instead of including assumed network usage in the compute price,
-network usage is priced separately based on actual traffic through your Kafka topics.
+network usage is priced separately based on traffic through your Kafka topics.
 
-This shows how your service capacity, retained data, and topic traffic
-contribute to your monthly cost.
+This shows how service capacity, retained data, and topic traffic contribute to your
+monthly cost.
 
 Network pricing is enabled at the organization level and shown in the
 [Aiven Console](https://console.aiven.io) where available. It does not apply to Classic
@@ -34,9 +34,21 @@ Network usage is measured separately for each topic type. Ingress and egress can
 different rates depending on whether the traffic is for Classic topics or Diskless
 topics.
 
-Consumed data can be higher than produced data. Each consumer group that reads from a
-topic generates egress. Repeated reads, retries, and multiple consumer groups can
-increase total consumed data.
+Measured ingress and egress can be higher than the payload data your application sends
+and receives. Kafka protocol overhead, including record headers, message framing, and
+retries, can affect measured traffic, as can client batching behavior.
+
+### Why egress and ingress differ
+
+Ingress and egress are measured independently, so your egress total does not need to
+match your ingress total. Egress depends on how data is consumed. Reading the same data
+with multiple consumer groups, repeated reads, retries, or client reconnections can
+increase egress.
+
+Your client library and client configuration can also affect egress. For example, a
+client that fetches the same data more than once, uses small fetches, or reconnects
+frequently can generate more consumed data than expected. This traffic is measured as
+egress because it is data sent from the Kafka service to the client.
 
 ## Cost estimates
 
@@ -47,25 +59,23 @@ depends on actual usage during the billing period.
 For instructions, see
 [Review the cost estimate](/docs/products/kafka/get-started/create-inkless-service#review-the-cost-estimate).
 
-## View usage and costs
+## View usage
 
 For services with network pricing, the [Aiven Console](https://console.aiven.io) shows
-usage and cost information.
+usage information for the current billing period.
 
-To review usage and costs, open the service and go to **Overview** >
+To review usage, open the service and go to **Overview** >
 **Service utilization**. You can review:
 
-- Ingress capacity and usage
-- Egress capacity and usage
-- Ingress spend
-- Egress spend
-- Data produced to topics
-- Data consumed from topics
+- Ingress and egress usage
+- Usage split by Classic topics and Diskless topics
+- Storage usage
 - Predicted usage for the billing period
 
-Where available, network usage is shown separately for Classic topics and Diskless
-topics. Predicted usage estimates future usage for the billing period based on recent
-usage patterns. The estimate can change as new usage data is processed.
+Network usage is shown separately for Classic topics and Diskless topics where
+available. Predicted usage estimates future usage for the billing period based on
+recent usage patterns. Usage information shown during the billing period can change as
+new usage data is processed.
 
 ## Cost drivers
 
@@ -73,14 +83,15 @@ The following factors affect your estimated or actual cost:
 
 - **Service plan**: Determines the compute rate.
 - **Cloud and region**: Prices vary by region.
-- **Topic type**: Classic topics and Diskless topics can have different ingress and
-  egress rates. For current rates, see the [Aiven pricing page](https://aiven.io/pricing).
+- **Topic type**: Classic topics and Diskless topics have different ingress and
+  egress rates. For current network pricing rates, see the
+  [Aiven pricing page](https://aiven.io/pricing).
 - **Traffic split**: The share of traffic that uses Classic topics or Diskless topics
   affects network usage costs.
 - **Data produced**: Higher ingress can increase network usage costs, depending on
   the topic type.
-- **Data consumed**: More consumer groups, repeated reads, or retries can increase
-  egress.
+- **Data consumed**: More consumer groups, repeated reads, retries, client
+  reconnections, or client configuration can increase egress.
 - **Retention period**: Longer retention or higher ingress rates increase storage usage.
 
 ## Manage costs
@@ -90,7 +101,8 @@ To manage costs, review the factors that affect compute, storage, and network us
 - Choose a service plan that matches your workload.
 - Use Diskless topics for suitable workloads.
 - Adjust retention to control storage usage.
-- Review consumer behavior if egress is higher than expected.
+- Review consumer applications and client configuration if egress is higher than
+  expected.
 - Monitor usage during the billing period to identify unexpected changes.
 
 ## Limitations
