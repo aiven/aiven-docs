@@ -177,7 +177,7 @@ curl -X POST https://api.aiven.io/v1/organization/ORGANIZATION_ID/upgrade-pipeli
 <TabItem value="terraform" label="Terraform">
 
 Use the
-[aiven_upgrade_step](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/upgrade_step)
+[`aiven_upgrade_step`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/upgrade_step)
 resource:
 
 ```hcl
