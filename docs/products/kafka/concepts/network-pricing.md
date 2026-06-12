@@ -5,16 +5,16 @@ sidebar_label: Network pricing
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-For eligible Inkless Kafka services, Aiven bills compute, storage, and network usage as
-separate components. Instead of including assumed network usage in the compute price,
-network usage is priced separately based on traffic through your Kafka topics.
+For eligible Inkless Kafka services, billing separates compute, storage, and network usage.
+Instead of including assumed network usage in the compute price, network usage is priced
+separately based on traffic through your Kafka topics.
 
 This shows how service capacity, retained data, and topic traffic contribute to your
 monthly cost.
 
 Network pricing is enabled at the organization level and shown in the
 [Aiven Console](https://console.aiven.io) where available. It does not apply to Classic
-Kafka services or to Free and Developer tier Inkless services.
+Kafka services, including services on Free and Developer tiers.
 
 ## Pricing components
 
