@@ -1,5 +1,5 @@
 ---
-title: Understand MySQL backups
+title: Understand MySQL backups in Aiven
 sidebar_label: Backups
 ---
 
@@ -31,7 +31,9 @@ or COPY as needed.
 All Aiven for MySQL backups use the [myhoard
 software](https://github.com/aiven/myhoard) to perform encryption.
 Myhoard utilizes [Percona XtraBackup](https://www.percona.com/)
-internally for taking a full (or incremental) snapshot of MySQL.
+internally for taking a full
+(or [incremental](/docs/products/mysql/howto/use-incremental-backups))
+snapshot of MySQL.
 
 Since [Percona XtraBackup
 8.0.23](https://jira.percona.com/browse/PXB-1979) the `--lock-ddl`

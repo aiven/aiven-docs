@@ -1,6 +1,6 @@
 ---
 title: MySQL max_connections
-service_label: max_connections
+sidebar_label: max_connections
 ---
 
 The maximum number of simultaneous connections in Aiven for MySQL® depends on [how much RAM your service has](/docs/platform/howto/scale-services).

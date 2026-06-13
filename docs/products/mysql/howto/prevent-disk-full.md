@@ -1,5 +1,6 @@
 ---
 title: Prevent running out of disk space
+sidebar_label: Prevent full disk
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

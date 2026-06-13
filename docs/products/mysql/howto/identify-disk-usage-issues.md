@@ -1,5 +1,6 @@
 ---
 title: Identify disk usage issues
+sidebar_label: Disk usage issues
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

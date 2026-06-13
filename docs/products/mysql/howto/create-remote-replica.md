@@ -1,5 +1,6 @@
 ---
 title: Create Aiven for MySQL® read replicas
+sidebar_label: Create read replica
 ---
 
 import CreateReplica from "@site/static/includes/create-replica-console.md";

@@ -1492,8 +1492,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Get started',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/get-started',
+              },
               items: [
-                'products/mysql/get-started',
                 'products/mysql/concepts/mysql-free-tier',
                 'products/mysql/reference/resource-capability',
               ],
