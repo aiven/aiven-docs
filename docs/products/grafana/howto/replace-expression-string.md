@@ -1,13 +1,14 @@
 ---
-title: Replace strings in Grafana® dashboards
+title: Replace strings in Grafana® dashboard metric expressions
+sidebar_label: Replace strings
 ---
 
-Sometimes, it is useful to replace all occurrences of a string in Grafana® metric expressions.
+Sometimes, it is useful to replace all occurrences of a string in Grafana metric expressions.
 Do it with the `aiven-string-replacer-for-grafana` tool available on
 [GitHub](https://github.com/aiven/aiven-string-replacer-for-grafana).
 
-The approach described will work with your own Grafana® cluster or with
-an Aiven for Grafana® cluster.
+The approach described will work with your own Grafana cluster or with
+an Aiven for Grafana cluster.
 
 ## Prerequisites
 
@@ -39,7 +40,7 @@ dashboards.
 
 To get your API key (`GRAFANA_API_KEY`):
 
--   Go to your Grafana® UI. Select the **Configuration** icon and
+-   Go to your Grafana UI. Select the **Configuration** icon and
     select the **API keys** tab
 
 -   If you already have an appropriate API key available, save a copy of

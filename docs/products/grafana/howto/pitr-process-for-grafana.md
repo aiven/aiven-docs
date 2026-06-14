@@ -1,5 +1,6 @@
 ---
 title: Point-in-time recovery (PITR) process for Aiven for Grafana®
+sidebar_label: Point-in-time recovery
 ---
 
 import ForkService from "@site/static/includes/fork-service-console.md";

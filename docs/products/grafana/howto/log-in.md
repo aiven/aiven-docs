@@ -1,8 +1,9 @@
 ---
 title: Log in to Aiven for Grafana®
+sidebar_label: Log in
 ---
 
-Log in to Aiven for Grafana® to start monitoring your data sources.
+Log in to Aiven for Grafana to start monitoring your data sources.
 
 :::tip
 Your Aiven for OpenSearch® services in the same Aiven project are

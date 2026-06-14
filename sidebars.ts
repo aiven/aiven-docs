@@ -1436,25 +1436,19 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/grafana/howto/list-manage-cluster',
                 'products/grafana/howto/pitr-process-for-grafana',
-                {
-                  type: 'category',
-                  label: 'Performance and tuning',
-                  items: [
-                    'products/grafana/reference/advanced-params',
-                    'products/grafana/reference/plugins',
-                  ],
-                },
+                'products/grafana/howto/send-emails',
+                'products/grafana/reference/advanced-params',
+                'products/grafana/reference/plugins',
               ],
             },
+            'products/grafana/howto/list-manage-cluster',
             {
               type: 'category',
               label: 'Manage dashboards',
               items: [
                 'products/grafana/howto/dashboard-previews',
                 'products/grafana/howto/replace-expression-string',
-                'products/grafana/howto/send-emails',
               ],
             },
             {

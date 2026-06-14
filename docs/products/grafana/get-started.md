@@ -11,7 +11,7 @@ import TerraformPrereqs from "@site/static/includes/terraform-get-started-prereq
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-To start using Aiven for Grafana®, the first step is to create a service. You can do this in the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).
+To start using Aiven for Grafana, the first step is to create a service. You can do this in the [Aiven Console](https://console.aiven.io/) or with the [Aiven CLI](https://github.com/aiven/aiven-client).
 
 ## Create an Aiven for Grafana service
 

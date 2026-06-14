@@ -1,8 +1,9 @@
 ---
 title: Plugins for Aiven for Grafana®
+sidebar_label: Plugins
 ---
 
-Aiven for Grafana® includes several pre-installed plugins, updated regularly to ensure optimal performance.
+Aiven for Grafana includes several pre-installed plugins, updated regularly to ensure optimal performance.
 For additional plugin requests, contact [Aiven support](mailto:support@aiven.io).
 
 ## Panel plugins
@@ -41,7 +42,7 @@ For additional plugin requests, contact [Aiven support](mailto:support@aiven.io)
 
 |              Plugin Name              |                         Description                         |                                                                                        Links                                                                                        |
 |---------------------------------------|-------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Altinity plugin for ClickHouse®       | Integrates ClickHouse® as a backend database                | [GitHub](https://github.com/Altinity/clickhouse-grafana)                                                                                                                            |
+| Altinity plugin for ClickHouse®       | Integrates ClickHouse as a backend database                | [GitHub](https://github.com/Altinity/clickhouse-grafana)                                                                                                                            |
 | Azure Monitor                         | Monitors Azure resources                                    | [Grafana](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource/), [GitHub](https://github.com/grafana/azure-monitor-datasource)                                     |
 | CloudWatch                            | Builds dashboards for CloudWatch metrics                    | [Grafana](https://grafana.com/grafana/plugins/cloudwatch/), [Grafana Docs](https://docs.grafana.org/datasources/cloudwatch/)                                                        |
 | Elasticsearch                         | Visualizes logs or metrics stored in Elasticsearch          | [Grafana](https://grafana.com/grafana/plugins/elasticsearch/), [Grafana Docs](https://docs.grafana.org/datasources/elasticsearch/)                                                  |

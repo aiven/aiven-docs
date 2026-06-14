@@ -1,5 +1,6 @@
 ---
 title: Dashboard preview for Aiven for Grafana®
+sidebar_label: Enable previews
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import ConsoleIcon from "@site/src/components/ConsoleIcons"
@@ -8,12 +9,12 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Grafana's dashboard previews provide a visual overview of your dashboards, displaying each configured dashboard as a graphical thumbnail.
 
 Dashboard previews are an optional beta feature available in Grafana 9.0+. By default,
-this feature is disabled on Aiven for Grafana® services.
+this feature is disabled on Aiven for Grafana services.
 
 ## Enable dashboard previews
 
 1. In the [Aiven Console](https://console.aiven.io/), select your project and choose
-   your Aiven for Grafana® service.
+   your Aiven for Grafana service.
 
 1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
 
