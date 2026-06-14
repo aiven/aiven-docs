@@ -1384,41 +1384,43 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/dragonfly/get-started',
-            'products/dragonfly/concepts/ha-dragonfly',
             {
               type: 'category',
-              label: 'How to',
+              label: 'Connect to service',
+              link: {
+                type: 'doc',
+                id: 'products/dragonfly/howto/list-code-samples',
+              },
               items: [
-                {
-                  type: 'category',
-                  label: 'Connect to Aiven for Dragonfly®',
-                  link: {
-                    type: 'doc',
-                    id: 'products/dragonfly/howto/list-code-samples',
-                  },
-                  items: [
-                    'products/dragonfly/howto/connect-redis-cli',
-                    'products/dragonfly/howto/connect-go',
-                    'products/dragonfly/howto/connect-node',
-                    'products/dragonfly/howto/connect-python',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Data migration',
-                  items: [
-                    'products/dragonfly/howto/migrate-aiven-caching-df-console',
-                    'products/dragonfly/howto/migrate-ext-redis-df-console',
-                  ],
-                },
-                'products/dragonfly/howto/eviction-policy-df',
-                'products/dragonfly/howto/compatibility-redisjson',
+                'products/dragonfly/howto/connect-redis-cli',
+                'products/dragonfly/howto/connect-go',
+                'products/dragonfly/howto/connect-node',
+                'products/dragonfly/howto/connect-python',
               ],
             },
             {
               type: 'category',
-              label: 'Reference',
-              items: ['products/dragonfly/reference/advanced-params'],
+              label: 'Service management',
+              items: [
+                'products/dragonfly/concepts/ha-dragonfly',
+                {
+                  type: 'category',
+                  label: 'Performance and tuning',
+                  items: [
+                    'products/dragonfly/howto/eviction-policy-df',
+                    'products/dragonfly/howto/compatibility-redisjson',
+                    'products/dragonfly/reference/advanced-params',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Storage, backups, and migration',
+              items: [
+                'products/dragonfly/howto/migrate-aiven-caching-df-console',
+                'products/dragonfly/howto/migrate-ext-redis-df-console',
+              ],
             },
           ],
         },
