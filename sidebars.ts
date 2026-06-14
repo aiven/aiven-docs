@@ -1403,20 +1403,14 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/dragonfly/concepts/ha-dragonfly',
-                {
-                  type: 'category',
-                  label: 'Performance and tuning',
-                  items: [
-                    'products/dragonfly/howto/eviction-policy-df',
-                    'products/dragonfly/howto/compatibility-redisjson',
-                    'products/dragonfly/reference/advanced-params',
-                  ],
-                },
+                'products/dragonfly/howto/eviction-policy-df',
+                'products/dragonfly/howto/compatibility-redisjson',
+                'products/dragonfly/reference/advanced-params',
               ],
             },
             {
               type: 'category',
-              label: 'Storage, backups, and migration',
+              label: 'Migrate',
               items: [
                 'products/dragonfly/howto/migrate-aiven-caching-df-console',
                 'products/dragonfly/howto/migrate-ext-redis-df-console',
