@@ -1431,38 +1431,38 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/grafana/get-started',
+            'products/grafana/howto/log-in',
             {
               type: 'category',
-              label: 'How to',
+              label: 'Service management',
               items: [
-                {
-                  type: 'category',
-                  label: 'User access',
-                  items: [
-                    'products/grafana/howto/log-in',
-                    'products/grafana/howto/rotating-grafana-service-credentials',
-                    'products/grafana/howto/oauth-configuration',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Manage dashboards',
-                  items: [
-                    'products/grafana/howto/dashboard-previews',
-                    'products/grafana/howto/replace-expression-string',
-                  ],
-                },
-                'products/grafana/howto/send-emails',
                 'products/grafana/howto/list-manage-cluster',
                 'products/grafana/howto/pitr-process-for-grafana',
+                {
+                  type: 'category',
+                  label: 'Performance and tuning',
+                  items: [
+                    'products/grafana/reference/advanced-params',
+                    'products/grafana/reference/plugins',
+                  ],
+                },
               ],
             },
             {
               type: 'category',
-              label: 'Reference',
+              label: 'Manage dashboards',
               items: [
-                'products/grafana/reference/advanced-params',
-                'products/grafana/reference/plugins',
+                'products/grafana/howto/dashboard-previews',
+                'products/grafana/howto/replace-expression-string',
+                'products/grafana/howto/send-emails',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Security and access',
+              items: [
+                'products/grafana/howto/rotating-grafana-service-credentials',
+                'products/grafana/howto/oauth-configuration',
               ],
             },
           ],
