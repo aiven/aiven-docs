@@ -1,6 +1,6 @@
 ---
-title: Migrate Aiven for Caching or Aiven for Valkey™ to Aiven for Dragonfly
-sidebar_label: Migrate Caching or Valkey to Dragonfly
+title: Migrate from Aiven for Caching or Aiven for Valkey™ to Aiven for Dragonfly
+sidebar_label: From Aiven for Valkey
 ---
 
 import DragonflyLimitations from '@site/static/includes/dragonfly-limitations.md';

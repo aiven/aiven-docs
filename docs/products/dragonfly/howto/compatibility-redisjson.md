@@ -1,5 +1,6 @@
 ---
 title: RedisJSON v2 syntax compatibility
+sidebar_label: RedisJSON compatibility
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

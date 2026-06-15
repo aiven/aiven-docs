@@ -1,6 +1,6 @@
 ---
-title: Migrate external Redis®* or Valkey databases to Aiven for Dragonfly®
-sidebar_label: Migrate external Redis®* or Valkey to Dragonfly
+title: Migrate from external Redis®* or Valkey to Aiven for Dragonfly
+sidebar_label: From external Redis or Valkey
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
