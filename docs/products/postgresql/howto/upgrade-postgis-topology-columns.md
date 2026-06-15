@@ -28,20 +28,17 @@ upgrade fails:
    `integer[]` reads as `ARRAY[1,0]` when interpreted as `bigint[]`.
 1. The CHECK constraint validation fails, which blocks the extension upgrade.
 
-The Aiven pre-flight check (`pg_upgrade_check_tool`) detects these columns and blocks
-the upgrade **before** any changes are made to your service, so the service stays in a
-consistent state. The error message lists the affected databases, schemas, tables, and
-columns, references upstream issue #5983, and directs you to Aiven support. Use this
-procedure to prepare your databases, with support assistance, before you retry the
-upgrade.
-
-### Error symptoms
+The Aiven pre-flight check detects these columns and blocks the upgrade **before** any
+changes are made to your service, so the service stays in a consistent state. The error
+message lists the affected databases, schemas, tables, and columns, references upstream
+issue #5983, and directs you to Aiven support. Use this procedure to prepare your
+databases, with support assistance, before you retry the upgrade.
 
 When the upgrade fails, you might see:
 
 - `CheckViolation` errors during `ALTER EXTENSION postgis_topology UPDATE`.
 - Error messages about invalid topology element references.
-- An extension upgrade blocked with a `UserRequestError` that mentions topology columns.
+- An extension upgrade blocked with an error that mentions topology columns.
 
 ## Detect affected tables
 
