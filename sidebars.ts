@@ -1263,6 +1263,7 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/howto/manage-users-roles',
                 'products/clickhouse/howto/manage-clickhouse-versions',
                 'products/clickhouse/reference/advanced-params',
+                'products/clickhouse/reference/25-8-default-settings',
                 'products/clickhouse/reference/limitations',
               ],
             },
