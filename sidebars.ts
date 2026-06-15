@@ -323,6 +323,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'tools',
         'tools/api',
+        'tools/mcp-server',
         {
           type: 'category',
           label: 'Aiven Provider for Terraform',
@@ -377,7 +378,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'tools/query-optimizer',
-        'tools/mcp-server',
         'tools/doc-diff-llms',
       ],
     },

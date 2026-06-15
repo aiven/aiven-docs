@@ -29,7 +29,7 @@ can sign in and authorize MCP access.
 
 ## Install the Aiven MCP {#configure-aiven-mcp}
 
-<Tabs groupId="aiven-mcp-clients">
+<Tabs>
 <TabItem value="claude-code" label="Claude Code" default>
 
 1. Open a terminal.
@@ -41,42 +41,21 @@ can sign in and authorize MCP access.
      configTemplate={(url) => `claude mcp add --transport http aiven "${url}"`}
    />
 
-1. To verify the server is registered, in Claude Code run `/mcp`. The first time
-   you use the server, your browser opens.
-1. Sign in to Aiven and select your organization.
+1. Run `/mcp` and authenticate in your browser when prompted.
+1. Test the connection with a prompt such as `List my Aiven projects.` and
+   approve the tool execution if prompted.
 
 For more information, see the [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp).
-
-<br />
-
-#### Verify the connection
-
-1. Run `/mcp` in Claude Code to verify the server is registered.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If your client prompts you to allow tool execution, approve the request.
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
 <CursorConfigTab baseUrl={mcpUrl} />
 
+In Cursor Chat (**Cmd+L** / **Ctrl+L**), test the connection with a prompt such
+as `List my Aiven projects.` and click **Allow** if prompted.
+
 For more information, see the [Cursor MCP documentation](https://cursor.com/docs/mcp).
-
-<br />
-
-#### Verify the connection
-
-1. Open Cursor Chat with **Cmd+L** on macOS or **Ctrl+L** on Windows/Linux.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If prompted to allow tool execution, click **Allow**.
-1. To confirm the server is registered, go to **Settings** > **Tools & MCP** and
-   check that **aiven** appears with a connected status.
 
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
@@ -98,20 +77,10 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
    />
 
 1. Save the file and restart Claude Desktop.
+1. In a new conversation, test the connection with a prompt such as
+   `List my Aiven projects.` and click **Allow** if prompted.
 
 For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/docs/develop/connect-local-servers).
-
-<br />
-
-#### Verify the connection
-
-1. Open a new conversation.
-1. Verify that the MCP tools icon appears in the input area.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If prompted to allow tool execution, click **Allow**.
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
@@ -132,25 +101,13 @@ and enabled.
      configTemplate={(url) => ({servers: {aiven: {type: "http", url}}})}
    />
 
-1. Save the file.
-1. Reload VS Code.
-1. Open the Command Palette and run **MCP: List Servers**.
-1. Confirm that **aiven** appears in the list.
+1. Save the file and reload VS Code.
+1. Open the Command Palette, run **MCP: List Servers**, and confirm that
+   **aiven** appears.
+1. In Copilot Chat, test the connection with a prompt such as
+   `List my Aiven projects.` and click **Allow** if prompted.
 
 For more information, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
-
-<br />
-
-#### Verify the connection
-
-1. Open Copilot Chat in VS Code.
-1. Open the Command Palette and run **MCP: List Servers**.
-1. Confirm that **aiven** appears in the list.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If prompted to allow tool execution, click **Allow**.
 
 </TabItem>
 <TabItem value="gemini-cli" label="Gemini CLI">
@@ -164,20 +121,10 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
      configTemplate={(url) => ({mcpServers: {aiven: {httpUrl: url}}})}
    />
 
-1. Save the file.
-1. Run `gemini` to start the CLI.
+1. Save the file and run `gemini` to start the CLI.
 1. Run `/mcp auth aiven` to sign in via your browser.
-1. Run `/mcp list` to confirm the server is connected.
-
-<br />
-
-#### Verify the connection
-
-1. In the Gemini CLI, try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If prompted to allow tool execution, approve the request.
+1. Test the connection with a prompt such as `List my Aiven projects.` and
+   approve the tool execution if prompted.
 
 </TabItem>
 <TabItem value="other" label="Other clients">
@@ -194,20 +141,11 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
    Most clients use a configuration similar to the above.
 
 1. Save the file and restart your client.
+1. In your AI assistant, test the connection with a prompt such as
+   `List my Aiven projects.` and approve the tool execution if prompted.
 
 Some clients require a transport type, such as `"type": "http"`. If the configuration
 fails, see your client documentation.
-
-<br />
-
-#### Verify the connection
-
-1. Open your AI assistant.
-1. Try a prompt such as:
-
-   > List my Aiven projects.
-
-1. If your client prompts you to allow tool execution, approve the request.
 
 </TabItem>
 <TabItem value="local" label="Local installation">
@@ -216,7 +154,7 @@ Run the server locally using `npx` instead of the hosted server. Requires
 an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
 `AIVEN_READ_ONLY="true"` to enable read-only mode.
 
-<Tabs groupId="aiven-mcp-local-clients">
+<Tabs>
 <TabItem value="claude-code" label="Claude Code" default>
 
 1. Open a terminal.
@@ -324,6 +262,21 @@ an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
 
 </TabItem>
 </Tabs>
+
+## What Aiven MCP can do
+
+After you connect to Aiven MCP, you can work with Aiven resources in natural
+language. For example, you can do the following:
+
+- **View resources**: List projects, services, and integrations, or check the
+  status, plan, and cloud region of a service.
+- **Manage services**: Create, update, and delete services such as PostgreSQL®
+  and Apache Kafka®, and update service plans or configuration. To allow write
+  operations, disable [read-only mode](#configure-aiven-mcp).
+- **Inspect and troubleshoot services**: View service metrics, logs, and
+  configuration to investigate issues.
+- **Use Aiven documentation**: Ask questions and get answers based on the Aiven
+  documentation.
 
 ## Security and responsibility
 
