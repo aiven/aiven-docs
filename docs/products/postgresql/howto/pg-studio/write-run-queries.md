@@ -30,12 +30,13 @@ The autocomplete feature helps you write queries faster by suggesting:
 ## Run a single query
 
 :::note
-When working with multiple SQL statements, the editor runs one query at a time. It runs
-the query where your cursor is placed.
+When the editor contains multiple SQL statements and you don't select any text, **Run**
+executes only the statement where your cursor is placed.
 :::
 
-1. In the SQL editor, place your cursor inside the query you want to run.
-1. Click **Run selected** next to the active query.
+1. In the SQL editor, place your cursor inside the query you want to run, without
+   selecting any text.
+1. Click **Run**.
 1. View the results in the results panel.
 
 This is useful for:
@@ -47,9 +48,10 @@ This is useful for:
 
 ## Run multiple queries
 
-You can write several SQL statements in the editor and run them all at once. When you click
-**Run**, PG Studio executes all statements in the current tab sequentially and displays the
-results in separate tabs.
+You can write several SQL statements in the editor and run them all at once. To run all
+statements, select them first. **Run** executes all statements only when they are all
+selected; otherwise it runs only the statement where your cursor is placed. PG Studio runs
+the selected statements sequentially and displays the results in separate tabs.
 
 1. In the SQL editor, write your SQL statements:
 
@@ -58,6 +60,7 @@ results in separate tabs.
    SELECT * FROM users LIMIT 10;
    ```
 
+1. Select all the statements you want to run.
 1. Click **Run**.
 1. View the results in the results panel. When more than one statement runs, each result
    appears in its own tab labeled **Query 1**, **Query 2**, and so on:
