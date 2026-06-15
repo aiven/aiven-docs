@@ -3,22 +3,37 @@ title: Upgrade PostGIS® topology columns to 3.6 or later
 sidebar_label: Upgrade PostGIS topology
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Upgrade PostGIS topology columns manually when an Aiven for PostgreSQL® service has `topology.topoelement` or `topology.topoelementarray` columns and a pre-flight check blocks the upgrade from a PostGIS version earlier than 3.6 to 3.6 or later.
 
-This procedure applies only to services that store topology columns, which is a small subset of PostGIS users. If your databases do not use topology columns, the standard upgrade process applies and no manual steps are required.
+This procedure applies only to services that store topology columns, which is a small
+subset of PostGIS users. If your databases do not use topology columns, the standard
+upgrade process applies and no manual steps are required.
 
 ## Why the upgrade is blocked
 
-PostGIS 3.6.0 introduced a breaking change that affects user tables with `topology.topoelement` or `topology.topoelementarray` columns.
+PostGIS 3.6.0 introduced a breaking change that affects user tables with
+`topology.topoelement` or `topology.topoelementarray` columns.
 
-In PostGIS 3.6.0, the base type of the `topology.topoelement` domain changed from `integer[]` to `bigint[]`. The upgrade script then adds a CHECK constraint that validates all existing data. When user tables store data in these columns, the upgrade fails:
+In PostGIS 3.6.0, the base type of the `topology.topoelement` domain changed from
+`integer[]` to `bigint[]`. The upgrade script then adds a CHECK constraint that
+validates all existing data. When user tables store data in these columns, the
+upgrade fails:
 
 1. Existing data was stored as `integer[]`, using 4-byte integers per element.
-2. After the domain change, PostgreSQL reinterprets the same byte data as `bigint[]`, using 8-byte integers.
-3. Array element access returns incorrect values. For example, `ARRAY[1,2]` stored as `integer[]` reads as `ARRAY[1,0]` when interpreted as `bigint[]`.
-4. The CHECK constraint validation fails, which blocks the extension upgrade.
+1. After the domain change, PostgreSQL reinterprets the same byte data as `bigint[]`,
+   using 8-byte integers.
+1. Array element access returns incorrect values. For example, `ARRAY[1,2]` stored as
+   `integer[]` reads as `ARRAY[1,0]` when interpreted as `bigint[]`.
+1. The CHECK constraint validation fails, which blocks the extension upgrade.
 
-The Aiven pre-flight check (`pg_upgrade_check_tool`) detects these columns and blocks the upgrade **before** any changes are made to your service, so the service stays in a consistent state. The error message lists the affected databases, schemas, tables, and columns, references upstream issue #5983, and directs you to Aiven support. Use this procedure to prepare your databases, with support assistance, before you retry the upgrade.
+The Aiven pre-flight check (`pg_upgrade_check_tool`) detects these columns and blocks
+the upgrade **before** any changes are made to your service, so the service stays in a
+consistent state. The error message lists the affected databases, schemas, tables, and
+columns, references upstream issue #5983, and directs you to Aiven support. Use this
+procedure to prepare your databases, with support assistance, before you retry the
+upgrade.
 
 ### Error symptoms
 
@@ -51,7 +66,8 @@ WHERE a.attnum > 0
 ORDER BY 1, 2, 3;
 ```
 
-If the query returns any rows, the database requires the manual upgrade procedure. Keep the output, because later steps reference the affected tables and columns.
+If the query returns any rows, the database requires the manual upgrade procedure. Keep
+the output, because later steps reference the affected tables and columns.
 
 ## Prerequisites
 
@@ -62,7 +78,9 @@ If the query returns any rows, the database requires the manual upgrade procedur
 
 ## Upgrade procedure
 
-Complete the following steps in order. When you use the bulk options, keep the same session or connection across steps, because the bulk commands store state in a temporary table.
+Complete the following steps in order. When you use the bulk options, keep the same
+session or connection across steps, because the bulk commands store state in a
+temporary table.
 
 ### Step 1: Detach topology columns
 
@@ -78,15 +96,20 @@ ALTER TABLE schema_name.table_name
   ALTER COLUMN column_name TYPE integer[][];
 ```
 
-This detaches the column from the `topology.topoelement` domain type and converts it to a plain PostgreSQL array, which prevents the CHECK constraint from firing during the extension upgrade.
+This detaches the column from the `topology.topoelement` domain type and converts it to
+a plain PostgreSQL array, which prevents the CHECK constraint from firing during the
+extension upgrade.
 
-For example, if the detection query returned `public.parcels.topo_ref` with type `topology.topoelement`:
+For example, if the detection query returned `public.parcels.topo_ref` with type
+`topology.topoelement`:
 
 ```sql
 ALTER TABLE public.parcels ALTER COLUMN topo_ref TYPE integer[];
 ```
 
-To detach all affected columns in a single command, run the following block. It saves the original domain-typed columns into a temporary `topology_columns_to_reattach` table that Step 3 uses for reattachment:
+To detach all affected columns in a single command, run the following block. It saves
+the original domain-typed columns into a temporary `topology_columns_to_reattach` table
+that Step 3 uses for reattachment:
 
 ```sql
 DO $$
@@ -150,7 +173,8 @@ $$;
 
 ### Step 2: Upgrade the PostGIS extensions
 
-Connect as a superuser, or as a role with extension creation privileges, and upgrade all PostGIS extensions:
+Connect as a superuser, or as a role with extension creation privileges, and upgrade
+all PostGIS extensions:
 
 ```sql
 ALTER EXTENSION postgis UPDATE;
@@ -182,8 +206,10 @@ ALTER TABLE schema_name.table_name
 
 The `USING` clause casts the data in two steps:
 
-1. `integer[]` to `bigint[]`. This widening cast expands each element from 4 to 8 bytes and is safe for all values.
-2. `bigint[]` to `topology.topoelement`. This attaches the domain and applies CHECK constraint validation.
+1. `integer[]` to `bigint[]`. This widening cast expands each element from 4 to 8 bytes
+   and is safe for all values.
+1. `bigint[]` to `topology.topoelement`. This attaches the domain and applies CHECK
+   constraint validation.
 
 For example:
 
@@ -193,7 +219,8 @@ ALTER TABLE public.parcels
   USING topo_ref::bigint[]::topology.topoelement;
 ```
 
-To reattach all columns in a single command, run the following block. It uses the `topology_columns_to_reattach` table created in Step 1:
+To reattach all columns in a single command, run the following block. It uses the
+`topology_columns_to_reattach` table created in Step 1:
 
 ```sql
 DO $$
@@ -236,7 +263,8 @@ $$;
 
 ### Step 4: Repair TopoGeometry data
 
-This step applies to PostGIS 3.6.1 or later. If you upgraded to PostGIS 3.6.1 or later, run the repair function to fix any corrupt TopoGeometry element arrays:
+This step applies to PostGIS 3.6.1 or later. If you upgraded to PostGIS 3.6.1 or later,
+run the repair function to fix any corrupt TopoGeometry element arrays:
 
 ```sql
 -- Check whether the repair function is available:
@@ -252,17 +280,23 @@ SELECT topology.FixCorruptTopoGeometryColumn(
 FROM topology.layer;
 ```
 
-The `FixCorruptTopoGeometryColumn()` function scans the feature column and rebuilds the element arrays with correct topology references. PostGIS 3.6.1 introduced this function to repair TopoGeometry element arrays affected by the `integer[]` and `bigint[]` reinterpretation.
+The `FixCorruptTopoGeometryColumn()` function scans the feature column and rebuilds the
+element arrays with correct topology references. PostGIS 3.6.1 introduced this function
+to repair TopoGeometry element arrays affected by the `integer[]` and `bigint[]`
+reinterpretation.
 
 :::note
-This step is optional for PostGIS 3.6.0, but required for PostGIS 3.6.1 or later if your data uses TopoGeometry types rather than plain topology elements.
+This step is optional for PostGIS 3.6.0, but required for PostGIS 3.6.1 or later if your
+data uses TopoGeometry types rather than plain topology elements.
 :::
 
 ## Verify the upgrade
 
 After you complete the procedure, verify the results.
 
-1. Confirm that all columns are restored. Re-run the detection query. It returns the same rows as before, with columns typed as `topology.topoelement` or `topology.topoelementarray`:
+1. Confirm that all columns are restored. Re-run the detection query. It returns the
+   same rows as before, with columns typed as `topology.topoelement` or
+   `topology.topoelementarray`:
 
    ```sql
    SELECT
@@ -283,7 +317,8 @@ After you complete the procedure, verify the results.
    ORDER BY 1, 2, 3;
    ```
 
-1. Check data integrity. Sample the data to confirm that element arrays contain valid topology IDs:
+1. Check data integrity. Sample the data to confirm that element arrays contain valid
+   topology IDs:
 
    ```sql
    SELECT * FROM schema_name.table_name
@@ -291,7 +326,9 @@ After you complete the procedure, verify the results.
    LIMIT 10;
    ```
 
-1. Validate the topology. If your data uses TopoGeometry types with registered topologies, run the following query. An empty result set indicates no topology errors:
+1. Validate the topology. If your data uses TopoGeometry types with registered
+   topologies, run the following query. An empty result set indicates no topology
+   errors:
 
    ```sql
    SELECT * FROM topology.ValidateTopology('your_topology_name');
@@ -301,13 +338,17 @@ After you complete the procedure, verify the results.
 
 ### CheckViolation error during reattachment
 
-**Symptom**: `ALTER TABLE ... TYPE topology.topoelement` fails with a CHECK constraint violation.
+**Symptom**: `ALTER TABLE ... TYPE topology.topoelement` fails with a CHECK constraint
+violation.
 
-**Cause**: The CHECK constraint in PostGIS 3.6 or later validates that element IDs exist in the topology tables. If your data references deleted topology elements, reattachment fails.
+**Cause**: The CHECK constraint in PostGIS 3.6 or later validates that element IDs exist
+in the topology tables. If your data references deleted topology elements, reattachment
+fails.
 
 **Solution**: The solution depends on your PostGIS version.
 
-- On PostGIS 3.6.1 or later, run `FixCorruptTopoGeometryColumn()` before you reattach the columns:
+- On PostGIS 3.6.1 or later, run `FixCorruptTopoGeometryColumn()` before you reattach
+  the columns:
 
   ```sql
   SELECT topology.FixCorruptTopoGeometryColumn(
@@ -342,15 +383,18 @@ After you complete the procedure, verify the results.
 
 ### Column left as integer[]
 
-**Symptom**: After a failed upgrade attempt, columns are still typed as `integer[]` instead of `topology.topoelement`.
+**Symptom**: After a failed upgrade attempt, columns are still typed as `integer[]`
+instead of `topology.topoelement`.
 
 **Cause**: A previous detach or reattach attempt failed and left the columns detached.
 
-**Solution**: Follow Step 3 to reattach the columns. The procedure is idempotent, so running it on columns that are already detached restores them correctly.
+**Solution**: Follow Step 3 to reattach the columns. The procedure is idempotent, so
+running it on columns that are already detached restores them correctly.
 
 ### FixCorruptTopoGeometryColumn function does not exist
 
-**Symptom**: `SELECT topology.FixCorruptTopoGeometryColumn(...)` fails with a function does not exist error.
+**Symptom**: `SELECT topology.FixCorruptTopoGeometryColumn(...)` fails with a function
+does not exist error.
 
 **Cause**: PostGIS 3.6.1 introduced this function. It is not available on PostGIS 3.6.0.
 
@@ -366,21 +410,10 @@ After you complete the procedure, verify the results.
 
 **Cause**: The procedure requires ownership of the table or superuser privileges.
 
-**Solution**: Run the commands as the table owner, a superuser, or a role that has `ALTER` privilege on the table.
+**Solution**: Run the commands as the table owner, a superuser, or a role that has
+`ALTER` privilege on the table.
 
-## Contact Aiven support
-
-For help with this procedure, contact Aiven support with the following details:
-
-- Service name and project.
-- The affected database names.
-- The current PostGIS version from `SELECT PostGIS_version();`.
-- The detection query output, including the affected tables, columns, and row counts.
-- The full PostgreSQL error text and the step where the error occurred, if applicable.
-
-Aiven support guides you through the procedure or performs the upgrade on your behalf during a scheduled maintenance window.
-
-## Related pages
+<RelatedPages/>
 
 - [Manage extensions](/docs/products/postgresql/howto/manage-extensions)
 - [Supported extensions](/docs/products/postgresql/reference/list-of-extensions)
