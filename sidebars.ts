@@ -1429,36 +1429,29 @@ const sidebars: SidebarsConfig = {
             'products/grafana/get-started',
             {
               type: 'category',
-              label: 'How to',
+              label: 'Service management',
               items: [
-                {
-                  type: 'category',
-                  label: 'User access',
-                  items: [
-                    'products/grafana/howto/log-in',
-                    'products/grafana/howto/rotating-grafana-service-credentials',
-                    'products/grafana/howto/oauth-configuration',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Manage dashboards',
-                  items: [
-                    'products/grafana/howto/dashboard-previews',
-                    'products/grafana/howto/replace-expression-string',
-                  ],
-                },
-                'products/grafana/howto/send-emails',
-                'products/grafana/howto/list-manage-cluster',
                 'products/grafana/howto/pitr-process-for-grafana',
+                'products/grafana/howto/send-emails',
+                'products/grafana/reference/advanced-params',
+                'products/grafana/reference/plugins',
+              ],
+            },
+            'products/grafana/howto/list-manage-cluster',
+            {
+              type: 'category',
+              label: 'Manage dashboards',
+              items: [
+                'products/grafana/howto/dashboard-previews',
+                'products/grafana/howto/replace-expression-string',
               ],
             },
             {
               type: 'category',
-              label: 'Reference',
+              label: 'Security and access',
               items: [
-                'products/grafana/reference/advanced-params',
-                'products/grafana/reference/plugins',
+                'products/grafana/howto/rotating-grafana-service-credentials',
+                'products/grafana/howto/oauth-configuration',
               ],
             },
           ],

@@ -4,7 +4,7 @@ sidebar_label: Advanced parameters
 ---
 
 See the configuration options available for
-Aiven for Grafana®:
+Aiven for Grafana:
 
 import Reference from '@site/static/includes/config-grafana.md';
 

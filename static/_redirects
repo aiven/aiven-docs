@@ -188,12 +188,13 @@
 /products/flink/reference                                  /docs/products/flink/reference/advanced-params  301
 /products/flink/reference/plans-pricing                     /docs/platform/concepts/service-pricing  301
 /products/grafana/concepts/grafana-features                /docs/products/grafana  301
-/products/grafana/howto                                    /docs/products/grafana/howto/log-in  301
+/products/grafana/howto                                    /docs/products/grafana/get-started  301
+/products/grafana/howto/log-in                             /docs/products/grafana/get-started  301
 /products/grafana/howto/list-manage-dashboards             /docs/products/grafana/howto/dashboard-previews  301
 /products/grafana/list-overview                            /docs/products/grafana  301
 /products/grafana/reference                                /docs/products/grafana/reference/advanced-params  301
 /products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing  301
-/products/grafana/user-access                              /docs/products/grafana/howto/log-in  301
+/products/grafana/user-access                              /docs/products/grafana/get-started  301
 /products/influxdb                                         /docs/products/metrics  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
 /products/kafka/get-started                                /docs/products/kafka/get-started/create-kafka-service  301

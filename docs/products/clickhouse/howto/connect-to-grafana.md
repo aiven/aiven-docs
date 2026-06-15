@@ -27,7 +27,7 @@ of your Aiven for ClickHouse® service (**Connection information** >
 ## Integrate ClickHouse® with Grafana®
 
 1.  Log in to Aiven for Grafana® following
-    [the instructions](/docs/products/grafana/howto/log-in).
+    [the instructions](/docs/products/grafana/get-started#log-in-to-grafana).
 1.  From the **Configuration** menu, select **Data sources** > **Add
     data source**.
 1.  Find **Altinity plugin for ClickHouse** in the list and select it.

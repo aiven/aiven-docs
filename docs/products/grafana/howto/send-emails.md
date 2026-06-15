@@ -1,8 +1,9 @@
 ---
 title: Send emails from Aiven for Grafana®
+sidebar_label: Emails from Grafana
 ---
 
-Use the Aiven API or the Aiven client to configure the Simple Mail Transfer Protocol (SMTP) server settings and send the following emails from Aiven for Grafana®: invite emails, reset password emails, and alert messages.
+Use the Aiven API or the Aiven client to configure the Simple Mail Transfer Protocol (SMTP) server settings and send the following emails from Aiven for Grafana: invite emails, reset password emails, and alert messages.
 
 ## Prerequisites
 
@@ -22,13 +23,13 @@ To configure the Aiven for Grafana service:
 
 1.  Open the Aiven client, and log in:
 
-    ```
+    ```bash
     avn user login <you@example.com> --token
     ```
 
 1.  Configure the service using your own SMTP values:
 
-    ```
+    ```bash
     avn service update --project yourprojectname yourservicename \
     -c smtp_server.host=smtp.example.com \
     -c smtp_server.port=465 \
@@ -40,7 +41,7 @@ To configure the Aiven for Grafana service:
 1.  Optional: Review all available custom options, and configure as
     needed:
 
-    ```
+    ```bash
     avn service types -v
     ```
 
