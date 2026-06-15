@@ -62,6 +62,12 @@ After starting the Aiven for Grafana service, you can access Grafana:
 You can begin visualizing your data sources using the default dashboards
 or create your own.
 
+:::tip
+Your Aiven for OpenSearch® services in the same Aiven project are
+automatically configured as data sources, so you can start visualizing
+their data right away.
+:::
+
 ## Grafana resources
 
 -   [Open source Grafana page](https://grafana.com/oss/grafana/)

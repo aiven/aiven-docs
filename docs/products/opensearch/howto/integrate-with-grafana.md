@@ -27,7 +27,7 @@ Aiven for OpenSearch service page, in the connection information.
 
 ## Integration steps
 
-1.  [Log into Aiven for Grafana](/docs/products/grafana/howto/log-in).
+1.  [Log in to Aiven for Grafana](/docs/products/grafana/get-started#log-in-to-grafana).
 1.  In **Configuration menu**, select **Data sources**.
 1.  Click to **Add data source**.
 1.  Find **OpenSearch** in the list and select it. You'll see a panel

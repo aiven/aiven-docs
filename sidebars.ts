@@ -1431,7 +1431,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/grafana/get-started',
-            'products/grafana/howto/log-in',
             {
               type: 'category',
               label: 'Service management',
