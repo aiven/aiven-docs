@@ -47,11 +47,11 @@ This is useful for:
 
 ## Run multiple queries
 
-You can write several SQL statements in the editor and run them all at once. Separate each
-statement with a semicolon. When you click **Run**, PG Studio executes all statements in
-the current tab sequentially and displays the results in separate tabs.
+You can write several SQL statements in the editor and run them all at once. When you click
+**Run**, PG Studio executes all statements in the current tab sequentially and displays the
+results in separate tabs.
 
-1. In the SQL editor, write your SQL statements, separating each with a semicolon:
+1. In the SQL editor, write your SQL statements:
 
    ```sql
    SELECT count(*) FROM orders;
@@ -64,7 +64,6 @@ the current tab sequentially and displays the results in separate tabs.
    - A red error indicator on a tab means the statement encountered an error. If a
      statement fails, execution stops and remaining statements are not run. Results from
      statements that completed before the error are preserved.
-   - When only one statement runs, the tab bar is hidden automatically.
 
 This is useful for:
 
