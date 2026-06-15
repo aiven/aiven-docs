@@ -1,9 +1,13 @@
 ---
-title: Upgrade PostGIS® topology columns to 3.6 or later
-sidebar_label: Upgrade PostGIS topology
+title: Troubleshoot PostGIS® upgrade issues
+sidebar_label: PostGIS upgrade
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+
+Troubleshoot issues that block PostGIS® extension upgrades on Aiven for PostgreSQL® services, and complete the upgrade safely.
+
+## Upgrade PostGIS® to 3.6 with topology columns
 
 Upgrade PostGIS topology columns manually when an Aiven for PostgreSQL® service has `topology.topoelement` or `topology.topoelementarray` columns and a pre-flight check blocks the upgrade from a PostGIS version earlier than 3.6 to 3.6 or later.
 
@@ -11,7 +15,7 @@ This procedure applies only to services that store topology columns, which is a 
 subset of PostGIS users. If your databases do not use topology columns, the standard
 upgrade process applies and no manual steps are required.
 
-## Why the upgrade is blocked
+### Why the upgrade is blocked
 
 PostGIS 3.6.0 introduced a breaking change that affects user tables with
 `topology.topoelement` or `topology.topoelementarray` columns.
@@ -40,7 +44,7 @@ When the upgrade fails, you might see:
 - Error messages about invalid topology element references.
 - An extension upgrade blocked with an error that mentions topology columns.
 
-## Detect affected tables
+### Detect affected tables
 
 Run the following query in each database to identify tables with topology columns:
 
@@ -66,20 +70,20 @@ ORDER BY 1, 2, 3;
 If the query returns any rows, the database requires the manual upgrade procedure. Keep
 the output, because later steps reference the affected tables and columns.
 
-## Prerequisites
+### Prerequisites
 
 - A maintenance window. Extension upgrades require exclusive locks on system catalogs.
 - A database backup. Take a backup and test restoration before you start.
 - The list of affected tables from the detection query.
 - Superuser access, or a role that owns the affected tables and can run `ALTER TABLE`.
 
-## Upgrade procedure
+### Upgrade procedure
 
 Complete the following steps in order. When you use the bulk options, keep the same
 session or connection across steps, because the bulk commands store state in a
 temporary table.
 
-### Step 1: Detach topology columns
+#### Step 1: Detach topology columns
 
 For each affected table, convert the column to its base array type:
 
@@ -168,7 +172,7 @@ END
 $$;
 ```
 
-### Step 2: Upgrade the PostGIS extensions
+#### Step 2: Upgrade the PostGIS extensions
 
 Connect as a superuser, or as a role with extension creation privileges, and upgrade
 all PostGIS extensions:
@@ -185,7 +189,7 @@ ALTER EXTENSION postgis_raster UPDATE;
 SELECT public.postgis_extensions_upgrade();
 ```
 
-### Step 3: Reattach topology columns
+#### Step 3: Reattach topology columns
 
 For each detached column, reattach it to the domain type with explicit casting:
 
@@ -258,7 +262,7 @@ END
 $$;
 ```
 
-### Step 4: Repair TopoGeometry data
+#### Step 4: Repair TopoGeometry data
 
 This step applies to PostGIS 3.6.1 or later. If you upgraded to PostGIS 3.6.1 or later,
 run the repair function to fix any corrupt TopoGeometry element arrays:
@@ -287,7 +291,7 @@ This step is optional for PostGIS 3.6.0, but required for PostGIS 3.6.1 or later
 data uses TopoGeometry types rather than plain topology elements.
 :::
 
-## Verify the upgrade
+### Verify the upgrade
 
 After you complete the procedure, verify the results.
 
@@ -331,9 +335,9 @@ After you complete the procedure, verify the results.
    SELECT * FROM topology.ValidateTopology('your_topology_name');
    ```
 
-## Troubleshooting
+### Troubleshooting
 
-### CheckViolation error during reattachment
+#### CheckViolation error during reattachment
 
 **Symptom**: `ALTER TABLE ... TYPE topology.topoelement` fails with a CHECK constraint
 violation.
@@ -378,7 +382,7 @@ fails.
     AND NOT topology.IsValidTopoElement(column_name);
   ```
 
-### Column left as integer[]
+#### Column left as integer[]
 
 **Symptom**: After a failed upgrade attempt, columns are still typed as `integer[]`
 instead of `topology.topoelement`.
@@ -388,7 +392,7 @@ instead of `topology.topoelement`.
 **Solution**: Follow Step 3 to reattach the columns. The procedure is idempotent, so
 running it on columns that are already detached restores them correctly.
 
-### FixCorruptTopoGeometryColumn function does not exist
+#### FixCorruptTopoGeometryColumn function does not exist
 
 **Symptom**: `SELECT topology.FixCorruptTopoGeometryColumn(...)` fails with a function
 does not exist error.
@@ -401,7 +405,7 @@ does not exist error.
 - Skip Step 4 if your data does not use TopoGeometry types.
 - Repair TopoGeometry element arrays manually using the PostGIS 3.6.0 API.
 
-### Permission denied for table
+#### Permission denied for table
 
 **Symptom**: `ALTER TABLE ... ALTER COLUMN` fails with a permission denied error.
 
