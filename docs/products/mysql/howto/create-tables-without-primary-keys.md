@@ -1,5 +1,6 @@
 ---
 title: Create new tables without primary keys
+sidebar_label: Tables without primary keys
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
