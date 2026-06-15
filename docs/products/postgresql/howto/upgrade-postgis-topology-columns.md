@@ -1,15 +1,15 @@
 ---
-title: Upgrade PostGIS topology columns to 3.6 or later
-sidebar_label: Upgrade PostGIS topology columns
+title: Upgrade PostGIS® topology columns to 3.6 or later
+sidebar_label: Upgrade PostGIS topology
 ---
 
-Upgrade PostGIS® topology columns manually when an Aiven for PostgreSQL® service has `topology.topoelement` or `topology.topoelementarray` columns and a pre-flight check blocks the upgrade from a PostGIS version earlier than 3.6 to 3.6 or later.
+Upgrade PostGIS topology columns manually when an Aiven for PostgreSQL® service has `topology.topoelement` or `topology.topoelementarray` columns and a pre-flight check blocks the upgrade from a PostGIS version earlier than 3.6 to 3.6 or later.
 
 This procedure applies only to services that store topology columns, which is a small subset of PostGIS users. If your databases do not use topology columns, the standard upgrade process applies and no manual steps are required.
 
 ## Why the upgrade is blocked
 
-PostGIS 3.6.0 introduced a breaking change ([upstream issue #5983](https://github.com/postgis/postgis/issues/5983)) that affects user tables with `topology.topoelement` or `topology.topoelementarray` columns.
+PostGIS 3.6.0 introduced a breaking change that affects user tables with `topology.topoelement` or `topology.topoelementarray` columns.
 
 In PostGIS 3.6.0, the base type of the `topology.topoelement` domain changed from `integer[]` to `bigint[]`. The upgrade script then adds a CHECK constraint that validates all existing data. When user tables store data in these columns, the upgrade fails:
 
