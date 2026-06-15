@@ -38,9 +38,8 @@ the query where your cursor is placed.
    Linux.
 1. View the results in the results panel.
 
-When you select text in the editor, the button changes from **Run** to **Run selected**,
-and only the selected text is executed. When no text is selected, the full editor content
-runs.
+When you select text in the editor, only the selected text is executed. When no text is
+selected, the full editor content runs.
 
 This is useful for:
 
