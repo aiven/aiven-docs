@@ -75,14 +75,24 @@ When a maintenance update upgrades your source service:
 If one source service has multiple destination services, one validation for the
 source service applies to all connected destination services.
 
-Nodes in the destination service maintain the validated version until you approve a
-newer version. When a node is recycled, it uses the same validated version, not the latest
-available version.
+Nodes in the destination service maintain the validated version until a newer version is
+validated, either when you validate it manually or when automatic validation applies after
+the configured delay. When a node is recycled, it uses the same validated version, not the
+latest available version.
 
 When you create a step, the destination service keeps the newest version that is
 already validated at that moment. If the destination service is already applying
 maintenance during step creation, the in-progress target version becomes the initial
 validated version.
+
+:::warning
+A powered-off source service cannot receive maintenance updates, so you cannot validate
+it. If you power off services earlier in the chain, the destination service upgrades
+regardless. For example, in a development → staging → production chain, if both
+development and staging are powered off, production upgrades without testing and
+validation in the earlier environments. Keep services in the chain powered on to preserve
+the protection that upgrade pipelines provide.
+:::
 
 ## Limitations and considerations
 
