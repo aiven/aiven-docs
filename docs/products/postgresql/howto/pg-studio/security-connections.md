@@ -58,13 +58,9 @@ or project level. This permission is included in the **Admin**, **Developer**, a
 
 PG Studio and its AI features are on by default for all organizations and apply to all
 projects in your organization. Aiven manages these controls, so you cannot change them
-yourself. To turn either one off or on, contact the
-[Aiven support team](mailto:support@aiven.io). The two controls are independent:
-
-- If PG Studio is off, it shows a message to contact Aiven support, and you cannot open
-  the editor or run queries.
-- If AI features are off, the **AI Assistant** panel and the **Ask AI** action do not
-  appear.
+yourself. The two controls are independent, so you can turn either one off or on without
+affecting the other. To change either setting, contact the
+[Aiven support team](mailto:support@aiven.io).
 
 ## Related pages
 
