@@ -24,20 +24,37 @@ Cross cluster replication is not available for the Free and Startup plans.
    Aiven for OpenSearch service.
 1. On the service's <ConsoleLabel name="overview"/> page, scroll to the
    **Cross cluster replication** section.
-1. Click **Create follower**.
+1. Click **+ Create follower**.
+1. In the **Create follower** dialog, select how to set up the follower:
 
-1. On the **Create OpenSearch follower cluster** page:
+   **To use an existing service:**
 
-   - Enter a name for the follower service.
-   - Select the cloud provider, region, and service plan.
-   - Add additional disk storage if required.
+   1. Select **Existing service**.
+   1. Select the **Project name** and the **Service name**.
 
-   :::note
-   The follower service must use the same service plan as the leader service
-   during creation to ensure sufficient memory. You can change the service plan later.
-   :::
+      :::note
+      Only services running OpenSearch 3.x can be selected as a follower.
+      :::
 
-1. Click **Create**.
+   1. Click **Create follower**.
+
+   **To create a new service:**
+
+   1. Select **New service**.
+   1. Select the **Project name**.
+   1. Click **Create service**. The service creation page opens.
+   1. On the service creation page:
+
+      - Enter a name for the follower service.
+      - Select the cloud provider, region, and service plan.
+      - Add additional disk storage if required.
+
+      :::note
+      The follower service must use the same service plan as the leader service
+      during creation to ensure sufficient memory. You can change the service plan later.
+      :::
+
+   1. Click **Create**.
 
 </TabItem>
 <TabItem value="API" label="Aiven API">
@@ -86,10 +103,11 @@ for Aiven for OpenSearch, see the
 To view the follower services configured for your Aiven for OpenSearch service:
 
 1. Go to the <ConsoleLabel name="overview"/> page of your service.
-1. Scroll to the **Cross-cluster replication** section.
-1. Click a follower service name to view its details.
+1. Scroll to the **Cross cluster replication** section.
 
-The **Leader** and **Follower** chips below the service names identify the service roles.
+The section lists all follower services with their version, region, project, and
+replication status. The **Follower** badge identifies each follower service.
+Click a follower service name to open it.
 
 ## Promote a follower service to a standalone service
 
