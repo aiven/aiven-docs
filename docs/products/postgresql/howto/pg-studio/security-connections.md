@@ -54,15 +54,17 @@ To use PG Studio, you need the `service:data:write` permission at the organizati
 or project level. This permission is included in the **Admin**, **Developer**, and
 **Operator** roles.
 
-## Organization-level controls
+## Manage PG Studio and AI features
 
-Organization admins
-[control PostgreSQL query execution and AI features](/docs/products/postgresql/howto/pg-studio/get-started#configure-pg-studio-access-for-an-organization)
-separately.
+PG Studio and its AI features are on by default for all organizations and apply to all
+projects in your organization. Aiven manages these controls, so you cannot change them
+yourself. To turn either one off or on, contact the
+[Aiven support team](mailto:support@aiven.io). The two controls are independent:
 
-- If query execution is off, PG Studio stays visible and shows an organization-level
-  message.
-- If AI features are off, AI actions in PG Studio are unavailable.
+- If PG Studio is off, it shows a message to contact Aiven support, and you cannot open
+  the editor or run queries.
+- If AI features are off, the **AI Assistant** panel and the **Ask AI** action do not
+  appear.
 
 ## Related pages
 

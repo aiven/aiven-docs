@@ -7,10 +7,10 @@ description: Use the SQL editor to write, edit, and execute queries.
 Use the SQL editor in PG Studio to write, edit, and execute queries.
 
 :::note
-If your organization disables query execution for PostgreSQL, PG Studio stays visible but
-you cannot run queries.
-[Configure PG Studio access for an organization](/docs/products/postgresql/howto/pg-studio/get-started#configure-pg-studio-access-for-an-organization)
-to change this.
+PG Studio is on by default. If it is off for your organization, PG Studio shows a message
+to contact Aiven support and you cannot open the editor or run queries. Aiven manages this
+control. To change it, contact the Aiven support team. See
+[Manage PG Studio and AI features](/docs/products/postgresql/howto/pg-studio/security-connections#manage-pg-studio-and-ai-features).
 :::
 
 ## Write SQL manually

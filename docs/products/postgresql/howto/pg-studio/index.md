@@ -12,9 +12,9 @@ import DocCardList from '@theme/DocCardList';
 Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language. It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
 
 :::note
-Organization admins can
-[control query execution and AI features](/docs/products/postgresql/howto/pg-studio/get-started#configure-pg-studio-access-for-an-organization)
-separately.
+PG Studio and its AI features are on by default. To
+[turn off PG Studio or its AI features](/docs/products/postgresql/howto/pg-studio/security-connections#manage-pg-studio-and-ai-features),
+contact the Aiven support team.
 :::
 
 :::important

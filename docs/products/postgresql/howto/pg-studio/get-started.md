@@ -8,6 +8,11 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
 Open PG Studio and run your first queries.
 
+:::note
+PG Studio and its AI features are on by default, so no setup is needed. To turn them off,
+see [Manage PG Studio and AI features](/docs/products/postgresql/howto/pg-studio/security-connections#manage-pg-studio-and-ai-features).
+:::
+
 ## Prerequisites
 
 To use PG Studio, you need:
@@ -15,30 +20,11 @@ To use PG Studio, you need:
 - **Aiven permissions:** The `service:data:write` permission at the organization, unit, or
   project level. This permission is included in the **Admin**, **Developer**, and
   **Operator** roles.
-- **Organization controls:**
-   [Allow query execution and AI features for your organization](/docs/products/postgresql/howto/pg-studio/get-started#configure-pg-studio-access-for-an-organization).
-   Query execution and AI features are controlled separately.
 - **Network access:** Your IP address must be in the service's IP allowlist. PG Studio
   validates your browser's IP address, which must be allowed in the
   [service's IP filter configuration](/docs/platform/howto/restrict-access). If you get
   the `Access is not allowed from the IP address` error, add your IP address to the
   allowlist.
-
-## Configure PG Studio access for an organization
-
-Organization admins control query execution and AI features for their organizations.
-These settings apply to all projects in those organizations.
-
-1. In the [Aiven Console](https://console.aiven.io/login), open the organization.
-1. Go to organization settings for PostgreSQL query execution and AI features.
-1. Turn query execution on or off.
-1. Optional: Turn AI features on or off.
-
-- Query execution off: PG Studio stays visible, but query execution is turned off with
-   an organization-level message.
-- AI features off: The **AI Assistant** and other AI actions are unavailable.
-
-You can change each control independently.
 
 ## Open PG Studio
 
@@ -50,11 +36,11 @@ You can change each control independently.
 PG Studio opens a split view that shows the SQL editor and the **AI Assistant** panel. Use
 the editor selectors to change the database source and schema.
 
-If your organization disables AI features, the **AI Assistant** panel is unavailable.
+If AI features are off for your organization, the **AI Assistant** panel does not appear.
 
 ## Run your first query
 
-You can write SQL directly. If AI features are enabled, you can also use the
+You can write SQL directly. If AI features are on, you can also use the
 **AI Assistant** to generate queries:
 
 ### Write SQL manually
