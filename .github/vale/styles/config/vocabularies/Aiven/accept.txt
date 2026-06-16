@@ -250,6 +250,7 @@ MySQL
 mysqldump
 mysqlsh
 NACLs
+nameservers
 namespace/MS
 namespaces?
 netmask

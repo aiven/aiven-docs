@@ -406,8 +406,15 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'products/apps/connect-services-to-apps',
-        'products/apps/ports',
-        'products/apps/secrets-and-variables',
+        {
+          type: 'category',
+          label: 'Manage apps',
+          items: [
+            'products/apps/ports',
+            'products/apps/secrets-and-variables',
+            'products/apps/custom-domain-for-apps',
+          ],
+        },
       ],
     },
   ],
