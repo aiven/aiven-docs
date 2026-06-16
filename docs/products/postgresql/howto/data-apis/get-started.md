@@ -2,6 +2,7 @@
 title: Enable Data API
 sidebar_label: Enable Data API
 description: Expose an Aiven for PostgreSQL database as REST endpoints.
+early: true
 ---
 
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";

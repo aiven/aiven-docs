@@ -2,9 +2,16 @@
 title: Configure authentication for Data API
 sidebar_label: Authentication
 description: Authenticate Data API requests with an API key or your own identity provider, and authorize with PostgreSQL roles.
+early: true
 ---
 
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+
 Data API authenticates every request with a bearer token in the `Authorization` header.
+
+:::note
+Data API is an <EarlyBadge/> feature.
+:::
 
 You can use either of the following tokens:
 
