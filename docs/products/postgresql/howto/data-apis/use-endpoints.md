@@ -2,9 +2,16 @@
 title: Call the Data API endpoints
 sidebar_label: Use endpoints
 description: View REST endpoints, copy code snippets, and call your data over HTTPS.
+early: true
 ---
 
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+
 After you enable Data API for a database, you can browse the available endpoints and call them over HTTPS.
+
+:::note
+Data API is an <EarlyBadge/> feature.
+:::
 
 ## Find the base URL
 

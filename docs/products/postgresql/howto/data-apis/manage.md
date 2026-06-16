@@ -2,9 +2,16 @@
 title: Manage Data API
 sidebar_label: Manage Data API
 description: Check status, expose more databases, and turn off the Data API.
+early: true
 ---
 
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+
 After you enable Data API, you can monitor it, expose more databases, and turn it off for a database you no longer need.
+
+:::note
+Data API is an <EarlyBadge/> feature.
+:::
 
 To manage Data API, open your Aiven for PostgreSQL® service in the
 [Aiven Console](https://console.aiven.io/login) and click **Data** > **Data API**.
