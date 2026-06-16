@@ -1991,6 +1991,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/concepts/timescaledb',
                     'products/postgresql/howto/use-dblink-extension',
                     'products/postgresql/howto/use-pg-cron-extension',
+                    'products/postgresql/howto/upgrade-postgis-topology-columns',
                   ],
                 },
                 {
