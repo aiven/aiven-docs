@@ -17,6 +17,12 @@ Common use cases for the Aiven API:
 - Deploy and tear down development or demo platforms on a schedule.
 - Scale your disks based on specific events.
 
+:::tip
+Want to manage Aiven services from an AI assistant? Use
+[Aiven MCP](/docs/tools/mcp-server) to create, update, and inspect services in
+natural language from clients such as Cursor and Claude Code.
+:::
+
 ## Get started with Aiven API
 
 Use the [Postman workspace](https://www.postman.com/aiven-apis/workspace/aiven/overview)
@@ -146,3 +152,4 @@ authenticated, it returns the standard set of cloud regions.
 - [Personal tokens](/docs/platform/concepts/authentication-tokens)
 - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
 - [API reference docs](https://api.aiven.io/doc/)
+- [Aiven MCP](/docs/tools/mcp-server): Manage Aiven services in natural language.

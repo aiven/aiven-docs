@@ -9,6 +9,12 @@ The Aiven command line interface (CLI) lets you use the Aiven platform and servi
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::tip
+Want to manage Aiven services from an AI assistant? Use
+[Aiven MCP](/docs/tools/mcp-server) to create, update, and inspect services in
+natural language from clients such as Cursor and Claude Code.
+:::
+
 ## Install the Aiven CLI
 
 1. The `avn` utility is a [Python package](https://pypi.org/project/aiven-client/):
@@ -85,3 +91,4 @@ To get information in JSON format, use the `--json` switch with any command.
 - [Learn how to use the Aiven CLI](https://aiven.io/blog/aiven-cmdline) for common tasks.
 - Watch the [how to get started tutorial](https://www.youtube.com/watch?v=nf3PPn5w6K8).
 - Go to the [aiven-client repository on GitHub](https://github.com/aiven/aiven-client).
+- [Aiven MCP](/docs/tools/mcp-server): Manage Aiven services in natural language.

@@ -9,28 +9,42 @@
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
-  background-color: var(--aiven-grey-90);
-  color: white;
+  background-color: var(--aiven-grey-0);
+  color: var(--aiven-grey-90);
   border-radius: var(--aiven-radius);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  border: none;
+  border: 1px solid var(--aiven-grey-20);
   line-height: 20px;
   width: fit-content;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .button:hover,
 .button:focus {
-  background-color: var(--aiven-grey-80);
-  color: white;
+  background-color: var(--aiven-grey-0);
+  border-color: var(--aiven-grey-30);
+  color: var(--aiven-grey-90);
   text-decoration: none;
 }
 
 .button svg {
   display: block;
   flex: none;
+}
+
+html[data-theme='dark'] .button {
+  background-color: var(--aiven-grey-80);
+  color: var(--aiven-brand-white);
+  border-color: var(--aiven-grey-60);
+}
+
+html[data-theme='dark'] .button:hover,
+html[data-theme='dark'] .button:focus {
+  background-color: var(--aiven-grey-80);
+  border-color: var(--aiven-grey-50);
+  color: var(--aiven-brand-white);
 }
 
 .manualSetup {

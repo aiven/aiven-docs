@@ -22,7 +22,7 @@ export default function CursorConfigTab({ baseUrl }: CursorConfigTabProps): JSX.
   return (
     <div className={styles.container}>
       <p>For one-click installation:</p>
-      <a href={deepLink} className={styles.button} key={`cursor-deeplink-${cacheKey}`}>
+      <a href={deepLink} className={`aiven-btn-link ${styles.button}`} key={`cursor-deeplink-${cacheKey}`}>
         <CursorIcon />
         <span>Add to Cursor</span>
       </a>
