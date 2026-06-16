@@ -146,6 +146,7 @@ const config: Config = {
       'data-project-color': '#5FFA74',
       'data-project-logo': 'https://aiven.io/docs/images/crabby_RGB_blk.svg',
       'data-modal-title': 'Ask Aiven docs AI',
+      'data-customization-id': '295c311c-4c9d-45c4-80fc-5488997c790a',
       'data-modal-image-width': '38px',
       'data-button-hide': 'true',
       'data-mcp-enabled': 'true',
