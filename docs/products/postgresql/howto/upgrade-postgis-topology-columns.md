@@ -75,7 +75,9 @@ the output, because later steps reference the affected tables and columns.
 - A maintenance window. Extension upgrades require exclusive locks on system catalogs.
 - A database backup. Take a backup and test restoration before you start.
 - The list of affected tables from the detection query.
-- Superuser access, or a role that owns the affected tables and can run `ALTER TABLE`.
+- The `avnadmin` user, or a role that owns the affected tables and can run `ALTER TABLE`.
+  Aiven for PostgreSQL does not provide superuser access; the `avnadmin` user has the
+  required privileges.
 
 ### Upgrade procedure
 
@@ -174,8 +176,8 @@ $$;
 
 #### Step 2: Upgrade the PostGIS extensions
 
-Connect as a superuser, or as a role with extension creation privileges, and upgrade
-all PostGIS extensions:
+Connect as the `avnadmin` user, which has the privileges to manage extensions, and
+upgrade all PostGIS extensions:
 
 ```sql
 ALTER EXTENSION postgis UPDATE;
@@ -409,10 +411,11 @@ does not exist error.
 
 **Symptom**: `ALTER TABLE ... ALTER COLUMN` fails with a permission denied error.
 
-**Cause**: The procedure requires ownership of the table or superuser privileges.
+**Cause**: The procedure requires ownership of the table, or the privileges of the
+`avnadmin` user.
 
-**Solution**: Run the commands as the table owner, a superuser, or a role that has
-`ALTER` privilege on the table.
+**Solution**: Run the commands as the table owner, the `avnadmin` user, or a role that
+has `ALTER` privilege on the table.
 
 <RelatedPages/>
 
