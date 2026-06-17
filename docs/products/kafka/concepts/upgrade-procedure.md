@@ -183,7 +183,9 @@ metadata management, see [KRaft in Aiven for Apache Kafka®](/docs/products/kafk
 - Aiven will notify you when your service becomes eligible for migration. For details,
   see [Migration from ZooKeeper to KRaft](/docs/products/kafka/concepts/kraft-mode#migration-from-zookeeper-to-kraft).
 - After migrating to Kafka 3.9 in KRaft mode, you can upgrade to Kafka 4.0 or later.
-- To support this transition, Aiven has extended support for Apache Kafka 3.8.
+- Aiven has extended support for Apache Kafka 3.8 to give you more time to complete
+  the migration. For the EOL date, see
+  [End of life for major versions](/docs/platform/reference/eol-for-major-versions#aiven-for-kafka).
 
 #### Performance impact
 

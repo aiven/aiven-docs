@@ -151,7 +151,8 @@ migration process and rollout limitations, see:
 - [KRaft in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kraft-mode)
 - [Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft)
 
-To support this transition, Aiven has an extended support window for Apache Kafka 3.8 as reflected in the dates above.
+To support the transition to KRaft, Aiven supports Apache Kafka 3.8 until the EOL date
+shown in the table. The EOL date already includes the extended support period.
 :::
 
 ### Aiven for ClickHouse®
