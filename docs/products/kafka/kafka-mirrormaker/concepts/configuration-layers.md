@@ -103,10 +103,13 @@ clusters. Set them on the service integration resource. To update these settings
 [Update integration configurations](/docs/products/kafka/kafka-mirrormaker/howto/update-integration-configurations).
 
 :::important
+
 - If you do not set a parameter, Kafka applies its built-in default.
 - The settings apply to MirrorMaker 2 integrations with both Aiven for Apache Kafka services
   and external Kafka clusters.
-- Exercise changes incrementaly and cautiously, depending on the resources available in your service plan.
+- Exercise changes incrementally and cautiously, depending on the resources available in
+  your service plan.
+
 :::
 
 | Parameter | Description | Kafka default | Maximum value |
@@ -114,7 +117,7 @@ clusters. Set them on the service integration resource. To update these settings
 | `consumer_fetch_min_bytes` | Minimum amount of data the server returns for a fetch request. Higher values reduce fetch frequency. | 1 | — |
 | `consumer_fetch_max_bytes` | Maximum amount of data the server returns for a fetch request. | 52428800 | 100 MiB |
 | `consumer_max_partition_fetch_bytes` | Maximum amount of data per partition the server returns in a single fetch response. | 1048576 | 100 MiB |
-| `consumer_max_poll_records` | Maximum number of records returned in a single poll request. | 500 | - |
+| `consumer_max_poll_records` | Maximum number of records returned in a single poll request. | 500 | — |
 | `consumer_receive_buffer_bytes` | Size of the TCP receive buffer for the consumer. A value of `-1` uses the OS default. | 65536 | 100 MiB |
 | `consumer_request_timeout_ms` | Timeout for consumer requests to the broker, in milliseconds. | 30000 | 600,000 ms (10 minutes) |
 | `producer_batch_size` | Maximum size of a record batch sent to a single partition, in bytes. | 16384 | — |
