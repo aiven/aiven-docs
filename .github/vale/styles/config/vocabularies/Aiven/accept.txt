@@ -8,6 +8,7 @@ africa
 AIInsights
 Aiven
 aiven_cmk
+aiven_cmk_accessor_\w+
 Aiven's
 allowlist
 allowlists
@@ -260,6 +261,7 @@ nosqlbench
 npm
 NVMe
 OAuth
+OCIDs?
 Okta
 Omni
 onboarding

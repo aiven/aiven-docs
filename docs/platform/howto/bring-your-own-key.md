@@ -44,12 +44,6 @@ BYOK encrypts the following using your CMKs:
 - [**Aiven Provider for Terraform**](/docs/tools/terraform) installed and configured (for
   Terraform instructions)
 
-  - The
-    [aiven_cmk](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk)
-    resource is in the beta stage and requires setting the `PROVIDER_AIVEN_ENABLE_BETA`
-    environment variable.
-  - The [list CMK accessors](/docs/platform/howto/bring-your-own-key#list-cmk-accessors)
-    operation is not supported by Aiven Provider for Terraform. Use the API or CLI.
   - More information on the `aiven_cmk` resource and its configuration options are
     available in the
     [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/cmk).
@@ -163,10 +157,87 @@ The output is always in the JSON format:
 -->
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+#### Data sources
+
+Use the per-provider CMK accessor data source for the cloud provider hosting your KMS.
+Each data source takes the project name and returns the accessor values as read-only
+attributes:
+
+- [aiven_cmk_accessor_gcp](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/cmk_accessor_gcp):
+  returns `access_group` for Google Cloud KMS.
+- [aiven_cmk_accessor_oci](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/cmk_accessor_oci):
+  returns `access_group` and `access_tenant` for OCI Vault.
+- [aiven_cmk_accessor_aws](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/cmk_accessor_aws):
+  returns `principal`, the IAM role ARN, for AWS KMS.
+
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+- [aiven_cmk_accessor_azure](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/cmk_accessor_azure):
+  returns `app_id` for Azure Key Vault.
+-->
+
+#### Sample configuration (Google Cloud)
+
+```terraform
+data "aiven_cmk_accessor_gcp" "example" {
+  project = "my-project"
+}
+
+output "gcp_access_group" {
+  value = data.aiven_cmk_accessor_gcp.example.access_group
+}
+```
+
+#### Sample configuration (OCI)
+
+```terraform
+data "aiven_cmk_accessor_oci" "example" {
+  project = "my-project"
+}
+
+output "oci_access_group" {
+  value = data.aiven_cmk_accessor_oci.example.access_group
+}
+
+output "oci_access_tenant" {
+  value = data.aiven_cmk_accessor_oci.example.access_tenant
+}
+```
+
+#### Sample configuration (AWS)
+
+```terraform
+data "aiven_cmk_accessor_aws" "example" {
+  project = "my-project"
+}
+
+output "aws_principal" {
+  value = data.aiven_cmk_accessor_aws.example.principal
+}
+```
+
+<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+
+#### Sample configuration (Azure)
+
+```terraform
+data "aiven_cmk_accessor_azure" "example" {
+  project = "my-project"
+}
+
+output "azure_app_id" {
+  value = data.aiven_cmk_accessor_azure.example.app_id
+}
+```
+
+-->
+
+</TabItem>
 </Tabs>
 
 :::note
-Use the accessor values returned by this endpoint when granting Aiven access to your key:
+Use the accessor values returned by this operation when granting Aiven access to your key:
 
 - **Google Cloud KMS**: Grant the `access_group` email address the
   `roles/cloudkms.cryptoOperator` role on your key.
@@ -464,7 +535,7 @@ cryptographic operations by Aiven.
 
 Aiven authenticates to your AWS KMS key using cross-account IAM access. You grant
 access by adding Aiven's IAM role ARN as a trusted principal in your KMS key policy.
-No resources need to be created in Aiven's AWS account — everything is controlled
+No resources need to be created in Aiven's AWS account—everything is controlled
 through your key policy.
 
 #### Step 1: Create a KMS key
