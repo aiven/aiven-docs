@@ -181,9 +181,9 @@ shown in the table. The EOL date already includes the extended support period.
 
 ### Aiven for Dragonfly®
 
-| Version | Aiven EOL       |
-| ------- | --------------- |
-| 1.34.2  | To be announced |
+| Version | Aiven EOL       | Service creation supported until |
+| ------- |-----------------|----------------------------------|
+| 1.34.2  | 2026-09-30      | 2026-06-17                       |
 
 ### Aiven for Grafana®
 
