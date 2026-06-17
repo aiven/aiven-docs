@@ -157,3 +157,9 @@ Removing the integration transitions the follower service to a standalone servic
 
 </TabItem>
 </Tabs>
+
+## Related pages
+
+- [Cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
+- [OpenSearch® cross-cluster replication via the OpenSearch API](https://opensearch.org/docs/latest/replication-plugin/get-started/)
+- [Aiven for OpenSearch® service plans](/docs/products/opensearch/reference/plans-pricing)
