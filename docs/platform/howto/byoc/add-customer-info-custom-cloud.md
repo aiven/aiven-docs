@@ -62,25 +62,33 @@ a mandatory role that is always required as a primary support contact.
 <TabItem value="2" label="Aiven CLI">
 Use the
 [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update)
-command to edit the list of individuals from your organization to be contacted by the Aiven
-team if needed.
+command with the `--contact-email` option to edit the list of individuals from your
+organization to be contacted by the Aiven team if needed.
 
     ```bash
-    avn byoc update                               \
-      --organization-id "ORGANIZATION_IDENTIFIER" \
-      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
-      '
-        {
-          "contact_emails": [
-            {
-              "email": "EMAIL_ADDRESS",
-              "real_name": "John Doe",
-              "role": "Admin"
-            }
-          ]
-        }
-      '
+    avn byoc update                                                             \
+      --organization-id "ORGANIZATION_IDENTIFIER"                               \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"                                       \
+      --contact-email 'email="EMAIL_ADDRESS",real_name="John Doe",role="Admin"'
     ```
+
+Each `--contact-email` value takes the `email`, `real_name`, and `role` fields in the
+format `email="EMAIL",real_name="NAME",role="ROLE"`. The `email` field is required, and all
+values must be quoted. To set multiple contacts, repeat the option:
+
+    ```bash
+    avn byoc update                                                                 \
+      --organization-id "ORGANIZATION_IDENTIFIER"                                   \
+      --byoc-id "CUSTOM_CLOUD_IDENTIFIER"                                           \
+      --contact-email 'email="admin@example.com",real_name="John Doe",role="Admin"' \
+      --contact-email 'email="ops@example.com",real_name="Jane Smith",role="Operator"'
+    ```
+
+:::note
+The `--contact-email` option replaces the entire list of customer contacts. List every
+contact, including the mandatory **Admin** contact, each time you run the command. Any
+contact you omit is removed.
+:::
 
 </TabItem>
 </Tabs>
