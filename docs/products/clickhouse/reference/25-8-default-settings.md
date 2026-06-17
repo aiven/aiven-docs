@@ -16,8 +16,12 @@ Each setting includes an Aiven default value and indicates whether you can chang
 
 - **Can be changed: No**: Aiven manages the setting value. You cannot override it.
 - **Can be changed: Yes**: Aiven sets the default value, but you can change it
-  where the setting is configurable. Where a setting has limits, such as an
-  allowed range or minimum value, the **Description** column shows them.
+  where the setting is configurable.
+
+Where Aiven defaults vary by service plan or node resources, the **Aiven default**
+column shows ranges or placeholders. The **Description** column explains why the
+default differs or lists any configurable bounds, such as an allowed range or
+minimum value.
 
 Values shown as ranges or placeholders, such as
 `[3..80, depending on CPU count]`, `{cpu_count}`, or `[~7% of RAM]`, are sized
@@ -53,7 +57,7 @@ These settings apply to sessions and queries.
 | `max_autoincrement_series`                              | `1000`                                  | No             | Limits automatic sequence expansion.                                                                                                                                             |
 | `max_concurrent_queries_for_all_users`                  | `[100..800, depending on service size]` | No             | Enforces a service-wide concurrency limit.                                                                                                                                       |
 | `max_http_get_redirects`                                | `10`                                    | Yes            | Limits HTTP redirect following.                                                                                                                                                  |
-| `max_insert_threads`                                    | `2`                                     | Yes            | Allowed range: `1..{cpu_count}`. Caps insert parallelism so a single query does not use excessive shared service resources.                                                       |
+| `max_insert_threads`                                    | `2`                                     | Yes            | Allowed range: `1..{cpu_count}`. Caps insert parallelism so a single query does not use too many shared service resources.                                                       |
 | `max_threads`                                           | `{cpu_count}`                           | Yes            | Allowed range: `1..{cpu_count}`. Caps general query parallelism to the node CPU count.                                                                                           |
 | `memory_profiler_sample_probability`                    | `0`                                     | No             | Disables random memory profiler sampling.                                                                                                                                        |
 | `memory_profiler_step`                                  | `4194304`                               | Yes            | Minimum value: `100000`. Keeps the upstream memory profiler granularity while preventing very low values.                                                                        |
@@ -64,16 +68,11 @@ These settings apply to sessions and queries.
 | `push_external_roles_in_interserver_queries`            | `0`                                     | No             | External authorization is not supported. Roles must be synchronized between nodes.                                                                                               |
 | `query_profiler_cpu_time_period_ns`                     | `1000000000`                            | Yes            | Minimum value: `1000000`. Keeps the upstream CPU profiler sampling period while preventing sub-millisecond values.                                                               |
 | `query_profiler_real_time_period_ns`                    | `1000000000`                            | Yes            | Minimum value: `1000000`. Keeps the upstream real-time profiler sampling period while preventing sub-millisecond values.                                                         |
-| `readonly`                                              | `0`                                     | Yes            | Controls read/write access for the session. The default allows writes.                                                                                                          |
+| `readonly`                                              | `0`                                     | Yes            | Controls read/write access for the session. You can change the value from `0` to `1`, but not from `1` to `0`.                                                                 |
 | `stream_like_engine_allow_direct_select`                | `1`                                     | Yes            | Allows direct `SELECT` queries on stream-like engines, which can have suboptimal performance or behavior. A future release returns this default to the upstream default.         |
 | `write_full_path_in_iceberg_metadata`                   | `1`                                     | Yes            | Writes full Iceberg metadata paths for compatibility with mainstream ClickHouse behavior.                                                                                        |
 
 <!-- markdownlint-enable MD013 MD060 -->
-
-:::note
-The `readonly` setting applies to your session only. Separately, Aiven can switch
-an entire service to read-only mode during operational incidents.
-:::
 
 ## Replicated MergeTree table settings
 
@@ -103,9 +102,9 @@ variants. See
 ## Server settings
 
 These settings are configured at the server level and are managed by Aiven. They
-are not configurable as session settings. Some settings are derived from your
-service plan or exposed through advanced parameters. Where a value is shown as a
-range, it is sized automatically from your service plan and node resources.
+are not configurable as session settings. Most settings are derived from your
+service plan. Some settings, such as `vector_similarity_index_cache_size`, are
+exposed through advanced configuration.
 
 <!-- markdownlint-disable MD013 MD060 -->
 
@@ -145,6 +144,6 @@ range, it is sized automatically from your service plan and node resources.
 | `threadpool_writer_pool_size`                   | `[3..80, depending on CPU count]`                   | Scales filesystem writer concurrency with service CPU capacity.                                                                                          |
 | `uncompressed_cache_size`                       | `[~7% of RAM]`                                      | Sizes the uncompressed block cache based on the managed memory budget.                                                                                   |
 | `user_with_indirect_database_creation`          | `avnadmin`                                          | Restricts indirect database creation privileges to the managed admin user.                                                                               |
-| `vector_similarity_index_cache_size`            | `[10% of RAM]`                                      | Sizes the vector similarity index cache based on the managed memory budget.                                                                              |
+| `vector_similarity_index_cache_size`            | `0.07`                                              | Sizes the vector similarity index cache as a fraction of total server memory. The default is `0.07`, or 7% of RAM. Set to `0` to disable the cache. Maximum value: `0.5`. This setting can be changed in advanced configuration and applies to ClickHouse 25.8 or later. |
 
 <!-- markdownlint-enable MD013 MD060 -->
