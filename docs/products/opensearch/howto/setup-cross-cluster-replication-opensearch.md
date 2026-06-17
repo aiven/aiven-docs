@@ -2,9 +2,9 @@
 title: Set up cross-cluster replication for Aiven for OpenSearch®
 limited: true
 sidebar_label: Set up x-cluster replication
-unlisted: true
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -158,8 +158,7 @@ Removing the integration transitions the follower service to a standalone servic
 </TabItem>
 </Tabs>
 
-## Related pages
+<RelatedPages/>
 
 - [Cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
 - [OpenSearch® cross-cluster replication via the OpenSearch API](https://opensearch.org/docs/latest/replication-plugin/get-started/)
-- [Aiven for OpenSearch® service plans](/docs/products/opensearch/reference/plans-pricing)
