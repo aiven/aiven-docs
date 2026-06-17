@@ -1,23 +1,15 @@
 ---
 title: Dedicated node roles in Aiven for OpenSearch®
 sidebar_label: Dedicated node roles
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Aiven for OpenSearch® supports clusters with dedicated node roles, allowing you to assign specialized functions to different node groups for improved performance and scalability.
 
-The dedicated node roles feature is in
-[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-for Aiven for OpenSearch® version 2.19 and later. It's available in specific service plans
-for production workloads that require enhanced performance and reliability.
-
-:::tip
-[Contact Aiven](https://aiven.io/contact) to request access, learn which service plans include
-dedicated node roles, and get recommendations for your workload.
-:::
+The dedicated node roles feature is supported for Aiven for OpenSearch® version 2.19 and
+later. It's available in specific service plans for production workloads that require
+enhanced performance and reliability.
 
 ## Benefits and use cases
 
@@ -167,7 +159,6 @@ The dedicated node roles feature is plan-based.
 
 ### Prerequisites
 
-- This is a <LimitedBadge/> feature. [Contact Aiven](https://aiven.io/contact) to enable it.
 - [Upgrade Aiven for OpenSearch®](/docs/products/opensearch/howto/os-version-upgrade) to
   2.19 or later if your service runs an older version.
 
