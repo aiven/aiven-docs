@@ -98,27 +98,34 @@ being replicated:
 ### Producer and consumer settings
 
 These [integration configuration](#integration-configurations) parameters control how
-MirrorMaker 2 producers and consumers communicate with the source and target Kafka
-clusters. Set them on the service integration resource. If you do not set a parameter,
-Kafka applies its built-in default. These settings apply to MirrorMaker 2 integrations
-with both Aiven for Apache Kafka services and external Kafka clusters.
-
-To update these settings, see
+MirrorMaker 2 producers and consumers interact with the source and target Kafka
+clusters. Set them on the service integration resource. To update these settings, see
 [Update integration configurations](/docs/products/kafka/kafka-mirrormaker/howto/update-integration-configurations).
 
-| Parameter | Description | Maximum value |
-|-----------|-------------|---------------|
-| `consumer_fetch_min_bytes` | Minimum amount of data the server returns for a fetch request. Higher values reduce fetch frequency. | — |
-| `consumer_fetch_max_bytes` | Maximum amount of data the server returns for a fetch request. | 100 MiB |
-| `consumer_max_partition_fetch_bytes` | Maximum amount of data per partition the server returns in a single fetch response. | 100 MiB |
-| `consumer_receive_buffer_bytes` | Size of the TCP receive buffer for the consumer. A value of `-1` uses the OS default. | 100 MiB |
-| `consumer_request_timeout_ms` | Timeout for consumer requests to the broker, in milliseconds. | 600,000 ms (10 minutes) |
-| `producer_batch_size` | Maximum size of a record batch sent to a single partition, in bytes. | — |
-| `producer_buffer_memory` | Total memory available to the producer for buffering records, in bytes. | — |
-| `producer_linger_ms` | Time the producer waits for additional records before sending a batch, in milliseconds. | — |
-| `producer_max_request_size` | Maximum size of a single producer request, in bytes. | — |
-| `producer_request_timeout_ms` | Timeout for producer requests to the broker, in milliseconds. | 600,000 ms (10 minutes) |
-| `producer_send_buffer_bytes` | Size of the TCP send buffer for the producer, in bytes. A value of `-1` uses the OS default. | 100 MiB |
+:::important
+
+- If you do not set a parameter, Kafka applies its built-in default.
+- The settings apply to MirrorMaker 2 integrations with both Aiven for Apache Kafka services
+  and external Kafka clusters.
+- Exercise changes incrementally and cautiously, depending on the resources available in
+  your service plan.
+
+:::
+
+| Parameter | Description | Kafka default | Maximum value |
+|-----------|-------------|---------------|---------------|
+| `consumer_fetch_min_bytes` | Minimum amount of data the server returns for a fetch request. Higher values reduce fetch frequency. | 1 | — |
+| `consumer_fetch_max_bytes` | Maximum amount of data the server returns for a fetch request. | 52428800 | 100 MiB |
+| `consumer_max_partition_fetch_bytes` | Maximum amount of data per partition the server returns in a single fetch response. | 1048576 | 100 MiB |
+| `consumer_max_poll_records` | Maximum number of records returned in a single poll request. | 500 | — |
+| `consumer_receive_buffer_bytes` | Size of the TCP receive buffer for the consumer. A value of `-1` uses the OS default. | 65536 | 100 MiB |
+| `consumer_request_timeout_ms` | Timeout for consumer requests to the broker, in milliseconds. | 30000 | 600,000 ms (10 minutes) |
+| `producer_batch_size` | Maximum size of a record batch sent to a single partition, in bytes. | 16384 | — |
+| `producer_buffer_memory` | Total memory available to the producer for buffering records, in bytes. | 33554432 | — |
+| `producer_linger_ms` | Time the producer waits for additional records before sending a batch, in milliseconds. | 0 | — |
+| `producer_max_request_size` | Maximum size of a single producer request, in bytes. | 1048576 | — |
+| `producer_request_timeout_ms` | Timeout for producer requests to the broker, in milliseconds. | 30000 | 600,000 ms (10 minutes) |
+| `producer_send_buffer_bytes` | Size of the TCP send buffer for the producer, in bytes. A value of `-1` uses the OS default. | 131072 | 100 MiB |
 
 <RelatedPages/>
 
