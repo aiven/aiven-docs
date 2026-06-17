@@ -34,7 +34,8 @@ contractual data protection terms between Aiven and OxygenIT.
 
 You must be an
 [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature.
+to access this feature in the Aiven Console. To get the emissions data using the Aiven API,
+you must have the `organization:sustainability:read` permission.
 
 1. In your organization, click **Admin**.
 1. Click **Carbon footprint**.
