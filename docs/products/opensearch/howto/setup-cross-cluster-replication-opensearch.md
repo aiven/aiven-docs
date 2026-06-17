@@ -33,7 +33,8 @@ Cross cluster replication is not available for the Free and Startup plans.
    1. Select the **Project name** and the **Service name**.
 
       :::note
-      Only services running OpenSearch 3.x can be selected as a follower.
+      Only services running the same OpenSearch version as the leader can be
+      selected as a follower. For example, a 2.19 leader requires a 2.19 follower.
       :::
 
    1. Click **Create follower**.
