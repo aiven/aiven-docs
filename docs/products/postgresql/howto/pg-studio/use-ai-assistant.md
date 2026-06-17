@@ -6,6 +6,13 @@ description: Generate and explain SQL queries with natural language.
 
 The AI Assistant in PG Studio helps you generate SQL queries and understand your database using natural language.
 
+:::note
+AI features are on by default. If they are off for your organization, the **AI Assistant**
+panel and the **Ask AI** action do not appear. Aiven manages this control. To change it,
+contact the Aiven support team. See
+[Manage PG Studio and AI features](/docs/products/postgresql/howto/pg-studio/security-connections#manage-pg-studio-and-ai-features).
+:::
+
 ## How AI assistance works
 
 The AI Assistant lets you get help with SQL queries and database questions in natural language. You can:

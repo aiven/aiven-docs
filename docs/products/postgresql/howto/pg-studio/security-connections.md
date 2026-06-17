@@ -22,8 +22,10 @@ PG Studio ensures safe, controlled access:
 For AI query generation scope, see [How AI assistance works](/docs/products/postgresql/howto/pg-studio/use-ai-assistant#how-ai-assistance-works).
 
 - **Single-statement validation:** PG Studio allows only one SQL statement per execution.
-- **Automatic safety checks:** PG Studio validates all generated SQL for safety before execution.
-- **Restricted unsafe requests:** Requests for privilege escalation or malicious SQL are blocked.
+- **Automatic safety checks:** PG Studio validates all generated SQL for safety before
+  execution.
+- **Restricted unsafe requests:** Requests for privilege escalation or malicious SQL are
+  blocked.
 - **Timeouts and limits:**
   - Statement timeout: 30 seconds
   - Lock timeout: 10 seconds
@@ -39,13 +41,26 @@ For AI query generation scope, see [How AI assistance works](/docs/products/post
 
 ## Network access requirements
 
-Your IP address must be in the service's IP allowlist. PG Studio validates your browser's IP address, which must be allowed in the [service's IP filter configuration](/docs/platform/howto/restrict-access).
+Your IP address must be in the service's IP allowlist. PG Studio validates your browser's
+IP address, which must be allowed in the
+[service's IP filter configuration](/docs/platform/howto/restrict-access).
 
-If you get the `Access is not allowed from the IP address` error, add your IP address to the allowlist.
+If you get the `Access is not allowed from the IP address` error, add your IP address to
+the allowlist.
 
 ## Required permissions
 
-To use PG Studio, you need the `service:data:write` permission at the organization, unit, or project level. This permission is included in the **Admin**, **Developer**, and **Operator** roles.
+To use PG Studio, you need the `service:data:write` permission at the organization, unit,
+or project level. This permission is included in the **Admin**, **Developer**, and
+**Operator** roles.
+
+## Manage PG Studio and AI features
+
+PG Studio and its AI features are on by default for all organizations and apply to all
+projects in your organization. Aiven manages these controls, so you cannot change them
+yourself. The two controls are independent, so you can turn either one off or on without
+affecting the other. To change either setting, contact the
+[Aiven support team](mailto:support@aiven.io).
 
 ## Related pages
 
