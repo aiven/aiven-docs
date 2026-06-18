@@ -183,7 +183,7 @@ shown in the table. The EOL date already includes the extended support period.
 
 | Version | Aiven EOL       | Service creation supported until |
 | ------- |-----------------|----------------------------------|
-| 1.34.2  | 2026-09-30      | 2026-06-17                       |
+| 1.39.0  | 2026-09-30      | 2026-06-17                       |
 
 ### Aiven for Grafana®
 
