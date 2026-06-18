@@ -601,6 +601,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/log-compaction',
                     'products/kafka/concepts/auth-types',
                     'products/kafka/concepts/acl',
+                    'products/kafka/concepts/audit-logging',
                     'products/kafka/concepts/schema-registry-authorization',
                     'products/kafka/concepts/kafka-rest-api',
                     'products/kafka/concepts/kraft-mode',
@@ -699,6 +700,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/howto/keystore-truststore',
                     'products/kafka/howto/manage-acls',
+                    'products/kafka/howto/configure-audit-logging',
                     'products/kafka/howto/monitor-logs-acl-failure',
                     'products/kafka/howto/kafka-sasl-auth',
                     'products/kafka/howto/renew-ssl-certs',
