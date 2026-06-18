@@ -10,12 +10,12 @@ type MCPConfigSectionProps = {
 };
 
 export default function MCPConfigSection({ baseUrl, format, configTemplate }: MCPConfigSectionProps): JSX.Element {
-  const [state, setState] = useState<MCPConfigState>({ readOnly: true, scopes: [] });
+  const [state, setState] = useState<MCPConfigState>({ readOnly: true, scopes: [], marketplace: '' });
 
   const url = buildMcpUrl(baseUrl, state);
   const config = configTemplate(url);
   const content = format === 'json' ? JSON.stringify(config, null, 2) : config;
-  const cacheKey = `${format}-${state.readOnly}-${state.scopes.join(',')}`;
+  const cacheKey = `${format}-${state.readOnly}-${state.scopes.join(',')}-${state.marketplace}`;
 
   return (
     <div className={styles.container}>

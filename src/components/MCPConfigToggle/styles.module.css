@@ -68,3 +68,49 @@
   color: inherit;
   text-decoration: underline;
 }
+
+.select {
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid var(--aiven-card-border);
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  font-family: var(--aiven-card-font-family);
+}
+
+/* Reset Docusaurus' default <details> theming (background, border, padding). */
+.disclosure {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.summary {
+  cursor: pointer;
+  list-style: revert;
+  padding: 0;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ifm-color-content);
+}
+
+.disclosureBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ifm-color-content-secondary, var(--ifm-color-content));
+}

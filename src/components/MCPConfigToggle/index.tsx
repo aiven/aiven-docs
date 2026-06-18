@@ -14,9 +14,20 @@ const SCOPE_LABELS: Record<ScopeChoice, string> = {
 
 const ALL_CHOICES: ScopeChoice[] = ['all', ...SCOPE_OPTIONS];
 
+export const MARKETPLACE_OPTIONS = ['aws', 'azure', 'gcp'] as const;
+export type Marketplace = typeof MARKETPLACE_OPTIONS[number];
+
+const MARKETPLACE_LABELS: Record<'' | Marketplace, string> = {
+  '': 'None (Aiven)',
+  aws: 'AWS Marketplace',
+  azure: 'Azure Marketplace',
+  gcp: 'Google Cloud Marketplace',
+};
+
 export type MCPConfigState = {
   readOnly: boolean;
   scopes: Scope[];
+  marketplace: '' | Marketplace;
 };
 
 type MCPConfigToggleProps = {
@@ -26,12 +37,13 @@ type MCPConfigToggleProps = {
 export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX.Element {
   const [readOnly, setReadOnly] = useState(true);
   const [scopes, setScopes] = useState<Scope[]>([]);
+  const [marketplace, setMarketplace] = useState<'' | Marketplace>('');
 
   const emit = (next: MCPConfigState) => onChange?.(next);
 
   const handleReadOnly = (checked: boolean) => {
     setReadOnly(checked);
-    emit({ readOnly: checked, scopes });
+    emit({ readOnly: checked, scopes, marketplace });
   };
 
   const handleScope = (choice: ScopeChoice, checked: boolean) => {
@@ -44,7 +56,12 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
       next = scopes.filter((s) => s !== choice);
     }
     setScopes(next);
-    emit({ readOnly, scopes: next });
+    emit({ readOnly, scopes: next, marketplace });
+  };
+
+  const handleMarketplace = (value: '' | Marketplace) => {
+    setMarketplace(value);
+    emit({ readOnly, scopes, marketplace: value });
   };
 
   const isChecked = (choice: ScopeChoice): boolean =>
@@ -90,14 +107,41 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
           ))}
         </div>
       </div>
+
+      <div className={styles.separator} aria-hidden="true" />
+
+      <details className={styles.disclosure}>
+        <summary className={styles.summary}>Subscribed through a cloud marketplace?</summary>
+        <div className={styles.disclosureBody}>
+          <label className={styles.option}>
+            <span>Marketplace</span>
+            <select
+              value={marketplace}
+              onChange={(e) => handleMarketplace(e.target.value as '' | Marketplace)}
+              className={styles.select}
+            >
+              {(['', ...MARKETPLACE_OPTIONS] as const).map((value) => (
+                <option key={value} value={value}>{MARKETPLACE_LABELS[value]}</option>
+              ))}
+            </select>
+          </label>
+          <p className={styles.hint}>
+            Select your marketplace only if you subscribed to Aiven through AWS, Azure, or Google
+            Cloud Marketplace. This helps you sign in to the correct console.
+          </p>
+        </div>
+      </details>
     </div>
   );
 }
 
 export function buildMcpUrl(baseUrl: string, state: MCPConfigState): string {
+  // The marketplace tenant is a path segment (e.g. `/mcp/gcp`); scopes and read-only are
+  // query parameters.
+  const url = state.marketplace ? `${baseUrl}/${state.marketplace}` : baseUrl;
   const params = new URLSearchParams();
   if (state.scopes.length > 0) params.set('services_scope', state.scopes.join(','));
   if (state.readOnly) params.set('read_only', 'true');
   const qs = params.toString();
-  return qs ? `${baseUrl}?${qs}` : baseUrl;
+  return qs ? `${url}?${qs}` : url;
 }
