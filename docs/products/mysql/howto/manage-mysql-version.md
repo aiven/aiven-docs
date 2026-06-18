@@ -1,7 +1,6 @@
 ---
 title: Manage Aiven for MySQL® versions
 sidebar_label: Upgrade service version
-early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
