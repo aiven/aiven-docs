@@ -49,6 +49,12 @@ provide your JWKS URL when you
 [enable Data API](/docs/products/postgresql/howto/data-apis/get-started), and Data API
 verifies each token against the public keys at that URL.
 
+:::note
+Data API uses one identity provider per database, set by a single JWKS URL. To change the
+JWKS URL or audience later, turn off Data API and enable it again. You can't update these
+settings in place.
+:::
+
 ### Configure the JWKS URL
 
 The _JSON Web Key Set (JWKS) URL_ is the endpoint where your IdP publishes the public keys
@@ -62,6 +68,12 @@ The URL format depends on your IdP. The following are common patterns:
 
 Replace `TENANT_NAME`, `OKTA_DOMAIN`, and `TENANT_ID` with the values from your IdP. For the
 exact URL, see your IdP's documentation.
+
+:::note
+Data API checks that the JWKS URL uses HTTPS, but doesn't verify that it's reachable when
+you save it. Make sure the URL is correct and publicly reachable, or token verification
+fails.
+:::
 
 Because Data API reads the keys from the JWKS URL, key rotation is automatic. When your IdP
 rotates its signing keys, Data API picks up the new keys from the same URL. You don't need
