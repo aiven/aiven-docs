@@ -484,6 +484,19 @@ application.
 
 #### Step 2: Create a Key Vault with Azure RBAC
 
+If this is the first Key Vault in your subscription, register the `Microsoft.KeyVault`
+resource provider first:
+
+```bash
+az provider register --namespace Microsoft.KeyVault
+```
+
+Confirm the registration is complete before you continue:
+
+```bash
+az provider show --namespace Microsoft.KeyVault --query registrationState
+```
+
 The Key Vault must use **Azure RBAC** for its authorization model (not the legacy access
 policy model):
 
@@ -495,12 +508,26 @@ az keyvault create \
   --enable-rbac-authorization true
 ```
 
+To protect against accidental or malicious key deletion, enable purge protection by
+adding `--enable-purge-protection true` to the command.
+
 If you are using an existing Key Vault, ensure RBAC authorization is enabled:
 
 ```bash
 az keyvault update \
   --name <vault-name> \
   --enable-rbac-authorization true
+```
+
+For a newly created Key Vault, assign yourself the **Key Vault Administrator** role so
+you can create keys:
+
+```bash
+az role assignment create \
+  --role "Key Vault Administrator" \
+  --assignee $(az ad signed-in-user show --query id -o tsv) \
+  --scope $(az keyvault show \
+    --name <vault-name> --resource-group <resource-group> --query id -o tsv)
 ```
 
 #### Step 3: Create an RSA key
@@ -518,13 +545,14 @@ az keyvault key create \
   --ops wrapKey unwrapKey
 ```
 
-HSM-backed key (for higher security requirements):
+Dedicated HSM-backed key (for higher security requirements):
 
 :::note
-HSM-backed keys require an Azure Managed HSM, which must be provisioned separately
-before creating keys. Provisioning takes a few minutes and incurs an hourly cost.
+HSM-backed (Hardware Security Module) keys require an Azure Managed HSM, which must be
+provisioned separately before creating keys. Provisioning takes a few minutes and incurs
+an hourly cost.
 See the [Azure Managed HSM quickstart](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/quick-create-cli)
-for setup instructions.
+for single-tenant (dedicated) HSM setup instructions.
 :::
 
 ```bash
