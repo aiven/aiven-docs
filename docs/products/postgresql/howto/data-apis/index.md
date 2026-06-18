@@ -17,8 +17,7 @@ To request access, [contact Aiven](https://aiven.io/contact).
 
 Data API appears under the **Data** section of your service's left sidebar in the Aiven
 Console. It auto-generates an API directly from your database schema, powered by
-[PostgREST](https://postgrest.org). When your schema changes, the endpoints update to match
-it.
+[PostgREST](https://postgrest.org).
 
 ## What Data API offers
 
@@ -52,6 +51,12 @@ base URL. You can enable Data API for more than one database in the same service
 - Data API must be available for your service's plan and cloud.
 - Each Data API serves one database. To expose more databases, enable Data API for each one
   separately.
+- Each Data API uses a single identity provider, set by one JWKS URL. Multiple identity
+  providers per service aren't supported.
+- Endpoints reflect the database schema captured when you enable Data API. They don't
+  refresh automatically when the schema changes.
+- To change the authentication settings, turn off Data API and enable it again. You can't
+  update them in place.
 
 ## Related pages
 

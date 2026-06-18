@@ -39,6 +39,11 @@ URL, and authentication settings.
   keys from the JWKS URL and picks up rotated keys from the same URL. For more information,
   see [Configure the JWKS URL](/docs/products/postgresql/howto/data-apis/authentication#configure-the-jwks-url).
 
+## Change authentication settings
+
+To change the JWKS URL or audience, turn off Data API for the database and enable it again
+with the new settings. You can't update authentication settings in place.
+
 ## Turn off Data API
 
 Turn off Data API to stop serving endpoints for a database. Select the database, then turn
@@ -65,3 +70,9 @@ If the application can't be deployed, the status changes to **Error**. Turn off 
 confirm that the service meets the
 [prerequisites](/docs/products/postgresql/howto/data-apis/get-started#prerequisites), and
 enable it again.
+
+### Endpoints don't reflect schema changes
+
+Endpoints reflect the database schema captured when you enabled Data API, and don't refresh
+automatically when the schema changes. To pick up new or changed tables, turn off Data API
+and enable it again.
