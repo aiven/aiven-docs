@@ -488,13 +488,7 @@ If this is the first Key Vault in your subscription, register the `Microsoft.Key
 resource provider first:
 
 ```bash
-az provider register --namespace Microsoft.KeyVault
-```
-
-Confirm the registration is complete before you continue:
-
-```bash
-az provider show --namespace Microsoft.KeyVault --query registrationState
+az provider register --namespace Microsoft.KeyVault --wait
 ```
 
 The Key Vault must use **Azure RBAC** for its authorization model (not the legacy access
