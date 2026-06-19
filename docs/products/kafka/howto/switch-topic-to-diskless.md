@@ -12,20 +12,30 @@ Switch an existing classic topic in Aiven for Apache Kafka® to a diskless topic
 The topic remains available during the switch.
 
 Records written before the switch remain readable from the classic topic log,
-and new records are written to the diskless topic.
-This feature applies only to Aiven for Apache Kafka services that have
+and new records are written to the diskless topic. This feature applies only to
+Aiven for Apache Kafka services that have
 [diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
 enabled.
+
+:::note
+This feature is in early availability and is not enabled by default. To request
+access, contact your account team or Aiven support.
+:::
 
 ## Prerequisites
 
 Before you switch a topic, make sure that:
 
 - Diskless topics are enabled for the service.
+- The classic-to-diskless topic switch is enabled for the service.
+- The service runs Apache Kafka® 4.1 or later.
 - [Tiered storage](/docs/products/kafka/howto/configure-topic-tiered-storage) is
-  enabled for the topic.
-- Unclean leader election is turned off for the topic.
+  enabled for the topic. For Bring Your Own Cloud (BYOC) services with diskless
+  topics, make sure tiered storage is enabled before you switch the topic.
+- Unclean leader election is turned off for the topic. If unclean leader election
+  is enabled, the switch does not start.
 - You have access to one of the following:
+
   - [Aiven CLI](/docs/tools/cli) installed and authenticated.
   - [Aiven API token](/docs/platform/howto/create_authentication_token) for API
     requests.
@@ -39,12 +49,15 @@ Before switching a topic, review the following:
 - Diskless topic limitations apply after the switch. Review
   [Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations)
   to confirm that diskless topics support your workload.
+- Switching a topic to diskless is currently available only with the Aiven CLI
+  or Aiven API.
+- The switch runs in the background. Internal partition-level switch state is not
+  exposed in the Aiven CLI, Aiven API, or topic configuration.
 
 ## Switch a topic to diskless
 
-To switch a topic, enable diskless for the topic by setting `diskless_enable=true`.
-Use the Aiven CLI or Aiven API to switch a topic. This action is not available
-in the Aiven Console.
+To switch a topic, enable diskless for the topic using the Aiven CLI or Aiven
+API.
 
 <Tabs groupId="switch-method">
 <TabItem value="cli" label="Aiven CLI" default>
@@ -54,7 +67,8 @@ Run the following command:
 ```bash
 avn service topic-update SERVICE_NAME TOPIC_NAME \
   --project PROJECT_NAME \
-  --config diskless_enable=true
+  --partitions PARTITION_COUNT \
+  --diskless-enable
 ```
 
 Replace the following values:
@@ -62,6 +76,7 @@ Replace the following values:
 - `PROJECT_NAME`: Name of your Aiven project.
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
 - `TOPIC_NAME`: Name of the topic to switch.
+- `PARTITION_COUNT`: Current number of partitions in the topic.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -97,23 +112,30 @@ The topic keeps its existing tiered storage setting. Do not set
 `remote_storage_enable` in the same request. If you set both properties, the
 request returns an error.
 
-After the update request succeeds, Aiven starts switching each partition in the
-topic.
+After the update request succeeds, Aiven starts switching the topic to diskless.
 
 ## Check the topic configuration
 
-The switch runs asynchronously and completes independently for each partition.
 Checking the topic configuration confirms that the switch request was accepted.
 
 <Tabs groupId="confirm-method">
 <TabItem value="cli" label="Aiven CLI" default>
 
+This command uses `jq` to filter the output for the selected topic.
+
 Run the following command:
 
 ```bash
-avn service topic-get SERVICE_NAME TOPIC_NAME \
-  --project PROJECT_NAME
+avn service topic-list SERVICE_NAME \
+  --project PROJECT_NAME \
+  --json | jq '.[] | select(.topic_name=="TOPIC_NAME")'
 ```
+
+Replace the following values:
+
+- `PROJECT_NAME`: Name of your Aiven project.
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
+- `TOPIC_NAME`: Name of the topic.
 
 In the output, verify that `diskless_enable` is set to `true`.
 
@@ -131,6 +153,13 @@ curl --request GET \
   --header "Authorization: Bearer TOKEN"
 ```
 
+Replace the following values:
+
+- `PROJECT_NAME`: Name of your Aiven project.
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
+- `TOPIC_NAME`: Name of the topic.
+- `TOKEN`: Your Aiven API token.
+
 In the response, verify that `diskless_enable` is set to `true`.
 
 </TabItem>
@@ -141,13 +170,13 @@ In the response, verify that `diskless_enable` is set to `true`.
 During the switch:
 
 - The topic remains available.
-- Producers might briefly receive retriable errors while each partition is
-  switched, such as `NOT_LEADER_FOR_PARTITION` or request timeouts. Most Kafka
-  clients retry these errors by default.
+- Producers might briefly receive retriable errors while the topic is switched.
+  Most Kafka clients retry these errors by default.
 - Consumer applications do not need changes to read records written before or
   after the switch.
 - The topic name and retention settings do not change.
-- Partitions switch independently, so some partitions might finish before others.
+- Aiven manages the partition-level switch process. No action is required after
+  the update request succeeds.
 
 ## How the switch works
 
