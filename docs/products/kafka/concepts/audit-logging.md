@@ -4,77 +4,73 @@ sidebar_label: Audit logging
 early: true
 ---
 
-Audit logging for Aiven for Apache Kafka® records Kafka client activity on your
-service, including which authenticated Kafka users connected and which Kafka operations
-were allowed or denied during a configured time period.
+Audit logging for Aiven for Apache Kafka® records authenticated Kafka client activity on your service.
+Audit logs show which Kafka users were active and can show which Kafka operations
+were allowed or denied, depending on your audit logging settings.
 
 Use audit logs to support security reviews and compliance workflows.
 
 ## How audit logging works
 
-When a Kafka client connects to your Aiven for Apache Kafka service, Aiven checks each
-requested operation and records whether it is allowed or denied. Audit logging writes
-the results to the service logs with the `AUDIT:` prefix.
+After a Kafka client authenticates with your Aiven for Apache Kafka service, Aiven
+checks requested operations and records whether they are allowed or denied. Audit
+logging writes entries to the service logs with the `AUDIT:` prefix.
 
-Each audit entry identifies the Kafka user, also called a principal, that connected.
-In audit logs, the principal is the Kafka user account that a client authenticates
-with, for example `User:avnadmin`.
+Each audit entry identifies the Kafka user, also called a principal. In audit logs,
+the principal is the Kafka user account that a client authenticates with, for example
+`User:avnadmin`.
+
+Audit logging writes entries to the service logs at regular intervals, based on the
+configured aggregation period. Each entry shows the first time activity was detected
+for a Kafka user during that period.
 
 Audit logging supports any authentication method and does not require additional
-access control list (ACL) setup. To enable it, see
+access control list (ACL) setup.
+
+You can configure audit logging to:
+
+- Record Kafka operations, such as read or write requests, or record only that a Kafka
+  user was active.
+- Include or exclude denied authorization attempts.
+- Group entries by Kafka user or by Kafka user and source IP address.
+- Change how often audit entries are written to the service logs.
+
+To enable and configure audit logging, see
 [Configure audit logging for Aiven for Apache Kafka®](/docs/products/kafka/howto/configure-audit-logging).
 
-## What audit logging records
+## Audit log examples
 
-Audit logging supports two record types. Use the `record_type` setting to choose how
-much detail to include. Aiven writes audit entries to the service logs at the end of
-each aggregation period.
-
-- **`user_operations`** (default): Records each Kafka user's activity and the distinct
-  Kafka operations performed during the aggregation period, such as produce, fetch,
-  and configuration changes. If the same operation on the same resource occurs
-  multiple times during the period, it appears once in the audit entry.
-- **`user_activity`**: Records only that a Kafka user was active during the aggregation
-  period. It does not list the operations performed. Use it when you need less
-  detailed logs that show which users were active, but not what they did.
-
-A `user_operations` entry lists the Kafka user, the source IP address, when the user
-first became active in the aggregation period, and each operation performed with its
-result:
+A `user_operations` entry lists the Kafka user, source IP address, when the user first
+became active in the aggregation period, and each operation with its result:
 
 ```text
-AUDIT: User:alice (192.168.1.10) was active since 2024-01-15T10:00:00Z: Allow WRITE on TOPIC:orders, Allow READ on GROUP:my-consumer
+[2024-07-29 11:02:27,861] AUDIT: User:alice (/192.0.2.10) was active since 2024-07-29T10:57:28.048485122Z: Allow WRITE on TOPIC:orders, Allow READ on GROUP:order-consumers
 ```
 
-A `user_activity` entry includes only the Kafka user, source IP address, and the time
-the user first became active in the aggregation period:
+A `user_activity` entry includes only the Kafka user, source IP address, and when the
+user first became active:
 
 ```text
-AUDIT: User:alice (192.168.1.10) was active since 2024-01-15T10:00:00Z.
+[2024-07-29 11:02:27,861] AUDIT: User:alice (/192.0.2.10) was active since 2024-07-29T10:57:28.048485122Z.
 ```
-
-Other audit log settings control whether denied authorization attempts are included,
-how entries are grouped, and how often entries are written to the service logs. To
-configure these settings, see
-[Configure audit logging for Aiven for Apache Kafka®](/docs/products/kafka/howto/configure-audit-logging).
 
 ## Limitations
 
-Review these limitations before you rely on audit logs:
+When using audit logs, note these limitations:
 
 - **Audit entries do not include exact operation times.** Audit logging groups
   activity over an aggregation period, so an entry's timestamp is not the exact time
   of an individual operation.
-- **Actions made with Aiven tools are not attributed to individual Aiven accounts.**
+- **Kafka audit logs do not show which Aiven account made changes using Aiven tools.**
   Kafka audit logs record only Kafka client activity. Operations performed in the
   Aiven Console, Aiven CLI, Aiven API, Aiven Provider for Terraform, or Kubernetes
   operator appear under an internal Aiven service account, not the individual Aiven
   account. This includes topic creation and deletion. To find who performed an
-  operation, use the [project event log](/docs/platform/howto/manage-project-audit-logs).
+  operation, use the [project event log](/docs/platform/howto/view-project-logs).
 
 ## Related pages
 
 - [Configure audit logging for Aiven for Apache Kafka®](/docs/products/kafka/howto/configure-audit-logging)
 - [Advanced parameters for Aiven for Apache Kafka®](/docs/products/kafka/reference/advanced-params)
 - [Integrate service logs into an Apache Kafka® topic](/docs/products/kafka/howto/integrate-service-logs-into-kafka-topic)
-- [Manage project audit logs](/docs/platform/howto/manage-project-audit-logs)
+- [View project logs](/docs/platform/howto/view-project-logs)

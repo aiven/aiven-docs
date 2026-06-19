@@ -10,7 +10,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
 Turn audit logging on for your Aiven for Apache Kafka® service, change what it records,
-and control how many log entries it produces.
+and manage audit log volume.
 
 For what audit logging captures and its limitations, see
 [Audit logging for Aiven for Apache Kafka®](/docs/products/kafka/concepts/audit-logging).
@@ -34,23 +34,20 @@ To configure audit logging, you need one of the following
 
 The `developer` and `read_only` roles cannot configure audit logging.
 
-## Configuration options
+## Audit logging settings
 
-You configure audit logging with the `kafka.audit_log` settings. How you refer to each
-setting depends on the method:
+Use these advanced configuration settings to customize audit logging. To record
+detailed operation entries, add `kafka.audit_log.record_type` and set it to
+`user_operations`.
 
-- In the **Aiven Console** and **Aiven CLI**, use the full name, such as
-  `kafka.audit_log.record_type`.
-- In the **Aiven API** and **Terraform**, set each option as a field inside the
-  `audit_log` object.
-
-The following options are available. When audit logging is enabled, unset options use
-their default values.
+In the service configuration, add these settings under `kafka.audit_log`, for example
+`kafka.audit_log.record_type`. For the exact syntax for each method, see
+[Enable audit logging](#enable-audit-logging).
 
 <table>
   <thead>
     <tr>
-      <th>Option</th>
+      <th>Setting</th>
       <th>Type</th>
       <th>Default</th>
       <th>Description</th>
@@ -63,8 +60,8 @@ their default values.
       <td><code>user_operations</code></td>
       <td>
         The type of activity to record. Use <code>user_operations</code> for detailed
-        operation logs, or <code>user_activity</code> to record only that a Kafka user
-        was active.
+        operation entries, or <code>user_activity</code> to record only that a Kafka
+        user was active.
       </td>
     </tr>
     <tr>
@@ -72,7 +69,7 @@ their default values.
       <td>integer</td>
       <td><code>300</code></td>
       <td>
-        How long, in seconds, to group entries before writing them to the log. A
+        How long, in seconds, to group entries before writing them to the service logs. A
         higher value produces fewer, larger entries. Accepts a value from 1 to 1800.
       </td>
     </tr>
@@ -81,7 +78,8 @@ their default values.
       <td>boolean</td>
       <td><code>false</code></td>
       <td>
-        Whether to include denied authorization attempts in audit log entries.
+        Whether to include denied authorization attempts in audit log entries. When
+        false, audit log entries include only allowed operations.
       </td>
     </tr>
     <tr>
@@ -99,9 +97,8 @@ their default values.
 
 ## Enable audit logging
 
-Audit logging turns on when the `kafka.audit_log` settings are present. To enable it
-with default settings, add at least one option, such as `record_type`. The other
-options then use their defaults.
+To enable audit logging, add at least one `kafka.audit_log` setting to your service
+configuration. Any setting you add must have a valid value.
 
 <Tabs groupId="enable-methods">
 <TabItem value="console" label="Aiven Console" default>
@@ -111,15 +108,15 @@ options then use their defaults.
 1. Click <ConsoleLabel name="service settings"/>.
 1. In the **Advanced configuration** section, click **Configure**.
 1. Click <ConsoleIcon name="Add config options"/> and enter `audit` to find the audit
-   logging options.
-1. Add each option you want, then set its value. For example, add
-   `kafka.audit_log.record_type` and select `user_operations`.
+   logging settings.
+1. Add `kafka.audit_log.record_type` and select `user_operations`.
+1. Optional: Add other audit logging settings and set their values.
 1. Click **Save configuration**.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-Set the options with the [`avn service update`](/docs/tools/cli/service-cli) command
+Set these settings with the [`avn service update`](/docs/tools/cli/service-cli) command
 and the `-c` flag:
 
 ```bash
@@ -159,6 +156,9 @@ curl -s -X PUT \
   }'
 ```
 
+Replace `PROJECT_NAME`, `SERVICE_NAME`, and `TOKEN` with your project name, service
+name, and authentication token.
+
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
@@ -190,9 +190,14 @@ resource "aiven_kafka" "example_kafka" {
 
 ## Change audit logging settings
 
-To change what audit logging records, set new values for the `kafka.audit_log` options
+To change what audit logging records, set new values for the `kafka.audit_log` settings
 with any of the preceding methods. Services that already use audit logging keep their
 current settings until you change them.
+
+:::important
+You cannot remove audit logging settings or turn off audit logging yourself. To turn
+off audit logging, [contact Aiven support](/docs/platform/howto/support).
+:::
 
 ## View audit logs
 
