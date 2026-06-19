@@ -13,17 +13,18 @@ Configure preferred availability zones to control where your Aiven for Apache Ka
 
 ## Overview
 
-By default, Aiven automatically distributes Kafka service nodes across all available
+By default, Aiven automatically distributes Kafka service nodes across any available
 availability zones (AZs) in a region for maximum fault tolerance. With preferred
 zones, you can restrict node placement to specific AZs while maintaining high
 availability.
 
 Use cases for preferred zones include:
 
-- **Latency optimization**: Place nodes closer to your application workloads.
 - **Cost reduction**: Minimize cross-AZ data transfer costs by co-locating Kafka
-  nodes with your consumers.
-- **Compliance requirements**: Restrict data to specific zones within a region.
+  nodes with your applications.
+- **Latency optimization**: Place nodes closer to your application workloads.
+- **Compliance requirements**: Restrict data and deployments to specific zones within a
+region.
 - **Follower fetching optimization**: Align broker placement with consumer locations
   for efficient rack-aware fetching.
 
@@ -142,26 +143,26 @@ When you configure preferred zones:
 1. **Zone validation** rejects invalid zone IDs at configuration time.
 1. **Fallback behavior**: If a preferred zone is temporarily unavailable (for example,
    due to capacity constraints), nodes are placed in other available zones to maintain
-   service availability.
-1. **Existing nodes** are not automatically moved. Changes take effect on the next
-   node recreation, such as during maintenance or plan changes.
+1. **Existing nodes** are not automatically rebalanced, unless they meet the conditions
+described below. Preferred zone creation is re-attempted on the next node recreation,
+ such as during maintenance or plan changes.
 
 ### Minimum zone count
 
-For high availability, configure at least three preferred zones. Configuring fewer
-than three zones requires special account permissions and reduces fault tolerance.
+For high availability, configure at least three preferred zones. Configuring fewer than
+three zones will fail, and requires special account permissions to reduce fault tolerance.
 
 ### Interaction with single zone configuration
 
-If both `preferred_zones` and `single_zone.availability_zone` are configured,
+If both `preferred_zones` and [`single_zone.availability_zone`](/docs/products/kafka/reference/advanced-params-inkless#single_zone.availability_zone) are configured,
 the `single_zone` setting takes precedence when `single_zone.enabled` is true.
 
 ## Automatic rebalancing for Standard plans
 
 For Kafka services with Standard professional plans, nodes placed outside preferred
-zones are automatically rebalanced once per day. This ensures that temporary zone
-unavailability during node creation is eventually corrected without manual
-intervention.
+zones will automatically re-attempt to deploy in that zone once per day.
+This attempts to fix any temporary issues of zone unavailability during node creation
+are eventually corrected without manual intervention.
 
 Classic Kafka services receive alerts about misplaced nodes but do not automatically
 rebalance. You can manually trigger node replacement through the Aiven Console or
