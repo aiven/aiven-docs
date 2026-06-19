@@ -24,7 +24,7 @@ control. To change it, contact the Aiven support team. See
    suggestion. Press `Esc` to dismiss autocomplete.
    :::
 
-1. Click **Run**.
+1. Click **Run**, or press `Cmd+Enter` on macOS or `Ctrl+Enter` on Windows and Linux.
 1. View the results in the results panel.
 
 The autocomplete feature helps you write queries faster by suggesting:
@@ -39,9 +39,14 @@ The autocomplete feature helps you write queries faster by suggesting:
 When working with multiple SQL statements, the editor runs one query at a time. It runs
 the query where your cursor is placed.
 
-1. In the SQL editor, place your cursor in the query to run.
-1. Click **Run selected** next to the active query.
+1. In the SQL editor, place your cursor in the query to run, or select the SQL text you
+   want to execute.
+1. Click **Run selected**, or press `Cmd+Enter` on macOS or `Ctrl+Enter` on Windows and
+   Linux.
 1. View the results in the results panel.
+
+When you select text in the editor, only the selected text is executed. When no text is
+selected, the full editor content runs.
 
 This is useful for:
 
