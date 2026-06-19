@@ -156,9 +156,9 @@ than three zones requires special account permissions and reduces fault toleranc
 If both `preferred_zones` and `single_zone.availability_zone` are configured,
 the `single_zone` setting takes precedence when `single_zone.enabled` is true.
 
-## Automatic rebalancing for Inkless Kafka
+## Automatic rebalancing for Standard plans
 
-For Inkless Kafka services with professional plans, nodes placed outside preferred
+For Kafka services with Standard professional plans, nodes placed outside preferred
 zones are automatically rebalanced once per day. This ensures that temporary zone
 unavailability during node creation is eventually corrected without manual
 intervention.
@@ -181,9 +181,9 @@ align your preferred zones with your consumer locations:
 This setup ensures brokers and consumers are co-located, enabling consumers to fetch
 from local replicas and reducing cross-AZ network costs.
 
-## Example: Reducing cross-AZ costs for Inkless producers
+## Example: Reducing cross-AZ costs when producing to diskless topics
 
-For Inkless Kafka services with diskless topics, you can reduce cross-AZ data
+For Kafka services with diskless topics, you can reduce cross-AZ data
 transfer costs by configuring producers to route requests to brokers in their local
 AZ. This uses the `client.id` pattern to communicate the producer's availability
 zone to the broker.
@@ -227,7 +227,7 @@ produce requests.
   property
 
 :::note
-This `client.id` pattern is specific to Inkless Kafka with diskless topics. For
+This `client.id` pattern is specific to Kafka with diskless topics. For
 classic Kafka topics, use [follower fetching](#example-optimizing-for-follower-fetching)
 with the standard `client.rack` configuration instead.
 :::
