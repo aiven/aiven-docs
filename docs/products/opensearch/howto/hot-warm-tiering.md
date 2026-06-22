@@ -225,14 +225,14 @@ Warm nodes must hold all data within the warm retention window. Calculate warm s
 as follows:
 
 ```
-daily_ingest_rate × warm_retention_days × (1 + replica_factor)
+daily_ingest_rate × warm_retention_days × (1 + number_of_replicas)
 ```
 
-Add at least 20% headroom above OpenSearch's default high-watermark threshold of 90%.
+Add at least 20% headroom above OpenSearch's high-watermark threshold. By default,
 OpenSearch applies the same watermarks (85% / 90% / 95%) to both tiers. Monitor warm disk
-usage separately from hot. With
-[Dynamic Disk Sizing](/docs/platform/howto/add-storage-space), you can expand warm
-disk independently of hot at any time.
+usage separately from hot. [Dynamic Disk Sizing](/docs/platform/howto/add-storage-space)
+adds capacity to both tiers at the same time, distributed proportionally to each tier's
+base volume size, so account for that when you size the warm tier.
 
 ## Troubleshoot
 

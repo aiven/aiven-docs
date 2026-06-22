@@ -46,9 +46,13 @@ graph LR
 
 ## Dynamic Disk Sizing
 
-[Dynamic Disk Sizing](/docs/platform/howto/add-storage-space) is tier-aware for tiered
-plans. You can add disk capacity to hot nodes and warm nodes independently without affecting
-the other group.
+[Dynamic Disk Sizing](/docs/platform/howto/add-storage-space) adds capacity to both tiers
+at the same time. You cannot expand a single tier on its own. The added space is distributed
+proportionally to each tier's base volume size.
+
+For example, if hot nodes have 100 GiB of total volume and warm nodes have 200 GiB, adding
+90 GiB allocates 30 GiB to the hot tier (100 / 300 × 90) and 60 GiB to the warm tier
+(200 / 300 × 90). This behavior might change in the future.
 
 ## Supported OpenSearch versions
 
