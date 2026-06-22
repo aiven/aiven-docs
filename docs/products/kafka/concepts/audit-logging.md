@@ -4,7 +4,7 @@ sidebar_label: Audit logging
 early: true
 ---
 
-Audit logging for Aiven for Apache Kafka® records authenticated Kafka client activity on your service.
+Audit logging for Aiven for Apache Kafka® records Kafka client activity on your service, including authenticated activity and unauthenticated access attempts.
 Audit logs show which Kafka users were active and can show which Kafka operations
 were allowed or denied, depending on your audit logging settings.
 
@@ -18,7 +18,12 @@ logging writes entries to the service logs with the `AUDIT:` prefix.
 
 Each audit entry identifies the Kafka user, also called a principal. In audit logs,
 the principal is the Kafka user account that a client authenticates with, for example
-`User:avnadmin`.
+`User:avnadmin`, the default principal in Aiven.
+
+Audit logs also include internal client activity on your service. Some internal
+activity is authenticated, for example `User:karapace_sr`, the principal used by
+Karapace Schema Registry for accessing the `_schemas` topic. Other activity can be
+unauthenticated and appear as `User:ANONYMOUS`.
 
 Audit logging writes entries to the service logs at regular intervals, based on the
 configured aggregation period. Each entry shows the first time activity was detected
@@ -64,7 +69,7 @@ When using audit logs, note these limitations:
 - **Kafka audit logs do not show which Aiven account made changes using Aiven tools.**
   Kafka audit logs record only Kafka client activity. Operations performed in the
   Aiven Console, Aiven CLI, Aiven API, Aiven Provider for Terraform, or Kubernetes
-  operator appear under an internal Aiven service account, not the individual Aiven
+  operator can appear under an internal Aiven service account, not the individual Aiven
   account. This includes topic creation and deletion. To find who performed an
   operation, use the [project event log](/docs/platform/howto/view-project-logs).
 
