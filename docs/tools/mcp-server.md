@@ -307,3 +307,8 @@ Aiven secures the platform and API. You are responsible for the following:
   operations on production resources.
 - **Configure MCP servers securely**, including enabling read-only mode to
   restrict the server to non-destructive operations.
+- **Keep credential exposure off in production.** The
+  **Allow connection credentials** option (`allow_secrets=true`) returns
+  PostgreSQL and Kafka connection credentials, including URIs, passwords, and
+  certificates, to the AI agent so it can connect to your services. Use it only
+  for development with non-production services that do not hold sensitive data.

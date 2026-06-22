@@ -28,6 +28,7 @@ export type MCPConfigState = {
   readOnly: boolean;
   scopes: Scope[];
   marketplace: '' | Marketplace;
+  allowSecrets: boolean;
 };
 
 type MCPConfigToggleProps = {
@@ -38,12 +39,13 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
   const [readOnly, setReadOnly] = useState(true);
   const [scopes, setScopes] = useState<Scope[]>([]);
   const [marketplace, setMarketplace] = useState<'' | Marketplace>('');
+  const [allowSecrets, setAllowSecrets] = useState(false);
 
   const emit = (next: MCPConfigState) => onChange?.(next);
 
   const handleReadOnly = (checked: boolean) => {
     setReadOnly(checked);
-    emit({ readOnly: checked, scopes, marketplace });
+    emit({ readOnly: checked, scopes, marketplace, allowSecrets });
   };
 
   const handleScope = (choice: ScopeChoice, checked: boolean) => {
@@ -56,12 +58,17 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
       next = scopes.filter((s) => s !== choice);
     }
     setScopes(next);
-    emit({ readOnly, scopes: next, marketplace });
+    emit({ readOnly, scopes: next, marketplace, allowSecrets });
   };
 
   const handleMarketplace = (value: '' | Marketplace) => {
     setMarketplace(value);
-    emit({ readOnly, scopes, marketplace: value });
+    emit({ readOnly, scopes, marketplace: value, allowSecrets });
+  };
+
+  const handleAllowSecrets = (checked: boolean) => {
+    setAllowSecrets(checked);
+    emit({ readOnly, scopes, marketplace, allowSecrets: checked });
   };
 
   const isChecked = (choice: ScopeChoice): boolean =>
@@ -110,6 +117,29 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
 
       <div className={styles.separator} aria-hidden="true" />
 
+      <div className={styles.section}>
+        <span className={styles.sectionLabel}>Development</span>
+        <label className={styles.option}>
+          <input
+            type="checkbox"
+            checked={allowSecrets}
+            onChange={(e) => handleAllowSecrets(e.target.checked)}
+            className={styles.checkbox}
+          />
+          <span>Allow connection credentials (development only)</span>
+        </label>
+      </div>
+      {allowSecrets && (
+        <p className={styles.warning} role="alert">
+          ⚠ This shares PostgreSQL and Kafka connection credentials with the AI agent,
+          including URIs, passwords, and certificates, so it can connect to your services.
+          Do not enable it in production.{' '}
+          <a href="#security-and-responsibility">Review the security implications</a>.
+        </p>
+      )}
+
+      <div className={styles.separator} aria-hidden="true" />
+
       <details className={styles.disclosure}>
         <summary className={styles.summary}>Subscribed through a cloud marketplace?</summary>
         <div className={styles.disclosureBody}>
@@ -142,6 +172,7 @@ export function buildMcpUrl(baseUrl: string, state: MCPConfigState): string {
   const params = new URLSearchParams();
   if (state.scopes.length > 0) params.set('services_scope', state.scopes.join(','));
   if (state.readOnly) params.set('read_only', 'true');
+  if (state.allowSecrets) params.set('allow_secrets', 'true');
   const qs = params.toString();
   return qs ? `${url}?${qs}` : url;
 }

@@ -9,7 +9,7 @@ type CursorConfigTabProps = {
 };
 
 export default function CursorConfigTab({ baseUrl }: CursorConfigTabProps): JSX.Element {
-  const [state, setState] = useState<MCPConfigState>({ readOnly: true, scopes: [], marketplace: '' });
+  const [state, setState] = useState<MCPConfigState>({ readOnly: true, scopes: [], marketplace: '', allowSecrets: false });
 
   const url = buildMcpUrl(baseUrl, state);
   const configJson = JSON.stringify({ mcpServers: { aiven: { type: 'http', url } } }, null, 2);
@@ -17,7 +17,7 @@ export default function CursorConfigTab({ baseUrl }: CursorConfigTabProps): JSX.
   const cursorConfig = { url, type: 'http' };
   const encodedConfig = typeof btoa !== 'undefined' ? btoa(JSON.stringify(cursorConfig)) : '';
   const deepLink = `cursor://anysphere.cursor-deeplink/mcp/install?name=aiven-mcp&config=${encodedConfig}`;
-  const cacheKey = `${state.readOnly}-${state.scopes.join(',')}-${state.marketplace}`;
+  const cacheKey = `${state.readOnly}-${state.scopes.join(',')}-${state.marketplace}-${state.allowSecrets}`;
 
   return (
     <div className={styles.container}>
