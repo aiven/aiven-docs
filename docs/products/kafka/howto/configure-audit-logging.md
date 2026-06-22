@@ -1,13 +1,11 @@
 ---
 title: Configure audit logging for Aiven for Apache Kafka®
 sidebar_label: Configure audit logging
-early: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
 Turn audit logging on for your Aiven for Apache Kafka® service, change what it records, and manage audit log volume.
 
@@ -51,7 +49,7 @@ configuration. Any setting you add must have a valid value.
    service.
 1. Click <ConsoleLabel name="service settings"/>.
 1. In the **Advanced configuration** section, click **Configure**.
-1. Click <ConsoleIcon name="Add config options"/> and enter `audit` to find the audit
+1. Click <ConsoleLabel name="Add config options"/> and enter `audit` to find the audit
    logging settings.
 1. Add `kafka.audit_log.record_type` and select `user_operations`.
 1. Optional: Add other audit logging settings and set their values.

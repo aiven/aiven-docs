@@ -1,7 +1,6 @@
 ---
 title: Audit logging for Aiven for Apache Kafka®
 sidebar_label: Audit logging
-early: true
 ---
 
 Audit logging for Aiven for Apache Kafka® records Kafka client activity on your service, including authenticated activity and unauthenticated access attempts.
