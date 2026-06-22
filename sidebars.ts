@@ -703,6 +703,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/kafka-sasl-auth',
                     'products/kafka/howto/renew-ssl-certs',
                     'products/kafka/howto/enable-oidc',
+                    'products/kafka/howto/kafka-oauth2-aws-iam',
                     'products/kafka/howto/kafka-custom-serde-encrypt',
                     'products/kafka/howto/ipv6-client-connectivity',
                   ],
