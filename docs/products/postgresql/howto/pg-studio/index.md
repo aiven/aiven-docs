@@ -32,7 +32,8 @@ PG Studio supports:
 - Exploring tables in a **Tables** view with data preview
 - Exploring schemas and table relationships
 - Explaining queries and database objects
-- Running queries with live results
+- Running a single query or multiple selected queries at once, with live results in
+  separate tabs
 - Executing write queries and data definition statements with built-in safety guardrails
 
 ## PG Studio components
@@ -43,8 +44,9 @@ PG Studio supports:
   clipboard.
 - **Tables view:** Browse tables in your selected schema and preview up to 100 rows.
   Open a table tab to start writing SQL.
-- **SQL editor:** Write and edit SQL across multiple tabs, run queries to view results
-  in the results panel, and execute write operations with built-in safety guardrails.
+- **SQL editor:** Write and edit SQL across multiple tabs. Run a single statement or select
+  multiple statements to execute them all at once, with each result shown in its own tab.
+  Execute write operations with built-in safety guardrails.
 - **AI Assistant panel:** Describe what you need in natural language. The assistant
   generates SQL or explains queries, tables, and relationships using your database schema.
 
