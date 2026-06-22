@@ -5,9 +5,10 @@ sidebar_label: OAuth 2.0/OIDC with AWS IAM
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use AWS IAM Outbound Identity Federation to authenticate Kafka clients with OAuth 2.0/OIDC.
-This lets AWS IAM principals connect to Aiven for Apache Kafka® without managing
-separate credentials by using short-lived JWTs issued by AWS STS.
+Use AWS IAM Outbound Identity Federation to authenticate Apache Kafka® clients with
+OAuth 2.0/OIDC. AWS IAM principals can connect to Aiven for Apache Kafka® without
+managing separate credentials by using short-lived JSON Web Tokens (JWTs) issued by
+AWS Security Token Service (AWS STS).
 
 ## Prerequisites
 
@@ -20,14 +21,19 @@ Before you begin, make sure you have:
 - The [Aiven CLI](/docs/tools/cli) installed.
 - The [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
   installed.
+- [`jq`](https://jqlang.github.io/jq/) installed.
 
-Define the audience value, typically as your Kafka service hostname. Replace `SERVICE_NAME` with your value:
+Define the audience value, typically as your Kafka service hostname. Replace
+`SERVICE_NAME` with your value:
 
 ```bash
 AUDIENCE=$(avn service get SERVICE_NAME --json | jq .user_config.kafka.sasl_oauthbearer_expected_audience)
 ```
 
-## Step 1: Enable Outbound Identity Federation in AWS
+Use the same audience value when you configure AWS, Aiven for Apache Kafka, and your
+Kafka client.
+
+## Enable Outbound Identity Federation in AWS
 
 Enable Outbound Identity Federation for your AWS account:
 
@@ -35,10 +41,10 @@ Enable Outbound Identity Federation for your AWS account:
 aws iam enable-outbound-web-identity-federation
 ```
 
-## Step 2: Verify IAM permissions
+## Verify IAM permissions
 
-Your AWS user must be attached an IAM policy that allows
-the `sts:GetWebIdentityToken` action with a condition matching the audience.
+Make sure the AWS principal that requests the token has permission to call
+`sts:GetWebIdentityToken` with the configured audience.
 
 The following example policy grants the minimum required permissions:
 
@@ -61,7 +67,7 @@ The following example policy grants the minimum required permissions:
 }
 ```
 
-## Step 3: Retrieve the issuer URL
+## Retrieve the issuer URL
 
 Get the issuer URL from your AWS account configuration:
 
@@ -69,11 +75,13 @@ Get the issuer URL from your AWS account configuration:
 ISSUER_URL=$(aws iam get-outbound-web-identity-federation-info | jq -r .IssuerIdentifier)
 ```
 
-The issuer URL is in the form `https://<uuid>.tokens.sts.global.api.aws`.
+The issuer URL has the form `https://<uuid>.tokens.sts.global.api.aws`.
 
-## Step 4: Update your Aiven for Apache Kafka service
+## Configure OIDC for Aiven for Apache Kafka
 
-Configure your Kafka service with the OIDC settings from the previous step.
+Configure your Kafka service with the OIDC issuer, JSON Web Key Set (JWKS) endpoint,
+audience, and subject claim.
+
 Replace `PROJECT_NAME` and `SERVICE_NAME` with your values:
 
 ```bash
@@ -85,66 +93,70 @@ avn service update --project PROJECT_NAME SERVICE_NAME \
 ```
 
 :::note
-This command triggers a rolling restart of your Apache Kafka brokers. Apply it
-during a maintenance window to minimize impact.
+This command triggers a rolling restart of your Apache Kafka brokers. To minimize
+impact, apply it during a maintenance window.
 :::
 
-For details on each parameter, see [OIDC parameters](/docs/products/kafka/howto/enable-oidc#oidc-parameters).
+For details about each parameter, see
+[OIDC parameters](/docs/products/kafka/howto/enable-oidc#oidc-parameters).
 
-## Step 5: Configure Kafka ACLs for your IAM principal
+## Configure Kafka ACLs for your IAM principal
 
-The JWT issued by AWS STS contains the IAM principal ARN as the `sub` claim.
-Aiven for Apache Kafka uses this value directly as the Kafka principal, so your
-ACLs must reference the full ARN prefixed with `User:`.
+The JWT issued by AWS STS contains the IAM principal Amazon Resource Name (ARN) as the
+`sub` claim. Aiven for Apache Kafka uses this value as the Kafka principal, so
+configure your access control lists (ACLs) to reference the full ARN prefixed with
+`User:`.
 
 Use the Aiven CLI to add the required ACLs. Replace `PROJECT_NAME`, `SERVICE_NAME`,
 and the ARN with your values:
 
 ```bash
-# Allow describe (required for both producers and consumers)
+PRINCIPAL="User:arn:aws:iam::123456789012:user/my-iam-user"
+
+# Allow topic describe operations.
 avn service kafka-acl-add --project PROJECT_NAME SERVICE_NAME \
   --permission allow \
-  --principal "User:arn:aws:iam::123456789012:user/my-iam-user" \
+  --principal "${PRINCIPAL}" \
   --operation Describe \
   --resource-type topic \
   --pattern-type literal \
   --resource-name my-topic
 
-# Allow produce
+# Allow produce operations.
 avn service kafka-acl-add --project PROJECT_NAME SERVICE_NAME \
   --permission allow \
-  --principal "User:arn:aws:iam::123456789012:user/my-iam-user" \
+  --principal "${PRINCIPAL}" \
   --operation Write \
   --resource-type topic \
   --pattern-type literal \
   --resource-name my-topic
 
-# Allow consume (topic)
+# Allow consume operations from the topic.
 avn service kafka-acl-add --project PROJECT_NAME SERVICE_NAME \
   --permission allow \
-  --principal "User:arn:aws:iam::123456789012:user/my-iam-user" \
+  --principal "${PRINCIPAL}" \
   --operation Read \
   --resource-type topic \
   --pattern-type literal \
   --resource-name my-topic
 
-# Allow consume (consumer group)
+# Allow consume operations with the consumer group.
 avn service kafka-acl-add --project PROJECT_NAME SERVICE_NAME \
   --permission allow \
-  --principal "User:arn:aws:iam::123456789012:user/my-iam-user" \
+  --principal "${PRINCIPAL}" \
   --operation Read \
   --resource-type group \
   --pattern-type literal \
   --resource-name my-consumer-group
 ```
 
-To verify the ACLs are in place:
+To verify that the ACLs are in place, run the following command:
 
 ```bash
 avn service kafka-acl-list --project PROJECT_NAME SERVICE_NAME
 ```
 
-Expected output:
+The output is similar to the following:
 
 ```text
 ID              PERMISSION_TYPE  PRINCIPAL                                              OPERATION  RESOURCE_TYPE  PATTERN_TYPE  RESOURCE_NAME      HOST
@@ -155,13 +167,12 @@ acl5baf3a60d8f  ALLOW            User:arn:aws:iam::123456789012:user/my-iam-user
 acl5baf3ab8316  ALLOW            User:arn:aws:iam::123456789012:user/my-iam-user        Read       Group          LITERAL       my-consumer-group  *
 ```
 
-## Step 6: Configure your Kafka client
+## Configure the Kafka client
 
 Your client must request a JWT from AWS STS at runtime and use it to authenticate
-with the Kafka service via `OAUTHBEARER`.
+with the Kafka service by using the `OAUTHBEARER` SASL mechanism.
 
-<details>
-<summary>Python example</summary>
+### Python example
 
 Install the required libraries:
 
@@ -169,7 +180,7 @@ Install the required libraries:
 pip install confluent-kafka boto3 PyJWT
 ```
 
-Download the CA certificate for your service from the Aiven Console, then use the
+Download the CA certificate for your service from the Aiven Console. Use the
 following code:
 
 ```python
@@ -185,7 +196,7 @@ AUDIENCE = "<your-kafka-service-hostname>"  # Must match the server-side audienc
 
 def fetch_token_from_aws_sts(config):
     """
-    Fetches a short-lived JWT from AWS STS.
+    Fetch a short-lived JWT from AWS STS.
 
     Equivalent to:
         aws sts get-web-identity-token \
@@ -204,7 +215,7 @@ def fetch_token_from_aws_sts(config):
     return token, expiry
 
 
-# Verify token fetch before connecting (fail fast)
+# Verify that token retrieval works before connecting.
 token, expiry = fetch_token_from_aws_sts(None)
 decoded = jwt.decode(token, options={"verify_signature": False})
 print(decoded)
@@ -233,9 +244,10 @@ def delivery_callback(err, msg):
 
 producer = Producer(kafka_config)
 producer.produce("my-topic", key="key", value="hello from OIDC", callback=delivery_callback)
+producer.flush()
+
 if delivery_errors:
     raise RuntimeError(f"Message delivery failed: {delivery_errors[0]}")
-producer.flush()
 
 # Consumer example
 consumer_config = {
@@ -259,13 +271,11 @@ finally:
     consumer.close()
 ```
 
-</details>
-
-<details>
-<summary>Java example</summary>
+### Java example
 
 Implement a custom `AuthenticateCallbackHandler` that calls
 `GetWebIdentityToken` and refreshes the token before it expires.
+
 Pass the handler class to your Kafka client configuration:
 
 ```properties
@@ -276,16 +286,14 @@ sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginMo
 sasl.login.callback.handler.class=<your-handler-that-calls-GetWebIdentityToken-and-refreshes-the-token-before-it-expires>
 ```
 
-Your handler should:
+Configure your handler to:
 
 1. Call the AWS SDK `StsClient.getWebIdentityToken()` with the configured audience and
    a signing algorithm.
-2. Return the token and its expiration time.
-3. Proactively refresh the token before it expires to avoid authentication failures.
+1. Return the token and its expiration time.
+1. Refresh the token before it expires to avoid authentication failures.
 
-</details>
-
-## Step 7 (optional): Disable other authentication mechanisms
+## Optional: Disable other authentication mechanisms
 
 To use only OAuth 2.0/OIDC authentication, you can now disable all other
 SASL authentication mechanisms. Replace `SERVICE_NAME` with your value:

@@ -11,8 +11,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for Apache Kafka® supports OAuth 2.0/OIDC authentication for Kafka clients.
 Use OAuth 2.0/OIDC authentication to let clients authenticate with tokens issued by an
-identity provider, or by an identity broker supporting Outbound Identity Federation
-(see [how to set it up with AWS IAM](/docs/products/kafka/howto/kafka-oauth2-aws-iam)).
+identity provider or by an identity broker that supports Outbound Identity Federation.
+For AWS IAM, see
+[OAuth 2.0/OIDC with AWS IAM](/docs/products/kafka/howto/kafka-oauth2-aws-iam).
 
 ## Prerequisites
 
@@ -207,4 +208,4 @@ operational impact, apply these changes during a maintenance window.
 
 - [Enable OAuth 2.0/OIDC support for Apache Kafka REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
 - [Enable and configure SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth)
-- [OAuth 2.0/OIDC with AWS IAM using Outbound Identity Federation](/docs/products/kafka/howto/kafka-oauth2-aws-iam)
+- [OAuth 2.0/OIDC with AWS IAM](/docs/products/kafka/howto/kafka-oauth2-aws-iam)
