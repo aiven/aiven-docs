@@ -16,7 +16,8 @@ start replication from the follower for selected indices, or use an auto-follow 
 replicate every index that matches a pattern. After replication starts for an index, the
 follower automatically pulls new data, mappings, and metadata changes for that index from
 the leader. Follower services can run in different regions and on different cloud
-providers.
+providers. Aiven only supports automated backups on the primary leader cluster, which
+means that follower clusters are not backed up independently.
 
 ## Benefits
 
@@ -31,9 +32,9 @@ providers.
 -   Cross cluster replication is not available for Free and Startup
     plans.
 -   During creation, the follower cluster service must have the same
-    service plan as the leader cluster service. This ensures the
-    follower cluster service has as much memory as the leader cluster.
-    Service plans can be changed later as needed.
+    service plan as the leader cluster service, or higher. This ensures
+    that the follower cluster service has at least as much memory as the
+    leader cluster. Service plans can be changed later as needed.
 -   To delete the cross-cluster replication integration,
     **delete** the follower cluster service.
 -   Maintenance upgrade and major version upgrades must be performed manually
