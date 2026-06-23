@@ -46,7 +46,7 @@ New LTS versions become available on Aiven:
 - As GA approximately four months after the upstream release.
 
 Aiven announces new EA and GA versions in the
-[Aiven changelog](https://aiven.io/changelog).
+[Aiven changelog](https://aiven.io/changelog?services=ClickHouse%2CClickHouse%25C2%25AE).
 
 When a new version becomes available, new service creation stops for the oldest
 supported version, and that version enters EOA. EOL follows 3 months later. After
