@@ -3,9 +3,9 @@ title: Audit logging for Aiven for Apache Kafka®
 sidebar_label: Audit logging
 ---
 
-Audit logging for Aiven for Apache Kafka® records Kafka client activity on your service, including authenticated activity and unauthenticated access attempts.
+Audit logging for Aiven for Apache Kafka® records Kafka client activity on your service.
 Audit logs show which Kafka users were active and can show which Kafka operations
-were allowed or denied, depending on your audit logging settings.
+were allowed or denied during a configured time period.
 
 Use audit logs to support security reviews and compliance workflows.
 
