@@ -103,12 +103,13 @@ Aiven for OpenSearch® is the open source continuation of the original
 Elasticsearch service. The EOL for Aiven for OpenSearch® is generally
 dependent on the upstream project.
 
-| Version | Aiven EOL       | After EOL                                   | Service creation supported until | Service creation supported from |
-| ------- | --------------- | ------------------------------------------- | -------------------------------- | ------------------------------- |
-| 1.3.x   | 2026-07-26      | Automatic upgrade to 2.19                   | 2026-07-26                       | 2022-05-19                      |
-| 2.17.x  | 2026-07-26      | Automatic upgrade to 2.19                   | 2026-07-26                       | 2024-10-15                      |
-| 2.19.x  | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2025-09-15                      |
-| 3.3.x   | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2026-01-20                      |
+| Version   | Aiven EOL       | After EOL                                   | Service creation supported until | Service creation supported from |
+| --------- | --------------- | ------------------------------------------- | -------------------------------- | ------------------------------- |
+| 1.3.x     | 2026-07-26      | Automatic upgrade to 2.19                   | 2026-07-26                       | 2022-05-19                      |
+| 2.17.x    | 2026-07-26      | Automatic upgrade to 2.19                   | 2026-07-26                       | 2024-10-15                      |
+| 2.19.x    | 2026-12-22      | Automatic upgrade to a supported version    | 2026-12-22                       | 2025-09-15                      |
+| 3.3.x     | 2026-12-23      | Automatic upgrade to a supported version    | 2026-12-23                       | 2026-01-20                      |
+| 3.6.x LTS | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2026-06-23                      |
 
 ### Aiven for PostgreSQL®
 
