@@ -335,8 +335,7 @@ renewables
 repo
 repos
 requesters
-resharding
-Resharding
+[Rr]eshard\w*
 reStructuredText
 rivery
 rollout

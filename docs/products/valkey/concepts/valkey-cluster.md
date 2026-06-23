@@ -130,6 +130,28 @@ clustering from the start.
 - Configure your client to discover and connect to cluster nodes automatically.
 - Test failover behavior to ensure your application handles node changes gracefully.
 
+## Resharding
+
+Aiven for Valkey distributes data across primary nodes using hash slots. When the number
+of primary nodes in your cluster changes, Aiven reshards the cluster automatically.
+Resharding redistributes the hash slots, and the keys they hold, across the available
+primary nodes to keep data balanced.
+
+Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
+manages the entire process:
+
+- **Slot redistribution**: Aiven divides the ranges of hash slots owned by each primary
+  node and reassigns them across the updated set of primary nodes.
+- **Key migration**: Keys move together with their slots while the cluster stays available
+  to clients.
+- **No manual slot management**: You cannot move individual slots or assign them to
+  specific nodes. Aiven controls slot placement to keep the cluster balanced and
+  consistent. The `migrate` command that resharding uses to move keys between nodes stays
+  disabled for direct use.
+
+To inspect the slot layout, check the `slot_range_groups` field in the service
+configuration. It shows how hash slots map to the cluster node groups.
+
 ## Limitations and considerations
 
 Clustering is supported for new services only.
@@ -139,8 +161,6 @@ Clustering is supported for new services only.
 The following are planned for future releases:
 
 - Backup and restore
-- Online resharding
-- Horizontal scaling
 
 ### Performance factors
 
