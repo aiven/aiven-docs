@@ -5,8 +5,7 @@ sidebar_label: Dedicated node roles
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for OpenSearch® supports dedicated node roles, enabling workload isolation across
-specialized node groups for optimized performance and scaling.
+Aiven for OpenSearch® supports dedicated node roles, enabling workload isolation across specialized node groups for optimized performance and scaling.
 
 The dedicated node roles capability is generally available (GA) for Aiven for OpenSearch®
 version 2.19 and later. The cluster topology with node roles is available for 9-node and
