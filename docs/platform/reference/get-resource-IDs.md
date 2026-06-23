@@ -49,3 +49,10 @@ You can see the ID for each organization you were invited to or are a member of.
 1. Click <ConsoleLabel name="billinggroups"/>.
 
 The ID is under the billing group names.
+
+## Get an address ID
+
+1. Click **Billing**.
+1. Click <ConsoleLabel name="billingaddress"/>.
+
+The ID for each address is under the address name.
