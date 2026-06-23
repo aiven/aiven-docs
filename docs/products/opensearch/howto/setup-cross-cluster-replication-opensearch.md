@@ -104,8 +104,9 @@ for Aiven for OpenSearch, see the
 The `opensearch_cross_cluster_replication` integration sets up the remote-cluster
 connection between the follower and the leader and maps the replication security roles.
 It does not start replicating any data. After the integration is created, start
-replication from the follower using the OpenSearch replication API, either for a single
-index or for all indices that match a pattern.
+replication from the follower using the
+[OpenSearch replication API](https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/),
+either for a single index or for all indices that match a pattern.
 
 The integration exposes the leader as a remote-cluster alias named
 `LEADER_PROJECT_LEADER_SERVICE`, formed from the leader's project name and service name
