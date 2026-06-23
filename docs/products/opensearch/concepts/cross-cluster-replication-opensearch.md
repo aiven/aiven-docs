@@ -1,20 +1,19 @@
 ---
 title: OpenSearch® cross-cluster replication
 limited: true
-sidebar_label: X-cluster replication
+sidebar_label: Cross-cluster replication
 unlisted: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Cross-cluster replication (CCR) in Aiven for OpenSearch allows you to replicate an entire cluster, including all indexes, mappings, and metadata, from one service to another across different regions and cloud providers.
+Cross-cluster replication (CCR) in Aiven for OpenSearch allows you to replicate an entire cluster, including all indexes, mappings, and metadata, from one service to another across different regions and cloud providers. 
 
 This is an `active-passive` model, where the follower service pulls all data and
 indexes from the leader service. Once you have a
 [cross-cluster replication setup](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch), the leader cluster automatically
 replicates data to all follower clusters. Follower clusters can be set up in various
-regions and on different cloud providers, ensuring that all index creation, deletion,
-new data entries, metadata, and configurations are replicated automatically.
+regions and on different cloud providers. Aiven only supports automated backups on the primary leader cluster, meaning that follower clusters are not backed up independently.
 
 ## Benefits
 
@@ -28,10 +27,7 @@ new data entries, metadata, and configurations are replicated automatically.
 
 -   Cross cluster replication is not available for Free and Startup
     plans.
--   During creation, the follower cluster service must have the same
-    service plan as the leader cluster service. This ensures the
-    follower cluster service has as much memory as the leader cluster.
-    Service plans can be changed later as needed.
+-   During creation, the follower cluster service must have the same service plan as the leader cluster service, or higher. This ensures that the follower cluster service has at least as much memory as the     leader cluster. Service plans can be changed later as needed.
 -   To delete the cross-cluster replication integration,
     **delete** the follower cluster service.
 -   Maintenance upgrade and major version upgrades must be performed manually
