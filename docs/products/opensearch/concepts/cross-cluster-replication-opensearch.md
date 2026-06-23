@@ -29,10 +29,10 @@ independently.
 
 -   Cross cluster replication is not available for Free and Startup
     plans.
--   During creation, the follower cluster service must have the same service
-    plan as the leader cluster service, or higher. This ensures that the
-    follower cluster service has at least as much memory as the leader cluster.
-    Service plans can be changed later as needed.
+-   During creation, the follower cluster service must have the same
+    service plan as the leader cluster service, or higher. This ensures
+    that the follower cluster service has at least as much memory as
+    the leader cluster. Service plans can be changed later as needed.
 -   To delete the cross-cluster replication integration,
     **delete** the follower cluster service.
 -   Maintenance upgrade and major version upgrades must be performed manually
