@@ -159,11 +159,14 @@ shown in the table. The EOL date already includes the extended support period.
 
 ### Aiven for ClickHouse®
 
-| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
-| ------- |-----------------|----------------------------------| ------------------------------- |
-| 25.3    | To be announced | To be announced                  | 2025-12-15                      |
-| 25.8    | To be announced | To be announced                  | 2026-03-25                      |
+| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
+| ------- | ---------- | -------------------------------- | ------------------------------- |
+| 25.3    | 2026-09-30 | 2026-07-01                       | 2025-12-15                      |
+| 25.8    | 2027-02-28 | 2026-11-30                       | 2026-03-25                      |
+| 26.3    | 2027-09-15 | 2027-06-15                       | July 2026                       |
 
+For details, see the
+[Aiven for ClickHouse version support policy](/docs/products/clickhouse/reference/version-lifecycle).
 
 ### Aiven for Apache Flink® {#aiven-for-flink}
 
