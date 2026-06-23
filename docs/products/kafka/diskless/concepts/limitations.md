@@ -8,8 +8,10 @@ Diskless topics are compatible with Kafka APIs and clients, with some limitation
 - Transactions are not supported for produce or consume operations.
 - Compacted topics are not supported.
 - Kafka Streams state stores are not supported. Stream processing can read from diskless
-  topics but must write to classic topics.
-- Classic and tiered Kafka topics cannot be converted to diskless topics.
+  topics but writes to classic topics.
+- You cannot switch a diskless topic back to a classic topic. To switch a
+  classic topic to diskless, see
+  [Switch a classic topic to a diskless topic](/docs/products/kafka/howto/switch-topic-to-diskless).
 
 ## Internal metadata service behavior {#internal-metadata-service}
 
@@ -37,13 +39,13 @@ Aiven for PostgreSQL® service in the project. This PostgreSQL service:
 - Stores metadata required for diskless topics.
 - Appears as a separate service in the project.
 - Is created and managed automatically by Aiven.
-- Should not be configured or managed independently.
+- Do not configure or manage independently.
 
 ### Maintenance behavior
 
 Maintenance for this internal service occurs in the same maintenance window as the Kafka
-service. In the Aiven Console, references to internal components may appear during
-maintenance or upgrade flows, but they cannot be managed independently.
+service. In the Aiven Console, references to internal components can appear during
+maintenance or upgrade flows, but you cannot manage them independently.
 
 For more information about how diskless topics work, see [Diskless topics
 architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture).

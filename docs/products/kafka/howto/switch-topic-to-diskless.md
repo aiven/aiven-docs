@@ -8,8 +8,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Switch an existing [classic topic](/docs/products/kafka/diskless/concepts/topics-vs-classic) in Aiven for Apache Kafka® to a diskless topic without manually copying data or renaming the topic.
-The topic remains available during the switch.
+Switch an existing [classic topic](/docs/products/kafka/diskless/concepts/topics-vs-classic) in Aiven for Apache Kafka® to a diskless topic.
+You do not need to copy data or rename the topic. The topic remains available during the
+switch.
+
 
 Records written before the switch remain readable from the classic topic log,
 and new records are written to the diskless topic.
