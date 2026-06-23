@@ -5,11 +5,13 @@ sidebar_label: Dedicated node roles
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for OpenSearch® supports clusters with dedicated node roles, allowing you to assign specialized functions to different node groups for improved performance and scalability.
+Aiven for OpenSearch® supports dedicated node roles, enabling workload isolation across
+specialized node groups for optimized performance and scaling.
 
-The dedicated node roles feature is supported for Aiven for OpenSearch® version 2.19 and
-later. It's available in specific service plans for production workloads that require
-enhanced performance and reliability.
+The dedicated node roles capability is generally available (GA) for Aiven for OpenSearch®
+version 2.19 and later. The cluster topology with node roles is available for 9-node and
+15-node service plans, for production workloads that require enhanced performance and
+reliability.
 
 ## Benefits and use cases
 
@@ -165,13 +167,13 @@ The dedicated node roles feature is plan-based.
 ### Start using dedicated node roles
 
 Create an Aiven for OpenSearch® service and choose a plan that includes
-dedicated node roles. For steps, see
+dedicated node roles, available under Cluster plans. For steps, see
 [Get started with Aiven for OpenSearch®](/docs/products/opensearch/get-started#create-an-aiven-for-opensearch-service).
 
-### Configure dedicated node roles
+### Scale a cluster plan
 
 To move to another dedicated-role layout, change the service plan to a
-different eligible plan. For steps, see
+different eligible plan, available under Cluster plans. For steps, see
 [Change a service plan](/docs/platform/howto/scale-services).
 
 ### Disable dedicated node roles
