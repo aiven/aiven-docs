@@ -55,4 +55,4 @@ The ID is under the billing group names.
 1. Click **Billing**.
 1. Click <ConsoleLabel name="billingaddress"/>.
 
-The IDs are under the address names.
+The ID for each address is under the address name.
