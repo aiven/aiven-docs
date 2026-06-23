@@ -5,12 +5,12 @@ sidebar_label: Version support policy
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for ClickHouse® follows the upstream ClickHouse long-term support, or LTS,
-release model. This gives you stable, supported versions and time to plan and
-complete upgrades.
+Aiven for ClickHouse® follows the upstream ClickHouse long-term support, or LTS, release model.
+This helps you use stable, supported versions and plan upgrades before versions
+reach end of life.
 
-Aiven for ClickHouse versions move through defined lifecycle stages, from early
-testing to end of life. Each stage determines whether you can create new
+Aiven for ClickHouse versions move through defined lifecycle stages, from
+availability to end of life. Each stage determines whether you can create new
 services, receive security updates, or need to plan an upgrade.
 
 ## Upstream LTS releases
@@ -25,12 +25,9 @@ Upstream LTS versions receive security updates for 12 months.
 
 Each Aiven for ClickHouse LTS version moves through the following stages:
 
-- **Preparation:** Aiven prepares the LTS release. This includes applying Aiven
-  public and private patches, running additional tests, documenting differences
-  from the upstream version, and preparing the changelog.
 - **Limited Availability (LA):** The version is available for selected early
   testing. LA versions are not publicly announced.
-- **Early Availability:** The version is stable and available to all customers.
+- **Early Availability (EA):** The version is stable and available to all customers.
   Some settings, features, and UI elements might still change.
 - **General Availability (GA):** The version is stable and fully available.
 - **End of Availability (EOA):** You can no longer create new services with the
@@ -45,8 +42,8 @@ Aiven supports two active generally available LTS versions at a time.
 
 New LTS versions become available on Aiven:
 
-- As EA no later than 3 months after the upstream release.
-- As GA no later than 4 months after the upstream release.
+- As EA approximately three months after the upstream release.
+- As GA approximately four months after the upstream release.
 
 Aiven announces new EA and GA versions in the
 [Aiven changelog](https://aiven.io/changelog).
@@ -76,5 +73,6 @@ in the Aiven service and tool version lifecycle reference.
 <RelatedPages/>
 
 - [Aiven for ClickHouse EOL dates](/docs/platform/reference/eol-for-major-versions#aiven-for-clickhouse)
+- [Service and feature releases](/docs/platform/concepts/service-and-feature-releases)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)
 - [Fork an Aiven service](/docs/platform/concepts/service-forking)
