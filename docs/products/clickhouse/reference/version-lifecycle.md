@@ -70,11 +70,11 @@ it automatically.
 
 For End of Availability, End of Life, and new service creation dates for
 supported Aiven for ClickHouse versions, see the
-[Aiven for ClickHouse section](/docs/platform/reference/eol-for-major-versions#aiven-for-clickhouse)
-of the Aiven service and tool version lifecycle reference.
+[Aiven for ClickHouse EOL dates](/docs/platform/reference/eol-for-major-versions#aiven-for-clickhouse)
+in the Aiven service and tool version lifecycle reference.
 
 <RelatedPages/>
 
-- [Aiven service and tool version lifecycle](/docs/platform/reference/eol-for-major-versions)
+- [Aiven for ClickHouse EOL dates](/docs/platform/reference/eol-for-major-versions#aiven-for-clickhouse)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)
 - [Fork an Aiven service](/docs/platform/concepts/service-forking)
