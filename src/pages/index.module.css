@@ -108,6 +108,48 @@
   justify-content: flex-start;
 }
 
+.askAIForm {
+  margin-top: 1.9rem;
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: min(42rem, 100%);
+}
+
+.askAIInput {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--aiven-chrome-divider);
+  border-radius: 4px;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.95rem;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.askAIInput::placeholder {
+  color: var(--aiven-grey-60);
+}
+
+.askAIButton {
+  border: 1px solid var(--aiven-button-primary-bg);
+  background-color: var(--aiven-button-primary-bg);
+  color: var(--nav-btn-primary-text-color);
+  border-radius: var(--aiven-radius);
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.askAIButton:hover,
+.askAIButton:focus {
+  background-color: var(--aiven-button-primary-bg-hover);
+  border-color: var(--aiven-button-primary-bg-hover);
+  color: var(--nav-btn-primary-text-color-hover);
+}
+
 @media (min-width: 997px) {
   .heroDecoAsterisk {
     right: clamp(2%, 10vw, 14%);
@@ -139,6 +181,10 @@
 
   .heroContent {
     max-width: none;
+  }
+
+  .askAIForm {
+    width: 100%;
   }
 
   .heroDecoBrace {
