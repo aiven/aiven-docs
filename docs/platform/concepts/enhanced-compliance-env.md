@@ -82,8 +82,10 @@ is not available in the standard environments.
 If you have compliance requirements beyond these standards, contact the
 [sales team](https://aiven.io/contact) so we can better understand your specific needs.
 
-Additionally, we offer an alternative deployment option. See
-[Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc).
+Additionally, we offer an alternative deployment option that runs in your own AWS account.
+See [Bring Your Own Cloud (BYOC)](/docs/platform/concepts/byoc) and
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance) for
+PCI DSS or HIPAA workloads.
 
 ## Migrate to an ECE
 

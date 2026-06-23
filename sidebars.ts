@@ -189,6 +189,7 @@ const sidebars: SidebarsConfig = {
                 id: 'platform/concepts/byoc',
               },
               items: [
+                'platform/concepts/byoc-enhanced-compliance',
                 'platform/howto/byoc/networking-security',
                 'platform/howto/byoc/enable-byoc',
                 {

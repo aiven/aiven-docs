@@ -7,6 +7,8 @@ keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deploym
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.png";
+import byocAwsEceHipaa from "@site/static/images/content/figma/aws-byoc-ece-hipaa.png";
+import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-pci-dss.png";
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
@@ -120,7 +122,7 @@ For a cost estimate and analysis, contact your account team.
 ## BYOC architecture
 
 <Tabs groupId="group1">
-<TabItem value="1" label="AWS private" default>
+<TabItem value="1" label="AWS BYOC private" default>
 
 <img src={byocAwsPrivate} className="centered" alt="BYOC AWS private architecture" width="100%" />
 
@@ -150,7 +152,7 @@ two S3 buckets. To enable this optional feature for your new BYOC clouds,
 [contact Aiven](https://aiven.io/contact).
 
 </TabItem>
-<TabItem value="2" label="AWS public">
+<TabItem value="2" label="AWS BYOC public">
 
 <img src={byocAwsPublic} className="centered" alt="BYOC AWS public architecture" width="100%" />
 
@@ -170,7 +172,57 @@ two S3 buckets. To enable this optional feature for your new BYOC clouds,
 [contact Aiven](https://aiven.io/contact).
 
 </TabItem>
-<TabItem value="3" label="Google Cloud private">
+<TabItem value="5" label="AWS BYOC ECE HIPAA">
+
+<img src={byocAwsEceHipaa} className="centered" alt="BYOC AWS HIPAA architecture" width="100%" />
+
+The AWS `hipaa` deployment model is for healthcare workloads that handle protected health
+information (PHI) under HIPAA. It builds on the AWS private model and shares its network
+topology: a dedicated **BYOC VPC** with workload nodes in a private subnet and a
+**Bastion node** that proxies traffic for the Aiven management plane. On top of that
+topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
+  Aiven creates no NAT gateways by default.
+- Amazon S3 access is restricted to buckets in your own AWS account through a VPC gateway
+  endpoint, where Aiven stores service
+  [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+  [cold data](/docs/platform/howto/byoc/store-data).
+- Aiven tags all resources with the `hipaa` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+
+</TabItem>
+<TabItem value="6" label="AWS BYOC ECE PCI DSS">
+
+<img src={byocAwsEcePciDss} className="centered" alt="BYOC AWS PCI DSS architecture" width="100%" />
+
+The AWS `pci_dss` deployment model is for payment workloads that require cardholder data
+environment (CDE) isolation under PCI DSS. It builds on the AWS private model and shares its
+network topology: a dedicated **BYOC VPC** with workload nodes in a private subnet and a
+**Bastion node** that proxies traffic for the Aiven management plane. On top of that
+topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
+  Aiven creates no NAT gateways by default.
+- Amazon S3 access is restricted to buckets in your own AWS account through a VPC gateway
+  endpoint, where Aiven stores service
+  [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+  [cold data](/docs/platform/howto/byoc/store-data).
+- Aiven tags all resources with the `pci_dss` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+
+</TabItem>
+<TabItem value="3" label="Google Cloud BYOC private">
 
 <img src={byocGcpPrivate} className="centered" alt="BYOC Google Cloud private architecture" width="100%" />
 
@@ -199,7 +251,7 @@ from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="Google Cloud public">
+<TabItem value="4" label="Google Cloud BYOC public">
 
 <img src={byocGcpPublic} className="centered" alt="BYOC Google Cloud public architecture" width="100%" />
 
@@ -218,6 +270,12 @@ directly. To restrict access to your service, you can use the
 Firewall rules are enforced on the subnet level.
 You can integrate your services using standard VPC peering techniques.
 All Aiven communication is encrypted.
+
+:::tip
+For AWS custom clouds, you can also choose a compliance deployment model (`pci_dss` or
+`hipaa`) to run services under PCI DSS or HIPAA requirements. See
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+:::
 
 ## BYOC service backups
 

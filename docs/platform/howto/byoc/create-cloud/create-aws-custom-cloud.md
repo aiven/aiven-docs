@@ -449,11 +449,19 @@ In the **Create custom cloud** wizard:
 
     -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
 
-        Choose between:
-        - Private model, which routes traffic through a proxy for additional security
-          utilizing a bastion host logically separated from the Aiven services.
-        - Public model, which allows the Aiven control plane to connect to the service
-          nodes via the public internet.
+        Choose a deployment model:
+        - **Private**: Routes traffic through a proxy using a bastion host logically
+          separated from the Aiven services. Use it for sensitive, internal workloads.
+        - **Public**: Lets the Aiven control plane connect to the service nodes over the
+          public internet. Use it for public-facing workloads.
+        - **HIPAA**: Builds on the private model for healthcare workloads that handle
+          protected health information (PHI).
+        - **PCI DSS**: Builds on the private model for payment workloads that require
+          cardholder data environment (CDE) isolation.
+
+        The **HIPAA** and **PCI DSS** models require object storage in your AWS account and
+        restrict outbound traffic and public access. See
+        [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
     -   CIDR for BYOC resources
 
@@ -698,6 +706,12 @@ Your new custom cloud is ready to use only after its status changes to
        and are by default not accessible from outside. Traffic is routed through a proxy
        for additional security utilizing a bastion host logically separated from the
        Aiven services.
+     - `hipaa` or `pci_dss` (compliance) models: Build on the `standard` model to run
+       services under HIPAA or PCI DSS requirements. Use `hipaa` for healthcare workloads
+       that handle protected health information (PHI), or `pci_dss` for payment workloads
+       that require cardholder data environment (CDE) isolation. These models require object
+       storage in your AWS account and restrict outbound traffic and public access. See
+       [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
    - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom
      cloud:
      1. Pick a region from the **Cloud** column in the supported
