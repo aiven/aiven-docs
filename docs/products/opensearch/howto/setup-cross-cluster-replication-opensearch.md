@@ -119,6 +119,12 @@ Aiven maps the replication roles as `ccr_leader_full_access` and
 services.
 :::
 
+:::note
+The replication API requests that send a JSON body require the
+`Content-Type: application/json` header. For example, with `curl`, add
+`-H 'Content-Type: application/json'` to the request.
+:::
+
 ### Replicate a single index
 
 Run the following request against the follower to start replicating one index:
