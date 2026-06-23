@@ -272,8 +272,8 @@ You can integrate your services using standard VPC peering techniques.
 All Aiven communication is encrypted.
 
 :::tip
-For AWS custom clouds, you can also choose a compliance deployment model (`pci_dss` or
-`hipaa`) to run services under PCI DSS or HIPAA requirements. See
+For AWS and Google Cloud custom clouds, you can also choose a compliance deployment model
+(`pci_dss` or `hipaa`) to run services under PCI DSS or HIPAA requirements. See
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 :::
 
