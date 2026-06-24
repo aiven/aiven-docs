@@ -124,7 +124,7 @@ For a cost estimate and analysis, contact your account team.
 <Tabs groupId="group1">
 <TabItem value="1" label="AWS BYOC private" default>
 
-<img src={byocAwsPrivate} className="centered" alt="BYOC AWS private architecture" width="100%" />
+<img src={byocAwsPrivate} className="centered zoomable" alt="BYOC AWS private architecture" width="100%" />
 
 In the AWS private deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
 services is created within a particular cloud region in your remote cloud account.
@@ -154,7 +154,7 @@ two S3 buckets. To enable this optional feature for your new BYOC clouds,
 </TabItem>
 <TabItem value="2" label="AWS BYOC public">
 
-<img src={byocAwsPublic} className="centered" alt="BYOC AWS public architecture" width="100%" />
+<img src={byocAwsPublic} className="centered zoomable" alt="BYOC AWS public architecture" width="100%" />
 
 In the AWS public deployment model, a Virtual Private Cloud (**BYOC VPC**) for your Aiven
 services is created within a particular cloud region in your remote cloud account.
@@ -174,7 +174,7 @@ two S3 buckets. To enable this optional feature for your new BYOC clouds,
 </TabItem>
 <TabItem value="5" label="AWS BYOC ECE HIPAA">
 
-<img src={byocAwsEceHipaa} className="centered" alt="BYOC AWS HIPAA architecture" width="100%" />
+<img src={byocAwsEceHipaa} className="centered zoomable" alt="BYOC AWS HIPAA architecture" width="100%" />
 
 The AWS `hipaa` deployment model is for healthcare workloads that handle protected health
 information (PHI) under HIPAA. It builds on the AWS private model and shares its network
@@ -199,7 +199,7 @@ For the full list of controls, requirements, and limitations, see
 </TabItem>
 <TabItem value="6" label="AWS BYOC ECE PCI DSS">
 
-<img src={byocAwsEcePciDss} className="centered" alt="BYOC AWS PCI DSS architecture" width="100%" />
+<img src={byocAwsEcePciDss} className="centered zoomable" alt="BYOC AWS PCI DSS architecture" width="100%" />
 
 The AWS `pci_dss` deployment model is for payment workloads that require cardholder data
 environment (CDE) isolation under PCI DSS. It builds on the AWS private model and shares its
@@ -222,9 +222,9 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="3" label="Google Cloud BYOC private">
+<TabItem value="3" label="GCP BYOC private">
 
-<img src={byocGcpPrivate} className="centered" alt="BYOC Google Cloud private architecture" width="100%" />
+<img src={byocGcpPrivate} className="centered zoomable" alt="BYOC Google Cloud private architecture" width="100%" />
 
 In the Google Cloud private deployment model, a Virtual Private Cloud (**BYOC VPC**) for
 your Aiven services is created within a particular cloud region in your remote cloud account.
@@ -251,9 +251,9 @@ from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="Google Cloud BYOC public">
+<TabItem value="4" label="GCP BYOC public">
 
-<img src={byocGcpPublic} className="centered" alt="BYOC Google Cloud public architecture" width="100%" />
+<img src={byocGcpPublic} className="centered zoomable" alt="BYOC Google Cloud public architecture" width="100%" />
 
 In the Google Cloud public deployment model, a Virtual Private Cloud (**Workload VPC**)
 for your Aiven services is created within a particular cloud region in your remote cloud

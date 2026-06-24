@@ -385,7 +385,7 @@ const config: Config = {
       },
     },
     zoom: {
-      selector: '.markdown > img',
+      selector: '.markdown > img, .markdown img.zoomable',
       background: {
         light: 'rgb(255, 255, 255)',
         dark: 'rgb(5, 8, 15)',
