@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.png";
 import byocAwsEceHipaa from "@site/static/images/content/figma/aws-byoc-ece-hipaa.png";
 import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-pci-dss.png";
+import byocGcpEceHipaa from "@site/static/images/content/figma/gcp-byoc-ece-hipaa.png";
+import byocGcpEcePciDss from "@site/static/images/content/figma/gcp-byoc-ece-pci-dss.png";
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
@@ -267,7 +269,7 @@ directly. To restrict access to your service, you can use the
 </TabItem>
 <TabItem value="7" label="GCP BYOC ECE HIPAA">
 
-<img src={byocAwsEceHipaa} className="centered" alt="BYOC GCP HIPAA architecture" width="100%" />
+<img src={byocGcpEceHipaa} className="centered" alt="BYOC GCP HIPAA architecture" width="100%" />
 
 The Google Cloud `hipaa` deployment model is for healthcare workloads that handle protected
 health information (PHI) under HIPAA. It builds on the Google Cloud private model and shares
@@ -288,7 +290,7 @@ For the full list of controls, requirements, and limitations, see
 </TabItem>
 <TabItem value="8" label="GCP BYOC ECE PCI DSS">
 
-<img src={byocAwsEcePciDss} className="centered" alt="BYOC GCP PCI DSS architecture" width="100%" />
+<img src={byocGcpEcePciDss} className="centered" alt="BYOC GCP PCI DSS architecture" width="100%" />
 
 The Google Cloud `pci_dss` deployment model is for payment workloads that require
 cardholder data environment (CDE) isolation under PCI DSS. It builds on the Google Cloud
