@@ -73,7 +73,7 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
    <MCPConfigSection
      baseUrl={mcpUrl}
      format="json"
-     configTemplate={(url) => ({mcpServers: {aiven: {type: "http", url}}})}
+     configTemplate={(url) => ({mcpServers: {aiven: {command: "npx", args: ["-y", "mcp-remote", url]}}})}
    />
 
 1. Save the file and restart Claude Desktop.
@@ -150,9 +150,15 @@ fails, see your client documentation.
 </TabItem>
 <TabItem value="local" label="Local installation">
 
-Run the server locally using `npx` instead of the hosted server. Requires
-an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
-`AIVEN_READ_ONLY="true"` to enable read-only mode.
+Run the Aiven MCP server locally with `npx` instead of using the hosted server.
+You need an [Aiven API token](/docs/platform/howto/create_authentication_token)
+to authenticate requests to Aiven. Set `AIVEN_READ_ONLY="true"` to enable
+read-only mode.
+
+Set `AIVEN_ALLOW_SECRETS="true"` to let the AI agent access PostgreSQL and Kafka
+connection credentials. Use this option only in development environments for
+non-production services. For more information, see
+[Security and responsibility](#security-and-responsibility).
 
 <Tabs>
 <TabItem value="claude-code" label="Claude Code" default>
@@ -161,7 +167,7 @@ an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
 1. Run the following command, replacing `your-token-here` with your Aiven API token:
 
    ```bash
-   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -- npx -y mcp-aiven
+   claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -e AIVEN_ALLOW_SECRETS=false -- npx -y mcp-aiven
    ```
 
 1. Run `/mcp` in Claude Code to verify the server is registered.
@@ -180,7 +186,8 @@ an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
          "args": ["-y", "mcp-aiven"],
          "env": {
            "AIVEN_TOKEN": "your-token-here",
-           "AIVEN_READ_ONLY": "false"
+           "AIVEN_READ_ONLY": "false",
+           "AIVEN_ALLOW_SECRETS": "false"
          }
        }
      }
@@ -203,7 +210,8 @@ an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
          "args": ["-y", "mcp-aiven"],
          "env": {
            "AIVEN_TOKEN": "your-token-here",
-           "AIVEN_READ_ONLY": "false"
+           "AIVEN_READ_ONLY": "false",
+           "AIVEN_ALLOW_SECRETS": "false"
          }
        }
      }
@@ -226,7 +234,8 @@ an [Aiven API token](/docs/platform/howto/create_authentication_token). Set
          "args": ["-y", "mcp-aiven"],
          "env": {
            "AIVEN_TOKEN": "your-token-here",
-           "AIVEN_READ_ONLY": "false"
+           "AIVEN_READ_ONLY": "false",
+           "AIVEN_ALLOW_SECRETS": "false"
          }
        }
      }
