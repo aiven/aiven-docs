@@ -1693,6 +1693,8 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/os-version-upgrade',
                 'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/hot-warm-tiering',
+                'products/opensearch/howto/hot-warm-tiering',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/reference/advanced-params',
                 'products/opensearch/reference/plugins',

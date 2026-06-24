@@ -326,6 +326,7 @@ Redis OSS
 redis_ssl
 redis_timeout
 Redli
+queryable
 refcard
 reindex
 reindexed
@@ -400,7 +401,14 @@ Tenant
 Terraform
 Terraforming
 Thanos
+tiered
 tiering
+ISM
+rollover
+rollovers
+watermarks?
+force-merge
+backfills
 TimescaleDB
 tokenizer
 tokenizers
