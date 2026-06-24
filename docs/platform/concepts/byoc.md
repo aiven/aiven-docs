@@ -222,7 +222,7 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="3" label="Google Cloud BYOC private">
+<TabItem value="3" label="GCP BYOC private">
 
 <img src={byocGcpPrivate} className="centered zoomable" alt="BYOC Google Cloud private architecture" width="100%" />
 
@@ -251,7 +251,7 @@ from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="Google Cloud BYOC public">
+<TabItem value="4" label="GCP BYOC public">
 
 <img src={byocGcpPublic} className="centered zoomable" alt="BYOC Google Cloud public architecture" width="100%" />
 
