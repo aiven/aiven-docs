@@ -192,7 +192,7 @@ displays only the private hostname.
 :::
 
 </TabItem>
-<TabItem value="5" label="AWS BYOC ECE HIPAA">
+<TabItem value="3" label="AWS BYOC ECE HIPAA">
 
 <img src={byocAwsEceHipaa} className="centered zoomable" alt="BYOC AWS HIPAA architecture" width="100%" />
 
@@ -217,7 +217,7 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="6" label="AWS BYOC ECE PCI DSS">
+<TabItem value="4" label="AWS BYOC ECE PCI DSS">
 
 <img src={byocAwsEcePciDss} className="centered zoomable" alt="BYOC AWS PCI DSS architecture" width="100%" />
 
@@ -242,7 +242,7 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="3" label="GCP BYOC private">
+<TabItem value="5" label="GCP BYOC private">
 
 <img src={byocGcpPrivate} className="centered zoomable" alt="BYOC Google Cloud private architecture" width="100%" />
 
@@ -271,7 +271,7 @@ from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="GCP BYOC public">
+<TabItem value="6" label="GCP BYOC public">
 
 <img src={byocGcpPublic} className="centered zoomable" alt="BYOC Google Cloud public architecture" width="100%" />
 
@@ -349,6 +349,48 @@ The service endpoint has two hostnames. The public hostname is derived from the
 private hostname by adding a `public-` prefix to it. The Service URI shown by the
 Aiven Console displays only the private hostname.
 :::
+
+</TabItem>
+<TabItem value="7" label="GCP BYOC ECE HIPAA">
+
+<img src={byocAwsEceHipaa} className="centered" alt="BYOC GCP HIPAA architecture" width="100%" />
+
+The Google Cloud `hipaa` deployment model is for healthcare workloads that handle protected
+health information (PHI) under HIPAA. It builds on the Google Cloud private model and shares
+its network topology: a dedicated **BYOC VPC** with workload nodes in a private subnet and
+a **Bastion node** that proxies traffic for the Aiven management plane. On top of that
+topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
+  Aiven creates no NAT gateways by default.
+- Aiven tags all resources with the `hipaa` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+
+</TabItem>
+<TabItem value="8" label="GCP BYOC ECE PCI DSS">
+
+<img src={byocAwsEcePciDss} className="centered" alt="BYOC GCP PCI DSS architecture" width="100%" />
+
+The Google Cloud `pci_dss` deployment model is for payment workloads that require
+cardholder data environment (CDE) isolation under PCI DSS. It builds on the Google Cloud
+private model and shares its network topology: a dedicated **BYOC VPC** with workload nodes
+in a private subnet and a **Bastion node** that proxies traffic for the Aiven management
+plane. On top of that topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
+  Aiven creates no NAT gateways by default.
+- Aiven tags all resources with the `pci_dss` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
 </Tabs>
