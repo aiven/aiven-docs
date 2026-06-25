@@ -1,25 +1,22 @@
 ---
 title: Enhanced compliance BYOC clouds
 sidebar_label: Enhanced compliance
+limited: true
 keywords: [AWS, Amazon Web Services, byoc, bring your own cloud, custom cloud, compliance, PCI DSS, HIPAA, enhanced compliance]
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Enhanced compliance clouds are
 [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) custom clouds that you create
 in your own AWS account to run Aiven services under specific compliance requirements.
 
-Enhanced compliance BYOC clouds are available on request. To use them,
-[contact Aiven](https://aiven.io/contact) to have the **compliance deployment models**
-enabled for your organization. After they are enabled, you select a compliance deployment
-model when you
+:::important
+This feature is in <LimitedBadge/>. [Contact Aiven](https://aiven.io/contact) to have the
+**compliance deployment models** enabled for your organization. After they are enabled, you
+select a compliance deployment model when you
 [create an AWS custom cloud](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud).
-
-:::note
-This feature is enabled on request. Contact your account team or
-[Aiven support](/docs/platform/howto/support) to have the compliance deployment models
-enabled before you create an enhanced compliance cloud.
 :::
 
 :::note
@@ -71,9 +68,9 @@ runs in a dedicated VPC with no shared infrastructure and adds the following con
 
 ## Requirements and limitations
 
-- Compliance deployment models are available on request and must be enabled for your
-  organization by Aiven before you can use them. Contact your account team or
-  [Aiven support](/docs/platform/howto/support).
+- Compliance deployment models are a <LimitedBadge/> feature. They must be enabled for your
+  organization before you can use them. [Contact Aiven](https://aiven.io/contact) to enable
+  them.
 - Compliance deployment models are available for **Amazon Web Services (AWS)** only.
 - Object storage in your AWS account is required. Aiven uses it for service backups and
   cold data, and you cannot turn it off for these models.
