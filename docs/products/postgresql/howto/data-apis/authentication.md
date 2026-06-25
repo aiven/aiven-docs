@@ -1,58 +1,30 @@
 ---
 title: Configure authentication for Data API
 sidebar_label: Authentication
-description: Authenticate Data API requests with an API key or your own identity provider, and authorize with PostgreSQL roles.
+description: Authenticate Data API requests with JWTs from your own identity provider, and authorize with PostgreSQL roles.
 early: true
 ---
 
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
-Data API authenticates every request with a bearer token in the `Authorization` header.
+Data API authenticates every request with a bearer token in the `Authorization` header. The
+token is a JWT issued by your own identity provider (IdP) and verified against your JWKS URL.
+The token carries a role, and your Aiven for PostgreSQL® database enforces that role's
+privileges.
 
 :::note
 Data API is an <EarlyBadge/> feature.
 :::
 
-You can use either of the following tokens:
-
-- An **API key** issued by Aiven, available in the Aiven Console.
-- A **JWT** issued by your own identity provider (IdP) and verified against your JWKS URL.
-
-In both cases, the token carries a role, and your Aiven for PostgreSQL® database enforces
-that role's privileges.
-
-## Authenticate with the API key
-
-The API key is a bearer token that Aiven issues for the database. Find it in the **Data
-API** page, in the **Connection info** section:
-
-1. In the [Aiven Console](https://console.aiven.io/login), open your service and click
-   **Data** > **Data API**.
-1. Select the database.
-1. In **Connection info**, next to **API Key**, click the reveal icon to show the key, then
-   copy it.
-
-Send the key as a bearer token:
-
-```bash
-curl "https://REST_API_BASE_URL/products" \
-  -H "Authorization: Bearer API_KEY"
-```
-
-To rotate the key, regenerate it from **Connection info**. Regenerating invalidates the
-previous key, so update any clients that use it.
-
 ## Authenticate with your identity provider
 
-Instead of the API key, end users can authenticate with the JWTs issued by your IdP. You
-provide your JWKS URL when you
+End users authenticate with the JWTs issued by your IdP. You provide your JWKS URL when you
 [enable Data API](/docs/products/postgresql/howto/data-apis/get-started), and Data API
 verifies each token against the public keys at that URL.
 
 :::note
-Data API uses one identity provider per database, set by a single JWKS URL. To change the
-JWKS URL or audience later, turn off Data API and enable it again. You can't update these
-settings in place.
+Data API uses one identity provider per database, set by a single JWKS URL. You can update
+the JWKS URL or audience later from the **Data API** page in the Aiven Console.
 :::
 
 ### Configure the JWKS URL

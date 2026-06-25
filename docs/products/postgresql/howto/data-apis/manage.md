@@ -18,11 +18,12 @@ To manage Data API, open your Aiven for PostgreSQL® service in the
 
 ## Check the status
 
-Each database that you expose runs as an independent application with its own status:
+Each database that you expose runs as an independent application with its own status, shown
+on the **Data API** page:
 
-- **Building**: The application is deploying or applying a change. Setup and requests might
-  not succeed yet.
-- **Running**: The application is healthy and serving requests.
+- **API building**: The application is deploying or applying a change. Setup and requests
+  might not succeed yet.
+- **API running**: The application is healthy and serving requests.
 - **Error**: The deployment failed. For next steps, see [Troubleshooting](#troubleshooting).
 
 ## Expose more databases
@@ -31,18 +32,24 @@ A Data API serves one database. To expose another database in the same service, 
 the **Database** list and set up Data API for it. Each database keeps its own status, API
 URL, and authentication settings.
 
-## Rotate credentials
+## Rotate identity provider keys
 
-- **API key**: Regenerate the key from **Connection info**. Regenerating invalidates the
-  previous key, so update any clients that use it.
-- **Identity provider keys**: Key rotation is automatic. Data API reads your IdP's public
-  keys from the JWKS URL and picks up rotated keys from the same URL. For more information,
-  see [Configure the JWKS URL](/docs/products/postgresql/howto/data-apis/authentication#configure-the-jwks-url).
+Key rotation is automatic. Data API reads your IdP's public keys from the JWKS URL and picks
+up rotated keys from the same URL. For more information, see
+[Configure the JWKS URL](/docs/products/postgresql/howto/data-apis/authentication#configure-the-jwks-url).
 
 ## Change authentication settings
 
-To change the JWKS URL or audience, turn off Data API for the database and enable it again
-with the new settings. You can't update authentication settings in place.
+To change the JWKS URL or audience, open the **Data API** page and select the database. Next
+to **JWKS URL** or **Audience**, click the edit icon, enter the new value, and save. You
+don't need to turn off Data API to update these settings.
+
+## Refresh the schema cache
+
+Endpoints reflect the database schema captured when you enable Data API. They don't refresh
+automatically when the schema changes. To pick up new or changed tables, click
+**Refresh cache** on the **Data API** page. This updates the PostgREST schema cache without
+restarting the service.
 
 ## Turn off Data API
 
@@ -55,14 +62,14 @@ Data API doesn't change the data in your database.
 ### Data API is not available for the service
 
 Data API must be available for your service's plan and cloud. If it isn't, the Aiven Console
-shows **The Data API is not available for your service**. Data API also requires the service
+shows **The data API is not available for your service**. Data API also requires the service
 to run inside a [VPC](/docs/platform/concepts/vpcs). For more information, see
 [Manage project VPCs](/docs/platform/howto/manage-project-vpc).
 
-### The service is still building
+### The service is still being provisioned
 
-Setup is unavailable while the service is building. Wait until the service is **Running**,
-then enable Data API.
+Setup is unavailable while the service is still being provisioned. Wait until the service is
+**Running**, then enable Data API.
 
 ### The deployment fails
 
@@ -74,5 +81,6 @@ enable it again.
 ### Endpoints don't reflect schema changes
 
 Endpoints reflect the database schema captured when you enabled Data API, and don't refresh
-automatically when the schema changes. To pick up new or changed tables, turn off Data API
-and enable it again.
+automatically when the schema changes. To pick up new or changed tables, click
+**Refresh cache** on the **Data API** page. For more information, see
+[Refresh the schema cache](#refresh-the-schema-cache).
