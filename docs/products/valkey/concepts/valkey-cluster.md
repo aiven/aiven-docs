@@ -134,7 +134,7 @@ clustering from the start.
 Aiven for Valkey distributes data across primary nodes using hash slots. When the number
 of primary nodes in your cluster changes, Aiven reshards the cluster automatically.
 Resharding redistributes the hash slots, and the keys they hold, across the available
-primary nodes to keep data balanced.
+primary nodes to keep the slots evenly balanced across shards.
 
 Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
 manages the entire process:
@@ -148,8 +148,8 @@ manages the entire process:
   consistent. The `migrate` command that resharding uses to move keys between nodes stays
   disabled for direct use.
 
-To inspect the slot layout, check the `slot_range_groups` field in the service
-configuration. It shows how hash slots map to the cluster node groups.
+To inspect the slot layout, run `CLUSTER NODES` on any Valkey node in the cluster. It shows
+the current slot distribution across the cluster nodes.
 
 ## Backup and restore
 
