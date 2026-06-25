@@ -77,7 +77,9 @@ fails.
 
 Because Data API reads the keys from the JWKS URL, key rotation is automatic. When your IdP
 rotates its signing keys, Data API picks up the new keys from the same URL. You don't need
-to update any configuration in the Aiven Console.
+to update any configuration in the Aiven Console. Data API refreshes the keys periodically,
+about every 12 hours, so allow time for new keys to take effect and keep the previous keys
+valid during the overlap.
 
 ### Configure the audience
 
@@ -90,6 +92,11 @@ enable Data API. Data API rejects any token whose `aud` claim doesn't match.
 Data API uses standard PostgreSQL roles and table privileges for authorization. You create
 the roles and grant the privileges, and the token carries a `role` claim that names the role
 to use. PostgreSQL then enforces that role's privileges.
+
+:::note
+If a token doesn't include a `role` claim, the request runs as the default `web_anon` role,
+which has no privileges. Include a `role` claim in every token that needs to access data.
+:::
 
 ### Create a role and grant privileges
 
