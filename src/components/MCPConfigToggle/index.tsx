@@ -36,7 +36,7 @@ type MCPConfigToggleProps = {
 };
 
 export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX.Element {
-  const [readOnly, setReadOnly] = useState(true);
+  const [readOnly, setReadOnly] = useState(false);
   const [scopes, setScopes] = useState<Scope[]>([]);
   const [marketplace, setMarketplace] = useState<'' | Marketplace>('');
   const [allowSecrets, setAllowSecrets] = useState(false);

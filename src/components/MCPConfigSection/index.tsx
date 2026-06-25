@@ -10,7 +10,7 @@ type MCPConfigSectionProps = {
 };
 
 export default function MCPConfigSection({ baseUrl, format, configTemplate }: MCPConfigSectionProps): JSX.Element {
-  const [state, setState] = useState<MCPConfigState>({ readOnly: true, scopes: [], marketplace: '', allowSecrets: false });
+  const [state, setState] = useState<MCPConfigState>({ readOnly: false, scopes: [], marketplace: '', allowSecrets: false });
 
   const url = buildMcpUrl(baseUrl, state);
   const config = configTemplate(url);

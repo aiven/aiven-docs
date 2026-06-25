@@ -9,7 +9,7 @@ type CursorConfigTabProps = {
 };
 
 export default function CursorConfigTab({ baseUrl }: CursorConfigTabProps): JSX.Element {
-  const [state, setState] = useState<MCPConfigState>({ readOnly: true, scopes: [], marketplace: '', allowSecrets: false });
+  const [state, setState] = useState<MCPConfigState>({ readOnly: false, scopes: [], marketplace: '', allowSecrets: false });
 
   const url = buildMcpUrl(baseUrl, state);
   const configJson = JSON.stringify({ mcpServers: { aiven: { type: 'http', url } } }, null, 2);
