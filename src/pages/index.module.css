@@ -119,7 +119,7 @@
 .askAIInput {
   flex: 1;
   min-width: 0;
-  border: 1px solid var(--aiven-chrome-divider);
+  border: 1px solid var(--aiven-grey-10);
   border-radius: 4px;
   padding: 0.65rem 0.8rem;
   font-size: 0.95rem;
@@ -128,7 +128,7 @@
 }
 
 .askAIInput::placeholder {
-  color: var(--aiven-grey-60);
+  color: var(--aiven-grey-40);
 }
 
 .askAIButton {

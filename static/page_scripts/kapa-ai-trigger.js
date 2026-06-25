@@ -1,6 +1,4 @@
 (function () {
-  // Preinitialize Kapa AI
-  // https://docs.kapa.ai/integrations/website-widget/javascript-api/preinitialize
   let k = window.Kapa;
   if (!k) {
     let i = function () {
