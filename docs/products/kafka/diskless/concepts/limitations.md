@@ -8,7 +8,7 @@ Diskless topics are compatible with Kafka APIs and clients, with some limitation
 - Transactions are not supported for produce or consume operations.
 - Compacted topics are not supported.
 - Kafka Streams state stores are not supported. Stream processing can read from diskless
-  topics but writes to classic topics.
+  topics, but use classic topics for writes at this time.
 - You cannot switch a diskless topic back to a classic topic. To switch a
   classic topic to diskless, see
   [Switch a classic topic to a diskless topic](/docs/products/kafka/howto/switch-topic-to-diskless).

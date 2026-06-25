@@ -55,9 +55,6 @@ To improve performance, brokers cache recently read data. When a broker fetches 
 object, it temporarily stores the data to speed up future reads—especially within the
 same availability zone.
 
-To improve read efficiency, Aiven consolidates diskless topic data into
-Kafka-compatible log segments in tiered storage.
-
 ## Batch Coordinator and metadata
 
 The Batch Coordinator manages metadata for diskless topics. It assigns offsets to message
