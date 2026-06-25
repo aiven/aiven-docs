@@ -4,16 +4,35 @@ sidebar_label: Connect a custom domain
 limited: true
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
+Connect a custom domain to an Aiven App using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated app hostname.
 
-Connect a custom domain to an Aiven App using Cloudflare as a proxied reverse proxy.
-Cloudflare receives traffic for the custom domain and forwards it to the Aiven-generated
-app hostname.
+This approach adds an extra network hop and a Worker subrequest
+before traffic reaches Aiven. This can increase latency slightly.
+Worker usage and pricing depend on your Cloudflare plan.
+
+## Limitations and security considerations
+
+This approach fronts your app's existing public URL. It doesn't replace the URL,
+and you cannot rely on the Worker as a security boundary.
+
+- **The Aiven App URL stays publicly reachable**: Traffic reaches your container with
+   the public `*.aiven.app` host. Anyone who knows that URL can bypass your custom domain
+   and any Cloudflare-layer protections you configure on it.
+- **The app must be host-aware**: Requests reach your app with the `Host` set to the
+  Aiven hostname. To avoid leaking that hostname in redirects, links, and cookies,
+  configure your app to trust `X-Forwarded-Host` and `X-Forwarded-Proto`.
+  Only the `Location` response header is rewritten for you.
+- **Streaming and WebSockets need validation**: Server-sent events usually work with this
+  proxy pattern. WebSockets need explicit upgrade handling in the Worker.
+  Test both paths before production use.
 
 ## Prerequisites
 
 - An Aiven App with a publicly accessible URL.
 - A domain that is managed by Cloudflare and uses Cloudflare nameservers.
+- The domain record is set to **Proxied** in Cloudflare.
+- Universal SSL covers your root domain and first-level subdomains.
+  Use Advanced Certificate Manager for deeper subdomains.
 
 ## Connect a custom domain managed by Cloudflare
 
@@ -30,6 +49,11 @@ app hostname.
    click **Compute** > **Workers & Pages**.
 1. Click **Create application** > **Worker**. You can also use an existing
    Worker or deploy with [Wrangler](https://developers.cloudflare.com/workers/wrangler/).
+
+   :::note
+   Each exposed port has its own Aiven hostname. Front each one with its own Worker/route,
+   or map hostnames to upstreams within a single Worker.
+   :::
 
 1. Configure the Worker. The following example forwards requests to
   an Aiven App host while preserving the original request method, body, and headers:
@@ -48,7 +72,7 @@ app hostname.
 
        const headers = new Headers(request.headers);
 
-       headers.delete("Host");
+       headers.delete("Host");    // Host/SNI are taken from the fetch URL automatically
        headers.set("X-Forwarded-Host", incomingUrl.host);
        headers.set("X-Forwarded-Proto", "https");
 
@@ -102,8 +126,5 @@ app hostname.
    - **Other subdomain**: `app.example.com/*`
 
 1. Select the **Worker** and click **Save**.
-
-1. Go to **SSL/TLS** and verify the SSL/TLS mode. To ensure Cloudflare connects to
-   the Aiven App origin over HTTPS, set the mode to **Full (strict)**.
 
 1. Open the custom domain in a browser to confirm the app loads.
