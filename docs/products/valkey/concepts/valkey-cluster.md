@@ -1,7 +1,6 @@
 ---
 title: Aiven for Valkey™ clustering
 sidebar_label: Clustering
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -152,15 +151,26 @@ manages the entire process:
 To inspect the slot layout, check the `slot_range_groups` field in the service
 configuration. It shows how hash slots map to the cluster node groups.
 
+## Backup and restore
+
+Aiven for Valkey automatically backs up your clustered service. Each primary node backs up
+the data for the hash slots it owns, and Aiven stores these backups in a remote location.
+Backups run independently for each primary and need no coordination from your application.
+
+To restore a cluster, Aiven combines the stored backups with the recorded hash slot
+layout, so your data returns to the same slot distribution. The cluster must keep the same
+number of primary nodes for a restore to succeed.
+
+:::note
+Cluster backups are not point-in-time recovery (PITR). Because each primary node is backed
+up independently, backups are not consistent across shards. A restored cluster reflects
+each primary's data as of its own backup, not a single moment in time across the whole
+cluster. Design your application to tolerate this if you rely on a restore.
+:::
+
 ## Limitations and considerations
 
 Clustering is supported for new services only.
-
-### Current scope
-
-The following are planned for future releases:
-
-- Backup and restore
 
 ### Performance factors
 
