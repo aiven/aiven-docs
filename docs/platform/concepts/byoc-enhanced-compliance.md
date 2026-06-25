@@ -10,9 +10,10 @@ Enhanced compliance clouds are
 [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) custom clouds that you create
 in your own AWS account to run Aiven services under specific compliance requirements.
 
-Enhanced compliance BYOC clouds are available on request. To use them, contact Aiven to
-have the **compliance deployment models** enabled for your organization. After they are
-enabled, you select a compliance deployment model when you
+Enhanced compliance BYOC clouds are available on request. To use them,
+[contact Aiven](https://aiven.io/contact) to have the **compliance deployment models**
+enabled for your organization. After they are enabled, you select a compliance deployment
+model when you
 [create an AWS custom cloud](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud).
 
 :::note

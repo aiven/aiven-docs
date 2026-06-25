@@ -460,7 +460,8 @@ In the **Create custom cloud** wizard:
           cardholder data environment (CDE) isolation.
 
         The **HIPAA** and **PCI DSS** models are available on request and must be enabled
-        for your organization by Aiven before you can select them. They require object
+        for your organization before you can select them.
+        [Contact Aiven](https://aiven.io/contact) to request access. They require object
         storage in your AWS account and restrict outbound traffic and public access. See
         [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
@@ -711,9 +712,9 @@ Your new custom cloud is ready to use only after its status changes to
        services under HIPAA or PCI DSS requirements. Use `hipaa` for healthcare workloads
        that handle protected health information (PHI), or `pci_dss` for payment workloads
        that require cardholder data environment (CDE) isolation. These models are available
-       on request and must be enabled for your organization by Aiven before you can use them.
-       They require object storage in your AWS account and restrict outbound traffic and
-       public access. See
+       on request and must be enabled for your organization before you can use them.
+       [Contact Aiven](https://aiven.io/contact) to request access. They require object
+       storage in your AWS account and restrict outbound traffic and public access. See
        [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
    - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom
      cloud:
