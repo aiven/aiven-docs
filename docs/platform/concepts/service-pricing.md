@@ -65,7 +65,7 @@ and you can use them indefinitely free of charge.
 You can run free services alongside a free trial
 without affecting your trial credits. Free services also continue running after
 your trial has expired. You can upgrade your free service to a paid plan at any time
-by adding a payment method to the project's billing group or by starting a free trial.
+by adding a payment method to the project's billing group.
 
 ### Developer tier
 
