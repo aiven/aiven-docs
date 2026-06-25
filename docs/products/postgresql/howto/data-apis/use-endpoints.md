@@ -20,9 +20,9 @@ Data API is an <EarlyBadge/> feature.
 1. Click **Data** > **Data API**.
 1. Select the database with Data API enabled.
 
-The **Connection info** section shows the **API URL** for the database and the **API Key**
-to authenticate with. All endpoints are relative to the API URL. For example, a `products`
-table is available at the `/products` path under the API URL.
+The **Data API** page shows the **API URL** for the database. All endpoints are relative to
+the API URL. For example, a `products` table is available at the `/products` path under the
+API URL.
 
 ## View available endpoints
 
@@ -47,13 +47,13 @@ Select a table to expand its code snippets:
 1. Select the method to call.
 1. Select the language: **curl**, **JavaScript**, or **Python**.
 1. Click **Copy to clipboard**.
-1. In the snippet, replace the placeholder token with your
-   [API key or an IdP token](/docs/products/postgresql/howto/data-apis/authentication).
+1. In the snippet, replace the placeholder token with a
+   [JWT issued by your IdP](/docs/products/postgresql/howto/data-apis/authentication).
 
 ## Call an endpoint
 
 Send the bearer token in the `Authorization` header. The following examples use
-`REST_API_BASE_URL` for the API URL and `TOKEN` for the API key or IdP token.
+`REST_API_BASE_URL` for the API URL and `TOKEN` for the JWT issued by your IdP.
 
 Read rows from the `products` table and select specific columns:
 
