@@ -386,6 +386,8 @@ subnets
 subprocess
 subprocesses
 subquery
+subrequest
+subrequests
 subtab
 subtask
 subtasks
@@ -423,6 +425,7 @@ Unschedule
 untrusted
 UpCloud
 upsert
+upstreams
 URIs?
 UUIDs?
 uv
