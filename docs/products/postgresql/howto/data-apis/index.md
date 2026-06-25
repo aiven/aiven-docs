@@ -1,7 +1,7 @@
 ---
 title: Data API for Aiven for PostgreSQL®
 sidebar_label: Data API
-keywords: ["Data API", "REST API", "PostgREST", "REST endpoints", "JWT", "JWKS", "identity provider", "API key"]
+keywords: ["Data API", "REST API", "PostgREST", "REST endpoints", "JWT", "JWKS", "identity provider"]
 early: true
 ---
 
@@ -29,8 +29,9 @@ Data API provides the following:
   and `DELETE` methods, based on your database schema.
 - **Ready-to-use code snippets**: Copy `curl`, JavaScript, or Python snippets for each
   endpoint.
-- **Flexible authentication**: Authenticate requests with an API key from the Aiven
-  Console, or with the JSON Web Tokens (JWTs) issued by your own identity provider (IdP).
+- **Authentication with your identity provider**: Authenticate requests with the JSON Web
+  Tokens (JWTs) issued by your own identity provider (IdP) and verified against your JWKS
+  URL.
 - **Authorization with PostgreSQL roles**: Control access with standard PostgreSQL roles
   and table privileges.
 
@@ -54,9 +55,8 @@ base URL. You can enable Data API for more than one database in the same service
 - Each Data API uses a single identity provider, set by one JWKS URL. Multiple identity
   providers per service aren't supported.
 - Endpoints reflect the database schema captured when you enable Data API. They don't
-  refresh automatically when the schema changes.
-- To change the authentication settings, turn off Data API and enable it again. You can't
-  update them in place.
+  refresh automatically when the schema changes, but you can refresh the schema cache from
+  the Aiven Console.
 
 ## Related pages
 
