@@ -43,7 +43,7 @@ You can create the service from the Kafka service's integrations page.
 1. Review the **Service summary** for the region, plan, and estimated price.
 1. Click **Create service**.
 
-The service status changes to **Rebuilding**.
+The service status changes to **Building**.
 When it changes to **Running**, the service is ready.
 
 ### Connect the Kafka service to MirrorMaker 2

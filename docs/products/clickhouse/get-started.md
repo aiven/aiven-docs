@@ -142,7 +142,7 @@ Name             Project             Region                 Plan          State
 my-clickhouse    my-aiven-project    google-europe-west1    startup-16    RUNNING
 ```
 
-The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
+The resource can stay in the `BUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
 </TabItem>
 </Tabs>
@@ -212,7 +212,7 @@ for the full schema.
    kubectl get clickhouses my-clickhouse
    ```
 
-The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
+The resource can stay in the `BUILDING` state for a couple of minutes. Once the state
 changes to `RUNNING`, you are ready to access it.
 
 See the available configuration options in

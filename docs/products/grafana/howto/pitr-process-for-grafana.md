@@ -13,6 +13,6 @@ will be created to host the restored data. To perform PITR for Aiven for Grafana
 <ForkService/>
 
 You are redirected to the **Overview** page of the forked
-service. The service is in the **Rebuilding** status while it is
+service. The service is in the **Building** status while it is
 being created. Once the service is ready, the status changes to
 **Running**.
