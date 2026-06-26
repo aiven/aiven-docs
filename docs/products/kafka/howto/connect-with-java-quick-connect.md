@@ -1,117 +1,105 @@
 ---
-title: Connect to Aiven for Apache Kafka® with Java using Quick connect
-sidebar_label: Quick connect
+title: Connect to Aiven for Apache Kafka® with Java
+sidebar_label: Connect with Java
+keywords: [kafka, java, quick connect, producer, consumer, mtls, sasl]
 ---
 
-import RelatedPages from "@site/src/components/RelatedPages";
-
-Use quick connect to set up a Java client for Aiven for Apache Kafka®.
-The step-by-step process helps you create a topic, configure authentication, define a
-schema, and download ready-to-use client code.
+Use **Quick connect** to set up a Java client for Aiven for Apache Kafka®.
+The guided flow helps you select or create a topic, choose an authentication method,
+grant permissions, and copy the generated producer and consumer code.
 
 ## Prerequisites
 
-- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service)
-- Java development environment with [Maven](https://maven.apache.org/install.html)
+- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
+- A Java development environment.
+- A build tool, such as [Maven](https://maven.apache.org/install.html) or Gradle,
+  to add the `kafka-clients` dependency.
 
-## Step 1: Open quick connect and select Java
+## Open Quick connect
 
-1. In the [Aiven Console](https://console.aiven.io/), select your Aiven for Apache Kafka
-   service.
-1. To open Quick connect, do one of the following:
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache
+   Kafka service.
+1. On the service **Overview** page, in the **Set up your stream** section,
+   click **Quick connect**.
+1. At the top of the page, select **Java** from the language selector.
 
-   - In the **Set up your stream** section, click **Quick connect**.
-   - In the **Connection information** section, click **Quick connect**.
-1. On the **Select programming language** screen, select **Java**, then click **Next**.
+## Step 1: Set up a topic
 
-## Step 2: Create a topic
+Topics organize and store the events that you stream to Apache Kafka.
 
-Topics organize and store the events you stream to Apache Kafka.
-
-1. Select an existing topic or click **Create new topic**. If you create a topic, it is
-   auto-selected for the next steps.
+1. In **Topic name**, do one of the following:
+   - Select an existing topic.
+   - Click **Create new topic**, enter a name, and create the topic. The new
+     topic is selected automatically for the next steps.
 
    :::note
-   If your Aiven for Apache Kafka® service has **Diskless topics** enabled, you can choose
-   to create a **Classic** or **Diskless** topic, or select an existing topic of
-   either type. To learn more, see
-   [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview).
+   If your service has **Diskless topics** enabled, you can create a **Classic**
+   or **Diskless** topic, or select an existing topic of either type. For more
+   information, see [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview).
    :::
 
-1. Click **Next**.
+## Step 2: Set up an authentication method
 
-## Step 3: Select an authentication method
+1. Select an authentication method:
+   - **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for simple
+     username and password authentication.
 
-1. Choose one of the following:
+     If SASL is not enabled on your service, an option to enable SASL appears
+     under the **SASL** authentication method. Click **Enable SASL**, then
+     continue.
+   - **Client certificate**: Use certificate-based authentication with mTLS
+     instead of a password.
 
-   - **Client certificate (mTLS)**: Recommended for secure environments.
-   -  **SASL/SCRAM**: Use for flexible access control with user credentials.
-1. Click **Next**.
+1. Select a service user:
+   - Select an existing service user from the list.
+   - To create one, click **Create new service user**, enter a username, and
+     click **Add service user**.
+1. Check the permission status shown for the selected user:
+   - If the user has all the required permissions, the panel shows the granted
+     permissions (for example, `read, write`). To change them, click **Manage
+     access in ACLs**.
+   - If the user has some or no permissions, click **Grant permissions**. In the
+     drawer, select **Produce**, **Consume**, or both, and click **Save**.
+     Permissions the user already has are selected and cannot be removed in
+     Quick connect.
+     To remove them, click **Manage access in ACLs**.
 
-## Step 4: Set up schema and access
+   :::note
+   The `avnadmin` user has permissions by default, and you cannot change them
+   from Quick connect.
 
-The next steps depend on the authentication method you selected.
+   For other service users, you can add permissions from Quick connect. To
+   remove permissions,
+   [delete the user's ACL entries](/docs/products/kafka/howto/manage-acls#delete-acl-entries).
+   :::
 
-- If you selected **Client certificate (mTLS):**
+## Step 3: Copy the code snippets
 
-  1. Select a schema format: **Avro**, **JSON Schema**, or **Protobuf**.
-  1. Upload a schema or modify the sample schema.
-  1. If using **Protobuf**, you can also add schema references:
-     1. Select an existing schema.
-     1. In the **Add a schema reference** screen, enter a reference name and select a
-        version.
-     1. In the schema editor, modify the schema if needed.
-     1. Click **Add reference**.
-  1. Click **Create schema**.
+:::tip
+**Download template** is an optional shortcut for when you want no local setup.
+The ZIP file includes ready-to-run producer and consumer code, certificates, and
+dependencies, so you can verify the connection using the included `README.md`
+without a Java project or build tool. If you already have a Java project, copy
+the snippet from the tabs below.
+:::
 
-- If you selected **SASL/SCRAM:**
+1. Under **Prerequisites**, click **Add a dependency for Kafka-clients** to open
+   the [`kafka-clients` package on Maven Central](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients),
+   then add the dependency to your Java project.
+1. Under **Downloads**, download the certificate files for your authentication
+   method:
 
-  1. Select an existing service user, or click **Create new service user**.
-  1. Click **Grant access**.
+   - For **SASL**, download `ca.pem`.
+   - For **Client certificate**, download `ca.pem` and `svc.pem`. The `svc.pem`
+     file contains the service certificate and access key.
 
-     :::note
-     - If you use the `avnadmin` user, permissions are granted by default and cannot be
-       changed.
-     - For new service users, you can grant additional permissions later (for example,
-       add consume access if only produce was given).
-     - Once a permission is granted, it cannot be removed. To remove access, [delete
-       the user’s ACL permissions](/docs/products/kafka/howto/manage-acls#delete-acl-entries).
-     :::
+   The generated snippet loads `ca.pem` directly, so you do not need to create a
+   truststore.
 
-  1. Select a schema format: **Avro**, **JSON Schema**, or **Protobuf**.
-  1. Upload a schema or modify the sample schema.
-  1. If using **Protobuf**, you can also add schema references:
-     1. Select an existing schema.
-     1. In the **Add a schema reference** screen, enter a reference name and select a version.
-     1. In the schema editor, modify the schema if needed.
-     1. Click **Add reference**.
-  1. Click **Create schema**.
+1. Select the **Producer** or **Consumer** tab to view the generated
+   `Producer.java` or `Consumer.java` code.
+1. Copy the code.
 
-## Step 5: Connect your client
-
-1. Download the required certificates:
-
-   - For **mTLS**, download the **CA certificate** and the **service certificate and
-     access key**.
-   - For **SASL/SCRAM**, download the **CA certificate**.
-
-     :::note
-     For SASL/SCRAM, your client must trust Aiven’s certificate authority (CA).
-     The sample producer code includes a `keytool` command to create a truststore:
-
-     ```bash
-     keytool -import -file ca.pem -alias AivenCA -keystore client.truststore.jks
-     ```
-
-     You only need to run the command if you are setting up the client manually.
-     :::
-
-1. Review the generated Java **producer** and **consumer** code snippets.
-1. Copy the code snippets or download the client template files.
-1. Click **Done** to complete the setup.
-
-<RelatedPages/>
-
-- [Generate Java data classes from Avro schemas](/docs/products/kafka/howto/generate-avro-java-classes)
-- [Generate Java data classes from Protobuf schemas](/docs/products/kafka/howto/generate-protobuf-java-classes)
-- [Generate Java data classes from JSON schemas](/docs/products/kafka/howto/generate-json-java-classes)
+After you add the code to your project, update the certificate file paths to
+match where you saved the files, then run your producer or consumer to start
+streaming events.

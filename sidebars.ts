@@ -667,14 +667,7 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/howto/connect-with-python',
-                    {
-                      type: 'category',
-                      label: 'Connect with Java',
-                      items: [
-                        'products/kafka/howto/connect-with-java-quick-connect',
-                        'products/kafka/howto/connect-with-java-classic-quick-connect',
-                      ],
-                    },
+                    'products/kafka/howto/connect-with-java-quick-connect',
                     'products/kafka/howto/connect-with-go',
                     'products/kafka/howto/connect-with-command-line',
                     'products/kafka/howto/connect-with-nodejs',
