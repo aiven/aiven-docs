@@ -37,7 +37,7 @@ a tool of your choice:
    1. Click **Create recovery service**.
 
 Throughout the process of creating the recovery service, the recovery service is in the
-**Rebuilding** state. As soon as the recovery service is ready, its status changes to
+**Building** state. As soon as the recovery service is ready, its status changes to
 **Passive**, which means your CRDR setup is up and running.
 
 </TabItem>

@@ -31,7 +31,7 @@ the DataHub resources beyond what is documented.
 
 1. In the **Service summary**, click **Create service**.
 
-While the service is being created, its status is **Rebuilding**.
+While the service is being created, its status is **Building**.
 When the status is **Running**, you can start using the service.
 This typically takes couple of minutes and can vary between cloud providers and regions.
 

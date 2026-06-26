@@ -71,7 +71,7 @@ Supported `status` values:
 
 -   `running`
 -   `poweroff`
--   `rebuilding`
+-   `rebuilding`: Shows all services that are building or rebuilding.
 -   `rebalancing`
 
 ### Filter by cloud provider
