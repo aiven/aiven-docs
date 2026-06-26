@@ -6,6 +6,9 @@
   --aiven-adm-bg-warning: var(--aiven-adm-bg-note);
   --aiven-adm-text-color: var(--aiven-grey-60);
   --aiven-adm-title-color: var(--aiven-grey-80);
+  --aiven-bg-layer: var(--aiven-brand-white);
+  --aiven-bg-deco-neutral-subtle: var(--aiven-grey-0);
+  --aiven-bg-deco-neutral: var(--aiven-grey-05);
   /* Admonition icons — saturated for contrast on light neutral panel */
   --aiven-adm-icon-note: var(--aiven-primary-90);
   --aiven-adm-icon-tip: var(--aiven-light-blue-700);
@@ -14,7 +17,8 @@
   --aiven-announcement-banner-bg: var(--aiven-brand-deep-blue);
   --aiven-announcement-text-color: var(--aiven-brand-white);
   --aiven-announcement-link-color: var(--aiven-brand-yellow);
-  --aiven-hero-bg: var(--aiven-brand-near-black);
+  --aiven-chrome-divider: var(--aiven-grey-05);
+  --aiven-hero-bg: var(--aiven-brand-white);
   --aiven-nav-active-bg: var(--aiven-grey-0);
   --aiven-radius: 2px;
   --aiven-h2-override: 1.8rem;
@@ -99,6 +103,9 @@ html[data-theme='dark'] {
   --aiven-adm-bg-warning: var(--aiven-adm-bg-note);
   --aiven-adm-text-color: var(--aiven-grey-05);
   --aiven-adm-title-color: var(--aiven-grey-05);
+  --aiven-bg-layer: var(--aiven-grey-90);
+  --aiven-bg-deco-neutral-subtle: var(--aiven-grey-90);
+  --aiven-bg-deco-neutral: var(--aiven-grey-80);
   /* Admonition icons — brighter on dark surfaces */
   --aiven-adm-icon-note: var(--aiven-brand-green);
   --aiven-adm-icon-tip: var(--aiven-light-blue-400);

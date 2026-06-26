@@ -4,25 +4,16 @@
  */
 
 .heroBanner {
-  padding: clamp(1.5rem, 3.5vw, 2.5rem) 0 clamp(1.75rem, 4vw, 2.75rem);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
   text-align: left;
   position: relative;
   overflow: hidden;
   background-color: var(--aiven-hero-bg);
-  color: var(--aiven-brand-white);
+  color: var(--aiven-adm-title-color);
   min-height: clamp(220px, 34vmin, 380px);
-}
-
-/* Dark: divider (--aiven-chrome-divider in custom.css) */
-:global(html[data-theme='dark']) .heroBanner {
   border-bottom: 1px solid var(--aiven-chrome-divider);
-}
-
-@media (min-width: 1280px) {
-  :global(html[data-theme='dark']) .heroBanner {
-    border-left: 1px solid var(--aiven-chrome-divider);
-    border-right: 1px solid var(--aiven-chrome-divider);
-  }
+  display: flex;
+  align-items: center;
 }
 
 .heroDecor {
@@ -38,29 +29,28 @@
  */
 .heroDecoBrace {
   position: absolute;
-  left: auto;
-  top: auto;
-  right: clamp(-1.75rem, -5vw, 7.5rem);
-  bottom: clamp(-5.75rem, -4.5vh, -0.35rem);
-  width: auto;
-  height: clamp(120px, 36vmin, 340px);
-  color: var(--aiven-brand-green);
-  opacity: 0.92;
+  right: 0;
+  bottom: -80px;
+  width: 150px;
+  height: auto;
+  color: var(--aiven-bg-deco-neutral);
+  opacity: 1;
   z-index: 0;
   display: block;
 }
 
 .heroDecoAsterisk {
   position: absolute;
-  right: clamp(26%, 36vw, 56%);
-  top: clamp(-4.5rem, -2.75rem, -1.25rem);
-  width: auto;
+  right: 180px;
+  top: -40px;
+  width: 220px;
   height: auto;
-  opacity: 0.8;
-  color: var(--aiven-brand-purple);
+  opacity: 1;
+  color: var(--aiven-bg-deco-neutral-subtle);
   z-index: 2;
   display: block;
 }
+
 
 .container {
   margin: 0 auto;
@@ -82,9 +72,9 @@
 
 .heroTitle {
   font-family: var(--ifm-heading-font-family);
-  font-size: clamp(2.1rem, 4.8vw, 3.6rem);
+  font-size: clamp(1.8rem, 4.8vw, 3rem);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 0.98;
   color: inherit;
   letter-spacing: var(--aiven-header-letter-spacing);
@@ -98,7 +88,7 @@
   font-weight: 400;
   line-height: 1.5;
   max-width: 34rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--aiven-adm-text-color)
 }
 
 .buttons {
@@ -112,19 +102,18 @@
   margin-top: 1.9rem;
   display: flex;
   align-items: stretch;
-  gap: 0.5rem;
+  gap: 12px;
   width: min(42rem, 100%);
 }
 
 .askAIInput {
   flex: 1;
   min-width: 0;
-  border: 1px solid var(--aiven-grey-10);
+  border: 1px solid var(--feature-border-color);
   border-radius: 4px;
-  padding: 0.65rem 0.8rem;
+  padding: 12px;
   font-size: 0.95rem;
-  background-color: var(--ifm-background-color);
-  color: var(--ifm-font-color-base);
+  background-color: var(--aiven-bg-layer);
 }
 
 .askAIInput::placeholder {
@@ -148,15 +137,6 @@
   background-color: var(--aiven-button-primary-bg-hover);
   border-color: var(--aiven-button-primary-bg-hover);
   color: var(--nav-btn-primary-text-color-hover);
-}
-
-@media (min-width: 997px) {
-  .heroDecoAsterisk {
-    right: clamp(2%, 10vw, 14%);
-    top: clamp(-5rem, -3rem, -1.25rem);
-    width: clamp(140px, 24vw, 360px);
-    opacity: 0.92;
-  }
 }
 
 .buttonHome {
@@ -187,16 +167,8 @@
     width: 100%;
   }
 
-  .heroDecoBrace {
-    height: clamp(100px, 34vmin, 260px);
-    bottom: clamp(-1.35rem, -3.5vh, -0.25rem);
-    transform: translateX(min(22%, 3rem)) scaleX(0.52);
-    opacity: 0.88;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
+  .heroDecoBrace,
   .heroDecoAsterisk {
-    transform: none;
+    display: none;
   }
 }
