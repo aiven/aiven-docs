@@ -282,10 +282,9 @@ topology, it enforces the following controls:
 - Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
   Aiven creates no NAT gateways.
 - Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-  [cold data](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
-  buckets in your own Google Cloud project, with public access prevention enforced.
-  Workload nodes reach these buckets through the bastion proxy, consistent with having no
-  direct internet egress.
+  [tiered storage](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
+  buckets in your own Google Cloud project, with public access prevention and uniform
+  bucket-level access enforced.
 - Aiven tags all resources with the `hipaa` compliance model for governance and audit
   traceability.
 
@@ -308,10 +307,9 @@ plane. On top of that topology, it enforces the following controls:
 - Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
   Aiven creates no NAT gateways.
 - Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-  [cold data](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
-  buckets in your own Google Cloud project, with public access prevention enforced.
-  Workload nodes reach these buckets through the bastion proxy, consistent with having no
-  direct internet egress.
+  [tiered storage](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
+  buckets in your own Google Cloud project, with public access prevention and uniform
+  bucket-level access enforced.
 - Aiven tags all resources with the `pci_dss` compliance model for governance and audit
   traceability.
 
