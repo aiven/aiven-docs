@@ -11,11 +11,8 @@ Learn how to manage your organizations via the Aiven Console.
 1.  Delete all
     [projects](/docs/platform/howto/manage-project#delete-a-project) in the organization
     and in the organizational units.
-1.  Delete all
-    [billing groups](/docs/platform/howto/use-billing-groups#delete-a-billing-group)
-    and [addresses](/docs/platform/howto/manage-billing-addresses#delete-an-address).
-1. If you use a [marketplace subscription](/docs/platform/howto/list-marketplace-payments)
-   to pay for your services, cancel the subscription in the marketplace.
+1.  If you use a [marketplace subscription](/docs/platform/howto/list-marketplace-payments)
+    to pay for your services, cancel the subscription in the marketplace.
 1.  Click **Admin**.
 1.  Click **Organization**.
 1.  Open each organizational unit by clicking its name then click
