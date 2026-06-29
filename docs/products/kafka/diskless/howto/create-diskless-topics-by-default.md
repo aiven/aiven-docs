@@ -6,23 +6,21 @@ sidebar_label: Create diskless topics by default
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Configure an Aiven for Apache Kafka® service to create topics as diskless topics by
-default when their names match configured regular expressions, without changing client
-applications.
+<!-- markdownlint-disable-next-line MD013 -->
+Configure an Aiven for Apache Kafka® service to create new topics as diskless topics by default when their names match configured regular expressions, without changing client applications.
 
-Add one or more regular expressions to the service configuration to match the topic names
-to create as diskless topics. When a client creates a topic, the service compares the
-topic name against the configured regular expressions. If the name matches any of them,
-the service creates the topic as a diskless topic.
+Add one or more regular expressions to the service configuration to match topic names.
+When a client creates a topic, the service compares the topic name with the configured
+regular expressions. If the topic name matches any regular expression, the service creates
+the topic as a diskless topic.
 
 ## When to use regular expressions
 
-Use regular expressions to create new topics as diskless by default based on their names,
-without requiring every client or workflow to set `diskless.enable=true`. This is useful
-when:
+Use regular expressions to create new topics as diskless topics by default based on their
+names, without requiring every client or workflow to set `diskless.enable=true`. This is
+useful when:
 
 - Some clients reject unknown topic configurations before the request reaches the broker.
 - Kafka Connect frameworks, especially CDC connectors, can create
@@ -35,33 +33,57 @@ name alone.
 
 ## Behavior and limitations
 
-For each new topic, the service applies the configured regular expressions as follows:
+The service applies configured regular expressions only when a new topic is created.
+Existing topics do not change.
 
+### Topic matching
+
+For each new topic, the service checks the create-topic request and topic name in this
+order:
+
+- If the request sets `diskless.enable=true`, the service creates the topic as a diskless
+  topic.
 - If the topic name matches any configured regular expression, the service creates the
-  topic as diskless.
-- If no configured regular expression matches the topic name, the service creates the
-  topic as a classic topic.
-- The regular expression must match the full topic name.
-- The service excludes internal Kafka topics, such as topics that start with `__`.
-- The service excludes compacted topics. If a topic is created with
-  `cleanup.policy=compact` or `cleanup.policy=compact,delete`, the service creates it as a
-  classic topic even if its name matches a regular expression.
-- Existing topics do not change.
+  topic as a diskless topic.
+- Otherwise, the service creates the topic as a classic topic.
 
-For non-compacted topics, use names that do not match any configured regular expression to
-create classic topics. If a topic name matches a regular expression and the create-topic
-request explicitly sets `diskless.enable=false`, the request fails with an HTTP 409
-Conflict error.
+Regular expressions must match the full topic name.
 
-Topic type is set when the topic is created and cannot be changed later.
+### Excluded topics
 
-## Before you begin
+The service does not apply regular expressions to:
 
-Before you begin, ensure you have:
+- Internal Kafka topics, such as topics that start with `__`.
+- Compacted topics. If a topic is created with `cleanup.policy=compact` or
+  `cleanup.policy=compact,delete`, the service creates it as a classic topic even if its
+  name matches a regular expression.
 
-- An Aiven for Apache Kafka service with diskless topics enabled.
-- `account:kafka_diskless_allowed` enabled by Aiven.
-- The `services:write` OAuth scope to update the service configuration.
+### Classic topic conflicts
+
+If a non-compacted topic name matches a configured regular expression, you cannot create
+it as a classic topic by setting `diskless.enable=false`. The request fails with a
+conflict error.
+
+To create a classic topic, use a topic name that does not match any configured regular
+expression.
+
+In the Aiven Console, creating a classic topic with a name that matches a configured
+regular expression also fails.
+
+### Other limitations
+
+- Invalid regular expressions are ignored and do not match any topics. Other valid regular
+  expressions continue to be evaluated.
+- The regular expressions have no effect when `kafka_diskless.enabled` is `false`.
+- Topic type is set when the topic is created and cannot be changed later.
+
+## Prerequisites
+
+To set default diskless topic regular expressions, you need:
+
+- An Aiven for Apache Kafka® service with diskless topics enabled.
+- A project role or permission that lets you update service configuration. For details,
+  see [Project roles and permissions](/docs/platform/concepts/permissions#project-roles-and-permissions).
 
 ## Set default diskless topic regular expressions
 
@@ -85,20 +107,13 @@ Test each regular expression before you apply it. Use specific regular expressio
 possible. Avoid broad regular expressions such as `.*` unless most new non-internal,
 non-compacted topics must be diskless.
 
+:::note
+This option is not exposed in the Aiven Console for services with diskless topics
+enabled. Set it using the API or CLI.
+:::
+
 <Tabs groupId="set-method">
-<TabItem value="console" label="Console" default>
-
-1. In the [Aiven Console](https://console.aiven.io/), click your Aiven for Apache Kafka
-   service.
-1. Click <ConsoleLabel name="Service settings"/>.
-1. Scroll to **Advanced configuration** and click **Configure**.
-1. Click <ConsoleIcon name="Add config options"/>.
-1. Find `kafka_diskless.auto_diskless_topic_regexes` and add each regular expression as a
-   value.
-1. Click **Save configuration**.
-
-</TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="API" default>
 
 Use the Aiven API to update the service configuration.
 
@@ -110,6 +125,7 @@ curl --request PUT \
   --data '{
     "user_config": {
       "kafka_diskless": {
+        "enabled": true,
         "auto_diskless_topic_regexes": ["events\\..*", "cdc\\..*"]
       }
     }
@@ -128,11 +144,13 @@ Replace:
 <TabItem value="cli" label="CLI">
 
 Use the [Aiven CLI](/docs/tools/cli) to set the regular expressions with the `-c`
-option. Pass the value as a JSON array.
+option. Pass the value as a JSON array. Include `kafka_diskless.enabled=true` to keep
+diskless topics enabled when updating the configuration.
 
 ```bash
 avn service update SERVICE_NAME \
   --project PROJECT_NAME \
+  -c kafka_diskless.enabled=true \
   -c kafka_diskless.auto_diskless_topic_regexes='["events\\..*", "cdc\\..*"]'
 ```
 
@@ -148,18 +166,16 @@ If the CLI rejects the array value, use the API.
 </TabItem>
 </Tabs>
 
-If you manage topics with an infrastructure-as-code tool, make sure your topic naming
-conventions and regular expressions stay aligned. The topic type can be determined by the
-configured regular expressions instead of the topic creation request.
+Changing the list of regular expressions might briefly interrupt topic creation requests.
+Kafka brokers remain online.
 
-To confirm whether the Aiven Terraform provider supports the
-`auto_diskless_topic_regexes` attribute, see the provider changelog.
+If you manage services or topics with infrastructure as code, make sure your topic naming
+conventions and regular expressions stay aligned. If you use the Aiven Terraform Provider,
+verify that your provider version supports `auto_diskless_topic_regexes` before adding
+this setting to your configuration.
 
 After you save the configuration, Aiven applies the regular expressions to new topic
 creation requests. Existing topics keep their current type.
-
-Changing the regular expressions triggers a brief restart of the topic API layer, during
-which topic creation requests might fail. Kafka brokers remain online.
 
 ## Regular expression examples
 
@@ -226,20 +242,15 @@ In the output, verify that `diskless_enable` is set to `true`.
 ## Remove default diskless topic regular expressions
 
 To stop creating matching topics as diskless topics by default, set
-`auto_diskless_topic_regexes` to an empty array.
+`auto_diskless_topic_regexes` to an empty array or `null`.
+
+:::note
+This option is not exposed in the Aiven Console for services with diskless topics
+enabled. Update it using the API or CLI.
+:::
 
 <Tabs groupId="remove-method">
-<TabItem value="console" label="Console" default>
-
-1. In the [Aiven Console](https://console.aiven.io/), click your Aiven for Apache Kafka
-   service.
-1. Click <ConsoleLabel name="Service settings"/>.
-1. Scroll to **Advanced configuration** and click **Configure**.
-1. Find `kafka_diskless.auto_diskless_topic_regexes` and remove all values.
-1. Click **Save configuration**.
-
-</TabItem>
-<TabItem value="api" label="API">
+<TabItem value="api" label="API" default>
 
 ```bash
 curl --request PUT \
@@ -249,19 +260,36 @@ curl --request PUT \
   --data '{
     "user_config": {
       "kafka_diskless": {
+        "enabled": true,
         "auto_diskless_topic_regexes": []
       }
     }
   }'
 ```
 
+To clear the value instead of passing an empty array, set `auto_diskless_topic_regexes` to
+`null`.
+
 </TabItem>
 <TabItem value="cli" label="CLI">
+
+Include `kafka_diskless.enabled=true` to keep diskless topics enabled when updating the
+configuration.
 
 ```bash
 avn service update SERVICE_NAME \
   --project PROJECT_NAME \
+  -c kafka_diskless.enabled=true \
   -c kafka_diskless.auto_diskless_topic_regexes='[]'
+```
+
+Alternatively, clear the value by setting `auto_diskless_topic_regexes` to `null`:
+
+```bash
+avn service update SERVICE_NAME \
+  --project PROJECT_NAME \
+  -c kafka_diskless.enabled=true \
+  -c kafka_diskless.auto_diskless_topic_regexes=null
 ```
 
 </TabItem>
