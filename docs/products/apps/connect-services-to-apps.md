@@ -12,7 +12,7 @@ Aiven for OpenSearch®, or Aiven for Valkey™ service.
 
 ## Connect an Aiven service
 
-1. In your project, click **Applications**.
+1. In your project, click <ConsoleLabel name="applications"/>.
 1. Open your application.
 1. In the **Connected services** section, click **Connect service**.
 1. Select the service to connect.
@@ -20,7 +20,7 @@ Aiven for OpenSearch®, or Aiven for Valkey™ service.
 
 ## Disconnect an Aiven service
 
-1. In your project, click **Applications**.
+1. In your project, click <ConsoleLabel name="applications"/>.
 1. Open your application.
 1. In the **Connected services** section, find the service to disconnect.
 1. Click <ConsoleLabel name="Actions"/> > **Disconnect service**.

@@ -5,6 +5,7 @@ limited: true
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 To make your app available on public networks, you can configure it to listen on ports for HTTP/S traffic.
 Public ports allow traffic between your app and clients on the internet such as browsers.
@@ -30,7 +31,7 @@ section for the app.
 
 To expose ports for an existing app:
 
-1. In your project, click **Applications**.
+1. In your project, click <ConsoleLabel name="applications"/>.
 1. Open your app.
 1. In the **Connection information** section, click **Edit ports**.
 1. Click **Add port**.
@@ -39,7 +40,7 @@ To expose ports for an existing app:
 
 ## Change or remove exposed ports
 
-1. In your project, click **Applications**.
+1. In your project, click <ConsoleLabel name="applications"/>.
 1. Open your app.
 1. In the **Connection information** section, click **Edit ports**.
 1. Edit the ports. To delete a port, click <ConsoleIcon name="delete"/>.

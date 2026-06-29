@@ -413,6 +413,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'products/apps/ports',
             'products/apps/secrets-and-variables',
+            'products/apps/scale-apps',
             'products/apps/custom-domain-for-apps',
           ],
         },
