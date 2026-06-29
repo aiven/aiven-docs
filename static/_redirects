@@ -8,6 +8,7 @@
 #
 
 /caching                                         /docs/products/valkey  301
+/products/grafana/howto/pitr-process-for-grafana /docs/products/grafana/howto/fork-service  301
 /category/administrative-tasks                   /docs/get-started  301
 /category/concepts                               /docs/get-started  301
 /category/concepts-1                             /docs/get-started  301
