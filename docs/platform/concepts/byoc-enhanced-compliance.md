@@ -10,9 +10,12 @@ Enhanced compliance clouds are
 [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) custom clouds that you create
 in your own AWS account to run Aiven services under specific compliance requirements.
 
-Previously, Aiven set up compliance-oriented BYOC clouds manually. You can now create them
-yourself by selecting a **compliance deployment model** when you
+:::important
+To enable this feature, contact your account team. After the
+**compliance deployment models** are enabled for your organization, you select a
+compliance deployment model when you
 [create an AWS custom cloud](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud).
+:::
 
 :::note
 Enhanced compliance BYOC clouds are different from
@@ -63,8 +66,9 @@ runs in a dedicated VPC with no shared infrastructure and adds the following con
 
 ## Requirements and limitations
 
-- Self-service compliance deployment models are available for **Amazon Web Services (AWS)**
-  only.
+- Compliance deployment models must be enabled for your organization before you can use
+  them. Contact your account team to enable them.
+- Compliance deployment models are available for **Amazon Web Services (AWS)** only.
 - Object storage in your AWS account is required. Aiven uses it for service backups and
   cold data, and you cannot turn it off for these models.
 - Plan your network connectivity before you create the cloud, because services are reachable
