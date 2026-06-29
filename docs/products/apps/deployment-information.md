@@ -3,12 +3,10 @@ title: Change branch and base directory
 limited: true
 ---
 
-import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
-
 You can change the branch and base directory of your app at any time.
 Changing these values triggers a redeployment.
 
-## Change branch and base directory
+To change the deployment information:
 
 1. In your project, click **Applications**.
 1. Open your app.
