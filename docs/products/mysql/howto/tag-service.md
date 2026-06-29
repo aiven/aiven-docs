@@ -14,4 +14,4 @@ ownership, cost allocation, and governance.
 <RelatedPages/>
 
 - [Use resource tags](/docs/platform/howto/tag-resources)
-- [Manage your Aiven for MySQL® cluster](/docs/products/mysql/howto/list-manage-cluster)
+- [Power on/off and delete your Aiven for MySQL® service](/docs/products/mysql/howto/power-cycle-service)

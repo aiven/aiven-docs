@@ -18,6 +18,10 @@ backups are taken.
 
 <EditBackupSchedule/>
 
+:::note
+When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hours.
+:::
+
 <RelatedPages/>
 
 - [Fork Aiven for Valkey™](/docs/products/valkey/howto/fork-service)

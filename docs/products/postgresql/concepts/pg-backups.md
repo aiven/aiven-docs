@@ -4,6 +4,7 @@ sidebar_label: Backups
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import EditBackupSchedule from "@site/static/includes/service-backups-instructions.md";
 
 Aiven for PostgreSQL® databases are automatically backed up, with **full backups** made daily, and **write-ahead logs (WAL)** copied at 5 minute intervals, or for every new file generated.
 All backups are encrypted using
@@ -69,7 +70,14 @@ node replacement potentially can be faster for highly updated services
 because fewer WAL files need to be restored since the last backup (WAL
 restoration in PostgreSQL is single-threaded and, therefore, slow).
 
+## Configure the backup schedule
+
+Set the time of day when the daily backup is taken.
+
+<EditBackupSchedule/>
+
 <RelatedPages/>
 
-To restore a backup, see
-[Advanced parameters for Aiven for PostgreSQL®](/docs/products/postgresql/reference/advanced-params).
+- [Create manual backups](/docs/products/postgresql/howto/create-manual-backups)
+- [Restore from a backup](/docs/products/postgresql/howto/restore-backup)
+- [Advanced parameters for Aiven for PostgreSQL®](/docs/products/postgresql/reference/advanced-params)

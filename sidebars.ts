@@ -1459,7 +1459,6 @@ const sidebars: SidebarsConfig = {
                 'products/grafana/reference/plugins',
               ],
             },
-            'products/grafana/howto/list-manage-cluster',
             {
               type: 'category',
               label: 'Manage dashboards',
@@ -1558,7 +1557,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/mysql/howto/manage-mysql-version',
                 'products/mysql/howto/manage-service-users',
-                'products/mysql/howto/configure-backups',
                 'products/mysql/howto/fork-service',
                 'products/mysql/howto/rename-service',
                 'products/mysql/howto/power-cycle-service',
@@ -1574,7 +1572,6 @@ const sidebars: SidebarsConfig = {
                 },
               ],
             },
-            'products/mysql/howto/list-manage-cluster',
             {
               type: 'category',
               label: 'High availability and  disaster recovery',
@@ -1709,7 +1706,6 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/opensearch/howto/os-version-upgrade',
-                'products/opensearch/howto/manage-service-users',
                 'products/opensearch/howto/fork-service',
                 'products/opensearch/howto/rename-service',
                 'products/opensearch/howto/power-cycle-service',
@@ -1902,7 +1898,6 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/howto/create-database',
                 'products/postgresql/howto/manage-service-users',
-                'products/postgresql/howto/configure-backups',
                 'products/postgresql/howto/fork-service',
                 'products/postgresql/howto/rename-service',
                 'products/postgresql/howto/power-cycle-service',
@@ -1916,7 +1911,6 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/reference/advanced-params',
               ],
             },
-            'products/postgresql/howto/list-manage-cluster',
             {
               type: 'category',
               label: 'High availability and disaster recovery',

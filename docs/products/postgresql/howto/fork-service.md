@@ -29,5 +29,5 @@ pools are copied to the new service.
 
 <RelatedPages/>
 
-- [Aiven for PostgreSQL® service backups](/docs/products/postgresql/howto/configure-backups)
+- [Aiven for PostgreSQL® backups](/docs/products/postgresql/concepts/pg-backups)
 - [Rename your Aiven for PostgreSQL® service](/docs/products/postgresql/howto/rename-service)

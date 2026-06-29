@@ -26,5 +26,5 @@ point in time.
 
 <RelatedPages/>
 
-- [Aiven for PostgreSQL® service backups](/docs/products/postgresql/howto/configure-backups)
+- [Aiven for PostgreSQL® backups](/docs/products/postgresql/concepts/pg-backups)
 - [Fork Aiven for PostgreSQL®](/docs/products/postgresql/howto/fork-service)

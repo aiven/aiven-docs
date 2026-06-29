@@ -7,17 +7,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import UsersConcepts from "@site/static/includes/service-users-concepts.md";
 import AddUser from "@site/static/includes/service-users-instructions.md";
-import UsersLimitation from "@site/static/includes/service-users-limitation.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Create and manage service users in your Aiven for Valkey™ service to control access to
 your data.
 
 <UsersConcepts/>
-
-## Limitations
-
-<UsersLimitation/>
 
 ## Add a service user
 

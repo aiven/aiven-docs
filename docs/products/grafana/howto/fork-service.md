@@ -31,4 +31,4 @@ changes to **Running**.
 <RelatedPages/>
 
 - [Rename your Aiven for Grafana® service](/docs/products/grafana/howto/rename-service)
-- [Manage your Aiven for Grafana® cluster](/docs/products/grafana/howto/list-manage-cluster)
+- [Power on/off and delete your Aiven for Grafana® service](/docs/products/grafana/howto/power-cycle-service)

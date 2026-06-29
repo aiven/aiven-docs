@@ -3,6 +3,8 @@ title: Understand MySQL backups in Aiven
 sidebar_label: Backups
 ---
 
+import EditBackupSchedule from "@site/static/includes/service-backups-instructions.md";
+
 Aiven for MySQL databases are automatically backed-up, with full backups daily, and binary logs recorded continuously.
 The number of stored
 backups and backup retention time depends on your [Aiven service
@@ -47,8 +49,15 @@ With this feature enabled, if you try to run `CREATE`, `ALTER`, `DROP`,
 **Waiting for backup lock**. In this case, wait till the backup is
 complete for running such operations.
 
+## Configure the backup schedule
+
+Set the time of day when the daily backup is taken.
+
+<EditBackupSchedule/>
+
 ## More resources
 
+-   [Use incremental backups](/docs/products/mysql/howto/use-incremental-backups)
 -   Our blog post: [MyHoard, your solution to MySQL backups and
     restoration](https://aiven.io/blog/introducing-myhoard-your-single-solution-to-mysql-backups-and-restoration)
 -   Read about [Aiven cloud security and data

@@ -26,5 +26,5 @@ binary log (binlog) is replayed to recover the data to the latest available poin
 
 <RelatedPages/>
 
-- [Aiven for MySQL® service backups](/docs/products/mysql/howto/configure-backups)
+- [Understand MySQL backups](/docs/products/mysql/concepts/mysql-backups)
 - [Fork Aiven for MySQL®](/docs/products/mysql/howto/fork-service)

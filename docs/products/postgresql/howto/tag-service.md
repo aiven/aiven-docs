@@ -13,4 +13,4 @@ Add key-value tags to your Aiven for PostgreSQL® service to organize services a
 <RelatedPages/>
 
 - [Use resource tags](/docs/platform/howto/tag-resources)
-- [Manage your Aiven for PostgreSQL® cluster](/docs/products/postgresql/howto/list-manage-cluster)
+- [Power on/off and delete your Aiven for PostgreSQL® service](/docs/products/postgresql/howto/power-cycle-service)

@@ -14,4 +14,4 @@ ownership, cost allocation, and governance.
 <RelatedPages/>
 
 - [Use resource tags](/docs/platform/howto/tag-resources)
-- [Manage your Aiven for Grafana® cluster](/docs/products/grafana/howto/list-manage-cluster)
+- [Fork your Aiven for Grafana® service](/docs/products/grafana/howto/fork-service)

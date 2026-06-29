@@ -29,5 +29,5 @@ the new service.
 
 <RelatedPages/>
 
-- [Aiven for MySQL® service backups](/docs/products/mysql/howto/configure-backups)
+- [Understand MySQL backups](/docs/products/mysql/concepts/mysql-backups)
 - [Rename your Aiven for MySQL® service](/docs/products/mysql/howto/rename-service)
