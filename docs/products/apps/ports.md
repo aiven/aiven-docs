@@ -34,7 +34,7 @@ To expose ports for an existing app:
 1. Open your app.
 1. In the **Connection information** section, click **Edit ports**.
 1. Click **Add port**.
-1. Enter a name and port number, and select a protocol.
+1. Enter port number and name.
 1. Click **Save**.
 
 ## Change or remove exposed ports
