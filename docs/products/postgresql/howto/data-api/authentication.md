@@ -2,10 +2,10 @@
 title: Configure authentication for Data API
 sidebar_label: Authentication
 description: Authenticate Data API requests with JWTs from your own identity provider, and authorize with PostgreSQL roles.
-early: true
+limited: true
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Data API authenticates every request with a bearer token in the `Authorization` header. The
 token is a JWT issued by your own identity provider (IdP) and verified against your JWKS URL.
@@ -13,13 +13,13 @@ The token carries a role, and your Aiven for PostgreSQL® database enforces that
 privileges.
 
 :::note
-Data API is an <EarlyBadge/> feature.
+Data API is a <LimitedBadge/> feature.
 :::
 
 ## Authenticate with your identity provider
 
 End users authenticate with the JWTs issued by your IdP. You provide your JWKS URL when you
-[enable Data API](/docs/products/postgresql/howto/data-apis/get-started), and Data API
+[enable Data API](/docs/products/postgresql/howto/data-api/get-started), and Data API
 verifies each token against the public keys at that URL.
 
 :::note

@@ -2,15 +2,15 @@
 title: Manage Data API
 sidebar_label: Manage Data API
 description: Check status, expose more databases, and turn off the Data API.
-early: true
+limited: true
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 After you enable Data API, you can monitor it, expose more databases, and turn it off for a database you no longer need.
 
 :::note
-Data API is an <EarlyBadge/> feature.
+Data API is a <LimitedBadge/> feature.
 :::
 
 To manage Data API, open your Aiven for PostgreSQL® service in the
@@ -36,7 +36,7 @@ URL, and authentication settings.
 
 Key rotation is automatic. Data API reads your IdP's public keys from the JWKS URL and picks
 up rotated keys from the same URL. For more information, see
-[Configure the JWKS URL](/docs/products/postgresql/howto/data-apis/authentication#configure-the-jwks-url).
+[Configure the JWKS URL](/docs/products/postgresql/howto/data-api/authentication#configure-the-jwks-url).
 
 ## Change authentication settings
 
@@ -75,7 +75,7 @@ Setup is unavailable while the service is still being provisioned. Wait until th
 
 If the application can't be deployed, the status changes to **Error**. Turn off Data API,
 confirm that the service meets the
-[prerequisites](/docs/products/postgresql/howto/data-apis/get-started#prerequisites), and
+[prerequisites](/docs/products/postgresql/howto/data-api/get-started#prerequisites), and
 enable it again.
 
 ### Endpoints don't reflect schema changes
