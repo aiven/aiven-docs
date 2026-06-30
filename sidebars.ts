@@ -2010,13 +2010,13 @@ const sidebars: SidebarsConfig = {
                   label: 'Data API',
                   link: {
                     type: 'doc',
-                    id: 'products/postgresql/howto/data-apis/index',
+                    id: 'products/postgresql/howto/data-api/index',
                   },
                   items: [
-                    'products/postgresql/howto/data-apis/get-started',
-                    'products/postgresql/howto/data-apis/authentication',
-                    'products/postgresql/howto/data-apis/use-endpoints',
-                    'products/postgresql/howto/data-apis/manage',
+                    'products/postgresql/howto/data-api/get-started',
+                    'products/postgresql/howto/data-api/authentication',
+                    'products/postgresql/howto/data-api/use-endpoints',
+                    'products/postgresql/howto/data-api/manage',
                   ],
                 },
                 'products/postgresql/howto/ai-insights',
