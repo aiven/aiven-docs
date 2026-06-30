@@ -8,6 +8,7 @@ declare global {
       stopSessionRecording: () => void;
       opt_in_capturing: () => void;
       opt_out_capturing: () => void;
+      capture: (event: string, properties?: Record<string, unknown>) => void;
     };
     OnetrustActiveGroups?: string;
   }
@@ -32,6 +33,14 @@ function applyPosthogConsent(retries = 50) {
 if (typeof window !== 'undefined') {
   applyPosthogConsent();
   window.addEventListener('OneTrustGroupsUpdated', applyPosthogConsent);
+
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement | null;
+    const button = target?.closest('button[aria-label^="Copy code"]');
+    if (button) {
+      window.posthog?.capture('code_copy_clicked', {path: window.location.pathname});
+    }
+  });
 }
 
 const module: ClientModule = {
