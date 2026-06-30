@@ -1,5 +1,5 @@
 ---
-title: Configure authentication for Data API
+title: Configure authentication for Aiven for PostgreSQL® Data API
 sidebar_label: Authentication
 description: Authenticate Data API requests with JWTs from your own identity provider, and authorize with PostgreSQL roles.
 limited: true
