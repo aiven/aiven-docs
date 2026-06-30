@@ -12,7 +12,6 @@ Switch an existing [classic topic](/docs/products/kafka/diskless/concepts/topics
 You do not need to copy data or rename the topic. The topic remains available during the
 switch.
 
-
 Records written before the switch remain readable from the classic topic log,
 and new records are written to the diskless topic.
 
@@ -33,8 +32,6 @@ and is not enabled by default. To request access, contact your account team or
 - [Diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
   are enabled for the service.
 - The service runs Apache Kafka® 4.1 or later.
-- [Tiered storage](/docs/products/kafka/howto/configure-topic-tiered-storage) is
-  enabled for the topic before you switch it to diskless.
 - Unclean leader election is turned off for the topic. If unclean leader election
   is enabled, the switch does not start.
 - You have access to one of the following:
@@ -42,12 +39,6 @@ and is not enabled by default. To request access, contact your account team or
   - [Aiven CLI](/docs/tools/cli) installed and authenticated.
   - [Aiven API token](/docs/platform/howto/create_authentication_token) for API
     requests.
-
-:::note
-Enable tiered storage before you switch the topic to diskless. Do not enable
-tiered storage and diskless in the same topic update request. This requirement
-also applies to Bring Your Own Cloud (BYOC) services with diskless topics.
-:::
 
 ## Considerations
 
@@ -129,7 +120,7 @@ diskless topic.
 ## Verify the topic configuration
 
 Verify the topic configuration to confirm that the diskless switch request was
-accepted and that tiered storage remains enabled.
+accepted.
 
 <Tabs groupId="confirm-method">
 <TabItem value="cli" label="Aiven CLI" default>
