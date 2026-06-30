@@ -8,6 +8,7 @@ declare global {
       stopSessionRecording: () => void;
       opt_in_capturing: () => void;
       opt_out_capturing: () => void;
+      capture: (eventName: string, properties?: Record<string, unknown>) => void;
     };
     OnetrustActiveGroups?: string;
   }
@@ -34,10 +35,52 @@ if (typeof window !== 'undefined') {
   window.addEventListener('OneTrustGroupsUpdated', applyPosthogConsent);
 }
 
+function hasPosthogConsent(): boolean {
+  const groups = window.OnetrustActiveGroups || '';
+  return groups.includes('115');
+}
+
+function extractCodeLanguage(button: Element): string {
+  const codeBlock = button.closest('pre');
+  if (!codeBlock) return 'unknown';
+  
+  const classNames = codeBlock.className || '';
+  const match = classNames.match(/language-(\w+)/);
+  return match ? match[1] : 'unknown';
+}
+
+function attachCopyButtonListeners() {
+  if (typeof document === 'undefined') return;
+  
+  document.addEventListener('click', (event: MouseEvent) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    
+    if (!target.classList.contains('docusaurus-code-copy-button')) return;
+    
+    if (!hasPosthogConsent() || !window.posthog) return;
+    
+    const language = extractCodeLanguage(target);
+    
+    window.posthog.capture('code_block_copied', {
+      page_path: window.location.pathname,
+      code_language: language,
+      doc_title: document.title,
+    });
+  }, { capture: true });
+}
+
+let copyListenerAttached = false;
+
 const module: ClientModule = {
   onRouteUpdate() {
     if (window.snowplow) {
       window.snowplow('trackPageView');
+    }
+    
+    if (!copyListenerAttached) {
+      attachCopyButtonListeners();
+      copyListenerAttached = true;
     }
   },
   onRouteDidUpdate() {
