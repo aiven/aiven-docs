@@ -2,10 +2,10 @@
 title: Enable Data API
 sidebar_label: Enable Data API
 description: Expose an Aiven for PostgreSQL database as REST endpoints.
-early: true
+limited: true
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Enable Data API to expose a database in your Aiven for PostgreSQL® service as REST endpoints.
 
@@ -13,7 +13,7 @@ Enable Data API to expose a database in your Aiven for PostgreSQL® service as R
 
 To enable Data API, you need the following:
 
-- <EarlyBadge/> access to Data API. To request access,
+- <LimitedBadge/> access to Data API. To request access,
   [contact Aiven](https://aiven.io/contact).
 - A running Aiven for PostgreSQL service deployed inside a
   [VPC](/docs/platform/concepts/vpcs). Data API can only be deployed for services in a VPC.
@@ -22,7 +22,7 @@ To enable Data API, you need the following:
 - Permission to manage the Aiven for PostgreSQL service, such as the **Admin**,
   **Operator**, or **Developer** role.
 - An identity provider (IdP) that issues JWTs and publishes a
-  [JWKS URL](/docs/products/postgresql/howto/data-apis/authentication) over HTTPS. Auth0,
+  [JWKS URL](/docs/products/postgresql/howto/data-api/authentication) over HTTPS. Auth0,
   Okta, and Microsoft Entra ID are common options.
 
 ## Enable Data API for a database
@@ -48,13 +48,13 @@ service is still being provisioned, setup is unavailable and the Aiven Console s
 **Set up your data API** with a note that the service is still being provisioned.
 
 For details on the JWKS URL and audience fields, see
-[Configure authentication](/docs/products/postgresql/howto/data-apis/authentication).
+[Configure authentication](/docs/products/postgresql/howto/data-api/authentication).
 
 ## Next steps
 
-- [Configure authentication](/docs/products/postgresql/howto/data-apis/authentication) and
+- [Configure authentication](/docs/products/postgresql/howto/data-api/authentication) and
   authorization for the Data API.
-- [Call the endpoints](/docs/products/postgresql/howto/data-apis/use-endpoints) with code
+- [Call the endpoints](/docs/products/postgresql/howto/data-api/use-endpoints) with code
   snippets.
-- [Manage your Data API](/docs/products/postgresql/howto/data-apis/manage), including
+- [Manage your Data API](/docs/products/postgresql/howto/data-api/manage), including
   exposing more databases and turning off the API.

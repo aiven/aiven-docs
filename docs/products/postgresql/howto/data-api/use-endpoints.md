@@ -2,15 +2,15 @@
 title: Call the Data API endpoints
 sidebar_label: Use endpoints
 description: View REST endpoints, copy code snippets, and call your data over HTTPS.
-early: true
+limited: true
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 After you enable Data API for a database, you can browse the available endpoints and call them over HTTPS.
 
 :::note
-Data API is an <EarlyBadge/> feature.
+Data API is a <LimitedBadge/> feature.
 :::
 
 ## Find the base URL
@@ -37,7 +37,7 @@ the following methods:
 
 The methods that succeed for a request depend on the privileges of the role in the token.
 For details, see
-[Authorize requests with PostgreSQL roles](/docs/products/postgresql/howto/data-apis/authentication#authorize-requests-with-postgresql-roles).
+[Authorize requests with PostgreSQL roles](/docs/products/postgresql/howto/data-api/authentication#authorize-requests-with-postgresql-roles).
 
 ## Copy a code snippet
 
@@ -48,7 +48,7 @@ Select a table to expand its code snippets:
 1. Select the language: **curl**, **JavaScript**, or **Python**.
 1. Click **Copy to clipboard**.
 1. In the snippet, replace the placeholder token with a
-   [JWT issued by your IdP](/docs/products/postgresql/howto/data-apis/authentication).
+   [JWT issued by your IdP](/docs/products/postgresql/howto/data-api/authentication).
 
 ## Call an endpoint
 

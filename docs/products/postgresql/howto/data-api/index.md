@@ -2,16 +2,16 @@
 title: Data API for Aiven for PostgreSQL®
 sidebar_label: Data API
 keywords: ["Data API", "REST API", "PostgREST", "REST endpoints", "JWT", "JWKS", "identity provider"]
-early: true
+limited: true
 ---
 
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import DocCardList from "@theme/DocCardList";
 
 Data API turns your Aiven for PostgreSQL® database into a backend by exposing its tables as secure REST endpoints, without backend code.
 
 :::note
-Data API is an <EarlyBadge/> feature.
+Data API is a <LimitedBadge/> feature.
 To request access, [contact Aiven](https://aiven.io/contact).
 :::
 
