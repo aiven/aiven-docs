@@ -414,6 +414,7 @@ const sidebars: SidebarsConfig = {
             'products/apps/ports',
             'products/apps/secrets-and-variables',
             'products/apps/custom-domain-for-apps',
+            'products/apps/power-off-apps',
           ],
         },
       ],
