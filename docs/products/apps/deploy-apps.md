@@ -4,7 +4,7 @@ limited: true
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Build and deploy applications using Aiven Applications from source code in a GitHub repository.
 
@@ -36,4 +36,4 @@ organization can select that account in Aiven Apps.
 
 1. In your project, click <ConsoleLabel name="applications"/>.
 1. Open your app.
-1. On the **Overview** page, click <ConsoleIcon name="actions"/> > <ConsoleLabel name="redeployapp"/ >.
+1. On the **Overview** page, click <ConsoleIcon name="actions"/> > <ConsoleLabel name="redeployapp"/>.
