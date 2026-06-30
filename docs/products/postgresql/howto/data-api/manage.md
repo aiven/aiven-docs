@@ -1,5 +1,5 @@
 ---
-title: Manage Data API
+title: Manage Aiven for PostgreSQL® Data API
 sidebar_label: Manage Data API
 description: Check status, expose more databases, and turn off the Data API.
 limited: true

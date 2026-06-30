@@ -1,5 +1,5 @@
 ---
-title: Call the Data API endpoints
+title: Call the Aiven for PostgreSQL® Data API endpoints
 sidebar_label: Use endpoints
 description: View REST endpoints, copy code snippets, and call your data over HTTPS.
 limited: true

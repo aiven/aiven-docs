@@ -1,5 +1,5 @@
 ---
-title: Enable Data API
+title: Enable Aiven for PostgreSQL® Data API
 sidebar_label: Enable Data API
 description: Expose an Aiven for PostgreSQL database as REST endpoints.
 limited: true
