@@ -173,12 +173,16 @@ For Kafka plans that support automatic rebalancing, Aiven regularly checks for n
 running outside their preferred zones. When capacity is available, Aiven automatically
 moves those nodes back to a preferred zone.
 
-For Kafka plans that don't support automatic rebalancing, move the node back to a
-preferred zone manually from the Aiven Console or with the Aiven API.
-Supported plans are:
-* inkless-professional plans
-* business and premium, inkless plans on BYOC
-* kafka-professional plans
+For Kafka plans that do not support automatic rebalancing, Aiven can move a node
+back to a preferred zone when Aiven recreates the node, such as during maintenance
+or a plan change.
+
+Automatic rebalancing is supported on:
+
+- `inkless-professional` plans
+- Inkless Business and Premium plans on BYOC
+- `kafka-professional` plans
+
 ## Example: Optimize follower fetching
 
 To reduce cross-AZ network costs with
