@@ -109,16 +109,6 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>Europe, France: Paris</td>
   </tr>
   <tr>
-    <td>middle east</td>
-    <td>aws-me-central-1</td>
-    <td>Middle East, UAE: UAE</td>
-  </tr>
-  <tr>
-    <td>middle east</td>
-    <td>aws-me-south-1</td>
-    <td>Middle East, Bahrain: Bahrain</td>
-  </tr>
-  <tr>
     <td>north america</td>
     <td>aws-ca-central-1</td>
     <td>Canada, Quebec: Canada Central</td>
