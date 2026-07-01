@@ -11,8 +11,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Configure preferred availability zones to control where your Aiven for Apache Kafka® service nodes are placed within a cloud region.
 
 By default, Aiven distributes Kafka service nodes across the available zones in a
-cloud region. With preferred zones, you can limit node placement to specific AZs
-while keeping the service highly available.
+cloud region. With preferred zones, you can limit node placement to specific
+availability zones (AZs) while keeping the service highly available.
 
 Use preferred zones to:
 
@@ -30,7 +30,7 @@ Use preferred zones to:
 
 ## Zone ID formats
 
-Zone ID formats depend on the cloud provider.
+Zone ID formats vary by cloud provider.
 
 | Cloud provider | Format | Examples |
 | ------------- | ------ | -------- |
@@ -40,7 +40,7 @@ Zone ID formats depend on the cloud provider.
 
 ::::note[AWS zone IDs]
 AWS availability zone names, such as `us-east-1a`, can map to different physical
-locations in different accounts. Use zone IDs, such as `use1-az1`, because they're
+locations in different accounts. Use zone IDs, such as `use1-az1`, because they are
 consistent across all accounts. For more information, see
 [AWS documentation on AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids).
 ::::
@@ -54,7 +54,7 @@ consistent across all accounts. For more information, see
    Aiven for Apache Kafka service.
 1. Click <ConsoleLabel name="service settings"/>.
 1. In the **Advanced configuration** section, click **Configure**.
-1. In **`preferred_zones`**, enter the zone IDs as comma-separated values.
+1. In **`preferred_zones`**, enter the zone IDs, separated by commas.
 
    Example:
 
@@ -84,7 +84,7 @@ avn service create SERVICE_NAME \
   -c preferred_zones='["use1-az1", "use1-az2", "use1-az3"]'
 ```
 
-Replace the following placeholders:
+Replace the following:
 
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
 - `preferred_zones`: JSON array of zone IDs where nodes can be placed.
@@ -92,8 +92,9 @@ Replace the following placeholders:
 </TabItem>
 <TabItem value="api" label="API">
 
-Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
-API operation to configure preferred zones:
+To configure preferred zones, use the
+[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) API
+operation:
 
 ```bash
 curl --request PUT \
@@ -107,7 +108,7 @@ curl --request PUT \
   }'
 ```
 
-Replace the following placeholders:
+Replace the following:
 
 - `PROJECT_NAME`: Name of your Aiven project.
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
@@ -138,12 +139,13 @@ resource "aiven_kafka" "example" {
 
 When you configure preferred zones:
 
-- New nodes are placed in the specified zones when capacity is available.
-- Zone IDs are validated when you save the configuration.
-- If a preferred zone is temporarily unavailable, nodes can be placed in another
-  available zone to keep the service available.
-- Existing nodes are not moved immediately. Preferred zones are applied when nodes
-  are recreated, such as during maintenance or a plan change.
+- New nodes use the specified zones when capacity is available.
+- The service validates zone IDs when you save the configuration.
+- If a preferred zone is unavailable, Aiven can use another zone in the same region
+  to keep the service available. See
+  [Automatic node rebalancing](#automatic-node-rebalancing).
+- Existing nodes do not move immediately. Preferred zones take effect when Aiven
+  recreates nodes, such as during maintenance or a plan change.
 
 ### Minimum zone count
 
@@ -154,27 +156,31 @@ account permissions.
 
 ### Interaction with single-zone configuration
 
-If both `preferred_zones` and
+If you configure both `preferred_zones` and
 [`single_zone.availability_zone`](/docs/products/kafka/reference/advanced-params-inkless#single_zone.availability_zone)
-are configured, the `single_zone` setting takes precedence when
-`single_zone.enabled` is set to `true`.
+settings and set `single_zone.enabled` to `true`, the `single_zone` setting takes
+precedence.
 
-## Automatic rebalancing for Standard plans
+## Automatic node rebalancing
 
-For Kafka services on Standard plans, Aiven checks once per day whether any nodes are
-outside their preferred zones. If a node was placed outside a preferred zone because
-the zone was temporarily unavailable during node creation, Aiven automatically
-attempts to move the node back to the preferred zone.
+When Aiven creates or replaces a node, it uses one of your preferred zones if
+capacity is available. If none of the preferred zones have capacity, Aiven places the
+node in another availability zone in the same region to keep your service available.
 
-Classic Kafka services don't automatically rebalance misplaced nodes. Aiven sends
-alerts for misplaced nodes, and you can manually replace nodes from the Aiven Console
-or by using the Aiven API.
+Aiven sends an alert when a node is running outside its preferred zone.
+
+For Kafka plans that support automatic rebalancing, Aiven regularly checks for nodes
+running outside their preferred zones. When capacity is available, Aiven automatically
+moves those nodes back to a preferred zone.
+
+For Kafka plans that don't support automatic rebalancing, move the node back to a
+preferred zone manually from the Aiven Console or with the Aiven API.
 
 ## Example: Optimize follower fetching
 
 To reduce cross-AZ network costs with
 [follower fetching](/docs/products/kafka/howto/enable-follower-fetching), align
-preferred zones with the AZs where your Kafka consumers run.
+preferred zones with the availability zones where your Kafka consumers run.
 
 1. Identify the availability zones where your Kafka consumers run.
 1. Configure preferred zones to match those zones.
@@ -188,20 +194,20 @@ local replicas are available.
 ## Example: Reduce cross-AZ costs for diskless topics
 
 For Kafka services that use diskless topics, you can reduce cross-AZ data transfer
-costs by routing requests to brokers in the same AZ as the client application. This
-configuration uses the `client.id` pattern to communicate the client's AZ to the
-broker.
+costs by routing requests to brokers in the same availability zone as the client
+application. This configuration uses the `client.id` pattern to communicate the
+client's availability zone to the broker.
 
 ### How it works
 
-Diskless topics store data in object storage, which is accessible from all AZs. Any
-broker can serve any partition. By configuring client rack awareness, clients can
-send requests to brokers in their local AZ.
+Diskless topics store data in object storage, which is accessible from all
+availability zones. Any broker can serve any partition. By configuring client rack
+awareness, clients can send requests to brokers in their local availability zone.
 
 ### Configuration
 
-1. Identify the AZs where your producers run.
-1. Configure preferred zones to match those AZs.
+1. Identify the availability zones where your producers run.
+1. Configure preferred zones to match those availability zones.
 1. Configure each producer's `client.id` to include the `diskless_az` pattern:
 
    ```properties
@@ -212,8 +218,8 @@ send requests to brokers in their local AZ.
    client.id=my-producer,diskless_az=use1-az2
    ```
 
-   The `diskless_az` value must match the broker's `broker.rack` configuration,
-   which corresponds to the zone IDs in your `preferred_zones` setting.
+   Set `diskless_az` to match the broker's `broker.rack` configuration, which uses
+   the zone IDs in your `preferred_zones` setting.
 
 1. Apply the same pattern to consumers to route requests consistently:
 
