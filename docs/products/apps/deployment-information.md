@@ -1,14 +1,16 @@
 ---
-title: Change branch and base directory
+title: Change branch
 limited: true
 ---
 
-You can change the branch and base directory of your app at any time.
-Changing these values triggers a redeployment.
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-To change the deployment information:
+You can change your app's branch at any time.
+Changing the branch triggers a redeployment of the selected branch's latest commit.
 
-1. In your project, click **Applications**.
+To change the branch:
+
+1. In your project, click <ConsoleLabel name="applications"/>.
 1. Open your app.
-1. In the **Deployment information** section, click **Edit**.
-1. Edit the branch or base directory and click **Save**.
+1. In the **Deployment configuration** section, click **Edit**.
+1. Edit the branch and click **Save changes**.
