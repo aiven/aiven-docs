@@ -167,8 +167,6 @@ When Aiven creates or replaces a node, it uses one of your preferred zones if
 capacity is available. If none of the preferred zones have capacity, Aiven places the
 node in another availability zone in the same region to keep your service available.
 
-Aiven sends an alert when a node is running outside its preferred zone.
-
 For Kafka plans that support automatic rebalancing, Aiven regularly checks for nodes
 running outside their preferred zones. When capacity is available, Aiven automatically
 moves those nodes back to a preferred zone.
