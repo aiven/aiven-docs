@@ -116,6 +116,7 @@ clusters. Set them on the service integration resource. To update these settings
 |-----------|-------------|---------------|---------------|
 | `consumer_fetch_min_bytes` | Minimum amount of data the server returns for a fetch request. Higher values reduce fetch frequency. | 1 | — |
 | `consumer_fetch_max_bytes` | Maximum amount of data the server returns for a fetch request. | 52428800 | 100 MiB |
+| `consumer_fetch_max_wait_ms` | Maximum amount of time the server waits for a fetch request. | 500 | 600,000 ms (10 minutes) |
 | `consumer_max_partition_fetch_bytes` | Maximum amount of data per partition the server returns in a single fetch response. | 1048576 | 100 MiB |
 | `consumer_max_poll_records` | Maximum number of records returned in a single poll request. | 500 | — |
 | `consumer_receive_buffer_bytes` | Size of the TCP receive buffer for the consumer. A value of `-1` uses the OS default. | 65536 | 100 MiB |
