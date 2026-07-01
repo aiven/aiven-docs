@@ -31,10 +31,7 @@ BYOK encrypts the following using your CMKs:
   - **Google Cloud KMS**: asymmetric RSA 2048 or RSA 4096 keys
   - **Oracle Cloud Infrastructure (OCI) Vault**: AES keys
   - **AWS KMS**: symmetric encryption keys (`ENCRYPT_DECRYPT`)
-
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
   - **Azure Key Vault**: RSA keys (software-protected or HSM-backed)
--->
 
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
   the [Aiven API](/docs/tools/api)
@@ -92,23 +89,13 @@ for each provider, for example:
     },
     "aws": {
       "role_arn": "arn:aws:iam::123456789012:role/aiven-cmk-anchor"
+    },
+    "azure": {
+      "app_id": "12345678-1234-1234-1234-123456789abc"
     }
   }
 }
 ```
-
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
-```json
-{
-  "accessors": {
-    ...
-    "azure": {
-      "app_id": "12345678-1234-1234-1234-123456789abc"
-    },
-    ...
-  }
-}
--->
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -146,15 +133,12 @@ The output is always in the JSON format:
     },
     "aws": {
       "role_arn": "arn:aws:iam::123456789012:role/aiven-cmk-anchor"
+    },
+    "azure": {
+      "app_id": "12345678-1234-1234-1234-123456789abc"
     }
 }
 ```
-
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
-    "azure": {
-      "app_id": "12345678-1234-1234-1234-123456789abc"
-    },
--->
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -171,11 +155,8 @@ attributes:
   returns `access_group` and `access_tenant` for OCI Vault.
 - [aiven_cmk_accessor_aws](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/cmk_accessor_aws):
   returns `principal`, the IAM role ARN, for AWS KMS.
-
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
 - [aiven_cmk_accessor_azure](https://registry.terraform.io/providers/aiven/aiven/latest/docs/data-sources/cmk_accessor_azure):
   returns `app_id` for Azure Key Vault.
--->
 
 #### Sample configuration (Google Cloud)
 
@@ -217,8 +198,6 @@ output "aws_principal" {
 }
 ```
 
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
-
 #### Sample configuration (Azure)
 
 ```terraform
@@ -230,8 +209,6 @@ output "azure_app_id" {
   value = data.aiven_cmk_accessor_azure.example.app_id
 }
 ```
-
--->
 
 </TabItem>
 </Tabs>
@@ -245,11 +222,8 @@ Use the accessor values returned by this operation when granting Aiven access to
   IAM policies.
 - **AWS KMS**: Use the `role_arn` as the trusted principal in your KMS key policy (see
   [AWS KMS setup](#aws-kms-setup)).
-
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
 - **Azure Key Vault**: Use the `app_id` to create a service principal in your
   Azure AD tenant (see [Azure Key Vault setup](#azure-key-vault-setup)).
--->
 
 :::
 
@@ -385,157 +359,11 @@ Record the key OCID:
 ocid1.key.oc1.<region>.<hash>
 ```
 
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
-
-### Azure Key Vault setup
-
-Aiven authenticates to your Azure Key Vault using a multi-tenant application registered
-in Aiven's Azure AD tenant. You grant access by creating a service principal from
-Aiven's application in your tenant and assigning it the **Key Vault Crypto User** role
-on your key.
-
-#### Step 1: Create a service principal for Aiven's application
-
-Get Aiven's `app_id` using
-[List CMK accessors](#list-cmk-accessors), then register Aiven's application as a
-service principal in your Azure AD tenant:
-
-```bash
-az ad sp create --id <aiven-application-id>
-```
-
-This allows Aiven to authenticate into your Azure AD tenant using its multi-tenant
-application.
-
-#### Step 2: Create a Key Vault with Azure RBAC
-
-The Key Vault must use **Azure RBAC** for its authorization model (not the legacy access
-policy model):
-
-```bash
-az keyvault create \
-  --name <vault-name> \
-  --resource-group <resource-group> \
-  --location <region> \
-  --enable-rbac-authorization true
-```
-
-If you are using an existing Key Vault, ensure RBAC authorization is enabled:
-
-```bash
-az keyvault update \
-  --name <vault-name> \
-  --enable-rbac-authorization true
-```
-
-#### Step 3: Create an RSA key
-
-Create an RSA key with the **wrapKey** and **unwrapKey** operations enabled.
-
-Software-protected key:
-
-```bash
-az keyvault key create \
-  --vault-name <vault-name> \
-  --name <key-name> \
-  --kty RSA \
-  --size 2048 \
-  --ops wrapKey unwrapKey
-```
-
-HSM-backed key (for higher security requirements):
-
-:::note
-HSM-backed keys require an Azure Managed HSM, which must be provisioned separately
-before creating keys. Provisioning takes a few minutes and incurs an hourly cost.
-See the [Azure Managed HSM quickstart](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/quick-create-cli)
-for setup instructions.
-:::
-
-```bash
-az keyvault key create \
-  --hsm-name <hsm-name> \
-  --name <key-name> \
-  --kty RSA-HSM \
-  --size 2048 \
-  --ops wrapKey unwrapKey
-```
-
-Supported key sizes are `2048`, `3072`, and `4096`.
-
-Record the key URL, which becomes the resource identifier you register with Aiven:
-
-- Software-protected key: `https://<vault-name>.vault.azure.net/keys/<key-name>`
-- HSM-backed key: `https://<hsm-name>.vault.azure.net/keys/<key-name>`
-
-If you include a specific version in the URL, Aiven uses that version exclusively.
-Omitting the version means Aiven always uses the latest active version.
-
-#### Step 4: Grant Aiven access to the key
-
-Find the object ID of the Aiven service principal in your tenant:
-
-```bash
-az ad sp show --id <aiven-application-id> --query id -o tsv
-```
-
-**Software-protected key** — assign the **Key Vault Crypto User** built-in role to the
-Aiven service principal. This role grants only key wrapping permissions — Aiven cannot
-manage, rotate, or delete your key.
-
-Scope to the specific key (recommended):
-
-```bash
-az role assignment create \
-  --assignee <aiven-service-principal-object-id> \
-  --role "Key Vault Crypto User" \
-  --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>/keys/<key-name>"
-```
-
-Or scope to the entire vault:
-
-```bash
-az role assignment create \
-  --assignee <aiven-service-principal-object-id> \
-  --role "Key Vault Crypto User" \
-  --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
-```
-
-**HSM-backed key** — use the Managed HSM CLI command and assign the **Managed HSM Crypto User** role instead:
-
-Scope to the specific key (recommended):
-
-```bash
-az keyvault role assignment create \
-  --hsm-name <hsm-name> \
-  --role "Managed HSM Crypto User" \
-  --assignee-object-id <aiven-service-principal-object-id> \
-  --scope /keys/<key-name>
-```
-
-Or scope to all keys in the HSM:
-
-```bash
-az keyvault role assignment create \
-  --hsm-name <hsm-name> \
-  --role "Managed HSM Crypto User" \
-  --assignee-object-id <aiven-service-principal-object-id> \
-  --scope /keys
-```
-
-:::note
-You can revoke Aiven's access at any time by removing the role assignment or deleting
-the service principal from your tenant. This immediately prevents any further
-cryptographic operations by Aiven.
-:::
-
--->
-
 ### AWS KMS setup
 
 Aiven authenticates to your AWS KMS key using cross-account IAM access. You grant
 access by adding Aiven's IAM role ARN as a trusted principal in your KMS key policy.
-No resources need to be created in Aiven's AWS account—everything is controlled
+No resources need to be created in Aiven's AWS account. Everything is controlled
 through your key policy.
 
 #### Step 1: Create a KMS key
@@ -634,6 +462,171 @@ policy, or by disabling or deleting the key. All KMS operations performed by Aiv
 logged in your AWS CloudTrail, giving you a full audit trail.
 :::
 
+### Azure Key Vault setup
+
+Aiven authenticates to your Azure Key Vault using a multi-tenant application registered
+in Aiven's Azure AD tenant. You grant access by creating a service principal from
+Aiven's application in your tenant and assigning it the **Key Vault Crypto User** role
+on your key.
+
+#### Step 1: Create a service principal for Aiven's application
+
+Get Aiven's `app_id` using
+[List CMK accessors](#list-cmk-accessors), then register Aiven's application as a
+service principal in your Azure AD tenant:
+
+```bash
+az ad sp create --id <aiven-application-id>
+```
+
+This allows Aiven to authenticate into your Azure AD tenant using its multi-tenant
+application.
+
+#### Step 2: Create a Key Vault with Azure RBAC
+
+If this is the first Key Vault in your subscription, register the `Microsoft.KeyVault`
+resource provider first:
+
+```bash
+az provider register --namespace Microsoft.KeyVault --wait
+```
+
+The Key Vault must use **Azure RBAC** for its authorization model (not the legacy access
+policy model):
+
+```bash
+az keyvault create \
+  --name <vault-name> \
+  --resource-group <resource-group> \
+  --location <region> \
+  --enable-rbac-authorization true
+```
+
+To protect against accidental or malicious key deletion, enable purge protection by
+adding `--enable-purge-protection true` to the command.
+
+If you are using an existing Key Vault, ensure RBAC authorization is enabled:
+
+```bash
+az keyvault update \
+  --name <vault-name> \
+  --enable-rbac-authorization true
+```
+
+For a newly created Key Vault, assign yourself the **Key Vault Administrator** role so
+you can create keys:
+
+```bash
+az role assignment create \
+  --role "Key Vault Administrator" \
+  --assignee $(az ad signed-in-user show --query id -o tsv) \
+  --scope $(az keyvault show \
+    --name <vault-name> --resource-group <resource-group> --query id -o tsv)
+```
+
+#### Step 3: Create an RSA key
+
+Create an RSA key with the **wrapKey** and **unwrapKey** operations enabled.
+
+Software-protected key:
+
+```bash
+az keyvault key create \
+  --vault-name <vault-name> \
+  --name <key-name> \
+  --kty RSA \
+  --size 2048 \
+  --ops wrapKey unwrapKey
+```
+
+Dedicated HSM-backed key (for higher security requirements):
+
+:::note
+HSM-backed (Hardware Security Module) keys require an Azure Managed HSM, which must be
+provisioned separately before creating keys. Provisioning takes a few minutes and incurs
+an hourly cost.
+See the [Azure Managed HSM quickstart](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/quick-create-cli)
+for single-tenant (dedicated) HSM setup instructions.
+:::
+
+```bash
+az keyvault key create \
+  --hsm-name <hsm-name> \
+  --name <key-name> \
+  --kty RSA-HSM \
+  --size 2048 \
+  --ops wrapKey unwrapKey
+```
+
+Supported key sizes are `2048`, `3072`, and `4096`.
+
+Record the key URL, which becomes the resource identifier you register with Aiven:
+
+- Software-protected key: `https://<vault-name>.vault.azure.net/keys/<key-name>`
+- HSM-backed key: `https://<hsm-name>.vault.azure.net/keys/<key-name>`
+
+If you include a specific version in the URL, Aiven uses that version exclusively.
+Omitting the version means Aiven always uses the latest active version.
+
+#### Step 4: Grant Aiven access to the key
+
+Find the object ID of the Aiven service principal in your tenant:
+
+```bash
+az ad sp show --id <aiven-application-id> --query id -o tsv
+```
+
+**Software-protected key**: assign the **Key Vault Crypto User** built-in role to the
+Aiven service principal. This role grants only key wrapping permissions, so Aiven cannot
+manage, rotate, or delete your key.
+
+Scope to the specific key (recommended):
+
+```bash
+az role assignment create \
+  --assignee <aiven-service-principal-object-id> \
+  --role "Key Vault Crypto User" \
+  --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>/keys/<key-name>"
+```
+
+Or scope to the entire vault:
+
+```bash
+az role assignment create \
+  --assignee <aiven-service-principal-object-id> \
+  --role "Key Vault Crypto User" \
+  --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+```
+
+**HSM-backed key**: use the Managed HSM CLI command and assign the
+**Managed HSM Crypto User** role instead:
+
+Scope to the specific key (recommended):
+
+```bash
+az keyvault role assignment create \
+  --hsm-name <hsm-name> \
+  --role "Managed HSM Crypto User" \
+  --assignee-object-id <aiven-service-principal-object-id> \
+  --scope /keys/<key-name>
+```
+
+Or scope to all keys in the HSM:
+
+```bash
+az keyvault role assignment create \
+  --hsm-name <hsm-name> \
+  --role "Managed HSM Crypto User" \
+  --assignee-object-id <aiven-service-principal-object-id> \
+  --scope /keys
+```
+
+:::note
+You can revoke Aiven's access at any time by removing the role assignment or deleting
+the service principal from your tenant. This immediately prevents any further
+cryptographic operations by Aiven.
+:::
+
 ## Manage a project CMK
 
 Use the Aiven Provider for Terraform, Aiven API, or Aiven CLI to manage customer managed
@@ -663,8 +656,8 @@ Register a customer managed key resource identifier for an Aiven project.
 
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
-| `provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, or `aws` |
-| `resource` | String | True     | CMK reference (key identifier of max 512 characters). Format depends on provider: GCP resource name, OCI OCID, or AWS KMS key ARN |
+| `provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, `aws`, or `azure` |
+| `resource` | String | True     | CMK reference (key identifier of max 512 characters). Format depends on provider: GCP resource name, OCI OCID, AWS KMS key ARN, or Azure Key Vault key URL |
 | `default_cmk` | Boolean | False | Mark this key as default for new service creation |
 
 #### Sample request (Google Cloud)
@@ -699,7 +692,34 @@ the newly registered CMK configuration, for example:
 }
 ```
 
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+#### Sample request (AWS)
+
+```bash
+curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer AIVEN_API_TOKEN" \
+  -d '{
+        "provider": "aws",
+        "resource": "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+        "default_cmk": true
+      }'
+```
+
+#### Sample response (AWS)
+
+```json
+{
+  "cmk": {
+    "id": "12345678-1234-1234-1234-12345678abcd",
+    "provider": "aws",
+    "default_cmk": true,
+    "resource": "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    "status": "current",
+    "created_at": "YYYY-MM-DDTHH:MM:SSZ",
+    "updated_at": "YYYY-MM-DDTHH:MM:SSZ"
+  }
+}
+```
 
 #### Sample request (Azure)
 
@@ -730,43 +750,12 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
 }
 ```
 
--->
-
-#### Sample request (AWS)
-
-```bash
-curl -X POST https://api.aiven.io/v1/project/PROJECT_ID/secrets/cmks \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer AIVEN_API_TOKEN" \
-  -d '{
-        "provider": "aws",
-        "resource": "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab",
-        "default_cmk": true
-      }'
-```
-
-#### Sample response (AWS)
-
-```json
-{
-  "cmk": {
-    "id": "12345678-1234-1234-1234-12345678abcd",
-    "provider": "aws",
-    "default_cmk": true,
-    "resource": "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab",
-    "status": "current",
-    "created_at": "YYYY-MM-DDTHH:MM:SSZ",
-    "updated_at": "YYYY-MM-DDTHH:MM:SSZ"
-  }
-}
-```
-
 #### Response fields
 
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type: `gcp`, `oci`, or `aws` |
+| `provider` | Provider type: `gcp`, `oci`, `aws`, or `azure` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
@@ -787,8 +776,8 @@ avn project cmks create --project PROJECT_NAME --provider PROVIDER --resource RE
 | Parameter | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `--project`   | String | True     | Project name |
-| `--provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, or `aws` |
-| `--resource` | String | True     | CMK reference. Format depends on provider: GCP resource name, OCI OCID, or AWS KMS key ARN |
+| `--provider`   | String | True     | Cloud provider hosting the KMS: `gcp`, `oci`, `aws`, or `azure` |
+| `--resource` | String | True     | CMK reference. Format depends on provider: GCP resource name, OCI OCID, AWS KMS key ARN, or Azure Key Vault key URL |
 | `--default-cmk` | Flag | False | Mark this key as default for new service creation |
 | `--json`     | Flag   | False    | Output in JSON format |
 
@@ -818,7 +807,15 @@ created_at    YYYY-MM-DDTHH:MM:SSZ
 updated_at    YYYY-MM-DDTHH:MM:SSZ
 ```
 
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+#### Sample request (AWS)
+
+```bash
+avn project cmks create \
+  --project my-project \
+  --provider aws \
+  --resource "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab" \
+  --default-cmk
+```
 
 #### Sample request (Azure)
 
@@ -827,18 +824,6 @@ avn project cmks create \
   --project my-project \
   --provider azure \
   --resource "https://my-vault.vault.azure.net/keys/my-cmk-key" \
-  --default-cmk
-```
-
--->
-
-#### Sample request (AWS)
-
-```bash
-avn project cmks create \
-  --project my-project \
-  --provider aws \
-  --resource "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab" \
   --default-cmk
 ```
 
@@ -919,7 +904,7 @@ updated CMK configuration, for example:
 | Parameter | Description |
 |-----------|-------------|
 | `id` | Identifier of the specific key |
-| `provider` | Provider type: `gcp`, `oci`, or `aws` |
+| `provider` | Provider type: `gcp`, `oci`, `aws`, or `azure` |
 | `resource` | CMK reference |
 | `status` | One of `current`, `old`, or `deleted` |
 | `default_cmk` | Whether this CMK has been marked default for new services |
@@ -1046,7 +1031,21 @@ specified CMK configuration, for example:
 }
 ```
 
-<!-- AZURE (not yet supported - re-enable when Azure BYOK is live):
+#### Sample response (AWS)
+
+```json
+{
+  "cmk": {
+    "id": "a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7",
+    "provider": "aws",
+    "default_cmk": false,
+    "resource": "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    "status": "current",
+    "created_at": "YYYY-MM-DDTHH:MM:SSZ",
+    "updated_at": "YYYY-MM-DDTHH:MM:SSZ"
+  }
+}
+```
 
 #### Sample response (Azure)
 
@@ -1057,24 +1056,6 @@ specified CMK configuration, for example:
     "provider": "azure",
     "default_cmk": false,
     "resource": "https://my-vault.vault.azure.net/keys/my-cmk-key",
-    "status": "current",
-    "created_at": "YYYY-MM-DDTHH:MM:SSZ",
-    "updated_at": "YYYY-MM-DDTHH:MM:SSZ"
-  }
-}
-```
-
--->
-
-#### Sample response (AWS)
-
-```json
-{
-  "cmk": {
-    "id": "a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7",
-    "provider": "aws",
-    "default_cmk": false,
-    "resource": "arn:aws:kms:us-east-1:123456789012:key/mrk-1234abcd12ab34cd56ef1234567890ab",
     "status": "current",
     "created_at": "YYYY-MM-DDTHH:MM:SSZ",
     "updated_at": "YYYY-MM-DDTHH:MM:SSZ"
