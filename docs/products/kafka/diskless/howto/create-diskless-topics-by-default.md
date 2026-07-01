@@ -1,6 +1,6 @@
 ---
-title: Create diskless topics by default using regular expressions
-sidebar_label: Create diskless topics by default
+title: Create diskless topics automatically using regular expressions
+sidebar_label: Create diskless topics automatically
 ---
 
 import Tabs from '@theme/Tabs';
@@ -18,14 +18,16 @@ the topic as a diskless topic.
 
 ## When to use regular expressions
 
-Use regular expressions to create new topics as diskless topics by default based on their
-names, without requiring every client or workflow to set `diskless.enable=true`. This is
-useful when:
+Use regular expressions to automatically create new topics as diskless topics based on
+their names, without requiring every client or workflow to set `diskless.enable=true`.
+This is useful when:
 
-- Some clients reject unknown topic configurations before the request reaches the broker.
+- Your clients don't support setting `diskless.enable=true` in the topic configuration,
+  or you can't change the client code to include it.
 - Kafka Connect frameworks, especially CDC connectors, can create
   and alter topics dynamically and might not allow you to add diskless settings to the
   workflow.
+- Some clients reject unknown topic configurations before the request reaches the broker.
 - MirrorMaker 2 replicates source topics with their existing configurations.
 
 Regular expressions let these clients and tools create diskless topics based on the topic
@@ -46,8 +48,6 @@ order:
 - If the topic name matches any configured regular expression, the service creates the
   topic as a diskless topic.
 - Otherwise, the service creates the topic as a classic topic.
-
-Regular expressions must match the full topic name.
 
 ### Excluded topics
 
