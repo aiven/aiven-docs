@@ -175,7 +175,10 @@ moves those nodes back to a preferred zone.
 
 For Kafka plans that don't support automatic rebalancing, move the node back to a
 preferred zone manually from the Aiven Console or with the Aiven API.
-
+Supported plans are:
+* inkless-professional plans
+* business and premium, inkless plans on BYOC
+* kafka-professional plans
 ## Example: Optimize follower fetching
 
 To reduce cross-AZ network costs with
