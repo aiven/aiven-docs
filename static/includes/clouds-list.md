@@ -1,122 +1,6 @@
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
-## OVH
-
-<table>
-  <thead>
-  <tr>
-    <th>Region</th>
-    <th>Cloud</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>asia-pacific</td>
-    <td>avn-ovh-mum</td>
-    <td>Asia, India: Mumbai</td>
-  </tr>
-  <tr>
-    <td>asia-pacific</td>
-    <td>avn-ovh-sgp1</td>
-    <td>Asia Pacific, Singapore: Singapore</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-de1</td>
-    <td>Europe, Germany: Frankfurt</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-gra</td>
-    <td>Europe, France: Gravelines</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-gra1</td>
-    <td>Europe, France: Gravelines</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-gra11</td>
-    <td>Europe, France: Gravelines</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-gra3</td>
-    <td>Europe, France: Gravelines</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-gra5</td>
-    <td>Europe, France: Gravelines</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-gra7</td>
-    <td>Europe, France: Gravelines</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-gra9</td>
-    <td>Europe, France: Gravelines</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-mil</td>
-    <td>Europe, Italy: Milan</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-par</td>
-    <td>Europe, France: Paris</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-rbx-a</td>
-    <td>Europe, France: Roubaix</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-sbg5</td>
-    <td>Europe, France: Strasbourg</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-sbg7</td>
-    <td>Europe, France: Strasbourg</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-uk1</td>
-    <td>Europe, United Kingdom: London</td>
-  </tr>
-  <tr>
-    <td>europe</td>
-    <td>avn-ovh-waw1</td>
-    <td>Europe, Poland: Warsaw</td>
-  </tr>
-  <tr>
-    <td>north america</td>
-    <td>avn-ovh-bhs</td>
-    <td>North America, Canada: Beauharnois</td>
-  </tr>
-  <tr>
-    <td>north america</td>
-    <td>avn-ovh-bhs1</td>
-    <td>North America, Canada: Beauharnois</td>
-  </tr>
-  <tr>
-    <td>north america</td>
-    <td>avn-ovh-bhs3</td>
-    <td>North America, Canada: Beauharnois</td>
-  </tr>
-  <tr>
-    <td>north america</td>
-    <td>avn-ovh-bhs5</td>
-    <td>North America, Canada: Beauharnois</td>
-  </tr>
-</tbody>
-</table>
+<!-- vale off -->
 
 ## Amazon Web Services
 
@@ -295,11 +179,6 @@
   </tr>
   <tr>
     <td>asia-pacific</td>
-    <td>azure-indonesia-central</td>
-    <td>Asia, Indonesia: Indonesia Central</td>
-  </tr>
-  <tr>
-    <td>asia-pacific</td>
     <td>azure-japaneast</td>
     <td>Asia, Japan: Japan East</td>
   </tr>
@@ -317,6 +196,11 @@
     <td>asia-pacific</td>
     <td>azure-korea-south</td>
     <td>Asia, Korea: Korea South</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>azure-indonesia-central</td>
+    <td>Asia, Indonesia: Central Indonesia</td>
   </tr>
   <tr>
     <td>asia-pacific</td>
@@ -619,7 +503,7 @@
   <tr>
     <td>europe</td>
     <td>google-europe-southwest1</td>
-    <td>Europe, Madrid: Spain</td>
+    <td>Europe, Spain: Madrid</td>
   </tr>
   <tr>
     <td>europe</td>
@@ -754,6 +638,125 @@
 </tbody>
 </table>
 
+## OVHcloud
+
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>asia-pacific</td>
+    <td>avn-ovh-mum</td>
+    <td>Asia, India: Mumbai</td>
+  </tr>
+  <tr>
+    <td>asia-pacific</td>
+    <td>avn-ovh-sgp1</td>
+    <td>Asia Pacific, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-de1</td>
+    <td>Europe, Germany: Frankfurt</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra1</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra11</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra3</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra5</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra7</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-gra9</td>
+    <td>Europe, France: Gravelines</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-mil</td>
+    <td>Europe, Italy: Milan</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-par</td>
+    <td>Europe, France: Paris</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-rbx-a</td>
+    <td>Europe, France: Roubaix</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-sbg5</td>
+    <td>Europe, France: Strasbourg</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-sbg7</td>
+    <td>Europe, France: Strasbourg</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-uk1</td>
+    <td>Europe, United Kingdom: London</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>avn-ovh-waw1</td>
+    <td>Europe, Poland: Warsaw</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs1</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs3</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+  <tr>
+    <td>north america</td>
+    <td>avn-ovh-bhs5</td>
+    <td>North America, Canada: Beauharnois</td>
+  </tr>
+</tbody>
+</table>
+
 ## UpCloud
 
 <table>
@@ -848,3 +851,172 @@
 </tbody>
 </table>
 
+## Oracle Cloud Infrastructure <LimitedBadge/>
+
+:::important
+Oracle Cloud Infrastructure (OCI) is supported on the Aiven Platform as a
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+For more information or access, contact your account team.
+:::
+
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Cloud</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-melbourne-1</td>
+    <td>Australia, Australia Southeast: Melbourne</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-mumbai-1</td>
+    <td>India, India West: Mumbai</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-osaka-1</td>
+    <td>Japan, Japan Central: Osaka</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-seoul-1</td>
+    <td>South Korea, South Korea Central: Seoul</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-singapore-1</td>
+    <td>Singapore, Singapore: Singapore</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-sydney-1</td>
+    <td>Australia, Australia East: Sydney</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-tokyo-1</td>
+    <td>Japan, Japan East: Tokyo</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-frankfurt-1</td>
+    <td>Germany, Germany Central: Frankfurt</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-milan-1</td>
+    <td>Italy, Italy Northwest: Milan</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-turin-1</td>
+    <td>Italy, Italy Northwest: Turin</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>uk-london-1</td>
+    <td>United Kingdom, UK South: London</td>
+  </tr>
+  <tr>
+    <td>Middle East</td>
+    <td>me-dubai-1</td>
+    <td>UAE, UAE East: Dubai</td>
+  </tr>
+  <tr>
+    <td>Middle East</td>
+    <td>me-jeddah-1</td>
+    <td>Saudi Arabia, Saudi Arabia West: Jeddah</td>
+  </tr>
+  <tr>
+    <td>Middle East</td>
+    <td>me-riyadh-1</td>
+    <td>Saudi Arabia, Saudi Arabia Central: Riyadh</td>
+  </tr>
+  <tr>
+    <td>North America</td>
+    <td>ca-montreal-1</td>
+    <td>Canada, Canada Southeast: Montreal</td>
+  </tr>
+  <tr>
+    <td>North America</td>
+    <td>us-ashburn-1</td>
+    <td>US East, Virginia: Ashburn</td>
+  </tr>
+  <tr>
+    <td>North America</td>
+    <td>us-phoenix-1</td>
+    <td>US West, Arizona: Phoenix</td>
+  </tr>
+  <tr>
+    <td>South America</td>
+    <td>sa-saopaulo-1</td>
+    <td>Brazil, Brazil East: São Paulo</td>
+  </tr>
+</tbody>
+</table>
+
+## Exoscale <LimitedBadge/>
+
+:::important
+Exoscale is supported on the Aiven Platform as a
+[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+for Aiven for PostgreSQL® only. For more information or access, contact your account team.
+:::
+
+<table>
+  <thead>
+  <tr>
+    <th>Region</th>
+    <th>Zone</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Europe</td>
+    <td>AT-VIE-1</td>
+    <td>Austria, Vienna</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>AT-VIE-2</td>
+    <td>Austria, Vienna</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>BG-SOF-1</td>
+    <td>Bulgaria, Sofia</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>CH-DK-2</td>
+    <td>Switzerland, Zurich</td>
+  </tr>
+    <tr>
+    <td>Europe</td>
+    <td>CH-GVA-2</td>
+    <td>Switzerland, Geneva</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>DE-FRA-1</td>
+    <td>Germany, Frankfurt</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>DE-MUC-1</td>
+    <td>Germany, Munich</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>HR-ZAG-1</td>
+    <td>Croatia, Zagreb</td>
+  </tr>
+  </tbody>
+</table>
