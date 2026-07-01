@@ -238,7 +238,6 @@ situations where replication needs to stop, and the service must function on its
 :::note
 Promoting a follower service to standalone stops replication and deletes the
 replication integration.
-A standalone service cannot be reverted to a follower service.
 :::
 
 <Tabs groupId="promote-cluster-method">
