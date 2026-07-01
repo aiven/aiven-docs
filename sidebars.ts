@@ -1450,13 +1450,15 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/grafana/howto/pitr-process-for-grafana',
-                'products/grafana/howto/send-emails',
+                'products/grafana/howto/power-cycle-service',
+                'products/grafana/howto/rename-service',
+                'products/grafana/howto/tag-service',
+                'products/grafana/howto/fork-service',
                 'products/grafana/reference/advanced-params',
+                'products/grafana/howto/send-emails',
                 'products/grafana/reference/plugins',
               ],
             },
-            'products/grafana/howto/list-manage-cluster',
             {
               type: 'category',
               label: 'Manage dashboards',
@@ -1487,6 +1489,14 @@ const sidebars: SidebarsConfig = {
             'products/metrics/concepts/retention-rules',
             'products/metrics/concepts/storage-resource-scaling',
             'products/metrics/howto/storage-usage',
+            {
+              type: 'category',
+              label: 'Service management',
+              items: [
+                'products/metrics/howto/power-cycle-service',
+                'products/metrics/howto/tag-service',
+              ],
+            },
           ],
         },
         {
@@ -1545,19 +1555,38 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/mysql/howto/manage-mysql-version',
-                {
-                  type: 'category',
-                  label: 'Performance and tuning',
-                  items: [
-                    'products/mysql/concepts/mysql-memory-usage',
-                    'products/mysql/concepts/mysql-tuning-and-concurrency',
-                    'products/mysql/reference/advanced-params',
-                  ],
-                },
+                'products/mysql/howto/power-cycle-service',
+                'products/mysql/howto/rename-service',
+                'products/mysql/howto/tag-service',
+                'products/mysql/howto/fork-service',
+                'products/mysql/howto/manage-service-users',
+                'products/mysql/reference/advanced-params',
               ],
             },
-            'products/mysql/howto/list-manage-cluster',
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/scaling-performance',
+              },
+              items: [
+                'products/mysql/concepts/mysql-memory-usage',
+                'products/mysql/concepts/mysql-tuning-and-concurrency',
+                'products/mysql/howto/identify-disk-usage-issues',
+                'products/mysql/howto/prevent-disk-full',
+                'products/mysql/howto/reclaim-disk-space',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/maintenance-lifecycle',
+              },
+              items: ['products/mysql/howto/manage-mysql-version'],
+            },
             {
               type: 'category',
               label: 'High availability and  disaster recovery',
@@ -1569,17 +1598,12 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Storage, backups, and migration',
+              label: 'Backups and migration',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/backups-migration',
+              },
               items: [
-                {
-                  type: 'category',
-                  label: 'Disk space management',
-                  items: [
-                    'products/mysql/howto/identify-disk-usage-issues',
-                    'products/mysql/howto/prevent-disk-full',
-                    'products/mysql/howto/reclaim-disk-space',
-                  ],
-                },
                 {
                   type: 'category',
                   label: 'Backup and restore',
@@ -1691,14 +1715,26 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/opensearch/howto/os-version-upgrade',
+                'products/opensearch/howto/power-cycle-service',
+                'products/opensearch/howto/rename-service',
+                'products/opensearch/howto/tag-service',
+                'products/opensearch/howto/fork-service',
+                'products/opensearch/reference/advanced-params',
                 'products/opensearch/concepts/dedicated-node-roles',
                 'products/opensearch/concepts/high-availability-for-opensearch',
-                'products/opensearch/reference/advanced-params',
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
                 'products/opensearch/reference/opensearch-limitations',
               ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/maintenance-lifecycle',
+              },
+              items: ['products/opensearch/howto/os-version-upgrade'],
             },
             {
               type: 'category',
@@ -1878,17 +1914,52 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
+                'products/postgresql/howto/power-cycle-service',
+                'products/postgresql/howto/rename-service',
+                'products/postgresql/howto/tag-service',
+                'products/postgresql/howto/fork-service',
+                'products/postgresql/howto/manage-service-users',
+                'products/postgresql/reference/advanced-params',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Database management',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/database-management',
+              },
+              items: [
                 'products/postgresql/howto/create-database',
-                'products/postgresql/howto/upgrade',
                 'products/postgresql/howto/enable-jit',
                 'products/postgresql/howto/use-pg-repack-extension',
                 'products/postgresql/howto/repair-pg-index',
                 'products/postgresql/howto/check-avoid-transaction-id-wraparound',
-                'products/postgresql/concepts/pg-shared-buffers',
-                'products/postgresql/reference/advanced-params',
               ],
             },
-            'products/postgresql/howto/list-manage-cluster',
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/scaling-performance',
+              },
+              items: [
+                'products/postgresql/concepts/pg-shared-buffers',
+                'products/postgresql/concepts/pg-disk-usage',
+                'products/postgresql/howto/pg-object-size',
+                'products/postgresql/howto/prevent-full-disk',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/maintenance-lifecycle',
+              },
+              items: ['products/postgresql/howto/upgrade'],
+            },
             {
               type: 'category',
               label: 'High availability and disaster recovery',
@@ -1938,13 +2009,15 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Storage, backups, and migration',
+              label: 'Backups and migration',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/backups-migration',
+              },
               items: [
                 'products/postgresql/concepts/pg-backups',
                 'products/postgresql/howto/create-manual-backups',
                 'products/postgresql/howto/restore-backup',
-                'products/postgresql/concepts/pg-disk-usage',
-                'products/postgresql/howto/prevent-full-disk',
                 {
                   type: 'category',
                   label: 'Migrate',
@@ -1973,7 +2046,6 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/monitor-with-pgwatch2',
 
                 'products/postgresql/reference/log-formats-supported',
-                'products/postgresql/howto/pg-object-size',
                 {
                   type: 'category',
                   label: 'pgaudit logging',
@@ -2091,22 +2163,35 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                {
-                  type: 'category',
-                  label: 'Maintenance and upgrades',
-                  items: ['products/valkey/howto/valkey-version-upgrade'],
-                },
-                {
-                  type: 'category',
-                  label: 'Performance and tuning',
-                  items: [
-                    'products/valkey/concepts/memory-usage',
-                    'products/valkey/troubleshooting/warning-overcommit_memory',
-                  ],
-                },
+                'products/valkey/howto/power-cycle-service',
+                'products/valkey/howto/rename-service',
+                'products/valkey/howto/tag-service',
+                'products/valkey/howto/fork-service',
+                'products/valkey/howto/manage-service-users',
                 'products/valkey/reference/advanced-params',
                 'products/valkey/reference/restricted-commands',
               ],
+            },
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/scaling-performance',
+              },
+              items: [
+                'products/valkey/concepts/memory-usage',
+                'products/valkey/troubleshooting/warning-overcommit_memory',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/maintenance-lifecycle',
+              },
+              items: ['products/valkey/howto/valkey-version-upgrade'],
             },
             {
               type: 'category',
@@ -2120,8 +2205,13 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Migrate',
+              label: 'Backups and migration',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/backups-migration',
+              },
               items: [
+                'products/valkey/howto/configure-backups',
                 'products/valkey/howto/migrate-redis-aiven-cli',
                 'products/valkey/howto/migrate-redis-aiven-via-console',
                 'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',

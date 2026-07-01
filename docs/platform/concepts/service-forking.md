@@ -26,7 +26,6 @@ You can fork the following Aiven services:
 
 -   ClickHouse®
 -   Grafana®
--   Metrics
 -   MySQL
 -   OpenSearch®
 -   PostgreSQL®
