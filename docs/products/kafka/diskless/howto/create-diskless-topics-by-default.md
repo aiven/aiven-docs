@@ -100,8 +100,8 @@ Before you add regular expressions, review these requirements:
 - Supported characters are alphanumeric characters and
   `^ $ - _ . * + ? \ [ ] | { } ( )`.
 - Unsupported characters, such as `#` or whitespace, are rejected.
-- Regex features that require unsupported characters, such as lookaheads, are not
-  supported.
+- Regex features that require unsupported characters, such as look-ahead assertions, are
+  not supported.
 
 Test each regular expression before you apply it. Use specific regular expressions where
 possible. Avoid broad regular expressions such as `.*` unless most new non-internal,
