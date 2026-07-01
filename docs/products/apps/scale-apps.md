@@ -8,8 +8,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Adjust the plan of your applications at any time to scale them and optimize costs.
 
-When you change an application plan, the app is redeployed. Service plans
-for the connected services do not change. You can
+When you change an application plan, the currently running commit is redeployed.
+Service plans for the connected services do not change. You can
 [change the service plans](/docs/platform/howto/scale-services)
 for each service separately.
 
