@@ -1947,6 +1947,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/concepts/pg-shared-buffers',
                 'products/postgresql/concepts/pg-disk-usage',
+                'products/postgresql/howto/pg-object-size',
                 'products/postgresql/howto/prevent-full-disk',
               ],
             },
@@ -2045,7 +2046,6 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/monitor-with-pgwatch2',
 
                 'products/postgresql/reference/log-formats-supported',
-                'products/postgresql/howto/pg-object-size',
                 {
                   type: 'category',
                   label: 'pgaudit logging',
