@@ -8,7 +8,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Switch an existing [classic topic](/docs/products/kafka/diskless/concepts/topics-vs-classic) in Aiven for Apache Kafka® to a diskless topic.
+Switch an existing
+[classic topic](/docs/products/kafka/diskless/concepts/topics-vs-classic)
+in Aiven for Apache Kafka® to a diskless topic.
 You do not need to copy data or rename the topic. The topic remains available during the
 switch.
 
@@ -44,13 +46,15 @@ and is not enabled by default. To request access, contact your account team or
 
 Before switching a topic, review the following:
 
-- The switch is one-way. You cannot switch a diskless topic back to a classic
-  topic.
+- The switch is one-way. You can't switch a diskless topic back to a classic
+  topic. This might change in a future release.
 - Diskless topic limitations apply after the switch. Review
   [Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations)
   to confirm that diskless topics support your workload.
-- The switch runs in the background. Internal partition-level switch state is not
-  exposed in the Aiven CLI, Aiven API, or topic configuration.
+- The switch runs in the background. A successful update request doesn't mean
+  that every partition has finished switching. You can't view per-partition
+  switch status or progress in the Aiven CLI, Aiven API, topic configuration,
+  or customer-facing metrics integrations.
 
 ## Switch a topic to a diskless topic
 
@@ -142,9 +146,9 @@ Replace the following values:
 - `TOPIC_NAME`: Name of the topic.
 
 In the output, verify that `diskless_enable` and `remote_storage_enable` are
-both set to `true`. This confirms that the diskless switch request was accepted.
-The partition-level switch can continue in the background and is not exposed in
-the topic configuration.
+both set to `true`. This confirms that Aiven accepted the diskless switch
+request. Per-partition switch status or progress isn't exposed in the topic
+configuration.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -168,9 +172,9 @@ Replace the following values:
 - `TOKEN`: Your Aiven API token.
 
 In the response, verify that `diskless_enable` and `remote_storage_enable` are
-both set to `true`. This confirms that the diskless switch request was accepted.
-The partition-level switch can continue in the background and is not exposed in
-the topic configuration.
+both set to `true`. This confirms that Aiven accepted the diskless switch
+request. Per-partition switch status or progress isn't exposed in the topic
+configuration.
 
 </TabItem>
 </Tabs>
