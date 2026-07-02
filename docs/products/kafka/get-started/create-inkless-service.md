@@ -19,7 +19,7 @@ Create an Inkless Apache Kafka® service on Aiven Cloud or using Bring Your Own 
 ## Create an Inkless service on Aiven Cloud
 
 Inkless services are available on the Professional tier. On Aiven Cloud, configure the
-service by selecting ingress capacity and retention. Inkless runs on Amazon Web
+service by selecting stream load and retention. Inkless runs on Amazon Web
 Services (AWS), Google Cloud, and Microsoft Azure.
 
 <Tabs groupId="inkless-aiven-cloud">
@@ -33,16 +33,19 @@ Services (AWS), Google Cloud, and Microsoft Azure.
 1. In **Cluster type**, select **Inkless**.
 1. In **Deployment mode**, select **Aiven cloud**.
 1. Under **Cloud**, select **AWS**, **Google**, or **Azure**, then choose a region.
-1. Select the **Ingress capacity** for the service.
-1. Optional: Enable **Diskless topics**. You can enable diskless topics later in
-   <ConsoleLabel name="service settings" /> > **Advanced configuration**.
+1. In **Stream load**, select the expected traffic for the service.
+   For custom stream load, set the maximum ingress and egress.
+1. Optional: Enable **Diskless topics** if the option is shown. You can enable
+   diskless topics later in <ConsoleLabel name="service settings" /> >
+   **Advanced configuration**.
 1. Select a **Retention** period.
 1. In **Service basics**, enter:
    - **Name:** Enter a name for the service. You cannot change the service name after
      creation.
    - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
      organize your services.
-1. Review the **Service summary**, and click **Create service**.
+1. Review the cost estimate in the **Service summary** panel, then click
+   **Create service**.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -122,10 +125,34 @@ You can also enable diskless topics later in the service configuration.
 </TabItem>
 </Tabs>
 
+## Review the cost estimate
+
+Before you create an Inkless Kafka service, review the estimated monthly cost in the
+**Service summary** panel.
+
+The estimate is based on your selected plan, cloud and region, expected traffic, and
+retention.
+
+For Inkless Kafka services with network pricing, the estimate includes compute, storage,
+and network usage. Network usage is estimated from expected data produced to and
+consumed from Kafka topics.
+
+For more information, see
+[Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
+
+:::note
+The estimated monthly cost is based on your selected configuration and 730 hours of
+usage per month. Your final cost depends on actual usage during the billing period.
+:::
+
+After you create a service with usage-based pricing, view usage in
+**Overview** > **Service utilization**.
+
 ## Create an Inkless service on Bring Your Own Cloud (BYOC)
 
 You can run Inkless Kafka clusters in your own cloud account using
-Bring Your Own Cloud (BYOC). Inkless on BYOC supports classic and diskless topics.
+Bring Your Own Cloud (BYOC). Inkless on BYOC supports classic topics and diskless
+topics.
 
 Before creating services on BYOC, configure a BYOC environment.
 For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
@@ -154,8 +181,8 @@ For instructions, see [Create a custom cloud (BYOC)](/docs/platform/howto/byoc/c
 
 Create an Inkless Kafka service in a BYOC environment:
 
-1. List available Kafka plans for your BYOC cloud and region. Plans that support Inkless
-   end with `-inkless`.
+1. List available Kafka plans for your BYOC cloud and region, and select a plan that
+   supports Inkless services.
 
    ```bash
    avn service plans --service-type kafka --cloud CUSTOM_CLOUD_REGION

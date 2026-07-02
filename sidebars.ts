@@ -623,6 +623,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/diskless/concepts/limitations',
                   ],
                 },
+                'products/kafka/concepts/network-pricing',
                 {
                   type: 'category',
                   label: 'Tiered storage',
