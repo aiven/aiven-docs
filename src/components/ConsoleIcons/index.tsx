@@ -321,6 +321,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.gitCommit} /> <b>Connectors</b>
         </>
       );
+    case 'datahubconnectors':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow02} />{' '}
+          <b>Connectors</b>
+        </>
+      );
     case 'schemas':
       return (
         <>
