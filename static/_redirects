@@ -103,7 +103,7 @@
 /platform/howto/saml/setup-saml-okta                   /docs/platform/howto/saml/add-okta-idp  301
 /platform/howto/saml/setup-saml-onelogin               /docs/platform/howto/saml/add-onelogin-idp  301
 /platform/howto/service-metrics                        /docs/platform/howto/list-monitoring  301
-/platform/howto/static-ip-addresses                    /docs/platform/concepts/static-ips  301
+/platform/howto/static-ip-addresses.html                    /docs/platform/concepts/static-ips  301
 /platform/howto/trial-credits                          /docs/platform/howto/credits  301
 /platform/howto/update-tax-status                      /docs/platform/concepts/tax-information  301
 /platform/ip-addresses                                 /docs/platform/reference/service-ip-address  301
@@ -158,7 +158,7 @@
 /products/clickhouse/concepts/features-overview        /docs/products/clickhouse  301
 /products/clickhouse/howto                             /docs/products/clickhouse/howto/list-connect-to-service  301
 /products/clickhouse/howto/list-get-started              /docs/products/clickhouse/get-started  301
-/products/clickhouse/howto/list-integrations             /docs/products/clickhouse/concepts/data-integration-overview  301
+/products/clickhouse/howto/list-integrations.html             /docs/products/clickhouse/concepts/data-integration-overview  301
 /products/clickhouse/howto/list-manage-service           /docs/products/clickhouse/howto/manage-users-roles  301
 /products/clickhouse/howto/list-tiered-storage           /docs/products/clickhouse/concepts/clickhouse-tiered-storage  301
 /products/clickhouse/howto/list-tiered-storage/          /docs/products/clickhouse/concepts/clickhouse-tiered-storage  301
@@ -209,7 +209,7 @@
 /products/kafka/getting-started.html                       /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301
 /products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect  301
-/products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry  301
+/products/kafka/howto/enable-karapace.html                      /docs/products/kafka/howto/enable-schema-registry  301
 /products/kafka/howto/fake-sample-data                     /docs/products/kafka/howto/generate-sample-data-manually  301
 /products/kafka/howto/list-admin                           /docs/products/kafka/howto/enable-karapace  301
 /products/kafka/howto/list-integration                     /docs/products/kafka/howto/integrate-service-logs-into-kafka-topic  301
@@ -231,7 +231,7 @@
 /products/kafka/kafka-connect/howto/list-source-connectors /docs/products/kafka/kafka-connect/howto/enable-connect  301
 /products/kafka/kafka-connect/howto/gcs-sink-prereq        /docs/products/kafka/kafka-connect/howto/gcs-sink#configure-google-cloud-for-the-connector    301
 /products/kafka/kafka-connect/howto/snowflake-sink-prereq           /docs/products/kafka/kafka-connect/howto/snowflake-sink  301
-/products/kafka/kafka-connect/howto/s3-sink-prereq          /docs/products/kafka/kafka-connect/howto/s3-sink-prepare  301
+/products/kafka/kafka-connect/howto/s3-sink-prereq.html          /docs/products/kafka/kafka-connect/howto/s3-sink-prepare  301
 /products/kafka/kafka-connect/reference/s3-sink-formats     /docs/products/kafka/kafka-connect/howto/s3-sink  301
 /products/kafka/kafka-connect/reference/s3-sink-additional-parameters    /docs/products/kafka/kafka-connect/howto/s3-sink-additional-parameters  301
 /products/kafka/kafka-connect/reference/s3-sink-additional-parameters-confluent    /docs/products/kafka/kafka-connect/howto/s3-sink-additional-parameters-confluent  301
@@ -264,7 +264,7 @@
 /products/opensearch/concepts/service-overview             /docs/products/opensearch  301
 /products/opensearch/concepts/users-access-controls        /docs/products/opensearch/howto/control_access_to_content  301
 /products/opensearch/dashboards/howto                      /docs/products/opensearch/dashboards/howto/dev-tools-usage-example  301
-/products/opensearch/howto                                 /docs/products/opensearch/howto/control_access_to_content  301
+/products/opensearch/howto.html                            /docs/products/opensearch/howto/control_access_to_content  301
 /products/opensearch/howto/list-access-control             /docs/products/opensearch/howto/control_access_to_content  301
 /products/opensearch/howto/list-data-management            /docs/products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven  301
 /products/opensearch/howto/list-integrations      /docs/products/opensearch  301
@@ -316,13 +316,14 @@
 /tools/cli/ticket                                          /docs/platform/howto/support  301
 /tools/cli/user/user-access-token                          /docs/tools/cli/user  301
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform  301
-/tools/terraform/get-started                               /docs/tools/terraform  301
+/tools/terraform/get-started.html                               /docs/tools/terraform  301
 /tools/terraform/howto/migrate-from-teams-to-groups        /docs/tools/terraform  301
 /tools/terraform/howto/terraform-logging                   /docs/tools/terraform  301
 /tools/terraform/howto/upgrade-to-opensearch               /docs/products/opensearch/get-started  301
 /tools/terraform/index.html                                /docs/tools/terraform  301
-/tools/terraform/reference/cookbook                        /docs/tools/terraform/get-started  301
-/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform/get-started  301
+/tools/terraform/reference/cookbook                        /docs/tools/terraform  301
+/tools/terraform/reference/cookbook.html                   /docs/tools/terraform  301
+/tools/terraform/reference/cookbook/kafka-connect-terraform-recipe    /docs/tools/terraform  301
 /tools/terraform/reference/troubleshooting                            /docs/tools/terraform  301
 /tools/terraform/reference/troubleshooting/private-access-error       /docs/tools/terraform  301
 /tutorials/anomaly-detection                                          /docs  301
