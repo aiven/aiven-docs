@@ -76,6 +76,7 @@ regular expression also fails.
   expressions continue to be evaluated.
 - The regular expressions have no effect when `kafka_diskless.enabled` is `false`.
 - Topic type is set when the topic is created and cannot be changed later.
+- Replication factor should not be set, or use `1` or `-1`. This is due to the currently allowed values of RF when creating diskless topics.
 
 ## Prerequisites
 
