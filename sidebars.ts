@@ -751,6 +751,7 @@ const sidebars: SidebarsConfig = {
                   label: 'Topic and schema management',
                   items: [
                     'products/kafka/howto/create-topic',
+                    'products/kafka/diskless/howto/create-diskless-topics-automatically',
                     'products/kafka/howto/create-topics-automatically',
                     'products/kafka/howto/get-topic-partition-details',
                     'products/kafka/howto/schema-registry',
