@@ -4,6 +4,8 @@ sidebar_label: Connect a custom domain
 limited: true
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 Connect a custom domain to an Aiven App using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated app hostname.
 
 This approach adds an extra network hop and a Worker subrequest
@@ -36,8 +38,8 @@ and you cannot rely on the Worker as a security boundary.
 
 ## Connect a custom domain managed by Cloudflare
 
-1. To get the Aiven App URL, in the Aiven Console, click **Applications** and
-   open your app.
+1. To get the Aiven App URL, in the Aiven Console, click <ConsoleLabel name="applications"/>
+   and open your app.
 1. In the **Connection information** section, copy the **Application URL**.
 1. In Cloudflare, open your domain and click **DNS Records**.
 1. Click **Add Record**.
