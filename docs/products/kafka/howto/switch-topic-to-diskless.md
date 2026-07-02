@@ -34,6 +34,8 @@ and is not enabled by default. To request access, contact your account team or
 - [Diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
   are enabled for the service.
 - The service runs Apache Kafka® 4.1 or later.
+- [Tiered storage](/docs/products/kafka/howto/configure-topic-tiered-storage)
+  is enabled for the topic before you switch it to diskless.
 - Unclean leader election is turned off for the topic. If unclean leader election
   is enabled, the switch does not start.
 - You have access to one of the following:
