@@ -76,7 +76,8 @@ regular expression also fails.
   expressions continue to be evaluated.
 - The regular expressions have no effect when `kafka_diskless.enabled` is `false`.
 - Topic type is set when the topic is created and cannot be changed later.
-- Replication factor should not be set, or use `1` or `-1`. This is due to the currently allowed values of RF when creating diskless topics.
+- Do not set a replication factor. If you must set it when creating diskless topics,
+  use `1` or `-1`.
 
 ## Prerequisites
 
@@ -101,8 +102,7 @@ Before you add regular expressions, review these requirements:
 - Supported characters are alphanumeric characters and
   `^ $ - _ . * + ? \ [ ] | { } ( )`.
 - Unsupported characters, such as `#` or whitespace, are rejected.
-- Regex features that require unsupported characters, such as look-ahead assertions, are
-  not supported.
+- Regex features such as look-ahead assertions are not supported.
 
 Test each regular expression before you apply it. Use specific regular expressions where
 possible. Avoid broad regular expressions such as `.*` unless most new non-internal,
