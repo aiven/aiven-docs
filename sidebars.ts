@@ -752,6 +752,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/create-topic',
                     'products/kafka/howto/create-topics-automatically',
                     'products/kafka/howto/get-topic-partition-details',
+                    'products/kafka/howto/switch-topic-to-diskless',
                     'products/kafka/howto/schema-registry',
                     {
                       type: 'category',
