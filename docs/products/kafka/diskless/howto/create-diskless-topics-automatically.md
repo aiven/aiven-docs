@@ -81,13 +81,18 @@ regular expression also fails.
 
 ## Prerequisites
 
-To set default diskless topic regular expressions, you need:
+To configure default diskless topic regular expressions, you need:
 
 - An Aiven for Apache Kafka® service with diskless topics enabled.
 - A project role or permission that lets you update service configuration. For details,
   see [Project roles and permissions](/docs/platform/concepts/permissions#project-roles-and-permissions).
 
-## Set default diskless topic regular expressions
+::::note
+For existing services, automatic diskless topic creation by regular expression is available
+after scheduled maintenance updates complete.
+::::
+
+## Configure default diskless topic regular expressions
 
 Set `auto_diskless_topic_regexes` in the `kafka_diskless` section of the Kafka service
 configuration. Add each topic-name regular expression as a separate value.
