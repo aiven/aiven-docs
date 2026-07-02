@@ -200,7 +200,7 @@ or visible to Aiven, so they cannot be included in the prices or waived.
 
 ## Free trials
 
-Aiven offers a free trial for 30 days with credits you can use to explore
+Aiven offers a free trial for 30 days with free credits you can use to explore
 the Aiven Platform. You don't need a credit card to sign up. You can use trial credits
 for any paid services and paid features like virtual private cloud peering. The trial
 starts when you create your Aiven user account.
