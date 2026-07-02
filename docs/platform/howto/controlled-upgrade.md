@@ -71,9 +71,25 @@ When a maintenance update upgrades your source service:
   after the configured delay. The default delay is 7 days.
 1. After validation, the destination service becomes eligible for the same
    maintenance update.
+1. The destination service receives the update during its next
+   [maintenance window](/docs/platform/concepts/maintenance-window).
 
 If one source service has multiple destination services, one validation for the
 source service applies to all connected destination services.
+
+### Validation and maintenance windows
+
+Validation and the maintenance window control different things:
+
+- **Validation** controls _what_ version the destination service upgrades to.
+- The [maintenance window](/docs/platform/concepts/maintenance-window) controls _when_
+  the upgrade happens.
+
+After you validate an update, or automatic validation applies, the destination service
+receives the validated version during its next scheduled maintenance window. Validation
+does not trigger an immediate upgrade outside the maintenance window. Upgrade pipelines
+add a constraint on what is installed during a maintenance update; they do not change
+when maintenance runs.
 
 Nodes in the destination service maintain the validated version until a newer version is
 validated, either when you validate it manually or when automatic validation applies after
@@ -98,14 +114,20 @@ the protection that upgrade pipelines provide.
 
 - **Same service type**: You can only link services of the same type. For example,
   two Aiven for PostgreSQL services.
-- **Chain length**: The maximum chain depth is 3 services, which is 2 steps.
+- **Chain length**: The default maximum chain depth is 3 services, which is 2 steps.
+  If you need a longer chain, [contact Aiven](https://aiven.io/contact).
 - **No cycles**: You cannot create circular dependencies between services.
 - **Emergency overrides**: Aiven can apply critical security or stability fixes
   to a destination service before explicit validation.
 - **Supported services**: This feature supports all Aiven service types except
   Aiven for Apache Flink® and Aiven for MySQL.
+- **Automatic maintenance updates only**: Pipelines apply to automatic maintenance
+  updates, such as minor service version updates and node image updates. Major version
+  upgrades, for example Aiven for PostgreSQL® 15 to 16, require manual action and are
+  not promoted automatically through the pipeline.
 - **No permanent blocking**: You cannot prevent an update indefinitely. Automatic
   validation applies after the configured delay, up to the maximum delay.
+- **No validation rollback**: You cannot undo a validation after it is recorded.
 
 ## Use controlled upgrade pipelines
 
@@ -658,9 +680,9 @@ When a maintenance update arrives:
 
 1. The development service receives the update.
 1. After testing, validate the development version or wait 3 days for auto-validation.
-1. The staging service receives the update.
+1. The staging service receives the update during its next maintenance window.
 1. After testing, validate the staging version or wait 7 days for auto-validation.
-1. The production service receives the update.
+1. The production service receives the update during its next maintenance window.
 
 <RelatedPages/>
 
