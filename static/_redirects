@@ -82,6 +82,7 @@
 /platform/howto/manage-vpc-peering                     /docs/platform/howto/manage-project-vpc  301
 /platform/howto/metrics-integrations                   /docs/platform/howto/list-monitoring  301
 /platform/howto/migrate-services                       /docs/products/postgresql/howto/list-replication-migration  301
+/platform/howto/migrate-services-vpc                   /docs/platform/howto/vpc-service-management  301
 /platform/howto/monitoring-services                    /docs/platform/howto/list-monitoring  301
 /platform/howto/move-to-aws-marketplace-billing        /docs/platform/howto/list-marketplace-payments  301
 /platform/howto/move-to-azure-marketplace-billing      /docs/platform/howto/list-marketplace-payments  301

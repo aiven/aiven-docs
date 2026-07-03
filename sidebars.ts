@@ -179,6 +179,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/concepts/cloud-security',
             'platform/reference/list_of_clouds',
+            'platform/howto/migrate-services-cloud-region',
             'platform/concepts/availability-zones',
             'platform/concepts/enhanced-compliance-env',
             {
@@ -2274,14 +2275,6 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/btar/disable-backup-to-another-region',
               ],
             },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Migrations',
-          items: [
-            'platform/howto/migrate-services-cloud-region',
-            'platform/howto/migrate-services-vpc',
           ],
         },
         {
