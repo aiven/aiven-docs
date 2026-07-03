@@ -5,9 +5,6 @@ limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import ControlledUpgradesConcepts from "@site/static/includes/controlled-upgrades-concepts.md";
 import ControlledUpgradesInstructions from "@site/static/includes/controlled-upgrades-instructions.md";
 

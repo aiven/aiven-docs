@@ -1,5 +1,3 @@
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
-
 Control when your Aiven managed services receive maintenance updates and test maintenance
 updates in development or staging environments before they reach production.
 
