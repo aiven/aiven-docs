@@ -10,6 +10,15 @@ You must have the `organization:billing:write`
 [permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to create and manage billing addresses.
 
+:::note
+If you pay for your services using a marketplace subscription,
+you manage your billing address in your marketplace account.
+The billing address you add in the Aiven Console is not used for billing
+and they are not synced with the marketplace subscription.
+The address you add in the Aiven Console only keeps your Aiven organization account
+details up to date.
+:::
+
 ## Create an address
 
 1.  In the organization, click **Billing**.
