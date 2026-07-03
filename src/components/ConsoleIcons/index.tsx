@@ -207,6 +207,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Event log</b>
         </>
       );
+    case 'applications':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Applications</b>
+        </>
+      );
     case 'projectpermissions':
       return (
         <>
