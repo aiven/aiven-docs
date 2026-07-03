@@ -31,6 +31,7 @@ are available:
 -   [k-NN](https://github.com/opensearch-project/k-NN)
 -   [Kuromoji (Japanese Analysis)](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-kuromoji)
 -   [Learning to Rank](https://github.com/opensearch-project/opensearch-learning-to-rank-base)
+    (OpenSearch 2.19.5 and later)
 -   [Mapper Size](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/mapper-size)
 -   [Neural Search](https://github.com/opensearch-project/neural-search)
 -   [Notebooks](https://github.com/opensearch-project/dashboards-notebooks)
