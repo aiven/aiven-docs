@@ -33,7 +33,7 @@ the DataHub resources beyond what is documented.
 
 While the service is being created, its status is **Building**.
 When the status is **Running**, you can start using the service.
-This typically takes couple of minutes and can vary between cloud providers and regions.
+This typically takes a few minutes, and can vary between cloud providers and regions.
 
 ## Log in to DataHub
 

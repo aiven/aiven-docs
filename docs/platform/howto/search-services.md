@@ -65,7 +65,7 @@ To filter the services by service type, use these filter values:
 ### Filter by status
 
 You can filter the services to show only those that are running, powered
-off, rebuilding, or rebalancing.
+off, building, rebuilding, or rebalancing.
 
 Supported `status` values:
 
