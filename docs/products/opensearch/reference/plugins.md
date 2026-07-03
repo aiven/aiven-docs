@@ -47,6 +47,7 @@ are available:
 -   [OpenSearch SQL](https://github.com/opensearch-project/sql)
 -   [Phonetic analysis](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-phonetic)
 -   [Scheduler for Dashboards Reports](https://github.com/opensearch-project/dashboards-reporting)
+-   [User Behavior Insights](https://github.com/opensearch-project/user-behavior-insights)
 
 :::note
 The **Notebooks** and **OpenSearch notification** plugins are part of
