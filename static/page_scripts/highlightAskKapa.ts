@@ -125,7 +125,19 @@ function init(): void {
 
   document.addEventListener('selectionchange', () => {
     window.clearTimeout(hideTimer);
-    if (!getSelectedText()) hideButton(btn);
+    hideTimer = window.setTimeout(() => {
+      if (selectionInsideEditable()) {
+        hideButton(btn);
+        return;
+      }
+      const text = getSelectedText();
+      if (!text) {
+        hideButton(btn);
+        return;
+      }
+      positionButton(btn);
+      btn.hidden = false;
+    }, 10);
   });
 }
 
