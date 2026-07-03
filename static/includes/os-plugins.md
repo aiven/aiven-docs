@@ -4,36 +4,38 @@
 
 | Plugin name | Supported version |
 |-------------|-------------------|
-| analysis-icu | 3.3 |
-| analysis-kuromoji | 3.3 |
-| analysis-phonetic | 3.3 |
-| ingest-attachment | 3.3 |
-| mapper-size | 3.3 |
-| opensearch-alerting | 3.3 |
-| opensearch-anomaly-detection | 3.3 |
-| opensearch-asynchronous-search | 3.3 |
-| opensearch-cross-cluster-replication | 3.3 |
-| opensearch-custom-codecs | 3.3 |
-| opensearch-flow-framework | 3.3 |
-| opensearch-geospatial | 3.3 |
-| opensearch-index-management | 3.3 |
-| opensearch-job-scheduler | 3.3 |
-| opensearch-knn | 3.3 |
-| opensearch-ml | 3.3 |
-| opensearch-neural-search | 3.3 |
-| opensearch-notifications | 3.3 |
-| opensearch-notifications-core | 3.3 |
-| opensearch-observability | 3.3 |
-| opensearch-reports-scheduler | 3.3 |
-| opensearch-security | 3.3 |
-| opensearch-security-analytics | 3.3 |
-| opensearch-skills | 3.3 |
-| opensearch-sql | 3.3 |
-| opensearch-system-templates | 3.3 |
-| query-insights | 3.3 |
-| repository-azure | 3.3 |
-| repository-gcs | 3.3 |
-| repository-s3 | 3.3 |
+| analysis-icu | 3.3, 3.6 |
+| analysis-kuromoji | 3.3, 3.6 |
+| analysis-phonetic | 3.3, 3.6 |
+| ingest-attachment | 3.3, 3.6 |
+| mapper-size | 3.3, 3.6 |
+| opensearch-alerting | 3.3, 3.6 |
+| opensearch-anomaly-detection | 3.3, 3.6 |
+| opensearch-asynchronous-search | 3.3, 3.6 |
+| opensearch-cross-cluster-replication | 3.3, 3.6 |
+| opensearch-custom-codecs | 3.3, 3.6 |
+| opensearch-flow-framework | 3.3, 3.6 |
+| opensearch-geospatial | 3.3, 3.6 |
+| opensearch-index-management | 3.3, 3.6 |
+| opensearch-job-scheduler | 3.3, 3.6 |
+| opensearch-knn | 3.3, 3.6 |
+| opensearch-ml | 3.3, 3.6 |
+| opensearch-ltr | 3.3, 3.6 |
+| opensearch-neural-search | 3.3, 3.6 |
+| opensearch-notifications | 3.3, 3.6 |
+| opensearch-notifications-core | 3.3, 3.6 |
+| opensearch-observability | 3.3, 3.6 |
+| opensearch-reports-scheduler | 3.3, 3.6 |
+| opensearch-security | 3.3, 3.6 |
+| opensearch-security-analytics | 3.3, 3.6 |
+| opensearch-skills | 3.3, 3.6 |
+| opensearch-sql | 3.3, 3.6 |
+| opensearch-system-templates | 3.3, 3.6 |
+| query-insights | 3.3, 3.6 |
+| opensearch-ubi | 3.6 |
+| repository-azure | 3.3, 3.6 |
+| repository-gcs | 3.3, 3.6 |
+| repository-s3 | 3.3, 3.6 |
 
 ## OpenSearch 2 plugins
 
@@ -54,6 +56,7 @@
 | opensearch-index-management | 2.17, 2.19 |
 | opensearch-job-scheduler | 2.17, 2.19 |
 | opensearch-knn | 2.17, 2.19 |
+| opensearch-ltr | 2.19 |
 | opensearch-ml | 2.17, 2.19 |
 | opensearch-neural-search | 2.17, 2.19 |
 | opensearch-notifications | 2.17, 2.19 |
