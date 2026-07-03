@@ -73,7 +73,7 @@
     --aiven-button-secondary-border-hover
   );
   /* Compact ghost pill — white surface, muted label, grey border (Figma Text/XS + Neutrals/300) */
-  --aiven-button-pill-fg: #444547;
+  --aiven-button-pill-fg: var(--aiven-grey-600);
   --aiven-button-pill-bg: var(--aiven-brand-white);
   --aiven-button-pill-border: var(--aiven-grey-300);
   --aiven-button-pill-bg-hover: var(--aiven-grey-0);
