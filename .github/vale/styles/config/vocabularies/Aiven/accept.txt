@@ -261,6 +261,7 @@ nosqlbench
 npm
 NVMe
 OAuth
+OCI
 OCIDs?
 Okta
 Omni

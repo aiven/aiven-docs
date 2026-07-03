@@ -1,7 +1,7 @@
 ---
 title: Bring your own cloud (BYOC)
 sidebar_label: Bring your own cloud
-keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, private deployment, public deployment, byoc, bring your own cloud, custom cloud, backup]
+keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, OCI, Oracle Cloud Infrastructure, Azure, Microsoft Azure, private deployment, public deployment, byoc, bring your own cloud, custom cloud, backup]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -78,7 +78,11 @@ needs or project requirements, such as:
 The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. You're eligible for BYOC if:
 
--   You use Amazon Web Services (AWS) or Google Cloud.
+-   Your cloud providers are:
+    - AWS or GCP: [BYOC self-service](/docs/platform/howto/byoc/enable-byoc)
+    - OCI or Azure: BYOC on request
+      ([limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)).
+      [Contact Aiven](https://aiven.io/contact) for access.
 -   You have a commitment deal with Aiven.
 -   You have the [Advanced or Premium support tier](/docs/platform/howto/support).
 
