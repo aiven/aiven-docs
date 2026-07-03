@@ -71,6 +71,3 @@ Use the `tag` attribute in
 </TabItem>
 </Tabs>
 
-<RelatedPages/>
-
-- [Create a service](/docs/platform/howto/create_new_service)

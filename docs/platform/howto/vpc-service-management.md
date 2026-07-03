@@ -62,7 +62,7 @@ Create a service in a project VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
 
-When you [create a service](/docs/platform/howto/create_new_service) in the Aiven Console,
+When you create a service in the Aiven Console,
 select your project VPC as the cloud region.
 
 </TabItem>
@@ -149,7 +149,7 @@ Create a service in an organization VPC using a tool of your choice:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-When you [create a service](/docs/platform/howto/create_new_service) in the Aiven Console,
+When you create a service in the Aiven Console,
 select your organization VPC as the cloud region.
 
 </TabItem>
