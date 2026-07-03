@@ -3,7 +3,7 @@ Use dynamic disk sizing (DDS) to scale your service's disk storage.
 This operation does not disrupt your running service. You pay only for the
 additional storage instead of upgrading the compute resources.
 
-When you add storage to your service, the Aiven platform provisions the
+When you add storage to your service, the Aiven Platform provisions the
 extra disk space and dynamically adds it to your running instances.
 
 In a clustered service such as Apache Kafka, the
