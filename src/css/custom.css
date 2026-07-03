@@ -76,6 +76,24 @@
   --nav-btn-secondary-text-color-hover: var(
     --aiven-button-secondary-border-hover
   );
+  /* Compact ghost pill — white surface, muted label, grey border (Figma Text/XS + Neutrals/300) */
+  --aiven-button-pill-fg: var(--aiven-grey-600);
+  --aiven-button-pill-bg: var(--aiven-brand-white);
+  --aiven-button-pill-border: var(--aiven-grey-300);
+  --aiven-button-pill-bg-hover: var(--aiven-grey-0);
+  --aiven-button-pill-border-hover: var(--aiven-grey-20);
+  --aiven-button-pill-padding-y: 4px;
+  --aiven-button-pill-padding-x: 10px;
+  --aiven-button-pill-radius: 99px;
+  --aiven-button-pill-font-size: 12px;
+  --aiven-button-pill-font-weight: 400;
+  --aiven-button-pill-line-height: 1.5;
+  /* Compact ghost pill — dark surface (Figma docs-ask-ai 1:31) */
+  --aiven-button-pill-dark-fg: var(--aiven-brand-white);
+  --aiven-button-pill-dark-bg: var(--aiven-grey-95);
+  --aiven-button-pill-dark-border: var(--aiven-grey-600);
+  --aiven-button-pill-dark-bg-hover: var(--aiven-grey-90);
+  --aiven-button-pill-dark-border-hover: var(--aiven-grey-60);
   /* Active tab label + underline */
   --ifm-tabs-color-active: var(--ifm-link-color);
   --ifm-tabs-color-active-border: var(--ifm-link-color);
@@ -498,6 +516,51 @@ body .react-tooltip {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   pointer-events: none;
   z-index: 10000;
+}
+
+/* Floating "Ask AI" on text selection — pill tokens: light 1:18, dark 1:31 (docs-ask-ai) */
+.kapa-highlight-ask-button {
+  position: absolute;
+  z-index: 10000;
+  transform: translate(-50%, calc(-100% - 8px));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--aiven-button-pill-padding-y) var(--aiven-button-pill-padding-x);
+  border-radius: var(--aiven-button-pill-radius);
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--aiven-button-pill-font-size);
+  font-weight: var(--aiven-button-pill-font-weight);
+  line-height: var(--aiven-button-pill-line-height);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid var(--aiven-button-pill-border);
+  background-color: var(--aiven-button-pill-bg);
+  color: var(--aiven-button-pill-fg);
+}
+
+.kapa-highlight-ask-button[hidden] {
+  display: none !important;
+}
+
+.kapa-highlight-ask-button:hover,
+.kapa-highlight-ask-button:focus {
+  background-color: var(--aiven-button-pill-bg-hover);
+  border-color: var(--aiven-button-pill-border-hover);
+  color: var(--aiven-button-pill-fg);
+}
+
+html[data-theme='dark'] .kapa-highlight-ask-button {
+  color: var(--aiven-button-pill-dark-fg);
+  background-color: var(--aiven-button-pill-dark-bg);
+  border-color: var(--aiven-button-pill-dark-border);
+}
+
+html[data-theme='dark'] .kapa-highlight-ask-button:hover,
+html[data-theme='dark'] .kapa-highlight-ask-button:focus {
+  background-color: var(--aiven-button-pill-dark-bg-hover);
+  border-color: var(--aiven-button-pill-dark-border-hover);
+  color: var(--aiven-button-pill-dark-fg);
 }
 
 /* Diff syntax highlighting */
