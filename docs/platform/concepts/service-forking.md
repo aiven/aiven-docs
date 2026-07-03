@@ -26,7 +26,6 @@ You can fork the following Aiven services:
 
 -   ClickHouse®
 -   Grafana®
--   Metrics
 -   MySQL
 -   OpenSearch®
 -   PostgreSQL®
@@ -210,6 +209,3 @@ are available in the
 During the forking process, the fork might initially have only one node while backups
 are being taken. The other nodes appear after the backup process is complete.
 
-<RelatedPages/>
-
-- [Create a service](/docs/platform/howto/create_new_service)

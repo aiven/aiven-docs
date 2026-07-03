@@ -459,8 +459,10 @@ In the **Create custom cloud** wizard:
         - **PCI DSS**: Builds on the private model for payment workloads that require
           cardholder data environment (CDE) isolation.
 
-        The **HIPAA** and **PCI DSS** models require object storage in your AWS account and
-        restrict outbound traffic and public access. See
+        The **HIPAA** and **PCI DSS** models must be enabled for your organization before
+        you can select them. Contact your account team to request access. They require
+        object storage in your AWS account and restrict outbound traffic and public access.
+        See
         [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
     -   CIDR for BYOC resources
@@ -709,8 +711,10 @@ Your new custom cloud is ready to use only after its status changes to
      - `hipaa` or `pci_dss` (compliance) models: Build on the `standard` model to run
        services under HIPAA or PCI DSS requirements. Use `hipaa` for healthcare workloads
        that handle protected health information (PHI), or `pci_dss` for payment workloads
-       that require cardholder data environment (CDE) isolation. These models require object
-       storage in your AWS account and restrict outbound traffic and public access. See
+       that require cardholder data environment (CDE) isolation. These models must be
+       enabled for your organization before you can use them. Contact your account team to
+       request access. They require object storage in your AWS account and restrict
+       outbound traffic and public access. See
        [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
    - `CLOUD_REGION_NAME` with the name of an AWS cloud region where to create your custom
      cloud:

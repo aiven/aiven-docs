@@ -44,6 +44,12 @@ billing contact emails, invoice emails, or other billing details:
 1.  Find the billing group to update and click **Edit**.
 1.  Update the billing group and click **Save changes**.
 
+:::note
+You cannot change a billing group's payment method to or from a marketplace
+subscription in the Aiven Console. To use a marketplace subscription as a payment method,
+[send the subscription details to Aiven support](/docs/platform/howto/list-marketplace-payments).
+:::
+
 ## Assign a billing group to a project {#assign-a-billing-group-to-a-project}
 
 You can assign any billing group in your organization to a project. To assign

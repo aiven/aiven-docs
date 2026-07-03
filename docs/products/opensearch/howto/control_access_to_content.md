@@ -3,9 +3,14 @@ title: Manage users and access control in Aiven for OpenSearch®
 sidebar_label: Manage users and access
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import UsersConcepts from "@site/static/includes/service-users-concepts.md";
+import UsersLimitation from "@site/static/includes/service-users-limitation.md";
 
 Manage users and permissions in Aiven for OpenSearch by creating Access Control Lists (ACLs) in the Aiven Console.
 
+<UsersConcepts/>
 
 Use the **Users** tab in the [Aiven Console](https://console.aiven.io) to manage access
 control and permissions for your Aiven for OpenSearch service. You can create users,
@@ -20,6 +25,10 @@ ACLs apply only to indices and do not control access to other OpenSearch APIs,
 including OpenSearch Dashboards.
 :::
 
+## Limitations
+
+<UsersLimitation/>
+
 ## Create a user without access control
 
 To create a service user without access control in Aiven for OpenSearch:
@@ -33,6 +42,51 @@ By default, newly created users are granted **full access rights**.
 To limit their access, you can enable access control
 and specify an Access Control List (ACL) that defines the relevant permissions
 and patterns.
+
+### Create a service user with the CLI, API, or Terraform
+
+<Tabs groupId="add-user">
+<TabItem value="cli" label="Aiven CLI" default>
+
+Run the
+[avn service user-create](/docs/tools/cli/service/user#avn-service-user-create) command:
+
+```bash
+avn service user-create SERVICE_NAME --username USERNAME
+```
+
+Replace the following:
+
+- `SERVICE_NAME`: the name of your Aiven for OpenSearch service.
+- `USERNAME`: the name of the service user to create.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Use the
+[ServiceUserCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUserCreate)
+endpoint:
+
+```bash
+curl --request POST                                                          \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user \
+  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                         \
+  --header 'content-type: application/json'                                  \
+  --data '{"username": "USERNAME"}'
+```
+
+Replace the placeholders with your project name, service name, bearer token, and the
+username to create.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the
+[`aiven_opensearch_user` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch_user)
+to create and manage service users.
+
+</TabItem>
+</Tabs>
 
 ## Enable access control
 

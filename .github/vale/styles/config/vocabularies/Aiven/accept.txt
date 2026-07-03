@@ -273,6 +273,7 @@ Opensearch_acl_rule
 Opensearch_user
 operator
 ORMs
+overallocates
 overcommit
 overcommitted
 Pagerduty

@@ -8,6 +8,13 @@
 #
 
 /caching                                         /docs/products/valkey  301
+/products/grafana/howto/pitr-process-for-grafana /docs/products/grafana/howto/fork-service  301
+/products/postgresql/howto/list-manage-cluster   /docs/products/postgresql  301
+/products/mysql/howto/list-manage-cluster        /docs/products/mysql  301
+/products/grafana/howto/list-manage-cluster      /docs/products/grafana  301
+/products/postgresql/howto/configure-backups     /docs/products/postgresql/concepts/pg-backups  301
+/products/mysql/howto/configure-backups          /docs/products/mysql/concepts/mysql-backups  301
+/products/opensearch/howto/manage-service-users  /docs/products/opensearch/howto/control_access_to_content  301
 /category/administrative-tasks                   /docs/get-started  301
 /category/concepts                               /docs/get-started  301
 /category/concepts-1                             /docs/get-started  301
@@ -75,6 +82,7 @@
 /platform/howto/manage-vpc-peering                     /docs/platform/howto/manage-project-vpc  301
 /platform/howto/metrics-integrations                   /docs/platform/howto/list-monitoring  301
 /platform/howto/migrate-services                       /docs/products/postgresql/howto/list-replication-migration  301
+/platform/howto/migrate-services-vpc                   /docs/platform/howto/vpc-service-management  301
 /platform/howto/monitoring-services                    /docs/platform/howto/list-monitoring  301
 /platform/howto/move-to-aws-marketplace-billing        /docs/platform/howto/list-marketplace-payments  301
 /platform/howto/move-to-azure-marketplace-billing      /docs/platform/howto/list-marketplace-payments  301

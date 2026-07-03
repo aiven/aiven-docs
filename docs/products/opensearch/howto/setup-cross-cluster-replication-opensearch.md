@@ -91,6 +91,59 @@ Parameters:
 - `LEADER_SERVICE_NAME`: Leader service name
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the
+[`aiven_opensearch`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch)
+and
+[`aiven_service_integration`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
+resources to create the follower service and configure replication.
+
+1. Add the following to your Terraform configuration:
+
+   ```hcl
+   # Leader service
+   resource "aiven_opensearch" "leader" {
+     project      = var.project_name
+     cloud_name   = "google-us-east1"
+     plan         = "business-4"
+     service_name = "leader-os-cluster"
+   }
+
+   # Follower service
+   resource "aiven_opensearch" "follower" {
+     project      = var.project_name
+     cloud_name   = "aws-us-east-1"
+     plan         = "business-4"
+     service_name = "follower-os-cluster"
+   }
+
+   # Cross-cluster replication integration
+   resource "aiven_service_integration" "ccr" {
+     project                  = var.project_name
+     integration_type         = "opensearch_cross_cluster_replication"
+     source_service_name      = aiven_opensearch.leader.service_name
+     destination_service_name = aiven_opensearch.follower.service_name
+
+     depends_on = [
+       aiven_opensearch.leader,
+       aiven_opensearch.follower,
+     ]
+   }
+   ```
+
+   :::note
+   The follower service must use the same service plan as the leader during creation
+   to ensure sufficient memory. You can change the plan later.
+   :::
+
+1. Apply the configuration:
+
+   ```bash
+   terraform apply
+   ```
+
+</TabItem>
 </Tabs>
 
 :::note
@@ -238,7 +291,6 @@ situations where replication needs to stop, and the service must function on its
 :::note
 Promoting a follower service to standalone stops replication and deletes the
 replication integration.
-A standalone service cannot be reverted to a follower service.
 :::
 
 <Tabs groupId="promote-cluster-method">
@@ -272,6 +324,24 @@ Parameters:
 - `<PROJECT_NAME>`: Aiven project name.
 - `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
 - `<API_TOKEN>`: API authentication token.
+
+Removing the integration transitions the follower service to a standalone service.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+To promote a follower service to standalone, remove the `aiven_service_integration`
+resource for the `opensearch_cross_cluster_replication` integration from your
+Terraform configuration and apply the change.
+
+1. Delete the `aiven_service_integration` block for `opensearch_cross_cluster_replication`
+   from your configuration.
+
+1. Apply the change:
+
+   ```bash
+   terraform apply
+   ```
 
 Removing the integration transitions the follower service to a standalone service.
 

@@ -127,22 +127,8 @@ You can supplement this with a remote read-only replica service, which
 you can run in a different cloud region or with another cloud provider
 and promote to master if needed.
 
-#### Edit the backup schedule
-
-<Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
-
-<EditBackUpSchedule/>
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-Use the `backup_hour` and `backup_minute` attributes in
-[your `aiven_pg` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg#nested-schema-for-pg_user_config)
-to set the start time for backups.
-
-</TabItem>
-</Tabs>
+To set the time of day when backups are taken, see
+[Configure the backup schedule](/docs/products/postgresql/concepts/pg-backups#configure-the-backup-schedule).
 
 For more information, refer to:
 
@@ -164,22 +150,8 @@ For manual backups and migrations, you can use:
   medium-sized databases
 - [`mydumper`](https://github.com/mydumper/mydumper) <EarlyBadge/> for large databases
 
-#### Edit the backup schedule
-
-<Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
-
-<EditBackUpSchedule/>
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-Use the `backup_hour` and `backup_minute` attributes in
-[your `aiven_mysql` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql#nested-schema-for-mysql_user_config)
-to set the start time for backups.
-
-</TabItem>
-</Tabs>
+To set the time of day when backups are taken, see
+[Configure the backup schedule](/docs/products/mysql/concepts/mysql-backups#configure-the-backup-schedule).
 
 For more information, refer to [MySQL Backups](/docs/products/mysql/concepts/mysql-backups).
 
@@ -389,26 +361,8 @@ The Append Only File (AOF) persistence method is not supported for the managed
 Aiven for Valkey service.
 :::
 
-#### Edit the backup schedule
-
-<Tabs groupId="group1">
-<TabItem value="console" label="Console" default>
-
-<EditBackUpSchedule/>
-
-</TabItem>
-<TabItem value="terraform" label="Terraform">
-
-Use the `backup_hour` and `backup_minute` attributes in
-[your `aiven_valkey` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey#nested-schema-for-valkey_user_config)
-to set the start time for backups.
-
-</TabItem>
-</Tabs>
-
-:::note
-When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hours.
-:::
+To set the time of day when backups are taken, see
+[Configure the backup time](/docs/products/valkey/howto/configure-backups#configure-the-backup-time).
 
 ## BYOC service backups
 

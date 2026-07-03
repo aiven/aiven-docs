@@ -49,7 +49,7 @@ storage in your AWS custom cloud.
 ### Prerequisites
 
 - At least one AWS [custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)
-- At least one [Aiven-managed service](/docs/platform/howto/create_new_service), either
+- At least one Aiven-managed service, either
   Aiven for Apache Kafka® or Aiven for ClickHouse®, hosted in a custom cloud
 
   :::note

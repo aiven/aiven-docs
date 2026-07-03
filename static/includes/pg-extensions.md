@@ -6,7 +6,7 @@
 |----------------|-----------------|--------------------|
 | address_standardizer | 3.6.4 | 3.6.4 |
 | address_standardizer_data_us | 3.6.4 | 3.6.4 |
-| aiven_extras | 1.1.19 | 1.1.19 |
+| aiven_extras | 1.1.20 | 1.1.20 |
 | anon | 2.5.1 | 2.5.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
@@ -66,7 +66,7 @@
 |----------------|-----------------|--------------------|
 | address_standardizer | 3.6.4 | 3.3.5, 3.5.0, 3.6.4 |
 | address_standardizer_data_us | 3.6.4 | 3.3.5, 3.5.0, 3.6.4 |
-| aiven_extras | 1.1.19 | 1.1.19 |
+| aiven_extras | 1.1.20 | 1.1.20 |
 | anon | 2.5.1 | 2.5.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
@@ -131,7 +131,7 @@
 |----------------|-----------------|--------------------|
 | address_standardizer | 3.5.0 | 3.3.5, 3.5.0 |
 | address_standardizer_data_us | 3.5.0 | 3.3.5, 3.5.0 |
-| aiven_extras | 1.1.19 | 1.1.19 |
+| aiven_extras | 1.1.20 | 1.1.20 |
 | anon | 2.5.1 | 2.5.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
@@ -196,7 +196,7 @@
 |----------------|-----------------|--------------------|
 | address_standardizer | 3.3.5 | 3.2.6, 3.3.5 |
 | address_standardizer_data_us | 3.3.5 | 3.2.6, 3.3.5 |
-| aiven_extras | 1.1.19 | 1.1.19 |
+| aiven_extras | 1.1.20 | 1.1.20 |
 | anon | 2.5.1 | 2.5.1 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
@@ -261,7 +261,7 @@
 |----------------|-----------------|--------------------|
 | address_standardizer | 3.3.5 | 3.1.7, 3.2.6, 3.3.5 |
 | address_standardizer_data_us | 3.3.5 | 3.1.7, 3.2.6, 3.3.5 |
-| aiven_extras | 1.1.19 | 1.1.19 |
+| aiven_extras | 1.1.20 | 1.1.20 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
 | btree_gin | 1.3 | 1.0, 1.1, 1.2, 1.3 |
@@ -325,7 +325,7 @@
 |----------------|-----------------|--------------------|
 | address_standardizer | 3.3.5 | 2.5.8, 3.0.7, 3.1.7, 3.2.6, 3.3.5 |
 | address_standardizer_data_us | 3.3.5 | 2.5.8, 3.0.7, 3.1.7, 3.2.6, 3.3.5 |
-| aiven_extras | 1.1.19 | 1.1.19 |
+| aiven_extras | 1.1.20 | 1.1.20 |
 | bloom | 1.0 | 1.0 |
 | bool_plperl | 1.0 | 1.0 |
 | btree_gin | 1.3 | 1.0, 1.1, 1.2, 1.3 |

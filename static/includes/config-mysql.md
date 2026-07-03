@@ -145,7 +145,7 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         <div className="param"><p className="name"><Link id="binlog_retention_period"/><Link to="#binlog_retention_period"><strong>binlog_retention_period</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>600</code></li><li>max: <code>9007199254740991</code></li></ul></div>
-        <p className="title">The minimum amount of time in seconds to keep binlog entries before deletion. This may be extended for services that require binlog entries for longer than the default for example if using the MySQL Debezium Kafka connector.</p>
+        <p className="title">The minimum amount of time in seconds to keep binlog entries before deletion. This may be extended for services that require binlog entries for longer than the default for example if using the MySQL Debezium Kafka connector.</p><div className="description"><p>Warning: reducing this value can make a large batch of binary logs eligible for purge at once. Depending on the volume, this can sometimes stall the MySQL commit path and block writes until the purge completes. To stay on the safe side, prefer lowering the value gradually in small decrements during a low-traffic window rather than dropping it drastically in one step.</p></div>
       </td>
     </tr>
     <tr>
