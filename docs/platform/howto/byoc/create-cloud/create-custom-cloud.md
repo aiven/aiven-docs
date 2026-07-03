@@ -15,8 +15,8 @@ To create custom clouds in Aiven using self-service, select your cloud provider 
 :::note
 BYOC for Oracle Cloud Infrastructure (OCI) and Microsoft Azure is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-and not available as self-service. To use BYOC with OCI or Azure, contact the
-[Aiven sales team](https://aiven.io/contact).
+and not available as self-service. To use BYOC with OCI or Azure, contact
+[Aiven](https://aiven.io/contact).
 :::
 
 <GridContainer columns={2}>
