@@ -415,6 +415,7 @@ const sidebars: SidebarsConfig = {
             'products/apps/ports',
             'products/apps/secrets-and-variables',
             'products/apps/deployment-information',
+            'products/apps/scale-apps',
             'products/apps/custom-domain-for-apps',
           ],
         },
