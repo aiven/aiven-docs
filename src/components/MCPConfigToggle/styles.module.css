@@ -114,3 +114,15 @@
   line-height: 1.4;
   color: var(--ifm-color-content-secondary, var(--ifm-color-content));
 }
+
+.writeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.writeGroupLabel {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--ifm-color-content-secondary, var(--ifm-color-content));
+}

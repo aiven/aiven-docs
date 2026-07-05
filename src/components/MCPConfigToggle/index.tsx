@@ -14,6 +14,63 @@ const SCOPE_LABELS: Record<ScopeChoice, string> = {
 
 const ALL_CHOICES: ScopeChoice[] = ['all', ...SCOPE_OPTIONS];
 
+type WriteToolGroup = {
+  label: string;
+  tools: { name: string; label: string }[];
+};
+
+// Write/destructive tools that `read_only=true` would otherwise block. Grouped to match
+// the docs' per-service sections so customers can carve out exceptions (e.g. allow topic
+// creation while keeping everything else read-only).
+export const WRITE_TOOL_GROUPS: WriteToolGroup[] = [
+  {
+    label: 'Core',
+    tools: [
+      { name: 'aiven_service_create', label: 'Create service' },
+      { name: 'aiven_service_update', label: 'Update service' },
+    ],
+  },
+  {
+    label: 'PostgreSQL',
+    tools: [
+      { name: 'aiven_pg_write', label: 'Run write SQL (DML/DDL)' },
+      { name: 'aiven_pg_bouncer_create', label: 'Create connection pool' },
+      { name: 'aiven_pg_bouncer_update', label: 'Update connection pool' },
+      { name: 'aiven_pg_bouncer_delete', label: 'Delete connection pool' },
+    ],
+  },
+  {
+    label: 'Kafka',
+    tools: [
+      { name: 'aiven_kafka_topic_create', label: 'Create topic' },
+      { name: 'aiven_kafka_topic_update', label: 'Update topic' },
+      { name: 'aiven_kafka_topic_delete', label: 'Delete topic' },
+      { name: 'aiven_kafka_topic_message_produce', label: 'Produce messages' },
+      { name: 'aiven_kafka_connect_create_connector', label: 'Create connector' },
+      { name: 'aiven_kafka_connect_edit_connector', label: 'Edit connector' },
+      { name: 'aiven_kafka_connect_pause_connector', label: 'Pause connector' },
+      { name: 'aiven_kafka_connect_resume_connector', label: 'Resume connector' },
+      { name: 'aiven_kafka_connect_restart_connector', label: 'Restart connector' },
+      { name: 'aiven_kafka_connect_delete_connector', label: 'Delete connector' },
+    ],
+  },
+  {
+    label: 'Integrations',
+    tools: [
+      { name: 'aiven_service_integration_create', label: 'Create integration' },
+      { name: 'aiven_service_integration_update', label: 'Update integration' },
+      { name: 'aiven_service_integration_delete', label: 'Delete integration' },
+    ],
+  },
+  {
+    label: 'Application',
+    tools: [
+      { name: 'aiven_application_deploy', label: 'Deploy application' },
+      { name: 'aiven_application_redeploy', label: 'Redeploy application' },
+    ],
+  },
+];
+
 export const MARKETPLACE_OPTIONS = ['aws', 'azure', 'gcp'] as const;
 export type Marketplace = typeof MARKETPLACE_OPTIONS[number];
 
@@ -29,6 +86,7 @@ export type MCPConfigState = {
   scopes: Scope[];
   marketplace: '' | Marketplace;
   allowSecrets: boolean;
+  writeAllowlist: string[];
 };
 
 type MCPConfigToggleProps = {
@@ -40,12 +98,18 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
   const [scopes, setScopes] = useState<Scope[]>([]);
   const [marketplace, setMarketplace] = useState<'' | Marketplace>('');
   const [allowSecrets, setAllowSecrets] = useState(false);
+  const [writeAllowlist, setWriteAllowlist] = useState<string[]>([]);
 
   const emit = (next: MCPConfigState) => onChange?.(next);
 
   const handleReadOnly = (checked: boolean) => {
     setReadOnly(checked);
-    emit({ readOnly: checked, scopes, marketplace, allowSecrets });
+    if (!checked) {
+      setWriteAllowlist([]);
+      emit({ readOnly: checked, scopes, marketplace, allowSecrets, writeAllowlist: [] });
+      return;
+    }
+    emit({ readOnly: checked, scopes, marketplace, allowSecrets, writeAllowlist });
   };
 
   const handleScope = (choice: ScopeChoice, checked: boolean) => {
@@ -58,21 +122,43 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
       next = scopes.filter((s) => s !== choice);
     }
     setScopes(next);
-    emit({ readOnly, scopes: next, marketplace, allowSecrets });
+    emit({ readOnly, scopes: next, marketplace, allowSecrets, writeAllowlist });
   };
 
   const handleMarketplace = (value: '' | Marketplace) => {
     setMarketplace(value);
-    emit({ readOnly, scopes, marketplace: value, allowSecrets });
+    emit({ readOnly, scopes, marketplace: value, allowSecrets, writeAllowlist });
   };
 
   const handleAllowSecrets = (checked: boolean) => {
     setAllowSecrets(checked);
-    emit({ readOnly, scopes, marketplace, allowSecrets: checked });
+    emit({ readOnly, scopes, marketplace, allowSecrets: checked, writeAllowlist });
+  };
+
+  const handleWriteAllowlist = (toolName: string, checked: boolean) => {
+    const next = checked
+      ? [...writeAllowlist, toolName]
+      : writeAllowlist.filter((t) => t !== toolName);
+    setWriteAllowlist(next);
+    emit({ readOnly, scopes, marketplace, allowSecrets, writeAllowlist: next });
   };
 
   const isChecked = (choice: ScopeChoice): boolean =>
     choice === 'all' ? scopes.length === 0 : scopes.includes(choice);
+
+  // Core/Application tools aren't gated by services_scope, so their write exceptions
+  // always show. Other groups only show when their scope is selected (or no scope filter).
+  const GROUP_SCOPE: Record<string, Scope | null> = {
+    Core: null,
+    PostgreSQL: 'pg',
+    Kafka: 'kafka',
+    Integrations: 'integrations',
+    Application: null,
+  };
+  const visibleWriteGroups = WRITE_TOOL_GROUPS.filter((group) => {
+    const groupScope = GROUP_SCOPE[group.label];
+    return groupScope === null || scopes.length === 0 || scopes.includes(groupScope);
+  });
 
   return (
     <div className={styles.container}>
@@ -98,6 +184,39 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
       <details className={styles.disclosure}>
         <summary className={styles.summary}>Advanced settings</summary>
         <div className={styles.disclosureBody}>
+          {readOnly && (
+            <details className={styles.disclosure}>
+              <summary className={styles.summary}>
+                Allow specific write tools in read-only mode
+                {writeAllowlist.length > 0 ? ` (${writeAllowlist.length} selected)` : ''}
+              </summary>
+              <div className={styles.disclosureBody}>
+                <p className={styles.hint}>
+                  Everything stays read-only except the tools you check below — for example,
+                  allow topic creation while blocking every other write.
+                </p>
+                {visibleWriteGroups.map((group) => (
+                  <div key={group.label} className={styles.writeGroup}>
+                    <span className={styles.writeGroupLabel}>{group.label}</span>
+                    <div className={styles.scopeRow}>
+                      {group.tools.map((tool) => (
+                        <label key={tool.name} className={styles.option}>
+                          <input
+                            type="checkbox"
+                            checked={writeAllowlist.includes(tool.name)}
+                            onChange={(e) => handleWriteAllowlist(tool.name, e.target.checked)}
+                            className={styles.checkbox}
+                          />
+                          <span>{tool.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </details>
+          )}
+
           <div className={styles.separator} aria-hidden="true" />
 
           <div className={styles.section}>
@@ -171,6 +290,9 @@ export function buildMcpUrl(baseUrl: string, state: MCPConfigState): string {
   const params = new URLSearchParams();
   if (state.scopes.length > 0) params.set('services_scope', state.scopes.join(','));
   if (state.readOnly) params.set('read_only', 'true');
+  if (state.readOnly && state.writeAllowlist.length > 0) {
+    params.set('write_allowlist', state.writeAllowlist.join(','));
+  }
   if (state.allowSecrets) params.set('allow_secrets', 'true');
   const qs = params.toString();
   return qs ? `${url}?${qs}` : url;
