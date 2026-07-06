@@ -553,6 +553,6 @@ When a maintenance update arrives:
 
 1. The development service receives the update.
 1. After testing, validate the development version or wait 3 days for auto-validation.
-1. The staging service receives the update.
+1. The staging service receives the update during its next maintenance window.
 1. After testing, validate the staging version or wait 7 days for auto-validation.
-1. The production service receives the update.
+1. The production service receives the update during its next maintenance window.
