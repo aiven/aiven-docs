@@ -138,7 +138,8 @@ Replace the following values:
 
 In the output, verify that `diskless_enable` and `remote_storage_enable` are
 both set to `true`. This confirms that Aiven accepted the diskless switch
-request. Per-partition switch status or progress is not exposed in the topic
+request. It does not confirm that every partition has finished switching.
+Per-partition switch status or progress is not exposed in the topic
 configuration.
 
 </TabItem>
