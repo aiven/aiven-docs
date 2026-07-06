@@ -9,6 +9,14 @@ import TabItem from '@theme/TabItem';
 import {mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
 import MCPConfigSection from "@site/src/components/MCPConfigSection";
 import CursorConfigTab from "@site/src/components/CursorConfigTab";
+import McpClientTabLabel from "@site/src/components/McpClientTabLabel";
+import ClaudeCodeIcon from "@site/static/images/icons/claude-code.svg";
+import CursorIcon from "@site/static/images/icons/cursor.svg";
+import ClaudeDesktopIcon from "@site/static/images/icons/claude-desktop.svg";
+import VSCodeIcon from "@site/static/images/icons/vscode.svg";
+import GeminiCliIcon from "@site/static/images/icons/gemini-cli.svg";
+import OtherClientIcon from "@site/static/images/icons/mcp-client-other.svg";
+import LocalInstallIcon from "@site/static/images/icons/local-install.svg";
 
 Create and manage Aiven services from AI assistants such as Cursor and Claude Code,
 including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
@@ -30,7 +38,7 @@ can sign in and authorize MCP access.
 ## Install the Aiven MCP {#configure-aiven-mcp}
 
 <Tabs>
-<TabItem value="claude-code" label="Claude Code" default>
+<TabItem value="claude-code" label={<McpClientTabLabel icon={ClaudeCodeIcon} label="Claude Code" />} default>
 
 1. Open a terminal.
 1. Choose your options below, then run the generated command:
@@ -48,7 +56,7 @@ can sign in and authorize MCP access.
 For more information, see the [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp).
 
 </TabItem>
-<TabItem value="cursor" label="Cursor">
+<TabItem value="cursor" label={<McpClientTabLabel icon={CursorIcon} label="Cursor" />}>
 
 <CursorConfigTab baseUrl={mcpUrl} />
 
@@ -58,7 +66,7 @@ as `List my Aiven projects.` and click **Allow** if prompted.
 For more information, see the [Cursor MCP documentation](https://cursor.com/docs/mcp).
 
 </TabItem>
-<TabItem value="claude-desktop" label="Claude Desktop">
+<TabItem value="claude-desktop" label={<McpClientTabLabel icon={ClaudeDesktopIcon} label="Claude Desktop" />}>
 
 1. Open the Claude Desktop configuration file. If it does not exist, create it:
 
@@ -83,7 +91,7 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
 For more information, see the [Claude Desktop MCP documentation](https://modelcontextprotocol.io/docs/develop/connect-local-servers).
 
 </TabItem>
-<TabItem value="vscode" label="VS Code">
+<TabItem value="vscode" label={<McpClientTabLabel icon={VSCodeIcon} label="VS Code" />}>
 
 :::note
 Requires VS Code 1.102 or later with the GitHub Copilot extension installed
@@ -110,7 +118,7 @@ and enabled.
 For more information, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
 
 </TabItem>
-<TabItem value="gemini-cli" label="Gemini CLI">
+<TabItem value="gemini-cli" label={<McpClientTabLabel icon={GeminiCliIcon} label="Gemini CLI" />}>
 
 1. Create or edit the `~/.gemini/settings.json` file.
 1. Add the following configuration:
@@ -127,7 +135,7 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
    approve the tool execution if prompted.
 
 </TabItem>
-<TabItem value="other" label="Other clients">
+<TabItem value="other" label={<McpClientTabLabel icon={OtherClientIcon} label="Other clients" />}>
 
 1. Open your MCP client configuration.
 1. Choose your options below, then add the generated configuration to your client:
@@ -148,7 +156,7 @@ Some clients require a transport type, such as `"type": "http"`. If the configur
 fails, see your client documentation.
 
 </TabItem>
-<TabItem value="local" label="Local installation">
+<TabItem value="local" label={<McpClientTabLabel icon={LocalInstallIcon} label="Local installation" />}>
 
 Run the Aiven MCP server locally with `npx` instead of using the hosted server.
 You need an [Aiven API token](/docs/platform/howto/create_authentication_token)
@@ -161,7 +169,7 @@ non-production services. For more information, see
 [Security and responsibility](#security-and-responsibility).
 
 <Tabs>
-<TabItem value="claude-code" label="Claude Code" default>
+<TabItem value="claude-code" label={<McpClientTabLabel icon={ClaudeCodeIcon} label="Claude Code" />} default>
 
 1. Open a terminal.
 1. Run the following command, replacing `your-token-here` with your Aiven API token:
@@ -173,7 +181,7 @@ non-production services. For more information, see
 1. Run `/mcp` in Claude Code to verify the server is registered.
 
 </TabItem>
-<TabItem value="cursor" label="Cursor">
+<TabItem value="cursor" label={<McpClientTabLabel icon={CursorIcon} label="Cursor" />}>
 
 1. In your project root, create or edit the `.cursor/mcp.json` file.
 1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
@@ -197,7 +205,7 @@ non-production services. For more information, see
 1. Save the file and restart Cursor.
 
 </TabItem>
-<TabItem value="claude-desktop" label="Claude Desktop">
+<TabItem value="claude-desktop" label={<McpClientTabLabel icon={ClaudeDesktopIcon} label="Claude Desktop" />}>
 
 1. Open the Claude Desktop configuration file.
 1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
@@ -221,7 +229,7 @@ non-production services. For more information, see
 1. Save the file and restart Claude Desktop.
 
 </TabItem>
-<TabItem value="vscode" label="VS Code">
+<TabItem value="vscode" label={<McpClientTabLabel icon={VSCodeIcon} label="VS Code" />}>
 
 1. In the `.vscode` directory, create or edit the `mcp.json` file.
 1. Add the following configuration, replacing `your-token-here` with your Aiven API token:
@@ -245,7 +253,7 @@ non-production services. For more information, see
 1. Save the file and reload VS Code.
 
 </TabItem>
-<TabItem value="other" label="Other clients">
+<TabItem value="other" label={<McpClientTabLabel icon={OtherClientIcon} label="Other clients" />}>
 
 1. Open your MCP client configuration.
 1. Add the following configuration, replacing `your-token-here` with your Aiven API token:

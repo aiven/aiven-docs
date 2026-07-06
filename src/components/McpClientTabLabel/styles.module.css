@@ -1,0 +1,11 @@
+.tabLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}

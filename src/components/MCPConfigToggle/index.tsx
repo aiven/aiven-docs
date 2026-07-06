@@ -77,7 +77,6 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
   return (
     <div className={styles.container}>
       <div className={styles.section}>
-        <span className={styles.sectionLabel}>Permissions</span>
         <label className={styles.option}>
           <input
             type="checkbox"
@@ -90,61 +89,61 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
       </div>
       {!readOnly && (
         <p className={styles.warning} role="alert">
-          ⚠ Write mode lets the assistant create, modify, and delete services and data.
+          ⚠ With read-only mode disabled, the assistant can create, modify, and delete services and data.
           {' '}
           <a href="#security-and-responsibility">Review security and responsibility</a>.
         </p>
       )}
 
-      <div className={styles.separator} aria-hidden="true" />
+      <details className={styles.disclosure}>
+        <summary className={styles.summary}>Advanced settings</summary>
+        <div className={styles.disclosureBody}>
+          <div className={styles.separator} aria-hidden="true" />
 
-      <div className={styles.section}>
-        <span className={styles.sectionLabel}>Available tools</span>
-        <div className={styles.scopeRow}>
-          {ALL_CHOICES.map((choice) => (
-            <label key={choice} className={styles.option}>
+          <div className={styles.section}>
+            <span className={styles.sectionLabel}>Available tools</span>
+            <div className={styles.scopeRow}>
+              {ALL_CHOICES.map((choice) => (
+                <label key={choice} className={styles.option}>
+                  <input
+                    type="checkbox"
+                    checked={isChecked(choice)}
+                    onChange={(e) => handleScope(choice, e.target.checked)}
+                    className={styles.checkbox}
+                  />
+                  <span>{SCOPE_LABELS[choice]}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.separator} aria-hidden="true" />
+
+          <div className={styles.section}>
+            <span className={styles.sectionLabel}>Development</span>
+            <label className={styles.option}>
               <input
                 type="checkbox"
-                checked={isChecked(choice)}
-                onChange={(e) => handleScope(choice, e.target.checked)}
+                checked={allowSecrets}
+                onChange={(e) => handleAllowSecrets(e.target.checked)}
                 className={styles.checkbox}
               />
-              <span>{SCOPE_LABELS[choice]}</span>
+              <span>Allow connection credentials (development only)</span>
             </label>
-          ))}
-        </div>
-      </div>
+          </div>
+          {allowSecrets && (
+            <p className={styles.warning} role="alert">
+              ⚠ This shares PostgreSQL and Kafka connection credentials with the AI agent,
+              including URIs, passwords, and certificates, so it can connect to your services.
+              Do not enable it in production.{' '}
+              <a href="#security-and-responsibility">Review the security implications</a>.
+            </p>
+          )}
 
-      <div className={styles.separator} aria-hidden="true" />
+          <div className={styles.separator} aria-hidden="true" />
 
-      <div className={styles.section}>
-        <span className={styles.sectionLabel}>Development</span>
-        <label className={styles.option}>
-          <input
-            type="checkbox"
-            checked={allowSecrets}
-            onChange={(e) => handleAllowSecrets(e.target.checked)}
-            className={styles.checkbox}
-          />
-          <span>Allow connection credentials (development only)</span>
-        </label>
-      </div>
-      {allowSecrets && (
-        <p className={styles.warning} role="alert">
-          ⚠ This shares PostgreSQL and Kafka connection credentials with the AI agent,
-          including URIs, passwords, and certificates, so it can connect to your services.
-          Do not enable it in production.{' '}
-          <a href="#security-and-responsibility">Review the security implications</a>.
-        </p>
-      )}
-
-      <div className={styles.separator} aria-hidden="true" />
-
-      <details className={styles.disclosure}>
-        <summary className={styles.summary}>Subscribed through a cloud marketplace?</summary>
-        <div className={styles.disclosureBody}>
-          <label className={styles.option}>
-            <span>Marketplace</span>
+          <div className={styles.section}>
+            <span className={styles.sectionLabel}>Marketplace</span>
             <select
               value={marketplace}
               onChange={(e) => handleMarketplace(e.target.value as '' | Marketplace)}
@@ -154,7 +153,7 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
                 <option key={value} value={value}>{MARKETPLACE_LABELS[value]}</option>
               ))}
             </select>
-          </label>
+          </div>
           <p className={styles.hint}>
             Select your marketplace only if you subscribed to Aiven through AWS, Azure, or Google
             Cloud Marketplace. This helps you sign in to the correct console.
