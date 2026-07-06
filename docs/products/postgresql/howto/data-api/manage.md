@@ -62,9 +62,7 @@ Data API doesn't change the data in your database.
 ### Data API is not available for the service
 
 Data API must be available for your service's plan and cloud. If it isn't, the Aiven Console
-shows **The data API is not available for your service**. Data API also requires the service
-to run inside a [VPC](/docs/platform/concepts/vpcs). For more information, see
-[Manage project VPCs](/docs/platform/howto/manage-project-vpc).
+shows **The data API is not available for your service**.
 
 ### The service is still being provisioned
 
