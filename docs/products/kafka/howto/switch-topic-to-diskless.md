@@ -10,17 +10,11 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Switch an existing
 [classic topic](/docs/products/kafka/diskless/concepts/topics-vs-classic)
-in Aiven for Apache Kafka® to a diskless topic.
-You do not need to copy data or rename the topic. The topic remains available during the
-switch.
+in Aiven for Apache Kafka® to a diskless topic without copying data or renaming
+the topic. The topic remains available during the switch.
 
-Records written before the switch remain readable from the classic topic log,
-and new records are written to the diskless topic.
-
-Switching a topic to diskless applies only to Aiven for Apache Kafka services
-that have
-[diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
-enabled.
+Records written before the switch remain readable from the classic topic log.
+Aiven writes new records to the diskless topic.
 
 :::note
 This feature is in
@@ -31,7 +25,8 @@ and is not enabled by default. To request access, contact your account team or
 
 ## Prerequisites
 
-- [Diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
+- The classic-to-diskless topic switch feature and
+  [diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
   are enabled for the service.
 - The service runs Apache Kafka® 4.1 or later.
 - [Tiered storage](/docs/products/kafka/howto/configure-topic-tiered-storage)
@@ -62,13 +57,6 @@ Before switching a topic, review the following:
 
 To switch a classic topic to a diskless topic, enable diskless for the topic using the
 Aiven CLI or Aiven API.
-
-:::note
-The topic keeps its existing tiered storage setting. Do not include
-`remote_storage_enable` in the diskless update request. If you set
-`remote_storage_enable` and `diskless_enable` in the same request, the request
-returns an error.
-:::
 
 <Tabs groupId="switch-method">
 <TabItem value="cli" label="Aiven CLI" default>
@@ -123,15 +111,15 @@ Replace the following values:
 After the update request succeeds, Aiven starts switching the topic to a
 diskless topic.
 
-## Verify the topic configuration
+## Verify the switch request
 
-Verify the topic configuration to confirm that the diskless switch request was
-accepted.
+Verify the topic configuration to confirm that Aiven accepted the diskless
+switch request.
 
 <Tabs groupId="confirm-method">
 <TabItem value="cli" label="Aiven CLI" default>
 
-This command uses `jq` to filter the output for the selected topic.
+The command uses `jq` to filter the output for the selected topic.
 
 Run the following command:
 
@@ -149,7 +137,7 @@ Replace the following values:
 
 In the output, verify that `diskless_enable` and `remote_storage_enable` are
 both set to `true`. This confirms that Aiven accepted the diskless switch
-request. Per-partition switch status or progress isn't exposed in the topic
+request. Per-partition switch status or progress is not exposed in the topic
 configuration.
 
 </TabItem>
@@ -175,7 +163,7 @@ Replace the following values:
 
 In the response, verify that `diskless_enable` and `remote_storage_enable` are
 both set to `true`. This confirms that Aiven accepted the diskless switch
-request. Per-partition switch status or progress isn't exposed in the topic
+request. Per-partition switch status or progress is not exposed in the topic
 configuration.
 
 </TabItem>
@@ -186,24 +174,38 @@ configuration.
 During the switch:
 
 - The topic remains available.
-- Producers might briefly receive retriable errors while the topic is switched.
-  Most Kafka clients retry these errors by default.
+- Producers might briefly receive errors that clients can retry.
+  Most Kafka clients retry these errors by default. If you have not changed the
+  default producer retry settings, no special tuning is usually required.
 - Consumer applications do not need changes to read records written before or
   after the switch.
 - The topic name and retention settings do not change.
-- Aiven manages the partition-level switch process. No action is required after
-  the update request succeeds.
+- Aiven manages the partition-level switch process. You do not need to take
+  action after the update request succeeds.
+
+### Producer settings
+
+If you changed any of these Kafka producer settings, verify that the values
+allow producers to retry records for at least as long as the defaults:
+
+| Producer setting | Default | Why it matters during the switch |
+| --- | --- | --- |
+| `delivery.timeout.ms` | `120000` | Allows up to 2 minutes for retrying a record. |
+| `retries` | `2147483647` | Effectively unlimited, but bounded by `delivery.timeout.ms`. |
+| `enable.idempotence` | `true` | Avoids duplicate or reordered records. |
+| `acks` | `all` | Supports `enable.idempotence` and durable failover. |
 
 ## How the switch works
 
 When you switch a topic to a diskless topic, Aiven does the following for each
 partition:
 
-1. Briefly pauses writes to the classic topic log.
-1. Waits until all records written to the classic topic log are safely
+1. Stops writing new records to the classic topic log.
+1. Waits until records written to the classic topic log are safely
    replicated.
-1. Records the offset where the diskless topic takes over.
-1. Initializes the diskless topic from that offset and routes new writes to it.
+1. Records the offset where the diskless topic starts.
+1. Initializes the diskless topic from that offset.
+1. Routes new writes to the diskless topic.
 
 Records written before the switch, including records already moved to tiered
 storage, remain readable until they expire based on the topic retention settings.
