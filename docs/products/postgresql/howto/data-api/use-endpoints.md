@@ -26,8 +26,8 @@ API URL.
 
 ## View available endpoints
 
-The Aiven Console lists the endpoints grouped by schema. Each row shows the table name, the
-endpoint path, the available methods, and the primary key. Each table provides endpoints for
+The Aiven Console lists the available endpoints. Each row shows the table name, the
+endpoint path, and the available methods. Each table provides endpoints for
 the following methods:
 
 - `GET`: Read rows.

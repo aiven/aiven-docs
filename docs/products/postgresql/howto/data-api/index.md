@@ -15,8 +15,8 @@ Data API is a <LimitedBadge/> feature.
 To request access, [contact Aiven](https://aiven.io/contact).
 :::
 
-Data API appears under the **Data** section of your service's left sidebar in the Aiven
-Console. It auto-generates an API directly from your database schema, powered by
+Data API appears in your service's left sidebar in the Aiven Console, next to
+**PG Studio**. It auto-generates an API directly from your database schema, powered by
 [PostgREST](https://postgrest.org).
 
 ## What Data API offers
@@ -39,7 +39,9 @@ Data API provides the following:
 
 When you enable Data API for a database, Aiven deploys a managed application that runs
 PostgREST alongside your service and connects it to the selected database. PostgREST reads
-the database schema and publishes a REST endpoint for each table in the `public` schema.
+the database schema and publishes a REST endpoint for each table. By default, endpoints are
+published for the `public` schema. To access tables in other schemas, include the
+`Accept-Profile` header with the schema name in your requests.
 Clients call these endpoints over HTTPS and authenticate with a bearer token.
 
 Each database that you expose runs as an independent application with its own status and
@@ -47,8 +49,6 @@ base URL. You can enable Data API for more than one database in the same service
 
 ## Limitations
 
-- The Aiven for PostgreSQL service must run inside a
-  [VPC](/docs/platform/concepts/vpcs).
 - Data API must be available for your service's plan and cloud.
 - Each Data API serves one database. To expose more databases, enable Data API for each one
   separately.
