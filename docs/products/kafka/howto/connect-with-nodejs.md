@@ -1,165 +1,115 @@
 ---
-title: Connect to Aiven for Apache Kafka® with NodeJS
-sidebar_label: Connect with NodeJS
+title: Connect to Aiven for Apache Kafka® with Node.js
+sidebar_label: Connect with Node.js
+keywords: [kafka, nodejs, node, quick connect, producer, consumer, mtls, sasl]
 ---
 
-These examples show how to connect to an Aiven for Apache Kafka® service
-using the [node-rdkafka](https://github.com/blizzard/node-rdkafka)
-library.
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
+Use **Quick connect** to set up a Node.js client for Aiven for Apache Kafka®.
+The guided flow helps you select or create a topic, choose an authentication method,
+grant permissions, and copy the generated producer and consumer code.
 
 ## Prerequisites
 
-1.  Install [node-rdkafka](https://github.com/blizzard/node-rdkafka).
-    Make sure that you have OpenSSL set up on your machine.
-2.  Go to the *Overview* page of your Aiven for Apache Kafka service and
-    choose how to authenticate.
-    -   To connect with SSL authentication, in the *Connection
-        information* section:
-        1.  If **Authentication Method** is shown, choose **Client
-            Certificate**
-        2.  Next to *Access Key*, click **Download** and save the
-            `service.key` file.
-        3.  Next to *Access Certificate*, click **Download** and save
-            the `service.cert` file.
-        4.  Next to *CA Certificate*, click **Download** and save the
-            `ca.pem` file.
-    -   To connect using SASL authentication:
-        1.  See [Use SASL Authentication with Apache
-            Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
-            to enable SASL.
-        2.  In the **Connection Information** section
-            1.  Select **SASL** as the **Authentication Method**
-            2.  Next to **CA Certificate**, click **Download** and save
-                the `ca.pem` file
-            3.  Note the *Password* required for the SASL, we'll need
-                it for authentication
+- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
+- A Node.js development environment.
+- The [`node-rdkafka`](https://www.npmjs.com/package/node-rdkafka) library.
 
-:::note
-The *CA Certificate* `ca.pem` file has the same content regardless of
-the authentication method.
-:::
+## Open Quick connect
 
-:::warning
-In the below examples, we just pass the name of the certificate files,
-but in actual use, the full path should be used.
-:::
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache
+   Kafka service.
+1. On the service <ConsoleLabel name="overview"/> page, in the **Set up your
+   stream** section, click **Quick connect**.
+1. At the top of the page, select **Node.js** from the language selector.
 
-## Variables
+## Step 1: Set up a topic
 
- | Variable         | Description                                                       |
- | ---------------- | ----------------------------------------------------------------- |
- | `HOST`           | Host name for the connection                                      |
- | `USER_NAME`      | Name of the user for the connection                               |
- | `SSL_PORT`       | Port number to use for SSL                                        |
- | `SASL_PORT`      | Port number to use for SASL                                       |
- | `SASL_PASSWORD`  | Password required to connect using SASL                           |
- | `SASL_MECHANISM` | Supported SASL mechanisms are PLAIN, SCRAM-SHA-256, SCRAM-SHA-512 |
- | `CONSUMER_GROUP` | Consumer group to read the data                                   |
+Topics organize and store the events that you stream to Apache Kafka.
 
-Replace the variables above in the code examples below.
+1. In **Topic name**, do one of the following:
+   - Select an existing topic.
+   - Click **Create new topic**, enter a name, and create the topic. The new
+     topic is selected automatically for the next steps.
 
-## Connect a producer
+   :::note
+   If your service has **Diskless topics** enabled, you can create a **Classic**
+   or **Diskless** topic, or select an existing topic of either type. You can't
+   change the topic type after creation. For more information, see
+   [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic).
+   :::
 
-Add the `producer.produce()` command with the details of the message to
-produce.
+## Step 2: Set up an authentication method
+
+1. Select an authentication method:
+   - **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for simple
+     username and password authentication.
+
+     If SASL is not enabled on your service, an option to enable SASL appears
+     under the **SASL** authentication method. Click **Enable SASL**, then
+     continue.
+   - **Client certificate**: Use certificate-based authentication with mTLS
+     instead of a password.
+
+1. Select a service user:
+   - Select an existing service user from the list.
+   - To create one, click **Create new service user**, enter a username, and
+     click **Add service user**.
+1. Check the permission status shown for the selected user:
+   - If the user has all the required permissions, the granted permissions are
+     shown (for example, `read, write`). To change them, click **Manage
+     access in ACLs**.
+   - If the user has some or no permissions, click **Grant permissions**. Select
+     **Produce**, **Consume**, or both, and click **Save**.
+
+   :::note
+   The `avnadmin` user has permissions by default.
+
+   For other service users, you can add permissions from Quick connect. To
+   change or remove permissions, click **Manage access in ACLs**. For more
+   information, see
+   [Manage Apache Kafka® ACLs](/docs/products/kafka/howto/manage-acls#delete-acl-entries).
+   :::
+
+## Step 3: Copy the code snippets
 
 :::tip
-The consumer example expects the messages to be in a topic named
-`demo-topic`,
+**Download template** is an optional shortcut for testing the connection without
+a local Node.js environment. The ZIP file includes ready-to-run producer and
+consumer code, certificates, and dependencies. To run it, follow the included
+`README.md`. If you already have a Node.js project, copy the snippet from the
+**Producer** or **Consumer** tab.
 :::
 
-### With SSL authentication
+1. Install the [`node-rdkafka`](https://www.npmjs.com/package/node-rdkafka)
+   library:
 
-```js
-const Kafka = require('node-rdkafka');
-console.log(Kafka.features); // this should print 'ssl', among other things
+   ```bash
+   npm install node-rdkafka
+   ```
 
-const producer = new Kafka.Producer({
-    'metadata.broker.list': HOST:SSL_PORT,
-    'security.protocol': 'ssl',
-    'ssl.key.location': 'service.key',
-    'ssl.certificate.location': 'service.cert',
-    'ssl.ca.location': 'ca.pem',
-    'dr_cb': true
-});
+1. Under **Downloads**, download the certificate files for your authentication
+   method:
 
-producer.connect();
+   - For **SASL**, click **Download CA certificate**.
+   - For **Client certificate**, download the **CA certificate**, **service
+     certificate**, and **service access key**.
 
-producer.on('ready', () => {
-    // produce the messages and disconnect
-});
-```
+   The generated snippet loads the certificates directly, so you don't need to
+   create a truststore.
 
-### With SASL authentication
+1. Select the **Producer** or **Consumer** tab to view the generated producer or
+   consumer code.
+1. Copy the code.
 
-If you prefer to authenticate with SASL, the setup looks slightly
-different.
+   :::note
+   For SASL, the snippet includes your service user's password. The console masks
+   it by default; click the reveal icon to view it. The copied code contains the
+   password in plaintext, so store it securely and don't commit it to source
+   control.
+   :::
 
-```js
-const Kafka = require('node-rdkafka');
-console.log(Kafka.features); // this should print 'sasl_ssl', among other things
-
-const producer = new Kafka.Producer({
-    'metadata.broker.list': HOST:SASL_PORT,
-    'security.protocol': 'sasl_ssl',
-    'sasl.mechanism': SASL_MECHANISM,
-    'sasl.username': USER_NAME,
-    'sasl.password': SASL_PASSWORD,
-    'ssl.ca.location': 'ca.pem',
-    'dr_cb': true
-});
-
-producer.connect();
-
-producer.on('ready', () => {
-  // produce the messages and disconnect
-});
-```
-
-## Connect a consumer
-
-The consumer will consume new messages sent to the topics listed. To see
-your consumer in action, run the producer as well, and try using
-`console.log` to inspect the message that is received.
-
-### With SSL authentication
-
-```js
-const Kafka = require('node-rdkafka');
-
-const stream = new Kafka.createReadStream({
-    'metadata.broker.list': HOST:SSL_PORT,
-    'group.id': CONSUMER_GROUP,
-    'security.protocol': 'ssl',
-    'ssl.key.location': 'service.key',
-    'ssl.certificate.location': 'service.cert',
-    'ssl.ca.location': 'ca.pem'
-}, {}, {'topics': ['demo-topic']});
-
-stream.on('data', (message) => {
-    // process message
-});
-```
-
-### With SASL authentication
-
-If you prefer to authenticate with SASL, the setup looks slightly
-different.
-
-```js
-const Kafka = require('node-rdkafka');
-
-const stream = new Kafka.createReadStream({
-    'metadata.broker.list': HOST:SASL_PORT,
-    'group.id': CONSUMER_GROUP,
-    'security.protocol': 'sasl_ssl',
-    'sasl.mechanism': SASL_MECHANISM,
-    'sasl.username': USER_NAME,
-    'sasl.password': SASL_PASSWORD,
-    'ssl.ca.location': 'ca.pem'
-}, {}, {'topics': ['demo-topic']});
-
-stream.on('data', (message) => {
-    // process message
-});
-```
+After you add the code to your project, update the certificate file paths to
+match where you saved the files, then run your producer or consumer to start
+streaming events.

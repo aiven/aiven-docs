@@ -1,289 +1,123 @@
 ---
 title: Connect to Aiven for Apache Kafka® with Go
 sidebar_label: Connect with Go
+keywords: [kafka, go, golang, quick connect, producer, consumer, mtls, sasl]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-These examples show how to connect to an Aiven for Apache Kafka® service using two different Kafka libraries in Go: [Sarama](https://github.com/Shopify/sarama) and [Kafka-go](https://github.com/segmentio/kafka-go).
-
-:::note
-<!-- vale off -->
-The examples in this article provide two different options for
-authentication: SSL and SASL-SSL. For more information on these
-authentication methods read
-[our article on Kafka authentication types](../concepts/auth-types).
-<!-- vale on -->
-:::
+Use **Quick connect** to set up a Go client for Aiven for Apache Kafka®.
+The guided flow helps you choose or create a topic, choose an authentication method,
+grant permissions, and copy generated producer and consumer code.
 
 ## Prerequisites
 
-1. Go to the **Overview** page of your Aiven for Apache Kafka service.
+- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
+- A Go development environment.
+- The [`kafka-go`](https://github.com/segmentio/kafka-go) library.
 
-   <Tabs groupId="group1">
-   <TabItem value="SSL" label="SSL authentication" default>
+## Open Quick connect
 
-   In the **Connection information** section:
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache
+   Kafka service.
+1. On the service <ConsoleLabel name="overview"/> page, in the **Set up your
+   stream** section, click **Quick connect**.
+1. At the top of the page, select **Go** in the language selector.
 
-   1.  If **Authentication Method** is shown, choose **Client
-       Certificate**
-   1.  Next to **Access Key**, click **Download** and save the
-       `service.key` file.
-   1.  Next to **Access Certificate**, click **Download** and save
-       the `service.cert` file.
-   1.  Next to **CA Certificate**, click **Download** and save the
-       `ca.pem` file.
+## Step 1: Set up a topic
 
-   </TabItem>
-   <TabItem value="SASL" label="SASL authentication">
+Topics organize and store the events that you stream to Apache Kafka.
 
-   In the **Connection information** section:
+1. In **Topic name**, do one of the following:
+   - Choose an existing topic.
+   - Click **Create new topic**, enter a name, and create the topic. The new
+     topic is selected automatically for the next steps.
 
-   1.  See [Use SASL Authentication with Apache
-       Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
-       to enable SASL.
-   1.  In the **Connection Information** section
-       1.  Select **SASL** as the **Authentication Method**
-       1.  Next to **CA Certificate**, click **Download** and save the
-           `ca.pem` file
-       1.  Note the **Password** required for the SASL, we'll need it
-           for authentication
+   :::note
+   If your service has **Diskless topics** enabled, you can create a **Classic**
+   or **Diskless** topic, or choose an existing topic of either type. You can't
+   change the topic type after creation. For more information, see
+   [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic).
+   :::
 
-   </TabItem>
-   </Tabs>
+## Step 2: Set up an authentication method
 
-1.  Created the keystore `client.keystore.p12` and truststore
-    `client.truststore.jks` by following
-    [our article on configuring Java SSL to access Kafka](/docs/products/kafka/howto/keystore-truststore)
+1. Choose an authentication method:
+   - **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for simple
+     username and password authentication.
 
-:::warning
-In the below examples, we just pass the name of the keystore and
-truststore files, but in actual use, the full path should be used.
+     If SASL is not enabled on your service, an option to enable SASL appears
+     under the **SASL** authentication method. Click **Enable SASL**, then
+     continue.
+   - **Client certificate**: Use certificate-based authentication with mTLS
+     instead of a password.
+
+1. Select a service user:
+   - Select an existing service user from the list.
+   - To create one, click **Create new service user**, enter a username, and
+     click **Add service user**.
+1. Check the permission status shown for the selected user:
+   - If the user has all the required permissions, the granted permissions are
+     shown (for example, `read, write`). To change them, click **Manage
+     access in ACLs**.
+   - If the user has some or no permissions, click **Grant permissions**. Select
+     **Produce**, **Consume**, or both, and click **Save**.
+
+   :::note
+   The `avnadmin` user has permissions by default.
+
+   For other service users, you can add permissions from Quick connect. To
+   change or remove permissions, click **Manage access in ACLs**. For more
+   information, see
+   [Manage Apache Kafka® ACLs](/docs/products/kafka/howto/manage-acls#delete-acl-entries).
+   :::
+
+## Step 3: Copy the code snippets
+
+:::tip
+**Download template** is an optional shortcut for testing the connection without
+a local Go environment. The ZIP file includes ready-to-run producer and consumer
+code, certificates, and dependencies. To run it, follow the included `README.md`.
+If you already have a Go project, copy the snippet from the **Producer** or
+**Consumer** tab.
 :::
 
-## Variables
+1. Under **Prerequisites**, initialize a Go module and install the required
+   libraries:
 
- | Variable        | Description                             |
- | --------------- | --------------------------------------- |
- | `HOST`          | Host name for the connection            |
- | `SSL_PORT`      | Port number to use for SSL              |
- | `SASL_PORT`     | Port number to use for SASL             |
- | `SASL_USERNAME` | Name of the user for the connection     |
- | `SASL_PASSWORD` | Password required to connect using SASL |
- | `CLIENT_ID`     | Application-specific client id          |
+   ```bash
+   go mod init <your-project-name>
+   ```
 
-## With library `sarama`
+   ```bash
+   go get github.com/segmentio/kafka-go
+   ```
 
-Install the library [Sarama](https://github.com/Shopify/sarama) and use
-code snippet according to your preferred authentication method below.
+   For **SASL**, also install the SCRAM package:
 
-### With SSL authentication
+   ```bash
+   go get github.com/segmentio/kafka-go/sasl/scram@v0.4.51
+   ```
 
-Set up properties to connect to the cluster:
+1. Under **Downloads**, download the certificate files for your authentication
+   method:
 
-```go
-package main
+   - For **SASL**, click **Download CA certificate**.
+   - For **Client certificate**, download the **CA certificate**, **service
+     certificate**, and **service access key**.
 
-import (
-    "crypto/tls"
-    "crypto/x509"
-    "io/ioutil"
-    "log"
-    "github.com/Shopify/sarama"
-)
+   The generated snippet loads the certificates directly, so you don't need to
+   create a truststore.
 
-func main() {
-    keypair, err := tls.LoadX509KeyPair("service.cert", "service.key")
-    if err != nil {
-        log.Println(err)
-        return
-    }
+1. Click the **Producer** or **Consumer** tab to view the generated producer or
+   consumer code.
+1. Copy the code.
 
-    caCert, err := ioutil.ReadFile("ca.pem")
-    if err != nil {
-        log.Println(err)
-        return
-    }
-    caCertPool := x509.NewCertPool()
-    caCertPool.AppendCertsFromPEM(caCert)
+  :::warning
+  For SASL, copied snippets include the service user password in plaintext.
+  Store the code securely, and do not commit it to source control.
+  :::
 
-    tlsConfig := &tls.Config{
-        Certificates: []tls.Certificate{keypair},
-        RootCAs: caCertPool,
-    }
-
-    // init config, enable errors and notifications
-    config := sarama.NewConfig()
-    config.Producer.Return.Successes = true
-    config.Net.TLS.Enable = true
-    config.Net.TLS.Config = tlsConfig
-    config.Version = sarama.V0_10_2_0
-
-    brokers := []string{"{HOST}:{SSL_PORT}"}
-
-    producer, err := sarama.NewSyncProducer(brokers, config)
-
-    // add your logic
-}
-```
-
-### With SASL-SSL authentication
-
-Set up properties to connect to the cluster:
-
-```go
-package main
-
-import (
-    "crypto/tls"
-    "crypto/x509"
-    "github.com/Shopify/sarama"
-    "io/ioutil"
-)
-
-func main() {
-    caCert, err := ioutil.ReadFile("ca.pem")
-    if err != nil {
-        panic(err)
-    }
-    caCertPool := x509.NewCertPool()
-    caCertPool.AppendCertsFromPEM(caCert)
-
-    tlsConfig := &tls.Config{
-        RootCAs: caCertPool,
-    }
-
-    // init config, enable errors and notifications
-    config := sarama.NewConfig()
-    config.Metadata.Full = true
-    config.ClientID = "{CLIENT_ID}"
-    config.Producer.Return.Successes = true
-
-    // Kafka SASL configuration
-    config.Net.SASL.Enable = true
-    config.Net.SASL.User = "{SASL_USERNAME}"
-    config.Net.SASL.Password = "{SASL_PASSWORD}"
-    config.Net.SASL.Handshake = true
-    config.Net.SASL.Mechanism = sarama.SASLTypePlaintext
-
-    // TLS configuration
-    config.Net.TLS.Enable = true
-    config.Net.TLS.Config = tlsConfig
-
-    brokers := []string{"{HOST}:{SASL_PORT}"}
-    producer, err := sarama.NewSyncProducer(brokers, config)
-
-    // add your logic
-}
-```
-
-## With library `kafka-go`
-
-[Install the library](https://github.com/segmentio/kafka-go) `kafka-go`
-and use code snippet according to your preferred authentication method
-below.
-
-### With SSL authentication
-
-```go
-package main
-
-import (
-    "crypto/tls"
-    "crypto/x509"
-    "github.com/segmentio/kafka-go"
-    "io/ioutil"
-    "log"
-    "time"
-)
-
-func main() {
-    keypair, err := tls.LoadX509KeyPair("service.cert", "service.key")
-    if err != nil {
-        log.Fatalf("Failed to load Access Key and/or Access Certificate: %s", err)
-    }
-
-    caCert, err := ioutil.ReadFile("ca.pem")
-    if err != nil {
-        log.Fatalf("Failed to read CA Certificate file: %s", err)
-    }
-
-    caCertPool := x509.NewCertPool()
-    ok := caCertPool.AppendCertsFromPEM(caCert)
-    if !ok {
-        log.Fatalf("Failed to parse CA Certificate file: %s", err)
-    }
-
-    dialer := &kafka.Dialer{
-        Timeout:   10 * time.Second,
-        DualStack: true,
-        TLS: &tls.Config{
-            Certificates: []tls.Certificate{keypair},
-            RootCAs:      caCertPool,
-        },
-    }
-
-    // init producer
-    producer := kafka.NewWriter(kafka.WriterConfig{
-        Brokers:  []string{"{HOST}:{SSL_PORT}"},
-        Topic:    "kafka-go-ssl",
-        Dialer:   dialer,
-    })
-
-    // add your logic
-}
-```
-
-### With SASL authentication
-
-```go
-package main
-
-import (
-    "context"
-    "crypto/tls"
-    "crypto/x509"
-    "log"
-    "io/ioutil"
-    "time"
-    "github.com/segmentio/kafka-go"
-    "github.com/segmentio/kafka-go/sasl/scram"
-)
-
-func main() {
-    caCert, err := ioutil.ReadFile("ca.pem")
-    if err != nil {
-        log.Println(err)
-        return
-    }
-    caCertPool := x509.NewCertPool()
-    ok := caCertPool.AppendCertsFromPEM(caCert)
-    if !ok {
-        log.Println(err)
-        return
-    }
-    tlsConfig := &tls.Config{
-        RootCAs:      caCertPool,
-    }
-    scram, err := scram.Mechanism(scram.SHA512, "{SASL_USERNAME}", "{SASL_PASSWORD}")
-    if err != nil {
-        log.Println(err)
-        return
-    }
-    dialer := &kafka.Dialer{
-        Timeout:       10 * time.Second,
-        DualStack:     true,
-        TLS:           tlsConfig,
-        SASLMechanism: scram,
-    }
-    w := kafka.NewWriter(kafka.WriterConfig{
-        Brokers:  []string{"{HOST}:{SASL_PORT}"},
-        Topic:    "your-topic-name",
-        Balancer: &kafka.Hash{},
-        Dialer:   dialer,
-    })
-
-    // add your logic
-}
-```
+After you add the code to your project, update the certificate file paths to
+match where you saved the files, then run your producer or consumer to start
+streaming events.
