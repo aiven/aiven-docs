@@ -25,12 +25,10 @@ and is not enabled by default. To request access, contact your account team or
 
 ## Prerequisites
 
-- The classic-to-diskless topic switch feature and
-  [diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
-  are enabled for the service.
+- The [diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
+  feature is enabled for the service. To request access, contact your account team or
+  [Aiven support](/docs/platform/howto/support#create-a-support-ticket).
 - The service runs Apache Kafka® 4.1 or later.
-- [Tiered storage](/docs/products/kafka/howto/configure-topic-tiered-storage)
-  is enabled for the topic before you switch it to diskless.
 - Unclean leader election is turned off for the topic. If unclean leader election
   is enabled, the switch does not start.
 - You have access to one of the following:
@@ -48,6 +46,9 @@ Before switching a topic, review the following:
 - Diskless topic limitations apply after the switch. Review
   [Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations)
   to confirm that diskless topics support your workload.
+- If tiered storage is not enabled for the topic, Aiven enables it automatically
+  as part of the switch. Topics that cannot have tiered storage enabled, such as
+  topics with compaction configured, are not eligible for the diskless switch.
 - The switch runs in the background. A successful update request doesn't mean
   that every partition has finished switching. You can't view per-partition
   switch status or progress in the Aiven CLI, Aiven API, topic configuration,
@@ -191,7 +192,7 @@ allow producers to retry records for at least as long as the defaults:
 | Producer setting | Default | Why it matters during the switch |
 | --- | --- | --- |
 | `delivery.timeout.ms` | `120000` | Allows up to 2 minutes for retrying a record. |
-| `retries` | `2147483647` | Effectively unlimited, but bounded by `delivery.timeout.ms`. |
+| `retries` | `2147483647` | Effectively unlimited and bounded by `delivery.timeout.ms`. |
 | `enable.idempotence` | `true` | Avoids duplicate or reordered records. |
 | `acks` | `all` | Supports `enable.idempotence` and durable failover. |
 
@@ -201,11 +202,12 @@ When you switch a topic to a diskless topic, Aiven does the following for each
 partition:
 
 1. Stops writing new records to the classic topic log.
-1. Waits until records written to the classic topic log are safely
+1. Waits until records written to the classic topic partitions are safely
    replicated.
-1. Records the offset where the diskless topic starts.
-1. Initializes the diskless topic from that offset.
-1. Routes new writes to the diskless topic.
+1. Records the offsets where the diskless topic partitions start.
+1. Initializes the diskless topic partitions from those offsets.
+1. Routes reads and writes for those partitions through the diskless storage
+   system.
 
 Records written before the switch, including records already moved to tiered
 storage, remain readable until they expire based on the topic retention settings.
