@@ -20,6 +20,15 @@ To install an extension, run:
 CREATE EXTENSION EXTENSION_NAME CASCADE;
 ```
 
+:::tip
+Ask your [Aiven MCP](/docs/tools/mcp-server)-connected AI assistant to check
+which extensions are installed and install the ones you need, for example
+when setting up a new environment or debugging a missing feature:
+
+> Check whether pg_trgm and pg_stat_statements are installed on my-pg-service,
+> and install any that are missing.
+:::
+
 ## Update an extension
 
 To upgrade an already-installed extension to the latest version, run:

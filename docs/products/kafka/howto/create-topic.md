@@ -64,6 +64,15 @@ The topic creation options shown in the Aiven Console depend on the Kafka servic
 In Classic Kafka services, you create classic topics. Inkless Kafka services let you choose
 between classic and diskless topics.
 
+:::tip
+Ask your [Aiven MCP](/docs/tools/mcp-server)-connected AI assistant to create
+topics and produce or consume messages directly, without switching to the
+console or a separate client. For example:
+
+> Create a topic named `orders` on my-kafka-service with 3 partitions, then
+> produce a test message to it and read it back.
+:::
+
 :::tip Kafka CLI and client APIs on Inkless Kafka
 
 - When you create a topic with the Kafka CLI (`kafka-topics.sh`), the Kafka Admin API, or
