@@ -29,8 +29,6 @@ and is not enabled by default. To request access, contact your account team or
   feature is enabled for the service. To request access, contact your account team or
   [Aiven support](/docs/platform/howto/support#create-a-support-ticket).
 - The service runs Apache Kafka® 4.1 or later.
-- Unclean leader election is turned off for the topic. If unclean leader election
-  is enabled, the switch does not start.
 - You have access to one of the following:
 
   - [Aiven CLI](/docs/tools/cli) installed and authenticated.
@@ -46,6 +44,8 @@ Before switching a topic, review the following:
 - Diskless topic limitations apply after the switch. Review
   [Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations)
   to confirm that diskless topics support your workload.
+- Unclean leader election must be turned off for the topic. If unclean leader
+  election is enabled, the switch does not start.
 - If tiered storage is not enabled for the topic, Aiven enables it automatically
   as part of the switch. Topics that cannot have tiered storage enabled, such as
   topics with compaction configured, are not eligible for the diskless switch.
@@ -120,14 +120,11 @@ switch request.
 <Tabs groupId="confirm-method">
 <TabItem value="cli" label="Aiven CLI" default>
 
-The command uses `jq` to filter the output for the selected topic.
-
 Run the following command:
 
 ```bash
-avn service topic-list SERVICE_NAME \
-  --project PROJECT_NAME \
-  --json | jq '.[] | select(.topic_name=="TOPIC_NAME")'
+avn service topic-get SERVICE_NAME TOPIC_NAME \
+  --project PROJECT_NAME
 ```
 
 Replace the following values:
@@ -136,10 +133,10 @@ Replace the following values:
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
 - `TOPIC_NAME`: Name of the topic.
 
-In the output, verify that `diskless_enable` and `remote_storage_enable` are
-both set to `true`. This confirms that Aiven accepted the diskless switch
-request. It does not confirm that every partition has finished switching.
-Per-partition switch status or progress is not exposed in the topic
+In the command output, find `diskless_enable` and `remote_storage_enable` and
+verify that their `VALUE` is `true`. This confirms that Aiven accepted the
+diskless switch request. It does not confirm that every partition has finished
+switching. Per-partition switch status or progress is not exposed in the topic
 configuration.
 
 </TabItem>
