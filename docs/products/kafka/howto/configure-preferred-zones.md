@@ -1,5 +1,5 @@
 ---
-title: Configure preferred availability zones for Aiven for Apache Kafka®
+title: Configure preferred availability zones
 sidebar_label: Configure preferred zones
 ---
 
@@ -8,7 +8,8 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Configure preferred availability zones to control where your Aiven for Apache Kafka® service nodes are placed within a cloud region.
+Configure preferred availability zones for Aiven for Apache Kafka®, Aiven for Apache Kafka® Connect, and Aiven for Apache Kafka® MirrorMaker 2.
+Use preferred zones to control where service nodes are placed within a cloud region.
 
 By default, Aiven distributes Kafka service nodes across the available zones in a
 cloud region. With preferred zones, you can limit node placement to specific
@@ -18,13 +19,14 @@ Use preferred zones to:
 
 - Reduce cross-AZ data transfer costs by placing Kafka nodes closer to your
   applications.
-- Reduce latency between Kafka nodes and client applications.
+- Reduce latency between service nodes and client applications.
 - Meet requirements that restrict workloads to specific zones within a region.
-- Align broker placement with consumer locations when using follower fetching.
+- Align Kafka broker placement with consumer locations when using follower fetching.
 
 ## Prerequisites
 
-- An Aiven for Apache Kafka service on AWS, Google Cloud, or Azure.
+- An Aiven for Apache Kafka®, Aiven for Apache Kafka® Connect, or Aiven for
+  Apache Kafka® MirrorMaker 2 service on AWS, Google Cloud, or Azure.
 - The zone IDs for your cloud region.
 - [Aiven CLI](/docs/tools/cli), to configure preferred zones from the command line.
 
@@ -50,8 +52,9 @@ consistent across all accounts. For more information, see
 <Tabs groupId="config-methods">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), select your
-   Aiven for Apache Kafka service.
+1. In the [Aiven Console](https://console.aiven.io), open your Aiven for
+   Apache Kafka®, Aiven for Apache Kafka® Connect, or Aiven for Apache Kafka®
+   MirrorMaker 2 service.
 1. Click <ConsoleLabel name="service settings"/>.
 1. In the **Advanced configuration** section, click **Configure**.
 1. In **`preferred_zones`**, enter the zone IDs, separated by commas.
@@ -67,32 +70,41 @@ consistent across all accounts. For more information, see
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-To configure preferred zones for an existing service, run:
+To configure preferred zones for an existing Kafka, Kafka Connect, or MirrorMaker 2
+service, run:
 
 ```bash
 avn service update SERVICE_NAME \
   -c preferred_zones='["use1-az1", "use1-az2", "use1-az3"]'
 ```
 
-To configure preferred zones when you create a service, run:
+To configure preferred zones when you create a service, use the service type for
+your service:
 
 ```bash
 avn service create SERVICE_NAME \
-  --service-type kafka \
+  --service-type SERVICE_TYPE \
   --plan business-4 \
   --cloud aws-us-east-1 \
   -c preferred_zones='["use1-az1", "use1-az2", "use1-az3"]'
 ```
 
+Use one of the following service types:
+
+- `kafka`: Aiven for Apache Kafka®
+- `kafka_connect`: Aiven for Apache Kafka® Connect
+- `kafka_mirrormaker`: Aiven for Apache Kafka® MirrorMaker 2
+
 Replace the following:
 
-- `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
+- `SERVICE_NAME`: Name of your Aiven service.
+- `SERVICE_TYPE`: Type of service to create.
 - `preferred_zones`: JSON array of zone IDs where nodes can be placed.
 
 </TabItem>
 <TabItem value="api" label="API">
 
-To configure preferred zones, use the
+To configure preferred zones for a Kafka, Kafka Connect, or MirrorMaker 2 service, use the
 [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) API
 operation:
 
@@ -111,7 +123,8 @@ curl --request PUT \
 Replace the following:
 
 - `PROJECT_NAME`: Name of your Aiven project.
-- `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
+- `SERVICE_NAME`: Name of your Aiven for Apache Kafka®, Kafka Connect, or
+  MirrorMaker 2 service.
 - `API_TOKEN`: Your Aiven API token.
 
 </TabItem>
@@ -127,6 +140,36 @@ resource "aiven_kafka" "example" {
   plan         = "business-4"
 
   kafka_user_config {
+    preferred_zones = ["use1-az1", "use1-az2", "use1-az3"]
+  }
+}
+```
+
+Use the `preferred_zones` attribute in your `aiven_kafka_connect` resource:
+
+```hcl
+resource "aiven_kafka_connect" "example" {
+  project      = "my-project"
+  service_name = "my-kafka-connect"
+  cloud_name   = "aws-us-east-1"
+  plan         = "business-4"
+
+  kafka_connect_user_config {
+    preferred_zones = ["use1-az1", "use1-az2", "use1-az3"]
+  }
+}
+```
+
+Use the `preferred_zones` attribute in your `aiven_kafka_mirrormaker` resource:
+
+```hcl
+resource "aiven_kafka_mirrormaker" "example" {
+  project      = "my-project"
+  service_name = "my-mirrormaker"
+  cloud_name   = "aws-us-east-1"
+  plan         = "business-4"
+
+  kafka_mirrormaker_user_config {
     preferred_zones = ["use1-az1", "use1-az2", "use1-az3"]
   }
 }
@@ -180,6 +223,7 @@ Automatic rebalancing is supported on:
 - `inkless-professional` plans
 - Inkless Business and Premium plans on BYOC
 - `kafka-professional` plans
+- All Kafka Connect and MirrorMaker 2 plans
 
 ## Example: Optimize follower fetching
 
@@ -255,7 +299,15 @@ To return to automatic zone distribution across all available zones, remove the
 <TabItem value="cli" label="CLI">
 
 ```bash
-avn service update SERVICE_NAME --remove-option preferred_zones
+avn service update KAFKA_SERVICE_NAME --remove-option preferred_zones
+```
+
+```bash
+avn service update KAFKA_CONNECT_SERVICE_NAME --remove-option preferred_zones
+```
+
+```bash
+avn service update MIRRORMAKER_SERVICE_NAME --remove-option preferred_zones
 ```
 
 </TabItem>
@@ -279,5 +331,7 @@ curl --request PUT \
 <RelatedPages/>
 
 - [Availability zones](/docs/platform/concepts/availability-zones)
+- [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect)
+- [Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
 - [Enable follower fetching](/docs/products/kafka/howto/enable-follower-fetching)
 - [Follower fetching concepts](/docs/products/kafka/concepts/follower-fetching)
