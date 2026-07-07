@@ -17,8 +17,11 @@ To enable Data API, you need the following:
   [contact Aiven](https://aiven.io/contact).
 - Data API available for your service's plan and cloud. If it isn't, the Aiven Console shows
   **The data API is not available for your service**.
-- The `project:services:write` and `service:data:write` permissions. These are included in
-  the **Admin**, **Operator**, and **Developer** roles.
+- Permission to enable Data API, which is one of the following:
+  - The `project:services:write` permission, included in the **Admin** and **Operator**
+    roles.
+  - The `service:data:write` permission, which an **Admin** or **Operator** can grant to any
+    user, such as one with the **Developer** role.
 - An identity provider (IdP) that issues JWTs and publishes a
   [JWKS URL](/docs/products/postgresql/howto/data-api/authentication) over HTTPS. Auth0,
   Okta, and Microsoft Entra ID are common options.
