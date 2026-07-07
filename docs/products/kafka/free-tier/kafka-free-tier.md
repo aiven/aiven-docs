@@ -67,9 +67,12 @@ Free tier services have the following restrictions.
 
 Free tier Kafka services operate as follows:
 
-- **Idle shutdown:** The service powers off automatically if no data is produced or
-  consumed for 24 hours. Extended inactivity can also trigger a shutdown. You receive a
-  notification before shutdown and can power on the service from the Aiven Console.
+- **Idle shutdown:** The service powers off automatically if there is no ongoing
+  Kafka activity, such as producing or consuming messages. You receive a notification
+  before shutdown and can power on the service from the Aiven Console.
+- **First-use shutdown:** A new free tier service with no initial usage can power off
+  within the first few hours after the service is running. You can power the service
+  back on from the Aiven Console.
 - **Leader election:** The service continues operating after a node failure by using a
   simplified leader election mode. This ensures availability for small, non-production
   workloads.
