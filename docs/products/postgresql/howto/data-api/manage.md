@@ -67,9 +67,8 @@ shows **The data API is not available for your service**.
 ### You don't have permission to enable Data API
 
 Enabling Data API requires the `project:services:write` or `service:data:write` permission.
-If you don't have it, the Aiven Console shows **Enabling the Data API requires the Admin or
-Operator role, or the service:data:write permission.** Ask an **Admin** or **Operator** to
-enable Data API, or to grant you the `service:data:write` permission.
+If you don't have it, ask an **Admin** or **Operator** to enable Data API, or to grant you
+the `service:data:write` permission.
 
 ### The service is still being provisioned
 
