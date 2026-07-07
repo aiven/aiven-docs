@@ -69,11 +69,12 @@ Free tier services have the following restrictions.
 
 Free tier Aiven for OpenSearch services operate as follows:
 
-- **Idle shutdown:** The service powers off automatically if no data is indexed or
-  queried for 24 hours. Extended inactivity can also trigger a shutdown. You receive a
-  notification before shutdown and can power on the service from the Aiven Console.
-- **First-use shutdown:** A new free tier service with no first use can power off after
-  24 hours.
+- **Idle shutdown:** The service powers off automatically if there is no continuative
+  activity on the service. You receive a notification before shutdown and can power on
+  the service from the Aiven Console.
+- **First-use shutdown:** A new free tier service with no initial usage can power off
+  within the first few hours after the service is running. You can power the service
+  back on from the Aiven Console.
 - **Alerts:** Platform alerts are not routed to Aiven operators.
 - **Configuration updates:** Aiven may change the cloud provider, region availability,
   or configuration of free services.
