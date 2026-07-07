@@ -66,9 +66,8 @@ shows **The data API is not available for your service**.
 
 ### You don't have permission to enable Data API
 
-Enabling Data API requires the `project:services:write` or `service:data:write` permission.
-If you don't have it, ask an **Admin** or **Operator** to enable Data API, or to grant you
-the `service:data:write` permission.
+Enabling Data API requires the `project:services:write` permission. If you don't have it,
+ask a user who has it to enable Data API for you.
 
 ### The service is still being provisioned
 
