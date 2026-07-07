@@ -19,9 +19,6 @@ type WriteToolGroup = {
   tools: { name: string; label: string }[];
 };
 
-// Write/destructive tools that `read_only=true` would otherwise block. Grouped to match
-// the docs' per-service sections so customers can carve out exceptions (e.g. allow topic
-// creation while keeping everything else read-only).
 export const WRITE_TOOL_GROUPS: WriteToolGroup[] = [
   {
     label: 'Core',
@@ -93,23 +90,56 @@ type MCPConfigToggleProps = {
   onChange?: (state: MCPConfigState) => void;
 };
 
+type AccessLevel = 'full' | 'read' | 'custom';
+
+const GROUP_SCOPE: Record<string, Scope | null> = {
+  Core: null,
+  PostgreSQL: 'pg',
+  Kafka: 'kafka',
+  Integrations: 'integrations',
+  Application: null,
+};
+
+const isGroupVisible = (label: string, scopes: Scope[]): boolean => {
+  const groupScope = GROUP_SCOPE[label];
+  return groupScope === null || scopes.length === 0 || scopes.includes(groupScope);
+};
+
+const pruneAllowlist = (writeAllowlist: string[], scopes: Scope[]): string[] => {
+  const allowedTools = new Set(
+    WRITE_TOOL_GROUPS.filter((group) => isGroupVisible(group.label, scopes)).flatMap((group) =>
+      group.tools.map((tool) => tool.name),
+    ),
+  );
+  return writeAllowlist.filter((name) => allowedTools.has(name));
+};
+
+const ACCESS_OPTIONS: { value: AccessLevel; label: string; hint: string }[] = [
+  { value: 'read', label: 'Read-only', hint: 'View services and data. No create, update, or delete.' },
+  {
+    value: 'custom',
+    label: 'Read-only, plus specific writes',
+    hint: 'Stay read-only except for the write actions you allow below.',
+  },
+  { value: 'full', label: 'Full access', hint: 'Read and write. The assistant can create, modify, and delete.' },
+];
+
 export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX.Element {
-  const [readOnly, setReadOnly] = useState(false);
+  const [access, setAccess] = useState<AccessLevel>('full');
   const [scopes, setScopes] = useState<Scope[]>([]);
   const [marketplace, setMarketplace] = useState<'' | Marketplace>('');
   const [allowSecrets, setAllowSecrets] = useState(false);
   const [writeAllowlist, setWriteAllowlist] = useState<string[]>([]);
 
+  const readOnly = access !== 'full';
+
   const emit = (next: MCPConfigState) => onChange?.(next);
 
-  const handleReadOnly = (checked: boolean) => {
-    setReadOnly(checked);
-    if (!checked) {
-      setWriteAllowlist([]);
-      emit({ readOnly: checked, scopes, marketplace, allowSecrets, writeAllowlist: [] });
-      return;
-    }
-    emit({ readOnly: checked, scopes, marketplace, allowSecrets, writeAllowlist });
+  const handleAccess = (level: AccessLevel) => {
+    setAccess(level);
+    const nextAllowlist = level === 'custom' ? writeAllowlist : [];
+    if (level !== 'custom') setWriteAllowlist(nextAllowlist);
+    emit({ readOnly: level !== 'full', scopes, marketplace, allowSecrets, writeAllowlist: nextAllowlist });
   };
 
   const handleScope = (choice: ScopeChoice, checked: boolean) => {
@@ -122,7 +152,9 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
       next = scopes.filter((s) => s !== choice);
     }
     setScopes(next);
-    emit({ readOnly, scopes: next, marketplace, allowSecrets, writeAllowlist });
+    const nextAllowlist = pruneAllowlist(writeAllowlist, next);
+    if (nextAllowlist.length !== writeAllowlist.length) setWriteAllowlist(nextAllowlist);
+    emit({ readOnly, scopes: next, marketplace, allowSecrets, writeAllowlist: nextAllowlist });
   };
 
   const handleMarketplace = (value: '' | Marketplace) => {
@@ -146,98 +178,81 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
   const isChecked = (choice: ScopeChoice): boolean =>
     choice === 'all' ? scopes.length === 0 : scopes.includes(choice);
 
-  // Core/Application tools aren't gated by services_scope, so their write exceptions
-  // always show. Other groups only show when their scope is selected (or no scope filter).
-  const GROUP_SCOPE: Record<string, Scope | null> = {
-    Core: null,
-    PostgreSQL: 'pg',
-    Kafka: 'kafka',
-    Integrations: 'integrations',
-    Application: null,
-  };
-  const visibleWriteGroups = WRITE_TOOL_GROUPS.filter((group) => {
-    const groupScope = GROUP_SCOPE[group.label];
-    return groupScope === null || scopes.length === 0 || scopes.includes(groupScope);
-  });
+  const visibleWriteGroups = WRITE_TOOL_GROUPS.filter((group) => isGroupVisible(group.label, scopes));
 
   return (
     <div className={styles.container}>
       <div className={styles.section}>
-        <label className={styles.option}>
-          <input
-            type="checkbox"
-            checked={readOnly}
-            onChange={(e) => handleReadOnly(e.target.checked)}
-            className={styles.checkbox}
-          />
-          <span>Read-only mode (no create, update, or delete)</span>
-        </label>
+        <span className={styles.sectionLabel}>Services</span>
+        <div className={styles.scopeRow}>
+          {ALL_CHOICES.map((choice) => (
+            <label key={choice} className={styles.option}>
+              <input
+                type="checkbox"
+                checked={isChecked(choice)}
+                onChange={(e) => handleScope(choice, e.target.checked)}
+                className={styles.checkbox}
+              />
+              <span>{SCOPE_LABELS[choice]}</span>
+            </label>
+          ))}
+        </div>
       </div>
-      {!readOnly && (
+
+      <div className={styles.separator} aria-hidden="true" />
+
+      <div className={styles.section}>
+        <span className={styles.sectionLabel}>Access</span>
+        <select
+          value={access}
+          onChange={(e) => handleAccess(e.target.value as AccessLevel)}
+          className={styles.select}
+        >
+          {ACCESS_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
+      <p className={styles.hint}>{ACCESS_OPTIONS.find((o) => o.value === access)?.hint}</p>
+
+      {access === 'full' && (
         <p className={styles.warning} role="alert">
-          ⚠ With read-only mode disabled, the assistant can create, modify, and delete services and data.
+          ⚠ With full access, the assistant can create, modify, and delete services and data.
           {' '}
           <a href="#security-and-responsibility">Review security and responsibility</a>.
         </p>
       )}
 
+      {access === 'custom' && (
+        <div className={styles.writeExceptions}>
+          <p className={styles.hint}>
+            Everything stays read-only except the write actions you check below — for example,
+            allow topic creation while blocking every other write.
+          </p>
+          {visibleWriteGroups.map((group) => (
+            <div key={group.label} className={styles.writeGroup}>
+              <span className={styles.writeGroupLabel}>{group.label}</span>
+              <div className={styles.scopeRow}>
+                {group.tools.map((tool) => (
+                  <label key={tool.name} className={styles.option}>
+                    <input
+                      type="checkbox"
+                      checked={writeAllowlist.includes(tool.name)}
+                      onChange={(e) => handleWriteAllowlist(tool.name, e.target.checked)}
+                      className={styles.checkbox}
+                    />
+                    <span>{tool.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
       <details className={styles.disclosure}>
         <summary className={styles.summary}>Advanced settings</summary>
         <div className={styles.disclosureBody}>
-          {readOnly && (
-            <details className={styles.disclosure}>
-              <summary className={styles.summary}>
-                Allow specific write tools in read-only mode
-                {writeAllowlist.length > 0 ? ` (${writeAllowlist.length} selected)` : ''}
-              </summary>
-              <div className={styles.disclosureBody}>
-                <p className={styles.hint}>
-                  Everything stays read-only except the tools you check below — for example,
-                  allow topic creation while blocking every other write.
-                </p>
-                {visibleWriteGroups.map((group) => (
-                  <div key={group.label} className={styles.writeGroup}>
-                    <span className={styles.writeGroupLabel}>{group.label}</span>
-                    <div className={styles.scopeRow}>
-                      {group.tools.map((tool) => (
-                        <label key={tool.name} className={styles.option}>
-                          <input
-                            type="checkbox"
-                            checked={writeAllowlist.includes(tool.name)}
-                            onChange={(e) => handleWriteAllowlist(tool.name, e.target.checked)}
-                            className={styles.checkbox}
-                          />
-                          <span>{tool.label}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </details>
-          )}
-
-          <div className={styles.separator} aria-hidden="true" />
-
-          <div className={styles.section}>
-            <span className={styles.sectionLabel}>Available tools</span>
-            <div className={styles.scopeRow}>
-              {ALL_CHOICES.map((choice) => (
-                <label key={choice} className={styles.option}>
-                  <input
-                    type="checkbox"
-                    checked={isChecked(choice)}
-                    onChange={(e) => handleScope(choice, e.target.checked)}
-                    className={styles.checkbox}
-                  />
-                  <span>{SCOPE_LABELS[choice]}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.separator} aria-hidden="true" />
-
           <div className={styles.section}>
             <span className={styles.sectionLabel}>Development</span>
             <label className={styles.option}>
@@ -284,8 +299,6 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
 }
 
 export function buildMcpUrl(baseUrl: string, state: MCPConfigState): string {
-  // The marketplace tenant is a path segment (e.g. `/mcp/gcp`); scopes and read-only are
-  // query parameters.
   const url = state.marketplace ? `${baseUrl}/${state.marketplace}` : baseUrl;
   const params = new URLSearchParams();
   if (state.scopes.length > 0) params.set('services_scope', state.scopes.join(','));
