@@ -73,7 +73,8 @@ Free tier Aiven for OpenSearch services operate as follows:
   activity on the service. You receive a notification before shutdown and can power on
   the service from the Aiven Console.
 - **First-use shutdown:** A new free tier service with no initial usage can power off
-  within the first few hours after the service is running.
+  within the first few hours after the service is running. You can power the service
+  back on from the Aiven Console.
 - **Alerts:** Platform alerts are not routed to Aiven operators.
 - **Configuration updates:** Aiven may change the cloud provider, region availability,
   or configuration of free services.
