@@ -1,6 +1,8 @@
 ---
 title: Aiven MCP
 sidebar_label: Aiven MCP
+description: Create and manage Aiven services from AI assistants.
+keywords: [MCP, Model Context Protocol, AI assistants, Cursor, Claude Code]
 early: true
 ---
 
@@ -18,9 +20,8 @@ import GeminiCliIcon from "@site/static/images/icons/gemini-cli.svg";
 import OtherClientIcon from "@site/static/images/icons/mcp-client-other.svg";
 import LocalInstallIcon from "@site/static/images/icons/local-install.svg";
 
-Create and manage Aiven services from AI assistants such as Cursor and Claude Code,
-including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
-Enable read-only mode in the configuration tabs below to restrict the server to
+Create and manage Aiven services from AI assistants such as Cursor and Claude Code, including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
+Enable read-only mode in the configuration tabs to restrict the server to
 non-destructive operations, or limit tools to specific services to keep the
 assistant focused.
 
@@ -32,8 +33,9 @@ assistant focused.
 - MCP access enabled for your organization by an admin in the Aiven Console
   under **Admin settings** > **Authentication** > **Allow MCP connection**
 
-Authentication uses OAuth 2.0 with PKCE; your browser opens on first connect so you
-can sign in and authorize MCP access.
+Authentication uses OAuth 2.0 with PKCE. When you authenticate a client for the
+first time, your browser opens so you can sign in and authorize MCP access. This
+is usually a one-time setup step per client.
 
 ## Install the Aiven MCP {#configure-aiven-mcp}
 
@@ -41,7 +43,7 @@ can sign in and authorize MCP access.
 <TabItem value="claude-code" label={<McpClientTabLabel icon={ClaudeCodeIcon} label="Claude Code" />} default>
 
 1. Open a terminal.
-1. Choose your options below, then run the generated command:
+1. Choose your options, then run the generated command:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -49,7 +51,8 @@ can sign in and authorize MCP access.
      configTemplate={(url) => `claude mcp add --transport http aiven "${url}"`}
    />
 
-1. Run `/mcp` and authenticate in your browser when prompted.
+1. Run `claude` to start Claude Code.
+1. Run `/mcp`, select **aiven**, and authenticate in your browser when prompted.
 1. Test the connection with a prompt such as `List my Aiven projects.` and
    approve the tool execution if prompted.
 
@@ -76,7 +79,7 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
    - **Windows:**
      `%APPDATA%\Claude\claude_desktop_config.json`
 
-1. Choose your options below, then add the generated configuration to the file:
+1. Choose your options, then add the generated configuration to the file:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -84,7 +87,8 @@ For more information, see the [Cursor MCP documentation](https://cursor.com/docs
      configTemplate={(url) => ({mcpServers: {aiven: {command: "npx", args: ["-y", "mcp-remote", url]}}})}
    />
 
-1. Save the file and restart Claude Desktop.
+1. Save the file.
+1. Restart Claude Desktop.
 1. In a new conversation, test the connection with a prompt such as
    `List my Aiven projects.` and click **Allow** if prompted.
 
@@ -101,7 +105,7 @@ and enabled.
 1. Open your workspace in VS Code.
 1. In the workspace root, create a `.vscode` directory.
 1. In the `.vscode` directory, create or edit the `mcp.json` file.
-1. Choose your options below, then add the generated configuration to the file:
+1. Choose your options, then add the generated configuration to the file:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -109,7 +113,8 @@ and enabled.
      configTemplate={(url) => ({servers: {aiven: {type: "http", url}}})}
    />
 
-1. Save the file and reload VS Code.
+1. Save the file.
+1. Reload VS Code.
 1. Open the Command Palette, run **MCP: List Servers**, and confirm that
    **aiven** appears.
 1. In Copilot Chat, test the connection with a prompt such as
@@ -121,7 +126,7 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
 <TabItem value="gemini-cli" label={<McpClientTabLabel icon={GeminiCliIcon} label="Gemini CLI" />}>
 
 1. Create or edit the `~/.gemini/settings.json` file.
-1. Add the following configuration:
+1. Choose your options, then add the generated configuration to the file:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -129,8 +134,9 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
      configTemplate={(url) => ({mcpServers: {aiven: {httpUrl: url}}})}
    />
 
-1. Save the file and run `gemini` to start the CLI.
-1. Run `/mcp auth aiven` to sign in via your browser.
+1. Save the file.
+1. Run `gemini` to start the CLI.
+1. Run `/mcp auth aiven` to sign in through your browser.
 1. Test the connection with a prompt such as `List my Aiven projects.` and
    approve the tool execution if prompted.
 
@@ -138,7 +144,7 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
 <TabItem value="other" label={<McpClientTabLabel icon={OtherClientIcon} label="Other clients" />}>
 
 1. Open your MCP client configuration.
-1. Choose your options below, then add the generated configuration to your client:
+1. Choose your options, then add the generated configuration to your client:
 
    <MCPConfigSection
      baseUrl={mcpUrl}
@@ -146,7 +152,7 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
      configTemplate={(url) => ({mcpServers: {aiven: {url}}})}
    />
 
-   Most clients use a configuration similar to the above.
+   Most clients use a configuration similar to the preceding example.
 
 1. Save the file and restart your client.
 1. In your AI assistant, test the connection with a prompt such as
@@ -178,7 +184,8 @@ non-production services. For more information, see
    claude mcp add --scope user aiven-mcp -e AIVEN_TOKEN=your-token-here -e AIVEN_READ_ONLY=false -e AIVEN_ALLOW_SECRETS=false -- npx -y mcp-aiven
    ```
 
-1. Run `/mcp` in Claude Code to verify the server is registered.
+1. Run `claude` to start Claude Code.
+1. Run `/mcp` to verify that the server is registered.
 
 </TabItem>
 <TabItem value="cursor" label={<McpClientTabLabel icon={CursorIcon} label="Cursor" />}>
