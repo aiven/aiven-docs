@@ -5,11 +5,10 @@ keywords: [kafka, java, quick connect, producer, consumer, mtls, sasl]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import RelatedPages from "@site/src/components/RelatedPages";
 
 Use **Quick connect** to set up a Java client for Aiven for Apache Kafka®.
-The guided flow helps you select or create a topic, choose an authentication method,
-grant permissions, and copy generated producer and consumer code.
+The guided flow helps you choose or create a topic, choose an authentication
+method, grant permissions, and copy generated producer and consumer code.
 
 ## Prerequisites
 
@@ -73,17 +72,7 @@ Topics organize and store the events that you stream to Apache Kafka.
    [Manage Apache Kafka® ACLs](/docs/products/kafka/howto/manage-acls#delete-acl-entries).
    :::
 
-## Step 3: Set up a schema and copy the code snippets
-
-1. Choose a schema format: **Avro**, **JSON Schema**, or **Protobuf**.
-1. Upload a schema or modify the sample schema.
-1. If using **Protobuf**, you can also add schema references:
-   1. Choose an existing schema.
-   1. In the **Add a schema reference** screen, enter a reference name and choose
-      a version.
-   1. In the schema editor, modify the schema if needed.
-   1. Click **Add reference**.
-1. Click **Create schema**.
+## Step 3: Copy the code snippets
 
 :::tip
 **Download template** is an optional shortcut for when you want no local setup.
@@ -124,9 +113,3 @@ the snippet from the **Producer** or **Consumer** tab.
 After you add the code to your project, update the certificate file paths to
 match where you saved the files, then run your producer or consumer to start
 streaming events.
-
-<RelatedPages/>
-
-- [Generate Java data classes from Avro schemas](/docs/products/kafka/howto/generate-avro-java-classes)
-- [Generate Java data classes from Protobuf schemas](/docs/products/kafka/howto/generate-protobuf-java-classes)
-- [Generate Java data classes from JSON schemas](/docs/products/kafka/howto/generate-json-java-classes)
