@@ -63,7 +63,7 @@ using a tool of your choice:
    Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`.
 
 1. Promote the primary service to active by running
-   [avn byoc update](/docs/tools/cli/service-cli#avn-cli-service-update):
+   [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update):
 
    ```bash
    avn service update PRIMARY_SERVICE_NAME \
@@ -130,7 +130,7 @@ using a tool of your choice:
       ```
 
 1. Promote the primary service as active by calling the
-   [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+   [ServiceUpdate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
    to change `disaster_recovery_role` of the primary service to `active`:
 
    ```bash {5}
@@ -239,12 +239,6 @@ To get back to the original primary-recovery setup:
 
    ```bash
    terraform apply
-   ```
-
-1. Verify the failback:
-
-   ```bash
-   terraform output disaster_recovery_status
    ```
 
 </TabItem>

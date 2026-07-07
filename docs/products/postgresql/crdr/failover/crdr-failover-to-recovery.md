@@ -58,7 +58,7 @@ Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example
 </TabItem>
 <TabItem value="api" label="API">
 
-Call the [ServiceUpdte endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+Call the [ServiceUpdate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
 to change the `disaster_recovery_role` of the primary service to `failed`:
 
 ```bash {5}

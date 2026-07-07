@@ -71,10 +71,10 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 ## Limitations
 
 - **Service plan requirements**: To set up CRDR, your primary service must use at least a
-  Startup plan. Hobbyist and Free plans are not supported.
+  Startup plan. Hobbyist, Free, and Developer plans are not supported.
 
   :::tip[Upgrading your plan]
-  If your Aiven for PostgreSQL service uses a Hobbyist plan or a Free plan,
+  If your Aiven for PostgreSQL service uses a Hobbyist, Free, or Developer plan,
   [upgrade](/docs/platform/howto/scale-services) to at least a Startup plan.
   :::
 

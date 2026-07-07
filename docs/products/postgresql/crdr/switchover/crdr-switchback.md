@@ -24,117 +24,143 @@ Shift your workloads back to the primary region, where your service was hosted o
 <Tabs>
 <TabItem value="cli" label="CLI">
 
-Use the [Aiven CLI](/docs/tools/cli) to perform a switchback:
+Run [avn service update](/docs/tools/cli/service-cli#avn-cli-service-update) to promote
+the primary service back to active:
 
 ```bash
-avn service disaster-recovery promote-to-master \
-  --project PROJECT_NAME \
-  SERVICE_NAME
+avn service update PRIMARY_SERVICE_NAME \
+   --disaster-recovery-role active
 ```
 
-Replace the placeholders with your actual values:
+Replace `PRIMARY_SERVICE_NAME` with the name of the primary service, for example,
+`pg-demo`.
 
-- `PROJECT_NAME`: Your Aiven project name
-- `SERVICE_NAME`: Name of your primary PostgreSQL service
+Verify the switchback by checking both services:
 
-Monitor the switchback status:
+- Primary service status:
 
-```bash
-avn service disaster-recovery get \
-  --project PROJECT_NAME \
-  SERVICE_NAME
-```
+  ```bash
+  avn service get PRIMARY_SERVICE_NAME \
+    --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+  ```
+
+  Expect the following output:
+
+  ```json
+  {
+    "state": "RUNNING",
+    "disaster_recovery_role": "active"
+  }
+  ```
+
+- Recovery service status:
+
+  ```bash
+  avn service get RECOVERY_SERVICE_NAME \
+    --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+  ```
+
+  Expect the following output:
+
+  ```json
+  {
+    "state": "RUNNING",
+    "disaster_recovery_role": "passive"
+  }
+  ```
 
 </TabItem>
 <TabItem value="api" label="API">
 
-Use the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) API
-endpoint to perform a switchback:
+Call the [ServiceUpdate endpoint](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+to change the `disaster_recovery_role` of the primary service to `active`:
 
 ```bash
-curl -X PUT \
-  "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
-  -H "Authorization: Bearer API_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "disaster_recovery_promote_to_master": true
-  }'
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/PRIMARY_SERVICE_NAME \
+  -H 'Authorization: Bearer BEARER_TOKEN' \
+  -H 'content-type: application/json' \
+  --data '{"disaster_recovery_role": "active"}'
 ```
 
-Replace the placeholders:
+Replace the following:
 
-- `PROJECT_NAME`: Your Aiven project name
-- `SERVICE_NAME`: Name of your primary PostgreSQL service
-- `API_TOKEN`: Your Aiven API authentication token
+- `PROJECT_NAME`, for example `crdr-test`
+- `PRIMARY_SERVICE_NAME`, for example `pg-demo`
+- `BEARER_TOKEN`
 
-Check the disaster recovery status:
+After sending the request, verify the status of each service:
 
-```bash
-curl -X GET \
-  "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/disaster-recovery" \
-  -H "Authorization: Bearer API_TOKEN"
-```
+- Primary service status:
+
+  ```bash
+  avn service get PRIMARY_SERVICE_NAME \
+    --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+  ```
+
+  Expect the following output:
+
+  ```json
+  {
+    "state": "RUNNING",
+    "disaster_recovery_role": "active"
+  }
+  ```
+
+- Recovery service status:
+
+  ```bash
+  avn service get RECOVERY_SERVICE_NAME \
+    --json | jq '{state: .state, disaster_recovery_role: .disaster_recovery_role}'
+  ```
+
+  Expect the following output:
+
+  ```json
+  {
+    "state": "RUNNING",
+    "disaster_recovery_role": "passive"
+  }
+  ```
 
 </TabItem>
 <TabItem value="tf" label="Terraform">
 
-The
-[`aiven_service_integration`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
-resource with the `disaster_recovery` type manages the active-passive relationship between
-services. CRDR operations are performed by manipulating this integration.
+The Terraform provider manages the `disaster_recovery` integration as a static topology
+declaration. All integration fields are immutable, so a switchback requires destroying the
+switched integration and restoring the original one. This approach has a window during
+which the DR integration is offline. For a lower-risk switchback, use the Aiven CLI or
+API instead.
 
-To return to the original primary-recovery configuration after a planned switchover:
+To use Terraform:
 
-1. Comment out or remove the current switched disaster recovery integration.
-
-   ```hcl
-   # resource "aiven_service_integration" "disaster_recovery_switched" {
-   #   project                  = var.project_name
-   #   integration_type         = "disaster_recovery"
-   #   source_service_name      = aiven_postgresql.recovery.service_name
-   #   destination_service_name = aiven_postgresql.primary.service_name
-   # }
-   ```
-
-   or
+1. Remove the switched disaster recovery integration from Terraform state.
 
    ```bash
    terraform destroy -target=aiven_service_integration.disaster_recovery_switched
    ```
 
-1. Restore the original CRDR configuration.
+1. Restore the original integration with the primary service as the source.
 
    ```hcl
    resource "aiven_service_integration" "disaster_recovery" {
      project                  = var.project_name
      integration_type         = "disaster_recovery"
-     source_service_name      = aiven_postgresql.primary.service_name    # Back to original active
-     destination_service_name = aiven_postgresql.recovery.service_name   # Back to original passive
-
-     depends_on = [
-       aiven_postgresql.primary,
-       aiven_postgresql.recovery
-     ]
+     source_service_name      = aiven_postgresql.primary.service_name
+     destination_service_name = aiven_postgresql.recovery.service_name
    }
    ```
 
-1. Wait for the switchback to complete before restoring the original setup.
+1. Apply the restored configuration:
 
    ```bash
    terraform apply
    ```
 
-1. Verify the switchback has been completed successfully.
-
-   ```bash
-   terraform refresh
-   terraform show aiven_service_integration.disaster_recovery
-   ```
-
 </TabItem>
 </Tabs>
 
-When the switchback process is completed, your primary service is **Active**, and the
+After the switchback completes, your primary service is **Active**, and the
 recovery service is **Passive**, which means the primary service is in control over your
 workloads.
 
