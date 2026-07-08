@@ -13,7 +13,7 @@ method, grant permissions, and copy generated producer and consumer code.
 ## Prerequisites
 
 - A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
-- Java development environment with [Maven](https://maven.apache.org/install.html).
+- A Java development environment with [Maven](https://maven.apache.org/install.html).
 
 ## Open Quick connect
 
@@ -82,6 +82,9 @@ without a Java project or build tool. If you already have a Java project, copy
 the snippet from the **Producer** or **Consumer** tab.
 :::
 
+1. Under **Prerequisites**, add the
+   [Kafka clients dependency](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
+   from your preferred artifact repository.
 1. Under **Downloads**, download the certificate files for your authentication
    method:
 
