@@ -75,8 +75,6 @@ Replace the following values:
 - `PROJECT_NAME`: Name of your Aiven project.
 - `SERVICE_NAME`: Name of your Aiven for Apache Kafka service.
 - `TOPIC_NAME`: Name of the topic to switch.
-- `PARTITION_COUNT`: Current number of partitions in the topic. Use the existing
-  partition count. Do not change the partition count as part of the switch.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
