@@ -43,8 +43,11 @@ Topics organize and store the events that you stream to Apache Kafka.
 ## Step 2: Set up an authentication method
 
 1. Choose an authentication method:
-   - **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for simple
-     username and password authentication.
+   - **SASL**: Recommended. Use SASL/SCRAM-SHA-512 for simple username and
+     password authentication.
+
+     Go code snippets use `SCRAM-SHA-512`. Other Quick connect language
+     snippets use `SCRAM-SHA-256`.
 
      If SASL is not enabled on your service, an option to enable SASL appears
      under the **SASL** authentication method. Click **Enable SASL**, then
