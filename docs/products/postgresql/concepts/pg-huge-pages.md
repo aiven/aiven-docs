@@ -15,7 +15,7 @@ processes with large shared memory segments.
 
 PostgreSQL uses huge pages for `shared_buffers`, which is a large shared memory area.
 Allocating shared buffers with huge pages reduces memory overhead compared to the default
-4 KB pages. The result is more consistent query throughput and faster standby promotion
+4 KB pages. The result is more predictable query throughput and faster standby promotion
 during failover.
 
 ## How Aiven manages huge pages
