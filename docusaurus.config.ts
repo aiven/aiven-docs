@@ -129,6 +129,11 @@ const config: Config = {
     },
   ],
   scripts: [
+    {
+      src: 'https://analytics.ahrefs.com/analytics.js',
+      'data-key': 'aKHyPgCOLHo1m4IX2uzglw',
+      async: true,
+    },
     {src: '/docs/page_scripts/snowplow.js', async: true},
     {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
