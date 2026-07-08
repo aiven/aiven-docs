@@ -67,7 +67,6 @@ Run the following command:
 ```bash
 avn service topic-update SERVICE_NAME TOPIC_NAME \
   --project PROJECT_NAME \
-  --partitions PARTITION_COUNT \
   --diskless-enable
 ```
 
