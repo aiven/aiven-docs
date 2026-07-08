@@ -189,6 +189,13 @@ hyperscaler
 hyperscalers
 hypertable
 hypertables
+hugepages
+huge_pages
+huge_pages_status
+lookaside
+shared_buffers_percentage
+shared_memory_size_in_huge_pages
+TLB
 IdP
 IdPs
 InfluxDB

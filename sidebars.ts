@@ -1951,6 +1951,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/postgresql/concepts/pg-shared-buffers',
+                'products/postgresql/concepts/pg-huge-pages',
                 'products/postgresql/concepts/pg-disk-usage',
                 'products/postgresql/howto/pg-object-size',
                 'products/postgresql/howto/prevent-full-disk',
