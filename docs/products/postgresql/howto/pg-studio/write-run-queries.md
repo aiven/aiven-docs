@@ -55,10 +55,9 @@ This is useful for:
 
 ## Run multiple queries
 
-You can write several SQL statements in the editor and run them all at once. To run all
-statements, select them first. **Run selected** executes all statements only when they are
-all selected; otherwise it runs only the statement where your cursor is placed. PG Studio
-runs the selected statements sequentially and displays the results in separate tabs.
+You can write several SQL statements in the editor and run them all at once. Select the
+statements you want to run. PG Studio runs them sequentially and displays the results in
+separate tabs.
 
 1. In the SQL editor, write your SQL statements:
 
