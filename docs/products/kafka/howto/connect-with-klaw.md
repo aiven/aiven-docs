@@ -81,8 +81,8 @@ Topics organize and store the events that you stream to Apache Kafka.
    method:
 
    - For **SASL**, click **Download CA certificate**.
-   - For **Client certificate**, download the **CA certificate**, **service
-     certificate**, and **service access key**.
+   - For **Client certificate**, click **Download CA certificate**,
+     **Download service certificate**, and **Download service access key**.
 
 1. Create the certificate stores required by Klaw:
 

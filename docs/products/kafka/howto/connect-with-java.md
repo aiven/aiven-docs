@@ -1,5 +1,5 @@
 ---
-title: Connect to Aiven for Apache Kafka® with Java using Quick connect
+title: Connect to Aiven for Apache Kafka® with Java
 sidebar_label: Connect with Java
 keywords: [kafka, java, quick connect, producer, consumer, mtls, sasl]
 ---
@@ -85,33 +85,26 @@ the snippet from the **Producer** or **Consumer** tab.
 1. Under **Prerequisites**, add the
    [Kafka clients dependency](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
    from your preferred artifact repository.
+
 1. Under **Downloads**, download the certificate files for your authentication
    method:
 
-   - For **SASL**, download the **CA certificate**.
-   - For **Client certificate**, download the **CA certificate**, **service
-     certificate**, and **service access key**.
+   - For **SASL**, click **Download CA certificate**.
+   - For **Client certificate**, click **Download CA certificate** and
+     **Download service certificate and access key**.
 
-   :::note
-   For SASL, configure your client to trust Aiven's certificate authority, or
-   CA. The sample producer code includes a `keytool` command to create a
-   truststore:
-
-   ```bash
-   keytool -import -file ca.pem -alias AivenCA -keystore client.truststore.jks
-   ```
-
-   You only need to run the command if you are setting up the client manually.
-   :::
+   The generated snippet loads the PEM files directly. You don't need to create
+   a truststore.
 
 1. Click the **Producer** or **Consumer** tab to view the generated producer or
    consumer code.
-1. Copy the code.
 
    :::warning
    For SASL, code snippets include the service user password in plaintext.
    Store the code securely, and do not commit it to source control.
    :::
+
+1. Copy the code.
 
 After you add the code to your project, update the certificate file paths to
 match where you saved the files, then run your producer or consumer to start

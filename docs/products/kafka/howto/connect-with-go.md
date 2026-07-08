@@ -46,8 +46,7 @@ Topics organize and store the events that you stream to Apache Kafka.
    - **SASL**: Recommended. Use SASL/SCRAM-SHA-512 for simple username and
      password authentication.
 
-     Go code snippets use `SCRAM-SHA-512`. Other Quick connect language
-     snippets use `SCRAM-SHA-256`.
+     Go code snippets use `SCRAM-SHA-512` for SASL authentication.
 
      If SASL is not enabled on your service, an option to enable SASL appears
      under the **SASL** authentication method. Click **Enable SASL**, then
@@ -106,8 +105,8 @@ If you already have a Go project, copy the snippet from the **Producer** or
    method:
 
    - For **SASL**, click **Download CA certificate**.
-   - For **Client certificate**, download the **CA certificate**, **service
-     certificate**, and **service access key**.
+   - For **Client certificate**, click **Download CA certificate**,
+     **Download service certificate**, and **Download service access key**.
 
    The generated snippet loads the certificates directly, so you don't need to
    create a truststore.

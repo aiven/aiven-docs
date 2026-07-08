@@ -93,11 +93,11 @@ consumer code, certificates, and dependencies. To run it, follow the included
    method:
 
    - For **SASL**, click **Download CA certificate**.
-   - For **Client certificate**, download the **CA certificate**, **service
-     certificate**, and **service access key**.
+   - For **Client certificate**, click **Download CA certificate**,
+     **Download service certificate**, and **Download service access key**.
 
-   The generated snippet loads the certificates directly, so you don't need to
-   create a truststore.
+   For **Client certificate**, the generated snippet loads the certificates
+   directly. You don't need to create a truststore.
 
 1. Select the **Producer** or **Consumer** tab to view the generated producer or
    consumer code.

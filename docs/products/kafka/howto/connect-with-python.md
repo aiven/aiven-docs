@@ -79,11 +79,9 @@ Topics organize and store the events that you stream to Apache Kafka.
 a local Python environment. The ZIP file includes ready-to-run producer and
 consumer code, certificates, and dependencies. To run it, follow the included
 `README.md`. If you already have a Python project, copy the snippet from the
-**Producer** or **Consumer** tab.
+**Producer** or **Consumer** tab. For more Python examples, under **Useful
+resources**, open **Kafka + Python: Getting Started**.
 :::
-
-For additional Python examples, under **Useful resources**, open **Kafka +
-Python: Getting Started**.
 
 1. Under **Prerequisites**, install the
    [`kafka-python`](https://pypi.org/project/kafka-python/) library:
@@ -92,24 +90,24 @@ Python: Getting Started**.
    python3 -m pip install kafka-python
    ```
 
+   :::warning
+   For SASL, copied snippets include the service user password in plaintext.
+   Store the code securely, and do not commit it to source control.
+   :::
+
 1. Under **Downloads**, download the certificate files for your authentication
    method:
 
    - For **SASL**, click **Download CA certificate**.
-   - For **Client certificate**, download the **CA certificate**, **service
-     certificate**, and **service access key**.
+   - For **Client certificate**, click **Download CA certificate**,
+     **Download service certificate**, and **Download service access key**.
 
-   The generated snippet loads the certificates directly, so you don't need to
+   The generated snippet loads the certificates directly. You don't need to
    create a truststore.
 
 1. Select the **Producer** or **Consumer** tab to view the generated producer or
    consumer code.
 1. Copy the code.
-
-   :::warning
-   For SASL, copied snippets include the service user password in plaintext.
-   Store the code securely, and do not commit it to source control.
-   :::
 
 After you add the code to your project, update the certificate file paths to
 match where you saved the files, then run your producer or consumer to start

@@ -89,9 +89,9 @@ If you already have a C++ project, copy the snippet from the **Producer** or
 1. Under **Downloads**, download the certificate files for your authentication
    method:
 
-   - For **SASL**, click **Download CA certificate**.
-   - For **Client certificate**, download the **CA certificate**, **service
-     certificate**, and **service access key**.
+   - For **SASL**, click **Download CA certificate (ca.pem)**.
+   - For **Client certificate**, download **CA certificate (ca.pem)**,
+     **service certificate (service.cert)**, and **service key (service.key)**.
 
    The generated snippet loads the certificates directly, so you don't need to
    create a truststore.
