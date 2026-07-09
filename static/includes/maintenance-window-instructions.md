@@ -1,3 +1,7 @@
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 To set the maintenance window for your service:
 
 <Tabs groupId="group1">

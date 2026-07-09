@@ -1460,9 +1460,44 @@ const sidebars: SidebarsConfig = {
                 'products/grafana/howto/rename-service',
                 'products/grafana/howto/tag-service',
                 'products/grafana/howto/fork-service',
+                'products/grafana/howto/change-cloud-region',
                 'products/grafana/reference/advanced-params',
                 'products/grafana/howto/send-emails',
                 'products/grafana/reference/plugins',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/scaling-performance',
+              },
+              items: [
+                'products/grafana/howto/change-service-plan',
+                'products/grafana/howto/prepare-for-high-load',
+                'products/grafana/concepts/service-memory',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/maintenance-lifecycle',
+              },
+              items: ['products/grafana/howto/maintenance-updates'],
+            },
+            {
+              type: 'category',
+              label: 'Backups and migration',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/backups-migration',
+              },
+              items: [
+                'products/grafana/howto/backup-to-another-region',
+                'products/grafana/howto/track-restore-progress',
               ],
             },
             {
@@ -1501,6 +1536,32 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/metrics/howto/power-cycle-service',
                 'products/metrics/howto/tag-service',
+                'products/metrics/howto/change-cloud-region',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              link: {
+                type: 'doc',
+                id: 'products/metrics/scaling-performance',
+              },
+              items: [
+                'products/metrics/howto/change-service-plan',
+                'products/metrics/howto/prepare-for-high-load',
+                'products/metrics/concepts/service-memory',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              link: {
+                type: 'doc',
+                id: 'products/metrics/maintenance-lifecycle',
+              },
+              items: [
+                'products/metrics/howto/maintenance-updates',
+                'products/metrics/howto/track-restore-progress',
               ],
             },
           ],
@@ -1565,6 +1626,7 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/howto/rename-service',
                 'products/mysql/howto/tag-service',
                 'products/mysql/howto/fork-service',
+                'products/mysql/howto/change-cloud-region',
                 'products/mysql/howto/manage-service-users',
                 'products/mysql/reference/advanced-params',
               ],
@@ -1577,11 +1639,14 @@ const sidebars: SidebarsConfig = {
                 id: 'products/mysql/scaling-performance',
               },
               items: [
+                'products/mysql/howto/change-service-plan',
+                'products/mysql/howto/scale-disk-storage',
                 'products/mysql/concepts/mysql-memory-usage',
                 'products/mysql/concepts/mysql-tuning-and-concurrency',
                 'products/mysql/howto/identify-disk-usage-issues',
                 'products/mysql/howto/prevent-disk-full',
                 'products/mysql/howto/reclaim-disk-space',
+                'products/mysql/howto/prepare-for-high-load',
               ],
             },
             {
@@ -1591,7 +1656,10 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
                 id: 'products/mysql/maintenance-lifecycle',
               },
-              items: ['products/mysql/howto/manage-mysql-version'],
+              items: [
+                'products/mysql/howto/manage-mysql-version',
+                'products/mysql/howto/maintenance-updates',
+              ],
             },
             {
               type: 'category',
@@ -1617,6 +1685,8 @@ const sidebars: SidebarsConfig = {
                     'products/mysql/concepts/mysql-backups',
                     'products/mysql/howto/use-incremental-backups',
                     'products/mysql/howto/migrate-database-mysqldump',
+                    'products/mysql/howto/backup-to-another-region',
+                    'products/mysql/howto/track-restore-progress',
                   ],
                 },
                 {
@@ -1725,6 +1795,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/rename-service',
                 'products/opensearch/howto/tag-service',
                 'products/opensearch/howto/fork-service',
+                'products/opensearch/howto/change-cloud-region',
                 'products/opensearch/reference/advanced-params',
                 'products/opensearch/concepts/dedicated-node-roles',
                 'products/opensearch/concepts/high-availability-for-opensearch',
@@ -1735,18 +1806,37 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Scaling and performance',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/scaling-performance',
+              },
+              items: [
+                'products/opensearch/howto/change-service-plan',
+                'products/opensearch/howto/scale-disk-storage',
+                'products/opensearch/howto/prepare-for-high-load',
+                'products/opensearch/concepts/service-memory',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Maintenance and lifecycle',
               link: {
                 type: 'doc',
                 id: 'products/opensearch/maintenance-lifecycle',
               },
-              items: ['products/opensearch/howto/os-version-upgrade'],
+              items: [
+                'products/opensearch/howto/os-version-upgrade',
+                'products/opensearch/howto/maintenance-updates',
+              ],
             },
             {
               type: 'category',
               label: 'Backups and migration',
               items: [
                 'products/opensearch/howto/restore_opensearch_backup',
+                'products/opensearch/howto/backup-to-another-region',
+                'products/opensearch/howto/track-restore-progress',
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aiven',
                 'products/opensearch/howto/import-opensearch-data-elasticsearch-dump-to-aws',
                 {
@@ -1924,6 +2014,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/rename-service',
                 'products/postgresql/howto/tag-service',
                 'products/postgresql/howto/fork-service',
+                'products/postgresql/howto/migrate-cloud-region',
                 'products/postgresql/howto/manage-service-users',
                 'products/postgresql/reference/advanced-params',
               ],
@@ -1951,10 +2042,13 @@ const sidebars: SidebarsConfig = {
                 id: 'products/postgresql/scaling-performance',
               },
               items: [
+                'products/postgresql/howto/change-service-plan',
+                'products/postgresql/howto/scale-disk-storage',
                 'products/postgresql/concepts/pg-shared-buffers',
                 'products/postgresql/concepts/pg-disk-usage',
                 'products/postgresql/howto/pg-object-size',
                 'products/postgresql/howto/prevent-full-disk',
+                'products/postgresql/howto/prepare-for-high-load',
               ],
             },
             {
@@ -1964,7 +2058,10 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
                 id: 'products/postgresql/maintenance-lifecycle',
               },
-              items: ['products/postgresql/howto/upgrade'],
+              items: [
+                'products/postgresql/howto/upgrade',
+                'products/postgresql/howto/maintenance-updates',
+              ],
             },
             {
               type: 'category',
@@ -2024,6 +2121,8 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/concepts/pg-backups',
                 'products/postgresql/howto/create-manual-backups',
                 'products/postgresql/howto/restore-backup',
+                'products/postgresql/howto/backup-to-another-region',
+                'products/postgresql/howto/track-restore-progress',
                 {
                   type: 'category',
                   label: 'Migrate',
@@ -2035,7 +2134,6 @@ const sidebars: SidebarsConfig = {
 
                     'products/postgresql/howto/migrate-pg-dump-restore',
                     'products/postgresql/howto/migrate-using-bucardo',
-                    'products/postgresql/howto/migrate-cloud-region',
                   ],
                 },
               ],
@@ -2173,6 +2271,7 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/howto/rename-service',
                 'products/valkey/howto/tag-service',
                 'products/valkey/howto/fork-service',
+                'products/valkey/howto/change-cloud-region',
                 'products/valkey/howto/manage-service-users',
                 'products/valkey/reference/advanced-params',
                 'products/valkey/reference/restricted-commands',
@@ -2186,8 +2285,11 @@ const sidebars: SidebarsConfig = {
                 id: 'products/valkey/scaling-performance',
               },
               items: [
+                'products/valkey/howto/change-service-plan',
+                'products/valkey/howto/scale-disk-storage',
                 'products/valkey/concepts/memory-usage',
                 'products/valkey/troubleshooting/warning-overcommit_memory',
+                'products/valkey/howto/prepare-for-high-load',
               ],
             },
             {
@@ -2197,7 +2299,10 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
                 id: 'products/valkey/maintenance-lifecycle',
               },
-              items: ['products/valkey/howto/valkey-version-upgrade'],
+              items: [
+                'products/valkey/howto/valkey-version-upgrade',
+                'products/valkey/howto/maintenance-updates',
+              ],
             },
             {
               type: 'category',
@@ -2218,6 +2323,8 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/valkey/howto/configure-backups',
+                'products/valkey/howto/backup-to-another-region',
+                'products/valkey/howto/track-restore-progress',
                 'products/valkey/howto/migrate-redis-aiven-cli',
                 'products/valkey/howto/migrate-redis-aiven-via-console',
                 'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
