@@ -15,8 +15,9 @@ Data API is a <LimitedBadge/> feature.
 To request access, [contact Aiven](https://aiven.io/contact).
 :::
 
-Data API appears in your service's left sidebar in the Aiven Console, next to
-**PG Studio**. It auto-generates an API directly from your database schema, powered by
+To access Data API, open your Aiven for PostgreSQL® service in the
+[Aiven Console](https://console.aiven.io) and click **Connect** > **Data API**. It
+auto-generates an API directly from your database schema, powered by
 [PostgREST](https://postgrest.org).
 
 ## What Data API offers

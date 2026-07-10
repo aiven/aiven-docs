@@ -1,13 +1,13 @@
 ---
 title: Call the Aiven for PostgreSQL® Data API endpoints
 sidebar_label: Use endpoints
-description: View REST endpoints, copy code snippets, and call your data over HTTPS.
+description: Find your API URL and call your database over HTTPS with bearer token authentication.
 limited: true
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
-After you enable Data API for a database, you can browse the available endpoints and call them over HTTPS.
+After you enable Data API for a database, you can find your API URL and call your endpoints over HTTPS.
 
 :::note
 Data API is a <LimitedBadge/> feature.
@@ -17,38 +17,12 @@ Data API is a <LimitedBadge/> feature.
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL®
    service.
-1. Click **Data** > **Data API**.
+1. Click **Connect** > **Data API**.
 1. Select the database with Data API enabled.
 
 The **Data API** page shows the **API URL** for the database. All endpoints are relative to
 the API URL. For example, a `products` table is available at the `/products` path under the
 API URL.
-
-## View available endpoints
-
-The Aiven Console lists the available endpoints. Each row shows the table name, the
-endpoint path, and the available methods. Each table provides endpoints for
-the following methods:
-
-- `GET`: Read rows.
-- `POST`: Insert rows.
-- `PATCH`: Update rows.
-- `DELETE`: Delete rows.
-
-The methods that succeed for a request depend on the privileges of the role in the token.
-For details, see
-[Authorize requests with PostgreSQL roles](/docs/products/postgresql/howto/data-api/authentication#authorize-requests-with-postgresql-roles).
-
-## Copy a code snippet
-
-Select a table to expand its code snippets:
-
-1. Select the table to see its snippets.
-1. Select the method to call.
-1. Select the language: **curl**, **JavaScript**, or **Python**.
-1. Click **Copy to clipboard**.
-1. In the snippet, replace the placeholder token with a
-   [JWT issued by your IdP](/docs/products/postgresql/howto/data-api/authentication).
 
 ## Call an endpoint
 

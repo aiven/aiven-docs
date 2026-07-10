@@ -14,7 +14,7 @@ Data API is a <LimitedBadge/> feature.
 :::
 
 To manage Data API, open your Aiven for PostgreSQL® service in the
-[Aiven Console](https://console.aiven.io/login) and click **Data** > **Data API**.
+[Aiven Console](https://console.aiven.io/login) and click **Connect** > **Data API**.
 
 ## Check the status
 
@@ -63,11 +63,6 @@ Data API doesn't change the data in your database.
 
 Data API must be available for your service's plan and cloud. If it isn't, the Aiven Console
 shows **The data API is not available for your service**.
-
-### You don't have permission to enable Data API
-
-Enabling Data API requires the `project:services:write` permission. If you don't have it,
-ask a user who has it to enable Data API for you.
 
 ### The service is still being provisioned
 
