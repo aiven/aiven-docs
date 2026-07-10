@@ -1,7 +1,7 @@
 ---
 title: Create a custom cloud
 sidebar_label: Create custom clouds
-keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, byoc, bring your own cloud, custom cloud]
+keywords: [AWS, Amazon Web Services, GCP, Google Cloud Platform, OCI, Oracle Cloud Infrastructure, Azure, Microsoft Azure, byoc, bring your own cloud, custom cloud]
 ---
 
 import DocCardList from '@theme/DocCardList';
@@ -11,6 +11,13 @@ import GridContainer from "@site/src/components/GridContainer";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 To create custom clouds in Aiven using self-service, select your cloud provider to integrate with.
+
+:::note
+BYOC for Oracle Cloud Infrastructure (OCI) and Microsoft Azure is in
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+and not available as self-service. To use BYOC with OCI or Azure, contact
+[Aiven](https://aiven.io/contact).
+:::
 
 <GridContainer columns={2}>
      <Card

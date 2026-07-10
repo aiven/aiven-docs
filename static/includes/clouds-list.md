@@ -853,10 +853,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 ## Oracle Cloud Infrastructure <LimitedBadge/>
 
-:::important
-Oracle Cloud Infrastructure (OCI) is supported on the Aiven Platform as a
-[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-For more information or access, contact your account team.
+:::note
+Oracle Cloud Infrastructure (OCI) is supported on the Aiven Platform in
+[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
+for [BYOC](/docs/platform/concepts/byoc) only. For more information or access,
+contact your account team.
 :::
 
 <table>
@@ -963,7 +964,7 @@ For more information or access, contact your account team.
 
 ## Exoscale <LimitedBadge/>
 
-:::important
+:::note
 Exoscale is supported on the Aiven Platform as a
 [limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
 for Aiven for PostgreSQL® only. For more information or access, contact your account team.
