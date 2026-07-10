@@ -1,167 +1,114 @@
 ---
 title: Connect to Aiven for Apache Kafka® with Python
 sidebar_label: Connect with Python
+keywords: [kafka, python, quick connect, producer, consumer, mtls, sasl]
 ---
 
-These examples show how to connect to an Aiven for Apache Kafka® service using the `kafka-python` library, as either a producer or consumer.
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-:::note
-These examples provide different options for the different
-authentication methods. For more information on the supported methods,
-see [our article on Kafka authentication
-types](/docs/products/kafka/concepts/auth-types).
-:::
+Use **Quick connect** to set up a Python client for Aiven for Apache Kafka®.
+The guided flow helps you select or create a topic, choose an authentication method,
+grant permissions, and copy generated producer and consumer code.
 
 ## Prerequisites
 
-Install the Python `kafka-python`\_ library:
+- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
+- A Python development environment.
+- The [`kafka-python`](https://pypi.org/project/kafka-python/) library.
 
-```bash
-pip install kafka-python
-```
+## Open Quick connect
 
-Go to the **Overview** page of your Aiven for Apache Kafka service.
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache
+   Kafka service.
+1. On the service <ConsoleLabel name="overview"/> page, in the **Set up your
+   stream** section, click **Quick connect**.
+1. At the top of the page, select **Python** from the language selector.
 
--   If you are going to connect with SSL authentication:
-    -   In the **Connection information** section:
-        1.  If **Authentication Method** is shown, choose **Client
-            Certificate**
-        2.  Next to **Access Key**, click **Download** and save the
-            `service.key` file.
-        3.  Next to **Access Certificate**, click **Download** and save
-            the `service.cert` file.
-        4.  Next to **CA Certificate**, click **Download** and save the
-            `ca.pem` file.
--   If you are going to connect using SASL authentication:
-    1.  See [Use SASL Authentication with Apache
-        Kafka®](/docs/products/kafka/howto/kafka-sasl-auth)
-        to enable SASL.
-    2.  In the **Connection Information** section
-        1.  Select **SASL** as the **Authentication Method**
-        2.  Next to **CA Certificate**, click **Download** and save the
-            `ca.pem` file
+## Step 1: Set up a topic
 
-Note that the *CA Certificate* `ca.pem` file has the same contents by
-either route.
+Topics organize and store the events that you stream to Apache Kafka.
 
-:::warning
-In the below examples, we just pass the name of the certificate files,
-but in actual use, the full path should be used.
+1. In **Topic name**, do one of the following:
+   - Select an existing topic.
+   - Click **Create new topic**, enter a name, and create the topic. The new
+     topic is selected automatically for the next steps.
+
+   :::note
+   If your service has **Diskless topics** enabled, you can create a **Classic**
+   or **Diskless** topic, or select an existing topic of either type. You can't
+   change the topic type after creation. For more information, see
+   [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic).
+   :::
+
+## Step 2: Set up an authentication method
+
+1. Select an authentication method:
+   - **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for simple
+     username and password authentication.
+
+     If SASL is not enabled on your service, an option to enable SASL appears
+     under the **SASL** authentication method. Click **Enable SASL**, then
+     continue.
+   - **Client certificate**: Use certificate-based authentication with mTLS
+     instead of a password.
+
+1. Select a service user:
+   - Select an existing service user from the list.
+   - To create one, click **Create new service user**, enter a username, and
+     click **Add service user**.
+1. Check the permission status shown for the selected user:
+   - If the user has all the required permissions, the granted permissions are
+     shown (for example, `read, write`). To change them, click **Manage
+     access in ACLs**.
+   - If the user has some or no permissions, click **Grant permissions**. Select
+     **Produce**, **Consume**, or both, and click **Save**.
+
+   :::note
+   The `avnadmin` user has permissions by default.
+
+   For other service users, you can add permissions from Quick connect. To
+   change or remove permissions, click **Manage access in ACLs**. For more
+   information, see
+   [Manage Apache Kafka® ACLs](/docs/products/kafka/howto/manage-acls#delete-acl-entries).
+   :::
+
+## Step 3: Copy the code snippets
+
+:::tip
+**Download template** is an optional shortcut for testing the connection without
+a local Python environment. The ZIP file includes ready-to-run producer and
+consumer code, certificates, and dependencies. To run it, follow the included
+`README.md`. If you already have a Python project, copy the snippet from the
+**Producer** or **Consumer** tab. For more Python examples, under **Useful
+resources**, open **Kafka + Python: Getting Started**.
 :::
 
-You can also use the [Aiven command line
-tool](/docs/tools/cli) to download the files.
-See the documentation for [avn service
-user-creds-download](/docs/tools/cli/service/user#avn_service_user_creds_download)
+1. Under **Prerequisites**, install the
+   [`kafka-python`](https://pypi.org/project/kafka-python/) library:
 
-## Variables
+   ```bash
+   python3 -m pip install kafka-python
+   ```
 
-These are the placeholders you will need to replace in the code samples.
-The values are from the `Connection information` on the service overview
-page.
+   :::warning
+   For SASL, copied snippets include the service user password in plaintext.
+   Store the code securely, and do not commit it to source control.
+   :::
 
-If you are using SSL (remember to choose **Client Certificate** if
-**Authentication Method** is shown):
+1. Under **Downloads**, download the certificate files for your authentication
+   method:
 
-| Variable   | Description                  |
-| ---------- | ---------------------------- |
-| `HOST`     | Host name for the connection |
-| `SSL_PORT` | Port number to use           |
+   - For **SASL**, click **Download CA certificate**.
+   - For **Client certificate**, click **Download CA certificate**,
+     **Download service certificate**, and **Download service access key**.
 
-If you are using SASL (**Authentication Method** should be **SASL**):
+   The generated snippet loads the certificates directly. You don't need to
+   create a truststore.
 
-| Variable        | Description                  |
-| --------------- | ---------------------------- |
-| `HOST`          | Host name for the connection |
-| `SASL_PORT`     | Port number to use           |
-| `SASL_USERNAME` | User to connect with         |
-| `SASL_PASSWORD` | Password for this user       |
+1. Select the **Producer** or **Consumer** tab to view the generated producer or
+   consumer code.
+1. Copy the code.
 
-For consumers you will also need:
-
-|   Variable   |                                                                                                                                     Description                                                                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `TOPIC_NAME` | The name of the topic to read from                                                                                                                                                                                                                                                   |
-| `START_FROM` | The value to use for the `auto_offset_reset` parameter. Indicates the message to start consuming from. Allowed values are: <ul><li>`latest` (default): Consume from the end of the topic partition.</li><li>`earliest`: Consume from the beginning of the topic partition.</li></ul> |
-
-For more information on `auto_offset_reset`, see the Kafka documentation
-on
-[auto.offset.reset](https://kafka.apache.org/42/configuration/consumer-configs/#consumerconfigs_auto.offset.reset)
-and [Consumer
-Position](https://kafka.apache.org/42/design/design/#consumer-position).
-
-## Connect a producer
-
-### With SSL authentication
-
-```python
-from kafka import KafkaProducer
-
-producer = KafkaProducer(
-    bootstrap_servers=f"{HOST}:{SSL_PORT}",
-    security_protocol="SSL",
-    ssl_cafile="ca.pem",
-    ssl_certfile="service.cert",
-    ssl_keyfile="service.key",
-)
-```
-
-### With SASL authentication
-
-```python
-from kafka import KafkaProducer
-
-# Choose an appropriate SASL mechanism, for instance:
-SASL_MECHANISM = 'SCRAM-SHA-256'
-
-producer = KafkaProducer(
-   bootstrap_servers=f"{HOST}:{SASL_PORT}",
-   sasl_mechanism = SASL_MECHANISM,
-   sasl_plain_username = SASL_USERNAME,
-   sasl_plain_password = SASL_PASSWORD,
-   security_protocol="SASL_SSL",
-   ssl_cafile="ca.pem",
-)
-```
-
-## Connect a consumer
-
-### With SSL authentication
-
-```python
-from kafka import KafkaConsumer
-
-consumer = KafkaConsumer(
-    "TOPIC_NAME",
-    auto_offset_reset="START_FROM",
-    bootstrap_servers=f"{HOST}:{SSL_PORT}",
-    client_id = CONSUMER_CLIENT_ID,
-    group_id = CONSUMER_GROUP_ID,
-    security_protocol="SSL",
-    ssl_cafile="ca.pem",
-    ssl_certfile="service.cert",
-    ssl_keyfile="service.key",
-)
-```
-
-### With SASL authentication
-
-```python
-from kafka import KafkaConsumer
-
-# Choose an appropriate SASL mechanism, for instance:
-SASL_MECHANISM = 'SCRAM-SHA-256'
-
-consumer = KafkaConsumer(
-    "TOPIC_NAME",
-    auto_offset_reset = "START_FROM",
-    bootstrap_servers = f'{HOST}:{SASL_PORT}',
-    client_id = CONSUMER_CLIENT_ID,
-    group_id = CONSUMER_GROUP_ID,
-    sasl_mechanism = SASL_MECHANISM,
-    sasl_plain_username = SASL_USERNAME,
-    sasl_plain_password = SASL_PASSWORD,
-    security_protocol = "SASL_SSL",
-    ssl_cafile = "ca.pem"
-)
-```
+After you add the code to your project, update the certificate file paths to
+match where you saved the files, then run your producer or consumer to start
+streaming events.

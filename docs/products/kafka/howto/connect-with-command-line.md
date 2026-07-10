@@ -1,111 +1,123 @@
 ---
-title: Connect to Aiven for Apache Kafka® with command line tools
+title: Connect to Aiven for Apache Kafka® with command-line tools
 sidebar_label: Connect with CLI
+keywords: [kafka, cli, command line, quick connect, producer, consumer, mtls, sasl]
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Learn how to send and receive messages from an Aiven for Apache Kafka® service using command-line tools.
+Use **Quick connect** to set up Apache Kafka® command-line tools for Aiven for
+Apache Kafka®. The guided flow helps you select or create a topic, choose an
+authentication method, grant permissions, and copy generated producer and
+consumer commands.
 
 ## Prerequisites
 
-The `kafka-console-producer.sh` and `kafka-console-consumer.sh` scripts are included
-in the [open-source Apache Kafka® distribution](https://kafka.apache.org/downloads),
-located in the `bin` directory.
+- A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
+- Python 3.7 or later and the `pip` package manager to install the
+  [Aiven CLI](https://github.com/aiven/aiven-client).
+- The Apache Kafka command-line tools. The `kafka-console-producer.sh` and
+  `kafka-console-consumer.sh` scripts are included in the
+  [Apache Kafka® binary downloads](https://kafka.apache.org/downloads) in the
+  `bin` directory.
 
-For `kafka-avro-console-producer`, follow the installation steps in
-[its GitHub repository](https://github.com/confluentinc/schema-registry) or
-download the Confluent platform via the **Tar archive** option in
-the [Quick Start for Confluent Platform](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart).
-The  `kafka-avro-console-producer` tool is also located in the bin directory of
-the Confluent archive.
+## Open Quick connect
 
-:::note
-The Confluent platform is not required to use the `kafka-avro-console-producer` tool
-with an Aiven for Apache Kafka service running [Karapace](/docs/products/kafka/karapace/howto/enable-karapace).
-:::
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache
+   Kafka service.
+1. On the service <ConsoleLabel name="overview"/> page, in the **Set up your
+   stream** section, click **Quick connect**.
+1. At the top of the page, select **CLI** in the language selector.
 
-To configure all three tools, see the
-[Apache Kafka toolbox properties](/docs/products/kafka/howto/kafka-tools-config-file).
+## Step 1: Set up a topic
 
-## Variables
+Topics organize and store the events that you stream to Apache Kafka.
 
- | Variable               | Description                                                                                                                              |
- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
- | `HOST`                 | Host name for the connection                                                                                                             |
- | `PORT`                 | Port number to use for the Kafka service                                                                                                 |
- | `CONFIGURATION_PATH`   | Path to your configuration file [for Apache Kafka toolbox](/docs/products/kafka/howto/kafka-tools-config-file) |
- | `SCHEMA_REGISTRY_HOST` | Host name for your schema registry                                                                                                       |
- | `SCHEMA_REGISTRY_PORT` | Port number for your schema registry                                                                                                     |
- | `SCHEMA_REGISTRY_USER` | User name for your schema registry                                                                                                       |
- | `SCHEMA_REGISTRY_PWD`  | Password for your schema registry                                                                                                        |
- | `TARGET_TOPIC`         | The name of the Kafka topic to be written to/read from                                                                                   |
+1. In **Topic name**, do one of the following:
+   - Select an existing topic.
+   - Click **Create new topic**, enter a name, and create the topic. The new
+     topic is selected automatically for the next steps.
 
-In the command lines below, values in `{` and `}` are to be replaced -
-so `{PORT}` would be replaced by the appropriate port number, for
-instance `12345`.
+   :::note
+   If your service has **Diskless topics** enabled, you can create a **Classic**
+   or **Diskless** topic, or select an existing topic of either type. You can't
+   change the topic type after creation. For more information, see
+   [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic).
+   :::
 
-## Produce messages
+## Step 2: Set up an authentication method
 
-Use `kafka-console-producer` to send multiple messages to your topic.
+1. Select an authentication method:
+   - **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for simple
+     username and password authentication.
 
-```bash
-kafka-console-producer.sh --broker-list {HOST}:{PORT} \
-  --topic {TARGET_TOPIC} \
-  --producer.config {CONFIGURATION_PATH}
-```
+     If SASL is not enabled on your service, an option to enable SASL appears
+     under the **SASL** authentication method. Click **Enable SASL**, then
+     continue.
+   - **Client certificate**: Use certificate-based authentication with mTLS
+     instead of a password.
 
-Once the connection is established, you can send messages one after another by typing
-them in the terminal. For example:
+1. Select a service user:
+   - Select an existing service user from the list.
+   - To create one, click **Create new service user**, enter a username, and
+     click **Add service user**.
+1. Check the permission status shown for the selected user:
+   - If the user has all the required permissions, the granted permissions are
+     shown (for example, `read, write`). To change them, click **Manage
+     access in ACLs**.
+   - If the user has some or no permissions, click **Grant permissions**. Select
+     **Produce**, **Consume**, or both, and click **Save**.
+     Permissions the user already has are selected and cannot be removed in
+     Quick connect. To remove them, click **Manage access in ACLs**.
 
-```plaintext
-message1
-message2
-```
+   :::note
+   The `avnadmin` user has permissions by default, and you cannot change them
+   from Quick connect.
 
-## Produce messages with a schema
+   For other service users, you can add permissions from Quick connect, but you
+   cannot remove them from Quick connect. To remove permissions,
+   [remove ACL entries for the service user](/docs/products/kafka/howto/manage-acls#delete-acl-entries).
+   :::
 
-Use `kafka-avro-console-producer` to produce messages with a schema by connecting
-to your schema registry.
+## Step 3: Copy the command snippets
 
-:::note
+1. Select the **Prerequisites** tab, install the Aiven CLI, and sign in to your
+   Aiven account using the generated commands.
+1. Download and extract the Apache Kafka command-line tools, then open the `bin`
+   directory.
 
-- The `schema.registry.url` must be a complete URL, typically starting with `https://`.
-- Aiven's [Karapace](https://karapace.io/) is a compatible schema registry. To enable
-  it for your Aiven for Apache Kafka® service, see
-  [Enable Karapace with Aiven for Apache Kafka®](/docs/products/kafka/karapace/howto/enable-karapace).
-  The `SCHEMA_REGISTRY_` values are available on the **Schema Registry** tab of the
-  service's <ConsoleIcon name="overview"/> page.
-:::
+   To run Kafka commands from any directory, add the absolute path of the `bin`
+   directory to your `PATH`.
+1. Run the generated Aiven CLI command from your Kafka `bin` directory to
+   download the service credentials.
 
-```bash
-kafka-avro-console-producer --broker-list {HOST}:{PORT} \
-  --producer.config {CONFIGURATION_PATH} \
-  --topic {TARGET_TOPIC} \
-  --property value.schema='{"type":"record","name":"Test","fields":[{"name":"id","type":"string"}]}' \
-  --property schema.registry.url={SCHEMA_REGISTRY_HOST}:{SCHEMA_REGISTRY_PORT} \
-  --property basic.auth.credentials.source=USER_INFO \
-  --property basic.auth.user.info={SCHEMA_REGISTRY_USER}:{SCHEMA_REGISTRY_PASSWORD}
-```
+   The command downloads the certificates to your Kafka `bin` directory. For
+   SASL, the keystore file isn't required. For **Client certificate**, both the
+   keystore and truststore files are needed. When you reference the truststore
+   in `configuration.properties`, use its absolute path.
+1. Create a `configuration.properties` file in your home directory and copy the
+   generated configuration into it.
 
-Once connected, you can send messages using the specified schema. For example:
+   If you move the certificate files or run Kafka commands from another
+   directory, use absolute paths in `configuration.properties`.
 
-```json
-{"id": "1"}
-```
+   For a description of the configuration properties, see
+   [Apache Kafka toolbox properties](/docs/products/kafka/howto/kafka-tools-config-file).
 
-For more information on how to use `kafka-avro-console-producer`, see the
-[Confluent developer documentation](https://developer.confluent.io/tutorials/kafka-console-consumer-producer-avro/kafka.html).
+   :::warning
+   For SASL, the configuration includes the service user password in plaintext.
+   Store the file securely and do not commit it to source control.
+   :::
 
-## Consume messages
+1. Select the **Producer** tab, copy the generated
+   `kafka-console-producer.sh` command, and run it from your Kafka `bin`
+   directory.
 
-Use `kafka-console-consumer` to read messages from your topic. To read from the
-beginning of the topic, run:
+   Type messages in the terminal and press Enter to send them to the topic.
 
-```bash
-kafka-console-consumer.sh --bootstrap-server {HOST}:{PORT} \
-  --topic {TARGET_TOPIC}  \
-  --consumer.config {CONFIGURATION_PATH} \
-  --from-beginning
-```
+1. Select the **Consumer** tab, copy the generated
+   `kafka-console-consumer.sh` command, and run it from your Kafka `bin`
+   directory to read messages from the topic.
+
+After you start the producer and consumer, use the producer terminal to send
+messages and the consumer terminal to read them.

@@ -209,7 +209,8 @@
 /products/kafka/diskless/concepts/diskless-overview        /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
 /products/kafka/getting-started.html                       /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301
-/products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java-classic-quick-connect  301
+/products/kafka/howto/connect-with-java                    /docs/products/kafka/howto/connect-with-java  301
+/docs/products/kafka/howto/connect-with-java-quick-connect /docs/products/kafka/howto/connect-with-java  301
 /products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry  301
 /products/kafka/howto/fake-sample-data                     /docs/products/kafka/howto/generate-sample-data-manually  301
 /products/kafka/howto/list-admin                           /docs/products/kafka/howto/enable-karapace  301

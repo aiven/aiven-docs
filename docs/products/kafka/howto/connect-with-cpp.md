@@ -1,20 +1,21 @@
 ---
-title: Connect to Aiven for Apache Kafka® with Node.js
-sidebar_label: Connect with Node.js
-keywords: [kafka, nodejs, node, quick connect, producer, consumer, mtls, sasl]
+title: Connect to Aiven for Apache Kafka® with C++
+sidebar_label: Connect with C++
+keywords: [kafka, cpp, c++, quick connect, producer, consumer, mtls, sasl, librdkafka]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Use **Quick connect** to set up a Node.js client for Aiven for Apache Kafka®.
-The guided flow helps you select or create a topic, choose an authentication method,
-grant permissions, and copy the generated producer and consumer code.
+Use **Quick connect** to set up a C++ client for Aiven for Apache Kafka®.
+The guided flow helps you choose or create a topic, choose an authentication method,
+grant permissions, and copy generated producer and consumer code.
 
 ## Prerequisites
 
 - A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
-- A Node.js development environment.
-- The [`node-rdkafka`](https://www.npmjs.com/package/node-rdkafka) library.
+- A C++ development environment.
+- The [`librdkafka`](https://github.com/confluentinc/librdkafka) and
+  `librdkafka-devel` packages.
 
 ## Open Quick connect
 
@@ -22,27 +23,27 @@ grant permissions, and copy the generated producer and consumer code.
    Kafka service.
 1. On the service <ConsoleLabel name="overview"/> page, in the **Set up your
    stream** section, click **Quick connect**.
-1. At the top of the page, select **Node.js** from the language selector.
+1. At the top of the page, click **C++** in the language selector.
 
 ## Step 1: Set up a topic
 
 Topics organize and store the events that you stream to Apache Kafka.
 
 1. In **Topic name**, do one of the following:
-   - Select an existing topic.
+   - Choose an existing topic.
    - Click **Create new topic**, enter a name, and create the topic. The new
      topic is selected automatically for the next steps.
 
    :::note
    If your service has **Diskless topics** enabled, you can create a **Classic**
-   or **Diskless** topic, or select an existing topic of either type. You can't
+   or **Diskless** topic, or choose an existing topic of either type. You can't
    change the topic type after creation. For more information, see
    [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic).
    :::
 
 ## Step 2: Set up an authentication method
 
-1. Select an authentication method:
+1. Choose an authentication method:
    - **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for simple
      username and password authentication.
 
@@ -52,15 +53,15 @@ Topics organize and store the events that you stream to Apache Kafka.
    - **Client certificate**: Use certificate-based authentication with mTLS
      instead of a password.
 
-1. Select a service user:
-   - Select an existing service user from the list.
+1. Choose a service user:
+   - Choose an existing service user from the list.
    - To create one, click **Create new service user**, enter a username, and
      click **Add service user**.
 1. Check the permission status shown for the selected user:
    - If the user has all the required permissions, the granted permissions are
      shown (for example, `read, write`). To change them, click **Manage
      access in ACLs**.
-   - If the user has some or no permissions, click **Grant permissions**. Select
+   - If the user has some or no permissions, click **Grant permissions**. Choose
      **Produce**, **Consume**, or both, and click **Save**.
 
    :::note
@@ -76,38 +77,41 @@ Topics organize and store the events that you stream to Apache Kafka.
 
 :::tip
 **Download template** is an optional shortcut for testing the connection without
-a local Node.js environment. The ZIP file includes ready-to-run producer and
-consumer code, certificates, and dependencies. To run it, follow the included
-`README.md`. If you already have a Node.js project, copy the snippet from the
-**Producer** or **Consumer** tab.
+a local C++ project. The ZIP file includes ready-to-run producer and consumer
+code, certificates, and dependencies. To run it, follow the included `README.md`.
+If you already have a C++ project, copy the snippet from the **Producer** or
+**Consumer** tab.
 :::
 
-1. Install the [`node-rdkafka`](https://www.npmjs.com/package/node-rdkafka)
-   library:
+1. Under **Prerequisites**, install `librdkafka` and `librdkafka-devel`.
 
-   ```bash
-   npm install node-rdkafka
-   ```
-
+   For installation instructions, open **librdkafka on GitHub**.
 1. Under **Downloads**, download the certificate files for your authentication
    method:
 
-   - For **SASL**, click **Download CA certificate**.
-   - For **Client certificate**, click **Download CA certificate**,
-     **Download service certificate**, and **Download service access key**.
+   - For **SASL**, click **Download CA certificate (ca.pem)**.
+   - For **Client certificate**, download **CA certificate (ca.pem)**,
+     **service certificate (service.cert)**, and **service key (service.key)**.
 
-   For **Client certificate**, the generated snippet loads the certificates
-   directly. You don't need to create a truststore.
+   The generated snippet loads the certificates directly, so you don't need to
+   create a truststore.
 
-1. Select the **Producer** or **Consumer** tab to view the generated producer or
+1. Click the **Producer** or **Consumer** tab to view the generated producer or
    consumer code.
-1. Copy the code.
+1. Copy the generated code into `producer.cpp` or `consumer.cpp`.
+1. Compile and run the producer or consumer using the generated command:
 
-   :::note
-   For SASL, the snippet includes your service user's password. The console masks
-   it by default; click the reveal icon to view it. The copied code contains the
-   password in plaintext, so store it securely and don't commit it to source
-   control.
+   ```bash
+   gcc -o producer.o -Wall -lrdkafka producer.cpp && ./producer.o
+   ```
+
+   ```bash
+   gcc -o consumer.o -Wall -lrdkafka consumer.cpp && ./consumer.o
+   ```
+
+   :::warning
+   For SASL, copied snippets include the service user password in plaintext.
+   Store the code securely, and do not commit it to source control.
    :::
 
 After you add the code to your project, update the certificate file paths to
