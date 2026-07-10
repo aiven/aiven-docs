@@ -43,8 +43,9 @@ exact URL, see your IdP's documentation.
 
 :::note
 Data API checks that the JWKS URL uses HTTPS, but doesn't verify that it's reachable when
-you save it. Make sure the URL is correct and publicly reachable, or token verification
-fails.
+you save it. An incorrect or unreachable URL causes all requests to fail at runtime. The
+console status doesn't surface this error, so make sure the URL is correct and publicly
+reachable before saving.
 :::
 
 Because Data API reads the keys from the JWKS URL, key rotation is automatic. When your IdP
@@ -86,7 +87,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO api_worke
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO api_worker;
 
 -- Link the role to the PostgREST authenticator
-GRANT api_worker TO authenticator;
+GRANT api_worker TO postgrest_authenticator;
 ```
 
 Adjust the granted privileges to match what each role should be able to do. A role with
