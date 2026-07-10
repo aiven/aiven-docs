@@ -7,7 +7,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 After your service is running, connect to it using your preferred tools and clients.
 
-Check more tools for connecting to Aiven for Valkey™ in [Connect to Aiven for Valkey™](/docs/products/valkey/howto/connect-services).
+Browse all supported tools for connecting to Aiven for Valkey™ in [Connect to Aiven for Valkey™](/docs/products/valkey/howto/connect-services).
 
 <RelatedPages/>
 
