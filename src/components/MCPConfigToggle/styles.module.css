@@ -114,3 +114,22 @@
   line-height: 1.4;
   color: var(--ifm-color-content-secondary, var(--ifm-color-content));
 }
+
+.writeExceptions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0 4px 22px;
+}
+
+.writeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.writeGroupLabel {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--ifm-color-content-secondary, var(--ifm-color-content));
+}
