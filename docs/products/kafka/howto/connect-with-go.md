@@ -43,14 +43,14 @@ Topics organize and store the events that you stream to Apache Kafka.
 ## Step 2: Set up an authentication method
 
 1. Choose an authentication method:
-   - **SASL**: Recommended. Use SASL/SCRAM-SHA-512 for simple username and
+   - **SASL**: Recommended. Use SASL/SCRAM-SHA-512 for username and
      password authentication.
 
      Go code snippets use `SCRAM-SHA-512` for SASL authentication.
 
-     If SASL is not enabled on your service, an option to enable SASL appears
-     under the **SASL** authentication method. Click **Enable SASL**, then
-     continue.
+     SASL is enabled by default for new Aiven for Apache Kafka® services. For
+     existing services, check whether SASL is enabled. If **Enable SASL**
+     appears, click **Enable SASL**, then continue.
    - **Client certificate**: Use certificate-based authentication with mTLS
      instead of a password.
 
