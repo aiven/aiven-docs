@@ -7,6 +7,16 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 The [pgvector extension](/docs/products/postgresql/concepts/pgvector) allows you to perform the vector similarity search and use embedding techniques directly in Aiven for PostgreSQL.
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+configure `pgvector` for an AI agent memory store, retrieval-augmented
+generation (RAG) pipeline, or semantic search. For example:
+
+> Enable `pgvector` on `my-pg-service`, create a table to store
+> 1536-dimensional embeddings, and create an HNSW index for cosine similarity
+> search.
+:::
+
 ## Prerequisites
 
 -   Aiven account

@@ -6,6 +6,14 @@ sidebar_label: DBs  & table access control
 You can restrict access to Aiven for PostgreSQL® databases and tables by
 setting up read-only permissions for specific user's roles.
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+review PostgreSQL roles and configure read-only access. For example:
+
+> List the login-enabled roles and their grants on `my-pg-service`, and create
+> a read-only role for the `public` schema.
+:::
+
 ## Set read-only access in a schema
 
 1.  Modify default permissions for a user's role in a particular

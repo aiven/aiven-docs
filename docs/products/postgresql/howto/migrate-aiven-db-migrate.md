@@ -182,6 +182,14 @@ The overall `method` field is left empty due to the mixed methods used
 to migrate each database.
 :::
 
+:::tip
+After the migration finishes, use an AI assistant connected to
+[Aiven MCP](/docs/tools/mcp-server) to check the migrated data. For example:
+
+> Compare the tables and row counts in `source-pg-service` and
+> `destination-pg-service`.
+:::
+
 ### Stop the migration process using the Aiven CLI
 
 Once the migration is finished, you can stop the related process using

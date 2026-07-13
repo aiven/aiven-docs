@@ -24,6 +24,15 @@ Default values of the `max_connections` setting vary according to the service pl
 Aiven can utilize any number of the connections for managing the service.
 :::
 
+:::tip
+During a connection-exhaustion incident, use an AI assistant connected to
+[Aiven MCP](/docs/tools/mcp-server) to check current connection usage against
+the configured limit. For example:
+
+> Show the current connection count on `my-pg-service`, grouped by role and
+> state, and compare the total with `max_connections`.
+:::
+
 ## Increase or decrease `max_connections`
 
 To increase or decrease the number of allowed connection for your service, set the value

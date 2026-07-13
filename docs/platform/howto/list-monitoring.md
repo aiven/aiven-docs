@@ -11,6 +11,14 @@ Use metrics, logs, alerts, and dashboards to monitor the health of your services
 - Logs: Available for services and integrations.
 - Alerts: Receive emails and in-app [notifications](/docs/platform/howto/technical-emails).
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+retrieve service metrics and logs. For example:
+
+> Show CPU and memory usage for `my-service` during the past hour, and review
+> the logs for errors during the same period.
+:::
+
 ## View service metrics
 
 The service metrics available in [Aiven

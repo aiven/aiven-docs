@@ -20,6 +20,14 @@ To install an extension, run:
 CREATE EXTENSION EXTENSION_NAME CASCADE;
 ```
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+check and install PostgreSQL extensions. For example:
+
+> Check whether `pg_trgm` and `pg_stat_statements` are installed on
+> `my-pg-service`, and install any that are missing.
+:::
+
 ## Update an extension
 
 To upgrade an already-installed extension to the latest version, run:

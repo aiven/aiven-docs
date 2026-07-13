@@ -27,6 +27,14 @@ With the console migration tool, you can migrate your data using one of these me
 - [Continuous migration method](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console#pg-continuous-migration) (default and recommended)
 - [One-time snapshot method](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console#pg-dump-migration) (`pg_dump`).
 
+:::tip
+After completing the console migration workflow, use an AI assistant connected
+to [Aiven MCP](/docs/tools/mcp-server) to check the migrated data. For example:
+
+> Compare the tables and row counts in `source-pg-service` and
+> `destination-pg-service`.
+:::
+
 ### Continuous migration {#pg-continuous-migration}
 
 The continuous migration method is used by default in the console. The continuous migration

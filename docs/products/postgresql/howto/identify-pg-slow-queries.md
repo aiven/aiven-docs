@@ -40,6 +40,14 @@ To query the `pg_stat_statements` view, create the `pg_stat_statements` extensio
 CREATE EXTENSION pg_stat_statements;
 ```
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+inspect slow queries and suggest possible optimizations. For example:
+
+> Show the queries with the highest execution time on `my-pg-service` from
+> `pg_stat_statements`, and suggest indexes that might improve them.
+:::
+
 ## Discover slow queries
 
 Display the `pg_stat_statements` view and all the columns contained:
