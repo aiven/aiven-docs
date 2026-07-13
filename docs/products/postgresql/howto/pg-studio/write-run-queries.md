@@ -24,7 +24,7 @@ control. To change it, contact the Aiven support team. See
    suggestion. Press `Esc` to dismiss autocomplete.
    :::
 
-1. Click **Run**.
+1. Click **Run**, or press `Cmd+Enter` on macOS or `Ctrl+Enter` on Windows and Linux.
 1. View the results in the results panel.
 
 The autocomplete feature helps you write queries faster by suggesting:
@@ -43,7 +43,7 @@ executes only the statement where your cursor is placed.
 
 1. In the SQL editor, place your cursor inside the query you want to run, without
    selecting any text.
-1. Click **Run**.
+1. Click **Run**, or press `Cmd+Enter` on macOS or `Ctrl+Enter` on Windows and Linux.
 1. View the results in the results panel.
 
 This is useful for:
@@ -55,10 +55,9 @@ This is useful for:
 
 ## Run multiple queries
 
-You can write several SQL statements in the editor and run them all at once. To run all
-statements, select them first. **Run** executes all statements only when they are all
-selected; otherwise it runs only the statement where your cursor is placed. PG Studio runs
-the selected statements sequentially and displays the results in separate tabs.
+You can write several SQL statements in the editor and run them all at once. Select the
+statements you want to run. PG Studio runs them sequentially and displays the results in
+separate tabs.
 
 1. In the SQL editor, write your SQL statements:
 
@@ -68,7 +67,8 @@ the selected statements sequentially and displays the results in separate tabs.
    ```
 
 1. Select all the statements you want to run.
-1. Click **Run**.
+1. Click **Run selected**, or press `Cmd+Enter` on macOS or `Ctrl+Enter` on Windows and
+   Linux.
 1. View the results in the results panel. When more than one statement runs, each result
    appears in its own tab labeled **Query 1**, **Query 2**, and so on:
    - A red error indicator on a tab means the statement encountered an error. If a
@@ -99,7 +99,7 @@ database.
 To run a write query:
 
 1. In the SQL editor, enter your write query.
-1. Click **Run**.
+1. Click **Run**, or press `Cmd+Enter` on macOS or `Ctrl+Enter` on Windows and Linux.
 1. PG Studio detects the write operation and shows **You are changing live data**.
 1. Choose how to proceed:
    - **Run on production** runs the query directly against the connected database.
