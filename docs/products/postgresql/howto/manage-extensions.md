@@ -21,12 +21,11 @@ CREATE EXTENSION EXTENSION_NAME CASCADE;
 ```
 
 :::tip
-Ask your [Aiven MCP](/docs/tools/mcp-server)-connected AI assistant to check
-which extensions are installed and install the ones you need, for example
-when setting up a new environment or debugging a missing feature:
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+check and install PostgreSQL extensions. For example:
 
-> Check whether pg_trgm and pg_stat_statements are installed on my-pg-service,
-> and install any that are missing.
+> Check whether `pg_trgm` and `pg_stat_statements` are installed on
+> `my-pg-service`, and install any that are missing.
 :::
 
 ## Update an extension

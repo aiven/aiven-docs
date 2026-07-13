@@ -6,15 +6,6 @@ sidebar_label: Connection limits per plan
 By default, Aiven for PostgreSQL® instances limit the number of allowed connections to
 make sure that the database is able to serve them all.
 
-:::tip
-During a connection-exhaustion incident, ask your
-[Aiven MCP](/docs/tools/mcp-server)-connected AI assistant to check current
-usage against your limits. For example:
-
-> Check the current connection count and breakdown by role and state on
-> my-pg-service, and compare it against max_connections.
-:::
-
 ## `max_connections` defaults
 
 Default values of the `max_connections` setting vary according to the service plan:
@@ -31,6 +22,15 @@ Default values of the `max_connections` setting vary according to the service pl
 
 :::note
 Aiven can utilize any number of the connections for managing the service.
+:::
+
+:::tip
+During a connection-exhaustion incident, use an AI assistant connected to
+[Aiven MCP](/docs/tools/mcp-server) to check current connection usage against
+the configured limit. For example:
+
+> Show the current connection count on `my-pg-service`, grouped by role and
+> state, and compare the total with `max_connections`.
 :::
 
 ## Increase or decrease `max_connections`

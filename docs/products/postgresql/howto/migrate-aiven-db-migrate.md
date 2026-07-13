@@ -8,12 +8,6 @@ The `aiven-db-migrate` tool is an open source project available on [GitHub](http
 `aiven-db-migrate` performs a schema dump and migration first to ensure
 schema compatibility.
 
-:::tip
-After the migration finishes, ask your
-[Aiven MCP](/docs/tools/mcp-server)-connected AI assistant to verify the
-migrated tables and row counts on the destination service.
-:::
-
 It supports both logical replication, and using a dump and restore
 process. Logical replication is the default method which keeps the two
 databases synchronized until the replication is interrupted.
@@ -186,6 +180,14 @@ done            null
 :::note
 The overall `method` field is left empty due to the mixed methods used
 to migrate each database.
+:::
+
+:::tip
+After the migration finishes, use an AI assistant connected to
+[Aiven MCP](/docs/tools/mcp-server) to check the migrated data. For example:
+
+> Compare the tables and row counts in `source-pg-service` and
+> `destination-pg-service`.
 :::
 
 ### Stop the migration process using the Aiven CLI

@@ -12,12 +12,11 @@ Use metrics, logs, alerts, and dashboards to monitor the health of your services
 - Alerts: Receive emails and in-app [notifications](/docs/platform/howto/technical-emails).
 
 :::tip
-Ask your [Aiven MCP](/docs/tools/mcp-server)-connected AI assistant to pull
-metrics and logs for you during day-to-day checks or an active incident. For
-example:
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+retrieve service metrics and logs. For example:
 
-> Show me the last hour of CPU and memory usage for my-service, and check the
-> logs for any errors in that window.
+> Show CPU and memory usage for `my-service` during the past hour, and review
+> the logs for errors during the same period.
 :::
 
 ## View service metrics

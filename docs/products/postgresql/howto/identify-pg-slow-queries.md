@@ -5,14 +5,6 @@ sidebar_label: Identify slow queries
 
 Use the PostgreSQL® `pg_stat_statements` [extension](https://www.postgresql.org/docs/current/pgstatstatements.html) to find slow queries.
 
-:::tip
-Ask your [Aiven MCP](/docs/tools/mcp-server)-connected AI assistant to find and
-fix slow queries for you. For example:
-
-> Show me the slowest queries on my-pg-service from pg_stat_statements, and
-> suggest indexes to speed up the top offenders.
-:::
-
 ## Identify slow queries in the Console
 
 Use **Aiven AI Database Optimizer** to list and optimize slow queries.
@@ -47,6 +39,14 @@ To query the `pg_stat_statements` view, create the `pg_stat_statements` extensio
 ```bash
 CREATE EXTENSION pg_stat_statements;
 ```
+
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
+inspect slow queries and suggest possible optimizations. For example:
+
+> Show the queries with the highest execution time on `my-pg-service` from
+> `pg_stat_statements`, and suggest indexes that might improve them.
+:::
 
 ## Discover slow queries
 
