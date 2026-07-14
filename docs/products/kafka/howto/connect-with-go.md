@@ -48,7 +48,7 @@ Topics organize and store the events that you stream to Apache Kafka.
 
      Go code snippets use `SCRAM-SHA-512` for SASL authentication.
 
-     SASL is enabled by default for new Aiven for Apache Kafka® services. For
+     SASL is enabled by default for new Aiven for Apache Kafka services. For
      existing services, check whether SASL is enabled. If **Enable SASL**
      appears, click **Enable SASL**, then continue.
    - **Client certificate**: Use certificate-based authentication with mTLS
