@@ -373,6 +373,12 @@ import Link from '@docusaurus/Link'
         <div className="description"><p>Setting to enable/disable Write-Ahead Logging. The default value is false (disabled).</p></div>
       </td>
     </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="grafana_version"/><Link to="#grafana_version"><strong>grafana_version</strong></Link></p><p><code className="type">string,null</code></p></div>
+        <p className="title">Grafana major version</p>
+      </td>
+    </tr>
   </tbody>
 </table>
     
