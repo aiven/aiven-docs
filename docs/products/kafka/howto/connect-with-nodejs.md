@@ -16,6 +16,12 @@ grant permissions, and copy the generated producer and consumer code.
 - A Node.js development environment.
 - The [`node-rdkafka`](https://www.npmjs.com/package/node-rdkafka) library.
 
+:::note
+For SASL/SCRAM-SHA authentication with Apache Kafka 4.x, use a `node-rdkafka`
+version built on `librdkafka` version 2.6.1 or later. For more information, see
+[Enable and configure SASL authentication for Apache Kafka®](/docs/products/kafka/howto/kafka-sasl-auth#configure-sasl-mechanisms).
+:::
+
 ## Open Quick connect
 
 1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache

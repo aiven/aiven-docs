@@ -123,6 +123,14 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
   `kafka.sasl_oauthbearer_sub_claim_name`.
 
 :::note
+For **SCRAM-SHA-256** and **SCRAM-SHA-512** with Apache Kafka 4.x, use
+`librdkafka` version 2.6.1 or later. Clients built on earlier `librdkafka`
+versions can fail to connect to Kafka 4.x services using SASL/SCRAM-SHA.
+This affects `librdkafka`-based clients, such as `confluent-kafka`,
+`confluent-kafka-go`, `Confluent.Kafka`, and `node-rdkafka`.
+:::
+
+:::note
 When SASL authentication is enabled, at least one SASL mechanism must be available.
 `OAUTHBEARER` satisfies this requirement when
 `kafka.sasl_oauthbearer_jwks_endpoint_url` is set. If you disable PLAIN,
