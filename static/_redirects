@@ -220,6 +220,7 @@
 /products/kafka/howto/list-security                        /docs/products/kafka/howto/keystore-truststore  301
 /products/kafka/howto/list-tools                           /docs/products/kafka/howto/kafka-tools-config-file  301
 /products/kafka/howto/list-topic-management                /docs/products/kafka/howto/create-topic  301
+/products/kafka/howto/snowflake-open-catalog               /docs/products/kafka/kafka-connect/howto/snowflake-open-catalog  301
 /products/kafka/howto/tiered-storage-overview-page         /docs/products/kafka/concepts/kafka-tiered-storage   301
 /products/kafka/howto/tiered-storage-overview-page/        /docs/products/kafka/concepts/kafka-tiered-storage   301
 /products/kafka/howto/use-zookeeper                        /docs/products/kafka  301

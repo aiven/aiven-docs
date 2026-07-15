@@ -1023,7 +1023,7 @@ const sidebars: SidebarsConfig = {
                             'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
                             'products/kafka/kafka-connect/howto/aws-glue-catalog',
                             'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
-                            'products/kafka/howto/snowflake-open-catalog',
+                            'products/kafka/kafka-connect/howto/snowflake-open-catalog',
                           ],
                         },
 
