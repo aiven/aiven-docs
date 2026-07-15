@@ -17,6 +17,12 @@ grant permissions, and copy generated producer and consumer code.
 - The [`librdkafka`](https://github.com/confluentinc/librdkafka) and
   `librdkafka-devel` packages.
 
+:::note
+For SASL/SCRAM authentication with Apache Kafka® 4.x, use `librdkafka`
+version 2.6.1 or later. For more information, see
+[Enable and configure SASL authentication for Apache Kafka®](/docs/products/kafka/howto/kafka-sasl-auth#configure-sasl-mechanisms).
+:::
+
 ## Open Quick connect
 
 1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache
