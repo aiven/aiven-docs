@@ -4,6 +4,8 @@ sidebar_label: Shared buffers
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import ServiceMemoryLimits from "@site/static/includes/service-memory-limits.md";
+import OutOfMemory from "@site/static/includes/out-of-memory-condition.md";
 
 Use shared buffers to share memory over multiple sessions. Discover how to inspect the database cache performance and the query cache performance and learn how to put data into cache manually.
 
@@ -206,6 +208,14 @@ pg_prewarm
 If the `shared buffers` size is less than pre-loaded data, only the
 tailing end of the data is cached as the earlier data encounters a
 forced ejection.
+
+## Service memory limits
+
+<ServiceMemoryLimits/>
+
+## Out of memory conditions
+
+<OutOfMemory/>
 
 <RelatedPages/>
 

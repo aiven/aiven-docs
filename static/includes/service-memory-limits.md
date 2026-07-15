@@ -11,11 +11,11 @@ memory limit.
 
 A server or node's **usable memory** can be calculated as:
 
-${ RAM - overhead }$
+`usable memory = RAM - overhead`
 
 Where:
 
-- $overhead$ is 350 MiB (≈ 0.34 GiB).
+- `overhead` is 350 MiB (≈ 0.34 GiB).
 
 Services may utilize optional components, service integrations,
 connection pooling, or plug-ins, which are not included in overhead

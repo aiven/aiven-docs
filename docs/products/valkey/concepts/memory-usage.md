@@ -3,6 +3,10 @@ title: Memory management and persistence in Aiven for Valkey™
 sidebar_label: Memory management
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+import ServiceMemoryLimits from "@site/static/includes/service-memory-limits.md";
+import OutOfMemory from "@site/static/includes/out-of-memory-condition.md";
+
 Learn how Aiven for Valkey™ addresses the challenges of high memory usage and high change rate. Discover how it implements robust memory management and persistence strategies.
 
 Aiven for Valkey™ functions primarily as a database cache. Data fetched from a database
@@ -132,3 +136,16 @@ excessive memory usage or challenges in initializing new nodes.
 If you frequently need to write large volumes of data, contact Aiven support to
 discuss service configuration options that can accommodate your needs.
 :::
+
+## Service memory limits
+
+<ServiceMemoryLimits/>
+
+## Out of memory conditions
+
+<OutOfMemory/>
+
+<RelatedPages/>
+
+- [Change the service plan](/docs/products/valkey/howto/change-service-plan)
+- [Scale disk storage](/docs/products/valkey/howto/scale-disk-storage)

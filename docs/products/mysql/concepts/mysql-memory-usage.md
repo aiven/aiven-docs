@@ -3,6 +3,10 @@ title: Understand MySQL memory usage
 sidebar_label: Memory usage
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+import ServiceMemoryLimits from "@site/static/includes/service-memory-limits.md";
+import OutOfMemory from "@site/static/includes/out-of-memory-condition.md";
+
 MySQL memory utilization can appear high, even if the service is relatively idle.
 
 [All services are subject to operating overhead](/docs/platform/concepts/service-memory-limits), but some services, including MySQL, pre-allocate memory.
@@ -113,3 +117,16 @@ determine if:
 -   The sum of the buffer pools are greater than the
     [available service memory](/docs/platform/concepts/service-memory-limits)
 -   Queries are generating excessive temporary (spill) files
+
+## Service memory limits
+
+<ServiceMemoryLimits/>
+
+## Out of memory conditions
+
+<OutOfMemory/>
+
+<RelatedPages/>
+
+- [Change the service plan](/docs/products/mysql/howto/change-service-plan)
+- [Scale disk storage](/docs/products/mysql/howto/scale-disk-storage)

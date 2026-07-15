@@ -1,3 +1,5 @@
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Aiven applies some maintenance updates automatically.
 Aiven provides two types of updates:
 
