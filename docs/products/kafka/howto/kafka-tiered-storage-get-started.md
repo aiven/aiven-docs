@@ -25,7 +25,7 @@ Enable tiered storage for your Aiven for Apache Kafka service to set up the nece
 - Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version
   3.6 or later. Upgrade to the latest default version and apply
   [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates) when using tiered storage for the latest fixes and improvements.
-- Tiered storage is not available on startup-2 plans.
+- Tiered storage is not available on startup plans.
 
 :::
 
