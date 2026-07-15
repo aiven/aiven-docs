@@ -22,7 +22,7 @@ storage by default and you cannot disable it.
   3.6 or later. It is recommended to upgrade to the latest default version and apply
   [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
   when using tiered storage for the latest fixes and improvements.
-- Tiered storage is not available on startup-2 plans.
+- Tiered storage is not available on startup plans.
 
 :::
 
