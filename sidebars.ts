@@ -534,7 +534,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/kafka/inkless-overview',
             {
               type: 'category',
               label: 'Get started',
@@ -545,29 +544,50 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Free tier',
+                  label: 'Core concepts',
                   link: {
                     type: 'doc',
-                    id: 'products/kafka/free-tier/kafka-free-tier',
+                    id: 'products/kafka/concepts',
                   },
                   items: [
-                    'products/kafka/free-tier/create-free-tier-kafka-service',
+                    'products/kafka/concepts/partition-segments',
+                    'products/kafka/concepts/log-compaction',
+                    'products/kafka/concepts/kraft-mode',
+                    'products/kafka/concepts/kafka-rest-api',
+                  ],
+                },
+                'products/kafka/inkless-overview',
+                {
+                  type: 'category',
+                  label: 'Service tiers',
+                  items: [
+                    {
+                      type: 'category',
+                      label: 'Free tier',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/free-tier/kafka-free-tier',
+                      },
+                      items: [
+                        'products/kafka/free-tier/create-free-tier-kafka-service',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'Developer tier',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/dev-tier/kafka-dev-tier',
+                      },
+                      items: [
+                        'products/kafka/dev-tier/create-dev-tier-kafka-service',
+                      ],
+                    },
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Developer tier',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/dev-tier/kafka-dev-tier',
-                  },
-                  items: [
-                    'products/kafka/dev-tier/create-dev-tier-kafka-service',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Create Kafka service',
+                  label: 'Create a service',
                   link: {
                     type: 'doc',
                     id: 'products/kafka/get-started/create-kafka-service',
@@ -591,92 +611,25 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Concepts',
+              label: 'Connect to service',
               link: {
-                type: 'doc',
-                id: 'products/kafka/concepts',
+                type: 'generated-index',
+                slug: 'products/kafka/howto/list-code-samples',
               },
               items: [
                 {
                   type: 'category',
-                  label: 'Core concepts',
-                  items: [
-                    'products/kafka/concepts/partition-segments',
-                    'products/kafka/concepts/log-compaction',
-                    'products/kafka/concepts/auth-types',
-                    'products/kafka/concepts/acl',
-                    'products/kafka/concepts/audit-logging',
-                    'products/kafka/concepts/schema-registry-authorization',
-                    'products/kafka/concepts/kafka-rest-api',
-                    'products/kafka/concepts/kraft-mode',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Diskless topics',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/diskless/concepts/diskless-topic-overview',
-                  },
-                  items: [
-                    'products/kafka/diskless/concepts/diskless-topics-architecture',
-                    'products/kafka/diskless/concepts/topics-vs-classic',
-                    'products/kafka/diskless/concepts/batching-and-delivery',
-                    'products/kafka/diskless/concepts/partitions-and-objects',
-                    'products/kafka/diskless/concepts/limitations',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Tiered storage',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/concepts/kafka-tiered-storage',
-                  },
-                  items: [
-                    'products/kafka/concepts/tiered-storage-how-it-works',
-                    'products/kafka/concepts/tiered-storage-guarantees',
-                    'products/kafka/concepts/tiered-storage-limitations',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Operating Kafka with Aiven',
-                  items: [
-                    'products/kafka/concepts/upgrade-procedure',
-                    'products/kafka/concepts/horizontal-vertical-scaling',
-                    'products/kafka/concepts/configuration-backup',
-                    'products/kafka/concepts/monitor-consumer-group',
-                    'products/kafka/concepts/consumer-lag-predictor',
-                    'products/kafka/concepts/follower-fetching',
-                  ],
-                },
-
-                'products/kafka/concepts/governance-overview',
-                'products/kafka/concepts/kafka-quotas',
-              ],
-            },
-
-            {
-              type: 'category',
-              label: 'How to',
-              items: [
-                {
-                  type: 'category',
-                  label: 'Connect to service',
-                  link: {
-                    type: 'generated-index',
-                    slug: 'products/kafka/howto/list-code-samples',
-                  },
+                  label: 'Connection methods',
                   items: [
                     'products/kafka/howto/connect-with-python',
                     'products/kafka/howto/connect-with-java',
                     'products/kafka/howto/connect-with-go',
+                    'products/kafka/howto/connect-with-nodejs',
                     'products/kafka/howto/connect-with-cpp',
                     'products/kafka/howto/connect-with-command-line',
                     'products/kafka/howto/connect-with-kafka-rest',
                     'products/kafka/howto/connect-with-klaw',
-                    'products/kafka/howto/connect-with-nodejs',
+                    'products/kafka/howto/keystore-truststore',
                   ],
                 },
                 {
@@ -684,91 +637,38 @@ const sidebars: SidebarsConfig = {
                   label: 'Tools',
                   items: [
                     'products/kafka/howto/kafka-tools-config-file',
-                    'products/kafka/howto/kafbat-ui',
                     'products/kafka/howto/kcat',
                     'products/kafka/howto/kafka-conduktor',
-                    'products/kafka/howto/kafdrop',
-                    'products/kafka/howto/provectus-kafka-ui',
-                    'products/kafka/howto/kpow',
                     'products/kafka/howto/kafka-klaw',
                     'products/kafka/howto/kafka-quix',
+                    'products/kafka/howto/kafbat-ui',
+                    'products/kafka/howto/kpow',
+                    'products/kafka/howto/provectus-kafka-ui',
+                    'products/kafka/howto/kafdrop',
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Network and Security',
+                  label: 'Troubleshooting',
                   items: [
-                    'products/kafka/howto/keystore-truststore',
-                    'products/kafka/howto/manage-acls',
-                    'products/kafka/howto/configure-audit-logging',
-                    'products/kafka/howto/monitor-logs-acl-failure',
-                    'products/kafka/howto/kafka-sasl-auth',
-                    'products/kafka/howto/renew-ssl-certs',
-                    'products/kafka/howto/enable-oidc',
-                    'products/kafka/howto/kafka-oauth2-aws-iam',
-                    'products/kafka/howto/kafka-custom-serde-encrypt',
-                    'products/kafka/howto/ipv6-client-connectivity',
+                    'products/kafka/troubleshooting/troubleshoot-consumer-disconnections',
                   ],
                 },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Topics, schema, and streams',
+              items: [
                 {
                   type: 'category',
-                  label: 'Administrative tasks',
-                  items: [
-                    'products/kafka/howto/add-manage-service-users',
-                    'products/kafka/howto/enable-schema-registry',
-                    'products/kafka/howto/configure-with-kafka-cli',
-                    'products/kafka/howto/set-kafka-parameters',
-                    'products/kafka/howto/configure-custom-domain',
-                    'products/kafka/howto/viewing-resetting-offset',
-                    'products/kafka/howto/configure-log-cleaner',
-                    'products/kafka/howto/prevent-full-disks',
-                    'products/kafka/howto/optimizing-resource-usage',
-                    'products/kafka/howto/enabled-consumer-lag-predictor',
-                    'products/kafka/howto/manage-quotas',
-                    'products/kafka/howto/enable-follower-fetching',
-                    'products/kafka/howto/configure-preferred-zones',
-                    'products/kafka/howto/best-practices',
-                    'products/kafka/howto/avoid-out-of-memory-error',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Integrations',
-                  items: [
-                    'products/kafka/howto/integrate-service-logs-into-kafka-topic',
-                    'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
-                    'products/kafka/howto/flink-with-aiven-for-kafka',
-                    'products/kafka/howto/datadog-customised-metrics',
-                    'products/kafka/howto/kafka-prometheus-privatelink',
-                    'products/kafka/howto/ksql-docker',
-                    'products/kafka/howto/add-missing-producer-consumer-metrics',
-                    'products/kafka/howto/integrate-external-kafka-cluster',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Topic and schema management',
+                  label: 'Topic management',
                   items: [
                     'products/kafka/howto/create-topic',
-                    'products/kafka/diskless/howto/create-diskless-topics-automatically',
                     'products/kafka/howto/create-topics-automatically',
                     'products/kafka/howto/get-topic-partition-details',
-                    'products/kafka/howto/switch-topic-to-diskless',
-                    'products/kafka/howto/schema-registry',
-                    {
-                      type: 'category',
-                      label: 'Generate Java classes from schemas',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/howto/generate-java-classes-from-schemas',
-                      },
-                      items: [
-                        'products/kafka/howto/generate-avro-java-classes',
-                        'products/kafka/howto/generate-protobuf-java-classes',
-                        'products/kafka/howto/generate-json-java-classes',
-                      ],
-                    },
                     'products/kafka/howto/change-retention-period',
+                    'products/kafka/howto/configure-log-cleaner',
                     {
                       type: 'category',
                       label: 'Manage topic catalog',
@@ -782,51 +682,134 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Governance',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/howto/governance',
-                  },
+                  label: 'Schema registry and REST proxy',
                   items: [
-                    'products/kafka/howto/enable-governance',
-                    'products/kafka/howto/claim-topic',
-                    'products/kafka/howto/terraform-governance-approvals',
+                    'products/kafka/howto/schema-registry',
+                    'products/kafka/howto/enable-schema-registry',
                     {
                       type: 'category',
-                      label: 'Manage topic requests',
+                      label: 'Karapace',
                       link: {
                         type: 'doc',
-                        id: 'products/kafka/howto/manage-resource-requests',
+                        id: 'products/kafka/karapace',
                       },
                       items: [
-                        'products/kafka/howto/request-access-topic',
-                        'products/kafka/howto/approvals',
-                        'products/kafka/howto/group-requests',
-
-                        'products/kafka/howto/rotate-credentials',
+                        'products/kafka/karapace/get-started',
+                        'products/kafka/karapace/howto/enable-karapace',
+                        'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
+                        {
+                          type: 'category',
+                          label: 'Schema references',
+                          items: [
+                            'products/kafka/karapace/concepts/schema-references',
+                            'products/kafka/karapace/howto/register-schemas-with-references',
+                          ],
+                        },
+                        {
+                          type: 'category',
+                          label: 'Schema registry security',
+                          items: [
+                            'products/kafka/karapace/concepts/schema-registry-authorization',
+                            'products/kafka/karapace/concepts/acl-definition',
+                            'products/kafka/karapace/howto/enable-schema-registry-authorization',
+                            'products/kafka/karapace/howto/manage-schema-registry-authorization',
+                          ],
+                        },
+                        {
+                          type: 'category',
+                          label: 'REST proxy security',
+                          items: [
+                            'products/kafka/karapace/concepts/kafka-rest-proxy-authorization',
+                            'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
+                            'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
+                          ],
+                        },
                       ],
                     },
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Tiered storage',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/howto/kafka-tiered-storage-get-started',
-                  },
+                  label: 'Develop with schemas',
                   items: [
-                    'products/kafka/howto/enable-kafka-tiered-storage',
-                    'products/kafka/howto/configure-topic-tiered-storage',
-                    'products/kafka/howto/view-kafka-storage-in-console',
+                    {
+                      type: 'category',
+                      label: 'Generate Java classes from schemas',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/howto/generate-java-classes-from-schemas',
+                      },
+                      items: [
+                        'products/kafka/howto/generate-avro-java-classes',
+                        'products/kafka/howto/generate-protobuf-java-classes',
+                        'products/kafka/howto/generate-json-java-classes',
+                      ],
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Apache Kafka Streams',
+                  items: [
+                    'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
                   ],
                 },
               ],
             },
             {
               type: 'category',
-              label: 'Reference',
+              label: 'Security, network and access',
               items: [
+                {
+                  type: 'category',
+                  label: 'Authentication',
+                  items: [
+                    'products/kafka/concepts/auth-types',
+                    'products/kafka/howto/kafka-sasl-auth',
+                    'products/kafka/howto/renew-ssl-certs',
+                    'products/kafka/howto/kafka-custom-serde-encrypt',
+                    'products/kafka/howto/enable-oidc',
+                    'products/kafka/howto/kafka-oauth2-aws-iam',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Access control',
+                  items: [
+                    'products/kafka/concepts/acl',
+                    'products/kafka/howto/add-manage-service-users',
+                    'products/kafka/howto/monitor-logs-acl-failure',
+                    'products/kafka/howto/manage-acls',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Audit logging',
+                  items: [
+                    'products/kafka/concepts/audit-logging',
+                    'products/kafka/howto/configure-audit-logging',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Networking and encryption',
+                  items: ['products/kafka/howto/ipv6-client-connectivity'],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Service management',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Service operations',
+                  items: [
+                    'products/kafka/howto/configure-custom-domain',
+                    'products/kafka/howto/set-kafka-parameters',
+                    'products/kafka/howto/configure-with-kafka-cli',
+                  ],
+                },
                 {
                   type: 'category',
                   label: 'Advanced parameters',
@@ -841,15 +824,169 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/reference/advanced-params-inkless',
                   ],
                 },
-                'products/kafka/reference/kafka-metrics-prometheus',
               ],
             },
             {
               type: 'category',
-              label: 'Troubleshooting',
+              label: 'Scaling and performance',
               items: [
-                'products/kafka/troubleshooting/troubleshoot-consumer-disconnections',
-                'products/kafka/troubleshooting/non-leader-for-partition',
+                {
+                  type: 'category',
+                  label: 'Scaling',
+                  items: [
+                    'products/kafka/concepts/horizontal-vertical-scaling',
+                    'products/kafka/howto/prevent-full-disks',
+                    'products/kafka/howto/optimizing-resource-usage',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Performance and quotas',
+                  items: [
+                    'products/kafka/howto/best-practices',
+                    'products/kafka/howto/avoid-out-of-memory-error',
+                    'products/kafka/howto/enable-follower-fetching',
+                    'products/kafka/concepts/follower-fetching',
+                    'products/kafka/howto/configure-preferred-zones',
+                    'products/kafka/concepts/kafka-quotas',
+                    'products/kafka/howto/manage-quotas',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Storage',
+              items: [
+                'products/kafka/howto/view-kafka-storage-in-console',
+                {
+                  type: 'category',
+                  label: 'Tiered storage (Classic Kafka)',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/howto/kafka-tiered-storage-get-started',
+                  },
+                  items: [
+                    'products/kafka/concepts/kafka-tiered-storage',
+                    'products/kafka/concepts/tiered-storage-how-it-works',
+                    'products/kafka/howto/enable-kafka-tiered-storage',
+                    'products/kafka/howto/configure-topic-tiered-storage',
+                    'products/kafka/concepts/tiered-storage-guarantees',
+                    'products/kafka/concepts/tiered-storage-limitations',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Diskless topics',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/diskless/concepts/diskless-topic-overview',
+                  },
+                  items: [
+                    'products/kafka/diskless/concepts/topics-vs-classic',
+                    'products/kafka/diskless/concepts/diskless-topics-architecture',
+                    'products/kafka/diskless/concepts/batching-and-delivery',
+                    'products/kafka/diskless/concepts/partitions-and-objects',
+                    'products/kafka/diskless/concepts/limitations',
+                    'products/kafka/diskless/howto/create-diskless-topics-automatically',
+                    'products/kafka/howto/switch-topic-to-diskless',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              items: ['products/kafka/concepts/upgrade-procedure'],
+            },
+            {
+              type: 'category',
+              label: 'Backups',
+              items: ['products/kafka/concepts/configuration-backup'],
+            },
+            {
+              type: 'category',
+              label: 'Observability and monitoring',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Metrics and dashboards',
+                  items: [
+                    'products/kafka/reference/kafka-metrics-prometheus',
+                    'products/kafka/howto/kafka-prometheus-privatelink',
+                    'products/kafka/howto/datadog-customised-metrics',
+                    'products/kafka/howto/add-missing-producer-consumer-metrics',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Consumer groups',
+                  items: [
+                    'products/kafka/concepts/monitor-consumer-group',
+                    'products/kafka/howto/viewing-resetting-offset',
+                    'products/kafka/concepts/consumer-lag-predictor',
+                    'products/kafka/howto/enabled-consumer-lag-predictor',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Logs',
+                  items: [
+                    'products/kafka/howto/integrate-service-logs-into-kafka-topic',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Troubleshooting',
+                  items: ['products/kafka/troubleshooting/non-leader-for-partition'],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Integration and ecosystem',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Aiven service integrations',
+                  items: [
+                    'products/kafka/howto/flink-with-aiven-for-kafka',
+                    'products/kafka/howto/ksql-docker',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'External integrations',
+                  items: ['products/kafka/howto/integrate-external-kafka-cluster'],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Governance',
+              link: {
+                type: 'doc',
+                id: 'products/kafka/howto/governance',
+              },
+              items: [
+                'products/kafka/concepts/governance-overview',
+                'products/kafka/howto/enable-governance',
+                'products/kafka/howto/terraform-governance-approvals',
+                'products/kafka/howto/claim-topic',
+                {
+                  type: 'category',
+                  label: 'Manage topic requests',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/howto/manage-resource-requests',
+                  },
+                  items: [
+                    'products/kafka/howto/request-access-topic',
+                    'products/kafka/howto/approvals',
+                    'products/kafka/howto/group-requests',
+                    'products/kafka/howto/rotate-credentials',
+                  ],
+                },
               ],
             },
             {
@@ -861,192 +998,147 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/kafka/kafka-connect/get-started',
+                'products/kafka/kafka-connect/howto/best-practices',
                 {
                   type: 'category',
-                  label: 'Concepts',
+                  label: 'Setup and configuration',
+                  items: [
+                    'products/kafka/kafka-connect/howto/enable-connect',
+                    'products/kafka/kafka-connect/howto/bring-your-own-kafka-connect-cluster',
+                    {
+                      type: 'category',
+                      label: 'Configure secret providers',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/kafka-connect/howto/configure-secret-providers',
+                      },
+                      items: [
+                        'products/kafka/kafka-connect/howto/configure-aws-secrets-manager',
+                        'products/kafka/kafka-connect/howto/configure-azure-key-vault',
+                        'products/kafka/kafka-connect/howto/configure-hashicorp-vault',
+                        'products/kafka/kafka-connect/howto/configure-env-secret-provider',
+                      ],
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Manage connectors',
                   items: [
                     'products/kafka/kafka-connect/concepts/list-of-connector-plugins',
-                    'products/kafka/kafka-connect/concepts/jdbc-source-modes',
+                    'products/kafka/kafka-connect/howto/enable-automatic-restart',
+                    'products/kafka/kafka-connect/howto/manage-connector-versions',
+                    'products/kafka/kafka-connect/howto/manage-logging-level',
+                    'products/kafka/kafka-connect/howto/request-new-connector',
                     'products/kafka/kafka-connect/concepts/connect-plugin-list-not-available',
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'How to',
+                  label: 'Source connectors',
+                  items: [
+                    'products/kafka/kafka-connect/howto/amqp-source-connector',
+                    'products/kafka/kafka-connect/howto/s3-source-connector',
+                    'products/kafka/kafka-connect/howto/azure-blob-source',
+                    'products/kafka/kafka-connect/howto/couchbase-source',
+                    {
+                      type: 'category',
+                      label: 'Debezium',
+                      items: [
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-mongodb',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-oracle',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
+                        'products/kafka/kafka-connect/howto/kafka-connect-debezium-tls-pg',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement',
+                        'products/kafka/kafka-connect/howto/debezium-source-connector-sql-server',
+                      ],
+                    },
+                    'products/kafka/kafka-connect/howto/gcp-pubsub-lite-source',
+                    'products/kafka/kafka-connect/howto/gcp-pubsub-source',
+                    {
+                      type: 'category',
+                      label: 'JDBC',
+                      items: [
+                        'products/kafka/kafka-connect/howto/jdbc-source-connector-mysql',
+                        'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
+                        'products/kafka/kafka-connect/howto/jdbc-source-connector-sql-server',
+                      ],
+                    },
+                    'products/kafka/kafka-connect/howto/mongodb-poll-source-connector',
+                    'products/kafka/kafka-connect/howto/mqtt-source-connector',
+                    'products/kafka/kafka-connect/howto/salesforce-source-connector',
+                    {
+                      type: 'category',
+                      label: 'Stream Reactor',
+                      items: [
+                        'products/kafka/kafka-connect/howto/cassandra-streamreactor-source',
+                      ],
+                    },
+                    'products/kafka/kafka-connect/concepts/jdbc-source-modes',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Sink connectors',
                   items: [
                     {
                       type: 'category',
-                      label: 'Administration tasks',
+                      label: 'Amazon S3 sink',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/kafka-connect/howto/s3-sink',
+                      },
                       items: [
-                        'products/kafka/kafka-connect/howto/best-practices',
-                        'products/kafka/kafka-connect/howto/bring-your-own-kafka-connect-cluster',
-                        'products/kafka/kafka-connect/howto/enable-connect',
-                        'products/kafka/kafka-connect/howto/enable-automatic-restart',
-                        'products/kafka/kafka-connect/howto/manage-connector-versions',
-                        'products/kafka/kafka-connect/howto/manage-logging-level',
-                        'products/kafka/kafka-connect/howto/request-new-connector',
+                        'products/kafka/kafka-connect/howto/s3-sink-prepare',
+                        'products/kafka/kafka-connect/howto/s3-sink-connector-aiven',
+                        'products/kafka/kafka-connect/howto/s3-sink-connector-confluent',
+                        'products/kafka/kafka-connect/howto/s3-iam-assume-role',
                         {
                           type: 'category',
-                          label: 'Configure secret providers',
-                          link: {
-                            type: 'doc',
-                            id: 'products/kafka/kafka-connect/howto/configure-secret-providers',
-                          },
+                          label: 'Naming and data formats',
                           items: [
-                            'products/kafka/kafka-connect/howto/configure-aws-secrets-manager',
-                            'products/kafka/kafka-connect/howto/configure-azure-key-vault',
-                            'products/kafka/kafka-connect/howto/configure-hashicorp-vault',
-                            'products/kafka/kafka-connect/howto/configure-env-secret-provider',
+                            'products/kafka/kafka-connect/howto/s3-sink-additional-parameters',
+                            'products/kafka/kafka-connect/howto/s3-sink-additional-parameters-confluent',
                           ],
                         },
                       ],
                     },
+                    'products/kafka/kafka-connect/howto/azure-blob-sink',
+                    'products/kafka/kafka-connect/howto/cassandra-streamreactor-sink',
+                    'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
+                    'products/kafka/kafka-connect/howto/couchbase-sink',
+                    'products/kafka/kafka-connect/howto/elasticsearch-sink',
+                    'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
+                    'products/kafka/kafka-connect/howto/gcs-sink',
+                    'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
+                    'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
+                    'products/kafka/kafka-connect/howto/http-sink',
+                    'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
                     {
                       type: 'category',
-                      label: 'Source connectors',
+                      label: 'Iceberg sink connector',
+                      link: {
+                        type: 'doc',
+                        id: 'products/kafka/kafka-connect/howto/iceberg-sink-connector',
+                      },
                       items: [
-                        // A
-                        'products/kafka/kafka-connect/howto/amqp-source-connector',
-                        'products/kafka/kafka-connect/howto/s3-source-connector',
-                        'products/kafka/kafka-connect/howto/azure-blob-source',
-
-                        // C
-                        'products/kafka/kafka-connect/howto/couchbase-source',
-
-                        // D (group)
-                        {
-                          type: 'category',
-                          label: 'Debezium',
-                          items: [
-                            'products/kafka/kafka-connect/howto/debezium-source-connector-mongodb',
-                            'products/kafka/kafka-connect/howto/debezium-source-connector-mysql',
-                            'products/kafka/kafka-connect/howto/debezium-source-connector-oracle',
-                            'products/kafka/kafka-connect/howto/debezium-source-connector-pg',
-                            'products/kafka/kafka-connect/howto/kafka-connect-debezium-tls-pg',
-                            'products/kafka/kafka-connect/howto/debezium-source-connector-pg-node-replacement',
-                            'products/kafka/kafka-connect/howto/debezium-source-connector-sql-server',
-                          ],
-                        },
-
-                        // G
-                        'products/kafka/kafka-connect/howto/gcp-pubsub-lite-source',
-                        'products/kafka/kafka-connect/howto/gcp-pubsub-source',
-
-                        // J (group)
-                        {
-                          type: 'category',
-                          label: 'JDBC',
-                          items: [
-                            'products/kafka/kafka-connect/howto/jdbc-source-connector-mysql',
-                            'products/kafka/kafka-connect/howto/jdbc-source-connector-pg',
-                            'products/kafka/kafka-connect/howto/jdbc-source-connector-sql-server',
-                          ],
-                        },
-
-                        // M
-                        'products/kafka/kafka-connect/howto/mongodb-poll-source-connector',
-                        'products/kafka/kafka-connect/howto/mqtt-source-connector',
-
-                        // Salesforce
-                        'products/kafka/kafka-connect/howto/salesforce-source-connector',
-
-                        // Stream Reactor
-                        {
-                          type: 'category',
-                          label: 'Stream Reactor',
-                          items: [
-                            'products/kafka/kafka-connect/howto/cassandra-streamreactor-source',
-                          ],
-                        },
+                        'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
+                        'products/kafka/kafka-connect/howto/aws-glue-catalog',
+                        'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
+                        'products/kafka/howto/snowflake-open-catalog',
                       ],
                     },
-
-                    {
-                      type: 'category',
-                      label: 'Sink connectors',
-                      items: [
-                        // A (subtree)
-                        {
-                          type: 'category',
-                          label: 'Amazon S3 sink',
-                          link: {
-                            type: 'doc',
-                            id: 'products/kafka/kafka-connect/howto/s3-sink',
-                          },
-                          items: [
-                            'products/kafka/kafka-connect/howto/s3-sink-prepare',
-                            'products/kafka/kafka-connect/howto/s3-sink-connector-aiven',
-                            'products/kafka/kafka-connect/howto/s3-sink-connector-confluent',
-                            'products/kafka/kafka-connect/howto/s3-iam-assume-role',
-                            {
-                              type: 'category',
-                              label: 'Naming and data formats',
-                              items: [
-                                'products/kafka/kafka-connect/howto/s3-sink-additional-parameters',
-                                'products/kafka/kafka-connect/howto/s3-sink-additional-parameters-confluent',
-                              ],
-                            },
-                          ],
-                        },
-
-                        // A
-                        'products/kafka/kafka-connect/howto/azure-blob-sink',
-
-                        // C
-                        'products/kafka/kafka-connect/howto/cassandra-streamreactor-sink',
-                        'products/kafka/kafka-connect/howto/clickhouse-sink-connector',
-                        'products/kafka/kafka-connect/howto/couchbase-sink',
-
-                        // E
-                        'products/kafka/kafka-connect/howto/elasticsearch-sink',
-
-                        // G
-                        'products/kafka/kafka-connect/howto/gcp-bigquery-sink',
-                        'products/kafka/kafka-connect/howto/gcs-sink',
-                        'products/kafka/kafka-connect/howto/gcp-pubsub-lite-sink',
-                        'products/kafka/kafka-connect/howto/gcp-pubsub-sink',
-
-                        // H
-                        'products/kafka/kafka-connect/howto/http-sink',
-
-                        // I
-                        'products/kafka/kafka-connect/howto/ibm-mq-sink-connector',
-
-                        {
-                          type: 'category',
-                          label: 'Iceberg sink connector',
-                          link: {
-                            type: 'doc',
-                            id: 'products/kafka/kafka-connect/howto/iceberg-sink-connector',
-                          },
-                          items: [
-                            'products/kafka/kafka-connect/howto/aws-glue-rest-catalog',
-                            'products/kafka/kafka-connect/howto/aws-glue-catalog',
-                            'products/kafka/kafka-connect/howto/jdbc-catalog-postgres',
-                            'products/kafka/howto/snowflake-open-catalog',
-                          ],
-                        },
-
-                        'products/kafka/kafka-connect/howto/influx-sink',
-                        'products/kafka/kafka-connect/howto/jdbc-sink',
-
-                        // M
-                        'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
-                        'products/kafka/kafka-connect/howto/mongodb-sink-mongo',
-                        'products/kafka/kafka-connect/howto/mqtt-sink-connector',
-
-                        // O
-                        'products/kafka/kafka-connect/howto/opensearch-sink',
-
-                        // R
-                        'products/kafka/kafka-connect/howto/redis-streamreactor-sink',
-
-                        // S
-                        'products/kafka/kafka-connect/howto/salesforce-sink-connector',
-                        'products/kafka/kafka-connect/howto/snowflake-sink',
-                        'products/kafka/kafka-connect/howto/splunk-sink',
-                      ],
-                    },
+                    'products/kafka/kafka-connect/howto/influx-sink',
+                    'products/kafka/kafka-connect/howto/jdbc-sink',
+                    'products/kafka/kafka-connect/howto/mongodb-sink-lenses',
+                    'products/kafka/kafka-connect/howto/mongodb-sink-mongo',
+                    'products/kafka/kafka-connect/howto/mqtt-sink-connector',
+                    'products/kafka/kafka-connect/howto/opensearch-sink',
+                    'products/kafka/kafka-connect/howto/redis-streamreactor-sink',
+                    'products/kafka/kafka-connect/howto/salesforce-sink-connector',
+                    'products/kafka/kafka-connect/howto/snowflake-sink',
+                    'products/kafka/kafka-connect/howto/splunk-sink',
                   ],
                 },
                 {
@@ -1054,7 +1146,6 @@ const sidebars: SidebarsConfig = {
                   label: 'Reference',
                   items: [
                     'products/kafka/kafka-connect/reference/advanced-params',
-
                     'products/kafka/kafka-connect/reference/gcs-sink-formats',
                     'products/kafka/kafka-connect/reference/connect-metrics-prometheus',
                   ],
@@ -1063,16 +1154,27 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Apache Kafka Mirrormaker 2',
+              label: 'Apache Kafka MirrorMaker 2',
               link: {
                 type: 'doc',
                 id: 'products/kafka/kafka-mirrormaker',
               },
               items: [
-                'products/kafka/kafka-mirrormaker/get-started',
                 {
                   type: 'category',
-                  label: 'Concepts',
+                  label: 'Get started',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-mirrormaker/get-started',
+                  },
+                  items: [
+                    'products/kafka/kafka-mirrormaker/reference/terminology',
+                    'products/kafka/kafka-mirrormaker/reference/known-issues',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Core concepts',
                   items: [
                     {
                       type: 'category',
@@ -1093,68 +1195,26 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'How to',
+                  label: 'Setup and replication',
                   items: [
                     'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
                     'products/kafka/kafka-mirrormaker/howto/update-integration-configurations',
                     'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                     'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
-                    'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
-                    'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                     'products/kafka/kafka-mirrormaker/howto/exactly-once-delivery',
                     'products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Troubleshooting',
-                  items: [
+                    'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                     'products/kafka/kafka-mirrormaker/troubleshooting/topic-not-replicated',
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Reference',
+                  label: 'Observability',
                   items: [
-                    'products/kafka/kafka-mirrormaker/reference/advanced-params',
-                    'products/kafka/kafka-mirrormaker/reference/known-issues',
-                    'products/kafka/kafka-mirrormaker/reference/terminology',
+                    'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
                   ],
                 },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Karapace',
-              link: {
-                type: 'doc',
-                id: 'products/kafka/karapace',
-              },
-              items: [
-                'products/kafka/karapace/get-started',
-                {
-                  type: 'category',
-                  label: 'Concepts',
-                  items: [
-                    'products/kafka/karapace/concepts/schema-registry-authorization',
-                    'products/kafka/karapace/concepts/schema-references',
-                    'products/kafka/karapace/concepts/acl-definition',
-                    'products/kafka/karapace/concepts/kafka-rest-proxy-authorization',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'How to',
-                  items: [
-                    'products/kafka/karapace/howto/enable-karapace',
-                    'products/kafka/karapace/howto/register-schemas-with-references',
-                    'products/kafka/karapace/howto/enable-schema-registry-authorization',
-                    'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
-                    'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
-                    'products/kafka/karapace/howto/manage-schema-registry-authorization',
-                    'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
-                  ],
-                },
+                'products/kafka/kafka-mirrormaker/reference/advanced-params',
               ],
             },
           ],
