@@ -27,7 +27,7 @@ assistant focused.
 
 ## Prerequisites
 
-- An [Aiven account](https://console.aiven.io/signup)
+- An [Aiven account](https://console.aiven.io/signup?campaign=mcp)
 - An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
   VS Code, or Gemini CLI
 - MCP access enabled for your organization by an admin in the Aiven Console
