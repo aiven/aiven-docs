@@ -12,6 +12,7 @@ import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-pci
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
+import byocAzurePrivate from "@site/static/images/content/figma/byoc-azure-private.png";
 import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
 import RelatedPages from "@site/src/components/RelatedPages";
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
@@ -279,6 +280,8 @@ directly. To restrict access to your service, you can use the
 </TabItem>
 <TabItem value="7" label="Azure BYOC private">
 
+<img src={byocAzurePrivate} className="centered zoomable" alt="BYOC Azure private architecture" width="100%" />
+
 In the Azure standard deployment model, two separate Virtual Networks are created in your
 Azure subscription within a particular cloud region:
 
@@ -295,6 +298,9 @@ bastion. They are not accessible from the internet.
 
 **Network Security Groups (NSGs)** control inbound and outbound traffic on each VNet.
 Each VNet has its own **NAT gateway** for outbound internet access.
+
+Two **Azure Blob Storage** accounts (Premium LRS and Standard LRS) are created in your
+subscription for service backups and data storage.
 
 :::note
 Although the bastion host and the service nodes reside in the VNets under your
