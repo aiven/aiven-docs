@@ -285,22 +285,22 @@ directly. To restrict access to your service, you can use the
 In the Azure standard deployment model, two separate Virtual Networks are created in your
 Azure subscription within a particular cloud region:
 
-- **Bastion VNet**: Contains the bastion node subnet with the bastion host.
-- **Workload VNet**: Contains the workload nodes (your Aiven services) in a privately
-  addressed subnet.
+- **Bastion VNet**: Contains a **Bastion subnet** with the bastion host.
+- **Workload VNet**: Contains a **Private subnet** with the workload nodes (your Aiven
+  services).
 
-The two VNets are connected via **VNet peering**. Aiven accesses the workload VNet from
-a static IP address and routes traffic through a proxy for additional security. To
-accomplish this, Aiven uses a bastion host (**Bastion node**) in the Bastion VNet,
-logically separated from the Aiven services you deploy. The service VMs reside in a
-privately addressed subnet and are accessed by the Aiven management plane via the
-bastion. They are not accessible from the internet.
+The two VNets are connected via **VNet peering**. Aiven accesses the **Bastion VNet**
+from static IP addresses and routes traffic through a proxy for additional security. To
+accomplish this, Aiven uses a bastion host (**Bastion node**) in the Bastion subnet,
+logically separated from the Aiven services you deploy. The service VMs reside in the
+**Private subnet** and are accessed by the Aiven management plane via the bastion. They
+are not accessible from the internet.
 
 **Network Security Groups (NSGs)** control inbound and outbound traffic on each VNet.
 Each VNet has its own **NAT gateway** for outbound internet access.
 
-Two **Azure Blob Storage** accounts (Premium LRS and Standard LRS) are created in your
-subscription for service backups and data storage.
+**Azure Blob Storage** accounts (Premium LRS and Standard LRS) are provisioned in your
+Azure subscription for service backups.
 
 :::note
 Although the bastion host and the service nodes reside in the VNets under your
@@ -310,17 +310,6 @@ The bastion and workload nodes require outbound access to the internet to work p
 (supporting HA signaling to the Aiven management node and RPM download from Aiven
 repositories).
 :::
-
-</TabItem>
-<TabItem value="8" label="Azure BYOC public">
-
-In the Azure public deployment model, a Virtual Network (**Workload VNet**) for your
-Aiven services is created within a particular cloud region in your Azure subscription.
-Aiven accesses this VNet through the internet. Service VMs reside in a publicly addressed
-subnet (**Public subnet**), and Aiven services can be accessed through the public
-internet: the Aiven control plane connects to the nodes using the public address, and
-the Aiven management plane can access the service VMs directly. To restrict access to
-your service, you can use the [IP filter](/docs/platform/howto/restrict-access).
 
 </TabItem>
 </Tabs>
