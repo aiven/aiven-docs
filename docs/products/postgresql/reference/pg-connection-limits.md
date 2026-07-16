@@ -12,6 +12,7 @@ Default values of the `max_connections` setting vary according to the service pl
 
 |                 Plan                  | Max connections |
 | ------------------------------------- | --------------- |
+| Developer                             | 15              |
 | Free                                  | 20              |
 | Hobbyist                              | 25              |
 | Startup/Business/Premium-4            | 100             |
