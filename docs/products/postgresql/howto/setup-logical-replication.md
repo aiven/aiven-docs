@@ -244,7 +244,7 @@ to stop serving clients and a loss of service.
 
     :::note
     The checkpoint occurs only when:
-    -   an hour has elapsed (we use a `checkpoint_timeout` value of
+    -   15 minutes have elapsed (we use a `checkpoint_timeout` value of
         900 seconds), or
     -   5% of disk write operations is reached (the `max_wal_size`
         value is set to 5% of the instance storage).
