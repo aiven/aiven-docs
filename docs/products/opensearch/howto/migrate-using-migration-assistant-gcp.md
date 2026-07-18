@@ -1,6 +1,6 @@
 ---
-title: Migrate to Aiven for OpenSearch® using Migration Assistant on GCP
-sidebar_label: Migrate using Migration Assistant (GCP)
+title: Migrate from Elasticsearch to Aiven for OpenSearch® with Migration Assistant on Google Cloud
+sidebar_label: Migrate from ES to Aiven with assistant on GCP
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
