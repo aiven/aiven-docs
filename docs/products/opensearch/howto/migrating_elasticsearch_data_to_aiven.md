@@ -9,6 +9,12 @@ import TabItem from '@theme/TabItem';
 To migrate Elasticsearch data to Aiven for OpenSearch®, reindex from a remote Elasticsearch cluster.
 This method can also be used to migrate data from Aiven for OpenSearch to a self-hosted Elasticsearch service.
 
+:::tip
+For large datasets, live migrations with minimal downtime, or deployments on Google
+Cloud Platform (GCP) that require private networking, see
+[Migrate to Aiven for OpenSearch® using Migration Assistant on GCP](./migrate-using-migration-assistant-gcp.md).
+:::
+
 <!-- vale off -->
 :::tip
 To migrate a large number of indexes, consider automating the process with a script.

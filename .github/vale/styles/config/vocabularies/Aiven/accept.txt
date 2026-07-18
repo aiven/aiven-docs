@@ -441,6 +441,12 @@ VNet
 VPC/MS
 VPCs?
 VPN
+GKE
+kubectl
+PSC
+replayer
+RFS
+runbook
 VPNs
 wget
 Wireshark
