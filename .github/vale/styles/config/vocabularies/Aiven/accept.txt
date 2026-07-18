@@ -446,7 +446,6 @@ kubectl
 PSC
 replayer
 RFS
-runbook
 VPNs
 wget
 Wireshark

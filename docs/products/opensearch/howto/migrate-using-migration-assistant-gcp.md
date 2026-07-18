@@ -14,7 +14,8 @@ comparison tooling to validate your target cluster before cutover. Aiven contrib
 full GCP support, including private networking, to the project.
 
 Use the Migration Assistant rather than
-[reindexing from remote](./migrating_elasticsearch_data_to_aiven.md) when:
+[reindexing from remote](/docs/products/opensearch/howto/migrating_elasticsearch_data_to_aiven)
+when:
 
 - Your dataset is large (hundreds of millions of documents or more).
 - You need live migration with minimal downtime by capturing traffic during the
@@ -172,8 +173,8 @@ consumer-group lag on the capture topic.
 1. Tear down the migration infrastructure after you are satisfied with the result.
 
 :::note
-A detailed step-by-step cutover runbook is not yet available. Test the full cutover
-procedure in a non-production environment before running it in production.
+A detailed step-by-step cutover procedure is not yet available. Test the full cutover
+process in a non-production environment before running it in production.
 :::
 
 ## Performance and sizing

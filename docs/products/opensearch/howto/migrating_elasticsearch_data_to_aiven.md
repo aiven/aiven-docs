@@ -12,7 +12,7 @@ This method can also be used to migrate data from Aiven for OpenSearch to a self
 :::tip
 For large datasets, live migrations with minimal downtime, or deployments on Google
 Cloud Platform (GCP) that require private networking, see
-[Migrate to Aiven for OpenSearch® using Migration Assistant on GCP](./migrate-using-migration-assistant-gcp.md).
+[Migrate to Aiven for OpenSearch® using Migration Assistant on GCP](/docs/products/opensearch/howto/migrate-using-migration-assistant-gcp).
 :::
 
 <!-- vale off -->
