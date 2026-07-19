@@ -50,6 +50,12 @@ infrastructure on the Aiven platform while keeping your data in your own cloud.
 1. **View Aiven-managed assets in your cloud account**: You can preview Aiven-managed
    services and infrastructure in your cloud account.
 
+:::tip
+Services running in your custom clouds can also be managed from AI assistants. Use
+[Aiven MCP](/docs/tools/mcp-server) to create, update, and inspect Aiven services in
+natural language from clients such as Cursor and Claude Code.
+:::
+
 ## Why use BYOC
 
 Consider using BYOC and custom clouds if you have specific business

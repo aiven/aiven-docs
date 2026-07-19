@@ -4,6 +4,12 @@ title: Aiven for Apache Kafka®
 
 Aiven for Apache Kafka® is a fully managed Apache Kafka service for building event-driven applications, data pipelines, and stream processing systems.
 
+:::tip
+Want to manage Apache Kafka from an AI assistant? Use
+[Aiven MCP](/docs/tools/mcp-server) to create services, manage topics, and inspect
+your Kafka clusters in natural language from clients such as Cursor and Claude Code.
+:::
+
 You create Kafka services using one of two **cluster types**: **Inkless Kafka** or
 **Classic Kafka**.
 

@@ -7,6 +7,12 @@ import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Use the [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs) to provision and manage your Aiven infrastructure.
 
+:::tip
+Prefer natural language over configuration files? Use
+[Aiven MCP](/docs/tools/mcp-server) to create, update, and inspect Aiven services
+from AI assistants such as Cursor and Claude Code.
+:::
+
 ## Get started
 
 The Aiven Platform uses
@@ -40,3 +46,5 @@ The following example file is also available in the
   to learn how to create a service or integration using the Aiven Terraform Provider.
 - Get details about all the available resources and data sources in the
   [Aiven Provider for Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
+- Manage Aiven services in natural language from AI assistants with
+  [Aiven MCP](/docs/tools/mcp-server).
