@@ -28,7 +28,7 @@ more:
 -   Our code samples repository, to get you started:
     [https://github.com/aiven/aiven-examples](https://github.com/aiven/aiven-examples)
 -   [Aiven MCP](/docs/tools/mcp-server), to manage your Apache Kafka Connect
-    services and connectors from AI assistants such as Cursor and Claude Code
+    services and connectors from **AI assistants** such as Cursor and Claude Code
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 import CouchBase from "@site/static/includes/trademark-couchbase.md"
