@@ -11,7 +11,7 @@ To create a PostgreSQL® database:
     **Services** page, click the Aiven for PostgreSQL service name
     for which to create a database.
 
-1.  In your service's page, select **Databases** from the sidebar.
+1.  In your service's page, in the **Connect** section, click **Databases**.
 
 1.  In the **Databases** page, select **Create database**.
 

@@ -139,7 +139,8 @@ the [OpenSearch documentation](https://opensearch.org/docs/latest/opensearch/ind
 ### View and manage indices
 
 1. Open your service in the [Aiven Console](https://console.aiven.io/).
-1. Click <ConsoleLabel name="opensearchindexes" /> to view details such as shards, replicas, size, and health.
+1. In the **Data** section, click <ConsoleLabel name="opensearchindexes" /> to view details
+   such as shards, replicas, size, and health.
 
 ### Configure retention patterns
 

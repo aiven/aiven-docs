@@ -31,7 +31,7 @@ using a tool of your choice:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your primary
    Aiven for PostgreSQL service.
-1. Click <ConsoleLabel name="disasterrecovery"/> in the sidebar.
+1. In the **Backups** section, click <ConsoleLabel name="disasterrecovery"/>.
 1. On the **Cross-region disaster recovery** page, click **Manage**.
 1. In **Service recovery cycle** wizard:
 

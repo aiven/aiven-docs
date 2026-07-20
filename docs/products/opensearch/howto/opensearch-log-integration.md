@@ -72,7 +72,7 @@ Enable logs integration to send logs from your service to Aiven for OpenSearch®
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/) and go to the service that
     produces the logs to be sent to Aiven for OpenSearch.
-1.  Click <ConsoleLabel name="logs"/> in the sidebar.
+1.  In the **Observe** section, click <ConsoleLabel name="logs"/>.
 1.  On the **Logs** page, click **Enable logs integration**.
 1.  In the **Logs integration** window, select an existing Aiven for OpenSearch service
     or create one, and click **Continue**.
@@ -263,7 +263,7 @@ You can change the configuration of the `index prefix` and
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your Aiven for
     OpenSearch service.
-1.  Click <ConsoleLabel name="integrations"/> in the sidebar.
+1.  In the **Data** section, click <ConsoleLabel name="integrations"/>.
 1.  On the **Integrations** page, find the integrated service to configure.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="edit"/>.
 1.  After updating `index prefix` or `index retention limit`, click **Edit**.
@@ -436,7 +436,7 @@ To stop sending logs from your service to Aiven for OpenSearch, disable the inte
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your integrated
     Aiven for OpenSearch service.
-1.  Click <ConsoleLabel name="integrations"/> in the sidebar.
+1.  In the **Data** section, click <ConsoleLabel name="integrations"/>.
 1.  On the **Integrations** page, find the service sending its logs to your Aiven for
     OpenSearch service.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="disconnect"/>.

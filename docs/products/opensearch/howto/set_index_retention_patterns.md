@@ -16,7 +16,7 @@ To define index retention policies for your OpenSearch indices:
 
 1. Log in to the [Aiven Console](https://console.aiven.io), select your project,
    and select your Aiven for OpenSearch service.
-1. Click **Indexes** on the sidebar.
+1. In the **Data** section, click **Indexes**.
    The **Indexes** section lists the patterns that are currently in use.
 1. Click **Add pattern**.
 1. Enter the pattern to use and the maximum index count for the pattern.

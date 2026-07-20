@@ -163,6 +163,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.dbBackup} /> <b>Backups</b>
         </>
       );
+    case 'backupmanagement':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dbBackup} /> <b>Backup management</b>
+        </>
+      );
     case 'overview':
       return (
         <>

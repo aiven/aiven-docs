@@ -23,17 +23,16 @@ settings.
 ## Create an additional database
 
 To create more databases, go to the service's page in [Aiven
-Console](https://console.aiven.io/) and select **Databases** from the
-sidebar. In the **Databases** view, select **Create database**, enter a
-name for your database and
-click **Add database**.
+Console](https://console.aiven.io/). In the **Connect** section, click
+**Databases**. In the **Databases** view, click **Create database**, enter a
+name for your database and click **Add database**.
 
 ## Add a database user
 
 To add database users, go to [Aiven Console](https://console.aiven.io/)
 and select your Aiven for MySQL service from the **Services** page. In
-your service's page, select **Users** from the sidebar. In the
-**Users** view, select **Add service user**.
+your service's page, in the **Connect** section, click **Users**. In the
+**Users** view, click **Add service user**.
 
 In the **Create a service user** window, you can choose the
 authentication method to use. By default, the web console uses the

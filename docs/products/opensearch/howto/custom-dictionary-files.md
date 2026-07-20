@@ -29,7 +29,7 @@ Upload new custom dictionary files to your OpenSearch service.
 
 1. Log in to the [Aiven Console](https://console.aiven.io), select your project,
    and select your Aiven for OpenSearch service.
-1. Click **Indexes** on the sidebar.
+1. In the **Data** section, click **Indexes**.
 1. Click **Upload file** in the **Custom dictionary files** section.
 1. In the **Upload a custom dictionary file** screen:
    - Select **File type** (Stopwords, Synonyms, WordNet).
@@ -99,7 +99,7 @@ the updated words.
 
 1. Log in to the [Aiven Console](https://console.aiven.io), select your project,
    and select your Aiven for OpenSearch service.
-1. Click **Indexes** on the sidebar.
+1. In the **Data** section, click **Indexes**.
 1. In the **Custom dictionary files** section, locate the desired file.
 1. Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="replace file"/>.
 1. Choose the new file from your system and click **Upload**.
@@ -135,7 +135,7 @@ Download a custom dictionary file to your local system.
 
 1. Log in to the [Aiven Console](https://console.aiven.io), select your project,
    and select your Aiven for OpenSearch service.
-1. Click **Indexes** on the sidebar.
+1. In the **Data** section, click **Indexes**.
 1. In the **Custom dictionary files** section, locate the desired file.
 1. Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="download"/>.
 1. Choose you location and click **Save**.

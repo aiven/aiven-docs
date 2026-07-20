@@ -116,7 +116,7 @@ To migrate your data using Bucardo:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io), select
     your Aiven for PostgreSQL service from the **Services** list, and
-    select **Current Queries** from the sidebar in your service's page.
+    in the **Observe** section, click **Current queries** in your service's page.
     This shows you that the `bucardo` process is inserting data.
 
 1.  Once all your data is synchronized, switch the database connection

@@ -19,7 +19,7 @@ its databases and tables.
 <Tabs groupId="add-user">
 <TabItem value="console" label="Aiven Console" default>
 
-<AddUser/>
+<AddUser serviceCategory="Connect"/>
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">

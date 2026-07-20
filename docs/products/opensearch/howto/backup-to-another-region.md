@@ -6,12 +6,13 @@ sidebar_label: Backup to another region
 import BtarConcepts from "@site/static/includes/btar-concepts.md";
 import BtarInstructions from "@site/static/includes/btar-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Copy your Aiven for OpenSearch® service backups to a secondary region for disaster recovery.
 
 <BtarConcepts/>
 
-<BtarInstructions/>
+<BtarInstructions backupsNav={<>in the <b>Backups</b> section, click <ConsoleLabel name="backupmanagement"/></>}/>
 
 <RelatedPages/>
 

@@ -20,7 +20,7 @@ or migrate to another cloud or region.
 1. Log in to the [Aiven Console](https://console.aiven.io/) and go to your project.
 1. On the <ConsoleLabel name="Services"/> page, select an Aiven service on which you'd
    like to enable BTAR.
-1. On your service page, click <ConsoleLabel name="backups"/> in the sidebar.
+1. On your service page, {props.backupsNav ? props.backupsNav : <><ConsoleLabel name="backups"/> in the sidebar</>}.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
    **Edit secondary backup location**.
 1. In the **Edit secondary backup location** window, use the **Backup location**

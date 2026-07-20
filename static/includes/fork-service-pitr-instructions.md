@@ -7,7 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In your service, click <ConsoleLabel name="backups"/> in the sidebar.
+1. In your service, {props.backupsNav ? props.backupsNav : <><ConsoleLabel name="backups"/> in the sidebar</>}.
 1. Click **Fork & restore**.
 1. Choose the point in time to fork from.
 1. Enter a name, and choose the cloud and plan.

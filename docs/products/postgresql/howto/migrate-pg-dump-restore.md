@@ -101,8 +101,8 @@ You can use the following variables in the code samples provided:
 
     :::warning
     The user passwords are different from those on the server that you
-    migrated from. Go to the **Users** tab for your service in the Aiven
-    web console to check the new passwords.
+    migrated from. In the **Connect** section, go to **Users** in the
+    Aiven Console to check the new passwords.
     :::
 
 1.  Connect to the target database via `psql`:

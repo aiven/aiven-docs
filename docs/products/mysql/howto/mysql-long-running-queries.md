@@ -18,8 +18,8 @@ either:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  From the **Services** page, select your Aiven for MySQL® service.
-3.  In your service's page, select **Current queries** from the
-    sidebar.
+3.  In your service's page, in the **Observe** section, click
+    **Current queries**.
 4.  In the **Current queries** page, you can check the query duration
     and select **Terminate** to stop any long-running queries.
 
