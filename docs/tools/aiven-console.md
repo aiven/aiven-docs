@@ -5,6 +5,11 @@ sidebar_label: Aiven Console
 
 In the [Aiven Console](https://console.aiven.io) you can create and manage Aiven services, update your user profile, manage settings across organizations and projects, set up billing groups, view invoices, and more.
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to create,
+update, and view details for Aiven services from clients such as Cursor and
+Claude Code.
+:::
 
 ## User profile
 

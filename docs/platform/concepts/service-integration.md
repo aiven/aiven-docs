@@ -5,6 +5,12 @@ sidebar_label: Overview
 
 Service integrations provide additional functionality and features by connecting different Aiven services together.
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to create,
+manage, and view details for service integrations from clients such as Cursor
+and Claude Code.
+:::
+
 ## About service integrations
 
 Service integrations include:
