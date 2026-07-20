@@ -14,7 +14,7 @@ comparison tooling to validate your target cluster before cutover. Aiven contrib
 full GCP support, including private networking, to the project.
 
 Use the Migration Assistant rather than
-[reindexing from remote](/docs/products/opensearch/howto/migrating_elasticsearch_data_to_aiven)
+[reindexing from remote](/docs/products/opensearch/howto/migrating-elasticsearch-data-to-aiven)
 when:
 
 - Your dataset is large (hundreds of millions of documents or more).
@@ -198,7 +198,7 @@ For large migrations, consider the following tuning steps:
 
 <RelatedPages/>
 
-- [Migrate Elasticsearch data to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrating_elasticsearch_data_to_aiven)
+- [Migrate Elasticsearch data to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrating-elasticsearch-data-to-aiven)
 - [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/manage-snapshots)
 - [Migrate external snapshots to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrate-external-snapshots-aiven-opensearch)
 - [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)

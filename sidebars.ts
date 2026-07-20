@@ -1870,7 +1870,8 @@ const sidebars: SidebarsConfig = {
                     'products/opensearch/howto/migrate-opendistro-security-config-aiven',
                   ],
                 },
-                'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
+                'products/opensearch/howto/migrating-elasticsearch-data-to-aiven',
+                'products/opensearch/howto/migrate-using-migration-assistant-gcp',
               ],
             },
             {
