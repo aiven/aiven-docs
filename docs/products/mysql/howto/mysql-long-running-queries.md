@@ -3,6 +3,8 @@ title: Detect and terminate long-running queries in Aiven for MySQL®
 sidebar_label: Handle long-running queries
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Aiven does not terminate any customer queries even if they run
 indefinitely, but long-running queries can cause issues by locking
 resources and therefore preventing database maintenance tasks such as
@@ -18,8 +20,8 @@ either:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 2.  From the **Services** page, select your Aiven for MySQL® service.
-3.  In your service's page, select **Current queries** from the
-    sidebar.
+3.  In your service's page, in the <ConsoleLabel name="observe"/> section, click
+    **Current queries**.
 4.  In the **Current queries** page, you can check the query duration
     and select **Terminate** to stop any long-running queries.
 

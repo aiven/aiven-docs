@@ -3,6 +3,8 @@ title: Migrate PostgreSQL® databases to Aiven using pg_dump and pg_restore
 sidebar_label: pg_dump & pg_restore
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Aiven for PostgreSQL® supports the same tools as a regular PostgreSQL database, so you can migrate using the standard `pg_dump` and `pg_restore` tools.
 
 :::tip
@@ -101,8 +103,8 @@ You can use the following variables in the code samples provided:
 
     :::warning
     The user passwords are different from those on the server that you
-    migrated from. Go to the **Users** tab for your service in the Aiven
-    web console to check the new passwords.
+    migrated from. In the <ConsoleLabel name="connect"/> section, go to **Users** in the
+    Aiven Console to check the new passwords.
     :::
 
 1.  Connect to the target database via `psql`:

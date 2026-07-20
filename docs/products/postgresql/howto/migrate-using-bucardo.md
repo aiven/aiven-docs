@@ -3,6 +3,8 @@ title: Migrate PostgreSQL® databases to Aiven using Bucardo
 sidebar_label: Migrate with Bucardo
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 The preferred approach to migrating a database to Aiven for PostgreSQL® is to use Aiven's open source migration tool ([About aiven-db-migrate](/docs/products/postgresql/concepts/aiven-db-migrate)).
 However, if you are running PostgreSQL 9.6 (or earlier) or
 do not have `superuser` access to your database to add replication
@@ -116,7 +118,7 @@ To migrate your data using Bucardo:
 
 1.  Log in to the [Aiven Console](https://console.aiven.io), select
     your Aiven for PostgreSQL service from the **Services** list, and
-    select **Current Queries** from the sidebar in your service's page.
+    in the <ConsoleLabel name="observe"/> section, click **Current queries** in your service's page.
     This shows you that the `bucardo` process is inserting data.
 
 1.  Once all your data is synchronized, switch the database connection

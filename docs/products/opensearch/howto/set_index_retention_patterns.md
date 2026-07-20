@@ -5,6 +5,7 @@ title: Index retention patterns
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Learn to set index retention patterns and manage maximum indices in your Aiven for OpenSearch® instance.
 
@@ -16,7 +17,7 @@ To define index retention policies for your OpenSearch indices:
 
 1. Log in to the [Aiven Console](https://console.aiven.io), select your project,
    and select your Aiven for OpenSearch service.
-1. Click **Indexes** on the sidebar.
+1. In the <ConsoleLabel name="data"/> section, click **Indexes**.
    The **Indexes** section lists the patterns that are currently in use.
 1. Click **Add pattern**.
 1. Enter the pattern to use and the maximum index count for the pattern.

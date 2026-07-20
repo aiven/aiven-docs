@@ -7,6 +7,7 @@ import ForkConcepts from "@site/static/includes/fork-service-concepts.md";
 import ForkInstructions from "@site/static/includes/fork-service-instructions.md";
 import ForkPitr from "@site/static/includes/fork-service-pitr-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Fork your Aiven for PostgreSQL® service to create an independent copy for testing,
 debugging, or development without affecting the original service.
@@ -25,7 +26,7 @@ pools are copied to the new service.
 
 <ForkInstructions/>
 
-<ForkPitr/>
+<ForkPitr backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 
 <RelatedPages/>
 

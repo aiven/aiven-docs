@@ -3,6 +3,8 @@ title: Create Aiven for MySQL® databases
 sidebar_label: Create databases
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Once you've created your Aiven for MySQL® service, you can add additional databases, for security purposes or to isolate your data per application.
 
 To create a MySQL® database:
@@ -12,7 +14,7 @@ To create a MySQL® database:
 2.  In the **Services** page, select an Aiven for MySQL service for
     where to create a database.
 
-3.  In your service's page, select **Databases** from the sidebar.
+3.  In your service's page, in the <ConsoleLabel name="connect"/> section, click **Databases**.
 
 4.  In the **Databases** view, select **Create database**.
 

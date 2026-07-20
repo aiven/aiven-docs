@@ -7,7 +7,7 @@ To edit the backup schedule for your service:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In your service, click <ConsoleLabel name="backups"/>.
+1. In your service, {props.backupsNav ? props.backupsNav : <ConsoleLabel name="backups"/>}.
 1. Click <ConsoleLabel name="actions"/> > **Configure backup settings**.
 1. Click **Add configuration options**.
 1. Add `backup_hour` and `backup_minute`, and set their values.
