@@ -124,7 +124,8 @@ Use the [Aiven CLI](/docs/tools/cli) to upgrade your PostgreSQL service. The upg
 requires two steps: run a compatibility check first, then apply the version change.
 The compatibility check result expires after one hour.
 
-1.  Run the upgrade compatibility check:
+1.  Run the upgrade compatibility check using
+    [`avn service task-create`](/docs/tools/cli/service-cli#avn-service-task-create):
 
     ```bash
     avn service task-create SERVICE_NAME \
@@ -135,7 +136,8 @@ The compatibility check result expires after one hour.
 
     Note the `task_id` in the output.
 
-1.  Poll the task until `task_status` is `DONE`:
+1.  Poll the task until `task_status` is `DONE` using
+    [`avn service task-get`](/docs/tools/cli/service-cli#avn-service-task-get):
 
     ```bash
     avn service task-get SERVICE_NAME \
@@ -145,7 +147,8 @@ The compatibility check result expires after one hour.
 
     If `success` is `false`, resolve the reported issue before continuing.
 
-1.  Apply the version upgrade within one hour of the successful check:
+1.  Apply the version upgrade within one hour of the successful check using
+    [`avn service update`](/docs/tools/cli/service-cli#avn-cli-service-update):
 
     ```bash
     avn service update SERVICE_NAME \
@@ -213,8 +216,11 @@ result expires after one hour.
 </TabItem>
 <TabItem value="tf" label="Terraform">
 
-In your `aiven_pg` resource, update `pg_version` inside `pg_user_config` and
-apply the change:
+Use the
+[`aiven_pg`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg)
+resource to update
+[`pg_version`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg#pg_version-1)
+inside `pg_user_config` and apply the change:
 
 ```hcl
 resource "aiven_pg" "example_pg" {
@@ -236,8 +242,11 @@ the upgrade.
 </TabItem>
 <TabItem value="k8s" label="Kubernetes">
 
-In your `PostgreSQL` custom resource, update `pg_version` inside `spec.userConfig`
-and apply the manifest:
+Use the
+[PostgreSQL](https://aiven.github.io/aiven-operator/resources/postgresql.html)
+resource to update
+[`pg_version`](https://aiven.github.io/aiven-operator/resources/postgresql.html#spec.userConfig.pg_version-property)
+inside `spec.userConfig` and apply the manifest:
 
 1.  Update `pg_version` in your manifest:
 
