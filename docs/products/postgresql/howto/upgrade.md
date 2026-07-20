@@ -3,6 +3,8 @@ title: Perform a PostgreSQL® major version upgrade
 sidebar_label: Major version upgrade
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
@@ -40,16 +42,33 @@ affecting the running service, mostly to:
 1.  Test query performance directly after upgrade under real world
     load, when no statistics are available and caches are cold.
 <!-- vale on -->
+
+## Limitations
+
 ### Upgrade to major versions in sequence
 
-:::important
 It's not recommended to upgrade across multiple major versions in a single pass.
-:::
 
 For example, if you're on version 1.0 and need to be on 4.0, first upgrade to 2.0, next
 to 3.0, and finally to 4.0. Avoid updating from 1.0 directly to 4.0.
 
+### No downgrade to major versions
+
+Downgrading to an earlier major version is not supported.
+
+### Conditions that block an upgrade
+
+The following conditions prevent an upgrade from completing:
+
+- The service is a read-only replica. Upgrade the primary service instead.
+- A version upgrade is already in progress on the service.
+- Maintenance updates are pending for the service cluster.
+- The service nodes are not all in a running state.
+
 ## Upgrade to a major version
+
+<Tabs groupId="upgrade-pg">
+<TabItem value="console" label="Console" default>
 
 To upgrade a PostgreSQL service:
 
@@ -97,6 +116,168 @@ To upgrade a PostgreSQL service:
         will go offline for the upgrade at this point.
     1.  `ANALYZE` will be automatically run for all tables after the
         upgrade to refresh table statistics and optimize queries.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Use the [Aiven CLI](/docs/tools/cli) to upgrade your PostgreSQL service. The upgrade
+requires two steps: run a compatibility check first, then apply the version change.
+The compatibility check result expires after one hour.
+
+1.  Run the upgrade compatibility check using
+    [`avn service task-create`](/docs/tools/cli/service-cli#avn-service-task-create):
+
+    ```bash
+    avn service task-create SERVICE_NAME \
+      --project PROJECT_NAME             \
+      --operation upgrade_check          \
+      --target-version TARGET_VERSION
+    ```
+
+    Note the `task_id` in the output.
+
+1.  Poll the task until `task_status` is `DONE` using
+    [`avn service task-get`](/docs/tools/cli/service-cli#avn-service-task-get):
+
+    ```bash
+    avn service task-get SERVICE_NAME \
+      --project PROJECT_NAME          \
+      --task-id TASK_ID
+    ```
+
+    If `success` is `false`, resolve the reported issue before continuing.
+
+1.  Apply the version upgrade within one hour of the successful check using
+    [`avn service update`](/docs/tools/cli/service-cli#avn-cli-service-update):
+
+    ```bash
+    avn service update SERVICE_NAME \
+      --project PROJECT_NAME        \
+      -c pg_version=TARGET_VERSION
+    ```
+
+    Replace the following:
+
+    - `SERVICE_NAME`: name of your Aiven for PostgreSQL service.
+    - `PROJECT_NAME`: name of your Aiven project.
+    - `TARGET_VERSION`: target PostgreSQL major version, for example `16`.
+    - `TASK_ID`: task ID returned in step 1.
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Use the Aiven API to upgrade your PostgreSQL service. The upgrade requires two steps:
+run a compatibility check first, then apply the version change. The compatibility check
+result expires after one hour.
+
+1.  Run the upgrade compatibility check using
+    [ServiceTaskCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceTaskCreate):
+
+    ```bash
+    curl --request POST                                                          \
+      --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/task \
+      --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                         \
+      --header 'content-type: application/json'                                  \
+      --data '{"task_type": "upgrade_check", "upgrade_check": {"target_version": "TARGET_VERSION"}}'
+    ```
+
+    Note the `task_id` in the response.
+
+1.  Poll the task until `task_status` is `DONE` using
+    [ServiceTaskGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceTaskGet):
+
+    ```bash
+    curl --request GET \
+      'https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/task/TASK_ID' \
+      --header 'Authorization: Bearer YOUR_BEARER_TOKEN'
+    ```
+
+    If `success` is `false`, resolve the reported issue before continuing.
+
+1.  Apply the version upgrade within one hour of the successful check using
+    [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate):
+
+    ```bash
+    curl --request PUT                                                           \
+      --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME   \
+      --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                        \
+      --header 'content-type: application/json'                                 \
+      --data '{"user_config": {"pg_version": "TARGET_VERSION"}}'
+    ```
+
+    Replace the following:
+
+    - `PROJECT_NAME`: name of your Aiven project.
+    - `SERVICE_NAME`: name of your Aiven for PostgreSQL service.
+    - `YOUR_BEARER_TOKEN`: your Aiven API authentication token.
+    - `TARGET_VERSION`: target PostgreSQL major version, for example `16`.
+    - `TASK_ID`: task ID returned in step 1.
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+Use the
+[`aiven_pg`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg)
+resource to update
+[`pg_version`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg#pg_version-1)
+inside `pg_user_config` and apply the change:
+
+```hcl
+resource "aiven_pg" "example_pg" {
+  project      = var.aiven_project_name
+  cloud_name   = "google-europe-west1"
+  plan         = "startup-4"
+  service_name = "my-postgres-service"
+
+  pg_user_config {
+    pg_version = "TARGET_VERSION"
+  }
+}
+```
+
+Replace `TARGET_VERSION` with the target PostgreSQL major version, for example `"16"`.
+The Aiven Terraform provider runs a pre-flight compatibility check before applying
+the upgrade.
+
+</TabItem>
+<TabItem value="k8s" label="Kubernetes">
+
+Use the
+[PostgreSQL](https://aiven.github.io/aiven-operator/resources/postgresql.html)
+resource to update
+[`pg_version`](https://aiven.github.io/aiven-operator/resources/postgresql.html#spec.userConfig.pg_version-property)
+inside `spec.userConfig` and apply the manifest:
+
+1.  Update `pg_version` in your manifest:
+
+    ```yaml
+    apiVersion: aiven.io/v1alpha1
+    kind: PostgreSQL
+    metadata:
+      name: my-pg-service
+    spec:
+      authSecretRef:
+        name: aiven-token
+        key: token
+      project: PROJECT_NAME
+      cloudName: google-europe-west1
+      plan: startup-4
+      userConfig:
+        pg_version: "TARGET_VERSION"
+    ```
+
+1.  Apply the updated manifest:
+
+    ```bash
+    kubectl apply -f my-pg-service.yaml
+    ```
+
+Replace `PROJECT_NAME` with your Aiven project name and `TARGET_VERSION` with the
+target PostgreSQL major version, for example `"16"`. The operator runs a compatibility
+check before applying the upgrade.
+
+</TabItem>
+</Tabs>
 
 :::note
 A full backup of a large database may take a long time to complete. It
