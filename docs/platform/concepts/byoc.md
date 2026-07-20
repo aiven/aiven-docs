@@ -51,9 +51,9 @@ infrastructure on the Aiven platform while keeping your data in your own cloud.
    services and infrastructure in your cloud account.
 
 :::tip
-Services running in your custom clouds can also be managed from **AI assistants**. Use
-[Aiven MCP](/docs/tools/mcp-server) to create, update, and inspect Aiven services in
-natural language from clients such as Cursor and Claude Code.
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to create,
+update, and view details for services running in your custom clouds from clients
+such as Cursor and Claude Code.
 :::
 
 ## Why use BYOC
