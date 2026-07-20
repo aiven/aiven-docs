@@ -3,6 +3,8 @@ title: Copy data from OpenSearch to Aiven for OpenSearch® using elasticsearch-d
 sidebar_label: Copy data to Aiven
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Backup your OpenSearch® data into Aiven for Opensearch.
 
 To copy the index data, we will be using `elasticsearch-dump`
@@ -81,7 +83,7 @@ elasticdump \
 
 When the dump is completed, you can check that the index is available in
 the OpenSearch service you send it to. You will be able to find it under
-**Indexes** in the **Data** section in your Aiven Console.
+**Indexes** in the <ConsoleLabel name="data"/> section in your Aiven Console.
 
 ### Resources
 

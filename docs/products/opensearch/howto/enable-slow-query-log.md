@@ -248,7 +248,7 @@ After configuring slow query logging, view the logs in the
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 1.  On the <ConsoleLabel name="Services"/> page, select your Aiven for OpenSearch service.
-1. In the **Observe** section, click <ConsoleLabel name="logs"/>.
+1. In the <ConsoleLabel name="observe"/> section, click **Logs**.
 1. Search for slow query entries using the search field or filter by log level.
 
 Slow query log entries include:

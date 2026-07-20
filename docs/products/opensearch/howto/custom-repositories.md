@@ -76,7 +76,7 @@ the appropriate settings for the selected storage provider.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, click **Add repository**.
 1. In the **Add custom repository** window:
    1. Enter a repository name.
@@ -135,7 +135,7 @@ curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_n
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 
 Find your custom repositories listed on the **Snapshots** page.
 
@@ -184,7 +184,7 @@ Example response:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="actions"/> > <ConsoleLabel name="editrepo"/>.
 1. Edit repository details and save your changes by clicking **Update**.
@@ -193,7 +193,7 @@ Example response:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="actions"/> > <ConsoleLabel name="removerepo"/> > **Remove**.
 

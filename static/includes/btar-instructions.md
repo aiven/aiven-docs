@@ -20,7 +20,7 @@ or migrate to another cloud or region.
 1. Log in to the [Aiven Console](https://console.aiven.io/) and go to your project.
 1. On the <ConsoleLabel name="Services"/> page, select an Aiven service on which you'd
    like to enable BTAR.
-1. On your service page, {props.backupsNav ? props.backupsNav : <><ConsoleLabel name="backups"/> in the sidebar</>}.
+1. On your service page, {props.backupsNav ? props.backupsNav : <ConsoleLabel name="backups"/>}.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
    **Edit secondary backup location**.
 1. In the **Edit secondary backup location** window, use the **Backup location**
@@ -92,7 +92,7 @@ where this new service is hosted.
 <TabItem value="gui" label="Aiven Console" default>
 1. Open the [Aiven Console](https://console.aiven.io/) and go to your service
    homepage.
-1. Click <ConsoleLabel name="backups"/> in the sidebar.
+1. Click <ConsoleLabel name="backups"/>.
 1. On the **Backups** page, select **Fork & restore**.
 1. In the **New database fork** window:
 
@@ -198,7 +198,7 @@ primary, service-hosting region.
 <TabItem value="gui" label="Aiven Console" default>
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. From the **Services** view, select an Aiven service on which you'd like to disable BTAR.
-1. On your service's page, select **Backups** from the sidebar.
+1. On your service's page, click <ConsoleLabel name="backups"/>.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> > **Secondary backup location**.
 1. In the **Edit secondary backup location** window, select **Disable**.
 

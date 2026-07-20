@@ -11,7 +11,7 @@ To optimize a query automatically:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your
    {props.service} service.
-1. In the **Observe** section, click <ConsoleLabel name="AI insights"/>.
+1. In the <ConsoleLabel name="observe"/> section, click **AI insights**.
 1. For the query of your choice, click **Optimize**.
 1. In the **Query optimization report** window, see the optimization suggestion and apply
    the suggestion by running the provided SQL queries.

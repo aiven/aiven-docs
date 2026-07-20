@@ -17,7 +17,7 @@ URI** setting listed on the **Overview** page. However, this URI
 doesn't make use of the PgBouncer pooling. PgBouncer pools use a
 different port number than the regular PostgreSQL server port. The
 PgBouncer **Service URI** for a particular pool is in [Aiven
-Console](https://console.aiven.io/) > your service's page > **Connect** > <ConsoleLabel name="pools"/>.
+Console](https://console.aiven.io/) > your service's page > <ConsoleLabel name="connect"/> > **Connection pools**.
 You can also view the generic PgBouncer service URI for your pools on your service's
 **Overview** page > **Connection information** > **PgBouncer** tab.
 
@@ -36,7 +36,7 @@ To manage the connection pools:
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     Aiven for PostgreSQL service.
 
-1.  In the **Connect** section, click <ConsoleLabel name="pools"/>.
+1.  In the <ConsoleLabel name="connect"/> section, click **Connection pools**.
 
 1.  In the **Connection pools** view, you can check the available connection pools
     and add or remove them.

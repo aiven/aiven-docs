@@ -75,7 +75,7 @@ restoration in PostgreSQL is single-threaded and, therefore, slow).
 
 Set the time of day when the daily backup is taken.
 
-<EditBackupSchedule backupsNav={<>in the <b>Backups</b> section, click <ConsoleLabel name="backupmanagement"/></>}/>
+<EditBackupSchedule backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 
 <RelatedPages/>
 

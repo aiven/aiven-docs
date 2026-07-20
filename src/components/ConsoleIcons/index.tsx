@@ -163,10 +163,22 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.dbBackup} /> <b>Backups</b>
         </>
       );
-    case 'backupmanagement':
+    case 'connect':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.dbBackup} /> <b>Backup management</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.link} /> <b>Connect</b>
+        </>
+      );
+    case 'observe':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.pulse} /> <b>Observe</b>
+        </>
+      );
+    case 'data':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Data</b>
         </>
       );
     case 'overview':

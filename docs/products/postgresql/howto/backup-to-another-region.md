@@ -12,7 +12,7 @@ Copy your Aiven for PostgreSQL® service backups to a secondary region for disas
 
 <BtarConcepts/>
 
-<BtarInstructions backupsNav={<>in the <b>Backups</b> section, click <ConsoleLabel name="backupmanagement"/></>}/>
+<BtarInstructions backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 
 <RelatedPages/>
 

@@ -26,7 +26,7 @@ pools are copied to the new service.
 
 <ForkInstructions/>
 
-<ForkPitr backupsNav={<>in the <b>Backups</b> section, click <ConsoleLabel name="backupmanagement"/></>}/>
+<ForkPitr backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 
 <RelatedPages/>
 

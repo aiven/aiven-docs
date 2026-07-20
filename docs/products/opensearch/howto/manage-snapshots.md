@@ -112,7 +112,7 @@ Create a snapshot in a custom repository.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, do one of the following:
    - Click **Create snapshot**.
    - Find your custom repository and click <ConsoleLabel name="actions"/> >
@@ -170,7 +170,7 @@ security configurations during the restore process as it can cause restore failu
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
 1. Find the snapshot to restore and click <ConsoleLabel name="actions"/> >
@@ -261,7 +261,7 @@ Preview snapshots that are still being created in a repository.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
 1. In the column with snapshot status information, find **in progress** values.
@@ -317,7 +317,7 @@ Preview all snapshots, including completed and failed ones.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside.
 
@@ -459,7 +459,7 @@ Get details of a specific snapshot.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, find your custom repository, click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside, find a snapshot
    to be previewed, and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewsnapshot"/>.
@@ -508,7 +508,7 @@ Delete a snapshot from a repository.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), go to your project, and
    open your service's page.
-1. In the **Backups** section, click <ConsoleLabel name="snapshots"/>.
+1. In the <ConsoleLabel name="backups"/> section, click **Snapshots**.
 1. On the **Snapshots** page, find your custom repository, click
    <ConsoleLabel name="downarrow"/> to expand the list of snapshots inside, find a snapshot
    to be deleted, click <ConsoleLabel name="actions"/> >

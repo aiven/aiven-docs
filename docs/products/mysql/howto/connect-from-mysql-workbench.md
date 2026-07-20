@@ -3,6 +3,8 @@ title: Connect to Aiven for MySQL® with MySQL Workbench
 sidebar_label: MySQL Workbench
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 You can use a graphical client like [MySQL Workbench](https://www.mysql.com/products/workbench/) to connect to Aiven for MySQL® services.
 
 ## Connect to Aiven for MySQL®
@@ -23,7 +25,7 @@ settings.
 ## Create an additional database
 
 To create more databases, go to the service's page in [Aiven
-Console](https://console.aiven.io/). In the **Connect** section, click
+Console](https://console.aiven.io/). In the <ConsoleLabel name="connect"/> section, click
 **Databases**. In the **Databases** view, click **Create database**, enter a
 name for your database and click **Add database**.
 
@@ -31,7 +33,7 @@ name for your database and click **Add database**.
 
 To add database users, go to [Aiven Console](https://console.aiven.io/)
 and select your Aiven for MySQL service from the **Services** page. In
-your service's page, in the **Connect** section, click **Users**. In the
+your service's page, in the <ConsoleLabel name="connect"/> section, click **Users**. In the
 **Users** view, click **Add service user**.
 
 In the **Create a service user** window, you can choose the
