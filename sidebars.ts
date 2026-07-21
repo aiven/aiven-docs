@@ -901,7 +901,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Maintenance and lifecycle',
-              items: ['products/kafka/concepts/upgrade-procedure'],
+              items: [
+                'products/kafka/howto/maintenance-updates',
+                'products/kafka/concepts/upgrade-procedure',
+              ],
             },
             {
               type: 'category',

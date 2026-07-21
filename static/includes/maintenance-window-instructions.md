@@ -28,5 +28,5 @@ active for 180 days and more.
 
 :::important
 Periodic infrastructure updates are mandatory for all the services
-except for those with maintenance disabled.
+except for those with maintenance turned off.
 :::
