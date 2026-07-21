@@ -451,7 +451,8 @@ In the **Create custom cloud** wizard:
 
         Choose a deployment model:
         - **Private**: Routes traffic through a proxy using a bastion host logically
-          separated from the Aiven services. Use it for sensitive, internal workloads.
+          separated from the Aiven services. Provides network isolation but does not
+          add HIPAA or PCI DSS compliance controls.
         - **Public**: Lets the Aiven control plane connect to the service nodes over the
           public internet. Use it for public-facing workloads.
         - **HIPAA**: Builds on the private model for healthcare workloads that handle
@@ -459,10 +460,10 @@ In the **Create custom cloud** wizard:
         - **PCI DSS**: Builds on the private model for payment workloads that require
           cardholder data environment (CDE) isolation.
 
-        The **HIPAA** and **PCI DSS** models must be enabled for your organization before
-        you can select them. Contact your account team to request access. They require
-        object storage in your AWS account and restrict outbound traffic and public access.
-        See
+        If **HIPAA** or **PCI DSS** options are not visible in the console, these
+        compliance deployment models have not been enabled for your organization.
+        Contact your account team to request access. They require object storage in
+        your AWS account and restrict outbound traffic and public access. See
         [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
     -   CIDR for BYOC resources
