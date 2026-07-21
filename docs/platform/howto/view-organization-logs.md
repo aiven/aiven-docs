@@ -6,10 +6,11 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Monitor activity in your Aiven organization with the organization and organizational unit logs.
+Monitor activity in your Aiven organization with the organization and organizational event logs.
 
 To view logs at the organization level, you must be an
-[organization admin](/docs/platform/concepts/permissions).
+organization admin or have the
+`organization:event_logs:read` [permission](/docs/platform/concepts/permissions).
 
 ## View organization logs
 
