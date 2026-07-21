@@ -172,13 +172,14 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'observe':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.pulse} /> <b>Observe</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.timelineAreaChart} />{' '}
+          <b>Observe</b>
         </>
       );
     case 'data':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Data</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Data</b>
         </>
       );
     case 'overview':
@@ -247,7 +248,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'users':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>Users</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Users</b>
         </>
       );
     case 'makesuperadmin':

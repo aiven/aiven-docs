@@ -32,7 +32,7 @@ Depending on your data source, select **PostgreSQL** or **Apache Kafka**.
 <TabItem value="pg" label="PostgreSQL" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service.
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Click **Create database** > **PostgreSQL integration database**.
 1.  In the **Create PostgreSQL integration database** wizard:
 
@@ -43,7 +43,7 @@ Depending on your data source, select **PostgreSQL** or **Apache Kafka**.
 <TabItem value="kafka" label="Apache Kafka">
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service.
-1.  In the sidebar, click <ConsoleLabel name="integrations"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Integrations**.
 1.  On the **Integrations** page, find your data source integration and click
     <ConsoleLabel name="actions"/> > **Create database**.
 1.  In the **Create Kafka integration database** wizard:
@@ -64,7 +64,7 @@ Depending on your data source, select **PostgreSQL** or **Apache Kafka**.
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service.
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Expand the integration database using <ConsoleLabel name="downarrow"/>.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewdetails"/> on the table.
 
@@ -84,14 +84,14 @@ Depending on what you intend to edit, select **Database** or **Table**.
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service
     with the database.
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="editdatabase"/> on the
     integration database.
 1.  Use <ConsoleLabel name="add"/> or <ConsoleLabel name="delete"/> to add or remove
     integration databases, and click **Save**.
 
 :::note[Alternative for PostgreSQL]
-On the **Integrations** page, find the integration and click
+On the <ConsoleLabel name="data"/> > **Integrations** page, find the integration and click
 <ConsoleLabel name="actions"/> > <ConsoleLabel name="editdatabase"/>.
 :::
 
@@ -103,7 +103,7 @@ On the **Integrations** page, find the integration and click
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service
     with the database.
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="editdatabase"/> on the
     database.
 1.  Use <ConsoleLabel name="addtable"/> or <ConsoleLabel name="delete"/> to add or remove
@@ -114,7 +114,7 @@ On the **Integrations** page, find the integration and click
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service
     with the table.
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Expand the database using <ConsoleLabel name="downarrow"/>.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="edittable"/> on the table.
 1.  Update the table details, and click **Save**.
@@ -132,7 +132,7 @@ Depending on what you intend to delete, select **Database** or **Table**.
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service
     with the database.
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/> on the
     integration database.
 1.  Review the impact in the confirmation dialog, and click **Confirm** to delete the
@@ -144,7 +144,7 @@ Depending on what you intend to delete, select **Database** or **Table**.
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
 1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service
     with the table.
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Expand the integration database using <ConsoleLabel name="downarrow"/>.
 1.  Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletetable"/> on the table.
 1.  Review the impact in the confirmation dialog, and click **Confirm** to delete the table.

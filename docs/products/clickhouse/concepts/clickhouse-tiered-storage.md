@@ -92,12 +92,11 @@ storage.
 ## Access tiered storage details {#access-tiered-storage-details}
 
 When you [enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage,
-you can preview its details in the [Aiven Console](https://console.aiven.io/) from the service
-<ConsoleLabel name="overview"/>:
+you can preview its details in the [Aiven Console](https://console.aiven.io/):
 
-- Click <ConsoleLabel name="tieredstorage"/> or
-- Click <ConsoleLabel name="databasesandtables"/> > your table > <ConsoleLabel name="actions"/> >
-  <ConsoleLabel name="viewdetails"/> > **Tiered storage**.
+- Click <ConsoleLabel name="observe"/> > **Tiered storage** or
+- Click <ConsoleLabel name="data"/> > **Databases and tables** > your table >
+  <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewdetails"/> > **Tiered storage**.
 
 ## Typical use case
 
@@ -135,14 +134,14 @@ threshold to control how your data is stored between the two layers.
 
 -   In the [Aiven Console](https://console.aiven.io/), there can be a mismatch in the
     displayed amount of data in object storage between what's shown in
-    [<ConsoleLabel name="tieredstorage"/>](#access-tiered-storage-details)
+    [<ConsoleLabel name="observe"/> > **Tiered storage**](#access-tiered-storage-details)
     and
     [Storage details](#access-tiered-storage-details).
 
     This is because:
 
     - Information in
-      [<ConsoleLabel name="tieredstorage"/>](#access-tiered-storage-details)
+      [<ConsoleLabel name="observe"/> > **Tiered storage**](#access-tiered-storage-details)
       is updated every hour.
 
       :::tip

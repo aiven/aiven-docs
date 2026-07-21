@@ -87,12 +87,12 @@ per-part HNSW index without eviction.
 You can update `server_settings.vector_similarity_index_cache_size_ratio` without
 restarting the service.
 
-1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for ClickHouse
-   service.
-1. Click <ConsoleLabel name="Service settings"/>.
-1. In <ConsoleLabel name="Advanced configuration"/>, click
-   <ConsoleLabel name="Add config options"/>.
-1. Find `server_settings.vector_similarity_index_cache_size_ratio`.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+   ClickHouse service.
+1. In the service sidebar, click <ConsoleLabel name="service settings"/>.
+1. In the **Advanced configuration** section, click **Configure**.
+1. Click <ConsoleLabel name="Add config options"/>.
+1. Search for `server_settings.vector_similarity_index_cache_size_ratio`.
 1. Set the value to `0.4` or higher.
 1. Click **Save configuration**.
 
