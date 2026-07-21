@@ -16,12 +16,6 @@ current week’s window.
 During service upgrades, maintenance updates are applied automatically and do not
 require your action.
 
-:::note
-When a mandatory service update for **Apache Kafka®** is released, the
-[Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure) runs
-automatically.
-:::
-
 You can check pending updates using:
 
 - [Aiven Console](https://console.aiven.io/):
