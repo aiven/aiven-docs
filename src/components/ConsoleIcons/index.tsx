@@ -166,7 +166,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'connect':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.link} /> <b>Connect</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Connect</b>
         </>
       );
     case 'observe':
