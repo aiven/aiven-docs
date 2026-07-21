@@ -6,6 +6,7 @@ limited: true
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 After you enable Data API, you can monitor it, expose more databases, and turn it off for a database you no longer need.
 
@@ -14,7 +15,8 @@ Data API is a <LimitedBadge/> feature.
 :::
 
 To manage Data API, open your Aiven for PostgreSQL® service in the
-[Aiven Console](https://console.aiven.io/login) and click **Connect** > **Data API**.
+[Aiven Console](https://console.aiven.io/login) and click
+<ConsoleLabel name="connect"/> > **Data API**.
 
 ## Check the status
 
