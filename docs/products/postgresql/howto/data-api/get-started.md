@@ -6,6 +6,7 @@ limited: true
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Enable Data API to expose a database in your Aiven for PostgreSQL® service as REST endpoints.
 
@@ -26,7 +27,7 @@ To enable Data API, you need the following:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.
-1. Click **Connect** > **Data API**.
+1. Click <ConsoleLabel name="connect"/> > **Data API**.
 1. In the **Database** list, select the database to expose.
 1. Click **Set up API**.
 1. In the **Data API** dialog, under **Identity provider**, configure the following:

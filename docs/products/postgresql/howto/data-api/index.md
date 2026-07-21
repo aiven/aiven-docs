@@ -7,6 +7,7 @@ limited: true
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import DocCardList from "@theme/DocCardList";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Data API turns your Aiven for PostgreSQL® database into a backend by exposing its tables as secure REST endpoints, without backend code.
 
@@ -16,8 +17,8 @@ To request access, [contact Aiven](https://aiven.io/contact).
 :::
 
 To access Data API, open your Aiven for PostgreSQL® service in the
-[Aiven Console](https://console.aiven.io) and click **Connect** > **Data API**. It
-auto-generates an API directly from your database schema, powered by
+[Aiven Console](https://console.aiven.io) and click <ConsoleLabel name="connect"/> >
+**Data API**. It auto-generates an API directly from your database schema, powered by
 [PostgREST](https://postgrest.org).
 
 ## What Data API offers
