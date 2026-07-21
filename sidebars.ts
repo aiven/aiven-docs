@@ -1275,17 +1275,20 @@ const sidebars: SidebarsConfig = {
                 'products/clickhouse/howto/secure-service',
                 'products/clickhouse/howto/list-manage-cluster',
                 'products/clickhouse/howto/manage-users-roles',
-                {
-                  type: 'category',
-                  label: 'Versions and upgrades',
-                  items: [
-                    'products/clickhouse/reference/version-lifecycle',
-                    'products/clickhouse/howto/manage-clickhouse-versions',
-                    'products/clickhouse/reference/25-8-default-settings',
-                  ],
-                },
                 'products/clickhouse/reference/advanced-params',
                 'products/clickhouse/reference/limitations',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/reference/version-lifecycle',
+              },
+              items: [
+                'products/clickhouse/howto/manage-clickhouse-versions',
+                'products/clickhouse/reference/25-8-default-settings',
               ],
             },
             {
