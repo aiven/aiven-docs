@@ -23,13 +23,12 @@ Before you begin, make sure you have:
 - An Aiven for Apache Kafka® service with at least one topic.
 - An Aiven for ClickHouse® service in the same cloud region as the Kafka service, or
   permission to create one during setup.
-- [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace)
-  is enabled, and Avro is used for the topic schema and messages to auto-detect
-  ClickHouse columns.
+- Optional: [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace)
+  enabled with Avro, if you want ClickHouse columns to be auto-detected from the topic
+  schema.
 
 :::note
-Query Kafka topic data is not available in every cloud and region. If **Query in ClickHouse**
-does not appear on your topic, your Kafka service may be in an unsupported cloud or region.
+Query Kafka topic data is not available for every cloud provider.
 :::
 
 ## Send topic data to ClickHouse
@@ -39,34 +38,35 @@ does not appear on your topic, your Kafka service may be in an unsupported cloud
 1. In the [Aiven Console](https://console.aiven.io), select your Aiven for Apache Kafka®
    service.
 1. Click <ConsoleLabel name="topics" />.
+1. Click the topic name to open the topic info panel.
 1. Start the setup in one of the following ways:
 
-   - From the topic row, open the <ConsoleLabel name="actions" /> menu and click
-     <ConsoleLabel name="query in clickhouse" />.
-   - From the topic page, in **Analyze your data in minutes**, click
-     <ConsoleLabel name="query in clickhouse" />.
+   - If the topic has no active ClickHouse table integration, in
+     **Analyze your data in minutes**, click **Query in ClickHouse**.
+   - To add another ClickHouse table integration, in **ClickHouse tables**, click
+     **Add table**.
 
-### Step 2: Select a ClickHouse service
+### Step 2: Choose a ClickHouse service
 
-Select the Aiven for ClickHouse® service that receives the topic data.
+Choose the Aiven for ClickHouse® service to receive the topic data.
 
 To use an existing service:
 
-1. Select an Aiven for ClickHouse® service with the **Running** status.
+1. Choose an Aiven for ClickHouse® service with the **Running** status.
 1. Click **Continue**.
 
 To create a service during setup:
 
-1. Select **Create ClickHouse service**.
+1. Click **Create ClickHouse service**.
 1. Enter a service name.
-1. Select a service plan.
+1. Choose a service plan.
 1. Click **Create**.
 
 If you need more configuration options, click **Go to the full service creation**.
 
 ### Step 3: Configure the ClickHouse table
 
-1. Select where ingestion starts in the Kafka topic.
+1. Choose where ingestion starts in the Kafka topic.
 
    You can send all messages from the first offset, only new messages, or messages from
    a recent time range. The available options depend on your topic and service
@@ -78,13 +78,13 @@ If you need more configuration options, click **Go to the full service creation*
      schema fields to suggested ClickHouse column names and data types.
 
    - **If the Console does not detect a schema:** Add the ClickHouse columns manually.
-     Enter each column name, select the ClickHouse data type, and set **Nullable** as
+     Enter each column name, choose the ClickHouse data type, and set **Nullable** as
      needed.
 
 1. Optional: If Aiven suggested a schema, enable **Override column definitions** and
    update the columns.
 
-1. In **Order by**, select the column used to sort the ClickHouse table.
+1. In **Order by**, choose the column used to sort the ClickHouse table.
 
    :::important
    You cannot change the **Order by** column after the table is created.
@@ -105,7 +105,7 @@ If you need more configuration options, click **Go to the full service creation*
    resources. The setup page may show a preview of ingested rows when data starts
    flowing.
 
-1. Click **Query in ClickHouse**.
+1. Click **Query**.
 
    The ClickHouse <ConsoleLabel name="queryeditor" /> opens with a generated `SELECT`
    query for the table created during setup.
@@ -117,6 +117,15 @@ If you need more configuration options, click **Go to the full service creation*
 
 ## Troubleshoot
 
+### Query in ClickHouse option not visible
+
+If **Query in ClickHouse** does not appear in **Analyze your data in minutes**, the topic
+already has an active ClickHouse table integration. To add another, click **Add table**
+in **ClickHouse tables**.
+
+If **Add table** is also not visible, your Kafka service may be on a cloud provider where
+this feature is not yet available. Use a Kafka service on a supported cloud provider.
+
 ### ClickHouse service not visible
 
 If you do not see the ClickHouse service you expect, ensure:
@@ -124,14 +133,14 @@ If you do not see the ClickHouse service you expect, ensure:
 - The ClickHouse service has the **Running** status.
 - The ClickHouse service is in the same cloud region as the Kafka service.
 - You have access to the ClickHouse service.
-- ClickHouse is available for the Kafka service cloud and region.
+- ClickHouse is available in the Kafka service cloud region.
 
-If ClickHouse is not available for the Kafka service cloud or region, migrate the Kafka
-service to a supported cloud or region.
+If ClickHouse is not available in the Kafka service cloud region, migrate the Kafka
+service to a supported cloud region.
 
 ### Data not appearing after deployment
 
-If data does not appear in the ClickHouse table after deployment, check the logs for
+If data does not appear in the ClickHouse table after deployment, review the logs for
 the Aiven for ClickHouse® service. Ingestion errors are reported on the ClickHouse side.
 
 Also ensure the selected ingestion start point includes messages from the topic. For
