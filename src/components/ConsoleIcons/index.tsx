@@ -166,19 +166,20 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'connect':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Connect</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Connect</b>
         </>
       );
     case 'observe':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.pulse} /> <b>Observe</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.timelineAreaChart} />{' '}
+          <b>Observe</b>
         </>
       );
     case 'data':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Data</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Data</b>
         </>
       );
     case 'overview':
