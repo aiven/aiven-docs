@@ -32,11 +32,14 @@ tiered storage is enabled on a table and, if it is, how much
 storage is used on each tier (network-attached block storage and object storage)
 for this particular table.
 
-To access tiered storage's status information, go to
-the [Aiven Console](https://console.aiven.io/) > your Aiven for ClickHouse service's
-<ConsoleLabel name="overview"/> > <ConsoleLabel name="databasesandtables"/> > your database >
-your table > <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewdetails"/> >
-**Tiered storage**.
+To access tiered storage status information:
+
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+   ClickHouse service.
+1. In the service sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
+1. Open the database and table that you want to check.
+1. Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="viewdetails"/> >
+   **Tiered storage**.
 
 ## Run a data distribution check with the ClickHouse client
 

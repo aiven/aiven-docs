@@ -3,6 +3,7 @@ title: Query Kafka topic data in Aiven for ClickHouse®
 sidebar_label: Query Kafka topic data
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Query Kafka topic data in Aiven for ClickHouse® by connecting an Aiven for Apache Kafka® topic to a ClickHouse table.
@@ -71,11 +72,13 @@ event analysis, historical reporting, and high-volume log or metrics analysis.
 
 - The Kafka service and the ClickHouse service must be in the same cloud region to
   reduce network latency and data transfer costs.
-- If data does not appear in the destination table after deployment, check the ClickHouse
-  service logs for ingestion errors.
+- If data does not appear in the destination table after deployment, review
+  <ConsoleLabel name="observe"/> > **Logs** for the ClickHouse service for ingestion
+  errors.
 - Failed messages are not sent to a dead letter queue by default. To change this, set
   `handle_error_mode` to `dead_letter_queue` in the Kafka engine advanced configuration. In
-  the Aiven Console, this setting is available under **Databases and tables**.
+  the Aiven Console, this setting is available under <ConsoleLabel name="data"/> >
+  **Databases and tables**.
 - You cannot change some table settings, such as the sorting key, after table creation.
 - Automated schema mapping is available only for Avro messages with Aiven for Apache
   Kafka® Schema Registry when the schema is registered using the topic name strategy,

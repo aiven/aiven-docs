@@ -248,7 +248,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'users':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>Users</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Users</b>
         </>
       );
     case 'makesuperadmin':

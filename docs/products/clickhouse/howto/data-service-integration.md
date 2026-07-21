@@ -26,12 +26,9 @@ Learn about [managed databases integrations](/docs/products/clickhouse/concepts/
 
 Make Apache Kafka data available in Aiven for ClickHouse using the Kafka engine:
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
-   and a project.
-1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to integrate
-   with a data source.
-1. On the service's <ConsoleLabel name="overview"/> page, click
-   <ConsoleLabel name="integrations"/> in the sidebar.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose the Aiven for
+   ClickHouse service that you want to integrate with a data source.
+1. In the service sidebar, click <ConsoleLabel name="data"/> > **Integrations**.
 1. On the **Integrations** page, go to the **Data sources** section and click
    **Apache Kafka**.
 
@@ -82,12 +79,9 @@ Learn about [managed databases integrations](/docs/products/clickhouse/concepts/
 
 Make PostgreSQL data available in Aiven for ClickHouse using the PostgreSQL engine:
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
-   and a project.
-1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to integrate
-   with a data source.
-1. On the service's <ConsoleLabel name="overview"/> page, click
-   <ConsoleLabel name="integrations"/> in the sidebar.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose the Aiven for
+   ClickHouse service that you want to integrate with a data source.
+1. In the service sidebar, click <ConsoleLabel name="data"/> > **Integrations**.
 1. On the **Integrations** page, go to the **Data sources** section and click
    **PostgreSQL**.
 
@@ -124,8 +118,9 @@ Make PostgreSQL data available in Aiven for ClickHouse using the PostgreSQL engi
       :::note
       You can
       [create such integration databases](/docs/products/clickhouse/howto/integration-databases)
-      any time later, for example, by finding your integration on the **Integrations** page
-      and clicking <ConsoleLabel name="actions"/> > <ConsoleLabel name="editdatabase"/>.
+      any time later, for example, by finding your integration on the
+      <ConsoleLabel name="data"/> > **Integrations** page and clicking
+      <ConsoleLabel name="actions"/> > <ConsoleLabel name="editdatabase"/>.
       ::::
 
    1. Click **Enable integration** > **Close**.
@@ -144,12 +139,9 @@ for the data to be made available through the integration.
 
 ### Create managed-credentials integrations
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
-   and a project.
-1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to integrate
-   with a data source.
-1. On the service's <ConsoleLabel name="overview"/> page, click
-   <ConsoleLabel name="integrations"/> in the sidebar.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose the Aiven for
+   ClickHouse service that you want to integrate with a data source.
+1. In the service sidebar, click <ConsoleLabel name="data"/> > **Integrations**.
 1. On the **Integrations** page, go to the **Data sources** section and click
    **ClickHouse Credentials**.
 
@@ -175,7 +167,8 @@ for the data to be made available through the integration.
 
       :::note[Alternative]
       You can test the connection any time later by going to your Aiven for ClickHouse
-      service's **Integrations** page, finding the credentials integration, and clicking
+      service's <ConsoleLabel name="data"/> > **Integrations** page, finding the
+      credentials integration, and clicking
        <ConsoleLabel name="actions"/> > <ConsoleLabel name="testconnection"/>.
       :::
 
@@ -241,14 +234,9 @@ error message related to grants.
 
 ## View data source integrations
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
-   and a project.
-1. From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service to display
-   integrations for.
-1. On the service's page, go to one of the following:
-
-   - <ConsoleLabel name="overview"/> in the sidebar > **Integrations**
-   - <ConsoleLabel name="integrations"/> in the sidebar
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose the Aiven for
+   ClickHouse service whose integrations you want to view.
+1. In the service sidebar, click <ConsoleLabel name="data"/> > **Integrations**.
 
 ## Stop data source integrations
 
@@ -257,17 +245,11 @@ By terminating a data source integration, you disconnect from the data source, w
 all databases and configuration information from Aiven for ClickHouse.
 :::
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization
-    and a project.
-1.  From <ConsoleLabel name="services"/>, select an Aiven for ClickHouse service you
-    want to stop integrations for.
-1.  On the service's page, take one of the following courses of action:
-
-    - Click <ConsoleLabel name="overview"/> > **Integrations**, find an
-      integration to be stopped, and click <ConsoleLabel name="actions"/> >
-      <ConsoleLabel name="disconnect"/>.
-    - Click <ConsoleLabel name="integrations"/>, find an integration to be stopped,
-      and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="disconnect"/>.
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and choose the Aiven for
+    ClickHouse service whose integrations you want to stop.
+1.  In the service sidebar, click <ConsoleLabel name="data"/> > **Integrations**.
+1.  Find an integration to be stopped, and click <ConsoleLabel name="actions"/> >
+    <ConsoleLabel name="disconnect"/>.
 
 Your integration is terminated and all the corresponding databases and configuration
 information are deleted.

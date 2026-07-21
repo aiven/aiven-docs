@@ -3,6 +3,7 @@ title: Fetch query statistics for Aiven for ClickHouse®
 sidebar_label: Fetch query statistics
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Usually, query statistics in ClickHouse can be obtained using the `system.query_log` table, which stores statistics of each executed query, including memory usage and duration.
@@ -15,10 +16,10 @@ Aiven Console or Aiven API.
 
 ## Use Aiven Console
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), choose the
-    right project, and select your Aiven for ClickHouse service.
-1.  In your service's page, select **Query statistics** from the
-    sidebar and view the content in the dashboard.
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+    ClickHouse service.
+1.  In the service sidebar, click <ConsoleLabel name="observe"/> > **Query statistics**.
+1.  View the query statistics in the dashboard.
 
 ## Use Aiven API
 

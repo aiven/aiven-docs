@@ -3,6 +3,8 @@ title: Secure a managed ClickHouse® service
 sidebar_label: Secure a managed service
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 You can secure your Aiven for ClickHouse® service in a few different ways, for example by restricting network access, using Virtual Private Cloud (VPC), and enabling service termination protection.
 
 ## Restrict network access to your service
@@ -32,13 +34,12 @@ Termination Protection has no effect on service migrations or upgrades.
 
 ### Enable the termination protection
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), and select
-    your ClickHouse® service from the **Services** view.
-1.  On the **Overview** page of your service, select **Service
-    settings** from the sidebar.
-1.  On the **Service settings** page, go to the **Service status**
-    section, and select **Enable termination protection** from the
-    **Actions** (**...**) menu.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+   ClickHouse service.
+1. On the <ConsoleLabel name="overview"/> page, click
+   <ConsoleLabel name="service settings"/> in the service sidebar.
+1. On the **Service settings** page, go to the **Service status**
+   section, and click <ConsoleLabel name="actions"/> > **Enable termination protection**.
 
 Termination Protection is enabled for your service: It cannot be
 terminated or powered down from the Aiven Console, via the Aiven

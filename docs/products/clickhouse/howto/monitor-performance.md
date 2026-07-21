@@ -3,6 +3,7 @@ title: Monitor Aiven for ClickHouse® metrics with Aiven for Grafana®
 sidebar_label: Monitor metrics with Grafana
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import NoThanosAccess from "@site/static/includes/no-thanos-access.md";
 
 Push Aiven for ClickHouse® metrics to Aiven for Metrics or Aiven for PostgreSQL®, and integrate with Aiven for Grafana® to monitor your metrics on Grafana dashboards.
@@ -28,8 +29,10 @@ To collect metrics about your Aiven for ClickHouse service,
 configure a metrics integration and nominate somewhere to store the
 collected metrics.
 
-1.  On the service **Overview** page for your Aiven for ClickHouse service, go to
-    **Integrations**, and click **Go to Integrations** > **Store Metrics**.
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+    ClickHouse service.
+1.  In the service sidebar, click <ConsoleLabel name="data"/> > **Integrations**.
+1.  In the **Aiven services** section, click **Store Metrics**.
 1.  In the **Metrics integration** window:
     1.  Choose either a new or existing Aiven for Metrics or Aiven for PostgreSQL service.
         -   **For Aiven for Metrics**: This provides a Thanos-based time-series database
@@ -44,19 +47,23 @@ collected metrics.
 
 ## Provision and configure Grafana
 
-1.  In the Aiven Console, go to your metrics storage service (Aiven for Metrics or Aiven
-    for PostgreSQL) page.
-1.  On the service **Overview** page, go to **Integrations**, and click
-    **Go to Integrations** > **Grafana Metrics Dashboard** to make your metrics available
-    in Aiven for Grafana.
-1.  In the **Dashboard integration** window:
-    1.  Choose either a new or existing Aiven for Grafana service.
-        -   If you choose to use a new service, follow instructions on
-            [how to create a service](/docs/platform/howto/create_new_service).
-        -   If you're already using Grafana on Aiven, you can integrate
-            your Aiven for Metrics or Aiven for PostgreSQL as an additional data source for that
-            existing Grafana.
-    1.  Click **Enable**.
+1. In the [Aiven Console](https://console.aiven.io/), choose your Aiven for Metrics or
+   Aiven for PostgreSQL service.
+1. Open the service's **Integrations** page.
+
+   - For Aiven for Metrics, click <ConsoleLabel name="integrations"/> in the service sidebar.
+   - For Aiven for PostgreSQL, in the service sidebar, click **Connect** >
+     **Integrations**.
+
+1. In the **Aiven services** section, click **Grafana Metrics Dashboard**.
+1. In the **Dashboard integration** window:
+   1. Choose either a new or existing Aiven for Grafana service.
+      - If you choose to use a new service, follow instructions on
+        [how to create a service](/docs/platform/howto/create_new_service).
+      - If you're already using Grafana on Aiven, you can integrate
+        your Aiven for Metrics or Aiven for PostgreSQL as an additional data source for that
+        existing Grafana.
+   1. Click **Enable**.
 
 :::note
 Now your Aiven for Grafana service is connected to your metrics storage service as a data

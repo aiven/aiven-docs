@@ -83,11 +83,9 @@ on a table level either in the [Aiven Console](https://console.aiven.io/) or the
 <Tabs groupId="group1">
 <TabItem value="gui" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and go to your project.
-1.  On the <ConsoleLabel name="Services"/> page, select an Aiven for ClickHouse service
-    that includes a table to be edited.
-1.  On your service's page, click <ConsoleLabel name="databasesandtables"/> in the
-    sidebar.
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and choose the Aiven for
+    ClickHouse service that includes a table to edit.
+1.  In the service sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  Find a database including the table to be edited, and expand the database using
     <ConsoleLabel name="downarrow"/> to display tables inside it.
 1.  Find the table and click:
