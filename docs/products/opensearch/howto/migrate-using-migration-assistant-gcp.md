@@ -33,7 +33,7 @@ see the [Migration Assistant documentation](https://docs.opensearch.org/latest/m
 
 <RelatedPages/>
 
-- [Migrate from Elasticsearch to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrating-elasticsearch-data-to-aiven)
+- [Migrate from Elasticsearch to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrating_elasticsearch_data_to_aiven)
 - [Migrate data to Aiven for OpenSearch® using snapshots](/docs/products/opensearch/howto/manage-snapshots)
 - [Migrate external snapshots to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrate-external-snapshots-aiven-opensearch)
 - [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)
