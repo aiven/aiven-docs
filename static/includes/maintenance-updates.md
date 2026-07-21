@@ -1,3 +1,5 @@
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Aiven applies some maintenance updates automatically.
 Aiven provides two types of updates:
 
@@ -8,7 +10,7 @@ Aiven provides two types of updates:
   maintenance window at the earliest.
 
 Advance notice is provided for all updates. You have at least seven days’ notice before
-an update is applied, except for critical security updates, which may be applied in the
+an update is applied, except for critical security updates, which can be applied in the
 current week’s window.
 
 During service upgrades, maintenance updates are applied automatically and do not
@@ -20,7 +22,7 @@ When a mandatory service update for **Apache Kafka®** is released, the
 automatically.
 :::
 
-You can check pending updates using:
+You can view pending updates using:
 
 - [Aiven Console](https://console.aiven.io/):
   <ConsoleLabel name="service settings"/> > **Service management**

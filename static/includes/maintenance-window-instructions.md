@@ -1,3 +1,7 @@
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 To set the maintenance window for your service:
 
 <Tabs groupId="group1">
@@ -24,5 +28,5 @@ active for 180 days and more.
 
 :::important
 Periodic infrastructure updates are mandatory for all the services
-except for those with maintenance disabled.
+except for those with maintenance turned off.
 :::
