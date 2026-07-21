@@ -1,12 +1,12 @@
 ---
-title: View organization and unit logs
+title: View event logs for organizations and organizational units
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Monitor activity in your Aiven organization with the organization and organizational event logs.
+Monitor activity in your Aiven organization with the organization and organizational unit event logs.
 
 To view logs at the organization level, you must be an
 organization admin or have the
