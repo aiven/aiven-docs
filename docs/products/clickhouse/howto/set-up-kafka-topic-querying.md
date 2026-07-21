@@ -21,7 +21,7 @@ start points, schema changes, and limitations, see
 Before you begin, make sure you have:
 
 - An Aiven for Apache Kafka® service with at least one topic.
-- An Aiven for ClickHouse® service on the same cloud provider as the Kafka service, or
+- An Aiven for ClickHouse® service in the same cloud region as the Kafka service, or
   permission to create one during setup.
 - Optional: [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace)
   enabled with Avro, if you want ClickHouse columns to be auto-detected from the topic
@@ -131,12 +131,12 @@ this feature is not yet available. Use a Kafka service on a supported cloud prov
 If you do not see the ClickHouse service you expect, ensure:
 
 - The ClickHouse service has the **Running** status.
-- The ClickHouse service is on the same cloud provider as the Kafka service.
+- The ClickHouse service is in the same cloud region as the Kafka service.
 - You have access to the ClickHouse service.
-- ClickHouse is available for the Kafka service cloud provider.
+- ClickHouse is available in the Kafka service cloud region.
 
-If ClickHouse is not available for the Kafka service cloud provider, migrate the Kafka
-service to a supported cloud provider.
+If ClickHouse is not available in the Kafka service cloud region, migrate the Kafka
+service to a supported cloud region.
 
 ### Data not appearing after deployment
 
