@@ -1282,11 +1282,8 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Maintenance and lifecycle',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/reference/version-lifecycle',
-              },
               items: [
+                'products/clickhouse/reference/version-lifecycle',
                 'products/clickhouse/howto/manage-clickhouse-versions',
                 'products/clickhouse/reference/25-8-default-settings',
               ],
