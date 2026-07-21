@@ -19,4 +19,4 @@ To enable Apache Kafka Connect on Aiven for Apache Kafka nodes:
     <ConsoleLabel name="Actions"/> > **Enable Connect**.
 
 You can view information about the Apache Kafka Connect service on the
-**Connectors** page.
+<ConsoleLabel name="manage stream" /> > **Connectors** page.

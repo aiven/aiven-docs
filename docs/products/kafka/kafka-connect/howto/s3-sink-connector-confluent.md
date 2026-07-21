@@ -65,14 +65,14 @@ For all options, see the
 
 1. Open the [Aiven Console](https://console.aiven.io/).
 1. Select your Kafka or Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector**.
 1. Search for **Amazon S3 sink (Confluent)** and click **Get started**.
 1. On the connector page, go to the **Common** tab.
 1. Click <ConsoleLabel name="edit"/> in **Connector configuration**.
 1. Paste your `s3_sink_confluent.json` contents.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">

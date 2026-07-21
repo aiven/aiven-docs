@@ -112,10 +112,10 @@ supported and can be set if needed. Use one of the following methods:
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 
 Connectors that support multiple versions display **2 versions** next to their names on
-the **Connectors** page.
+the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 
 :::note
 When setting up a new connector, a default version is selected. To change it, go to the

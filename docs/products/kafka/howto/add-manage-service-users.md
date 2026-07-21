@@ -73,7 +73,7 @@ Replace the following:
 
 1. Open your Aiven for Apache Kafka service in the
    [Aiven Console](https://console.aiven.io).
-1. Click <ConsoleLabel name="serviceusers" /> in the sidebar to view the list of users.
+1. Click <ConsoleLabel name="Access & Control" /> > <ConsoleLabel name="serviceusers" /> in the sidebar to view the list of users.
 1. To view the password, click <ConsoleLabel name="show password" /> in the password
    field for the respective user.
 1. Click <ConsoleLabel name="actions" /> in the user row and choose an action:

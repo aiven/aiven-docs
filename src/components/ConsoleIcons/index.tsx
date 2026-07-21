@@ -334,6 +334,20 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>ACL</b>
         </>
       );
+    case 'access&control':
+    case 'accesscontrol':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>Access & Control</b>
+        </>
+      );
+    case 'managestream':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.kafkaTopic} />{' '}
+          <b>Manage stream</b>
+        </>
+      );
     case 'topics':
       return (
         <>
@@ -577,14 +591,13 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'tieredstorage':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.tiered} />{' '}
           <b>Tiered storage</b>
         </>
       );
     case 'inklessstorage':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.tiered} /> <b>Storage</b>
+          <b>Storage</b>
         </>
       );
     case 'editdatabase':
@@ -677,14 +690,6 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Activate tiered storage</b>
         </>
       );
-    case 'tieredstorage':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.layers} />{' '}
-          <b>Tiered storage</b>
-        </>
-      );
-
     case 'queryeditor':
       return (
         <>
@@ -728,7 +733,7 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />{' '}
-          <b>Replication flow</b>
+          <b>Replication flows</b>
         </>
       );
     case 'snapshots':

@@ -51,7 +51,7 @@ For more information, see
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and select your
    service.
-1. Click <ConsoleLabel name="acl" />.
+1. Click <ConsoleLabel name="Access & Control" /> > <ConsoleLabel name="acl" />.
 1. Click **Add entry**.
 1. On the **Add access control entry** screen:
    1. Select **Kafka-native ACLs** as the ACL type.
@@ -163,7 +163,7 @@ More information on this resource and its configuration options are available in
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and select your
    service.
-1. Click <ConsoleLabel name="acl" />.
+1. Click <ConsoleLabel name="Access & Control" /> > <ConsoleLabel name="acl" />.
 1. Click **Add entry**.
 1. On the **Add access control entry** screen:
    1. Select **Aiven ACLs** as the ACL type.
@@ -279,7 +279,7 @@ admin user with wildcard permissions.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select your
    Aiven for Apache Kafka service.
-1. Click <ConsoleLabel name="acl" />.
+1. Click <ConsoleLabel name="Access & Control" /> > <ConsoleLabel name="acl" />.
 1. Click the **Kafka-native ACLs** tab to view Kafka-native ACL entries or the
    **Aiven ACLs** tab to view Aiven ACL entries.
 1. Use filters to narrow the list by resource type, operation, or permission type.
@@ -340,7 +340,7 @@ Parameters:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select your
    Aiven for Kafka service.
-1. Click <ConsoleLabel name="acl" />
+1. Click <ConsoleLabel name="Access & Control" /> > <ConsoleLabel name="acl" />
 1. Click the **Kafka-native ACLs** tab to view Kafka-native ACL entries or the
    **Aiven ACLs** tab to view Aiven ACL entries.
 1. Locate the ACL entry to delete.

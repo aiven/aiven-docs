@@ -24,7 +24,7 @@ To download the new certificate,
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka service.
-1. Click **Users** in the sidebar.
+1. Click **Access & Control** > **Users** in the sidebar.
 1. Select the required user and click **Show access key** and **Show access cert** to
    download the new certificate.
 

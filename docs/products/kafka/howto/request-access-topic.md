@@ -23,7 +23,8 @@ You can view the service user and ACLs in the following locations in the
 [Aiven Console](https://console.aiven.io/):
 
 - Select your **Aiven for Apache Kafka** service. In the sidebar,
-  click <ConsoleLabel name="acl" /> or <ConsoleLabel name="serviceusers" />.
+  click <ConsoleLabel name="Access & Control" /> > <ConsoleLabel name="acl" /> or
+  <ConsoleLabel name="Access & Control" /> > <ConsoleLabel name="serviceusers" />.
 - Click **Tools** > **Apache Kafka governance operations**. In the sidebar,
   click <ConsoleLabel name="streamingcatalog" /> > **Access**.
 
@@ -180,7 +181,8 @@ service user.
 For security reasons, access certificates and access keys are shown only once to limit
 exposure and prevent unauthorized access. To access credentials later or perform tasks
 like resetting credentials, go to the
-**Aiven for Apache Kafka** service page > <ConsoleLabel name="serviceusers" />.
+**Aiven for Apache Kafka** service page > <ConsoleLabel name="Access & Control" /> >
+<ConsoleLabel name="serviceusers" />.
 For more information, see [Manage service users](/docs/products/kafka/howto/add-manage-service-users#manage-users).
 
 This approach:

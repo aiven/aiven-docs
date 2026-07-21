@@ -206,7 +206,7 @@ created as a diskless topic.
 
 1. In the [Aiven Console](https://console.aiven.io/), click your Aiven for Apache Kafka
    service.
-1. Click <ConsoleLabel name="Topics"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Topics**.
 1. Check the **Topic type** column.
 
 Topics that match a configured regular expression show **Diskless**.

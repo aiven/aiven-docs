@@ -2,6 +2,7 @@
 title: Create a Debezium source connector from MySQL to Apache Kafka®
 sidebar_label: Debezium MySQL source connector
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -243,7 +244,7 @@ To create a Kafka Connect connector:
 1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service
     to define the connector.
 
-1. Select **Connectors** from the sidebar.
+1. Select <ConsoleLabel name="manage stream" /> > **Connectors** from the sidebar.
 
 1. Select **Create New Connector**, which is available only for
    services [that have Apache Kafka Connect enabled](enable-connect).
@@ -276,7 +277,7 @@ To create a Kafka Connect connector:
 
    :::
 
-1. Verify the connector status under the **Connectors** screen.
+1. Verify the connector status under <ConsoleLabel name="manage stream" /> > **Connectors**.
 
 1. Verify the presence of the data in the target Apache Kafka topic
    coming from the MySQL dataset. The topic name is equal to

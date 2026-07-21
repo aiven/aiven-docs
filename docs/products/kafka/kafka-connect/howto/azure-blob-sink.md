@@ -68,7 +68,7 @@ in the [Aiven Azure Blob Storage sink connector GitHub repository](https://githu
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Kafka Connect is already enabled on the service.
    If not, click **Enable connector on this service**.
 
@@ -84,7 +84,7 @@ in the [Aiven Azure Blob Storage sink connector GitHub repository](https://githu
 1. Paste the configuration from your `azure_blob_sink_connector.json` file into the
    text box.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 
 
 </TabItem>

@@ -137,7 +137,7 @@ For a full list of parameters, see the
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select the Aiven for
    Apache Kafka® or Aiven for Apache Kafka Connect® service.
-1. Click  <ConsoleLabel name="connectors"/> from the left sidebar.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors** from the left sidebar.
 1. Click **Create New Connector**. If connectors are not enabled,
    click **Enable connector on this service**.
 1. Click **See all connectors** to view all available options.
@@ -154,7 +154,7 @@ For a full list of parameters, see the
    :::
 
 1. After verifying the settings, click **Create connector**.
-1. Check the connector status on the **Connectors** screen.
+1. Check the connector status on <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Verify that data appears in the target Pub/Sub dataset. By default, the table name is
    derived from the Apache Kafka topic name. To change the table name, use the Kafka
    Connect `RegexRouter` transformation. This transformation allows you to rename

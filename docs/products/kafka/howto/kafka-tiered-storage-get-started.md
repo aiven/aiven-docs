@@ -24,7 +24,8 @@ Enable tiered storage for your Aiven for Apache Kafka service to set up the nece
 
 - Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version
   3.6 or later. Upgrade to the latest default version and apply
-  [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates) when using tiered storage for the latest fixes and improvements.
+  [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
+  when using tiered storage for the latest fixes and improvements.
 - Tiered storage is not available on startup plans.
 
 :::
@@ -34,14 +35,14 @@ Enable tiered storage for your Aiven for Apache Kafka service to set up the nece
 Configure tiered storage for specific topics to control your data storage.
 
 - Follow the instructions to [enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
-- On the <ConsoleLabel name="topics" /> page, topics using tiered storage display
-  **Active** in the **Tiered storage** column.
+- On the <ConsoleLabel name="manage stream" /> > **Topics** page,
+  topics using tiered storage display **Active** in the **Tiered storage** column.
 
 ## Step 3: Monitor storage usage
 
 Monitor storage usage for your Aiven for Apache Kafka® service.
 
-- Open the <ConsoleLabel name="Tiered storage" />.
+- Open <ConsoleLabel name="observe" /> > **Tiered storage**.
 - Review billing, retention settings, and storage usage details.
 
 ## Related Pages
