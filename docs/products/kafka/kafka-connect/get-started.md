@@ -48,7 +48,7 @@ integration from the Kafka service.
 
 1. Log in to the [Aiven Console](https://console.aiven.io) and open the
    **Aiven for Apache Kafka** service.
-1. In the left sidebar, click <ConsoleLabel name="Connectors"/>.
+1. In the left sidebar, click <ConsoleLabel name="manage stream" /> > **Connectors**.
    - For Classic Kafka services, click **Integrate standalone service**.
    - For Inkless Kafka services, click **Create Kafka Connect**.
 1. In the Kafka Connect integration dialog, do one of the following:

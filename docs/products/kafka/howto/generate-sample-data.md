@@ -101,8 +101,8 @@ time, and a link to review messages.
   the <ConsoleLabel name="overview" /> page. This option is only visible in the browser
   tab where the generator was started.
 - To view topic settings, message details, or the applied schema, click
-  <ConsoleLabel name="topics" /> in the sidebar, then select the topic created by the
-  generator.
+  <ConsoleLabel name="manage stream" /> > **Topics** in the sidebar, then select the
+  topic created by the generator.
 
 <RelatedPages/>
 

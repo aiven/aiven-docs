@@ -1,21 +1,21 @@
 ---
-title: Topics included in a replication flow
+title: Include or exclude topics in a replication flow
 ---
 
-When [defining a replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow), define which topics in the source Apache Kafka® cluster to include or exclude from the cross-cluster replica.
+When you [define a replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow), specify which topics in the source Apache Kafka® cluster to include or exclude from the cross-cluster replica.
 
-The **topics** parameter dictates which topics to include in the replica
-and can be provided as [list of regular expressions in Java
-format](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern).
-The same is also valid for the **topics blacklist** parameter defining
-which topics to exclude.
+Use the **Topics** field to define the topics to include. You can enter a
+[list of regular expressions in Java format](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern).
+If you leave **Topics** empty, MirrorMaker 2 uses `.*` and includes all topics.
 
-## Example: topic inclusion and exclusion regular expressions
+Use the **Topic blacklist** field to define the topics to exclude. To exclude
+internal topics, click **Internal topics**, which adds these patterns:
+`.*[\-\.]internal`, `.*\.replica`, and `__.*`.
 
-To define a replication flow including the topic
-`warehouse.operations` and any topic starting with `customer.`, but
-excluding the topic `customer.support` then the following regular
-expression can be used:
+## Example: Include and exclude topics
 
--   **Topics**: `customer\..*` and `warehouse\.operations`
--   **Topics Blacklist**: `customer\.support`
+To replicate the `warehouse.operations` topic and any topic that starts with
+`customer.`, but exclude the `customer.support` topic, use these values:
+
+- **Topics**: `customer\..*` and `warehouse\.operations`
+- **Topic blacklist**: `customer\.support`

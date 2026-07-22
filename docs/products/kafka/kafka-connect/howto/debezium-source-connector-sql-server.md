@@ -2,6 +2,8 @@
 title: Create a Debezium source connector from SQL Server to Apache Kafka® with CDC
 sidebar_label: Debezium SQL Server CDC source connector
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
+
 The SQL Server Debezium source connector uses the [change data capture (CDC) ](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-2017) feature to extract database changes from designated tables and write them to Apache Kafka® topic in a standard format for multiple consumers to read and transform.
 
 import Note from "@site/static/includes/debezium-breakingchange.md"
@@ -240,7 +242,7 @@ To create a Kafka Connect connector:
 1. Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service
    to define the connector.
 
-1. Select **Connectors** from the  sidebar.
+1. Select <ConsoleLabel name="manage stream" /> > **Connectors** from the sidebar.
 
 1. Select **Create New Connector**, which is available only for
    services [that have Apache Kafka Connect enabled](enable-connect).
@@ -271,7 +273,7 @@ To create a Kafka Connect connector:
    - Enable the `Kafka topic auto-creation` feature.
      See [Enable automatic topic creation with Aiven CLI](/docs/products/kafka/howto/create-topics-automatically).
 
-1.  Verify the connector status under the **Connectors** screen.
+1.  Verify the connector status under <ConsoleLabel name="manage stream" /> > **Connectors**.
 
 1. Verify the presence of the data in the target Apache Kafka topic
    coming from the MySQL dataset. The topic name is equal to

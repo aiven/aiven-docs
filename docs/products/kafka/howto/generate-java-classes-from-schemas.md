@@ -1,4 +1,4 @@
-  ---
+---
 title: Generate Java classes from schemas
 ---
 

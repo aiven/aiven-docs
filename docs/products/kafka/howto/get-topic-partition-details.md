@@ -1,6 +1,7 @@
 ---
 title: Get partition details of an Apache Kafka® topic
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,9 +13,8 @@ Learn how to get partition details of an Apache Kafka® topic.
 
 1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
     Aiven for Apache Kafka service.
-1.  Select **Topics** from the left sidebar.
-1.  Select a specific topic in the **Topics** screen or click the
-    ellipsis (More options).
+1.  Select <ConsoleLabel name="manage stream" /> > **Topics** from the left sidebar.
+1.  Select a specific topic or click the ellipsis (More options).
 1.  On the **Topics info** screen, select **Partitions** to view
     detailed information about the partitions.
 

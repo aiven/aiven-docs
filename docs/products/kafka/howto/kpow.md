@@ -1,6 +1,7 @@
 ---
 title: Use Kpow with Aiven for Apache Kafka®
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 [Kpow by Factor House](https://factorhouse.io/products/kpow) is an enterprise solution for Kafka management and monitoring.
 
@@ -114,8 +115,9 @@ integrated offering does not expose this public REST URL.
 
 :::warning Service integration required
 Creating a Standalone Connect service in Aiven is not enough. Link the Connect service to
-your Kafka service in the Aiven Console. Click **Manage Integrations**. If you skip this
-step, Aiven returns a 503 Service Unavailable error, and Kpow fails to start.
+your Kafka service in the Aiven Console. Click <ConsoleLabel name="manage stream" /> > **Integrations**. If
+you skip this step, Aiven returns a 503 Service Unavailable error, and Kpow fails to
+start.
 :::
 
 Configure your Standalone Connect cluster with the following properties:

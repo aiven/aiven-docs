@@ -124,7 +124,7 @@ see the
 
 1. Go to the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Kafka Connect is enabled on the service.
    If not, enable it under **Service settings** > **Actions** > **Enable Kafka Connect**.
 1. From the list of sink connectors, select **Stream Reactor MongoDB Sink**, and
@@ -133,7 +133,7 @@ see the
    click <ConsoleLabel name="edit"/>.
 1. Paste the configuration from your `mongodb_sink.json` file.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 1. Confirm that data appears in the target MongoDB collection.
    The collection name corresponds to the KCQL mapping.
 

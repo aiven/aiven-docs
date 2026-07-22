@@ -1,6 +1,7 @@
 ---
 title: Configure the log cleaner for topic compaction
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
@@ -30,7 +31,7 @@ configuration override in place.
 
 1.  In the [Aiven Console](https://console.aiven.io/), select your
     project and choose your Aiven for Apache Kafka® service.
-1.  Select **Topics** from the left sidebar.
+1.  Select <ConsoleLabel name="manage stream" /> > **Topics** from the left sidebar.
 1.  Select the topic to modify and select **Modify** in the
     context menu.
 1.  From the drop-down options for the **Cleanup policy**, select the

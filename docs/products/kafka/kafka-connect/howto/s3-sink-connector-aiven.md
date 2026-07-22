@@ -68,7 +68,7 @@ For additional parameters (for example, file naming or output format), see
 
 1. Open the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka® or Apache Kafka Connect® service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector**.
    If connectors are not enabled, click **Enable connectors on this service**.
 1. Search for **Amazon S3 sink** and click **Get started**.
