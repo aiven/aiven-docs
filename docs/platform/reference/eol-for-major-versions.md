@@ -126,7 +126,7 @@ the upstream open source project's EOL.
 | 13      | 2025-11-13 | 2025-05-13                       | 2021-02-15                      |
 | 14      | 2026-11-12 | 2026-05-12                       | 2021-11-11                      |
 | 15      | 2027-11-11 | 2027-05-12                       | 2022-12-12                      |
-| 16      | 2028-11-09 | 2028-05-09                       | 2024-01-09                      |
+| 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
 | 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
 | 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
 
@@ -180,8 +180,8 @@ For details, see the
 | Version | Aiven EOL       | Service creation supported until | Service creation supported from |
 | ------- |-----------------|----------------------------------| ------------------------------- |
 | 8.1.x   | To be announced | To be announced                  | 2025-11-18                      |
-| 9.0.x   | 2026-08-31      | 2026-08-31                       | 2026-03-17                      |
-| 9.1.x   | To be announced | To be announced                  | 2026-07-17                      |
+| 9.0.x   | 2026-07-30      | 2026-07-30                       | 2026-03-09                      |
+| 9.1.x   | To be announced | To be announced                  | 2026-07-15                      |
 
 ## Aiven single-versioned services EOL
 
