@@ -131,6 +131,10 @@ In the **Create custom cloud** wizard:
           utilizing a bastion host logically separated from the Aiven services.
         - Public model, which allows the Aiven control plane to connect to the service
           nodes via the public internet.
+        - Compliance models (`pci_dss` or `hipaa`), which build on the private model to run
+          services under PCI DSS or HIPAA requirements. These models require object storage
+          in your Google Cloud account and restrict outbound traffic and public access. See
+          [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
     -   CIDR for BYOC resources
 
@@ -332,6 +336,10 @@ Your new custom cloud is ready to use only after its status changes to
        and are by default not accessible from outside. Traffic is routed through a proxy
        for additional security utilizing a bastion host logically separated from the
        Aiven services.
+     - `pci_dss` or `hipaa` (compliance) models: Build on the `standard` model to run
+       services under PCI DSS or HIPAA requirements. These models require object storage
+       in your Google Cloud account and restrict outbound traffic and public access. See
+       [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
    - `CLOUD_REGION_NAME` with the name of a Google region where to create your custom cloud,
      for example `europe-north1`. See all available options in
      [Google Cloud regions](/docs/platform/reference/list_of_clouds#google-cloud).
