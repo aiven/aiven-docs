@@ -25,5 +25,5 @@ Apps that are powered off for more than 180 days are automatically deleted.
 1. Open your app.
 1. Click <ConsoleLabel name="actions"/> > **Power on app**.
 
-When the app finishes rebuilding its status is **Running**.
+When the app finishes rebuilding, its status is **Running**.
 This process may take a few moments.
