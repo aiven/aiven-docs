@@ -35,7 +35,7 @@ organization can select that account in Aiven Apps.
 ## Redeploy an app
 
 When you redeploy an app, Aiven deploys the latest commit from
-your branch.
+the selected branch.
 
 1. In your project, click <ConsoleLabel name="applications"/>.
 1. Open your app.
