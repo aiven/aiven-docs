@@ -37,6 +37,12 @@ Authentication uses OAuth 2.0 with PKCE. When you authenticate a client for the
 first time, your browser opens so you can sign in and authorize MCP access. This
 is usually a one-time setup step per client.
 
+:::note
+Aiven owns the `aiven.live` domain and operates the hosted MCP server at
+`mcp.aiven.live`. The server uses the Aiven API at `api.aiven.io` for
+authorization.
+:::
+
 ## Install the Aiven MCP {#configure-aiven-mcp}
 
 <Tabs>
