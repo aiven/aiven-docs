@@ -77,7 +77,7 @@ To create an Aiven for Apache Kafka service, see [Create new service](/docs/plat
    1. Review the topic and configure stream settings.
 
       :::note
-      On **Inkless Kafka** services, you can choose **Classic topic** or
+      On **Standard Kafka** services, you can choose **Classic topic** or
       **Diskless topic** for sample data. On **Classic Kafka** services,
       only classic topics are used. For more information, see
       [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview).

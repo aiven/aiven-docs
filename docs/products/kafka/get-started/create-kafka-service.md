@@ -1,21 +1,21 @@
 ---
 title: Create an Apache Kafka service on Aiven
 sidebar_label: Create Kafka service
-keywords: [create, kafka, service, cluster, inkless, classic, byoc]
+keywords: [create, kafka, service, standard, inkless, classic, byoc]
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Apache Kafka® service on Aiven by choosing a **cluster type** that defines how the service is sized and where data is stored: **Inkless** or **Classic**.
+Create an Apache Kafka® service on Aiven by choosing a **service type** that defines how the service is sized and where data is stored: **Standard** or **Classic**.
 
-## Choose a cluster type
+## Choose a service type
 
-### Inkless Kafka
+### Standard Kafka
 
-Inkless Kafka uses throughput-based sizing and supports both classic topics and
-diskless topics, which store data in object storage.
+Standard Kafka uses usage-based pricing, unlimited storage at $0.10 per GB-month, and
+supports both classic topics and diskless topics.
 
-Choose Inkless Kafka if you need:
+Choose Standard Kafka if you need:
 
 - Throughput-based sizing on Aiven Cloud instead of fixed plans
 - Faster cluster scaling, version upgrades, and node recovery
@@ -23,13 +23,15 @@ Choose Inkless Kafka if you need:
 - Mixed workloads with classic topics for low latency and diskless topics for
   lower-cost storage
 
+In the Aiven CLI and advanced configuration, Standard Kafka is still identified with
+`inkless`.
 
-[Create Inkless service](/docs/products/kafka/get-started/create-inkless-service)
+[Create Standard service](/docs/products/kafka/get-started/create-standard-kafka-service)
 
 ### Classic Kafka
 
-Classic Kafka uses fixed plans with local broker storage. Tiered storage is available
-when the selected plan and cloud support it.
+Classic Kafka uses a fixed monthly price and stores classic topics on local broker
+storage. Tiered storage is available when the selected plan and cloud support it.
 
 Choose Classic Kafka if you need:
 

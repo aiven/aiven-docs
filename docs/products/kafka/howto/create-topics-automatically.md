@@ -10,7 +10,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 When you send a message to a topic that does not exist, Apache Kafka® can
 automatically create that topic.
 
-Automatic topic creation is off by default on both Classic Kafka and Inkless
+Automatic topic creation is off by default on both Classic Kafka and Standard
 Kafka services. Turn it on when you want topics to be created automatically
 (for example, in development). In production, leave it off to avoid creating
 topics by mistake (for example, due to typos or incorrectly configured clients).
@@ -42,7 +42,7 @@ You can:
 If [tiered storage is enabled](/docs/products/kafka/howto/enable-kafka-tiered-storage)
 on your Classic Kafka service, new topics use tiered storage by default.
 
-On Inkless Kafka services, automatically created topics are classic topics with remote
+On Standard Kafka services, automatically created topics are classic topics with remote
 storage. Diskless topics are not auto-created. Create them manually.
 :::
 

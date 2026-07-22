@@ -23,7 +23,7 @@ needs:
   workloads.
 - Use [Developer tier](#developer-tier) for paid development and smaller
   production workloads.
-- Create [Inkless Kafka](#create-an-inkless-kafka-service) for
+- Create [Standard Kafka](#create-a-standard-kafka-service) for
   cloud-object-storage-backed topics.
 - Create [Classic Kafka](#create-a-classic-kafka-service) for fixed plans
   with local broker storage.
@@ -58,26 +58,26 @@ Manage the service in the console, CLI, API, or with
 
 **Continue with:** [Create a Kafka service using the Developer tier](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
 
-## Create an Inkless Kafka service
+## Create a Standard Kafka service
 
-Inkless runs Apache Kafka 4.x and supports diskless topics that store data in cloud object
-storage rather than on local disks. Compute capacity is sized based on stream load instead
-of fixed hardware plans.
+Standard Kafka runs Apache Kafka 4.x and supports diskless topics that store data in
+cloud object storage rather than on local disks. Compute capacity is sized based on
+stream load instead of fixed hardware plans.
 
-- Select **Inkless** as the service type.
+- Select **Standard** as the service type.
 - Select **Aiven cloud** or **Bring your own cloud (BYOC)** as the deployment mode.
 - On Aiven cloud, select **AWS**, **Google**, or **Azure** and a region;
   then provide expected ingress, egress, and retention to estimate capacity and cost.
-- On BYOC, select the BYOC environment, region, and an Inkless plan.
+- On BYOC, select the BYOC environment, region, and a Standard Kafka plan.
 
-**Continue with:** [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service).
+**Continue with:** [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service).
 
 ## Create a Classic Kafka service
 
 Classic Kafka uses fixed plans with local broker storage. Tiered storage is available on
 supported plans and cloud providers.
 
-- Select **Classic Kafka** as the service type.
+- Select **Classic** as the service type.
 - Select **Aiven cloud** or **BYOC** as the deployment mode.
 - Select a plan that defines compute, memory, and storage.
 - Optionally adjust disk capacity, enable tiered storage, and select the Kafka version.
