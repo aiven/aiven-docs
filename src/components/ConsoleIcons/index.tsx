@@ -366,12 +366,6 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.dataflow03} /> <b>Schemas</b>
         </>
       );
-    case 'quotas':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.layers} /> <b>Quotas</b>
-        </>
-      );
     case 'storage':
       return (
         <>
