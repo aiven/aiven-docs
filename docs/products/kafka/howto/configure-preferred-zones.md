@@ -200,7 +200,7 @@ account permissions.
 ### Interaction with single-zone configuration
 
 If you configure both `preferred_zones` and
-[`single_zone.availability_zone`](/docs/products/kafka/reference/advanced-params-inkless#single_zone.availability_zone)
+[`single_zone.availability_zone`](/docs/products/kafka/reference/advanced-params-standard#single_zone.availability_zone)
 settings and set `single_zone.enabled` to `true`, the `single_zone` setting takes
 precedence.
 
@@ -221,7 +221,7 @@ or a plan change.
 Automatic rebalancing is supported on:
 
 - `inkless-professional` plans
-- Inkless Business and Premium plans on BYOC
+- Standard Kafka Business and Premium plans on BYOC
 - `kafka-professional` plans
 - All Kafka Connect and MirrorMaker 2 plans
 
