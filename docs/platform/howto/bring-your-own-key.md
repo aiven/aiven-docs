@@ -7,8 +7,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import ConsoleLabel from '@site/src/components/ConsoleIcons';
+import RelatedPages from "@site/src/components/RelatedPages";
 
-Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
+Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Console](https://console.aiven.io), [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
 :::important
 Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature.
@@ -32,6 +34,9 @@ BYOK encrypts the following using your CMKs:
   - **Oracle Cloud Infrastructure (OCI) Vault**: AES keys
   - **AWS KMS**: symmetric encryption keys (`ENCRYPT_DECRYPT`)
   - **Azure Key Vault**: RSA keys (software-protected or HSM-backed)
+
+- Access to the [Aiven Console](https://console.aiven.io) (for Aiven Console
+  instructions)
 
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
   the [Aiven API](/docs/tools/api)
@@ -640,7 +645,30 @@ For per-service CMK assignment and rotation, see
 Register a customer managed key resource identifier for an Aiven project.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project and click
+   **BYOK** in the left sidebar.
+1. Click **Register key**.
+1. Select your cloud provider: **AWS**, **Google Cloud**, or **Oracle**.
+1. In the **Grant access** section, copy the **Access group** value and grant
+   Aiven access to your key in your cloud provider's KMS. The dialog also shows
+   a ready-to-use CLI command that you can copy and run.
+1. Under **Key details**, enter a **Key name** and the **Key resource path**.
+1. Optional: Select **Set as project default** to encrypt all new services with
+   this key automatically.
+1. Click **Validate and register**.
+
+When validation succeeds, a confirmation dialog appears. If the key is set as
+the project default, the dialog confirms it and suggests going to
+**Service encryption** to assign the key to existing services. Click **Done**.
+
+If Aiven cannot verify access, a **Cannot verify encrypt/decrypt access** error
+appears. Check the access group permissions in your cloud provider and
+click **Validate and register** again.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -850,7 +878,18 @@ resource to register a CMK with your Aiven project.
 Update attributes or parameters on an existing customer managed key configuration.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project and click
+   **BYOK** in the left sidebar.
+1. Find the key to set as default.
+1. Click <ConsoleLabel name="actions"/> and select **Set as default**.
+
+The key is marked **Default** in the key list. All new services in the project
+use this key unless you choose a different key at creation time.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -992,7 +1031,19 @@ resource "aiven_cmk" "example" {
 Get the details of a customer managed key configuration.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project and click
+   **BYOK** in the left sidebar.
+1. Click the key name to open its details page.
+
+The details page shows the cloud provider, key ID, key resource path, last
+updated date, and whether the key is the project default. You can toggle the
+**Default key** setting and view all services using the key under
+**Associated services**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1171,7 +1222,18 @@ terraform import aiven_cmk.example PROJECT_NAME/CMK_ID
 List all customer managed key configurations for a project.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project and click
+   **BYOK** in the left sidebar.
+
+The **Bring your own key (BYOK)** page lists all registered keys with their
+cloud provider, status, number of associated services, and creation date.
+
+If no keys have been registered yet, the page shows a prompt to **Register key**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1290,7 +1352,21 @@ association before deletion.
 :::
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project and click
+   **BYOK** in the left sidebar.
+1. Click <ConsoleLabel name="actions"/> next to the key to remove and
+   select **Remove**.
+
+If the key is in use by active services, a **Cannot remove a key in use** dialog
+appears. Remove the CMK from all connected services first, then try again.
+
+You can also remove a key from its details page: click the key name, then click
+**Remove** in the top-right corner.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1423,7 +1499,17 @@ Create a service with a specific CMK by providing the CMK ID in the service crea
 Set `cloud` to control the cloud region for the new service.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project.
+1. Click **Create service**.
+1. Select a service type, cloud provider, and plan.
+1. In the **Service details** section, select a key from the
+   **Encryption key (BYOK)** dropdown.
+1. Click **Create service**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1684,7 +1770,16 @@ showing which CMK is actively protecting that service's data. This allows you to
 encryption key usage and track which services are using which CMKs.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your service.
+1. On the <ConsoleLabel name="overview"/> page, go to **Connection information**.
+
+The **Encryption key (BYOK)** row shows the key name and resource path. If the
+key is the project default, it is labeled **Default**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1780,7 +1875,18 @@ Find all services in a project that are using a specific customer managed key. T
 useful for auditing, capacity planning, or managing CMK usage across your infrastructure.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project and click
+   **BYOK** in the left sidebar.
+1. Click the key name to open its details page.
+
+The **Associated services** section lists all services using the key, with their
+status and cloud region. To assign more services to this key,
+click **Add service**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1853,3 +1959,12 @@ listing services associated with a specific CMK. Use the API endpoint for this o
 
 </TabItem>
 </Tabs>
+
+<RelatedPages/>
+
+- [Bring your own cloud (BYOC)](/docs/platform/concepts/byoc): BYOK is an enterprise
+  feature that requires BYOC.
+- [Create an authentication token](/docs/platform/howto/create_authentication_token)
+- [Aiven Provider for Terraform](/docs/tools/terraform): Manage CMKs as infrastructure
+  as code using the `aiven_cmk` resource.
+- [Aiven CLI](/docs/tools/cli): Manage CMKs from the command line.
