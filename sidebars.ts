@@ -1803,6 +1803,8 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/change-cloud-region',
                 'products/opensearch/reference/advanced-params',
                 'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/hot-warm-tiering',
+                'products/opensearch/howto/hot-warm-tiering',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
