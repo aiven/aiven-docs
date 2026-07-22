@@ -621,7 +621,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'redeployapp':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Redeploy app</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Deploy latest commit</b>
         </>
       );
     case 'governance':
