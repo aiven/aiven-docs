@@ -25,7 +25,7 @@ authentication method, grant permissions, and copy the setup steps for Klaw.
    Kafka service.
 1. On the service <ConsoleLabel name="overview"/> page, in the **Set up your
    stream** section, click **Quick connect**.
-1. At the top of the page, click **Klaw** in the language selector.
+1. At the top of the page, click **Klaw**.
 
 ## Step 1: Set up a topic
 
