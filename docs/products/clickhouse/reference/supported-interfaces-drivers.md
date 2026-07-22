@@ -18,7 +18,7 @@ interfaces (protocols):
 - `Arrow Flight`
 
 :::note
-`Arrow Flight` is available for new services running ClickHouse 25.8 LTS.
+`Arrow Flight` is available for new services running ClickHouse 25.8 LTS or 26.3 LTS.
 To get the connection details, use the [Aiven API](/docs/tools/api),
 [Aiven CLI](/docs/tools/cli), or [Aiven MCP server](/docs/tools/mcp-server).
 :::
