@@ -10,7 +10,7 @@ Environment variables and secrets let you configure your application at runtime 
 
 When you edit secrets and environment variables, Aiven
 redeploys your app with the new configuration. It deploys the same commit
-from your git branch that was deployed previously. To deploy the latest commit,
+from your Git branch that was deployed previously. To deploy the latest commit,
 you can manually [redeploy your app](/docs/products/apps/deploy-apps#redeploy-an-app).
 
 1. In your project, click <ConsoleLabel name="applications"/>.
