@@ -56,6 +56,9 @@ When you create a service, Aiven provides a monthly cost estimate based on your
 selected configuration. An estimate is a projection, not a commitment. Your final cost
 depends on actual usage during the billing period.
 
+To estimate costs before creating a service, use the
+[Kafka pricing calculator](https://aiven.io/kafka).
+
 For instructions, see
 [Review the cost estimate](/docs/products/kafka/get-started/create-standard-kafka-service#review-the-cost-estimate).
 
@@ -87,10 +90,9 @@ The following factors affect your estimated or actual cost:
 - **Service plan**: Determines the compute rate.
 - **Cloud and region**: Prices vary by region.
 - **Topic type**: Classic topics and Diskless topics have different ingress and
-  egress rates. For network pricing rates, see the
+  egress rates, so the share of traffic that uses each topic type affects network
+  usage costs. For network pricing rates, see the
   [Aiven pricing page](https://aiven.io/pricing).
-- **Traffic split**: The share of traffic that uses Classic topics or Diskless topics
-  affects network usage costs.
 - **Data produced**: Higher ingress can increase network usage costs, depending on
   the topic type.
 - **Data read**: More consumer groups, repeated reads, retries, client
