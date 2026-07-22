@@ -206,6 +206,7 @@
 /products/influxdb                                         /docs/products/metrics  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
 /products/kafka/get-started                                /docs/products/kafka/get-started/create-kafka-service  301
+/products/kafka/get-started/create-inkless-service         /docs/products/kafka/get-started/create-standard-kafka-service  301
 /products/kafka/diskless/concepts/diskless-overview        /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
 /products/kafka/getting-started.html                       /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301
@@ -226,6 +227,7 @@
 /products/kafka/howto/use-zookeeper                        /docs/products/kafka  301
 /products/kafka/tiered-storage-overview-page               /docs/products/kafka/howto/view-kafka-storage-in-console   301
 /products/kafka/index.html                                 /docs/products/kafka  301
+/products/kafka/inkless-overview                           /docs/products/kafka/standard-kafka-overview  301
 /products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
 /products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices  301
 /products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink  301
@@ -248,6 +250,8 @@
 /products/kafka/karapace/howto                                         /docs/products/kafka/karapace/howto/enable-karapace  301
 /products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization  301
 /products/kafka/reference                                              /docs/products/kafka/reference/advanced-params  301
+/products/kafka/reference/advanced-params-inkless                      /docs/products/kafka/reference/advanced-params-standard  301
+/products/kafka/reference/advanced-params-inkless-saas-topic           /docs/products/kafka/reference/advanced-params-standard-topic  301
 /products/m3db                                             /docs/products/metrics  301
 /products/metrics/concepts                                 /docs/products/metrics  301
 /products/metrics/concepts/metrics-overview                /docs/products/metrics  301

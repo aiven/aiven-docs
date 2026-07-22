@@ -10,8 +10,8 @@ Use the storage overview page to review storage usage, billing, and retention se
 
 In the Aiven Console, storage is labeled differently based on the service type.
 Classic Kafka services show **Tiered storage**, which can be enabled and configured.
-Inkless Kafka services show **Storage**, reflecting that object storage is always part of
-the data path.
+Standard Kafka services show **Storage**, reflecting that object storage is always part
+of the data path.
 
 ## Prerequisite
 
@@ -25,7 +25,7 @@ the data path.
    Aiven for Apache Kafka service.
 1. In the sidebar, click:
    - For Classic Kafka services: <ConsoleLabel name="observe" /> > **Tiered storage**
-   - For Inkless Kafka services: <ConsoleLabel name="observe" /> > **Storage**
+   - For Standard Kafka services: <ConsoleLabel name="observe" /> > **Storage**
 
    For Classic Kafka clusters:
 
@@ -55,7 +55,7 @@ View the current local cache details and retention policy configurations for tie
 
 :::note
 You can update tiered storage retention settings only in Classic Kafka services. In
-Inkless Kafka services, storage settings for classic topics are managed automatically
+Standard Kafka services, storage settings for classic topics are managed automatically
 and cannot be changed.
 :::
 

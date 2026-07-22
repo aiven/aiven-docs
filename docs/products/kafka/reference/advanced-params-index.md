@@ -12,4 +12,4 @@ Select your service type to view the available parameters:
 - [Free tier](/docs/products/kafka/reference/advanced-params-free-tier)
 - [Developer tier](/docs/products/kafka/reference/advanced-params-dev-tier)
 - [Classic Kafka](/docs/products/kafka/reference/advanced-params)
-- [Inkless Kafka](/docs/products/kafka/reference/advanced-params-inkless)
+- [Standard Kafka](/docs/products/kafka/reference/advanced-params-standard)

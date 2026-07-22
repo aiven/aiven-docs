@@ -61,18 +61,18 @@ The Batch Coordinator manages metadata for diskless topics. It assigns offsets t
 batches, tracks where each batch is stored, and preserves message order within
 partitions. It does not handle message data directly.
 
-When you schedule or start maintenance for an Aiven Inkless Kafka service that uses
+When you schedule or start maintenance for an Aiven Standard Kafka service that uses
 diskless topics, the internal Batch Coordinator is updated in the same maintenance window
 as the Kafka service. Maintenance details for both components are shown together in the
 service’s maintenance view in the Aiven Console.
 
 ## Services with mixed topics: classic and diskless
 
-Inkless Kafka services can include both classic and diskless topics in the same
+Standard Kafka services can include both classic and diskless topics in the same
 deployment:
 
 - In Classic Kafka services, classic topics store data on local disks managed by brokers.
-- In Inkless Kafka services, classic topics use managed remote storage.
+- In Standard Kafka services, classic topics use managed remote storage.
 - Diskless topics store data in cloud object storage.
 - Metadata for both topic types is shared using Kafka’s KRaft protocol.
 

@@ -33,7 +33,7 @@ selected plan and cloud support it.
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. In **Service tier**, select a supported tier.
-1. In **Cluster type**, select **Classic Kafka**.
+1. In **Service type**, select **Classic**.
 1. In **Deployment mode**, select **Aiven cloud**.
 1. Select a cloud provider and region.
 1. Select a **plan**.
@@ -113,7 +113,7 @@ To create services on BYOC, first set up a BYOC environment. For instructions, s
 1. Click **Create service**.
 1. Select **Apache Kafka®**.
 1. In **Service tier**, select a supported tier.
-1. In **Cluster type**, select **Classic Kafka**.
+1. In **Service type**, select **Classic**.
 1. In **Deployment mode**, select **Bring your own cloud (BYOC)**.
 1. In the **Cloud**:
    - Select your **BYOC environment**.
