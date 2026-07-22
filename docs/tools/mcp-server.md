@@ -38,9 +38,9 @@ first time, your browser opens so you can sign in and authorize MCP access. This
 is usually a one-time setup step per client.
 
 :::note
-The hosted MCP server at `mcp.aiven.live` is operated by Aiven. The `aiven.live`
-domain is owned by Aiven, and the server delegates authorization to the Aiven API
-at `api.aiven.io`.
+Aiven owns the `aiven.live` domain and operates the hosted MCP server at
+`mcp.aiven.live`. The server uses the Aiven API at `api.aiven.io` for
+authorization.
 :::
 
 ## Install the Aiven MCP {#configure-aiven-mcp}
