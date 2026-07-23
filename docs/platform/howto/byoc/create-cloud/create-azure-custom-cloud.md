@@ -23,9 +23,7 @@ subscription so that Aiven can access it:
 1. You add contact details for individuals from your organization that Aiven can reach
    out to in case of technical issues with the new cloud.
 
-## Before you start
-
-### Prerequisites
+## Prerequisites
 
 - You have [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
 - You have an active Azure subscription where the BYOC infrastructure will be deployed.
