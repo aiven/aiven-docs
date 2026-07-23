@@ -673,6 +673,8 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/connect-with-java',
                     'products/kafka/howto/connect-with-go',
                     'products/kafka/howto/connect-with-cpp',
+                    'products/kafka/howto/connect-with-php',
+                    'products/kafka/howto/connect-with-csharp',
                     'products/kafka/howto/connect-with-command-line',
                     'products/kafka/howto/connect-with-kafka-rest',
                     'products/kafka/howto/connect-with-klaw',

@@ -28,7 +28,7 @@ version built on `librdkafka` version 2.6.1 or later. For more information, see
    Kafka service.
 1. On the service <ConsoleLabel name="overview"/> page, in the **Set up your
    stream** section, click **Quick connect**.
-1. At the top of the page, select **Node.js** from the language selector.
+1. At the top of the page, click **Node.js**.
 
 ## Step 1: Set up a topic
 
