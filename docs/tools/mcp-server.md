@@ -342,3 +342,5 @@ Aiven secures the platform and API. You are responsible for the following:
   PostgreSQL and Kafka connection credentials, including URIs, passwords, and
   certificates, to the AI agent so it can connect to your services. Use it only
   for development with non-production services that do not hold sensitive data.
+- **Connect to VPC-hosted PostgreSQL services**: The Aiven MCP server supports
+  direct connections to PostgreSQL services running in a private VPC.
