@@ -91,19 +91,20 @@ ZIP file includes ready-to-run producer and consumer code, certificates, and a
 **Producer** or **Consumer** tab.
 :::
 
-1. Under **Prerequisites**, install the `rdkafka` PECL extension, enable it, and
-   install the `pcntl` extension:
+1. Install `librdkafka`. For installation instructions, see
+   [`librdkafka` on GitHub](https://github.com/confluentinc/librdkafka).
+
+1. Install the `rdkafka` PECL extension:
 
    ```bash
    pecl install rdkafka
-   docker-php-ext-enable rdkafka
-   docker-php-ext-install pcntl
    ```
 
-   If you're not using the PHP Docker image, enable the `rdkafka` extension by
-   adding `extension=rdkafka.so` to your `php.ini` file if it isn't already
-   enabled. The generated examples require PHP CLI with the `pcntl` extension
-   enabled for signal handling.
+1. If the extension is not already enabled, add `extension=rdkafka.so` to your
+   `php.ini` file.
+
+   The generated examples require PHP CLI with the `pcntl` extension enabled for
+   signal handling.
 
 1. Under **Downloads**, download the certificate files for your authentication
    method:

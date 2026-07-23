@@ -13,7 +13,7 @@ grant permissions, and copy generated producer and consumer code.
 ## Prerequisites
 
 - A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service).
-- .NET 9 or later.
+- .NET SDK 9 or later.
 - The [`Confluent.Kafka`](https://www.nuget.org/packages/Confluent.Kafka)
   package.
 
