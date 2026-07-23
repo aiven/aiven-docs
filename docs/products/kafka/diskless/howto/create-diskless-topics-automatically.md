@@ -9,12 +9,13 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
-Configure an Aiven for Apache Kafka® service to create new topics as diskless topics by default when their names match configured regular expressions, without changing client applications.
+Configure your Aiven for Apache Kafka® service to automatically create new topics as diskless topics when their names match configured regular expressions.
+This lets clients and connectors use diskless topics without setting `diskless.enable=true`
+in each create-topic request.
 
-Add one or more regular expressions to the service configuration to match topic names.
-When a client creates a topic, the service compares the topic name with the configured
-regular expressions. If the topic name matches any regular expression, the service creates
-the topic as a diskless topic.
+When a client creates a topic, the service compares the topic name against the configured
+regular expressions. If the name matches any expression, the service creates the topic as
+diskless.
 
 ## When to use regular expressions
 
@@ -22,20 +23,18 @@ Use regular expressions to automatically create new topics as diskless topics ba
 their names, without requiring every client or workflow to set `diskless.enable=true`.
 This is useful when:
 
-- Your clients don't support setting `diskless.enable=true` in the topic configuration,
-  or you can't change the client code to include it.
-- Kafka Connect frameworks, especially CDC connectors, can create
-  and alter topics dynamically and might not allow you to add diskless settings to the
-  workflow.
+- Clients do not support setting `diskless.enable=true` in the topic configuration,
+  or you cannot change the client code to include it.
+- Kafka Connect frameworks, especially CDC connectors, create and alter topics dynamically
+  and might not let you add diskless settings to the workflow.
 - Some clients reject unknown topic configurations before the request reaches the broker.
 - MirrorMaker 2 replicates source topics with their existing configurations.
 
-Regular expressions let these clients and tools create diskless topics based on the topic
-name alone.
+With this configuration, the service creates diskless topics based only on topic names.
 
 ## Behavior and limitations
 
-The service applies configured regular expressions only when a new topic is created.
+The service applies configured regular expressions only when it creates a new topic.
 Existing topics do not change.
 
 ### Topic matching
@@ -60,15 +59,15 @@ The service does not apply regular expressions to:
 
 ### Classic topic conflicts
 
-If a non-compacted topic name matches a configured regular expression, you cannot create
-it as a classic topic by setting `diskless.enable=false`. The request fails with a
-conflict error.
+If a non-compacted topic name matches a configured regular expression, the service creates
+it as a diskless topic. If you set `diskless.enable=false` for the same topic, the request
+fails with a conflict error.
 
 To create a classic topic, use a topic name that does not match any configured regular
 expression.
 
-In the Aiven Console, creating a classic topic with a name that matches a configured
-regular expression also fails.
+In the Aiven Console, the same conflict occurs if the topic name matches a configured
+regular expression.
 
 ### Other limitations
 
@@ -114,8 +113,8 @@ possible. Avoid broad regular expressions such as `.*` unless most new non-inter
 non-compacted topics must be diskless.
 
 :::note
-This option is not exposed in the Aiven Console for services with diskless topics
-enabled. Set it using the API or CLI.
+The `auto_diskless_topic_regexes` option is not available in the Aiven Console for services
+with diskless topics enabled. Set it using the API or CLI.
 :::
 
 <Tabs groupId="set-method">
@@ -150,8 +149,8 @@ Replace:
 <TabItem value="cli" label="CLI">
 
 Use the [Aiven CLI](/docs/tools/cli) to set the regular expressions with the `-c`
-option. Pass the value as a JSON array. Include `kafka_diskless.enabled=true` to keep
-diskless topics enabled when updating the configuration.
+option. Pass the value as a JSON array. Set `kafka_diskless.enabled=true` to keep diskless
+topics enabled when you update the configuration.
 
 ```bash
 avn service update SERVICE_NAME \
@@ -175,7 +174,7 @@ If the CLI rejects the array value, use the API.
 Changing the list of regular expressions might briefly interrupt topic creation requests.
 Kafka brokers remain online.
 
-If you manage services or topics with infrastructure as code, make sure your topic naming
+If you manage services or topics with infrastructure as code, ensure your topic naming
 conventions and regular expressions stay aligned. If you use the Aiven Terraform Provider,
 verify that your provider version supports `auto_diskless_topic_regexes` before adding
 this setting to your configuration.
@@ -192,9 +191,10 @@ creation requests. Existing topics keep their current type.
 | Create topics ending in `.diskless` as diskless topics     | `.*\.diskless`     |
 | Create topics that contain `.events.` as diskless topics   | `.*\.events\..*`   |
 
-Matching uses full-match semantics, so leading `^` and trailing `$` anchors are optional.
-Use `.*` to match variable text before or after a fixed value. For example, `events`
-matches only the topic name `events`. To match `events.orders`, use `events\..*`.
+Regular expression matching uses full-match semantics, so leading `^` and trailing `$`
+anchors are optional. Use `.*` to match variable text before or after a fixed value. For
+example, `events` matches only the topic name `events`. To match `events.orders`, use
+`events\..*`.
 
 ## Verify the topic type
 
@@ -251,8 +251,8 @@ To stop creating matching topics as diskless topics by default, set
 `auto_diskless_topic_regexes` to an empty array or `null`.
 
 :::note
-This option is not exposed in the Aiven Console for services with diskless topics
-enabled. Update it using the API or CLI.
+The `auto_diskless_topic_regexes` option is not available in the Aiven Console for services
+with diskless topics enabled. Update it using the API or CLI.
 :::
 
 <Tabs groupId="remove-method">
@@ -273,13 +273,12 @@ curl --request PUT \
   }'
 ```
 
-To clear the value instead of passing an empty array, set `auto_diskless_topic_regexes` to
-`null`.
+To clear the value, set `auto_diskless_topic_regexes` to `null`.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-Include `kafka_diskless.enabled=true` to keep diskless topics enabled when updating the
+Set `kafka_diskless.enabled=true` to keep diskless topics enabled when you update the
 configuration.
 
 ```bash
@@ -289,7 +288,7 @@ avn service update SERVICE_NAME \
   -c kafka_diskless.auto_diskless_topic_regexes='[]'
 ```
 
-Alternatively, clear the value by setting `auto_diskless_topic_regexes` to `null`:
+To clear the value, set `auto_diskless_topic_regexes` to `null`:
 
 ```bash
 avn service update SERVICE_NAME \
@@ -301,10 +300,10 @@ avn service update SERVICE_NAME \
 </TabItem>
 </Tabs>
 
-This change affects only new topics. Existing topics are not changed.
-
-This does not turn off diskless topics for the service. It only removes the automatic
-topic name matching behavior.
+Removing the regular expressions applies only to new topics. It does not change existing
+topics.
+The change does not disable diskless topics for the service. It only removes automatic topic
+name matching.
 
 <RelatedPages/>
 
