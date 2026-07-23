@@ -1,7 +1,6 @@
 ---
 title: Aiven for Valkey™ clustering
 sidebar_label: Clustering
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -130,17 +129,48 @@ clustering from the start.
 - Configure your client to discover and connect to cluster nodes automatically.
 - Test failover behavior to ensure your application handles node changes gracefully.
 
+## Resharding
+
+Aiven for Valkey distributes data across primary nodes using hash slots. When the number
+of primary nodes in your cluster changes, Aiven reshards the cluster automatically.
+Resharding redistributes the hash slots, and the keys they hold, across the available
+primary nodes to keep the slots evenly balanced across shards.
+
+Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
+manages the entire process:
+
+- **Slot redistribution**: Aiven divides the ranges of hash slots owned by each primary
+  node and reassigns them across the updated set of primary nodes.
+- **Key migration**: Keys move together with their slots while the cluster stays available
+  to clients.
+- **No manual slot management**: You cannot move individual slots or assign them to
+  specific nodes. Aiven controls slot placement to keep the cluster balanced and
+  consistent. The `migrate` command that resharding uses to move keys between nodes stays
+  disabled for direct use.
+
+To inspect the slot layout, run `CLUSTER NODES` on any Valkey node in the cluster. It shows
+the current slot distribution across the cluster nodes.
+
+## Backup and restore
+
+Aiven for Valkey automatically backs up your clustered service. Each primary node backs up
+the data for the hash slots it owns, and Aiven stores these backups in a remote location.
+Backups run independently for each primary and need no coordination from your application.
+
+To restore a cluster, Aiven combines the stored backups with the recorded hash slot
+layout, so your data returns to the same slot distribution. The cluster must keep the same
+number of primary nodes for a restore to succeed.
+
+:::note
+Cluster backups are not point-in-time recovery (PITR). Because each primary node is backed
+up independently, backups are not consistent across shards. A restored cluster reflects
+each primary's data as of its own backup, not a single moment in time across the whole
+cluster. Design your application to tolerate this if you rely on a restore.
+:::
+
 ## Limitations and considerations
 
 Clustering is supported for new services only.
-
-### Current scope
-
-The following are planned for future releases:
-
-- Backup and restore
-- Online resharding
-- Horizontal scaling
 
 ### Performance factors
 
