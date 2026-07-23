@@ -45,7 +45,7 @@ infrastructure on the Aiven platform while keeping your data in your own cloud.
    [AWS](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud#deploy-the-template),
    [Google Cloud](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#deploy-the-template),
    or
-   [Microsoft Azure](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#deploy-the-template).
+   [Microsoft Azure](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud).
 1. [Deploy services](/docs/platform/howto/byoc/manage-byoc-service) by creating new
    Aiven-managed services in the custom cloud or migrating existing Aiven-managed services
    to the custom cloud.
