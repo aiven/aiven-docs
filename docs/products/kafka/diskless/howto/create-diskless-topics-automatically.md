@@ -9,9 +9,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
-Configure your Aiven for Apache Kafka® service to automatically create new topics as diskless topics when their names match configured regular expressions.
-This lets clients and connectors use diskless topics without setting `diskless.enable=true`
-in each create-topic request.
+Configure your Aiven for Apache Kafka® service to automatically create new topics as diskless topics when their names match configured regular expressions. This lets clients and connectors use diskless topics without setting `diskless.enable=true` in each create-topic request.
 
 When a client creates a topic, the service compares the topic name against the configured
 regular expressions. If the name matches any expression, the service creates the topic as
@@ -300,10 +298,8 @@ avn service update SERVICE_NAME \
 </TabItem>
 </Tabs>
 
-Removing the regular expressions applies only to new topics. It does not change existing
-topics.
-The change does not disable diskless topics for the service. It only removes automatic topic
-name matching.
+Removing the regular expressions applies only to new topics. Existing topics do not change.
+The change does not disable diskless topics for the service. It only removes automatic matching.
 
 <RelatedPages/>
 
