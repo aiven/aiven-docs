@@ -7,7 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Migrate your data from Aiven for Dragonfly® to Aiven for Valkey™ using a
-manual extract, transform, and load process. Use this approach when the
+manual key-by-key migration or a scan-based tool. Use this approach when the
 built-in console migration wizard is not available for your source service type.
 
 :::note
@@ -24,7 +24,6 @@ Before starting:
 - [`valkey-cli`](https://valkey.io/topics/cli/) installed locally.
 - Connection details for both services—available on the **Overview** page of each
   service in the [Aiven Console](https://console.aiven.io/).
-- Enough disk space locally to store the RDB dump file from your Dragonfly service.
 
 :::tip
 To get connection details quickly from the CLI, run:
@@ -49,56 +48,10 @@ supported commands and data type behavior. Before migrating:
 - Test your application against Valkey in a staging environment before cutting over
   production traffic.
 
-## Step 1: Extract data from Aiven for Dragonfly
+## Step 1: Prepare for migration
 
-Use `valkey-cli` to create a full RDB snapshot of your Dragonfly service.
-
-1. Retrieve the connection details for your Dragonfly service from the
-   [Aiven Console](https://console.aiven.io/) **Overview** page:
-   - **Host**
-   - **Port**
-   - **Password** (default user)
-
-1. Download a fresh RDB snapshot using the `--rdb` flag:
-
-   ```bash
-   valkey-cli -h <dragonfly-host> -p <dragonfly-port> \
-     --tls --no-auth-warning \
-     -a <dragonfly-password> \
-     --rdb dragonfly-dump.rdb
-   ```
-
-   The `--rdb` flag connects as a replica and streams a current point-in-time
-   snapshot directly to a `dragonfly-dump.rdb` file in your current directory. You
-   don't need to trigger a save first—Aiven for Dragonfly doesn't support the
-   `BGSAVE` or `SAVE` commands.
-
-:::note
-Aiven for Dragonfly services are SSL-secured by default. Always include
-`--tls` in your `valkey-cli` commands.
-:::
-
-## Step 2: Inspect and transform data
-
-Before loading data into Valkey, inspect the dump for keys or data types that
-may require transformation.
-
-### Inspect the RDB file
-
-Use [`rdb-tools`](https://github.com/sripathikrishnan/redis-rdb-tools) or
-[`rdbtools`](https://pypi.org/project/rdbtools/) to inspect the dump:
-
-```bash
-pip install rdbtools python-lzf
-rdb --command json dragonfly-dump.rdb > dump.json
-```
-
-Review `dump.json` to identify:
-
-- Keys using unsupported data types or module-specific types
-- Expired keys (they are included in the dump but will be skipped if already
-  past their TTL)
-- Large keys that may cause timeouts during restore
+Before migrating, review your data for keys or data types that may require
+transformation.
 
 ### Handle module-specific data types
 
@@ -111,47 +64,23 @@ Options:
 - **Enable the module on Valkey**: In the [Aiven Console](https://console.aiven.io/),
   go to your Valkey service **Service settings** > **Advanced configuration** and
   enable the required module before loading data.
-- **Transform the data**: Extract module-type values from the JSON dump and
-  re-insert them using native Valkey data types (for example, store JSON as a
-  plain string with `SET`).
+- **Transform the data**: Extract module-type values and re-insert them using native
+  Valkey data types (for example, store JSON as a plain string with `SET`).
 - **Skip the keys**: If the data is not critical, exclude those keys from migration.
 
 ### Filter keys (optional)
 
 To exclude specific keys or key patterns from the migration, use a script to scan
-and pipe only the keys you need. See [Step 3](#step-3-load-data-into-aiven-for-valkey)
-for the scan-based approach.
+and pipe only the keys you need. See
+[Step 2](#step-2-migrate-data-to-aiven-for-valkey) for the scan-based approach.
 
-## Step 3: Load data into Aiven for Valkey
+## Step 2: Migrate data to Aiven for Valkey
 
 Choose one of the following methods based on your use case.
 
-### Method A: Restore from RDB file (recommended for full migrations)
+### Method A: Key-by-key migration using SCAN and DUMP/RESTORE
 
-Use `valkey-cli` with the `--pipe` flag and the `rdb` command to stream keys from
-the dump directly into Valkey.
-
-1. Convert the RDB dump to Redis protocol format:
-
-   ```bash
-   rdb --command protocol dragonfly-dump.rdb > dump.resp
-   ```
-
-1. Pipe the data into Aiven for Valkey:
-
-   ```bash
-   valkey-cli -h <valkey-host> -p <valkey-port> \
-     --tls --no-auth-warning \
-     -a <valkey-password> \
-     --pipe < dump.resp
-   ```
-
-   The output reports the number of commands written, errors, and time elapsed.
-
-### Method B: Live key-by-key migration using SCAN and DUMP/RESTORE
-
-Use this approach to migrate a subset of keys or to keep both services in sync
-during a gradual cutover.
+Use this approach to migrate all or a subset of keys.
 
 Run the migration in batches so that each key isn't a separate network round
 trip. Issuing `PTTL`, `DUMP`, and `RESTORE` one key at a time is slow for large
@@ -207,12 +136,17 @@ If the Dragonfly and Valkey versions differ significantly, some keys may fail to
 restore. Test with a small key set first.
 :::
 
-### Method C: Use RedisShake for live replication
+### Method B: Use RedisShake for bulk migration
 
 [RedisShake](https://github.com/tair-opensource/RedisShake) is a vendor-neutral,
-actively maintained tool for migrating and synchronizing data between
-Redis-compatible services. It performs an initial bulk sync, followed by a stream
-of ongoing writes until you stop it.
+actively maintained tool for migrating data between Redis-compatible services.
+Use the `scan_reader` mode, which iterates over all keys using SCAN commands.
+
+:::note
+Aiven for Dragonfly does not support the replication commands (`SYNC`, `PSYNC`)
+required by RedisShake's `sync_reader` mode. Always use `scan_reader` when
+migrating from Aiven for Dragonfly.
+:::
 
 1. Download the latest RedisShake release for your platform from the
    [RedisShake releases page](https://github.com/tair-opensource/RedisShake/releases)
@@ -226,10 +160,11 @@ of ongoing writes until you stop it.
    the Valkey target. Both Aiven services require TLS:
 
    ```toml
-   [sync_reader]
+   [scan_reader]
    address = "<dragonfly-host>:<dragonfly-port>"
    password = "<dragonfly-password>"
    tls = true
+   count    = 500  # keys per SCAN iteration; raise for throughput
 
    [redis_writer]
    address = "<valkey-host>:<valkey-port>"
@@ -243,19 +178,16 @@ of ongoing writes until you stop it.
    ./redis-shake shake.toml
    ```
 
-   RedisShake first performs an initial bulk sync, then continues streaming new
-   writes to Valkey until you stop it.
-
-1. Stop RedisShake once replication is caught up and you are ready to cut over.
+   RedisShake scans all keys from Dragonfly and writes them to Valkey. It stops
+   automatically when the scan is complete.
 
 :::note
-RedisShake does not support resumable (checkpoint) transfers: if it restarts, it
-performs a full resynchronization. Use it for a one-time migration rather than long-running
-continuous synchronization. Changes to cluster topology during migration are not
-supported.
+`scan_reader` performs a one-time bulk copy and does not stream ongoing writes.
+Stop writes to your Dragonfly service before starting the migration to avoid
+missing new data written during the scan.
 :::
 
-## Step 4: Verify the migration
+## Step 3: Verify the migration
 
 After loading data into Valkey, verify that the migration is complete:
 
@@ -273,8 +205,8 @@ After loading data into Valkey, verify that the migration is complete:
      DBSIZE
    ```
 
-1. Spot-check a sample of keys to confirm values, types, and time-to-live (TTL) values transferred
-   correctly:
+1. Spot-check a sample of keys to confirm values, types, and time-to-live (TTL) values
+   transferred correctly:
 
    ```bash
    valkey-cli -h <valkey-host> -p <valkey-port> \
@@ -289,13 +221,13 @@ After loading data into Valkey, verify that the migration is complete:
 1. Run your application's integration tests against the Valkey service before
    switching production traffic.
 
-## Step 5: Cut over to Aiven for Valkey
+## Step 4: Cut over to Aiven for Valkey
 
 When the data is verified and your application is tested:
 
 1. Stop writes to the Dragonfly service, or route them to Valkey first.
-1. If using live replication (Method B script or RedisShake), let replication
-   catch up, then stop it.
+1. If using Method A (SCAN/DUMP/RESTORE script), run it one final time to capture
+   any remaining keys, then stop it.
 1. Update your application connection strings to point to the Aiven for Valkey
    service.
 1. Monitor your application for errors after cutover.
