@@ -15,17 +15,13 @@ subscription so that Aiven can access it:
 1. With the Aiven CLI client, you specify new cloud details to generate a Terraform
    infrastructure-as-code template.
 1. You download the generated template and deploy it in your Azure subscription using
-   your App Registration credentials.
+   the Azure CLI.
 1. You provision the custom cloud by supplying your Azure subscription ID to the Aiven
    platform, which gives Aiven the permissions to access your Azure subscription, create
    resources, and manage them onward.
 1. You select Aiven projects that can use your new custom cloud for creating services.
-1. You add contact details for individuals from your organization that Aiven can reach out
-   to in case of technical issues with the new cloud.
-
-:::note
-The `pci_dss` and `hipaa` deployment models are not supported for Azure custom clouds.
-:::
+1. You add contact details for individuals from your organization that Aiven can reach
+   out to in case of technical issues with the new cloud.
 
 ## Before you start
 
@@ -33,16 +29,15 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
 
 - You have [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
 - You have an active Azure subscription where the BYOC infrastructure will be deployed.
-- You have an **App Registration (service principal)** in
-  [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/what-is-application-management)
-  with the **Contributor** role on the subscription. This is used for Terraform
-  authentication.
-- You have the following credentials for the service principal available as environment
-  variables when running `terraform apply`:
-  - `ARM_CLIENT_ID`: Application (client) ID of the App Registration
-  - `ARM_CLIENT_SECRET`: A client secret for the App Registration
-  - `ARM_TENANT_ID`: Directory (tenant) ID
-  - `ARM_SUBSCRIPTION_ID`: Azure subscription ID
+- You have an Azure identity (user or service principal) that can authenticate via
+  `az login` with the following permissions on the subscription:
+  - **Owner** role, or **Contributor** combined with **User Access Administrator**:
+    to create infrastructure and assign roles.
+  - **Ability to register applications** in Microsoft Entra ID: enabled by default for
+    users in most tenants.
+  - **Privileged Role Administrator** (or **Global Administrator**) in Entra ID: to
+    grant the Aiven service principal the `Application.ReadWrite.OwnedBy` Graph
+    permission for autonomous credential rotation.
 - [Aiven CLI client](/docs/tools/cli) installed
 - Aiven organization ID from the output of the `avn organization list` command or
   from the [Aiven Console](https://console.aiven.io/) > <ConsoleLabel name="userinformation"/>
@@ -50,7 +45,9 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
 - You have the
   [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
   role in your Aiven organization.
-- You have Terraform >= 1.0 installed.
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) (`az`)
+  installed.
+- Terraform >= 1.0 installed.
 
 ## Create a custom cloud
 
@@ -60,7 +57,7 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
    ```bash
    avn byoc create                               \
      --organization-id "ORGANIZATION_ID"         \
-     --deployment-model "DEPLOYMENT_MODEL_NAME"  \
+     --deployment-model "standard"               \
      --cloud-provider "azure"                    \
      --cloud-region "CLOUD_REGION_NAME"          \
      --reserved-cidr "CIDR_BLOCK"                \
@@ -73,16 +70,6 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
      cloud account to create the custom cloud, for example `org123a456b789`. Get your
      `ORGANIZATION_ID`
      [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
-   - `DEPLOYMENT_MODEL_NAME` with the type of
-     [network architecture](/docs/platform/concepts/byoc#byoc-architecture) your custom
-     cloud uses:
-     - `standard_public` (public) model: The nodes have public IPs and can be configured
-       to be publicly accessible for authenticated users. The Aiven control plane can
-       connect to the service nodes via the public internet.
-     - `standard` (private) model: The nodes reside in a virtual network without public
-       IP addresses and are by default not accessible from outside. Traffic is routed
-       through a proxy for additional security using a bastion host logically separated
-       from the Aiven services.
    - `CLOUD_REGION_NAME` with the name of an Azure region where to create your custom
      cloud:
      1. Pick a region from the **Cloud** column in the supported
@@ -176,25 +163,20 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
       template.
       :::
 
-   1. Set up Terraform to authenticate with Azure by exporting the App Registration
-      credentials as environment variables:
+   1. Authenticate with Azure using the Azure CLI:
 
       ```bash
-      export ARM_CLIENT_ID="<app-registration-client-id>"
-      export ARM_CLIENT_SECRET="<app-registration-client-secret>"
-      export ARM_TENANT_ID="<entra-tenant-id>"
-      export ARM_SUBSCRIPTION_ID="<azure-subscription-id>"
+      az login
       ```
 
-      For more authentication options and configuration details, see the
-      [Azure Provider authentication documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#authenticating-to-azure).
+      For more authentication options, see the
+      [Azure CLI authentication documentation](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 
    1. Deploy the infrastructure template using Terraform with the provided variables
       file:
 
       ```bash
       terraform init
-      terraform plan -var-file=FILE_NAME.tfvars
       terraform apply -var-file=FILE_NAME.tfvars
       ```
 
@@ -204,6 +186,18 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
       The `-var-file` option is required to pass the configuration variables to
       Terraform.
       :::
+
+      The template creates the following resources in your Azure subscription:
+
+      - A **service principal** (App Registration with a client secret) for Aiven to
+        operate the environment, with the Contributor role on the resource group and
+        `Application.ReadWrite.OwnedBy` permission for autonomous credential rotation
+      - A **resource group** containing all BYOC resources
+      - Two **virtual networks** (bastion and workload VNets) with subnets
+      - **VNet peering** between the bastion and workload networks
+      - **Network security groups (NSGs)** controlling ingress and egress
+      - **NAT gateways** for outbound internet access from both networks
+      - **Storage accounts** (premium and standard LRS) for service data
 
 1. Provision resources by running
    [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision) and passing your Azure
@@ -224,8 +218,8 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
      from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
      for example `018b6442-c602-42bc-b63d-438026133f60`.
-   - `AZURE_SUBSCRIPTION_ID` with your Azure subscription ID (the same value as
-     `ARM_SUBSCRIPTION_ID`).
+   - `AZURE_SUBSCRIPTION_ID` with your Azure subscription ID. To retrieve it, run:
+     `az account show --query id -o tsv`.
 
 1. Enable your custom cloud in organizations, projects, or units by running
    [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
@@ -277,6 +271,17 @@ The `pci_dss` and `hipaa` deployment models are not supported for Azure custom c
    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
      from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
      for example `018b6442-c602-42bc-b63d-438026133f60`.
+
+## Limitations
+
+The following features are not supported for Azure custom clouds:
+
+- **Enhanced compliance (ECE)** deployment models (`pci_dss`, `hipaa`)
+- **Customer-owned storage** (bring your own key)
+- **Static IPs**
+- **VNet peering** from the Aiven Console: manage peering directly in your Azure
+  subscription
+- **PrivateLink**
 
 <RelatedPages/>
 
