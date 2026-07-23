@@ -78,10 +78,9 @@ and pipe only the keys you need. See
 
 Choose one of the following methods based on your use case.
 
-### Method A: Live key-by-key migration using SCAN and DUMP/RESTORE
+### Method A: Key-by-key migration using SCAN and DUMP/RESTORE
 
-Use this approach to migrate a subset of keys or to keep both services in sync
-during a gradual cutover.
+Use this approach to migrate all or a subset of keys.
 
 Run the migration in batches so that each key isn't a separate network round
 trip. Issuing `PTTL`, `DUMP`, and `RESTORE` one key at a time is slow for large
@@ -165,6 +164,7 @@ migrating from Aiven for Dragonfly.
    address = "<dragonfly-host>:<dragonfly-port>"
    password = "<dragonfly-password>"
    tls = true
+   count    = 500  # keys per SCAN iteration; raise for throughput
 
    [redis_writer]
    address = "<valkey-host>:<valkey-port>"
