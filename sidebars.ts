@@ -2054,6 +2054,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/change-service-plan',
                 'products/postgresql/howto/scale-disk-storage',
                 'products/postgresql/concepts/pg-shared-buffers',
+                'products/postgresql/concepts/pg-huge-pages',
                 'products/postgresql/concepts/pg-disk-usage',
                 'products/postgresql/howto/pg-object-size',
                 'products/postgresql/howto/prevent-full-disk',
