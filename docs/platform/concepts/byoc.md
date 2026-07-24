@@ -312,6 +312,17 @@ repositories).
 :::
 
 </TabItem>
+<TabItem value="8" label="Azure BYOC public">
+
+In the Azure public deployment model, a Virtual Network (**Workload VNet**) for your
+Aiven services is created within a particular cloud region in your Azure subscription.
+Aiven accesses this VNet through the internet. Service VMs reside in a publicly addressed
+subnet (**Public subnet**), and Aiven services can be accessed through the public
+internet: the Aiven control plane connects to the nodes using the public address, and
+the Aiven management plane can access the service VMs directly. To restrict access to
+your service, you can use the [IP filter](/docs/platform/howto/restrict-access).
+
+</TabItem>
 </Tabs>
 
 Firewall rules are enforced on the subnet level.

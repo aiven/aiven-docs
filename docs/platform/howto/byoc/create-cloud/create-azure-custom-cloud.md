@@ -29,8 +29,8 @@ subscription so that Aiven can access it:
 - You have an active Azure subscription where the BYOC infrastructure will be deployed.
 - You have an Azure identity (user or service principal) that can authenticate via
   `az login` with the following permissions on the subscription:
-  - **Owner** role, or **Contributor** combined with **User Access Administrator**:
-    to create infrastructure and assign roles.
+  - **Owner** role, or the minimum permissions defined in
+    `azure_terraform_user_role.json`: to create infrastructure and assign roles.
   - **Ability to register applications** in Microsoft Entra ID: enabled by default for
     users in most tenants.
   - **Privileged Role Administrator** (or **Global Administrator**) in Entra ID: to
@@ -187,9 +187,10 @@ subscription so that Aiven can access it:
 
       The template creates the following resources in your Azure subscription:
 
-      - A **service principal** (App Registration with a client secret) for Aiven to
-        operate the environment, with the Contributor role on the resource group and
-        `Application.ReadWrite.OwnedBy` permission for autonomous credential rotation
+      - A **service principal** (App Registration) for Aiven to operate the environment,
+        with a least-privilege custom role on the resource group, a read-only
+        quota-reader role on the subscription, and `Application.ReadWrite.OwnedBy`
+        permission for autonomous credential rotation
       - A **resource group** containing all BYOC resources
       - Two **virtual networks** (bastion and workload VNets) with subnets
       - **VNet peering** between the bastion and workload networks
@@ -275,7 +276,6 @@ subscription so that Aiven can access it:
 The following features are not supported for Azure custom clouds:
 
 - **Enhanced compliance (ECE)** deployment models (`pci_dss`, `hipaa`)
-- **Customer-owned storage** (bring your own key)
 - **Static IPs**
 - **VNet peering** from the Aiven Console: manage peering directly in your Azure
   subscription
