@@ -1379,6 +1379,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/datahub/manage-datahub-users',
                 'products/datahub/enable-oidc-auth-datahub',
+                'products/datahub/change-cloud',
                 {
                   type: 'category',
                   label: 'Notifications',
