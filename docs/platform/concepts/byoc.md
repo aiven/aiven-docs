@@ -12,6 +12,7 @@ import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-pci
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
+import byocAzurePrivate from "@site/static/images/content/figma/byoc-azure-private.png";
 import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
 import RelatedPages from "@site/src/components/RelatedPages";
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
@@ -41,9 +42,10 @@ infrastructure on the Aiven platform while keeping your data in your own cloud.
    Console or CLI by providing cloud setup details essential to generate your custom cloud
    infrastructure template.
 1. **Integrate your cloud account with Aiven** by applying the infrastructure template for
-   [AWS](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud#deploy-the-template)
+   [AWS](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud#deploy-the-template),
+   [Google Cloud](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#deploy-the-template),
    or
-   [Google Cloud](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud#deploy-the-template).
+   [Microsoft Azure](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud).
 1. [Deploy services](/docs/platform/howto/byoc/manage-byoc-service) by creating new
    Aiven-managed services in the custom cloud or migrating existing Aiven-managed services
    to the custom cloud.
@@ -85,8 +87,9 @@ The BYOC setup is a bespoke service offered on a case-by-case basis, and
 not all cloud providers support it yet. You're eligible for BYOC if:
 
 -   Your cloud providers are:
-    - AWS or GCP: [BYOC self-service](/docs/platform/howto/byoc/enable-byoc)
-    - OCI or Azure: BYOC on request
+    - AWS, GCP, or Microsoft Azure:
+      [BYOC self-service](/docs/platform/howto/byoc/enable-byoc)
+    - OCI: BYOC on request
       ([limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)).
       [Contact Aiven](https://aiven.io/contact) for access.
 -   You have a commitment deal with Aiven.
@@ -273,6 +276,51 @@ through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
+
+</TabItem>
+<TabItem value="7" label="Azure BYOC private">
+
+<img src={byocAzurePrivate} className="centered zoomable" alt="BYOC Azure private architecture" width="100%" />
+
+In the Azure standard deployment model, two separate Virtual Networks are created in your
+Azure subscription within a particular cloud region:
+
+- **Bastion VNet**: Contains a **Bastion subnet** with the bastion host.
+- **Workload VNet**: Contains a **Private subnet** with the workload nodes (your Aiven
+  services).
+
+The two VNets are connected via **VNet peering**. Aiven accesses the **Bastion VNet**
+from static IP addresses and routes traffic through a proxy for additional security. To
+accomplish this, Aiven uses a bastion host (**Bastion node**) in the Bastion subnet,
+logically separated from the Aiven services you deploy. The service VMs reside in the
+**Private subnet** and are accessed by the Aiven management plane via the bastion. They
+are not accessible from the internet.
+
+**Network Security Groups (NSGs)** control inbound and outbound traffic on each VNet.
+Each VNet has its own **NAT gateway** for outbound internet access.
+
+**Azure Blob Storage** accounts (Premium LRS and Standard LRS) are provisioned in your
+Azure subscription for service backups.
+
+:::note
+Although the bastion host and the service nodes reside in the VNets under your
+management, they are not accessible (for example, via SSH) to anyone outside Aiven.
+
+The bastion and workload nodes require outbound access to the internet to work properly
+(supporting HA signaling to the Aiven management node and RPM download from Aiven
+repositories).
+:::
+
+</TabItem>
+<TabItem value="8" label="Azure BYOC public">
+
+In the Azure public deployment model, a Virtual Network (**Workload VNet**) for your
+Aiven services is created within a particular cloud region in your Azure subscription.
+Aiven accesses this VNet through the internet. Service VMs reside in a publicly addressed
+subnet (**Public subnet**), and Aiven services can be accessed through the public
+internet: the Aiven control plane connects to the nodes using the public address, and
+the Aiven management plane can access the service VMs directly. To restrict access to
+your service, you can use the [IP filter](/docs/platform/howto/restrict-access).
 
 </TabItem>
 </Tabs>

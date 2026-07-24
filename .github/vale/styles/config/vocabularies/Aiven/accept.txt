@@ -445,7 +445,8 @@ vCPUs
 vectorizing
 virtualized
 VMs?
-VNet
+VNets?
+NSGs?
 VPC/MS
 VPCs?
 VPN

@@ -40,12 +40,13 @@ Returns a list of all the custom clouds in an organization.
 
 Provisions resources for a custom cloud.
 
-| Parameter                                      | Required | Information                                                                                               |
-| ---------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------- |
-| `--organization-id`                            | Yes      | Identifier of an organization where to modify the custom cloud                                            |
-| `--byoc-id`                                    | Yes      | Identifier of the custom cloud to be modified                                                             |
-| `--aws-iam-role-arn`                           | Yes      | Identifier of the role created when running the infrastructure template in your AWS account               |
-| `--google-privilege-bearing-service-account-id`| Yes      | Identifier of the service account created when running the infrastructure template in your Google account |
+| Parameter                                      | Required        | Information                                                                                               |
+| ---------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------- |
+| `--organization-id`                            | Yes             | Identifier of an organization where to modify the custom cloud                                            |
+| `--byoc-id`                                    | Yes             | Identifier of the custom cloud to be modified                                                             |
+| `--aws-iam-role-arn`                           | Yes (AWS)       | Identifier of the role created when running the infrastructure template in your AWS account               |
+| `--google-privilege-bearing-service-account-id`| Yes (GCP)       | Identifier of the service account created when running the infrastructure template in your Google account |
+| `--azure-subscription-id`                      | Yes (Azure)     | Azure subscription ID where the BYOC infrastructure is deployed                                          |
 
 ### `avn byoc update`
 
