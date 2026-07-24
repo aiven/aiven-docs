@@ -410,12 +410,13 @@ const sidebars: SidebarsConfig = {
         'products/apps/connect-services-to-apps',
         {
           type: 'category',
-          label: 'Manage apps',
+          label: 'App management',
           items: [
             'products/apps/ports',
             'products/apps/secrets-and-variables',
             'products/apps/deployment-information',
             'products/apps/scale-apps',
+            'products/apps/change-cloud-apps',
             'products/apps/custom-domain-for-apps',
             'products/apps/power-off-apps',
           ],
