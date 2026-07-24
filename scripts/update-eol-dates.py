@@ -1,19 +1,89 @@
 #!/usr/bin/env python3
 """
-Update EOL/EOA date tables in eol-for-major-versions.md.
+Update EOL/EOA date tables in docs/platform/reference/eol-for-major-versions.md.
 
-Services (MySQL, OpenSearch, PostgreSQL, Kafka, ClickHouse, Flink, Valkey):
-sourced from api.aiven.io/v1/service_versions. Existing rows have date cells
-updated when the API returns non-null values, including cells that currently
-hold a placeholder ("To be announced", "N/A", etc.). Missing versions get new
-rows. Columns set to None in SectionConfig are never auto-updated (the API
-value is less accurate than what's in the doc).
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATA SOURCES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Tooling (CLI, Terraform provider, Kubernetes operator): sourced from GitHub
-releases. New major versions get a placeholder row; the preceding version's
-EOL is set to today's date if it held a placeholder.
+Service versions (MySQL, OpenSearch, PostgreSQL, Kafka, ClickHouse, Flink,
+Valkey) are sourced from the public Aiven API — no authentication required:
+
+  https://api.aiven.io/v1/service_versions
+
+The API returns a list of objects, each with:
+  - service_type          e.g. "pg", "kafka", "opensearch"
+  - major_version         e.g. "16", "3.6"
+  - aiven_end_of_life_time      ISO 8601 datetime or null
+  - availability_end_time       ISO 8601 datetime or null  (service creation end)
+  - availability_start_time     ISO 8601 datetime or null  (service creation start)
+
+Tooling major versions (CLI, Terraform provider, Kubernetes operator) are
+sourced from GitHub Releases — public, no authentication required:
+
+  https://api.github.com/repos/aiven/aiven-client/releases
+  (Aiven CLI — https://github.com/aiven/aiven-client)
+
+  https://api.github.com/repos/aiven/terraform-provider-aiven/releases
+  (Aiven Provider for Terraform — https://github.com/aiven/terraform-provider-aiven)
+
+  https://api.github.com/repos/aiven/aiven-operator/releases
+  (Aiven Operator for Kubernetes — https://github.com/aiven/aiven-operator)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHAT THE SCRIPT UPDATES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Service sections — for each version in the API:
+  - Existing rows: the Aiven EOL, "Service creation supported until", and
+    "Service creation supported from" cells are overwritten whenever the API
+    returns a non-null value. This includes cells that currently hold a
+    placeholder string ("To be announced", "Date not set", "N/A", "TBD") —
+    placeholders are replaced as soon as real dates appear in the API.
+  - Missing versions: a new row is inserted with all available dates filled in
+    and "To be announced" for any date the API does not yet provide.
+
+Service sections NOT auto-updated (not present in the Aiven API):
+  - Dragonfly  (no entry in service_versions)
+  - Grafana    (single-versioned; patch version in doc differs from API major)
+
+Columns intentionally excluded from auto-update (col_avail_start = None):
+  - OpenSearch  "Service creation supported from": the API stores internal
+    pre-GA dates that predate the public launch; the manually set dates in the
+    doc are more accurate.
+  - Kafka       "Service creation supported from": the API stores release-plan
+    ("no earlier than") dates, not actual GA dates; the doc values are accurate.
+  - ClickHouse  "Service creation supported from": same reason as Kafka.
+
+OpenSearch major version label mapping (API major → doc label):
+  The API uses short major version keys ("1", "2", "2.19", "3.6") while the
+  doc displays the running minor version at that major:
+    "1"    → "1.3.x"
+    "2"    → "2.17.x"
+    "2.19" → "2.19.x LTS"
+    "3.6"  → "3.6.x LTS"
+  Any future OpenSearch major not listed above falls back to "{major}.x".
+
+Tooling sections — for each GitHub repo:
+  - New major versions (e.g. CLI goes from 4.x to 5.x) get a new placeholder
+    row ("To be announced" for EOL).
+  - When a new major version is detected, the highest existing major version's
+    EOL cell is set to today's date — but only if that cell currently holds a
+    placeholder. If it already has a real date, it is left unchanged.
+  - EOL dates for tooling are never sourced from GitHub; they must be set by
+    this auto-dating mechanism or edited manually.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+USAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    python scripts/update-eol-dates.py [--doc-path PATH]
 
 Exit codes: 0 = no changes, 1 = doc updated, 2 = error
+
+This script is run automatically by the GitHub Actions workflow
+.github/workflows/update-eol-dates.yaml (weekly on Mondays, 07:00 UTC) and
+opens a pull request against main when changes are detected.
 """
 
 from __future__ import annotations
