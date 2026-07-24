@@ -38,17 +38,21 @@ PG Studio supports:
 
 ## PG Studio components
 
-- **Schema visualization:** View your database structure as an interactive diagram showing
-  tables, columns, and relationships. Open it from **Open schema map** or request it from
-  the **AI Assistant** panel. Click the copy icon next to a table name to copy it to the
-  clipboard.
-- **Tables view:** Browse tables in your selected schema and preview up to 100 rows.
-  Open a table tab to start writing SQL.
+**SQL Editor:**
+
 - **SQL editor:** Write and edit SQL across multiple tabs. Run a single statement or select
   multiple statements to execute them all at once, with each result shown in its own tab.
   Execute write operations with built-in safety guardrails.
 - **AI Assistant panel:** Describe what you need in natural language. The assistant
   generates SQL or explains queries, tables, and relationships using your database schema.
+
+**Tables:**
+
+- **Tables view:** Browse tables in your selected schema and preview up to 100 rows.
+  Open a table tab to start writing SQL.
+- **Schema map:** View your database structure as an interactive diagram showing tables,
+  columns, and relationships. Click the copy icon next to a table name to copy it to the
+  clipboard.
 
 ## Get started with PG Studio
 

@@ -74,7 +74,8 @@ When you work in the SQL editor, click **Ask AI** for the current statement. PG 
 
 1. Ask a schema question in the **AI Assistant** panel, such as how tables relate or what a column stores.
 1. Review the response or generated SQL.
-1. Click **Open schema map** to browse tables and relationships visually.
+1. To browse tables and relationships visually, click **Tables** in the left-hand menu,
+   then click **Open schema map**.
 
 ## Related pages
 
