@@ -63,10 +63,9 @@ You can write SQL directly. If AI features are on, you can also use the
 
 ## Explore your schema
 
+1. Click **Tables** in the left-hand menu.
 1. Click **Open schema map** to view your database structure as an interactive diagram.
 1. Browse tables, columns, and relationships.
-1. Ask schema questions in the **AI Assistant** panel, such as
-   **How are the orders and customers tables related?**.
 
 ## Related pages
 
