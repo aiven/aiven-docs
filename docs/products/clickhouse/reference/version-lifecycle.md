@@ -73,7 +73,7 @@ in the Aiven service and tool version lifecycle reference.
 <RelatedPages/>
 
 - [Aiven for ClickHouse EOL dates](/docs/platform/reference/eol-for-major-versions#aiven-for-clickhouse)
-- [What's new in Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/whats-new-26-3)
+- [Upgrade to Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/upgrade-to-26-3)
 - [Service and feature releases](/docs/platform/concepts/service-and-feature-releases)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)
 - [Fork an Aiven service](/docs/platform/concepts/service-forking)

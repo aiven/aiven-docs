@@ -36,7 +36,7 @@ For supported versions and end-of-life timelines, see
 
 Before upgrading your service, complete the following checks:
 
-- Review [What's new in Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/whats-new-26-3),
+- Review [Upgrade to Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/upgrade-to-26-3),
   including the **Requires attention** section and its checks for removed
   features.
 - Test the upgrade in a development or staging environment by
