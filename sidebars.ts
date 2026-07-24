@@ -417,6 +417,7 @@ const sidebars: SidebarsConfig = {
             'products/apps/deployment-information',
             'products/apps/scale-apps',
             'products/apps/custom-domain-for-apps',
+            'products/apps/power-off-apps',
           ],
         },
       ],
