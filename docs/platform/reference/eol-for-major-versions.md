@@ -95,7 +95,7 @@ After the EOL date:
 | Version | Aiven EOL         | Service creation supported until   | Service creation supported from |
 | ------- | ----------------- | ---------------------------------- | ------------------------------- |
 | 8.0.x   | 2026-10-31        | 2026-04-30                         | 2018-05-18                      |
-| 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-04-30                      |
+| 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-02-20                      |
 
 ### Aiven for OpenSearch®
 
@@ -181,7 +181,7 @@ For details, see the
 | Version | Aiven EOL       | Service creation supported until | Service creation supported from |
 | ------- |-----------------|----------------------------------| ------------------------------- |
 | 8.1.x   | To be announced | To be announced                  | 2025-11-18                      |
-| 9.0.x   | 2026-07-30      | 2026-07-30                       | 2026-03-09                      |
+| 9.0.x   | 2026-08-31      | 2026-08-31                       | 2026-03-09                      |
 | 9.1.x   | To be announced | To be announced                  | 2026-07-15                      |
 
 ## Aiven single-versioned services EOL
