@@ -12,11 +12,7 @@ Add connectors to your DataHub service to ingest data.
 1. In your DataHub service, click <ConsoleLabel name="datahubconnectors"/>.
 1. Click **Add connectors**.
 1. Select services from projects in your organization and organizational units.
-1. Optional: To select specific schemas and topics from the services,
-   click **Choose schemas and topics**.
-1. Click **Next**.
-1. Review the selected assets. To make changes, click **Back**.
-1. To add the connectors, click **Add**.
+1. Click **Add connectors**.
 
 A [service user](/docs/platform/howto/create_new_service_user) is created in
 each connected service to give DataHub read access to the service.
@@ -34,13 +30,6 @@ or the [DataHub CLI](https://docs.datahub.com/docs/metadata-ingestion/cli-ingest
 Store sensitive information like passwords and API keys used for connectors in DataHub
 [Secrets](https://docs.datahub.com/docs/ui-ingestion#managing-sensitive-information-with-secrets).
 :::
-
-## View connector details
-
-To view all assets ingested by a connector:
-
-1. In your DataHub service, click <ConsoleLabel name="datahubconnectors"/>.
-1. Find the connector and click <ConsoleLabel name="actions"/> > **View details**.
 
 ## Remove an Aiven service connector
 
