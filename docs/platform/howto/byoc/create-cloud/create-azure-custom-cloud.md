@@ -27,15 +27,8 @@ subscription so that Aiven can access it:
 
 - You have [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
 - You have an active Azure subscription where the BYOC infrastructure will be deployed.
-- You have an Azure identity (user or service principal) that can authenticate via
-  `az login` with the following permissions on the subscription:
-  - **Owner** role, or **Contributor** combined with **User Access Administrator**:
-    to create infrastructure and assign roles.
-  - **Ability to register applications** in Microsoft Entra ID: enabled by default for
-    users in most tenants.
-  - **Privileged Role Administrator** (or **Global Administrator**) in Entra ID: to
-    grant the Aiven service principal the `Application.ReadWrite.OwnedBy` Graph
-    permission for autonomous credential rotation.
+- Your Azure identity (user or service principal) has the
+  [required Azure permissions](#azure-permissions).
 - [Aiven CLI client](/docs/tools/cli) installed
 - Aiven organization ID from the output of the `avn organization list` command or
   from the [Aiven Console](https://console.aiven.io/) > <ConsoleLabel name="userinformation"/>
@@ -46,6 +39,101 @@ subscription so that Aiven can access it:
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) (`az`)
   installed.
 - Terraform >= 1.0 installed.
+
+## Azure permissions
+
+To deploy the Aiven BYOC Terraform template, your Azure identity needs permissions in
+two areas. Assign both before running `terraform apply`.
+
+### Azure subscription permissions
+
+Assign one of the following to your Azure identity on the subscription:
+
+- **Owner** built-in role (simplest, but broad), or
+- A custom role with the minimum permissions defined below.
+
+<details><summary>
+Show minimum custom role permissions for the BYOC deployer
+</summary>
+
+```json
+{
+    "Actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/subscriptions/resourceGroups/delete",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/write",
+        "Microsoft.Network/virtualNetworks/delete",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/virtualNetworks/subnets/delete",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/peer/action",
+        "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read",
+        "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write",
+        "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete",
+        "Microsoft.Network/networkSecurityGroups/read",
+        "Microsoft.Network/networkSecurityGroups/write",
+        "Microsoft.Network/networkSecurityGroups/delete",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/networkSecurityGroups/securityRules/read",
+        "Microsoft.Network/networkSecurityGroups/securityRules/write",
+        "Microsoft.Network/networkSecurityGroups/securityRules/delete",
+        "Microsoft.Network/natGateways/read",
+        "Microsoft.Network/natGateways/write",
+        "Microsoft.Network/natGateways/delete",
+        "Microsoft.Network/natGateways/join/action",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/publicIPAddresses/delete",
+        "Microsoft.Network/publicIPAddresses/join/action",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/delete",
+        "Microsoft.Storage/storageAccounts/listkeys/action",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.Authorization/roleDefinitions/read",
+        "Microsoft.Authorization/roleDefinitions/write",
+        "Microsoft.Authorization/roleDefinitions/delete"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/{subscriptionId}"
+    ],
+    "DataActions": [],
+    "Description": "Minimum permissions for running the Aiven BYOC Azure Terraform template.",
+    "Name": "Aiven BYOC Terraform Operator",
+    "NotActions": [],
+    "NotDataActions": []
+}
+```
+
+</details>
+
+### Microsoft Entra ID permissions
+
+In addition to the subscription permissions, your Azure identity must be assigned the
+**Privileged Role Administrator** (or **Global Administrator**) role in Microsoft Entra
+ID before running `terraform apply`. Terraform uses this to grant the Aiven service
+principal the `Application.ReadWrite.OwnedBy` Microsoft Graph permission, which
+enables autonomous credential rotation.
+
+This is a directory-level role that cannot be expressed in a subscription custom role
+definition. Assign it separately through the Azure portal or CLI before running
+`terraform apply`:
+
+- **Azure portal**: Go to **Microsoft Entra ID** > **Roles and administrators** >
+  **Privileged Role Administrator** > **Add assignments**, then select your Azure
+  identity.
+- **Azure CLI or programmatic assignment**: See
+  [Assign Microsoft Entra roles to users](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/manage-roles-portal)
+  in the Microsoft documentation.
 
 ## Create a custom cloud
 
@@ -188,8 +276,9 @@ subscription so that Aiven can access it:
       The template creates the following resources in your Azure subscription:
 
       - A **service principal** (App Registration with a client secret) for Aiven to
-        operate the environment, with the Contributor role on the resource group and
-        `Application.ReadWrite.OwnedBy` permission for autonomous credential rotation
+        operate the environment, with a custom least-privilege role on the resource
+        group and `Application.ReadWrite.OwnedBy` permission for autonomous credential
+        rotation
       - A **resource group** containing all BYOC resources
       - Two **virtual networks** (bastion and workload VNets) with subnets
       - **VNet peering** between the bastion and workload networks
