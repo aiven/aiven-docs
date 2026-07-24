@@ -5,6 +5,33 @@ limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsInline from '@site/src/components/RequirementsInline';
+
+<RequirementsInline
+  items={[
+    {
+      icon: 'people',
+      label: 'Required role',
+      values: ['Admin', 'Manager'],
+    },
+    {
+      icon: 'layers',
+      label: 'Service plans',
+      values: ['Professional', 'Premium'],
+    },
+    {
+      icon: 'cloud',
+      label: 'Cloud providers',
+      values: ['AWS', 'Azure', 'Google Cloud'],
+    },
+    {
+      icon: 'globeNetwork',
+      label: 'Regions',
+      values: ['North America', 'Europe', 'Asia Pacific'],
+    },
+  ]}
+/>
+
 
 Use OpenID Connect (OIDC) to configure single sign-on (SSO) to your DataHub service with your identity provider.
 

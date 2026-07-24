@@ -3,7 +3,24 @@ title: Connect DataHub to services
 limited: true
 ---
 
+import RequirementsPanel from '@site/src/components/RequirementsPanel';
+
 Add connectors to your DataHub service to ingest data.
+
+<RequirementsPanel
+  items={[
+    {
+      icon: 'people',
+      label: 'Required permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+    {
+      icon: 'layers',
+      label: 'Supported service plans',
+      values: ['Developer', 'Professional'],
+    },
+  ]}
+/>
 
 ## Aiven service connectors
 

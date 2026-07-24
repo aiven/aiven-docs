@@ -3,7 +3,32 @@ title: Use the DataHub MCP server
 limited: true
 ---
 
+import RequirementsPanel from '@site/src/components/RequirementsPanel';
+
 Use the DataHub MCP server to empower AI agents with deep visibility into your data ecosystem, enabling natural language search, end-to-end lineage tracking, and context-aware SQL generation.
+
+<RequirementsPanel
+  items={[
+    {
+      icon: 'people',
+      label: 'Required permissions',
+      values: [
+        {
+          text: 'Manage services',
+          tooltip: 'Can manage and configure services',
+        },
+        {
+          text: 'Operator',
+          tooltip: 'Can deploy and operate services',
+        },
+        {
+          text: 'Project admin',
+          tooltip: 'Has administrative access to the project',
+        },
+      ],
+    },
+  ]}
+/>
 
 ## Prerequisites
 

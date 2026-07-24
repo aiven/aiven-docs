@@ -4,6 +4,27 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from '@site/src/components/RequirementsPanel';
+
+<RequirementsPanel
+  items={[
+    {
+      icon: 'people',
+      label: 'Required permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+    {
+      icon: 'layers',
+      label: 'Supported service plans',
+      values: ['Developer', 'Professional', 'Premium'],
+    },
+    {
+      icon: 'cloud',
+      label: 'Cloud providers',
+      values: ['AWS', 'Azure', 'Google Cloud'],
+    },
+  ]}
+/>
 
 Fork an Aiven for DataHub service to create a complete copy of it from its latest backups. This restores both its PostgreSQL metadata database and OpenSearch search index.
 Both stores are restored to the latest backup available at or before
