@@ -4,6 +4,8 @@ sidebar_label: Upgrade to 26.3
 early: true
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Aiven for ClickHouse® 26.3 is a long-term support (LTS) release available in
 Early Availability starting August 1, 2026. You can select it for new services
 or upgrade an existing service from version 25.8. Version 25.8 remains the
@@ -311,3 +313,9 @@ Aiven adopts and that can affect workloads.
 1. Compare application results and query performance with the original service.
 1. Follow [Manage versions](/docs/products/clickhouse/howto/manage-clickhouse-versions)
    to upgrade the production service.
+
+<RelatedPages/>
+
+- [Aiven for ClickHouse version support policy](/docs/products/clickhouse/reference/version-lifecycle)
+- [Fork an Aiven service](/docs/platform/concepts/service-forking)
+- [Supported table engines](/docs/products/clickhouse/reference/supported-table-engines)
