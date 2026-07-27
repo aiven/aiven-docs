@@ -9,6 +9,14 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
 
+Azure supports two deployment models:
+
+- **Standard** (private): Two separate VNets (Bastion and Workload) connected via VNet
+  peering. Aiven routes management traffic through a bastion host proxy, and workload
+  nodes are not accessible from the public internet.
+- **Public**: A single Workload VNet with publicly addressed service VMs. Aiven connects
+  to service nodes directly over the public internet.
+
 To configure a custom cloud in your Aiven organization and prepare your Azure
 subscription so that Aiven can access it:
 
@@ -55,7 +63,7 @@ subscription so that Aiven can access it:
    ```bash
    avn byoc create                               \
      --organization-id "ORGANIZATION_ID"         \
-     --deployment-model "standard"               \
+     --deployment-model "DEPLOYMENT_MODEL"       \
      --cloud-provider "azure"                    \
      --cloud-region "CLOUD_REGION_NAME"          \
      --reserved-cidr "CIDR_BLOCK"                \
@@ -68,6 +76,10 @@ subscription so that Aiven can access it:
      cloud account to create the custom cloud, for example `org123a456b789`. Get your
      `ORGANIZATION_ID`
      [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+   - `DEPLOYMENT_MODEL` with the deployment model to use:
+     - `standard`: Two VNets (Bastion and Workload) connected via VNet peering.
+       Workload nodes are not accessible from the public internet.
+     - `public`: A single Workload VNet with publicly addressed service VMs.
    - `CLOUD_REGION_NAME` with the name of an Azure region where to create your custom
      cloud:
      1. Pick a region from the **Cloud** column in the supported
@@ -192,11 +204,16 @@ subscription so that Aiven can access it:
         quota-reader role on the subscription, and `Application.ReadWrite.OwnedBy`
         permission for autonomous credential rotation
       - A **resource group** containing all BYOC resources
-      - Two **virtual networks** (bastion and workload VNets) with subnets
-      - **VNet peering** between the bastion and workload networks
-      - **Network security groups (NSGs)** controlling ingress and egress
-      - **NAT gateways** for outbound internet access from both networks
-      - **Storage accounts** (premium and standard LRS) for service data
+      - **Storage accounts** (Premium LRS and Standard LRS) for service data
+      - For the `standard` deployment model:
+        - Two **virtual networks** (Bastion VNet and Workload VNet) with subnets
+        - **VNet peering** between the bastion and workload networks
+        - **Network security groups (NSGs)** controlling ingress and egress
+        - **NAT gateways** for outbound internet access from both networks
+      - For the `public` deployment model:
+        - A **Workload VNet** with a single subnet for service VMs
+        - A **network security group (NSG)** allowing all public inbound TCP and UDP
+          traffic to workload nodes
 
 1. Provision resources by running
    [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision) and passing your Azure

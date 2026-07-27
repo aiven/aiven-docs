@@ -316,11 +316,18 @@ repositories).
 
 In the Azure public deployment model, a Virtual Network (**Workload VNet**) for your
 Aiven services is created within a particular cloud region in your Azure subscription.
-Aiven accesses this VNet through the internet. Service VMs reside in a publicly addressed
-subnet (**Public subnet**), and Aiven services can be accessed through the public
-internet: the Aiven control plane connects to the nodes using the public address, and
-the Aiven management plane can access the service VMs directly. To restrict access to
-your service, you can use the [IP filter](/docs/platform/howto/restrict-access).
+Service VMs reside in a publicly addressed subnet (**Public subnet**) and are assigned
+public IP addresses. Aiven services can be accessed through the public internet: The
+Aiven control plane connects to the nodes using the public address, and the Aiven
+management plane can access the service VMs directly. To restrict access to your
+service, you can use the [IP filter](/docs/platform/howto/restrict-access).
+
+**Network Security Groups (NSGs)** allow all public inbound TCP and UDP traffic to
+workload nodes. You are responsible for ensuring this configuration complies with your
+organization's policies and regulations.
+
+**Azure Blob Storage** accounts (Premium LRS and Standard LRS) are provisioned in your
+Azure subscription for service data.
 
 </TabItem>
 </Tabs>
