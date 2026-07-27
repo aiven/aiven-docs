@@ -210,11 +210,11 @@ CMD ["npm", "start"]
 
 ### Web application with Kafka
 
-The following example uses a Docker Compose file to configure a web application
+The following example uses a Compose file to configure a web application
 and integrate it with a Kafka broker using SASL authentication.
 
-The `docker-compose.yml` file defines the app and the Kafka service, along with
-the environment variables for integration:
+The file defines the app and the Kafka service, along with the environment variables
+for integration:
 
 ```yaml
 version: '3.8'
