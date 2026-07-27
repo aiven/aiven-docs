@@ -11,11 +11,12 @@ Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven org
 
 Azure supports two deployment models:
 
-- **Standard** (private): Two separate VNets (Bastion and Workload) connected via VNet
-  peering. Aiven routes management traffic through a bastion host proxy, and workload
-  nodes are not accessible from the public internet.
-- **Public**: A single Workload VNet with publicly addressed service VMs. Aiven connects
-  to service nodes directly over the public internet.
+- **Standard** (`standard`): Two separate VNets (Bastion and Workload) connected via
+  VNet peering. Aiven routes management traffic through a bastion host proxy, and
+  workload nodes are not accessible from the public internet.
+- **Standard public** (`standard_public`): A single Workload VNet with publicly
+  addressed service VMs. Aiven connects to service nodes directly over the public
+  internet.
 
 To configure a custom cloud in your Aiven organization and prepare your Azure
 subscription so that Aiven can access it:
@@ -79,7 +80,7 @@ subscription so that Aiven can access it:
    - `DEPLOYMENT_MODEL` with the deployment model to use:
      - `standard`: Two VNets (Bastion and Workload) connected via VNet peering.
        Workload nodes are not accessible from the public internet.
-     - `public`: A single Workload VNet with publicly addressed service VMs.
+     - `standard_public`: A single Workload VNet with publicly addressed service VMs.
    - `CLOUD_REGION_NAME` with the name of an Azure region where to create your custom
      cloud:
      1. Pick a region from the **Cloud** column in the supported
@@ -210,7 +211,7 @@ subscription so that Aiven can access it:
         - **VNet peering** between the bastion and workload networks
         - **Network security groups (NSGs)** controlling ingress and egress
         - **NAT gateways** for outbound internet access from both networks
-      - For the `public` deployment model:
+      - For the `standard_public` deployment model:
         - A **Workload VNet** with a single subnet for service VMs
         - A **network security group (NSG)** allowing all public inbound TCP and UDP
           traffic to workload nodes

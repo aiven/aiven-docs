@@ -13,6 +13,7 @@ import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
 import byocAzurePrivate from "@site/static/images/content/figma/byoc-azure-private.png";
+import byocAzurePublic from "@site/static/images/content/figma/byoc-azure-public.png";
 import byocHowItWorks from "@site/static/images/content/figma/byoc-how-it-works.png";
 import RelatedPages from "@site/src/components/RelatedPages";
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
@@ -313,6 +314,8 @@ repositories).
 
 </TabItem>
 <TabItem value="8" label="Azure BYOC public">
+
+<img src={byocAzurePublic} className="centered zoomable" alt="BYOC Azure public architecture" width="100%" />
 
 In the Azure public deployment model, a Virtual Network (**Workload VNet**) for your
 Aiven services is created within a particular cloud region in your Azure subscription.
