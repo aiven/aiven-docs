@@ -145,11 +145,22 @@ manages the entire process:
   to clients.
 - **No manual slot management**: You cannot move individual slots or assign them to
   specific nodes. Aiven controls slot placement to keep the cluster balanced and
-  consistent. The `migrate` command that resharding uses to move keys between nodes stays
+  consistent. The `MIGRATE` command that resharding uses to move keys between nodes stays
   disabled for direct use.
 
 To inspect the slot layout, run `CLUSTER NODES` on any Valkey node in the cluster. It shows
-the current slot distribution across the cluster nodes.
+the current slot distribution across the cluster nodes, so you can also use it to follow
+the progress of a resharding operation.
+
+When you scale in a cluster, meaning you reduce the number of primary nodes, the same
+dataset needs to fit into fewer nodes. If your dataset size exceeds the reduced memory
+capacity, Valkey starts evicting keys to free up space.
+
+:::warning
+Before you scale in a cluster, set your eviction policy to `allkeys-lru`, `allkeys-lfu`, or
+`allkeys-random`. Aiven requires one of these eviction policies for scale-in operations. For
+more information, see [Memory management](/docs/products/valkey/concepts/memory-usage).
+:::
 
 ## Backup and restore
 
