@@ -183,7 +183,7 @@ cluster. Design your application to tolerate this if you rely on a restore.
 ## Limitations and considerations
 
 - Valkey clustering is in
-[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+  [limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 - Valkey clustering is supported for new services only.
 - Performance factors
 
