@@ -1,6 +1,7 @@
 ---
 title: Aiven for Valkey™ clustering
 sidebar_label: Clustering
+limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -181,13 +182,14 @@ cluster. Design your application to tolerate this if you rely on a restore.
 
 ## Limitations and considerations
 
-Clustering is supported for new services only.
+- Valkey clustering is in
+[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+- Valkey clustering is supported for new services only.
+- Performance factors
 
-### Performance factors
-
-- Network latency between shards can affect cross-shard operations.
-- Resharding operations may temporarily impact performance.
-- Client library choice can affect cluster performance and behavior.
+  - Network latency between shards can affect cross-shard operations.
+  - Resharding operations may temporarily impact performance.
+  - Client library choice can affect cluster performance and behavior.
 
 <RelatedPages/>
 
