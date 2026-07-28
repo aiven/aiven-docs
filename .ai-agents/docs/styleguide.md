@@ -2,34 +2,79 @@
 
 <!-- vale off -->
 
-This guide is the single source of truth for writing and reviewing documentation in the [Aiven docs](https://github.com/aiven/aiven-docs) repository. The site is built with Docusaurus and published at [aiven.io/docs](https://aiven.io/docs). It covers the Aiven Platform and managed services (for example, Apache Kafka®, PostgreSQL®, OpenSearch®, MySQL, ClickHouse®, Apache Flink®, Grafana®, and others).
+This guide has the content guidelines for writing and reviewing documentation in the [Aiven docs](https://github.com/aiven/aiven-docs) repository.
+The guide is based in part on [Google developer documentation style](https://developers.google.com/style); where this document is stricter or different, this document takes precedence.
 
-**How to use this guide**
+These guidelines apply to all documentation files in the repository. Check compliance based on content type:
 
-- Apply **[CRITICAL]** rules in every change. Treat **[MEDIUM]** rules as strong defaults; justify intentional exceptions in review.
-- Keep examples copy-paste safe, use approved product names, and run [Vale](https://vale.sh/) on files you edit (see [CONTRIBUTING.md](./CONTRIBUTING.md)).
+- **Universal rules** (@universal): All documentation content
+- **Prose rules** (@prose): Explanatory and conceptual content
+- **Code rules** (@code): Code blocks, code examples, and inline code
+- **Procedure rules** (@procedure): Instructions for Aiven Console and other interfaces
 
----
+## Quick reference for AI agents
 
-## Introduction, scope, and how to use this guide
+**Top rules to check first:**
 
-These guidelines apply to all documentation files in the repository. When reviewing pull requests, check compliance based on content type:
+1. **Sentences**: Keep under 25 words; first sentence of document on one line.
+2. **Code formatting**: Use backticks for technical identifiers; bold+code (`**`backticks`**`) for UI + code.
+3. **Bold/italics**: Bold **only** for UI elements and run-in list headings; avoid italics.
+4. **Active voice**: Write "The system configures the service", not "The service will be configured".
+5. **Avoid filler**: No "just", "easily", "simply", "quickly".
+6. **Avoid temporal anchors**: Use timeless phrases or specific release notes or version statements when time matters. Don't use "now", "currently", "in the future", "yet", and "eventually".
 
-- **Universal rules**: All documentation content
-- **Prose rules**: Explanatory and conceptual content
-- **Code rules**: Code blocks, examples, and inline code
-- **UI rules**: Aiven Console instructions and procedures
+## How to navigate this guide
 
----
+### By metadata tags
 
-## Priority system
+Look for these tags throughout the document to filter relevant rules:
+
+- **@universal**: Applies to all documentation (sentence length, grammar, voice, etc.)
+- **@prose**: Writing explanations, conceptual content, and guides
+- **@code**: Writing code examples, commands, CLI, and inline code
+- **@procedure**: Writing step-by-step instructions and Console procedures
+
+### By topic area
+
+- **Sentence structure & grammar**: [Voice and tone](#voice-and-tone), [Sentences and paragraphs](#sentences-and-paragraphs), [Consistency](#consistency)
+- **Bold, italics, capitalization**: [Bold and italics](#bold-and-italics), [Inline code](#inline-code), [Capitalization](#capitalization)
+- **Punctuation & formatting**: [Punctuation, quotations, and text formatting](#punctuation-quotations-and-text-formatting)
+- **Product names & trademarks**: [Product names and trademarks](#product-names-and-trademarks)
+- **Procedures & UI conventions**: [Procedures](#procedures), [Console procedures](#console-procedures), [Click chains](#click-chains)
+- **Code examples & placeholders**: [Code and examples](#code-and-examples), [Placeholders](#placeholders), [Domains, emails, and example names](#domains-emails-and-example-names)
+- **Headings, lists, tables, links**: [Headings and titles](#headings-and-titles), [Lists](#lists), [Tables](#tables), [Links and cross-references](#links-and-cross-references)
+
+### By workflow
+
+**Writing step-by-step procedures:**
+1. Start with [Procedures](#procedures) (@procedure)
+2. Check [Sentences and paragraphs](#sentences-and-paragraphs) (@universal @prose)
+3. Review [Bold and italics](#bold-and-italics) (@universal) for UI element formatting
+4. Refer to [Inline code](#inline-code) (@code @prose) for console labels and technical values
+
+**Writing code examples:**
+1. Start with [Code and examples](#code-and-examples) (@code)
+2. Check [Placeholders](#placeholders) (@code) for naming conventions
+3. Review [Domains, emails, and example names](#domains-emails-and-example-names) (@code @prose)
+4. Verify [Inline code](#inline-code) (@code @prose) conventions
+
+**Writing conceptual content:**
+1. Start with [Voice and tone](#voice-and-tone) (@universal)
+2. Review [Sentences and paragraphs](#sentences-and-paragraphs) (@prose)
+3. Check [Document structure and syntax](#document-structure-and-syntax) (@universal)
+4. Refer to [Punctuation, quotations, and text formatting](#punctuation-quotations-and-text-formatting) (@universal) as needed
+5. Review [Timeless product wording](#timeless-product-wording) (@universal) to avoid stale language
+
+## How to use this guide
 
 Rules are tagged for importance:
 
 - **[CRITICAL]**: Must follow; request changes on violations in new or modified content.
 - **[MEDIUM]**: Strong convention; request changes when several appear in the same change.
 
-### Enforcement guidelines
+Run [Vale](https://vale.sh/) on files you edit. Read the [CONTRIBUTING.md](./CONTRIBUTING.md) guide for more information.
+
+## PR review guidelines
 
 When reviewing PRs:
 
@@ -37,110 +82,53 @@ When reviewing PRs:
 - Request changes for all **[CRITICAL]** violations and for multiple **[MEDIUM]** violations in the same area.
 - Suggest improvements for lower-priority polish.
 
----
-
-## Voice and tone
+## Voice and tone (@universal)
 
 Documentation is scanned more than it is read line by line. Aim for clarity and directness.
 
 - Include only what the reader needs for the task or concept.
-- **[MEDIUM]** Chunk content into short sections with clear headings.
+- Chunk content into short sections with clear headings.
 - Keep paragraphs to **3–5 sentences** where possible.
 - Use lists to break up dense prose when items are parallel options, steps, or examples.
-- Conceptual topics such as architecture or background information may be longer; task and reference topics should stay minimal.
+- Conceptual topics such as architecture or background information may be longer; procedures should be minimalistic.
 - **[CRITICAL]** Avoid filler or judgmental words such as **just**, **easily**, **simply**, and **quickly**.
   - **Example**: Write Click **Save**, not "Just click **Save**".
   - **Example**: Write **You can configure…**, not "You can easily configure…".
+- **[MEDIUM]** Remove sentences that do not add information (for example, avoid generic openers such as "This section describes how to…" when the heading already states the topic).
+- **[CRITICAL]** Avoid duplicating information in an article.
+- Avoid uncertain modals such as **might**, **could**, **ought**, or **shall** when a definite outcome is documented.
 
-**[MEDIUM]** Remove sentences that do not add information (for example, avoid generic openers such as "This section describes how to…" when the heading already states the topic).
-**[MEDIUM]** Avoid duplicating information in an article.
-
-### Techniques for revision
-
-- **[MEDIUM]** If a sentence is over the word limit, ask what the main message is; split it up or delete anything that is superfluous.
-- **[MEDIUM]** Read critical steps aloud; if a sentence is awkward spoken, simplify it.
-- **[MEDIUM]** Vary sentence openings so every line does not begin with "You can" or "To …".
-
----
-
-## Writing for a global audience
+## Writing for a global audience (@universal)
 
 - Use **US English**.
 - **[MEDIUM]** Prefer simple, direct wording for international readers; avoid idioms and slang.
 - **[MEDIUM]** Use phrasal verbs sparingly (for example, prefer "connects" over "hooks up") when a single verb is clear.
-- **[MEDIUM]** Use consistent terminology; repeat a noun if it aids clarity.
+- Use consistent terminology; repeat a noun if it aids clarity.
 - **[CRITICAL]** Avoid unnecessarily complex vocabulary; use **use** instead of "utilize" or "leverage".
 - **[MEDIUM]** Avoid weasel words ("often", "probably", "possibly") when you can state facts or scope instead.
-- **[MEDIUM]** Avoid **need** and **must** where the imperative is clearer (_Create a project_ rather than _You must create a project_).
-- **[MEDIUM]** Use a serial comma before the final item in a list of three or more items.
+- Avoid **need** and **must** where the imperative is clearer (_Create a project_ rather than _You must create a project_).
+- Use a serial comma before the final item in a list of three or more items.
 
-For accessibility of plain language (short sentences, defined terms), see [Inclusive language](#inclusive-language).
+### Plain English do's and don'ts (@universal)
 
-### Plain English do's and don'ts
+| Category                  | Do                                               | Don't                                                                    |
+|---------------------------|--------------------------------------------------|--------------------------------------------------------------------------|
+| **Simple English**        | Use the Metrics API.                             | Utilize the Metrics API.                                                 |
+| **Simple English**        | Import the item when the icon is green.          | The icon has turned green therefore meaning you can now import the item. |
+| **Simple English**        | Import the catalog when the icon is green.       | You need to import the catalog when the icon is green.                   |
+| **Phrasal verbs**         | The dialog appears.                              | The dialog pops up.                                                      |
+| **Weasel word**           | Use this endpoint to implement…                  | This endpoint is often useful when implementing…                         |
+| **Judging complexity**    | To create a service, click…                      | To create a service, simply click…                                       |
+| **Latin**                 | Set a value, for example `32`.                   | You can set a value, e.g. `32`.                                          |
+| **Parallelism**           | Add points to or subtract them from…             | Add or subtract points from…                                             |
+| **Punctuation**           | The service can be active, inactive, or blocked. | The service can be active, inactive or blocked.                          |
 
-| Category | Do | Don't |
-|----------|----|-------|
-| **Simple English** | Use the Metrics API. | Utilize the Metrics API. |
-| **Simple English** | Import the item when the icon is green. | The icon has turned green therefore meaning you can now import the item. |
-| **Simple English** | Import the catalog when the icon is green. | You need to import the catalog when the icon is green. |
-| **Phrasal verbs** | The dialog appears. | The dialog pops up. |
-| **Weasel word** | Use this endpoint to implement… | This endpoint is often useful when implementing… |
-| **Judging complexity** | To create a service, click… | To create a service, simply click… |
-| **Latin** | Set a value, for example `32`. | You can set a value, e.g. `32`. |
-| **Parallelism** | Add points to or subtract them from… | Add or subtract points from… |
-| **Punctuation** | The service can be active, inactive, or blocked. | The service can be active, inactive or blocked. |
-
-### Jargon
+### Jargon (@universal)
 
 - Prefer the reader's terms when they are standard in the domain; introduce specialized terms briefly on first use.
 - Define acronyms on first use if the acronym will appear again in the document.
 
-### Modifiers and simpler phrasing
-
-- **[MEDIUM]** Do not stack more than two nouns as modifiers in front of another noun (_Aiven for Apache Kafka® topic catalog_ is fine; avoid four- or five-noun chains).
-- **[MEDIUM]** Place **only** immediately before the word or phrase it limits (_Request only one token_, not _Only request one token_ unless you mean exclusivity of the action itself).
-- **[MEDIUM]** Prefer one strong verb over a vague verb plus adverb (_connects_ rather than _is able to connect_).
-
----
-
-## Inclusive language
-
-- **[CRITICAL]** Avoid ableist, violent or militaristic, and divisive social or political phrasing.
-  - **Examples to avoid**: "blind spot", "kill the process", "master/slave", "sanity check"
-  - **Use instead**: "gap", "stop the process", "primary/secondary", "consistency check"
-- Write accessible prose: favor clear, concrete language; avoid unnecessary figurative harm; when discussing disability or accessibility, follow respectful, person-centered usage and avoid metaphors that treat disability as a defect.
-
-Accessibility also means **predictable structure** (headings, lists, meaningful link text). See [Links and cross-references](#links-and-cross-references) for link text.
-
-### Ease of reading and assistive technology
-
-- **[MEDIUM]** Break up long walls of text with headings, short paragraphs, and lists.
-- **[MEDIUM]** Put the purpose of a paragraph in its **first sentence** when possible.
-- **[MEDIUM]** Avoid unnecessary decorative formatting; rely on headings and lists instead of unusual Unicode or emoji in body copy.
-- **[MEDIUM]** Avoid **all caps** and **camelCase** in ordinary prose when they are not official product or API names; they can be harder to read and to announce correctly.
-
----
-
-## Active voice, tense, and timeless wording
-
-- **[MEDIUM]** Write in **active voice** and **present tense** for procedures and descriptions of steady behavior.
-  - **Avoid**: "The service will be configured by the system"
-  - **Use**: "The system configures the service"
-- You may use passive voice when the actor is unimportant or is the system itself.
-- Avoid uncertain modals such as **might**, **could**, **ought**, or **shall** when a definite outcome is documented.
-- **[CRITICAL]** Avoid temporal anchors and vague time framing that go stale or confuse translators: **"now"**, **"currently"**, **"in the future"**, **"yet"**, and **"eventually"**. Prefer timeless phrasing or specific release notes or version statements when time matters.
-
-### Active voice
-
-Use _you_ as the subject when it clarifies who acts. Prefer active constructions.
-
-| Do | Don't |
-|----|-------|
-| The message window appears. | The message window is displayed. |
-| You can test notifications using… | Testing notifications can be done using… |
-| The topic is created. | You have created the topic. |
-
-### Tense and certainty
+### Tense and certainty (@universal)
 
 | Type | Do | Don't | Note |
 |------|----|-------|------|
@@ -151,7 +139,7 @@ Use _you_ as the subject when it clarifies who acts. Prefer active constructions
 | **Title** | Add a user | To add a user | Avoid infinitive stack as a heading. |
 | **Uncertainty** | The process starts in about 20 seconds. | The process might start in 20 seconds. | Avoid "might" for documented behavior. |
 
-### Timeless product wording
+### Timeless product wording (@universal)
 
 Product and reference docs should read correctly months later. Time-based words ("new", "now", "currently", "latest") often become wrong after the next release.
 
@@ -161,54 +149,75 @@ Product and reference docs should read correctly months later. Time-based words 
 | The following options are not supported: | The following options are not currently supported: |
 | The integration supports these auth modes: | The integration now supports these auth modes: |
 
-**Exceptions:** Admonitions with information about limited or early available features may use time language, but these should be used sparingly. Procedural lines such as "The service stops soon after you run the delete command" are fine when they describe an immediate transition.
+> **Exception:** Admonitions with information about limited or early available features may use time language, but these should be used sparingly. Procedural lines such as "The service stops soon after you run the delete command" are fine when they describe an immediate transition.
 
-**[MEDIUM]** In capability docs, avoid promising roadmap items. Do not document **future** features unless they are tied to a named release or date in the same document.
+**[CRITICAL]** In capability docs, avoid promising roadmap items. Do not document **future** features unless they are tied to a named release or date in the same document.
 
----
-
-## Person
+### Person
 
 - Address the reader as **you** in procedural and conceptual docs unless a different subject is clearer (for example, "the connector sends…").
 - Avoid **we**; use "Aiven" or the relevant team name (for example, "the Aiven support team").
-- Do not use **please**; see [Politeness](#politeness-and-tone-minor-mechanics) under punctuation and formatting.
+- Do not use **please**.
 
-### Consistency
+### Inclusive and accessible language (@universal)
+
+- **[CRITICAL]** Avoid ableist, violent or militaristic, and divisive social or political phrasing.
+  - **Examples to avoid**: "blind spot", "kill the process", "master/slave", "sanity check"
+  - **Use instead**: "gap", "stop the process", "primary/secondary", "consistency check"
+
+Accessibility means **predictable structure** (headings, lists, meaningful link text).
+
+- Break up long walls of text with headings, short paragraphs, and lists.
+- Put the purpose of a paragraph in its **first sentence** when possible.
+- Avoid unnecessary decorative formatting; rely on headings and lists instead of unusual Unicode or emoji in body copy.
+- Avoid **all caps** and **camelCase** in ordinary prose when they are not official product or API names; they can be harder to read and to announce correctly.
+
+## Consistency
 
 - **[MEDIUM]** Use the same term for the same concept across a page.
 - **[MEDIUM]** Do not start every paragraph with **You** when the subject is obviously the reader; rephrase for variety without hiding the actor.
 
----
+## Punctuation, quotations, and text formatting (@universal)
 
-## Punctuation, quotations, and text formatting
+### Capitalization (@universal)
 
-### Capitalization after colons
+- **[CRITICAL]** Use sentence case for all headings and titles.
+- Use a capital letter after a colon when a complete sentence follows, and for run-in labels such as notes:
+  - **Example**: Your plan: Standard
+  - **Example**: **Note:** You cannot change the token's session duration or allowlist after creating it.
 
-Use a capital letter after a colon when a complete sentence follows, and for run-in labels such as notes:
+### Slashes, ampersands, and alternatives (@universal)
 
-- Your plan: Standard
-- **Note:** This is my note.
-
-### Slashes, ampersands, and alternatives
-
-- **[CRITICAL]** Do not use **ampersands (&)** or **"and/or"** in body text. Write **and** or **or**, or split into two clauses.
+- **[CRITICAL]** Do not use **ampersands (&)**.
+- Do not use **"and/or"** in body text. Write **and** or **or**, or split into two clauses.
 - Use slashes sparingly; prefer **or** or a short list.
 - When using slashes, don't put a space before and after the slash.
 
-### Parentheses
+### Parentheses (@universal)
 
 - **[MEDIUM]** Avoid parentheses for asides; fold the thought into the sentence or add another sentence.
 
-### Quotation marks
+### Quotation marks (@universal)
 
 - **[CRITICAL]** Do not use quotation marks for UI labels, emphasis, or technical values.
 
-### Bold, italics, and inline code
+### Bold and italics (@universal)
 
 - **[CRITICAL]** **Bold**: use **only** for **UI elements** and **run-in headings in lists**. Use `**double asterisks**`.
 - Italics: use sparingly and only for _new terms you are defining_. Use `_single underscores_`.
 
-**Inline code** (Markdown: `` `backticks` ``):
+> **Exception:** Italics are used sparingly and only for new terms you are defining. Avoid using italics for emphasis or other purposes.
+
+**Ordinary (non-code) font** by default:
+
+- **[MEDIUM]** Product, service, and organization names; domain names and home pages in narrative text.
+- **[MEDIUM]** URLs the reader should open in a browser: prefer a descriptive link, not a bare URL string (see cross-reference and link guidelines elsewhere in this guide).
+
+If you are describing any of the above explicitly as typed input, pasted output, or a code-level entity, use code font for that occurrence.
+
+### Inline code (@prose @code)
+
+(Markdown: `` `backticks` ``):
 
 - In ordinary prose (not code blocks), use code font for text the reader types or copies verbatim, to show clear boundaries of literals, and to separate identifiers from surrounding words.
 - **[CRITICAL]** Use inline code for technical identifiers and literals, including the following when they appear as names or values rather than as general concepts:
@@ -226,13 +235,6 @@ Use a capital letter after a colon when a complete sentence follows, and for run
 - **[CRITICAL]** **UI + code**: When a UI label represents or displays a technical identifier, user-defined name, or system-generated value, use **bold and** code: **`pg_stat_monitor_enable`**, **`my-pg-service`**.
 - **[CRITICAL]** For a labeled control whose value is dynamic, put the label in bold and the value in bold + code. Example: In the **Service name** list, select **`prod-pg`**.
 
-**Ordinary (non-code) font** by default:
-
-- **[MEDIUM]** Product, service, and organization names; domain names and home pages in narrative text.
-- **[MEDIUM]** URLs the reader should open in a browser: prefer a descriptive link, not a bare URL string (see cross-reference and link guidelines elsewhere in this guide).
-
-If you are describing any of the above explicitly as typed input, pasted output, or a code-level entity, use code font for that occurrence.
-
 **Further inline-code conventions**
 
 - **[MEDIUM]** **Booleans**: format literal values (`true`, `false`, `0`, `1`) as code. If you describe the truth or falsity of a condition in plain English, do not format the words _true_ and _false_ as code.
@@ -243,51 +245,25 @@ If you are describing any of the above explicitly as typed input, pasted output,
 - **[MEDIUM]** **Grammar**: do not use code tokens as inflected English verbs or nouns. Preferred: send a `POST` request. Avoid: using `POST` as a verb for the payload. Avoid possessives or plurals applied directly to a token; add a noun (for example, write the value of the `TOKEN` variable, not a possessive formed on the token itself).
 - **[MEDIUM]** Do not put quotation marks around code-styled text unless the quotation marks are part of the literal.
 
-| Example | Do | Don't |
-|---------|----|-------|
-| UI element | Click **Account** > **Settings**. | Click "Account" and "Settings". |
-| Code | Set `db_id` to `ABC`. | Set the "db_id" parameter to _ABC_. |
-| Strong negation in UI | Do **not** click **Delete**. | Do _not_ click **Delete**. |
-| Status code | Returns a `429 Too Many Requests` status code. | Returns HTTP response code 429. |
-| Grammar | Send a `GET` request to fetch the resource. | `GET` the resource. |
-
-### Full stops (periods)
+### Full stops or periods (@universal)
 
 Use a full stop at the end of a complete sentence, including in list items that are sentences.
 
-### Politeness and tone (minor mechanics)
-
-Do not use **please** or other unnecessary politeness in the documentation.
-
-### Documentation element summary
-
-| Information type | Style |
-|------------------|--------|
-| Interface element | Bold (`**`) |
-| User input or typed values | Code (`` ` ``) |
-| First introduction of a new term | Italics (`_`) |
-
-### Latin abbreviations
-
-- **[CRITICAL]** Do not use **i.e.** or **e.g.**. Use **that is** or **for example**.
-
-### Introducing examples in a sentence
+### Introducing examples in a sentence (@prose)
 
 - Use **for example** or **such as** to introduce short examples at the end of a clause, usually after a comma.
-- **[MEDIUM]** Avoid ending a sentence with **for example,** immediately before a code token if it creates a choppy line; instead introduce the list or code block with a full sentence ending in a colon.
+- Avoid ending a sentence with **for example,** immediately before a code token if it creates a choppy line; instead introduce the list or code block with a full sentence ending in a colon.
 
----
+## Document structure and syntax (@universal)
 
-## Document structure and syntax
-
-### Sentences and paragraphs
+### Sentences and paragraphs (@prose)
 
 - **[CRITICAL]** Keep sentences under **25 words** where possible; split complex thoughts.
 - **[CRITICAL]** The **first sentence of the document** must be on **one line**. Ignore line-length warnings for that sentence only.
 - **[MEDIUM]** Put the most important information first in a paragraph to support scanning.
-- **[MEDIUM]** Remove redundant words and duplicate ideas.
+- **[CRITICAL]** Remove redundant words and duplicate ideas.
 
-### Headings and titles
+### Headings and titles (@prose)
 
 - Do not use questions as titles (for example, avoid **How does it work?**).
 - Use **sentence case** (capitalize only the first word and proper nouns).
@@ -295,16 +271,10 @@ Do not use **please** or other unnecessary politeness in the documentation.
 - For concept topics, prefer a **noun phrase** (_Database sharding_).
 - Avoid CTA-style article stuffing in titles (_Delete user_ not _Delete a user_ when the article is not a marketing CTA).
 
-| Type | Usage | Example |
+| Type | Usage | Examples |
 |------|--------|---------|
-| Title **without** a verb | Concept or definition | _Connection pooling_ |
-| Title **with** a verb | Task or how-to | _Create a service_, _Back up a database_ |
-
-| Do | Don't | Comment |
-|----|-------|---------|
-| Delete user | Delete a user | Avoid marketing-style CTAs in titles. |
-
-Use **`Optional:`** at the start of an **optional procedure step** or optional section heading when supported by your template.
+| Title **without** a verb | Concept or definition | Connection pooling |
+| Title **with** a verb | Task or how-to | Create a service, Back up a database |
 
 When you introduce a group of subsections, say **the following sections** (not "below" or ambiguous "these sections").
 
@@ -320,8 +290,6 @@ Maintain logical heading hierarchy (`##` then `###`); do not skip levels for sty
 
 - Include articles in running text and headings when they would appear in normal English (_Create a service_, not _Create service_), including before product nouns when grammar requires them.
 - **[MEDIUM]** When an abbreviation is read as letters (**Aiven CLI**), use **an** before it if spoken with a vowel sound (_an Aiven CLI profile_).
-
----
 
 ## Lists
 
@@ -388,29 +356,33 @@ Other patterns (for example, "click here") are harder to read and hurt accessibi
 
 ---
 
-## Procedures and the Aiven Console
+## Procedures (@prose)
 
-### Procedures (numbered steps)
+### Numbered steps (@prose)
 
-- **[MEDIUM]** Add introductory text only when it orients the reader; otherwise start with the first step.
-- Use step results only when the reader must verify an outcome or copy a value.
-- Number steps in execution order.
+- **[MEDIUM]** Add introductory text only when it orients the reader. Don't add introductory text if the page title or section heading is enough to orient the reader.
+- **[MEDIUM]** Do not introduce steps with a sentence fragment that the numbered list completes (_To customize:_ as a standalone line before steps).
+- Don't use step results.
+- Use "1." for all steps. The Markdown parser will automatically number the steps.
 - **[CRITICAL]** Prefix optional steps with **`Optional:`**.
 
-### Console and UI copy
+> **Exception:** Use step results only when the reader must verify an outcome or copy a value from the result.
+
+### Console procedures (@prose)
 
 - **[CRITICAL]** Never describe the **type** of UI control in running text.
-  - **Avoid**: Click the **Save** button.
-  - **Use**: Click **Save**.
+  - **Don't**: Click the **Save** button.
+  - **Do**: Click **Save**.
 - **[CRITICAL]** For menus, use **`>`** between levels: Click **Admin** > <ConsoleLabel name="application users"/>.
-- **[MEDIUM]** Do not describe screen location ("on the left", "at the bottom"); name the control.
+- **[MEDIUM]** Don't use directional language (**above**, **below**, and **to the right**). Do not describe screen location ("on the left", "at the bottom"); name the control.
 - Use **select** when the reader picks from a dropdown or list.
-- **[MEDIUM]** Use the `ConsoleLabel` component when the console shows an icon plus label: `<ConsoleLabel name="AI insights"/>`. See available names in `src/components/ConsoleIcons/index.tsx`.
+- Use the `ConsoleLabel` component when the console shows an icon plus label: `<ConsoleLabel name="AI insights"/>`. See available names in `src/components/ConsoleIcons/index.tsx`.
 - For icon-only controls, use `ConsoleIcon` plus visible text: Click <ConsoleIcon name="user"/> **User information**. Do not show an icon without adjacent text.
-- Use **select** / **clear** for checkboxes; use **click** for toggles (for example, click the **Advanced options** toggle to the on position).
+- Use **select** or **clear** for checkboxes; use **click** for toggles (for example, click the **Advanced options** toggle to the on position).
 - Use qualifying nouns for files: the `config.json` file, the `README.md` document.
+- If there is only one action, use a **bullet** and an imperative sentence rather than a one-item numbered list.
 
-### Click chains
+### Click chains (@prose)
 
 Chains start with the **first** click in the UI, not the last.
 
@@ -419,92 +391,70 @@ Chains start with the **first** click in the UI, not the last.
 | **Click chains** | Click **File** > **Save** > **OK** | Click **Save** > **OK** from the **File** menu. |
 | **Short chain** | Click **Action** > **Delete**. | Click **Delete** in the **Actions** menu. |
 
-### Directional language
-
-- **[MEDIUM]** Avoid **above**, **below**, and **to the right**; name the section or UI control instead.
-
-### Procedure introductions and structure
-
-- Introduce a procedure when the heading alone is not enough context; do not repeat the heading as a filler sentence.
-- End the intro with a **colon** if it immediately precedes the steps, or a **period** if a note sits between the intro and the steps.
-- **[MEDIUM]** Do not introduce steps with a sentence fragment that the numbered list completes (_To customize:_ as a standalone line before steps).
-
-### Single-step "procedures"
-
-- If there is only one action, use a **bullet** and an imperative sentence rather than a one-item numbered list, unless the single step is part of a longer numbered flow.
-
 ### Sub-steps
 
 - When a step contains sub-steps, treat the parent step like an intro sentence ending in a **colon** or **period**, then indent numbered sub-steps consistently (Markdown sub-lists).
 
-### Order inside a complex step
+## Code and examples (@code)
 
-1. State the user-facing action.
-2. Show the command or API call, if any.
-3. Explain placeholders (see [Code and examples](#code-and-examples)).
-4. Show output only when the reader must verify or copy from it.
-5. Describe the outcome in prose if it is not obvious.
-
----
-
-## Code and examples
-
-### Inline and fenced code
+### Inline and fenced code (@code)
 
 - **[MEDIUM]** Introduce a code sample with a sentence ending in a **period** or **colon**; use a colon when the code immediately follows.
-- **[MEDIUM]** Separate **input** commands from **output** into different fenced blocks.
+- **[CRITICAL]** Separate **input** commands from **output** into different fenced blocks.
 - Only show output when the reader must verify or copy something from it.
-- **[MEDIUM]** Do not pluralize or make code tokens possessive; say **the `variables.tf` file's** path, not **the `variables.tf`'s** path.
+- Do not pluralize or make code tokens possessive; say **the `variables.tf` file's** path, not **the `variables.tf`'s** path.
 
-### Click-to-copy and syntax in examples
+### Click-to-copy and syntax in examples (@code)
 
 - **[CRITICAL]** In **executable** examples, do not use shell meta-placeholders such as `[]`, `{}`, `|`, or `...`. Use concrete, valid commands or use comments inside the code for omissions.
 - For **non-executable** syntax descriptions only, you may use `[optional]` and `{a|b}` style; keep optional parts minimal.
 
-### Placeholders
+> **Exception:** For non-executable syntax descriptions only, you may use `[optional]` and `{a|b}` style; keep optional parts minimal. Do not use these in executable examples.
+
+### Placeholders (@code)
 
 - **[CRITICAL]** Use `UPPER_CASE_WITH_UNDERSCORES` for placeholders.
 - Do not use angle brackets (`<project-id>`) or **`MY_` / `YOUR_` prefixes** (use `PROJECT_ID`, not `MY_PROJECT`).
 
-### Multiple placeholders after a command
+### Multiple placeholders after a command (@code)
 
 When a command uses more than one placeholder, follow it with a short list introduced by **Replace the following:** (or **Replace** _placeholder_ **with** … for a single value). Each list item uses the placeholder in code font, a colon, and a description that starts with a lowercase letter.
 
-### Omitted lines in code samples
+### Omitted lines in code samples (@code)
 
 - **[MEDIUM]** If you omit lines in a sample, use a **comment** in that language (`# …` in shell and YAML, `// …` in many languages). Do not use `...` inside **copy-paste** blocks; ellipses confuse readers and break click-to-copy expectations.
 
-### Domains, emails, and example names
+### Domains, emails, and example names (@code @prose)
 
 - **[CRITICAL]** Use IANA reserved domains only (`example.com`, `example.net`, `example.org`, or `example`).
 - Use **`name@example.com`** for example email addresses.
 - For example people, use **Alex, Amal, Izumi, Jie, Noam, Yuri**; use first initial only for surnames (for example, **Quinn N.**).
 
----
-
 ## Product names and trademarks
 
-**Product naming rules**
+### Product naming rules (@prose)
 
 - **[CRITICAL]** Use the **full product name** at first mention and in sidebar labels; then use the shorter common name.
 - **[CRITICAL]** Apply **®** or **™** on the **first** occurrence of the offering and underlying open source project name as required by trademark policy.
-- **[CRITICAL]** Do not repeat trademark symbols after the first mention in the same document.
+- Do not repeat trademark symbols after the first mention in the same document.
 - **[CRITICAL]** Do not imply Aiven owns third-party projects: write **Aiven for Apache Kafka®**, not "Aiven's Kafka".
 
-**Official product names**
+### Official product names (@prose)
 
 - Aiven for Apache Kafka®
 - Aiven for Apache Kafka® Connect
 - Aiven for Apache Kafka® MirrorMaker 2
 - Aiven for ClickHouse®
-- Aiven for Metrics
-- Aiven for Thanos™
+- Aiven for DataHub
 - Aiven for OpenSearch®
 - Aiven for PostgreSQL®
+- Aiven for Metrics
 - Aiven for MySQL
 - Aiven for Dragonfly
+- Aiven for Thanos™
 - Aiven for Grafana®
 - Aiven for Valkey™
+- Aiven Runtime
 - **the Aiven Platform** (title case)
 - **the Aiven Console** (short form: **the console**; in full sentences prefer **the Aiven Console**)
 - **Aiven Provider for Terraform** (short: **Aiven Terraform Provider**)
@@ -513,8 +463,6 @@ When a command uses more than one placeholder, follow it with a short list intro
 - EverSQL by Aiven
 - Karapace
 - Klaw
-
----
 
 ## Word list (quick reference)
 
@@ -530,18 +478,3 @@ Prefer these replacements in body text:
 | master / slave | primary / secondary (or domain-specific neutral terms) |
 | sanity check | consistency check |
 | kill (a process) | stop |
-
----
-
-## Document maintenance
-
-- **Last updated:** May 2026 (editorial consolidation).
-- **Maintainers:** Documentation guild in the Aiven docs repository; propose changes through pull requests like any other doc.
-
----
-
-## Contributing and tooling
-
-This repository is partly enforced by [Vale](https://vale.sh/). See [CONTRIBUTING.md](./CONTRIBUTING.md) for install steps, line length conventions for reviews, and commit message format.
-
-The guide is based in part on [Google developer documentation style](https://developers.google.com/style); where this document is stricter or different, **this document wins**.

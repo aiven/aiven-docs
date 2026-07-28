@@ -3,9 +3,8 @@
 <!-- vale off -->
 This is a shared configuration directory for AI tools working in this repository.
 It contains the rules, skills, documentation, and other configuration files for agents.
-Every tool-specific directory contains symlinks that point back to the
-relevant files in this directory, meaning the same configuration is applied
-to all tools.
+Tool-specific directories reference these shared resources, ensuring consistent
+configuration across all tools.
 
 ## Structure
 
@@ -25,18 +24,19 @@ In the `.ai-agents` directory are the following:
 
 ## Tool integration
 
-| Tool | Config Directory | Main Instructions |
-|------|------------------|-------------------|
-| OpenCode | `.opencode/` | `opencode.json`, which points to `AGENTS.md` |
-| Cursor | `.cursor/` | `AGENTS.md` |
-| VS Code/GitHub Copilot | `.github/` | `.github/copilot-instructions.md` |
-| Claude Code | `.claude/` | `CLAUDE.md`, which points to `AGENTS.md` |
+| Tool                   | Config directory | Main instructions                          |
+|------------------------|------------------|--------------------------------------------|
+| Claude Code            | `.claude/`       | `CLAUDE.md`, which points to `AGENTS.md`   |
+| Cursor                 | `.cursor/`       | `CURSOR.md`, which points to `AGENTS.md`   |
+| OpenCode               | `.opencode/`     | `OPENCODE.md`, which points to `AGENTS.md` |
+| VS Code/GitHub Copilot | `.github/`       | `.github/copilot-instructions.md`          |
+
 
 ## Add configuration files
 
 To add an agent, command, doc, rule, or skill, create a new file in the
-appropriate folder under `.ai-agents/`. The symlinks in each tool's directory
-automatcally makes them avaialble to those tools.
+appropriate folder under `.ai-agents/`. Tool-specific configuration directories
+reference these shared resources via `@` notation, making them available to those tools.
 
 To add a configuration file that only applies to one specific tool,
 create a new file in that tool's directory.

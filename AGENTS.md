@@ -41,5 +41,5 @@ Agent workflow rules:
 
 |   Topic    |        Reference         | When to load |
 | ---------- | ------------------------ | ------------ |
-| Styleguide | `.ai-agents/docs/   .md` |              |
+| Styleguide | `@.ai-agents/docs/styleguide.md` |              |
 | ---------- | ------------------------ | ------------ |
