@@ -48,8 +48,7 @@ PG Studio supports:
 
 **Tables:**
 
-- **Tables view:** Browse tables in your selected schema and preview up to 100 rows.
-  Open a table tab to start writing SQL.
+- **Tables view:** Browse tables in your selected schema and preview table data.
 - **Schema map:** View your database structure as an interactive diagram showing tables,
   columns, and relationships. Click the copy icon next to a table name to copy it to the
   clipboard.
