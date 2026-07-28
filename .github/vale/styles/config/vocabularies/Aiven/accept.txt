@@ -302,6 +302,7 @@ pgvector
 plaintext
 plc
 Plotly
+PITR
 PNG/S
 PNGs?
 Podman
@@ -338,8 +339,7 @@ renewables
 repo
 repos
 requesters
-resharding
-Resharding
+[Rr]eshard\w*
 reStructuredText
 rivery
 rollout
