@@ -1,5 +1,7 @@
 # Contributing to the Aiven docs
 
+<!-- vale off -->
+
 When contributing, keep the following in mind:
 
 - Small PRs are preferred. For larger PRs, start by submitting a suggestion as a new issue.
