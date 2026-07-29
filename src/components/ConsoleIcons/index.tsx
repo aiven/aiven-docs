@@ -116,6 +116,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>PG Studio</b>
         </>
       );
+    case 'sqleditor':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>SQL editor</b>
+        </>
+      );
+    case 'tableeditor':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.table} /> <b>Table editor</b>
+        </>
+      );
     case 'generativeai':
       return (
         <>
