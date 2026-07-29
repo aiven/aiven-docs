@@ -332,6 +332,12 @@ organization's policies and regulations.
 **Azure Blob Storage** accounts (Premium LRS and Standard LRS) are provisioned in your
 Azure subscription for service data.
 
+:::note
+The service endpoint has two hostnames. The public hostname is derived from the
+private hostname by adding a `public-` prefix to it. The Service URI shown by the
+Aiven Console displays only the private hostname.
+:::
+
 </TabItem>
 </Tabs>
 
