@@ -18,6 +18,12 @@ Azure supports two deployment models:
   addressed service VMs. Aiven connects to service nodes directly over the public
   internet.
 
+:::note
+For the standard public deployment model, the service endpoint has two hostnames. The
+public hostname is derived from the private hostname by adding a `public-` prefix to
+it. The Service URI shown by the Aiven Console displays only the private hostname.
+:::
+
 To configure a custom cloud in your Aiven organization and prepare your Azure
 subscription so that Aiven can access it:
 
