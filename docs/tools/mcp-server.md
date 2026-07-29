@@ -3,7 +3,6 @@ title: Aiven MCP
 sidebar_label: Aiven MCP
 description: Create and manage Aiven services from AI assistants.
 keywords: [MCP, Model Context Protocol, AI assistants, Cursor, Claude Code]
-early: true
 ---
 
 import Tabs from '@theme/Tabs';
