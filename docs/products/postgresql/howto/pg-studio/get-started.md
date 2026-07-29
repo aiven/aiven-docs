@@ -30,7 +30,7 @@ To use PG Studio, you need:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.
-1. Click **SQL Editor** or **Tables** in the left-hand menu.
+1. Click **SQL Editor** or **Table Editor** in the left-hand menu.
 1. Click the source database and schema selectors.
 
 If AI features are off for your organization, the **AI Assistant** panel does not appear.
@@ -60,7 +60,7 @@ You can write SQL directly. If AI features are on, you can also use the
 
 ## Explore your schema
 
-1. Click **Tables** in the left-hand menu.
+1. Click **Table Editor** in the left-hand menu.
 1. Click **Open schema map** to view your database structure as an interactive diagram.
 1. Browse tables, columns, and relationships.
 
