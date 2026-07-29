@@ -214,7 +214,7 @@ outdated or replaced by newer versions.
 
 Aiven announces API endpoint deprecations on the
 [Aiven product updates page](https://aiven.io/changelog).
-If a replacement endpoint is available, this information
+If a replacement endpoint or sunset date is available, this information
 is included in the deprecation notice and in the API documentation.
 
 To allow clients to detect these changes automatically, the API returns specific headers
@@ -223,22 +223,44 @@ with the deprecation status and sunset date, for example:
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Deprecation: true
+Deprecation: @1777248000
 Sunset: Wed, 01 Jul 2026 00:00:00 GMT
-Link: <https://aiven.io/changelog>; rel="deprecation"
+Link: <https://aiven.io/changelog>; rel="sunset"
 ```
+
+Where:
+ - `Deprecation`: the UTC timestamp when deprecation took effect in
+   RFC 9745 @UNIX-TIMESTAMP format.
+ - `Sunset`: Optional. Date and time the endpoint will be removed.
+ - `Link`: URL for the [product update](https://aiven.io/changelog) for this
+    deprecation.
 
 Aiven works to reduce the disruptions caused by deprecations.
 The time between the deprecation and sunset statuses varies based on the endpoint's
 usage and the migration complexity. During the deprecation period,
 the endpoint remains fully functional for existing customers,
 giving you time to migrate to the newer version. Deprecated endpoints may
-not available to new customers.
+not be available to new customers.
 
 ### API endpoint sunset
 
-After the deprecation period, the endpoint transitions to sunset status and
-the API returns a `410 Gone` response.
+After the deprecation period, the endpoint transitions to sunset status.
+The route remains registered for a period after sunset so clients receive
+a `410 Gone` response instead of `404 Not Found`. The following
+is an example of the structured error body:
+
+```
+{
+  "errors": [{
+    "error_code": "retired_api_endpoint",
+    "message": "This API endpoint was deprecated on Tue, 09 Jul 2024 00:00:00 GMT and is no longer available. Use https://api.aiven.io/v1/organization/{organization_id}/user-groups instead."
+  }]
+}
+```
+
+Full route removal happens
+only after an extended post-sunset period, but
+customers should migrate before the published sunset date.
 
 ## Aiven tools EOL
 
