@@ -18,12 +18,6 @@ Azure supports two deployment models:
   addressed service VMs. Aiven connects to service nodes directly over the public
   internet.
 
-:::note
-For the standard public deployment model, the service endpoint has two hostnames. The
-public hostname is derived from the private hostname by adding a `public-` prefix to
-it. The Service URI shown by the Aiven Console displays only the private hostname.
-:::
-
 To configure a custom cloud in your Aiven organization and prepare your Azure
 subscription so that Aiven can access it:
 
@@ -175,6 +169,9 @@ definition. Assign it separately through the Azure portal or CLI before running
      - `standard`: Two VNets (Bastion and Workload) connected via VNet peering.
        Workload nodes are not accessible from the public internet.
      - `standard_public`: A single Workload VNet with publicly addressed service VMs.
+       The service endpoint has two hostnames: a private one and a public one derived
+       from it by adding a `public-` prefix. The Service URI shown in the Aiven
+       Console displays only the private hostname.
    - `CLOUD_REGION_NAME` with the name of an Azure region where to create your custom
      cloud:
      1. Pick a region from the **Cloud** column in the supported
