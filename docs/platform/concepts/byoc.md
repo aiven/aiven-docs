@@ -181,6 +181,12 @@ directly. To restrict access to your service, you can use the
 two S3 buckets. To enable this optional feature for your new BYOC clouds,
 [contact Aiven](https://aiven.io/contact).
 
+:::note
+The service endpoint has two hostnames. The public hostname is derived from the private
+hostname by adding a `public-` prefix to it. The Service URI shown by the Aiven Console
+displays only the private hostname.
+:::
+
 </TabItem>
 <TabItem value="5" label="AWS BYOC ECE HIPAA">
 
@@ -273,6 +279,12 @@ through the public internet: the Aiven control plane connects to the nodes
 using the public address, and the Aiven management plane can access the service VMs
 directly. To restrict access to your service, you can use the
 [IP filter](/docs/platform/howto/restrict-access).
+
+:::note
+The service endpoint has two hostnames. The public hostname is derived from the private
+hostname by adding a `public-` prefix to it. The Service URI shown by the Aiven Console
+displays only the private hostname.
+:::
 
 </TabItem>
 </Tabs>
