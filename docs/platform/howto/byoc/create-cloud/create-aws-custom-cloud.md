@@ -466,6 +466,12 @@ In the **Create custom cloud** wizard:
         your AWS account and restrict outbound traffic and public access. See
         [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
+        :::note
+        The service endpoint has two hostnames. The public hostname is derived from the
+        private hostname by adding a `public-` prefix to it. The Service URI shown by the
+        Aiven Console displays only the private hostname.
+        :::
+
     -   CIDR for BYOC resources
 
         The **CIDR** block defines the IP address range of the VPC that
@@ -704,7 +710,10 @@ Your new custom cloud is ready to use only after its status changes to
      your custom cloud uses:
      - `standard_public` (public) model: The nodes have public IPs and can be configured
        to be publicly accessible for authenticated users. The Aiven control plane can
-       connect to the service nodes via the public internet.
+       connect to the service nodes via the public internet. The service endpoint has
+       two hostnames: a private one and a public one derived from it by adding a
+       `public-` prefix. The Service URI shown in the Aiven Console displays only the
+       private hostname.
      - `standard` (private) model: The nodes reside in a VPC without public IP addresses
        and are by default not accessible from outside. Traffic is routed through a proxy
        for additional security utilizing a bastion host logically separated from the
