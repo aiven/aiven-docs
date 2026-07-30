@@ -261,8 +261,8 @@ To set up a service, follow these steps:
 
 **Before (❌ bad):**
 ```markdown
-In the dialog box that appears above, you'll see options. 
-At the bottom right, click the **Settings** button. 
+In the dialog box that appears above, you'll see options.
+At the bottom right, click the **Settings** button.
 The link to documentation is below.
 ```
 

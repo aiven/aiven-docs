@@ -1,7 +1,5 @@
 # Aiven documentation style guide
 
-<!-- vale off -->
-
 This guide has the content guidelines for writing and reviewing documentation in the [Aiven docs](https://github.com/aiven/aiven-docs) repository.
 The guide is based in part on [Google developer documentation style](https://developers.google.com/style); where this document is stricter or different, this document takes precedence.
 

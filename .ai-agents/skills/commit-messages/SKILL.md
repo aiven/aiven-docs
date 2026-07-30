@@ -3,8 +3,6 @@ name: commit-messages
 description: Enforce commit message guidelines following conventional commits format with required sign off. Use when creating commits, writing commit messages, reviewing PR titles, or helping other agents understand Aiven docs commit conventions.
 ---
 
-<!-- vale off -->
-
 # Commit Messages
 
 This repository enforces [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with specific types and mandatory signoff. GitHub Actions validates all commits and PRs.
