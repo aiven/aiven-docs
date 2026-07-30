@@ -154,7 +154,7 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
    <MCPConfigSection
      baseUrl={mcpUrl}
      format="json"
-     configTemplate={(url) => ({mcpServers: {aiven: {url}}})}
+     configTemplate={(url) => ({mcpServers: {aiven: {url, oauth: {oauthScopes: ["projects", "services", "accounts:read"]}}}})}
    />
 
    Most clients use a configuration similar to the preceding example.
