@@ -358,29 +358,32 @@ Other patterns (for example, "click here") are harder to read and hurt accessibi
 
 ## Procedures (@prose)
 
-### Numbered steps (@prose)
+For comprehensive procedural documentation patterns, examples, and detailed guidance, see the [procedural-documentation skill](./.ai-agents/skills/procedural-documentation) in the AI Agents directory. This section covers essential quick-reference rules.
 
-- **[MEDIUM]** Add introductory text only when it orients the reader. Don't add introductory text if the page title or section heading is enough to orient the reader.
-- **[MEDIUM]** Do not introduce steps with a sentence fragment that the numbered list completes (_To customize:_ as a standalone line before steps).
-- Don't use step results.
-- Use "1." for all steps. The Markdown parser will automatically number the steps.
+### Structure and steps (@prose)
+
+- **[CRITICAL]** Use numbered lists (`1.` for all steps) for ordered, task-based procedures.
+- **[CRITICAL]** Use imperative mood: "Click **Save**", not "You should click Save" or "You will click Save".
+- **[MEDIUM]** Add introductory text only when it orients the reader beyond what the heading states.
 - **[CRITICAL]** Prefix optional steps with **`Optional:`**.
+- Don't use step results unless the reader must verify an outcome or copy a value.
+- Use "the following" instead of "below" when referring to lists or subsequent content.
 
-> **Exception:** Use step results only when the reader must verify an outcome or copy a value from the result.
+### UI formatting (@prose)
 
-### Console procedures (@prose)
-
-- **[CRITICAL]** Never describe the **type** of UI control in running text.
+- **[CRITICAL]** Never describe the **type** of UI control: don't say "button", "link", "field", "menu".
   - **Don't**: Click the **Save** button.
   - **Do**: Click **Save**.
 - **[CRITICAL]** For menus, use **`>`** between levels: Click **Admin** > <ConsoleLabel name="application users"/>.
-- **[MEDIUM]** Don't use directional language (**above**, **below**, and **to the right**). Do not describe screen location ("on the left", "at the bottom"); name the control.
-- Use **select** when the reader picks from a dropdown or list.
-- Use the `ConsoleLabel` component when the console shows an icon plus label: `<ConsoleLabel name="AI insights"/>`. See available names in `src/components/ConsoleIcons/index.tsx`.
-- For icon-only controls, use `ConsoleIcon` plus visible text: Click <ConsoleIcon name="user"/> **User information**. Do not show an icon without adjacent text.
-- Use **select** or **clear** for checkboxes; use **click** for toggles (for example, click the **Advanced options** toggle to the on position).
+- Use **select** or **clear** for checkboxes; use **click** for toggles.
+- Use the `ConsoleLabel` component for icon+label: `<ConsoleLabel name="AI insights"/>`. See available names in `src/components/ConsoleIcons/index.tsx`.
 - Use qualifying nouns for files: the `config.json` file, the `README.md` document.
-- If there is only one action, use a **bullet** and an imperative sentence rather than a one-item numbered list.
+- **[MEDIUM]** Avoid directional language ("above", "below", "to the right", "on the left").
+
+### Lists and structure (@prose)
+
+- Introduce lists with a complete sentence ending in period or colon.
+- If there is only one action, use a **bullet** and an imperative sentence instead of a one-item numbered list.
 
 ### Click chains (@prose)
 
@@ -393,7 +396,7 @@ Chains start with the **first** click in the UI, not the last.
 
 ### Sub-steps
 
-- When a step contains sub-steps, treat the parent step like an intro sentence ending in a **colon** or **period**, then indent numbered sub-steps consistently (Markdown sub-lists).
+For sub-steps: treat the parent step as an intro ending in colon or period, then indent numbered sub-steps consistently.
 
 ## Code and examples (@code)
 
