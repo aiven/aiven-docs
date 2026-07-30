@@ -130,6 +130,28 @@ clustering from the start.
 - Configure your client to discover and connect to cluster nodes automatically.
 - Test failover behavior to ensure your application handles node changes gracefully.
 
+## Failover
+
+When a primary node stops responding, Aiven for Valkey promotes one of its replicas to
+primary so the shard keeps accepting writes.
+
+- **Clusters with three or more shards, where every shard has a replica**: The surviving
+  primaries vote and promote a replica of the affected shard automatically, following
+  Valkey's built-in cluster election. Aiven only steps in if this election doesn't
+  complete.
+- **Clusters with one or two shards, or a shard with no replica**: Promoting a replica
+  through Valkey's election requires a majority vote among primaries, and a cluster with
+  fewer than three shards can't reach that majority once one primary is unreachable. In
+  this case, Aiven promotes the replica that's furthest ahead in replication, meaning the
+  one with the least data loss, once it confirms the failed primary is no longer part of
+  the service. If the shard has no replica, Aiven provisions a new node instead and
+  restores its data from the most recent backup.
+
+Failover isn't instant. While a shard has uncovered hash slots, the whole cluster stops
+accepting commands, not only the keys on the affected shard. Add at least one replica to
+every shard to reduce how long a single node failure affects your cluster. You can inspect
+cluster health at any time by running `CLUSTER NODES`.
+
 ## Resharding
 
 Aiven for Valkey distributes data across primary nodes using hash slots. When the number
