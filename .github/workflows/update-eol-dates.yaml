@@ -18,9 +18,10 @@ jobs:
       - name: Run EOL date update script
         # Exit code 0 = no changes; 1 = doc updated; 2 = error
         run: |
+          set +e
           python scripts/update-eol-dates.py
-          echo "SCRIPT_EXIT=$?" >> "$GITHUB_ENV"
-        continue-on-error: true
+          script_exit=$?
+          echo "SCRIPT_EXIT=$script_exit" >> "$GITHUB_ENV"
       - name: Create pull request
         if: env.SCRIPT_EXIT == '1'
         uses: peter-evans/create-pull-request@v6
