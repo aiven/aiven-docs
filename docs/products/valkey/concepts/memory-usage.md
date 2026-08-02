@@ -151,9 +151,7 @@ system.
 
 :::note
 Active memory defragmentation is disabled by default. It runs on the main thread and
-consumes CPU, so it can increase latency under load. Test the option on a
-[forked service](/docs/products/valkey/howto/fork-service) before enabling it on a
-production service.
+consumes CPU, so it can increase latency under load.
 :::
 
 For the full list of configuration options, including `valkey_activedefrag`, see
@@ -172,4 +170,3 @@ For the full list of configuration options, including `valkey_activedefrag`, see
 - [Change the service plan](/docs/products/valkey/howto/change-service-plan)
 - [Scale disk storage](/docs/products/valkey/howto/scale-disk-storage)
 - [Advanced parameters for Aiven for Valkey™](/docs/products/valkey/reference/advanced-params)
-- [Fork a service](/docs/products/valkey/howto/fork-service)
