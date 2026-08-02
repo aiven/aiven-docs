@@ -20,6 +20,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="elasticsearch_version"/><Link to="#elasticsearch_version"><strong>elasticsearch_version</strong></Link></p><p><code className="type">string,null</code></p></div>
+        <p className="title">OpenSearch version</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="disable_replication_factor_adjustment"/><Link to="#disable_replication_factor_adjustment"><strong>disable_replication_factor_adjustment</strong></Link></p><p><code className="type">boolean,null</code></p></div>
         <div className="description"><p>Disable automatic replication factor adjustment for multi-node services. By default, Aiven ensures all indexes are replicated at least to two nodes. Note: Due to potential data loss in case of losing a service node, this setting can not be activated unless specifically allowed for the project.</p></div>
       </td>
