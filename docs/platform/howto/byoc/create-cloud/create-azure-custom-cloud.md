@@ -291,9 +291,8 @@ definition. Assign it separately through the Azure portal or CLI before running
 
       The template creates the following resources in your Azure subscription:
 
-      - A **service principal** (App Registration with a client secret) for Aiven to
-        operate the environment, with `Application.ReadWrite.OwnedBy` Microsoft Graph
-        permission for autonomous credential rotation
+      - A **service principal** for Aiven to operate the environment, with a custom
+        least-privilege role on the resource group
       - A **resource group** containing all BYOC resources
       - Two **custom role definitions** in your subscription:
         `{deployment_name}-aiven-operator` (least-privilege operator on the resource
@@ -311,29 +310,15 @@ definition. Assign it separately through the Azure portal or CLI before running
         - A **network security group (NSG)** allowing all public inbound TCP and UDP
           traffic to workload nodes
 
-   1. Retrieve the Terraform outputs needed for the provisioning step:
-
-      ```bash
-      terraform output -raw azure_subscription_id
-      terraform output -json aiven_service_principal
-      ```
-
-      The `aiven_service_principal` output contains the `client_id`, `client_secret`,
-      and `tenant_id` of the service principal created for Aiven. Save these values
-      for the next step.
-
 1. Provision resources by running
    [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision) and passing your Azure
-   subscription ID and the service principal credentials from the Terraform output.
+   subscription ID.
 
    ```bash
-   avn byoc provision                                \
-     --organization-id "ORGANIZATION_ID"             \
-     --byoc-id "CUSTOM_CLOUD_ID"                     \
-     --azure-subscription-id "AZURE_SUBSCRIPTION_ID" \
-     --azure-client-id "AZURE_CLIENT_ID"             \
-     --azure-client-secret "AZURE_CLIENT_SECRET"     \
-     --azure-tenant-id "AZURE_TENANT_ID"
+   avn byoc provision                            \
+     --organization-id "ORGANIZATION_ID"         \
+     --byoc-id "CUSTOM_CLOUD_ID"                 \
+     --azure-subscription-id "AZURE_SUBSCRIPTION_ID"
    ```
 
    Replace the following:
@@ -344,13 +329,8 @@ definition. Assign it separately through the Azure portal or CLI before running
    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
      from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
      for example `018b6442-c602-42bc-b63d-438026133f60`.
-   - `AZURE_SUBSCRIPTION_ID`, `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and
-     `AZURE_TENANT_ID` with the values from the Terraform output:
-
-     ```bash
-     terraform output -raw azure_subscription_id
-     terraform output -json aiven_service_principal
-     ```
+   - `AZURE_SUBSCRIPTION_ID` with your Azure subscription ID. To retrieve it, run:
+     `az account show --query id -o tsv`.
 
 1. Enable your custom cloud in organizations, projects, or units by running
    [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
