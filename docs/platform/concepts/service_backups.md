@@ -333,12 +333,10 @@ data persistence using Redis Database Backup (RDB).
     full backups are created only according to the backup schedule every 12 hours or
     when the service is powered off.
 
-   - **Disabled (`off`)**: Valkey stops all RDB dumps. If you don't set `backup_hour`,
-     no backups are taken, so if the service restarts or powers off, you may lose any
-     data not yet backed up. If you set `backup_hour`, Valkey still takes a backup at
-     the scheduled time, even though persistence is off. Regardless of the backup
-     schedule, you can't fork or replicate the service while persistence is disabled,
-     which can affect potential scaling or disaster recovery plans.
+   - **Disabled (`off`)**: Valkey stops all RDB dumps and backups. If the service
+     restarts or powers off, you may lose any data not yet backed up. Additionally,
+     you cannot fork or replicate the service, which can affect potential scaling or
+     disaster recovery plans.
 
 1. Click **Save configuration**.
 
