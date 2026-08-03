@@ -98,6 +98,7 @@ DBMSs
 deallocation
 Debezium
 deduplicate
+defragmentation
 depends_on
 deserialization
 deserialize
