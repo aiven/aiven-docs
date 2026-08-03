@@ -20,6 +20,7 @@ backups are taken.
 
 :::note
 When `backup_hour` is set, the backup frequency changes from 12 hours to 24 hours.
+Setting `backup_hour` has no effect while `valkey_persistence` is set to `off`.
 :::
 
 <RelatedPages/>
