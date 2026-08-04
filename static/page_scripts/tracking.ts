@@ -40,7 +40,7 @@ if (typeof window !== 'undefined') {
     if (button) {
       window.posthog?.capture('code_copy_clicked', {path: window.location.pathname});
     }
-    const highlightButton = target?.closest('#kapa-highlight-ask-btn');
+    const highlightButton = target?.id === 'kapa-highlight-ask-btn' ? target : target?.closest('#kapa-highlight-ask-btn');
     if (highlightButton) {
       window.posthog?.capture('highlight_ask_kapa_clicked', {path: window.location.pathname});
     }
