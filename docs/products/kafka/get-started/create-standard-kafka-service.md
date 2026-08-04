@@ -35,12 +35,14 @@ Cloud, and Microsoft Azure.
 1. In **Deployment mode**, click **Aiven cloud**.
 1. Under **Cloud**, click **AWS**, **Google**, or **Azure**, then choose a region.
 1. In **Stream load**, click the expected traffic for the service.
-   For custom stream load, set the maximum ingress. Egress is estimated at 3x ingress.
+   If you select **Custom**, set the maximum ingress. Egress is estimated at 3x
+   ingress.
 
    :::note
-   In **Cost optimization**, use the slider to preview estimated network cost savings
-   at different shares of Diskless topic traffic. This does not change your service
-   configuration.
+   The **Cost optimization** section appears below **Stream load** when you select
+   **10 MB/s** or **Custom**. Use the slider to preview estimated network cost
+   savings at different shares of Diskless topic traffic. This does not change
+   your service configuration.
    :::
 
 1. Click a **Retention** period.
@@ -136,7 +138,7 @@ You can also enable diskless topics later in the service configuration.
 </TabItem>
 </Tabs>
 
-## Review the cost estimate
+### Review the cost estimate
 
 Before you create a Standard Kafka service, review the estimated monthly cost in the
 **Service summary** panel.
@@ -144,12 +146,10 @@ Before you create a Standard Kafka service, review the estimated monthly cost in
 The estimate is based on your selected plan, cloud, region, expected traffic, and
 retention.
 
-For Standard Kafka services with network pricing, the estimate includes compute,
-storage, and network usage. Network usage is estimated from expected data produced to
-and consumed from Kafka topics.
-
-For more information, see
-[Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
+For Standard Kafka services with
+[network pricing](/docs/products/kafka/concepts/network-pricing), the estimate includes
+compute, storage, and network usage. Network usage is estimated from expected data
+produced to and consumed from Kafka topics.
 
 :::note
 The estimated monthly cost is based on your selected configuration and 730 hours of
