@@ -6,7 +6,7 @@ description: Generate and explain SQL queries with natural language.
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
-The AI Assistant in the SQL editor helps you generate SQL queries and understand your database using natural language.
+The AI Assistant in the <ConsoleIcon name="sql editor"/> helps you generate SQL queries and understand your database using natural language.
 
 :::note
 AI features are on by default. If they are off for your organization, the **AI Assistant**
@@ -31,7 +31,7 @@ For blocked request types, see [Security safeguards](/docs/products/postgresql/h
 ## Generate SQL with natural language
 
 1. In the **AI Assistant** panel, describe the query or result you need.
-1. Review the generated SQL in the SQL editor.
+1. Review the generated SQL in the <ConsoleIcon name="sql editor"/>.
 1. Click **Run** to execute the query.
 
 Example queries to try:
@@ -44,11 +44,11 @@ Example queries to try:
 
 ## Ask AI about your query
 
-Use **Ask AI** in the SQL editor to explain queries or create a modified version of your SQL. The AI response and any updated SQL appear in the **AI Assistant** panel.
+Use **Ask AI** in the <ConsoleIcon name="sql editor"/> to explain queries or create a modified version of your SQL. The AI response and any updated SQL appear in the **AI Assistant** panel.
 
-1. Paste a query into the SQL editor.
+1. Paste a query into the <ConsoleIcon name="sql editor"/>.
 1. Optional: Highlight the part of the query to focus on.
-1. Click **Ask AI** in the SQL editor.
+1. Click **Ask AI** in the <ConsoleIcon name="sql editor"/>.
 1. In the **AI Assistant** panel, enter your request.
 1. Review the explanation or updated SQL in the **AI Assistant** panel.
 1. Optional: Click **Run query** in the **AI Assistant** panel to move the updated SQL to the editor and execute it.
@@ -67,7 +67,7 @@ When you highlight a snippet, the AI uses it as a focused context. You can ask f
 
 ## How AI context works
 
-When you work in the SQL editor, click **Ask AI** for the current statement. The SQL editor opens the **AI Assistant** panel, attaches SQL context, and focuses the input. It sends SQL context in two parts:
+When you work in the <ConsoleIcon name="sql editor"/>, click **Ask AI** for the current statement. The <ConsoleIcon name="sql editor"/> opens the **AI Assistant** panel, attaches SQL context, and focuses the input. It sends SQL context in two parts:
 
 - The full active SQL statement for context, including aliases, common table expressions (CTEs), and joins.
 - Any highlighted SQL snippet as a separate focus area.

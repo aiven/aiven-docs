@@ -6,7 +6,7 @@ description: Open the SQL editor or Table editor and run your first queries.
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
-Open the SQL editor or Table editor and run your first queries.
+Open the <ConsoleIcon name="sql editor"/> or <ConsoleIcon name="table editor"/> and run your first queries.
 
 :::note
 PG Studio and its AI features are on by default, so no setup is needed. To turn them off,
@@ -43,7 +43,7 @@ You can write SQL directly. If AI features are on, you can also use the
 
 ### Write SQL manually
 
-1. In the SQL editor, enter your query, for example:
+1. In the <ConsoleIcon name="sql editor"/>, enter your query, for example:
 
    ```sql
    SELECT * FROM users LIMIT 10;
@@ -56,7 +56,7 @@ You can write SQL directly. If AI features are on, you can also use the
 
 1. In the **AI Assistant** panel, describe what you need, for example:
    **Show all users who signed up in the last 7 days**.
-1. Review the generated SQL in the SQL editor.
+1. Review the generated SQL in the <ConsoleIcon name="sql editor"/>.
 1. Click **Run** to execute the query.
 
 ## Explore your schema
