@@ -7,8 +7,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Explore high availability with Aiven for Valkey™ across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
 
-The failover behavior described below applies to non-clustered Aiven for Valkey services.
-If your service uses [clustering](/docs/products/valkey/concepts/valkey-cluster), see
+Non-clustered Aiven for Valkey services get automatic failover to a standby node; see
+[Failure handling](#failure-handling) for details. If your service uses
+[clustering](/docs/products/valkey/concepts/valkey-cluster), see
 [Failover](/docs/products/valkey/concepts/valkey-cluster#failover) instead.
 
 Compare Aiven for Valkey™ plans in the table below. Each plan offers unique
