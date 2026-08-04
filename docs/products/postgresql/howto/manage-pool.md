@@ -67,6 +67,13 @@ To manage the connection pools:
     -   A total of 50000 client connections
     :::
 
+    :::note
+    By default, an Aiven for PostgreSQL service supports up to 20 connection pools.
+    This limit is shared with the number of databases on the service, so pools and
+    databases count against the same total. If you need more, contact
+    [Aiven support](/docs/platform/howto/support).
+    :::
+
 1.  To view the database connection settings for a pool, click
     <ConsoleLabel name="actions"/> > **Info**.
 
