@@ -20,7 +20,8 @@ To manage Data API, open your Aiven for PostgreSQL® service in the
 
 ## Check the status
 
-Each database that you expose runs as an independent Aiven App with its own status, shown
+Each database that you expose runs as an independent
+[Aiven App](/docs/products/aiven-apps) with its own status, shown
 on the **Data API** page:
 
 - **API building**: The application is deploying or applying a change. Setup and requests

@@ -39,7 +39,8 @@ Data API provides the following:
 
 ## How it works
 
-When you enable Data API for a database, Aiven deploys a dedicated Aiven App that runs
+When you enable Data API for a database, Aiven deploys a dedicated
+[Aiven App](/docs/products/aiven-apps) that runs
 PostgREST in the same region as your service and connects it to the selected database.
 PostgREST reads the database schema and publishes a REST endpoint for each table. By
 default, endpoints are published for the `public` schema. To access tables in other
