@@ -130,6 +130,37 @@ clustering from the start.
 - Configure your client to discover and connect to cluster nodes automatically.
 - Test failover behavior to ensure your application handles node changes gracefully.
 
+## Failover
+
+When a primary node stops responding, Aiven for Valkey promotes one of its replicas to
+primary so the shard keeps accepting writes.
+
+This differs from failover in [non-clustered Aiven for Valkey
+services](/docs/products/valkey/concepts/high-availability). A non-clustered service holds
+your whole dataset on a single primary, so failover is one event, where a standby takes
+over as the new primary. A clustered service splits your dataset across multiple shards,
+each with its own primary, so failover happens per shard, and how Aiven promotes the
+replacement primary for that shard depends on how many shards the cluster has:
+
+- **Clusters with three or more shards, where every shard has a replica**: The surviving
+  primaries vote and promote a replica of the affected shard automatically, following
+  Valkey's built-in cluster election. Aiven only steps in if this election doesn't
+  complete.
+- **Clusters with one or two shards, or a shard with no replica**: Promoting a replica
+  through Valkey's election requires a majority vote among primaries, and a cluster with
+  fewer than three shards can't reach that majority once one primary is unreachable. In
+  this case, Aiven promotes the replica that's furthest ahead in replication, meaning the
+  one with the least data loss, once it confirms the failed primary is no longer part of
+  the service. If the shard has no replica, Aiven provisions a new node instead and
+  restores its data from the most recent backup.
+
+Failover isn't instant. While a shard has uncovered hash slots, the whole cluster stops
+accepting commands, not only the keys on the affected shard. This is different from a
+non-clustered service, where a standby failure never interrupts the primary and a primary
+failure only pauses the service for a single failover event. Add at least one replica to
+every shard to reduce how long a single node failure affects your cluster. You can inspect
+cluster health at any time by running `CLUSTER NODES`.
+
 ## Resharding
 
 Aiven for Valkey distributes data across primary nodes using hash slots. When the number
