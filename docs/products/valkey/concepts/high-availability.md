@@ -3,7 +3,13 @@ title: High availability in Aiven for Valkey™
 sidebar_label: High availability
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Explore high availability with Aiven for Valkey™ across multiple plans. Gain insights into service continuity and understand the approach to handling failures.
+
+The failover behavior described below applies to non-clustered Aiven for Valkey services.
+If your service uses [clustering](/docs/products/valkey/concepts/valkey-cluster), see
+[Failover](/docs/products/valkey/concepts/valkey-cluster#failover) instead.
 
 Compare Aiven for Valkey™ plans in the table below. Each plan offers unique
 configurations and features. Choose what best fits your needs.
@@ -76,3 +82,9 @@ from the latest available backup and resumes serving customers.
 
 During the restore operation, the service is unavailable since there is only
 one node providing the service. Any write operations made after the last backup are lost.
+
+<RelatedPages/>
+
+- [Aiven for Valkey clustering](/docs/products/valkey/concepts/valkey-cluster)
+- [Get started with Aiven for Valkey](/docs/products/valkey/get-started)
+- [Read replica](/docs/products/valkey/concepts/read-replica)
