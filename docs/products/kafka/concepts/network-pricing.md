@@ -6,21 +6,20 @@ sidebar_label: Network pricing
 import RelatedPages from "@site/src/components/RelatedPages";
 
 For Standard Kafka services, Aiven bills compute, storage, and network usage separately.
-Instead of including assumed network usage in the compute price, Aiven measures and
-prices network usage based on traffic through your Kafka topics.
+Unlike Classic Kafka, where network usage costs are included in the compute price, Aiven
+measures and bills Standard Kafka network usage based on actual traffic through your
+Kafka topics.
 
-The network pricing model shows how service capacity, retained data, and topic traffic
-contribute to your monthly cost.
-
-Network pricing is available on Standard Kafka plans. It does not apply to Classic Kafka
-services, including services on Free and Developer tiers.
+Network pricing applies to Standard Kafka plans. It does not apply to Classic Kafka
+services, including Free and Developer tiers.
 
 ## Pricing components
 
 Aiven bills Standard Kafka services across three components:
 
 - **Compute**: The cost of the selected service plan.
-- **Storage**: The cost of data retained by the service.
+- **Storage**: The cost of data retained by the service, based on the amount of data
+  stored and how long it's retained.
 - **Network usage**: The cost of data produced to and consumed from Kafka topics.
 
 ## Network usage
@@ -75,13 +74,19 @@ review:
 - Storage usage
 - Predicted usage for the billing period
 
-The Aiven Console shows network usage separately for Classic topics and Diskless topics.
-Predicted usage estimates future usage for the billing period based on recent usage
-patterns. Usage information shown during the billing period can change as Aiven processes
-new usage data.
+:::note
+The Aiven Console shows usage values in the unit that best fits the size of the
+number, for example bytes, KB, MB, GB, or TB. The unit can change as usage grows
+during the billing period.
+:::
 
-For a breakdown by topic type and direction, go to **Billing** > **Reports**. The report
-separates Classic and Diskless topic usage, and ingress and egress.
+Storage usage reflects both the amount of data stored and how long it's retained. For
+example, $0.12 per GB-month is equivalent to $0.000164 per GB-hour, so the Aiven
+Console can show storage usage in units such as KB-hours or MB-hours.
+
+The Aiven Console shows network usage separately for Classic topics and Diskless topics.
+Predicted usage is based on your usage so far in the billing period. Usage information
+shown during the billing period can change as Aiven processes new usage data.
 
 ## Cost drivers
 
@@ -109,15 +114,6 @@ To manage costs, review the factors that affect compute, storage, and network us
 - Review consumer applications and client configuration if egress is higher than
   expected.
 - Monitor usage during the billing period to identify unexpected changes.
-
-## Fair usage
-
-Network architectures that generate unusually high costs can result in additional
-charges under Aiven's fair usage policy. Examples include inter-region traffic, internet
-traffic, and excessive cross-availability zone traffic for Diskless topics.
-
-If your service generates unusually high network costs, Aiven contacts you to discuss
-suitable adjustments.
 
 <RelatedPages />
 
