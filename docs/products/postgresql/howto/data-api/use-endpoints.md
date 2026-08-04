@@ -18,7 +18,7 @@ Data API is a <LimitedBadge/> feature.
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL®
    service.
-1. Click <ConsoleLabel name="connect"/> > **Data API**.
+1. Click <ConsoleLabel name="data"/> > **Data API**.
 1. Select the database with Data API enabled.
 
 The **Data API** page shows the **API URL** for the database. All endpoints are relative to

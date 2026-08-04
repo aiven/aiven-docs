@@ -16,17 +16,24 @@ Data API is a <LimitedBadge/> feature.
 
 To manage Data API, open your Aiven for PostgreSQL® service in the
 [Aiven Console](https://console.aiven.io/login) and click
-<ConsoleLabel name="connect"/> > **Data API**.
+<ConsoleLabel name="data"/> > **Data API**.
 
 ## Check the status
 
-Each database that you expose runs as an independent application with its own status, shown
+Each database that you expose runs as an independent Aiven App with its own status, shown
 on the **Data API** page:
 
 - **API building**: The application is deploying or applying a change. Setup and requests
   might not succeed yet.
 - **API running**: The application is healthy and serving requests.
 - **Error**: The deployment failed. For next steps, see [Troubleshooting](#troubleshooting).
+
+## View the underlying Aiven App
+
+After enabling Data API, the **Data API** page shows an **Aiven App** row with a link to
+the dedicated app running PostgREST. Aiven deploys the app in the same region as your
+PostgreSQL service and bills it separately. You can also find it in your project's
+**Applications** list.
 
 ## Expose more databases
 
@@ -55,9 +62,14 @@ restarting the service.
 
 ## Turn off Data API
 
-Turn off Data API to stop serving endpoints for a database. Select the database, then turn
-off its Data API. The endpoints stop responding after the application is removed. Turning off
-Data API doesn't change the data in your database.
+Turn off Data API to stop serving endpoints for a database. On the **Data API** page,
+click the database and turn off its Data API. The endpoints stop responding after the
+application is removed. Turning off Data API doesn't change the data in your database.
+
+:::note
+If you delete the PostgreSQL service, Aiven also deletes all associated Data API apps.
+The apps are no longer accessible from the **Applications** list or anywhere else.
+:::
 
 ## Troubleshooting
 

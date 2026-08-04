@@ -16,8 +16,8 @@ To enable Data API, you need the following:
 
 - <LimitedBadge/> access to Data API. To request access,
   [contact Aiven](https://aiven.io/contact).
-- Data API available for your service's plan and cloud. If it isn't, the Aiven Console shows
-  **The data API is not available for your service**.
+- Data API available for your service's plan and cloud. If it isn't, the Aiven Console
+  shows **The data API is not available for your service**.
 - The `project:services:write` and `service:data:write` permissions.
 - An identity provider (IdP) that issues JWTs and publishes a
   [JWKS URL](/docs/products/postgresql/howto/data-api/authentication) over HTTPS. Auth0,
@@ -27,17 +27,24 @@ To enable Data API, you need the following:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.
-1. Click <ConsoleLabel name="connect"/> > **Data API**.
+1. Click <ConsoleLabel name="data"/> > **Data API**.
 1. In the **Database** list, select the database to expose.
 1. Click **Set up API**.
-1. In the **Data API** dialog, under **Identity provider**, configure the following:
-   - **JWKS URL**: Enter the HTTPS URL where your IdP publishes its public keys.
-   - **Audience**: Enter the API identifier configured in your IdP.
-1. Click **Enable API**.
+1. In the **DataAPI for [database]** dialog, configure the following:
+   - Under **Identity provider**:
+     - **JWKS URL**: Enter the HTTPS URL where your IdP publishes its public keys.
+     - **Audience**: Enter the API identifier configured in your IdP.
+   - Under **Settings**, choose how to deploy the underlying Aiven App:
+     - **Recommended**: Uses best-practice cloud, region, and plan for your service.
+     - **Custom**: Choose your own cloud, region, and plan. Select the service tier,
+       cloud, and plan from the available options.
+1. Review the **Summary** panel on the right, which shows the cloud, plan, and estimated
+   monthly price for the Aiven App.
+1. Click **Confirm and deploy**.
 
-Data API starts deploying, and the service status shows **Building**. When the application
-is healthy, the status changes to **Running** and the endpoints become available. While the
-service is still being provisioned, setup is unavailable and the Aiven Console shows
+Data API starts deploying and the status shows **API building**. When the app is healthy,
+the status changes to **API running** and the endpoints become available. While the service
+is still being provisioned, setup is unavailable and the Aiven Console shows
 **Set up your data API** with a note that the service is still being provisioned.
 
 For details on the JWKS URL and audience fields, see
