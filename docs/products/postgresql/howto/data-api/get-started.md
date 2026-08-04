@@ -34,7 +34,8 @@ To enable Data API, you need the following:
    - Under **Identity provider**:
      - **JWKS URL**: Enter the HTTPS URL where your IdP publishes its public keys.
      - **Audience**: Enter the API identifier configured in your IdP.
-   - Under **Settings**, choose how to deploy the underlying Aiven App:
+   - Under **Settings**, choose how to deploy the underlying
+     [Aiven App](/docs/products/aiven-apps):
      - **Recommended**: Uses best-practice cloud, region, and plan for your service.
      - **Custom**: Choose your own cloud, region, and plan. Select the service tier,
        cloud, and plan from the available options.
