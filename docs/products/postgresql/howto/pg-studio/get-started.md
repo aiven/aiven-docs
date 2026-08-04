@@ -1,12 +1,12 @@
 ---
 title: Get started with PG Studio
 sidebar_label: Get started
-description: Open PG Studio and run your first queries.
+description: Open the SQL editor or Table editor and run your first queries.
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
-Open PG Studio and run your first queries.
+Open the SQL editor or Table editor and run your first queries.
 
 :::note
 PG Studio and its AI features are on by default, so no setup is needed. To turn them off,
@@ -26,7 +26,7 @@ To use PG Studio, you need:
   the `Access is not allowed from the IP address` error, add your IP address to the
   allowlist.
 
-## Open PG Studio
+## Open the SQL editor or Table editor
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.

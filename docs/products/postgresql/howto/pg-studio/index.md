@@ -9,7 +9,9 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import DocCardList from '@theme/DocCardList';
 
-Aiven PG Studio lets you write, understand, and run SQL queries in the Aiven Console using natural language. It combines an SQL editor with an AI assistant that uses your database schema to generate and explain queries.
+Aiven PG Studio is the name for the SQL and table editing tools built into the Aiven Console for Aiven for PostgreSQL®.
+PG Studio isn't a single item you open in the console. It's made up of two separate
+entities in the left-hand menu, the SQL editor and the Table editor.
 
 :::note
 PG Studio and its AI features are on by default. To
@@ -37,6 +39,9 @@ PG Studio supports:
 - Executing write queries and data definition statements with built-in safety guardrails
 
 ## PG Studio components
+
+PG Studio consists of two components, each available as a separate entity in the
+left-hand menu of the Aiven Console:
 
 <ConsoleIcon name="sql editor"/>:
 

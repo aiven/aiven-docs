@@ -4,7 +4,7 @@ sidebar_label: Manage queries
 description: Save and organize your queries for reuse.
 ---
 
-PG Studio lets you save useful SQL and revisit recently executed statements, so you can continue analysis without rewriting queries.
+The SQL editor lets you save useful SQL and revisit recently executed statements, so you can continue analysis without rewriting queries.
 
 ## Save queries
 
@@ -17,7 +17,7 @@ To save a query:
 1. Run the query and verify the result.
 1. Click **Save**.
 
-PG Studio saves the query using the current tab name. The query appears in **Saved queries**.
+The SQL editor saves the query using the current tab name. The query appears in **Saved queries**.
 
 ## Access saved queries and query history
 
