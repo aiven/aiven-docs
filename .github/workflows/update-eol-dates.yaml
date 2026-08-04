@@ -1,0 +1,52 @@
+name: Update EOL dates
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'  # weekly on Monday at 7 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update-eol-dates:
+    name: Update EOL dates from Aiven API
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run EOL date update script
+        # Exit code 0 = no changes; 1 = doc updated; 2 = error
+        run: |
+          set +e
+          python scripts/update-eol-dates.py
+          script_exit=$?
+          echo "SCRIPT_EXIT=$script_exit" >> "$GITHUB_ENV"
+      - name: Log no changes
+        if: env.SCRIPT_EXIT == '0'
+        run: echo "No changes detected."
+      - name: Create pull request
+        if: env.SCRIPT_EXIT == '1'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "EOL dates - sync from Aiven API"
+          committer: GitHub <noreply@github.com>
+          author: GitHub <noreply@github.com>
+          title: "Update EOL/EOA dates from Aiven API"
+          body: |
+            > [!NOTE]
+            > Auto-generated PR. Dates synced from `api.aiven.io/v1/service_versions`.
+            > Review the diff and merge when accurate.
+          base: main
+          branch: eol-dates-update
+          labels: automated-pr, review/TW
+          delete-branch: true
+      - name: Fail if script errored
+        if: env.SCRIPT_EXIT == '2'
+        run: exit 2
+      - name: Fail on unexpected exit code
+        if: env.SCRIPT_EXIT != '0' && env.SCRIPT_EXIT != '1' && env.SCRIPT_EXIT != '2'
+        run: |
+          echo "Script exited with unexpected code: $SCRIPT_EXIT"
+          exit 1
