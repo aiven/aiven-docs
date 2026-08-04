@@ -9,6 +9,7 @@ jobs:
   update-eol-dates:
     name: Update EOL dates from Aiven API
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -22,6 +23,9 @@ jobs:
           python scripts/update-eol-dates.py
           script_exit=$?
           echo "SCRIPT_EXIT=$script_exit" >> "$GITHUB_ENV"
+      - name: Log no changes
+        if: env.SCRIPT_EXIT == '0'
+        run: echo "No changes detected."
       - name: Create pull request
         if: env.SCRIPT_EXIT == '1'
         uses: peter-evans/create-pull-request@v6
@@ -41,3 +45,8 @@ jobs:
       - name: Fail if script errored
         if: env.SCRIPT_EXIT == '2'
         run: exit 2
+      - name: Fail on unexpected exit code
+        if: env.SCRIPT_EXIT != '0' && env.SCRIPT_EXIT != '1' && env.SCRIPT_EXIT != '2'
+        run: |
+          echo "Script exited with unexpected code: $SCRIPT_EXIT"
+          exit 1
