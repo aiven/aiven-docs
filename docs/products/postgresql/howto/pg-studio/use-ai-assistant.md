@@ -6,7 +6,7 @@ description: Generate and explain SQL queries with natural language.
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
-The AI Assistant in PG Studio helps you generate SQL queries and understand your database using natural language.
+The AI Assistant in the SQL editor helps you generate SQL queries and understand your database using natural language.
 
 :::note
 AI features are on by default. If they are off for your organization, the **AI Assistant**
@@ -67,7 +67,7 @@ When you highlight a snippet, the AI uses it as a focused context. You can ask f
 
 ## How AI context works
 
-When you work in the SQL editor, click **Ask AI** for the current statement. PG Studio opens the **AI Assistant** panel, attaches SQL context, and focuses the input. PG Studio sends SQL context in two parts:
+When you work in the SQL editor, click **Ask AI** for the current statement. The SQL editor opens the **AI Assistant** panel, attaches SQL context, and focuses the input. It sends SQL context in two parts:
 
 - The full active SQL statement for context, including aliases, common table expressions (CTEs), and joins.
 - Any highlighted SQL snippet as a separate focus area.
