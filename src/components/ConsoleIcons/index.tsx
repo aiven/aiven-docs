@@ -110,12 +110,6 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>AI insights</b>
         </>
       );
-    case 'aieditor':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>PG Studio</b>
-        </>
-      );
     case 'sqleditor':
       return (
         <>

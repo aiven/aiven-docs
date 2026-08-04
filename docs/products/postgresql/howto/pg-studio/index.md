@@ -11,7 +11,8 @@ import DocCardList from '@theme/DocCardList';
 
 Aiven PG Studio is the name for the SQL and table editing tools built into the Aiven Console for Aiven for PostgreSQL®.
 PG Studio isn't a single item you open in the console. It's made up of two separate
-entities in the left-hand menu, the SQL editor and the Table editor.
+entities in the left-hand menu, the <ConsoleIcon name="sql editor"/> and the
+<ConsoleIcon name="table editor"/>.
 
 :::note
 PG Studio and its AI features are on by default. To
@@ -45,20 +46,20 @@ left-hand menu of the Aiven Console:
 
 <ConsoleIcon name="sql editor"/>:
 
-- **SQL editor:** Write and edit SQL across multiple tabs. Run a single statement or select
-  multiple statements to execute them all at once, with each result shown in its own tab.
-  Execute write operations with built-in safety guardrails.
+- Write and edit SQL across multiple tabs. Run a single statement or select multiple
+  statements to execute them all at once, with each result shown in its own tab. Execute
+  write operations with built-in safety guardrails.
 - **AI Assistant panel:** Describe what you need in natural language. The assistant
   generates SQL or explains queries, tables, and relationships using your database schema.
 
 <ConsoleIcon name="table editor"/>:
 
-- **Table editor:** Browse tables in your selected schema and preview table data.
+- Browse tables in your selected schema and preview table data.
 - **Schema map:** View your database structure as an interactive diagram showing tables,
   columns, and relationships. Click the copy icon next to a table name to copy it to the
   clipboard.
-- **No AI Assistant:** The Table editor doesn't include the AI Assistant panel available
-  in the SQL editor.
+- **No AI Assistant:** The <ConsoleIcon name="table editor"/> doesn't include the AI
+  Assistant panel available in the <ConsoleIcon name="sql editor"/>.
 
 ## Get started with PG Studio
 

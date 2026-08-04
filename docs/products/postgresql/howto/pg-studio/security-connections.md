@@ -4,6 +4,8 @@ sidebar_label: Security and connections
 description: Understand how PG Studio connects and protects your data.
 ---
 
+import ConsoleIcon from "@site/src/components/ConsoleIcons";
+
 Learn how PG Studio connects to your database and ensures safe, controlled access.
 
 ## Database connection details
@@ -11,7 +13,7 @@ Learn how PG Studio connects to your database and ensures safe, controlled acces
 PG Studio connects to your PostgreSQL service using:
 
 - **Database user:** The `avnadmin` user account, which has full read and write access to
-  your databases. You can run SQL statements through the SQL editor.
+  your databases. You can run SQL statements through the <ConsoleIcon name="sql editor"/>.
 - **Access scope:** Full database access with the same privileges as the `avnadmin` user.
   This is not limited to read-only access.
 
@@ -21,10 +23,10 @@ PG Studio ensures safe, controlled access:
 
 For AI query generation scope, see [How AI assistance works](/docs/products/postgresql/howto/pg-studio/use-ai-assistant#how-ai-assistance-works).
 
-- **Single-statement validation:** The SQL editor allows only one SQL statement per
-  execution.
-- **Automatic safety checks:** The SQL editor validates all generated SQL for safety
-  before execution.
+- **Single-statement validation:** The <ConsoleIcon name="sql editor"/> allows only one
+  SQL statement per execution.
+- **Automatic safety checks:** The <ConsoleIcon name="sql editor"/> validates all
+  generated SQL for safety before execution.
 - **Restricted unsafe requests:** Requests for privilege escalation or malicious SQL are
   blocked.
 - **Timeouts and limits:**
@@ -35,8 +37,8 @@ For AI query generation scope, see [How AI assistance works](/docs/products/post
 - **Encrypted connections:** All database connections use SSL/TLS encryption.
 - **Rate limiting:** Two query executions every two seconds per user per service; one
   AI request every two seconds per user per service.
-- **Write query safeguards:** When you run a write query, the SQL editor prompts you to
-  confirm before executing.
+- **Write query safeguards:** When you run a write query, the
+  <ConsoleIcon name="sql editor"/> prompts you to confirm before executing.
 - **Fork testing option:** You can test write queries on a database fork instead of modifying
   live data directly.
 
