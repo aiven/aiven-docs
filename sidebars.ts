@@ -1399,12 +1399,12 @@ const sidebars: SidebarsConfig = {
               ],
             },
             {
-            type: 'category',
-            label: 'Maintenance and lifecycle',
-            items: [
-              'products/datahub/upgrade-datahub-version',
-              'products/datahub/restore-datahub-indices',
-            ],
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              items: [
+                'products/datahub/upgrade-datahub-version',
+                'products/datahub/restore-datahub-indices',
+              ],
           },
             'products/datahub/fork-datahub-service',
           ],
