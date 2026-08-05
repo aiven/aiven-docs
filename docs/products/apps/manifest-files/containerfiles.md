@@ -6,7 +6,7 @@ limited: true
 
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
 
-Aiven Runtime automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure apps.
+Aiven Runtime automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure applications.
 
 It recognizes Containerfiles and Dockerfiles in the following formats:
 

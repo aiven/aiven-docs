@@ -6,7 +6,7 @@ limited: true
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Connect a custom domain to an Aiven Runtime application using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated app hostname.
+Connect a custom domain to an Aiven Runtime application using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated application hostname.
 
 This approach adds an extra network hop and a Worker subrequest
 before traffic reaches Aiven. This can increase latency slightly.
@@ -39,7 +39,7 @@ and you cannot rely on the Worker as a security boundary.
 ## Connect a custom domain managed by Cloudflare
 
 1. To get the Aiven Runtime application URL, in the Aiven Console, click <ConsoleLabel name="runtime"/>
-   and open your app.
+   and open your application.
 1. In the **Connection information** section, copy the **Application URL**.
 1. In Cloudflare, open your domain and click **DNS Records**.
 1. Click **Add Record**.
@@ -130,4 +130,4 @@ and you cannot rely on the Worker as a security boundary.
 
 1. Select the **Worker** and click **Save**.
 
-1. Open the custom domain in a browser to confirm the app loads.
+1. Open the custom domain in a browser to confirm the application loads.

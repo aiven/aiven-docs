@@ -6,10 +6,10 @@ limited: true
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Environment variables and secrets let you configure your application at runtime instead of embedding settings and sensitive information into your code. You can use them to pass information like API keys and database connection details to the application. This keeps sensitive data safe and makes it easy to adjust how your app behaves in different setups.
+Environment variables and secrets let you configure your application at runtime instead of embedding settings and sensitive information into your code. You can use them to pass information like API keys and database connection details to the application. This keeps sensitive data safe and makes it easy to adjust how your application behaves in different setups.
 
 When you edit secrets and environment variables, Aiven
-redeploys your app with the new configuration. It deploys the same commit
+redeploys your application with the new configuration. It deploys the same commit
 from your Git branch that was deployed previously. To deploy the latest commit,
 you can manually [redeploy your app](/docs/products/apps/deploy-apps#redeploy-an-app).
 

@@ -31,7 +31,7 @@ Aiven recognizes Compose files with the following file naming conventions:
   </tbody>
 </table>
 
-Aiven automatically analyzes Compose files to detect the apps to build and
+Aiven automatically analyzes Compose files to detect the applications to build and
 the Aiven services to create.
 
 ## Create a Compose file
@@ -155,9 +155,9 @@ services:
 ### Simple web application with PostgreSQL
 
 The following example uses a Docker Compose file and a Dockerfile to
-configure a basic web app that is integrated with a PostgreSQL database.
+configure a basic web application that is integrated with a PostgreSQL database.
 
-The `docker-compose.yml` file defines the app and the PostgreSQL service,
+The `docker-compose.yml` file defines the application and the PostgreSQL service,
 along with the environment variables for integration:
 
 ```yaml
@@ -213,7 +213,7 @@ CMD ["npm", "start"]
 The following example uses a Compose file to configure a web application
 and integrate it with a Kafka broker using SASL authentication.
 
-The file defines the app and the Kafka service, along with the environment variables
+The file defines the application and the Kafka service, along with the environment variables
 for integration:
 
 ```yaml

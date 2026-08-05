@@ -6,10 +6,10 @@ limited: true
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-You can change the cloud provider or region of an Aiven Runtime.
+You can change the cloud provider or region of an Aiven Runtime application.
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
-1. Open your app.
+1. Open your application.
 1. In the **Cloud and network** section, click **Change cloud**.
 1. Select a cloud provider and region.
 1. Optional: Select a different plan.
