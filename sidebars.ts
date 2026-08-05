@@ -385,10 +385,10 @@ const sidebars: SidebarsConfig = {
     },
   ],
   //Apps sidebar
-  apps: [
+  runtime: [
     {
       type: 'category',
-      label: 'Apps',
+      label: 'Runtime',
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',

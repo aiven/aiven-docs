@@ -1,5 +1,5 @@
 ---
-title: Create Compose files for Aiven Apps
+title: Create Compose files for Aiven Runtime
 sidebar_label: Create Compose files
 limited: true
 ---
@@ -7,7 +7,7 @@ limited: true
 import RelatedPages from "@site/src/components/RelatedPages";
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
 
-Aiven Apps scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
+Aiven Runtime scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
 Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
 
 Aiven recognizes Compose files with the following file naming conventions:
@@ -36,14 +36,14 @@ the Aiven services to create.
 
 ## Create a Compose file
 
-Use the following guidelines to create your Compose files for Aiven Apps.
+Use the following guidelines to create your Compose files for Aiven Runtime.
 More information on formatting Compose files is available in the
 [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md)
 and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file).
 
 ### Service integrations
 
-Aiven Apps automatically detects and creates the following data services based
+Aiven Runtime automatically detects and creates the following data services based
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
 and Aiven for OpenSearch®.
 

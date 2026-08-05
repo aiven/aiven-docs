@@ -1,5 +1,5 @@
 ---
-title: Manage ports for Aiven Apps
+title: Manage ports for Aiven Runtime
 sidebar_label: Manage ports
 limited: true
 ---
@@ -31,7 +31,7 @@ section for the app.
 
 To expose ports for an existing app:
 
-1. In your project, click <ConsoleLabel name="applications"/>.
+1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your app.
 1. In the **Connection information** section, click **Edit ports**.
 1. Click **Add port**.
@@ -40,7 +40,7 @@ To expose ports for an existing app:
 
 ## Change or remove exposed ports
 
-1. In your project, click <ConsoleLabel name="applications"/>.
+1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your app.
 1. In the **Connection information** section, click **Edit ports**.
 1. Edit the ports. To delete a port, click <ConsoleIcon name="delete"/>.

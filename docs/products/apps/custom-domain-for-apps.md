@@ -1,12 +1,12 @@
 ---
-title: Connect a custom domain to an Aiven App
+title: Connect a custom domain to an Aiven Runtime
 sidebar_label: Connect a custom domain
 limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Connect a custom domain to an Aiven App using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated app hostname.
+Connect a custom domain to an Aiven Runtime application using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated app hostname.
 
 This approach adds an extra network hop and a Worker subrequest
 before traffic reaches Aiven. This can increase latency slightly.
@@ -17,7 +17,7 @@ Worker usage and pricing depend on your Cloudflare plan.
 This approach fronts your app's existing public URL. It doesn't replace the URL,
 and you cannot rely on the Worker as a security boundary.
 
-- **The Aiven App URL stays publicly reachable**: Traffic reaches your container with
+- **The application URL stays publicly reachable**: Traffic reaches your container with
    the public `*.aiven.app` host. Anyone who knows that URL can bypass your custom domain
    and any Cloudflare-layer protections you configure on it.
 - **The app must be host-aware**: Requests reach your app with the `Host` set to the
@@ -30,7 +30,7 @@ and you cannot rely on the Worker as a security boundary.
 
 ## Prerequisites
 
-- An Aiven App with a publicly accessible URL.
+- An Aiven Runtime application with a publicly accessible URL.
 - A domain that is managed by Cloudflare and uses Cloudflare nameservers.
 - The domain record is set to **Proxied** in Cloudflare.
 - Universal SSL covers your root domain and first-level subdomains.
@@ -38,14 +38,14 @@ and you cannot rely on the Worker as a security boundary.
 
 ## Connect a custom domain managed by Cloudflare
 
-1. To get the Aiven App URL, in the Aiven Console, click <ConsoleLabel name="applications"/>
+1. To get the Aiven Runtime application URL, in the Aiven Console, click <ConsoleLabel name="runtime"/>
    and open your app.
 1. In the **Connection information** section, copy the **Application URL**.
 1. In Cloudflare, open your domain and click **DNS Records**.
 1. Click **Add Record**.
 1. For the **Type**, select **CNAME**.
 1. Enter the **Name**.
-1. For the **Target**, enter the Aiven App URL without `https://`.
+1. For the **Target**, enter the application URL without `https://`.
 1. Set the **Proxy status** to **Proxied**, and **TTL** to **Auto**.
 1. Click **Back to Domains**, and in the sidebar,
    click **Compute** > **Workers & Pages**.
@@ -58,7 +58,8 @@ and you cannot rely on the Worker as a security boundary.
    :::
 
 1. Configure the Worker. The following example forwards requests to
-  an Aiven App host while preserving the original request method, body, and headers:
+  an Aiven Runtime application host while preserving the original
+  request method, body, and headers:
 
    ```js
    const AIVEN_HOST = "AIVEN_APP_HOSTNAME";

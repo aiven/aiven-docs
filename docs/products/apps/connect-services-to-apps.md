@@ -1,5 +1,5 @@
 ---
-title: Connect services to Aiven Apps
+title: Connect services to Aiven Runtime
 sidebar_label: Connect services
 limited: true
 ---
@@ -12,7 +12,7 @@ Aiven for OpenSearch®, or Aiven for Valkey™ service.
 
 ## Connect an Aiven service
 
-1. In your project, click <ConsoleLabel name="applications"/>.
+1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.
 1. In the **Connected services** section, click **Connect service**.
 1. Select the service to connect.
@@ -20,7 +20,7 @@ Aiven for OpenSearch®, or Aiven for Valkey™ service.
 
 ## Disconnect an Aiven service
 
-1. In your project, click <ConsoleLabel name="applications"/>.
+1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.
 1. In the **Connected services** section, find the service to disconnect.
 1. Click <ConsoleLabel name="Actions"/> > **Disconnect service**.
@@ -28,7 +28,7 @@ Aiven for OpenSearch®, or Aiven for Valkey™ service.
 
 ## Apply database schema changes
 
-Aiven Apps does not automatically support pre-deploy commands or one-off task execution.
+Aiven Runtime does not automatically support pre-deploy commands or one-off task execution.
 To run database schema migrations, you can do one of the following:
 
 - **Run migrations at container startup**: You can update the `CMD` or entrypoint of your
