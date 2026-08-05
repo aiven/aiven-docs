@@ -384,7 +384,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  //Apps sidebar
+  //Runtime sidebar
   runtime: [
     {
       type: 'category',
