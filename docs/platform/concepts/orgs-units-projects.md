@@ -2,7 +2,7 @@
 title: Organizations, units, and projects
 ---
 
-import Overview from "@site/static/images/content/figma/organizations-overview.png";
+import OrgHierarchy from "@site/static/images/content/figma/organizations-hierarchy.png";
 
 The Aiven Platform uses organizations, organizational units, and projects to efficiently and securely organize your services and manage access.
 
@@ -16,16 +16,12 @@ There are three levels in this hierarchy:
 - **Projects**: Created in the organization or organizational units to group your services
     together.
 
-<div style={{ textAlign: 'center' }}>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/axhcppn6W2c?si=6uC3mmQ4ATNbyTrt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-</div>
-
 ## Organizations
 
 When you sign up to Aiven, an organization is created for you. You can use your
 organization to create a hierarchical structure that fits your needs.
 
-<img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={Overview} width="58%" className="centered"/>
+<img alt="Hierarchy showing two organizational units, each with two projects, nested within one organization." src={OrgHierarchy} width="58%" className="centered"/>
 
 Organizations also let you centrally manage settings like:
 
