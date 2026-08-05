@@ -1391,16 +1391,23 @@ const sidebars: SidebarsConfig = {
                     'products/datahub/configure-teams-notifications',
                   ],
                 },
-                {
-                  type: 'category',
-                  label: 'Maintenance and upgrades',
-                  items: [
-                    'products/datahub/upgrade-datahub-version',
-                    'products/datahub/restore-datahub-indices',
-                  ],
-                },
               ],
             },
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              items: [
+                'products/datahub/scale-datahub-service',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              items: [
+                'products/datahub/upgrade-datahub-version',
+                'products/datahub/restore-datahub-indices',
+              ],
+          },
             'products/datahub/fork-datahub-service',
           ],
         },
