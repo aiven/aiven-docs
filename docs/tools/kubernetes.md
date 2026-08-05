@@ -75,6 +75,57 @@ The connection information is automatically created by the operator
 within a Kubernetes Secret named `pg-connection`. For PostgreSQL, the connection
 information is the service URI.
 
+### Create a connection pool
+
+This example creates a
+[PgBouncer connection pool](/docs/products/postgresql/concepts/pg-connection-pooling)
+for the `pg-sample` service.
+
+1. Create a file named `pg-pool.yaml` and add the following:
+
+   ```yaml
+   apiVersion: aiven.io/v1alpha1
+   kind: ConnectionPool
+   metadata:
+     name: pg-connection-pool
+   spec:
+
+     authSecretRef:
+       name: aiven-token
+       key: token
+
+     # Outputs the pool connection information to the `pg-connection-pool-secret` secret
+     connInfoSecretTarget:
+       name: pg-connection-pool-secret
+
+     project: PROJECT-NAME
+     serviceName: pg-sample
+     databaseName: defaultdb
+     username: avnadmin
+     poolMode: transaction
+     poolSize: 25
+   ```
+
+   Where `PROJECT-NAME` is the name of the Aiven project, `defaultdb` is an existing
+   database on the `pg-sample` service, and `avnadmin` is an existing service user.
+
+   :::note
+   `poolSize` can be from 1 to 1000 with the Aiven Operator for Kubernetes, lower than
+   the maximum of 10000 available through the console, CLI, Terraform, or API.
+   :::
+
+1. To apply the resource, run:
+
+   ```bash
+   kubectl apply -f pg-pool.yaml
+   ```
+
+1. Verify the status of your connection pool by running:
+
+   ```bash
+   kubectl get connectionpools.aiven.io pg-connection-pool
+   ```
+
 ### Use the service
 
 When the service is running, you can deploy a pod to test the
@@ -118,6 +169,7 @@ connection to PostgreSQL from Kubernetes.
 
    ```bash
    kubectl delete pod psql-test-connection
+   kubectl delete connectionpools.aiven.io pg-connection-pool
    kubectl delete postgresqls.aiven.io pg-sample
    ```
 

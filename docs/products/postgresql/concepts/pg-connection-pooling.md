@@ -196,6 +196,13 @@ connecting to PgBouncer, otherwise the application may not work as
 expected.
 :::
 
+:::note
+Named prepared statements are one of the features affected by transaction and
+statement pooling. To allow PgBouncer to track them in these modes, set the
+[`pgbouncer.max_prepared_statements`](/docs/products/postgresql/reference/advanced-params#pgbouncer_max_prepared_statements)
+advanced parameter to a non-zero value. It defaults to 100 and can be set up to 3000.
+:::
+
 -   The `session` pooling mode means that once a client connection is
     granted access to a PostgreSQL server-side connection, it can hold
     it until the client disconnects from the pooler. After this, the

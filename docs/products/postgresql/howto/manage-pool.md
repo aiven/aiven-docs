@@ -57,6 +57,13 @@ To manage the connection pools:
     -   **Pool Size**: Select how many PostgreSQL server connections
         this pool can use at a time. The value can be from 1 to 10000.
 
+    :::note
+    If you manage connection pools with the
+    [Aiven Operator for Kubernetes®](/docs/tools/kubernetes), its `ConnectionPool`
+    resource limits `poolSize` to a maximum of 1000, lower than the maximum available
+    through the console, CLI, Terraform, or API.
+    :::
+
     :::important
     The **Pool Size** parameter is NOT the maximum number of client
     connections of this pool.
@@ -72,8 +79,9 @@ To manage the connection pools:
     <ConsoleLabel name="actions"/> > **Info**.
 
 You can also manage connection pools with the
-[Aiven CLI](/docs/tools/cli/service/connection-pool) or with Terraform, using the
-`aiven_connection_pool` resource:
+[Aiven CLI](/docs/tools/cli/service/connection-pool), with Terraform, using the
+`aiven_connection_pool` resource, or with the
+[Aiven Operator for Kubernetes®](/docs/tools/kubernetes):
 
 <TerraformSample filename='resources/aiven_connection_pool/resource.tf' />
 
