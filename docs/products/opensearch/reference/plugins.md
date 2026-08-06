@@ -27,7 +27,7 @@ are available:
 -   [Anomaly detection](https://github.com/opensearch-project/anomaly-detection)
 -   [Asynchronous search](https://github.com/opensearch-project/asynchronous-search)
 -   [Azure Repository](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/repository-azure)
--   [Cross-Cluster Replication](https://github.com/opensearch-project/cross-cluster-replication)
+-   [Cross Cluster Replication](https://github.com/opensearch-project/cross-cluster-replication)
 -   [Custom Codecs](https://github.com/opensearch-project/custom-codecs)
 -   [Flow Framework](https://github.com/opensearch-project/flow-framework)
 -   [Geospatial](https://github.com/opensearch-project/geospatial)
