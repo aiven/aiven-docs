@@ -13,6 +13,9 @@ import TabItem from '@theme/TabItem';
 
 Set up a peering connection between your Aiven organization VPC and an AWS VPC.
 
+Before you start, review the
+[VPC peering limitations](/docs/platform/howto/list-vpc-peering#limitations).
+
 ## Prerequisites
 
 - [Manage organization networking](/docs/platform/concepts/permissions#organization-permissions)
