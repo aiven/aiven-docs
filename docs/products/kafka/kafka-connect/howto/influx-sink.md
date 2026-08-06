@@ -116,7 +116,7 @@ You can get these values from the
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Apache Kafka Connect is enabled on the service.
    If not, click **Enable connector on this service**.
 
@@ -132,7 +132,7 @@ You can get these values from the
 1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
 1. Paste the configuration from your `influxdb_sink.json` file into the text box.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 1. Confirm that data is written to the InfluxDB target database.
 
 </TabItem>

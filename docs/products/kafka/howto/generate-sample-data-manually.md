@@ -77,7 +77,7 @@ Use the [Dockerized fake data producer for Aiven for Apache Kafka®](https://git
 1. Once the Docker image is running, verify that the topic is receiving messages:
 
    - In the [Aiven Console](https://console.aiven.io), go to your Apache Kafka service
-     and click <ConsoleLabel name="topics" />.
+     and click <ConsoleLabel name="manage stream" /> > **Topics**.
    - Or use a command-line tool such as [kcat](/docs/products/kafka/howto/kcat) to
      consume messages from the topic.
 

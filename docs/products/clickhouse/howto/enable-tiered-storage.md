@@ -19,8 +19,9 @@ Before you enable tiered storage, review the [limitations](/docs/products/clickh
     - [Aiven Console](https://console.aiven.io) or
     - SQL and an SQL client (for example, the [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
 -   All maintenance updates are applied on your service (check in the
-    [Aiven Console](https://console.aiven.io): your service's <ConsoleLabel name="overview"/> >
-    <ConsoleLabel name="service settings"/> > **Service management** > **Maintenance updates**).
+    [Aiven Console](https://console.aiven.io): your service's
+    <ConsoleLabel name="service settings"/> > **Service management** >
+    **Maintenance updates**).
 
 ## Activate tiered storage on a table
 
@@ -29,11 +30,10 @@ you can use either CLI or the [Aiven Console](https://console.aiven.io).
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Console" default>
-1. Log in to the [Aiven Console](https://console.aiven.io), and go to your organization,
-   project, and service.
-1. On the <ConsoleLabel name="overview"/> of your service, select
-   <ConsoleLabel name="databasesandtables"/> from the sidebar.
-1. In the <ConsoleLabel name="databasesandtables"/> view, find a table on which to activate tiered
+1. Log in to the [Aiven Console](https://console.aiven.io) and choose your Aiven for
+   ClickHouse service.
+1. In the service sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
+1. In the **Databases and tables** view, find a table on which to activate tiered
    storage, and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="activatetieredstorage"/>
    \> **Activate**.
 </TabItem>
@@ -52,11 +52,6 @@ you can use either CLI or the [Aiven Console](https://console.aiven.io).
 
 Tiered storage is activated on your table and data in this table is now
 distributed between two tiers: Network-attached block storage and object storage.
-
-You can check if tiered storage is now supported (**Active**/**Not active**) on
-your table in the [Aiven Console](https://console.aiven.io) > your service's page >
-<ConsoleLabel name="databasesandtables"/> > Your database > Your table
-\> **Tiered storage** column.
 
 ## What's next
 

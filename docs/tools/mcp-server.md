@@ -3,7 +3,6 @@ title: Aiven MCP
 sidebar_label: Aiven MCP
 description: Create and manage Aiven services from AI assistants.
 keywords: [MCP, Model Context Protocol, AI assistants, Cursor, Claude Code]
-early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,6 +35,12 @@ assistant focused.
 Authentication uses OAuth 2.0 with PKCE. When you authenticate a client for the
 first time, your browser opens so you can sign in and authorize MCP access. This
 is usually a one-time setup step per client.
+
+:::note
+Aiven owns the `aiven.live` domain and operates the hosted MCP server at
+`mcp.aiven.live`. The server uses the Aiven API at `api.aiven.io` for
+authorization.
+:::
 
 ## Install the Aiven MCP {#configure-aiven-mcp}
 
@@ -149,7 +154,7 @@ For more information, see the [VS Code MCP documentation](https://code.visualstu
    <MCPConfigSection
      baseUrl={mcpUrl}
      format="json"
-     configTemplate={(url) => ({mcpServers: {aiven: {url}}})}
+     configTemplate={(url) => ({mcpServers: {aiven: {url, oauth: {oauthScopes: ["projects", "services", "accounts:read"]}}}})}
    />
 
    Most clients use a configuration similar to the preceding example.
@@ -336,3 +341,5 @@ Aiven secures the platform and API. You are responsible for the following:
   PostgreSQL and Kafka connection credentials, including URIs, passwords, and
   certificates, to the AI agent so it can connect to your services. Use it only
   for development with non-production services that do not hold sensitive data.
+- **Connect to VPC-hosted PostgreSQL services**: The Aiven MCP server supports
+  direct connections to PostgreSQL services running in a private VPC.

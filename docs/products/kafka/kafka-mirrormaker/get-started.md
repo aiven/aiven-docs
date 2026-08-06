@@ -22,7 +22,7 @@ You can create the service from the Kafka service's integrations page.
 
 1. In the [Aiven Console](https://console.aiven.io), open your project.
 1. Open the Aiven for Apache Kafka® service to replicate.
-1. Click <ConsoleLabel name="integrations" />.
+1. Click <ConsoleLabel name="manage stream" /> > **Integrations**.
 1. Under **Aiven services**, select **Apache Kafka MirrorMaker**.
 1. Choose one of the following:
    - **Existing service** to connect to a MirrorMaker 2 service that is already running
@@ -43,7 +43,7 @@ You can create the service from the Kafka service's integrations page.
 1. Review the **Service summary** for the region, plan, and estimated price.
 1. Click **Create service**.
 
-The service status changes to **Rebuilding**.
+The service status changes to **Building**.
 When it changes to **Running**, the service is ready.
 
 ### Connect the Kafka service to MirrorMaker 2

@@ -41,7 +41,7 @@ review and adjust these ACLs as needed to enable exactly-once delivery.
 
 1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache Kafka
    service with the Aiven for Apache Kafka MirrorMaker 2 integration.
-1. Click <ConsoleLabel name="integrations"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Integrations**.
 1. Click the Aiven for Apache Kafka MirrorMaker 2 integration.
 1. Click <ConsoleLabel name="replicationflow" /> in the sidebar.
    - To create a new flow, click **Create replication flow** .

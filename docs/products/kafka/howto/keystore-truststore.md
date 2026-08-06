@@ -1,6 +1,7 @@
 ---
 title: Configure Java SSL keystore and truststore to access Apache Kafka®
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Aiven for Apache Kafka® utilises TLS (SSL) to secure the traffic between its services and client applications.
 This means that clients must be
@@ -12,12 +13,12 @@ client that interacts with the service. To create these files:
 
 ## Access service certificates
 
-1.  Log in to [Aiven Console](https://console.aiven.io/) and select your
-    Apache Kafka service.
-
-1.  Download the **Access Key**, **Access Certificate**, and **CA
-    Certificate**. The files _service.key_, _service.cert_, and
-    _ca.pem_ are necessary.
+1. Log in to [Aiven Console](https://console.aiven.io/) and select your
+   Apache Kafka service.
+1. On the <ConsoleLabel name="overview" /> page, go to the **Connect information** panel.
+1. Select **Client certificate** as the authentication method.
+1. Download the **Access Key**, **Access Certificate**, and **CA Certificate**.
+   The files _service.key_, _service.cert_, and _ca.pem_ are necessary.
 
 ## Create the keystore
 

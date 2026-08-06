@@ -169,7 +169,7 @@ Parameters:
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Apache Kafka Connect is enabled on the service.
    If not, click **Enable connector on this service**.
 
@@ -185,7 +185,7 @@ Parameters:
 1. In the **Connector configuration** text box, click <ConsoleLabel name="edit"/>.
 1. Paste the contents of your `amqp_source_connector.json` file.
 1. Click **Create connector**.
-1. Confirm the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Confirm the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 
 </TabItem>
 

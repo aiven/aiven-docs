@@ -166,19 +166,20 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'connect':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.link} /> <b>Connect</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Connect</b>
         </>
       );
     case 'observe':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.pulse} /> <b>Observe</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.timelineAreaChart} />{' '}
+          <b>Observe</b>
         </>
       );
     case 'data':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Data</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Data</b>
         </>
       );
     case 'overview':
@@ -247,7 +248,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'users':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.user} /> <b>Users</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.people} /> <b>Users</b>
         </>
       );
     case 'makesuperadmin':
@@ -333,6 +334,20 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>ACL</b>
         </>
       );
+    case 'access&control':
+    case 'accesscontrol':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>Access & Control</b>
+        </>
+      );
+    case 'managestream':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.kafkaTopic} />{' '}
+          <b>Manage stream</b>
+        </>
+      );
     case 'topics':
       return (
         <>
@@ -345,16 +360,17 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.gitCommit} /> <b>Connectors</b>
         </>
       );
+    case 'datahubconnectors':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow02} />{' '}
+          <b>Connectors</b>
+        </>
+      );
     case 'schemas':
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.dataflow03} /> <b>Schemas</b>
-        </>
-      );
-    case 'quotas':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.layers} /> <b>Quotas</b>
         </>
       );
     case 'storage':
@@ -576,14 +592,13 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'tieredstorage':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.tiered} />{' '}
           <b>Tiered storage</b>
         </>
       );
     case 'inklessstorage':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.tiered} /> <b>Storage</b>
+          <b>Storage</b>
         </>
       );
     case 'editdatabase':
@@ -613,7 +628,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'redeployapp':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Redeploy app</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Deploy latest commit</b>
         </>
       );
     case 'governance':
@@ -676,14 +691,6 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Activate tiered storage</b>
         </>
       );
-    case 'tieredstorage':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.layers} />{' '}
-          <b>Tiered storage</b>
-        </>
-      );
-
     case 'queryeditor':
       return (
         <>
@@ -727,7 +734,7 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.replicationFlow} />{' '}
-          <b>Replication flow</b>
+          <b>Replication flows</b>
         </>
       );
     case 'snapshots':

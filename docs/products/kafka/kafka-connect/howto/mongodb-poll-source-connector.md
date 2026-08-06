@@ -89,7 +89,7 @@ for the full list of available options.
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Kafka Connect is enabled on the service.
    If not, enable Kafka Connect under **Service settings** > **Actions** >
    **Enable Kafka Connect**.
@@ -99,7 +99,7 @@ for the full list of available options.
    click <ConsoleLabel name="edit"/>.
 1. Paste the configuration from your `mongodb_source_config.json` file into the text box.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 1. Verify that data appears in the target Kafka topic.
    By default, the connector writes to a topic named after the MongoDB database and
    collection, for example, `districtA.students`.
@@ -190,7 +190,7 @@ topic `districtA.students` every second, based on the polling interval (`poll.aw
 
 After you create the connector:
 
-1. Check the connector status on the **Connectors** page in the Aiven Console.
+1. Check the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page in the Aiven Console.
 1. Confirm that the Kafka topic `districtA.students` exists in your service.
 1. Consume messages from the topic to verify that data from MongoDB is streaming
    correctly.

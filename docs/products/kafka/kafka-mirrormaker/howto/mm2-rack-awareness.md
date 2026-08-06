@@ -6,7 +6,6 @@ sidebar_label: Configure rack awareness
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Configure rack awareness in Aiven for Apache Kafka® MirrorMaker 2 to reduce cross-availability zone (AZ) network traffic by directing MirrorMaker to read from local follower replicas instead of remote partition leaders.
@@ -60,7 +59,7 @@ node runs and prefers reading from in-sync follower replicas in the same availab
 zone. When disabled, MirrorMaker reads from partition leaders for that replication flow.
 
 1. In the [Aiven Console](https://console.aiven.io), open the MirrorMaker 2 service.
-1. Click **Replication flows**.
+1. Click <ConsoleLabel name="replicationflow" />.
 1. Create a replication flow or edit an existing one.
 1. Set **Follower fetching enabled** to on or off.
 1. Click **Create** or **Save**.

@@ -90,7 +90,7 @@ create a topic and test producing and consuming messages. For example:
 <TabItem value="classic-service" label="Classic Kafka service" default>
 
 1. In the [Aiven Console](https://console.aiven.io/), select the Aiven for Apache Kafka service.
-1. In the sidebar, click <ConsoleLabel name="topics" />.
+1. In the sidebar, click <ConsoleLabel name="manage stream" /> > **Topics**.
 1. Click **Create topic**.
 1. Enter a name in the **Topic** field.
 1. Optional: Turn on **Enable advanced configurations** to set values such as
@@ -108,7 +108,7 @@ create a topic and test producing and consuming messages. For example:
 <TabItem value="inkless-service" label="Inkless Kafka service">
 
 1. In the [Aiven Console](https://console.aiven.io/), select the Aiven for Apache Kafka service.
-1. In the sidebar, click <ConsoleLabel name="topics" />.
+1. In the sidebar, click <ConsoleLabel name="manage stream" /> > **Topics**.
 1. Click **Create topic**.
 1. Enter a name in the **Topic** field.
 1. In **Topic type**, select one of the following:
@@ -133,7 +133,7 @@ create a topic and test producing and consuming messages. For example:
 </TabItem>
 </Tabs>
 
-After creation, the topic appears on the <ConsoleLabel name="topics" /> page.
+After creation, the topic appears on the <ConsoleLabel name="manage stream" /> > **Topics** page.
 The **Topic type** column shows **Classic** or **Diskless**.
 
 :::tip

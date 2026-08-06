@@ -234,14 +234,14 @@ new nullable subfield in the existing metadata `RECORD` schema.
 
 1. Go to the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka® or Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** (enable Kafka Connect if required).
 1. Select **Google BigQuery Sink** from the list.
 1. On the **Common** tab, click <ConsoleLabel name="edit"/> in the
   **Connector configuration** box.
 1. Paste the contents of `bigquery_sink.json`. Replace placeholders with actual values.
 1. Click **Apply**, then **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 1. Check that data appears in the BigQuery dataset. By default, table names match topic
    names. Use the Kafka Connect `RegexRouter` transformation to rename tables if required.
 

@@ -9,8 +9,8 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 Use the storage overview page to review storage usage, billing, and retention settings for your Aiven for Apache Kafka® service.
 
 In the Aiven Console, storage is labeled differently based on the service type.
-Classic Kafka service show **Tiered storage**, which can be enabled and configured.
-Inkless Kafka service show **Storage**, reflecting that object storage is always part of
+Classic Kafka services show **Tiered storage**, which can be enabled and configured.
+Inkless Kafka services show **Storage**, reflecting that object storage is always part of
 the data path.
 
 ## Prerequisite
@@ -19,18 +19,22 @@ the data path.
 - For Classic Kafka clusters, tiered storage enabled. For details, see
   [Enable tiered storage](/docs/products/kafka/howto/enable-kafka-tiered-storage).
 
-## Access tiered storage overview page
+## Access the storage overview page
 
-1. In the [Aiven Console](https://console.aiven.io/), select your project and your Aiven for Apache Kafka service.
-1. Click <ConsoleLabel name="Tiered storage" />.
+1. In the [Aiven Console](https://console.aiven.io/), select your project and your
+   Aiven for Apache Kafka service.
+1. In the sidebar, click:
+   - For Classic Kafka services: <ConsoleLabel name="observe" /> > **Tiered storage**
+   - For Inkless Kafka services: <ConsoleLabel name="observe" /> > **Storage**
 
    For Classic Kafka clusters:
 
-  - If tiered storage is not enabled for the service, the option to enable it is shown.
-  - If tiered storage is enabled but not configured for any topics, the option to enable it
-    for topics is shown. For details, see [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
+   - If tiered storage is not enabled for the service, the option to enable it is shown.
+   - If tiered storage is enabled but not configured for any topics, the option to
+     enable it for topics is shown. For details, see
+     [Enable and configure tiered storage for topics](/docs/products/kafka/howto/configure-topic-tiered-storage).
 
-1. Once configured, you can view an overview of tiered storage and its details.
+1. Once configured, you can view storage usage and settings.
 
 ## Key insights
 
@@ -39,7 +43,6 @@ View essential metrics and details related to tiered storage:
 - **Current billing expenses in USD:** Your tiered storage costs, calculated at hourly rates
 - **Forecasted month cost in USD:** Your upcoming monthly costs based on current usage
 - **Remote tier usage in bytes:** The volume of data that has been tiered
-- **Storage overview:** An overview of how topics use [remote storage](/docs/products/kafka/howto/view-kafka-storage-in-console#remote-storage-overview)
 
 ## Storage settings and retention
 

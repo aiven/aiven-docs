@@ -187,14 +187,14 @@ and truststore passwords set to `password`.
 
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector**.
 1. In the source connectors list, select **Debezium - Oracle**, and click **Get started**.
 1. On the **Oracle Debezium Source Connector** page, open the **Common** tab.
 1. Locate the **Connector configuration** field and click <ConsoleLabel name="edit"/>.
 1. Paste the contents of `oracle_debezium_source_connector.json`.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 
 </TabItem>
 <TabItem value="cli" label="CLI">

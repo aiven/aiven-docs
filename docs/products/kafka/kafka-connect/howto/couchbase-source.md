@@ -2,6 +2,7 @@
 title: Create a source connector from Couchbase to Apache Kafka®
 sidebar_label: Couchbase source connector
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 The [Couchbase](https://www.couchbase.com/) source connector pushes data
 from the NoSQL database, to Apache Kafka® where it can be transformed
@@ -106,7 +107,7 @@ To create a Kafka Connect connector:
     the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
     service where the connector needs to be defined.
 
-2.  Select **Connectors** from the left sidebar.
+2.  Select <ConsoleLabel name="manage stream" /> > **Connectors** from the left sidebar.
 
 3.  Select **Create New Connector**, it is enabled only for
     services
@@ -139,7 +140,7 @@ To create a Kafka Connect connector:
     enable the `kafka.auto_create_topics_enable` advanced parameter.
     :::
 
-9.  Verify the connector status under the **Connectors** tab
+9.  Verify the connector status under <ConsoleLabel name="manage stream" /> > **Connectors**
 
 10. Verify the presence of the data in the target Apache Kafka topic
     coming from the MongoDB dataset. The topic name is equal to the

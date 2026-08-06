@@ -1,6 +1,7 @@
 ---
 title: Optimize Apache Kafka® performance
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Follow these best practices to optimize the performance and reliability of your Aiven for Apache Kafka® service.
 
@@ -52,8 +53,9 @@ partitions. This results in uneven load distribution and reduces parallel proces
 efficiency.
 
 You can view the size of each partition by selecting the
-[topic](/docs/products/kafka/howto/create-topic) in the Topics list and opening
-the **Partitions** tab in the [Aiven Console](https://console.aiven.io/).
+[topic](/docs/products/kafka/howto/create-topic) in the
+<ConsoleLabel name="manage stream" /> > **Topics** list and opening the **Partitions**
+tab in the [Aiven Console](https://console.aiven.io/).
 
 ## Balance between throughput and latency
 

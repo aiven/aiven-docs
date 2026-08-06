@@ -37,7 +37,6 @@ const config: Config = {
   organizationName: 'Aiven',
   projectName: 'docs',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   onBrokenAnchors: 'throw',
   trailingSlash: false,
   i18n: {
@@ -46,6 +45,9 @@ const config: Config = {
   },
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
   },
   headTags: [
     {

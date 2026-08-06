@@ -2,7 +2,17 @@
 
 <!-- vale off -->
 
-The full **Aiven documentation style guide** lives in the repository root: **[`styleguide.md`](../styleguide.md)**. GitHub Copilot and other assistants should treat that file as the single source of truth for voice, structure, UI wording, code samples, product names, and review priorities.
+Follow instructions in @AGENTS.md
+
+## Agent Resources
+
+- Agents: @.ai-agents/agents
+- Commands: @.ai-agents/commands
+- Rules: @.ai-agents/rules
+- Skills: @.ai-agents/skills
+
+
+The full **Aiven documentation style guide** lives in the `.ai-agents` directory: **[`styleguide.md`](../.ai-agents/docs/styleguide.md)**. GitHub Copilot and other assistants should treat that file as the single source of truth for voice, structure, UI wording, code samples, product names, and review priorities.
 
 ## Non-negotiables (quick checklist)
 
@@ -13,9 +23,9 @@ When editing or generating docs in this repo:
 3. **[CRITICAL]** Use **use**, not "utilize" or "leverage"; no **i.e.** / **e.g.** (use **that is** / **for example**); no **&** or **and/or** in prose.
 4. **[CRITICAL]** **Bold** only for **UI elements** and **run-in list headings**; no quotation marks for labels or emphasis.
 5. **[CRITICAL]** Inclusive, non-ableist language; no violent or militaristic metaphors; avoid temporal fluff (**now**, **currently**, **in the future**, **yet**, **eventually**) unless tied to a specific release fact.
-6. **[CRITICAL]** Product names and **®** / **™** on first mention per [`styleguide.md`](../styleguide.md); never write "Aiven's Kafka" for third-party brands.
+6. **[CRITICAL]** Product names and **®** / **™** on first mention per [`styleguide.md`](../.ai-agents/docs/styleguide.md); never write "Aiven's Kafka" for third-party brands.
 7. **[CRITICAL]** Console steps: name controls as users see them (**Click Save**); use **`>`** in menu paths; optional steps start with **`Optional:`**; use **`ConsoleLabel`** / **`ConsoleIcon`** as described in the style guide.
 8. **[CRITICAL]** Executable examples: no `[]`, `{}`, `|`, or `...` placeholders; use **`UPPER_SNAKE_CASE`** placeholders; IANA **`example.*`** domains and **`name@example.com`** for sample email.
 9. **[MEDIUM]** Separate command and output into different fenced blocks; introduce each code block with a sentence ending in `.` or `:`.
 
-For tables, links, lists, heading rules, and the full product list, open **`styleguide.md`**.
+For tables, links, lists, heading rules, and the full product list, open **[`styleguide.md`](../.ai-agents/docs/styleguide.md)**.

@@ -2,6 +2,7 @@
 title: Create a sink connector from Apache Kafka® to Splunk
 sidebar_label: Splunk sink connector
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 The [Splunk](https://www.splunk.com/) sink connector enables you to move
 data from an Aiven for Apache Kafka® cluster to a remote Splunk server
@@ -101,7 +102,7 @@ To create an Apache Kafka Connect connector:
     the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
     service where the connector needs to be defined.
 
-2.  Select **Connectors** from the left sidebar.
+2.  Select <ConsoleLabel name="manage stream" /> > **Connectors** from the left sidebar.
 
 3.  Select **Create New Connector**, it is enabled only for
     services
@@ -127,7 +128,7 @@ To create an Apache Kafka Connect connector:
 8.  After all the settings are correctly configured, select **Create
     connector**.
 
-9.  Verify the connector status under the **Connectors** screen.
+9.  Verify the connector status under <ConsoleLabel name="manage stream" /> > **Connectors**.
 
 10. Verify the data in the target Splunk instance.
 

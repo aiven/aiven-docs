@@ -184,7 +184,7 @@ The Docker image uses the same `run.sh` script.
 <TabItem value="console" label="In the Aiven console" default>
 
 1. In the [Aiven console](https://console.aiven.io/), open the **Aiven for Apache Kafka®** service.
-1. In the sidebar, click <ConsoleLabel name="topics" />.
+1. In the sidebar, click <ConsoleLabel name="manage stream" /> > **Topics**.
 1. Select the `logistics_data_delivered` topic.
 1. Click **Messages**.
 1. In **Format**, select `Avro`.

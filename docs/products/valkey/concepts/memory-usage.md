@@ -137,6 +137,26 @@ If you frequently need to write large volumes of data, contact Aiven support to
 discuss service configuration options that can accommodate your needs.
 :::
 
+## Memory fragmentation and active defragmentation
+
+As keys are written, updated, and deleted, the memory allocator can end up with data
+spread across sparsely used memory pages. This fragmentation increases the memory a
+service uses beyond the size of the data it stores, and it tends to grow on
+long-running services with a high rate of change.
+
+To reduce fragmentation, enable the **Active memory defragmentation**
+(`valkey_activedefrag`) advanced configuration option. When enabled, Valkey relocates
+objects off sparsely used memory pages and returns the freed memory to the operating
+system.
+
+:::note
+Active memory defragmentation is disabled by default. It runs on the main thread and
+consumes CPU, so it can increase latency under load.
+:::
+
+For the full list of configuration options, including `valkey_activedefrag`, see
+[Advanced parameters for Aiven for Valkey™](/docs/products/valkey/reference/advanced-params).
+
 ## Service memory limits
 
 <ServiceMemoryLimits/>
@@ -149,3 +169,4 @@ discuss service configuration options that can accommodate your needs.
 
 - [Change the service plan](/docs/products/valkey/howto/change-service-plan)
 - [Scale disk storage](/docs/products/valkey/howto/scale-disk-storage)
+- [Advanced parameters for Aiven for Valkey™](/docs/products/valkey/reference/advanced-params)

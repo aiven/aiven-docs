@@ -21,7 +21,7 @@ Manage quotas in your Aiven for Apache Kafka® service to control network throug
 <TabItem value="console" label="Aiven Console" default>
 
 1. Log in to [Aiven Console](https://console.aiven.io/) and select your Kafka service.
-1. Click <ConsoleLabel name="quotas" /> in the sidebar.
+1. Click <ConsoleLabel name="Access & Control" /> > **Quotas** in the sidebar.
 1. Click **Add quota**.
 1. Enter the **Client ID** or **User**.
 1. Set one or more quota values:
@@ -88,7 +88,7 @@ name.
 
 1. Access the [Aiven Console](https://console.aiven.io/) and open your Aiven for Apache
    Kafka® service.
-1. Click <ConsoleLabel name="quotas" />.
+1. Click <ConsoleLabel name="Access & Control" /> > **Quotas**.
 
 The page lists all configured quotas.
 
@@ -123,7 +123,7 @@ name.
 
 1. Access the [Aiven Console](https://console.aiven.io/) and open your Aiven for Apache
    Kafka® service.
-1. Click <ConsoleLabel name="quotas" />.
+1. Click <ConsoleLabel name="Access & Control" /> > **Quotas**.
 1. Find the quota to update.
 1. Click <ConsoleLabel name="actions" /> > **Update**.
 1. Update the quota values.
@@ -157,7 +157,7 @@ endpoint with the updated values to overwrite the existing quota.
 
 1. Access the [Aiven Console](https://console.aiven.io/) and open your Aiven for Apache
    Kafka® service.
-1. Click <ConsoleLabel name="quotas" />.
+1. Click <ConsoleLabel name="Access & Control" /> > **Quotas**.
 1. Find the quota to delete.
 1. Click <ConsoleLabel name="actions" /> > **Delete**.
 1. Click **Delete quota** to confirm.

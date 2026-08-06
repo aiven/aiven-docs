@@ -3,12 +3,13 @@ title: Enable Karapace schema registry and REST APIs
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 To enable **Karapace schema registry** and **REST APIs** on Aiven for Apache Kafka® from the Aiven Console:
 
 1. In the [Aiven Console](https://console.aiven.io/), select your
    project and choose your Aiven for Apache Kafka® service.
-1. Click **Service settings** on the sidebar.
+1. Click <ConsoleLabel name="service settings" />.
 1. In the **Service management** section, click **Actions** (**...**).
 1. From the dropdown menu, enable the setting for either or both of the
    features based on your requirements:

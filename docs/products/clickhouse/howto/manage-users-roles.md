@@ -3,11 +3,11 @@ title: Manage Aiven for ClickHouse® users and roles
 sidebar_label: Manage users and roles
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Create Aiven for ClickHouse® users and roles and grant them specific privileges to efficiently control or restrict access to your service.
+Create Aiven for ClickHouse® users and roles and grant them specific privileges to control or restrict access to your service.
 
 ## Manage users
 
@@ -18,41 +18,41 @@ To create a user account for your service:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and
-    select your Aiven for ClickHouse® service.
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+    ClickHouse service.
 
-1.  Click **Users and roles** in the sidebar.
+1.  In the service sidebar, click <ConsoleLabel name="users"/>.
 
     This shows a list of all users that are currently
     available in your service. The default `avnadmin` user has all
     available access grants to the service.
 
     :::tip
-    To view the roles and grants for any of the listed users, select
+    To view the roles and grants for any of the listed users, click
     **View details & grants** for that user.
     :::
 
-1.  In the **Users and roles** page, select **Add user**.
+1.  On the **Users** page, click **Add user**.
 
 1.  In the **Create a service user** window, enter a name for the
-    new user and select a role.
+    new user and click a role.
 
     The role that you select defines the access grants that are assigned
     to the user. For more information on roles, see
     [Manage roles and privileges](/docs/products/clickhouse/howto/manage-users-roles#manage-roles-and-privileges).
 
-1.  Select **Add user**.
+1.  Click **Add user**.
 
     This creates the new user and shows you a summary of the
     information.
 
-1.  Copy the password on screen to a safe place. It can't be accessed
-    again in future, however it can be reset if needed.
+1.  Copy the password on screen to a safe place. You can't access it again later,
+    but you can reset it if needed.
 
 </TabItem>
 <TabItem value="cli" label="SQL">
 
-To create user using a hash and salt, run:
+To create a user by using a hash and salt, run:
 
 ```sql
 CREATE USER username IDENTIFIED WITH sha256_hash BY 'hash' SALT 'salt';
@@ -67,7 +67,7 @@ CREATE USER username IDENTIFIED BY 'password';
 </TabItem>
 </Tabs>
 
-Users' password digests are stored securely in ZooKeeper. Only super admin can access
+Users' password digests are stored securely in ZooKeeper. Only a super admin can access
 them. For users created in the console, their passwords are also salted with a random
 value. The password digests and salts are stored in backup files so they can be
 recovered.
@@ -106,10 +106,16 @@ Configure user settings, for example, to restrict resource use per user. This ca
 1. Log in as `limited_user` to test the configuration.
 
     ```bash
-    clickhouse-client --host YOUR_HOST --port YOUR_PORT --user limited_user --password PASSWORD --secure
+    clickhouse-client \
+      --host YOUR_HOST \
+      --port YOUR_PORT \
+      --user limited_user \
+      --password PASSWORD \
+      --secure
     ```
 
-    Replace `YOUR_HOST`, `YOUR_PORT`, and `PASSWORD` with your actual service connection details.
+    Replace `YOUR_HOST`, `YOUR_PORT`, and `PASSWORD` with your service connection
+    details.
 
 1. Verify the resource limit setting.
 
@@ -140,7 +146,12 @@ in their user profile.
 1. Test the per-query limits by logging in and running a query.
 
     ```bash
-    clickhouse-client --host YOUR_HOST --port YOUR_PORT --user query_limited_user --password PASSWORD --secure
+    clickhouse-client \
+      --host YOUR_HOST \
+      --port YOUR_PORT \
+      --user query_limited_user \
+      --password PASSWORD \
+      --secure
     ```
 
 1. Verify the query-level settings.
@@ -149,7 +160,7 @@ in their user profile.
     SHOW SETTINGS LIKE '%max_%';
     ```
 
-**Common per-query settings:**
+#### Common per-query settings
 
 - `max_memory_usage`: Maximum memory per query (in bytes)
 - `max_execution_time`: Maximum query execution time (in seconds)
@@ -285,8 +296,8 @@ Revoke all privileges to a table or database simultaneously:
 REVOKE ALL PRIVILEGES ON database.table FROM external;
 ```
 
-See the ClickHouse documentation [for more information on revoking
-privileges](https://clickhouse.com/docs/en/sql-reference/statements/revoke/).
+For more information about revoking privileges, see the
+[ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/revoke/).
 
 ### Check privileges
 
@@ -310,10 +321,10 @@ SHOW ROLES;
 You can also see the users, their roles, and privileges in the [Aiven
 Console](https://console.aiven.io/).
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/), and
-    select your Aiven for ClickHouse® service.
-1.  Click **Users and roles** in the sidebar.
-1.  Click **View details & grants** next to one of the user listed on the page.
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+    ClickHouse service.
+1.  In the service sidebar, click <ConsoleLabel name="users"/>.
+1.  Click **View details & grants** next to one of the users listed on the page.
     This shows you a list of all grants for the selected user.
 
 ## Manage using Terraform

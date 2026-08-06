@@ -1,5 +1,7 @@
 # Contributing to the Aiven docs
 
+<!-- vale off -->
+
 When contributing, keep the following in mind:
 
 - Small PRs are preferred. For larger PRs, start by submitting a suggestion as a new issue.
@@ -13,7 +15,7 @@ Contributions rely on GitHub's [commit signoff feature](https://docs.github.com/
 
 ## Guidelines
 
-- **Style guide:** Apply the [style guide](./styleguide.md).
+- **Style guide:** Apply the [style guide](./.ai-agents/docs/styleguide.md).
 - **Hard line breaks:** To simplify reviews on GitHub, add a hard line break at 90 characters. If you use
   VS Code, you should see the ruler.
 - **Vale:** Install [Vale](https://vale.sh/docs/vale-cli/installation/) and

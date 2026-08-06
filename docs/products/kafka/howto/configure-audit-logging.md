@@ -190,7 +190,7 @@ Audit entries appear in the service logs with the `AUDIT:` prefix. To view them,
 one of the following methods:
 
 - In the [Aiven Console](https://console.aiven.io/), open your service and click
-  <ConsoleLabel name="logs"/>.
+  <ConsoleLabel name="observe" /> > <ConsoleLabel name="logs"/>.
 - With the Aiven CLI, run:
 
   ```bash

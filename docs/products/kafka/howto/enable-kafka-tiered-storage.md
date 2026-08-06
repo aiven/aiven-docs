@@ -54,7 +54,7 @@ section.
 
 :::note
 Alternatively, if tiered storage is not yet active for your service, you can enable
-it by selecting **Tiered storage** from the sidebar.
+it by selecting **Observe** > **Tiered storage** from the sidebar.
 :::
 
 </TabItem>

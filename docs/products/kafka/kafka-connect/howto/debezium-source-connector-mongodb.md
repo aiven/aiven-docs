@@ -2,6 +2,7 @@
 title: Create a Debezium source connector from MongoDB to Apache Kafka®
 sidebar_label: Debezium MongoDB source connector
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Track and write MongoDB database changes to an Apache Kafka® topic in a standard format with the Debezium source connector, enabling transformation and access by multiple consumers using a MongoDB replica set or sharded cluster.
 
@@ -118,7 +119,7 @@ To create a Kafka Connect connector:
 1.  Select the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service
     to define the connector.
 
-1.  Select **Connectors** from the sidebar.
+1.  Select <ConsoleLabel name="manage stream" /> > **Connectors** from the sidebar.
 
 1.  Select **Create New Connector**, which is available only for
     services [that have Apache Kafka Connect enabled](enable-connect).
@@ -151,7 +152,7 @@ To create a Kafka Connect connector:
      See [Enable automatic topic creation with Aiven CLI](/docs/products/kafka/howto/create-topics-automatically).
    :::
 
-1. Verify the connector status under the **Connectors** screen.
+1. Verify the connector status under <ConsoleLabel name="manage stream" /> > **Connectors**.
 
 1. Verify the presence of the data in the target Apache Kafka topic
    coming from the MySQL dataset. The topic name is equal to

@@ -53,7 +53,7 @@ Ensure all potential duplicates are processed before removing them:
 1. Verify the committed offset in Aiven for Apache Kafka:
    1. Access the [Aiven Console](https://console.aiven.io/) and select your
       Aiven for Apache Kafka service.
-   1. Click <ConsoleLabel name="topics" /> and select the topic used by the connector.
+   1. Click <ConsoleLabel name="manage stream" /> > **Topics** and select the topic used by the connector.
    1. Go to the **Consumer Group** tab and check the **Offset**  column for the
       committed offset.
 
@@ -125,7 +125,7 @@ For more configuration options, see the
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Apache Kafka Connect is already enabled on the service.
    If not, click **Enable connector on this service**.
 
@@ -140,7 +140,7 @@ For more configuration options, see the
 1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
 1. Paste the configuration from your `clickhouse_sink_connector.json` file into the text box.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">

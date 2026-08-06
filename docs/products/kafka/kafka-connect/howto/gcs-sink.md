@@ -124,7 +124,7 @@ You can control file naming and output formats using dedicated parameters. For d
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
-1. In the sidebar, click <ConsoleLabel name="Connectors"/>.
+1. In the sidebar, click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Apache Kafka Connect is already enabled on the service.
    If not, click **Enable connector on this service**.
 
@@ -146,7 +146,7 @@ You can control file naming and output formats using dedicated parameters. For d
    :::
 
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 1. Confirm that data from the Apache Kafka topics appears in the target bucket.
 
 </TabItem>

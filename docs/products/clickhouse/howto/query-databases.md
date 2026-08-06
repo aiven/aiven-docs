@@ -4,6 +4,8 @@ sidebar_label: Query a database
 keywords: [query log, query_log, log table]
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Run a query against an Aiven for ClickHouse® database using a tool of your choice.
 
 To ensure data security, stability, and its proper replication, we equip
@@ -36,9 +38,9 @@ query editor, the Play UI, and
 
 ### Query editor {#use-query-editor}
 
-Aiven for ClickHouse® includes a web-based query editor, which you can
-find in [Aiven Console](https://console.aiven.io/) by selecting **Query
-editor** from the sidebar of your service's page.
+Aiven for ClickHouse® includes a web-based query editor. To open it, log in to the
+[Aiven Console](https://console.aiven.io/), choose your Aiven for ClickHouse service, and
+click <ConsoleLabel name="data"/> > **Query editor** in the service sidebar.
 
 #### When to use the query editor
 
@@ -78,10 +80,10 @@ if you expect a large size of the response.
 
 #### Use the play UI
 
-1.  Log in to [Aiven Console](https://console.aiven.io/), choose the
-    right project, and select your Aiven for ClickHouse service.
-1.  In the **Overview** page of your service, find the **Connection
-    information** section and select **ClickHouse HTTPS & JDBC**.
+1.  Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+    ClickHouse service.
+1.  On the <ConsoleLabel name="overview"/> page, in the **Connection information**
+    section, select **ClickHouse HTTPS & JDBC**.
 1.  Copy **Service URI** and go to `YOUR_SERVICE_URI/play` from a
     web browser.
 1.  Set the name and the password of the user on whose behalf you want

@@ -107,13 +107,13 @@ If you need more configuration options, click **Go to the full service creation*
 
 1. Click **Query**.
 
-   The ClickHouse <ConsoleLabel name="queryeditor" /> opens with a generated `SELECT`
-   query for the table created during setup.
+   The ClickHouse <ConsoleLabel name="data"/> > **Query editor** opens with a generated
+   `SELECT` query for the table created during setup.
 
 1. Review the generated SQL query.
 1. Click **Execute**.
-1. View the integration on the <ConsoleLabel name="integrations" /> page of either the
-   Kafka service or the ClickHouse service.
+1. View the integration on the <ConsoleLabel name="data"/> > **Integrations** page of
+   either the Kafka service or the ClickHouse service.
 
 ## Troubleshoot
 
@@ -140,8 +140,9 @@ service to a supported cloud region.
 
 ### Data not appearing after deployment
 
-If data does not appear in the ClickHouse table after deployment, review the logs for
-the Aiven for ClickHouse® service. Ingestion errors are reported on the ClickHouse side.
+If data does not appear in the ClickHouse table after deployment, review
+<ConsoleLabel name="observe"/> > **Logs** for the Aiven for ClickHouse® service.
+Ingestion errors are reported on the ClickHouse side.
 
 Also ensure the selected ingestion start point includes messages from the topic. For
 example, if you selected **New messages only**, only messages produced after the

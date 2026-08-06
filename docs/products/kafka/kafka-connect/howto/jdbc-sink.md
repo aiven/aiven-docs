@@ -2,6 +2,7 @@
 title: Create a JDBC sink connector from Apache Kafka® to another database
 sidebar_label: JDBC sink connector
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
 The JDBC (Java Database Connectivity) sink connector enables you to move data from an Aiven for Apache Kafka® cluster to any relational database offering JDBC drivers like PostgreSQL® or MySQL.
@@ -164,7 +165,7 @@ To create a Kafka Connect connector:
 1. Log in to the [Aiven Console](https://console.aiven.io/) and select
    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
    service where the connector needs to be defined.
-1. Click **Connectors** from the sidebar.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors** from the sidebar.
 1. Click **Create connector** to start setting up a new connector. This option is visible
    only if [Kafka Connect](enable-connect) is enabled for your service.
 1. On the **Select connector** page, locate **JDBC Sink** and click **Get started**.
@@ -181,7 +182,8 @@ To create a Kafka Connect connector:
    :::
 
 1. Once you've entered all the required settings, click **Create connector**.
-1. Verify the connector status in the **Connectors** page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> >
+   **Connectors** page.
 1. Confirm that the data has appeared in the target database service.
    The table name should match the Apache Kafka topic name.
 

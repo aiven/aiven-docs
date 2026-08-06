@@ -64,8 +64,9 @@ You create the service, two service users, and assign each user a role:
 - Give the ETL user permission to insert data.
 - Give the analyst user access to view data in the measurements database.
 
-The following example files are also available in the
-[Aiven Terraform Provider repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/clickhouse) on GitHub.
+The following example files are also available in the Aiven Terraform Provider
+[repository](https://github.com/aiven/terraform-provider-aiven/tree/main/examples/clickhouse)
+on GitHub.
 
 1. Create a file named `provider.tf` and add the following:
 
@@ -142,8 +143,8 @@ Name             Project             Region                 Plan          State
 my-clickhouse    my-aiven-project    google-europe-west1    startup-16    RUNNING
 ```
 
-The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
-changes to `RUNNING`, you are ready to access it.
+The resource might stay in the `BUILDING` state for a couple of minutes. When the
+state changes to `RUNNING`, you are ready to access it.
 </TabItem>
 </Tabs>
 
@@ -153,10 +154,9 @@ You can change your service settings by updating the service configuration.
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
-1. Select the new service from the list of services on
-   the <ConsoleLabel name="Services"/> page.
-1. On the <ConsoleLabel name="overview"/> page, select <ConsoleLabel name="service settings"/>
-   from the sidebar.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose your new Aiven for
+   ClickHouse service.
+1. In the service sidebar, click <ConsoleLabel name="service settings"/>.
 1. In the **Advanced configuration** section, make changes to the service configuration.
 
 See the available configuration options in
@@ -212,8 +212,8 @@ for the full schema.
    kubectl get clickhouses my-clickhouse
    ```
 
-The resource can stay in the `REBUILDING` state for a couple of minutes. Once the state
-changes to `RUNNING`, you are ready to access it.
+The resource might stay in the `BUILDING` state for a couple of minutes. When the
+state changes to `RUNNING`, you are ready to access it.
 
 See the available configuration options in
 [Aiven Operator for Kubernetes®: ClickHouse](https://aiven.github.io/aiven-operator/resources/clickhouse.html)
@@ -225,11 +225,10 @@ See the available configuration options in
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
-1. Log in to the [Aiven Console](https://console.aiven.io/), and go to your
-   organization > project > Aiven for ClickHouse service.
-1. On the <ConsoleLabel name="overview"/> page of your service, click
-   **Quick connect**.
-1. In the **Connect** window, select a tool or language to connect to your service, follow
+1. Log in to the [Aiven Console](https://console.aiven.io/) and choose your Aiven for
+   ClickHouse service.
+1. On the <ConsoleLabel name="overview"/> page, click **Quick connect**.
+1. In the **Connect** window, click a tool or language to connect to your service, follow
    the connection instructions, and click **Done**.
 
    ```bash
@@ -290,8 +289,10 @@ Discover more tools for connecting to Aiven for ClickHouse in
    using cURL:
 
    ```bash
-   curl https://datasets.clickhouse.com/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
-   curl https://datasets.clickhouse.com/visits/tsv/visits_v1.tsv.xz | unxz --threads=`nproc` > visits_v1.tsv
+   curl https://datasets.clickhouse.com/hits/tsv/hits_v1.tsv.xz \
+     | unxz --threads="$(nproc)" > hits_v1.tsv
+   curl https://datasets.clickhouse.com/visits/tsv/visits_v1.tsv.xz \
+     | unxz --threads="$(nproc)" > visits_v1.tsv
    ```
 
    :::note
@@ -300,15 +301,16 @@ Discover more tools for connecting to Aiven for ClickHouse in
    `nproc` into your `~/.zshrc` file: `alias nproc="sysctl -n hw.logicalcpu"`.
    :::
 
-   Once done, you should have two files: `hits_v1.tsv` and `visits_v1.tsv`.
+   When the download is complete, you have two files: `hits_v1.tsv` and
+   `visits_v1.tsv`.
 
 1. Create tables `hits_v1` and `visits_v1` in the `default` database, which has been
-   created automatically upon the creation of your Aiven for ClickHouse service.
+   created automatically when you create your Aiven for ClickHouse service.
 
-    <!-- vale off -->
-    <details><summary>
-    Expand for the `CREATE TABLE default.hits_v1` sample
-    </summary>
+   <!-- vale off -->
+   <details><summary>
+   Expand for the `CREATE TABLE default.hits_v1` sample
+   </summary>
     ```sql
     CREATE TABLE default.hits_v1 (
       WatchID UInt64,
@@ -452,11 +454,11 @@ Discover more tools for connecting to Aiven for ClickHouse in
     ORDER BY
       (CounterID, EventDate, intHash32(UserID));
     ```
-    </details>
+   </details>
 
-    <details><summary>
-    Expand for the `CREATE TABLE default.visits_v1` sample
-    </summary>
+   <details><summary>
+   Expand for the `CREATE TABLE default.visits_v1` sample
+   </summary>
     ```sql
     CREATE TABLE default.visits_v1 (
       CounterID UInt32,
@@ -654,41 +656,41 @@ Discover more tools for connecting to Aiven for ClickHouse in
     ORDER BY
       (CounterID, StartDate, intHash32(UserID), VisitID)
     ```
-    </details>
-    <!-- vale on -->
+   </details>
+   <!-- vale on -->
 
 1. Load data into tables `hits_v1` and `visits_v1`.
 
-    1.  Go to the folder where you stored the downloaded files for
-        `hits_v1.tsv` and `visits_v1.tsv`.
+   1. Go to the folder where you stored the downloaded files for
+      `hits_v1.tsv` and `visits_v1.tsv`.
 
-    1.  Run the following commands:
+   1. Run the following commands:
 
-        ```bash
-        cat hits_v1.tsv | docker run        \
-        --interactive                       \
-        --rm clickhouse/clickhouse-server clickhouse-client  \
-        --user USERNAME                     \
-        --password PASSWORD                 \
-        --host HOST                         \
-        --port PORT                         \
-        --secure                            \
-        --max_insert_block_size=100000      \
-        --query="INSERT INTO default.hits_v1 FORMAT TSV"
-        ```
+      ```bash
+      cat hits_v1.tsv | docker run        \
+      --interactive                       \
+      --rm clickhouse/clickhouse-server clickhouse-client  \
+      --user USERNAME                     \
+      --password PASSWORD                 \
+      --host HOST                         \
+      --port PORT                         \
+      --secure                            \
+      --max_insert_block_size=100000      \
+      --query="INSERT INTO default.hits_v1 FORMAT TSV"
+      ```
 
-        ```bash
-        cat visits_v1.tsv | docker run      \
-        --interactive                       \
-        --rm clickhouse/clickhouse-server clickhouse-client   \
-        --user USERNAME                     \
-        --password PASSWORD                 \
-        --host HOST                         \
-        --port PORT                         \
-        --secure                            \
-        --max_insert_block_size=100000      \
-        --query="INSERT INTO default.visits_v1 FORMAT TSV"
-        ```
+      ```bash
+      cat visits_v1.tsv | docker run      \
+      --interactive                       \
+      --rm clickhouse/clickhouse-server clickhouse-client   \
+      --user USERNAME                     \
+      --password PASSWORD                 \
+      --host HOST                         \
+      --port PORT                         \
+      --secure                            \
+      --max_insert_block_size=100000      \
+      --query="INSERT INTO default.visits_v1 FORMAT TSV"
+      ```
 
 ## Query data
 

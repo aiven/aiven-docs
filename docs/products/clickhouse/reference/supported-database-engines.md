@@ -22,11 +22,22 @@ For details about each engine, see the
 
 | Engine | Supported in |
 | ------ | ------------ |
-| `Atomic` | 25.3, 25.8 |
+| `Atomic` | 25.3, 25.8, 26.3 |
 | `Lazy` | 25.3, 25.8 |
-| `MaterializedMySQL` | 25.3, 25.8 |
-| `Memory` | 25.3, 25.8 |
-| `MySQL` | 25.3, 25.8 |
-| `Ordinary` | 25.3, 25.8 |
-| `PostgreSQL` | 25.3, 25.8 |
-| `Replicated` | 25.3, 25.8 |
+| `MaterializedMySQL` | 25.3, 25.8, 26.3 |
+| `Memory` | 25.3, 25.8, 26.3 |
+| `MySQL` | 25.3, 25.8, 26.3 |
+| `Ordinary` | 25.3, 25.8, 26.3 |
+| `PostgreSQL` | 25.3, 25.8, 26.3 |
+| `Replicated` | 25.3, 25.8, 26.3 |
+
+:::note
+The `Lazy` database engine is not available in 26.3. It was removed upstream in
+26.2. Move tables to a supported database engine and drop `Lazy` databases
+before upgrading.
+:::
+
+:::note
+On Aiven, new databases can be created in SQL only with the `Replicated` engine.
+See [Limits and limitations](/docs/products/clickhouse/reference/limitations).
+:::

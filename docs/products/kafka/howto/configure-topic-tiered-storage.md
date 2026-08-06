@@ -31,10 +31,9 @@ using the Aiven Console have tiered storage enabled by default.
 
 1. Access the [Aiven Console](https://console.aiven.io/), select your project,
    and select your Aiven for Apache Kafka service.
-1. Click <ConsoleLabel name="topics" />.
+1. Click <ConsoleLabel name="manage stream" /> > **Topics**.
 
-1. On the **Topics** page, either add a new topic with tiered storage or modify an
-   existing one:
+1. Either add a new topic with tiered storage or modify an existing one:
    - To add a new topic, click **Add topic**.
    - To modify an existing topic, select the topic to modify, then either:
      - Click the topic name to open the **Topic info** screen, and click **Modify**.

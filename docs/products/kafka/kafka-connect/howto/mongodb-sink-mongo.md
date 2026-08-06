@@ -120,7 +120,7 @@ topic management, refer to the [MongoDB Kafka connector documentation](https://w
 
 1. Access the [Aiven Console](https://console.aiven.io/).
 1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
-1. Click <ConsoleLabel name="Connectors"/>.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Kafka Connect is enabled on the service.
    If not, enable it under **Service settings** > **Actions** > **Enable Kafka Connect**.
 1. From the list of sink connectors, select **MongoDB sink connector**, and click **Get started**.
@@ -128,7 +128,7 @@ topic management, refer to the [MongoDB Kafka connector documentation](https://w
    <ConsoleLabel name="edit"/>.
 1. Paste the configuration from your `mongodb_sink_config.json` file into the text box.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="Connectors"/> page.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 1. Verify that data from the Kafka topic appears in MongoDB.
 
 </TabItem>
@@ -191,7 +191,7 @@ named `students` in the MongoDB database `school`.
 
 After creating the connector:
 
-1. Check the connector status on the **Connectors** page in the Aiven Console.
+1. Check the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page in the Aiven Console.
 1. Verify that a `students` collection exists in the MongoDB database.
 1. Confirm that records from the Kafka topic are written to the collection.
 

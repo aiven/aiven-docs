@@ -31,17 +31,17 @@ Your Aiven for ClickHouse service can support up to 400 databases simultaneously
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the <ConsoleLabel name="Services"/> page.
 
-1.  In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1.  In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 
 1.  Click **Create database** > **ClickHouse database**.
 
 1.  In the **Create ClickHouse database** window, enter a name for your
     database and select **Create database**.
 
-    The name of the database appears in the list of databases
-    in the <ConsoleLabel name="databasesandtables"/> page. On our side, we enable
-    necessary customizations and run secondary queries to grant access
-    to the admin user.
+    The database name appears in the list of databases
+    in the **Databases and tables** page. Aiven applies
+    the required customizations and runs secondary queries to grant
+    access to the admin user.
 
 </TabItem>
 <TabItem value="cli" label="SQL">
@@ -83,7 +83,7 @@ using an SQL client such as the
 <TabItem value="console" label="Aiven Console" default>
 1.  Log in to the [Aiven Console](https://console.aiven.io/), and select
     your service from the <ConsoleLabel name="Services"/> page.
-1. In the sidebar, click <ConsoleLabel name="databasesandtables"/>.
+1. In the sidebar, click <ConsoleLabel name="data"/> > **Databases and tables**.
 1. In the **Databases and tables** list, find your database and click
     <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletedatabase"/>.
 </TabItem>
@@ -133,7 +133,7 @@ in Aiven for ClickHouse.
 
 Aiven for ClickHouse uses `replicated` variants of table
 engines to ensure high availability. Even if you select `MergeTree`
-engine, we will automatically use the replicated variant on our side.
+engine, Aiven automatically uses the replicated variant.
 
 :::note
 A non-replicated table, such as `system.query_log`, can be
@@ -164,7 +164,7 @@ To remove your table in the [Aiven Console](https://console.aiven.io/):
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
 1.  Go to the table to be removed: organization > project >
-    service > <ConsoleLabel name="databasesandtables"/>.
+    service > <ConsoleLabel name="data"/> > **Databases and tables**.
 1.  In the **Databases and tables** view, go to the table and
     select <ConsoleLabel name="actions"/> > <ConsoleLabel name="deletetable"/>.
 

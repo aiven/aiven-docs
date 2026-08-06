@@ -1,42 +1,36 @@
 ---
-title: Enable Apache Kafka® Connect connectors auto restart on failures
+title: Enable automatic restart for Apache Kafka® Connect connectors
 ---
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-If you experience an Apache Kafka® Connect connector failure, restarting automatically the task is generally not recommended.
-Perform a proper
-investigation on the problem's cause before attempting the restart to
-avoid experiencing similar problems in the future. However, sometimes a
-task can fail due to a rare problem like the dedicated node going out of
-memory due to a huge surge of data; in such cases, the automatic task
-restart usually solves the issue.
+Automatic restart can help recover a connector task after a rare transient failure, such as an out-of-memory error caused by a sudden data surge.
+
+Before you enable automatic restart, investigate the cause of the connector failure.
+Automatic restart is not recommended for recurring failures because the connector might
+continue to fail until the underlying issue is fixed.
 
 :::note
-We observed cases when the Debezium source connector for PostgreSQL®
-stopped working after the PostgreSQL maintenance update, due to
-PostgreSQL inability to create replication slots before failover. In
-such cases the connector automatic restart can be a solution to
-avoid the problem.
+In some cases, the Debezium source connector for PostgreSQL® can stop after PostgreSQL
+maintenance if PostgreSQL cannot create replication slots before failover. Automatic
+restart can help recover the connector in this scenario.
 :::
 
-## Enable connector automatic restart with Aiven console
+## Enable automatic restart in the Aiven Console
 
-Aiven provides an option to enable automatic connector restart in case
-of edge situations. All our connectors support this option.
+All Aiven-managed Apache Kafka Connect connectors support automatic restart.
 
-For example, you can update of an existing Debezium-PostgreSQL connector:
+To enable automatic restart for an existing connector:
 
-1.  In the [Aiven console](https://console.aiven.io/), select the Aiven
-    for Apache Kafka or Aiven for Apache Kafka Connect service pages
-    where the connector is defined.
-1.  Select **Connectors** from the left sidebar and select the connector
-    to be updated.
-1.  Select the **Aiven** tab on the connectors page.
-1.  Set the **Automatic restart** option to `True`
+1. In the [Aiven Console](https://console.aiven.io/), select the Aiven for Apache Kafka
+   or Aiven for Apache Kafka Connect service where the connector is defined.
+1. Select <ConsoleLabel name="manage stream" /> > **Connectors** from the sidebar.
+1. Open the connector to update.
+1. Select the **Aiven** tab.
+1. For **Automatic restart**, select **True**.
 
-Once you have enabled automatic restart, the connector will be restarted
-automatically whenever a failure is detected.
+After you enable automatic restart, the connector restarts automatically when a failure
+is detected.
 
 :::warning
-Enabling this feature will restart the entire connector, not just the
-failed tasks.
+Automatic restart restarts the entire connector, not only the failed tasks.
 :::
