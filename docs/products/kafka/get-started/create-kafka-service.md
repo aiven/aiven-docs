@@ -12,7 +12,7 @@ Create an Apache Kafka® service on Aiven by choosing a **service type** that de
 
 ### Standard Kafka
 
-Standard Kafka uses usage-based pricing, unlimited storage at $0.10 per GB-month, and
+Standard Kafka uses usage-based pricing, unlimited storage, and
 supports both classic topics and diskless topics.
 
 Choose Standard Kafka if you need:
