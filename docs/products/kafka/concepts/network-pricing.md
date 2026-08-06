@@ -41,10 +41,10 @@ consumed from the cluster.
 
 ### Why egress and ingress differ
 
-Aiven measures the ingress and egress independently. Egress is typically higher as data is usually read by more than one client, or consumed more than once.
-Egress depends on how clients consume data. Reading the same
-data with multiple consumer groups, repeated reads, retries, or client reconnections all
-affect cluster egress.
+Aiven measures the ingress and egress independently. Egress is typically higher, because
+data is usually read by more than one client, or consumed more than once. Reading the
+same data with multiple consumer groups, repeated reads, retries, or client reconnects
+all affect cluster egress.
 
 Your client library and client configuration can also affect traffic. For example, a
 client that fetches the same data more than once, uses small fetches, or reconnects
@@ -57,7 +57,7 @@ selected configuration.
 Compute sizing is approximated based on network ingress. This approximation relies on
 several assumptions, so more compute capacity may be needed in scenarios such as:
 
-- High egress fanout patterns
+- High egress fan-out patterns
 - A high number of partitions per broker
 - Uneven distribution of throughput among partitions
 - A high number of client connections
@@ -90,8 +90,8 @@ during the billing period.
 :::
 
 Aiven bills storage by the GB-month. One GB-month means 1 GB of data stored for one
-month. The unit combines size and time,storing 100 GB for a full month is 100 GB-months, and storing 100 GB for
-half a month is 50 GB-months.
+month. The unit combines size and time. Storing 100 GB for a full month is 100
+GB-months, and storing 100 GB for half a month is 50 GB-months.
 
 Storage usage is prorated by the hour, so the Aiven Console can show usage in smaller
 units. For example, \$0.12 per GB-month is equivalent to \$0.000164 per GB-hour, and
@@ -105,23 +105,20 @@ shown during the billing period can change as Aiven processes new usage data.
 
 The following factors affect your estimated or actual cost:
 
-- **Service plan**: Determines the compute rate.
 - **Cloud and region**: Prices vary by region.
+- **Service plan**: Determines the Kafka cluster deployed, hence the compute rate.
 - **Topic type**: Classic topics and Diskless topics have different ingress and
   egress rates, so the share of traffic that uses each topic type affects network
   usage costs. For network pricing rates, see the
   [Aiven pricing page](https://aiven.io/pricing).
-- **Data produced**: Higher ingress can increase network usage costs, depending on
-  the topic type.
-- **Data read**: More consumer groups, repeated reads, retries, client
-  reconnections, or client configuration can increase egress.
-- **Retention period**: Longer retention or higher ingress rates increase storage usage.
+- **Data produced & read**: Data produced and consumed is billed.
+- **Retention period**: Longer retention keeps data in storage for longer.
 
 ## Manage costs
 
-To manage costs, review the factors that affect compute, storage, and network usage:
+To manage costs, review the factors that affect your compute, storage, and network usage :
 
-- Choose a service plan that matches your workload.
+- Review the service plan that matches your workload, consult an expert for any tuning.
 - Use Diskless topics for high-throughput workloads that do not require low latency.
 - Adjust topic retention to control storage usage.
 - Review consumer applications and client configuration if egress is higher than
