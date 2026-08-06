@@ -56,9 +56,6 @@ When you create a service, Aiven provides a monthly cost estimate based on your
 selected configuration. An estimate is a projection, not a commitment. Your final cost
 depends on actual usage during the billing period.
 
-To estimate costs before creating a service, use the
-[Kafka pricing calculator](https://aiven.io/kafka).
-
 For instructions, see
 [Review the cost estimate](/docs/products/kafka/get-started/create-standard-kafka-service#review-the-cost-estimate).
 
