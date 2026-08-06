@@ -20,12 +20,14 @@ In the Aiven CLI and advanced configuration, Standard Kafka is still identified 
 
 Standard Kafka changes how Kafka services store and manage data:
 
-- **Classic topics:** Tiered storage of classic topics is enforced with local retention set at 15 minutes or 5GB partition limit.
-- **Diskless topics:** Opt-in diskless topics can be used and store all retained data in object storage.
+- **Classic topics:** Tiered storage of classic topics is enforced with local retention
+  set at 15 minutes or a 5 GB partition limit.
+- **Diskless topics:** Opt-in diskless topics can be used and store all retained data in
+  object storage.
 - **Managed configuration:** Some broker-level settings use managed defaults.
-- **KRaft-based metadata management:** Standard Kafka starts from major version 4.x so all services use
-  [KRaft](/docs/products/kafka/concepts/kraft-mode) for metadata and consensus, replacing
-  ZooKeeper.
+- **KRaft-based metadata management:** Standard Kafka starts from major version 4.x, so
+  all services use [KRaft](/docs/products/kafka/concepts/kraft-mode) for metadata and
+  consensus, replacing ZooKeeper.
 - **Kafka Connect deployment:** Kafka Connect must be deployed as a separate service.
 
 ## Billing and cost
