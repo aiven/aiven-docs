@@ -6,10 +6,10 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Diskless topics are a feature of Aiven's Standard Kafka services that store Kafka topic data in cloud object storage, without writing to local disk.
 
-Diskless topics are available in Standard Kafka services on Aiven Cloud and
-Bring Your Own Cloud (BYOC). In Bring Your Own Cloud (BYOC)
-deployments, Aiven manages the Kafka service in your cloud account, while you retain
-control over your infrastructure and data.
+Diskless topics are available in Standard Kafka services on Aiven Cloud, and on Business
+and Premium `-inkless` plans in Bring Your Own Cloud (BYOC). In BYOC deployments, Aiven
+manages the Kafka service in your cloud account, while you retain control over your
+infrastructure and data.
 
 :::note
 Diskless topics are **limited availability** on Aiven Cloud.
