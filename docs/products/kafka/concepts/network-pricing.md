@@ -19,7 +19,7 @@ Aiven bills Standard Kafka services across three components:
 
 - **Compute**: The cost of the selected service plan.
 - **Storage**: The cost of data retained by the service, based on the amount of data
-  stored and how long it's retained.
+  stored and for how long.
 - **Network usage**: The cost of data produced to and consumed from Kafka topics.
 
 ## Network usage
@@ -33,21 +33,22 @@ Aiven measures network usage separately for each topic type. Ingress and egress 
 different rates depending on whether the traffic is for Classic topics or Diskless
 topics.
 
-Measured ingress and egress can be higher than the payload data your application sends
-and receives. Kafka protocol overhead, including record headers, message framing, and
-retries, can affect measured traffic, as can client batching behavior.
+Measured ingress and egress will be higher than just the size of the payload data your
+application sends and receives. Kafka protocol overhead, including record headers,
+message framing, and retries, can affect measured traffic, as can client batching
+behavior. Different client defaults can significantly affect how data is produced and
+consumed from the cluster.
 
 ### Why egress and ingress differ
 
-Aiven measures ingress and egress independently, so your egress total does not need to
-match your ingress total. Egress depends on how clients consume data. Reading the same
-data with multiple consumer groups, repeated reads, retries, or client reconnections can
-increase egress.
+Aiven measures the ingress and egress independently. Egress is typically higher as data is usually read by more than one client, or consumed more than once.
+Egress depends on how clients consume data. Reading the same
+data with multiple consumer groups, repeated reads, retries, or client reconnections all
+affect cluster egress.
 
-Your client library and client configuration can also affect egress. For example, a
+Your client library and client configuration can also affect traffic. For example, a
 client that fetches the same data more than once, uses small fetches, or reconnects
-frequently can generate more consumed data than expected. Aiven measures this traffic as
-egress because it is data the Kafka service sends to the client.
+frequently can generate more consumed data than expected.
 
 ## Cost estimates
 
