@@ -7,7 +7,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Standard Kafka is an Apache Kafka® service from Aiven for cloud deployments, supporting
 diskless topics and object storage-backed data retention.
 
-Standard Kafka is available on Aiven Cloud and Bring Your Own Cloud, or BYOC, deployments.
+Standard Kafka is available on Aiven Cloud deployments.
 It runs on Kafka 4.x and supports both classic and diskless topics within the same service.
 Classic Kafka remains available and can be selected when creating a new Kafka service.
 
@@ -20,13 +20,13 @@ In the Aiven CLI and advanced configuration, Standard Kafka is still identified 
 
 Standard Kafka changes how Kafka services store and manage data:
 
-- **Diskless topics:** Opt-in diskless topics store all retained data in object storage.
-- **Classic topics:** Data storage and retention are managed automatically by the service.
+- **Classic topics:** Tiered storage of classic topics is enforced with local retention set at 15 minutes or 5GB partition limit.
+- **Diskless topics:** Opt-in diskless topics can be used and store all retained data in object storage.
 - **Managed configuration:** Some broker-level settings use managed defaults.
-- **KRaft-based metadata management:** Standard Kafka uses
+- **KRaft-based metadata management:** Standard Kafka starts from major version 4.x so all services use
   [KRaft](/docs/products/kafka/concepts/kraft-mode) for metadata and consensus, replacing
   ZooKeeper.
-- **Kafka Connect deployment:** Kafka Connect is deployed as a separate service.
+- **Kafka Connect deployment:** Kafka Connect must be deployed as a separate service.
 
 ## Billing and cost
 
@@ -45,7 +45,7 @@ For more information about how network usage is measured and priced, see
 Use Standard Kafka to:
 
 - Scale storage without managing broker disk capacity.
-- Retain large volumes of data for extended periods.
+- Retain larger volumes of data for extended periods.
 - Scale and recover clusters faster than fixed-storage deployments.
 - Combine classic and diskless topics in the same service.
 
