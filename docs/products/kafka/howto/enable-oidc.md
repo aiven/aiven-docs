@@ -38,6 +38,17 @@ Before you begin, make sure you have:
 Configuration steps vary by identity provider. See your provider's documentation
 for JWKS URL, issuer, and audience values.
 
+:::note
+OAuth 2.0/OIDC authentication works independently of Aiven service users. If you
+use **Aiven ACLs** instead of Kafka-native ACLs to control access, create
+a [matching Aiven service user](/docs/products/kafka/howto/add-manage-service-users)
+with the same identifier as the OIDC principal. This identifier can be the
+identity provider's service principal ID. Aiven enforces the ACL only when this
+matching service user exists. Kafka-native ACLs do not have this requirement.
+For more information, see
+[Manage access control lists](/docs/products/kafka/howto/manage-acls).
+:::
+
 ## Configure OAuth 2.0/OIDC settings
 
 Set `kafka.sasl_oauthbearer_jwks_endpoint_url` to enable `OAUTHBEARER`.
