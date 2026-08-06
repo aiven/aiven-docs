@@ -44,11 +44,14 @@ Aiven VPCs can be peered with VPCs in the following cloud platforms:
 - Microsoft Azure
 - UpCloud
 
-Peering is only supported between an Aiven VPC and a VPC hosted with the same cloud
-provider. For example, an Aiven VPC hosted in AWS can be peered with an AWS VPC, but not
-with a VPC in Google Cloud, Microsoft Azure, or UpCloud. Peering across different cloud
-providers is not supported. A single Aiven VPC also can't be peered with VPCs in more
-than one cloud provider at the same time.
+## Limitations
+
+- Peering is only supported between an Aiven VPC and a VPC hosted with the same cloud
+  provider. For example, an Aiven VPC hosted in AWS can be peered with an AWS VPC, but
+  not with a VPC in Google Cloud, Microsoft Azure, or UpCloud. Peering across different
+  cloud providers is not supported.
+- A single Aiven VPC can't be peered with VPCs in more than one cloud provider at the
+  same time.
 
 To connect to a service from a different cloud provider or region, use
 [public access](/docs/platform/howto/public-access-in-vpc) instead of VPC peering. This
