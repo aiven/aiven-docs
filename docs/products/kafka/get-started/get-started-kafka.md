@@ -65,10 +65,9 @@ cloud object storage rather than on local disks. Compute capacity is sized based
 stream load instead of fixed hardware plans.
 
 - Select **Standard** as the service type.
-- Select **Aiven cloud** or **Bring your own cloud (BYOC)** as the deployment mode.
-- On Aiven cloud, select **AWS**, **Google**, or **Azure** and a region;
-  then provide expected ingress, egress, and retention to estimate capacity and cost.
-- On BYOC, select the BYOC environment, region, and a Standard Kafka plan.
+- Select **Aiven cloud** as the deployment mode.
+- Select **AWS**, **Google**, or **Azure** and a region, then provide expected ingress,
+  egress, and retention to estimate capacity and cost.
 
 **Continue with:** [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service).
 
