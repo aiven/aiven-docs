@@ -53,8 +53,19 @@ frequently can generate more consumed data than expected.
 ## Cost estimates
 
 When you create a service, Aiven provides a monthly cost estimate based on your
-selected configuration. An estimate is a projection, not a commitment. Your final cost
-depends on actual usage during the billing period.
+selected configuration.
+Compute sizing is approximated based on network ingress. This approximation relies on
+several assumptions, so more compute capacity may be needed in scenarios such as:
+
+- High egress fanout patterns
+- A high number of partitions per broker
+- Uneven distribution of throughput among partitions
+- A high number of client connections
+- Enabled integrations, such as Datadog or the consumer lag predictor
+- Other factors that increase demand on compute
+
+For more on factors that drive up broker resource usage, see
+[Optimizing resource usage](/docs/products/kafka/howto/optimizing-resource-usage).
 
 For instructions, see
 [Review the cost estimate](/docs/products/kafka/get-started/create-standard-kafka-service#review-the-cost-estimate).
@@ -79,7 +90,7 @@ during the billing period.
 :::
 
 Storage usage reflects both the amount of data stored and how long it's retained. For
-example, $0.12 per GB-month is equivalent to $0.000164 per GB-hour, so the Aiven
+example, \$0.12 per GB-month is equivalent to \$0.000164 per GB-hour, so the Aiven
 Console can show storage usage in units such as KB-hours or MB-hours.
 
 The Aiven Console shows network usage separately for Classic topics and Diskless topics.
