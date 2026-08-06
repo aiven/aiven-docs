@@ -33,6 +33,7 @@ are available:
 -   [Learning to Rank](https://github.com/opensearch-project/opensearch-learning-to-rank-base)
     (OpenSearch 2.19.5 and later)
 -   [Mapper Size](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/mapper-size)
+-   [ML Commons](https://github.com/opensearch-project/ml-commons)
 -   [Neural Search](https://github.com/opensearch-project/neural-search)
 -   [Notebooks](https://github.com/opensearch-project/dashboards-notebooks)
 -   [OpenSearch Dashboards Alerting](https://github.com/opensearch-project/alerting-dashboards-plugin)
