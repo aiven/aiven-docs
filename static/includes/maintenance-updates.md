@@ -16,9 +16,6 @@ current week’s window.
 During service upgrades, maintenance updates are applied automatically and do not
 require your action.
 
-<<<<<<< HEAD
-You can check pending updates using:
-=======
 :::note
 When a mandatory service update for **Apache Kafka®** is released, the
 [Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure) runs
@@ -26,7 +23,6 @@ automatically.
 :::
 
 You can view pending updates using:
->>>>>>> 3dce8e01 (update: maintenance update)
 
 - [Aiven Console](https://console.aiven.io/):
   <ConsoleLabel name="service settings"/> > **Service management**

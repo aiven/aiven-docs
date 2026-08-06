@@ -771,7 +771,6 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/concepts/auth-types',
                     'products/kafka/howto/kafka-sasl-auth',
                     'products/kafka/howto/renew-ssl-certs',
-                    'products/kafka/howto/kafka-custom-serde-encrypt',
                     'products/kafka/howto/enable-oidc',
                     'products/kafka/howto/kafka-oauth2-aws-iam',
                   ],
@@ -797,7 +796,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Networking and encryption',
-                  items: ['products/kafka/howto/ipv6-client-connectivity'],
+                  items: [
+                    'products/kafka/howto/ipv6-client-connectivity',
+                    'products/kafka/howto/kafka-custom-serde-encrypt',
+                  ],
                 },
               ],
             },
@@ -945,7 +947,9 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Troubleshooting',
-                  items: ['products/kafka/troubleshooting/non-leader-for-partition'],
+                  items: [
+                    'products/kafka/troubleshooting/non-leader-for-partition',
+                  ],
                 },
               ],
             },
@@ -964,7 +968,9 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'External integrations',
-                  items: ['products/kafka/howto/integrate-external-kafka-cluster'],
+                  items: [
+                    'products/kafka/howto/integrate-external-kafka-cluster',
+                  ],
                 },
               ],
             },
@@ -1026,6 +1032,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/kafka-connect/howto/configure-env-secret-provider',
                       ],
                     },
+                    'products/kafka/kafka-connect/reference/advanced-params',
                   ],
                 },
                 {
@@ -1150,10 +1157,8 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Reference',
+                  label: 'Observability',
                   items: [
-                    'products/kafka/kafka-connect/reference/advanced-params',
-                    'products/kafka/kafka-connect/reference/gcs-sink-formats',
                     'products/kafka/kafka-connect/reference/connect-metrics-prometheus',
                   ],
                 },
@@ -1212,6 +1217,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/kafka-mirrormaker/howto/mm2-rack-awareness',
                     'products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool',
                     'products/kafka/kafka-mirrormaker/troubleshooting/topic-not-replicated',
+                    'products/kafka/kafka-mirrormaker/reference/advanced-params',
                   ],
                 },
                 {
@@ -1221,7 +1227,6 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/kafka-mirrormaker/howto/datadog-customised-metrics',
                   ],
                 },
-                'products/kafka/kafka-mirrormaker/reference/advanced-params',
               ],
             },
           ],
@@ -1459,9 +1464,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Scaling and performance',
-              items: [
-                'products/datahub/scale-datahub-service',
-              ],
+              items: ['products/datahub/scale-datahub-service'],
             },
             {
               type: 'category',
@@ -1470,7 +1473,7 @@ const sidebars: SidebarsConfig = {
                 'products/datahub/upgrade-datahub-version',
                 'products/datahub/restore-datahub-indices',
               ],
-          },
+            },
             'products/datahub/fork-datahub-service',
           ],
         },
