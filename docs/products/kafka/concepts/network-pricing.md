@@ -89,9 +89,13 @@ number, for example bytes, KB, MB, GB, or TB. The unit can change as usage grows
 during the billing period.
 :::
 
-Storage usage reflects both the amount of data stored and how long it's retained. For
-example, \$0.12 per GB-month is equivalent to \$0.000164 per GB-hour, so the Aiven
-Console can show storage usage in units such as KB-hours or MB-hours.
+Aiven bills storage by the GB-month. One GB-month means 1 GB of data stored for one
+month. The unit combines size and time,storing 100 GB for a full month is 100 GB-months, and storing 100 GB for
+half a month is 50 GB-months.
+
+Storage usage is prorated by the hour, so the Aiven Console can show usage in smaller
+units. For example, \$0.12 per GB-month is equivalent to \$0.000164 per GB-hour, and
+usage can appear in units such as KB-hours or MB-hours.
 
 The Aiven Console shows network usage separately for Classic topics and Diskless topics.
 Predicted usage is based on your usage so far in the billing period. Usage information
