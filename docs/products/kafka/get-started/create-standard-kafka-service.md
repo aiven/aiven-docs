@@ -1,7 +1,7 @@
 ---
 title: Create a Standard Kafka service
 sidebar_label: Create Standard Kafka service
-keywords: [create, kafka, service, standard, inkless, byoc, google cloud]
+keywords: [create, kafka, service, standard, inkless, google cloud]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,8 +9,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create a Standard Apache Kafka® service on Aiven Cloud or with Bring Your Own Cloud,
-or BYOC.
+Create a Standard Apache Kafka® service on Aiven Cloud.
 
 ## Prerequisites
 
@@ -31,7 +30,7 @@ Cloud, and Microsoft Azure.
 1. Click **Create service**.
 1. Click **Apache Kafka®**.
 1. In **Service tier**, click **Professional**.
-1. In **Service type**, click **Standard**.
+1. If a choice of **Service type** is available, click **Standard**.
 1. In **Deployment mode**, click **Aiven cloud**.
 1. Under **Cloud**, click **AWS**, **Google**, or **Azure**, then choose a region.
 1. In **Stream load**, click the expected traffic for the service.
@@ -160,100 +159,3 @@ For a breakdown of network usage by topic type and direction, go to **Billing** 
 
 After you create a service with usage-based pricing, view usage in
 **Overview** > **Service usage**.
-
-## Create a Standard service with BYOC
-
-You can run Standard Kafka services in your own cloud account using
-Bring Your Own Cloud, or BYOC. Standard Kafka on BYOC supports Classic topics and
-Diskless topics.
-
-Before you create services on BYOC, configure a BYOC environment.
-For instructions, see
-[Create a custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud).
-
-<Tabs groupId="inkless-byoc">
-<TabItem value="console" label="Console" default>
-
-1. In the [Aiven Console](https://console.aiven.io), open the project and
-   click <ConsoleLabel name="services" />.
-1. Click **Create service**.
-1. Click **Apache Kafka®**.
-1. In **Service tier**, click **Professional**.
-1. In **Service type**, click **Standard**.
-1. In **Deployment mode**, click **Bring your own cloud (BYOC)**.
-1. In **Cloud**, choose your BYOC environment and region.
-1. Click a **plan**.
-1. In **Service basics**, enter:
-   - **Name:** Enter a name for the service. You cannot change the service name after
-     you create the service.
-   - **Tags:** Optional. Add [resource tags](/docs/platform/howto/tag-resources) to
-     organize your services.
-1. Review the **Service summary**, then click **Create service**.
-
-</TabItem>
-<TabItem value="cli" label="CLI">
-
-Create a Standard Kafka service in a BYOC environment:
-
-:::note
-In the Aiven CLI and advanced configuration, Standard Kafka is still identified with
-`inkless`.
-:::
-
-1. List available Kafka plans for your BYOC cloud and region, and choose a plan that
-   supports Standard Kafka services.
-
-   ```bash
-   avn service plans --service-type kafka --cloud CUSTOM_CLOUD_REGION
-   ```
-
-1. Create the service using a Standard-capable plan:
-
-   ```bash
-   avn service create SERVICE_NAME \
-     --project PROJECT_NAME \
-     --service-type kafka \
-     --cloud CUSTOM_CLOUD_REGION \
-     --plan INKLESS_PLAN \
-     -c kafka_version=4.1 \
-     -c tiered_storage.enabled=true
-   ```
-
-   Set `tiered_storage.enabled=true` for Standard Kafka on BYOC. Diskless topics are
-   optional. You can use Classic topics until you enable Diskless topics.
-
-1. Optional: To enable diskless topics when creating the service, add
-   `-c kafka_diskless.enabled=true` to the command from the previous step:
-
-   ```bash
-   avn service create SERVICE_NAME \
-     --project PROJECT_NAME \
-     --service-type kafka \
-     --cloud CUSTOM_CLOUD_REGION \
-     --plan INKLESS_PLAN \
-     -c kafka_version=4.1 \
-     -c tiered_storage.enabled=true \
-     -c kafka_diskless.enabled=true
-   ```
-
-   You can also enable diskless topics later in the service configuration.
-
-Parameters:
-
-- `SERVICE_NAME`: Name of the Kafka service.
-- `PROJECT_NAME`: Aiven project name.
-- `CUSTOM_CLOUD_REGION`: BYOC region, such as `custom-aws-eu-central-1`.
-- `INKLESS_PLAN`: Standard-capable plan for the selected BYOC environment. In the CLI,
-  the plan name can still include `inkless`.
-
-</TabItem>
-</Tabs>
-
-After you create the service, create topics to store data streams. To create topics,
-see [Create Kafka topics](/docs/products/kafka/howto/create-topic).
-
-<RelatedPages />
-
-- [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
-- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
-- [Generate sample data](/docs/products/kafka/howto/generate-sample-data)
