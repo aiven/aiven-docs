@@ -221,8 +221,8 @@ or a plan change.
 Automatic rebalancing is supported on:
 
 - `inkless-professional` plans
-- Standard Kafka Business and Premium plans on BYOC
 - `kafka-professional` plans
+- Business and Premium `-inkless` plans on BYOC
 - All Kafka Connect and MirrorMaker 2 plans
 
 ## Example: Optimize follower fetching
