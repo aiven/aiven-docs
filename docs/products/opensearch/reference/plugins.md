@@ -22,8 +22,16 @@ OpenSearch version that your service uses.
 Depending on the Aiven for OpenSearch version your service runs on, the following plugins
 are available:
 
+-   [Alerting](https://github.com/opensearch-project/alerting)
+-   [Amazon S3 Repository](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/repository-s3)
 -   [Anomaly detection](https://github.com/opensearch-project/anomaly-detection)
 -   [Asynchronous search](https://github.com/opensearch-project/asynchronous-search)
+-   [Azure Repository](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/repository-azure)
+-   [Cross-Cluster Replication](https://github.com/opensearch-project/cross-cluster-replication)
+-   [Custom Codecs](https://github.com/opensearch-project/custom-codecs)
+-   [Flow Framework](https://github.com/opensearch-project/flow-framework)
+-   [Geospatial](https://github.com/opensearch-project/geospatial)
+-   [Google Cloud Storage Repository](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/repository-gcs)
 -   [ICU Analysis](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-icu)
 -   [Index Management](https://github.com/opensearch-project/index-management)
 -   [Ingest Attachment](https://github.com/opensearch-project/OpenSearch/tree/2.15/plugins/ingest-attachment)
@@ -47,7 +55,10 @@ are available:
 -   [OpenSearch security analytics](https://github.com/opensearch-project/security-analytics)
 -   [OpenSearch SQL](https://github.com/opensearch-project/sql)
 -   [Phonetic analysis](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-phonetic)
+-   [Query Insights](https://github.com/opensearch-project/query-insights)
 -   [Scheduler for Dashboards Reports](https://github.com/opensearch-project/dashboards-reporting)
+-   [Skills](https://github.com/opensearch-project/skills)
+-   [System Templates](https://github.com/opensearch-project/opensearch-system-templates)
 -   [User Behavior Insights](https://github.com/opensearch-project/user-behavior-insights)
 
 :::note
