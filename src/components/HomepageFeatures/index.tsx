@@ -35,15 +35,12 @@ const FeatureList: FeatureItem[] = [
     description: <>Discover our managed services and how to set them up.</>,
   },
   {
-    title: 'Apps',
+    title: 'Runtime applications',
     Svg: require('@site/static/images/icons/home/console.svg').default,
     to: '/docs/products/aiven-apps',
     accent: 'purple',
     description: (
-      <>
-        Connect your Aiven organization with your own cloud account by creating
-        custom clouds.
-      </>
+      <>Run stateless apps within your existing Aiven project infrastructure.</>
     ),
   },
   {
