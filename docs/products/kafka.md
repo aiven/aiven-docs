@@ -11,64 +11,63 @@ Cursor and Claude Code.
 :::
 
 You create Kafka services using one of two **service types**: **Standard Kafka** or
-**Classic Kafka**.
+**Classic Kafka**. New customers create Standard Kafka services. Classic Kafka remains
+available for existing customers.
 
 ## Standard Kafka
 
-Standard Kafka is a service type that supports storing topic data in cloud object
-storage through diskless topics.
-
-This enables elastic scaling and long-term data retention without managing disk capacity.
+Standard Kafka is a service type that stores topic data in cloud object storage through
+diskless topics, giving you elastic scaling and long-term data retention without
+managing disk capacity.
 
 Standard Kafka supports:
 
 - **Diskless topics**, which store data in object storage
 - **Classic topics**, which use managed remote storage by default
 
-Standard Kafka is intended for high-throughput workloads where storage elasticity and
-cost efficiency are important, including Bring Your Own Cloud (BYOC) deployments. For
-details on how Standard Kafka works, its storage model, and when to use it, see
+Use Standard Kafka for high-throughput workloads where storage elasticity and cost
+efficiency matter. For details on how Standard Kafka works, its storage model, and
+when to use it, see
 [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview).
 
 ## Classic Kafka
 
-Classic Kafka is a service type that uses fixed plans with local broker storage and can
-optionally move older data to object storage using tiered storage.
+Classic Kafka uses fixed plans with local broker storage and can optionally move older
+data to object storage using tiered storage.
 
-It is suitable for workloads that rely on predictable capacity, low-latency access to
-local storage, and plan-based broker sizing. Classic Kafka continues to support existing
+Use Classic Kafka for workloads that need predictable capacity, low-latency access to
+local storage, and plan-based broker sizing. Classic Kafka supports existing
 performance defaults and backups.
 
-Classic Kafka and Standard Kafka services can run alongside each other within the same
+Classic Kafka and Standard Kafka services can run alongside each other in the same
 project.
 
 ## Service tiers and deployment models
 
 Aiven for Apache Kafka is available on multiple service tiers and deployment models.
 
-- **Free** supports evaluation and experimentation with limited throughput and storage.
-- **Developer** is a paid tier for Classic Kafka that sits between Free and
-  Professional. It offers higher throughput, more topics and storage, and longer
-  retention than Free, and supports service integrations and optional Kafka Connect
-  billed separately.
-- **Professional** supports production workloads and full Kafka Connect support on both
-  Standard and Classic Kafka services (plan-dependent).
+- **Free**: Evaluate and experiment with limited throughput and storage.
+- **Developer**: A paid tier for Classic Kafka between Free and Professional. It
+  offers higher throughput, more topics and storage, and longer retention than Free,
+  and supports service integrations and optional Kafka Connect billed separately.
+- **Professional**: Supports production workloads, with full Kafka Connect support on
+  both Standard and Classic Kafka services (plan-dependent).
 
-Kafka services can run on **Aiven Cloud** or **Bring Your Own Cloud (BYOC)**.
-Availability of tiers and features varies by service type and deployment model.
+Kafka services run on **Aiven Cloud** or **Bring Your Own Cloud (BYOC)**. Standard
+Kafka is available on Aiven Cloud only. On BYOC, Classic Kafka is available, with
+diskless topics as an optional add-on.
 
 ## Replication with MirrorMaker 2
 
-Aiven for Apache Kafka® MirrorMaker 2 provides managed cross-cluster replication.
-
-You can replicate data between Kafka clusters, regions, or cloud providers, including
-between Standard Kafka and Classic Kafka services. This supports migration, disaster
-recovery, and multi-region architectures.
+Aiven for Apache Kafka® MirrorMaker 2 provides managed replication between Kafka
+clusters, regions, or cloud providers, including between Standard Kafka and Classic
+Kafka services. Use it for migration, disaster recovery, and multi-region
+architectures.
 
 ## Data integration with Kafka Connect
 
-Apache Kafka Connect is the standard framework for moving data between Kafka and external
-systems.
+Apache Kafka Connect is the standard framework for moving data between Kafka and
+external systems.
 
 Aiven for Apache Kafka® Connect provides managed source and sink connectors for common
 databases, storage systems, and data platforms. On Classic Kafka, Kafka Connect is
