@@ -536,7 +536,6 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
           },
           items: [
-            'products/kafka/inkless-overview',
             {
               type: 'category',
               label: 'Get started',
@@ -575,7 +574,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/kafka/get-started/create-kafka-service',
                   },
                   items: [
-                    'products/kafka/get-started/create-inkless-service',
+                    'products/kafka/get-started/create-standard-kafka-service',
                     'products/kafka/get-started/create-classic-kafka-service',
                   ],
                 },
@@ -599,6 +598,7 @@ const sidebars: SidebarsConfig = {
                 id: 'products/kafka/concepts',
               },
               items: [
+                'products/kafka/standard-kafka-overview',
                 {
                   type: 'category',
                   label: 'Core concepts',
@@ -628,6 +628,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/diskless/concepts/limitations',
                   ],
                 },
+                'products/kafka/concepts/network-pricing',
                 {
                   type: 'category',
                   label: 'Tiered storage',
@@ -842,7 +843,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/reference/advanced-params-free-tier',
                     'products/kafka/reference/advanced-params-dev-tier',
                     'products/kafka/reference/advanced-params',
-                    'products/kafka/reference/advanced-params-inkless',
+                    'products/kafka/reference/advanced-params-standard',
                   ],
                 },
                 'products/kafka/reference/kafka-metrics-prometheus',
