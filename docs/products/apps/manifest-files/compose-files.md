@@ -1,5 +1,5 @@
 ---
-title: Create Compose files for Aiven Apps
+title: Create Compose files for Aiven Runtime
 sidebar_label: Create Compose files
 limited: true
 ---
@@ -7,7 +7,7 @@ limited: true
 import RelatedPages from "@site/src/components/RelatedPages";
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
 
-Aiven Apps scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
+Aiven Runtime scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
 Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
 
 Aiven recognizes Compose files with the following file naming conventions:
@@ -31,19 +31,19 @@ Aiven recognizes Compose files with the following file naming conventions:
   </tbody>
 </table>
 
-Aiven automatically analyzes Compose files to detect the apps to build and
+Aiven automatically analyzes Compose files to detect the applications to build and
 the Aiven services to create.
 
 ## Create a Compose file
 
-Use the following guidelines to create your Compose files for Aiven Apps.
+Use the following guidelines to create your Compose files for Aiven Runtime.
 More information on formatting Compose files is available in the
 [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md)
 and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file).
 
 ### Service integrations
 
-Aiven Apps automatically detects and creates the following data services based
+Aiven Runtime automatically detects and creates the following data services based
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
 and Aiven for OpenSearch®.
 
@@ -155,9 +155,9 @@ services:
 ### Simple web application with PostgreSQL
 
 The following example uses a Docker Compose file and a Dockerfile to
-configure a basic web app that is integrated with a PostgreSQL database.
+configure a basic web application that is integrated with a PostgreSQL database.
 
-The `docker-compose.yml` file defines the app and the PostgreSQL service,
+The `docker-compose.yml` file defines the application and the PostgreSQL service,
 along with the environment variables for integration:
 
 ```yaml
@@ -206,6 +206,58 @@ EXPOSE 3000
 
 # Start the application
 CMD ["npm", "start"]
+```
+
+### Web application with Kafka
+
+The following example uses a Compose file to configure a web application
+and integrate it with a Kafka broker using SASL authentication.
+
+The file defines the application and the Kafka service, along with the environment variables
+for integration:
+
+```yaml
+version: '3.8'
+
+services:
+  # Application service
+  web-app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - kafka-broker
+    environment:
+      # Aiven will detect this integration and provide credentials
+      - KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS:-kafka-broker:9092}
+      - KAFKA_SECURITY_PROTOCOL=${KAFKA_SECURITY_PROTOCOL:-SASL_PLAINTEXT}
+      - KAFKA_SASL_MECHANISM=${KAFKA_SASL_MECHANISM:-PLAIN}
+      - KAFKA_SASL_USERNAME=${KAFKA_SASL_USERNAME:-appuser}
+      - KAFKA_SASL_PASSWORD=${KAFKA_SASL_PASSWORD:-appsecret}
+
+  # Aiven Kafka broker service (automatically detected)
+  kafka-broker:
+    image: apache/kafka:3.9
+    hostname: kafka-broker
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,SASL_PLAINTEXT:SASL_PLAINTEXT"
+      KAFKA_ADVERTISED_LISTENERS: "SASL_PLAINTEXT://kafka-broker:9092"
+      KAFKA_PROCESS_ROLES: "broker,controller"
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-broker:29093"
+      KAFKA_LISTENERS: "CONTROLLER://:29093,SASL_PLAINTEXT://:9092"
+      KAFKA_INTER_BROKER_LISTENER_NAME: "SASL_PLAINTEXT"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      CLUSTER_ID: "4L6g3nShT-eMCtK--X86sw"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_LOG_DIRS: "/tmp/kraft-combined-logs"
+      KAFKA_SASL_ENABLED_MECHANISMS: "PLAIN"
+      KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: "PLAIN"
+      KAFKA_INTER_BROKER_PROTOCOL_VERSION: "3.5"
 ```
 
 ### Multi-service application

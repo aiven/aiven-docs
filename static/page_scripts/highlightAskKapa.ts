@@ -83,7 +83,6 @@ function init(): void {
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    e.stopPropagation();
     const text = getSelectedText();
     if (text) openKapaWithQuery(text);
     hideButton(btn);

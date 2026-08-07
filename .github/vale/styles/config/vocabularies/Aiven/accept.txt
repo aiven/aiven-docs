@@ -98,6 +98,7 @@ DBMSs
 deallocation
 Debezium
 deduplicate
+defragmentation
 depends_on
 deserialization
 deserialize
@@ -302,6 +303,7 @@ pgvector
 plaintext
 plc
 Plotly
+PITR
 PNG/S
 PNGs?
 Podman
@@ -328,6 +330,7 @@ Redis OSS
 redis_ssl
 redis_timeout
 Redli
+queryable
 refcard
 reindex
 reindexed
@@ -337,8 +340,7 @@ renewables
 repo
 repos
 requesters
-resharding
-Resharding
+[Rr]eshard\w*
 reStructuredText
 rivery
 rollout
@@ -404,7 +406,14 @@ Tenant
 Terraform
 Terraforming
 Thanos
+tiered
 tiering
+ISM
+rollover
+rollovers
+watermarks?
+force-merge
+backfills
 TimescaleDB
 tokenizer
 tokenizers

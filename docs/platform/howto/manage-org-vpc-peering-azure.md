@@ -20,6 +20,9 @@ tenants (the Aiven AD tenant and your Azure AD tenant), your Azure AD tenant nee
 application object. Once granted permissions, this object allows peering
 from Azure to Aiven.
 
+Before you start, review the
+[VPC peering limitations](/docs/platform/howto/list-vpc-peering#limitations).
+
 ## Prerequisites
 
 - [Manage organization networking](/docs/platform/concepts/permissions#organization-permissions)

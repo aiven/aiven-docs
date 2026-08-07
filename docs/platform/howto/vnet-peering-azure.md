@@ -18,6 +18,9 @@ tenants (the Aiven AD tenant and your Azure AD tenant), another application obje
 needed for your Azure AD tenant to create the peering from Azure to Aiven once granted
 permissions to do so.
 
+Before you start, review the
+[VPC peering limitations](/docs/platform/howto/list-vpc-peering#limitations).
+
 ## Prerequisites
 
 - [Manage project networking](/docs/platform/concepts/permissions#project-permissions)

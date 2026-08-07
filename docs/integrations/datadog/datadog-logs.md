@@ -10,11 +10,12 @@ Use the Aiven Rsyslog integration to send logs from your Aiven services to your 
 ## Prerequisites
 
 - A Datadog [API key](https://docs.datadoghq.com/account_management/api-app-keys/)
-- A running Aiven service
 
 ## Add a Syslog integration endpoint
 
-You can use this integration endpoint for multiple services.
+This integration uses TCP endpoints to send logs to Datadog.
+You can use the same integration endpoint for multiple services.
+
 
 1.  In the project, click <ConsoleLabel name="integration endpoints"/>.
 1.  Select **Syslog** > **Create new** or **Add new endpoint**.
@@ -60,6 +61,8 @@ You can use this integration endpoint for multiple services.
 
 <RelatedPages/>
 
+- Read more about Datadog log collection and integrations in the
+  [Datahub documentation](https://docs.datadoghq.com/logs/log_collection).
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
 - [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
 - Enable

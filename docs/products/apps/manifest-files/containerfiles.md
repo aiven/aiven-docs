@@ -1,12 +1,12 @@
 ---
-title: Create Containerfiles and Dockerfiles for Aiven Apps
+title: Create Containerfiles and Dockerfiles for Aiven Runtime
 sidebar_label: Create Containerfiles and Dockerfiles
 limited: true
 ---
 
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
 
-Aiven Apps automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure apps.
+Aiven Runtime automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure applications.
 
 It recognizes Containerfiles and Dockerfiles in the following formats:
 

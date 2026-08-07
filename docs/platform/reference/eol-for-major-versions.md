@@ -126,7 +126,7 @@ the upstream open source project's EOL.
 | 13      | 2025-11-13 | 2025-05-13                       | 2021-02-15                      |
 | 14      | 2026-11-12 | 2026-05-12                       | 2021-11-11                      |
 | 15      | 2027-11-11 | 2027-05-12                       | 2022-12-12                      |
-| 16      | 2028-11-09 | 2028-05-09                       | 2024-01-09                      |
+| 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
 | 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
 | 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
 
@@ -159,11 +159,11 @@ shown in the table. The EOL date already includes the extended support period.
 
 ### Aiven for ClickHouse®
 
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 25.3    | 2026-09-30 | 2026-07-01                       | 2025-12-15                      |
-| 25.8    | 2027-02-28 | 2026-11-30                       | 2026-03-25                      |
-| 26.3    | 2027-09-15 | 2027-06-15                       | July 2026                       |
+| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
+| ------- | --------------- | -------------------------------- | ------------------------------- |
+| 25.3    | 2026-09-30      | 2026-07-01                       | 2025-12-15                      |
+| 25.8    | 2027-02-28      | 2026-11-30                       | 2026-03-25                      |
+| 26.3    | 2027-09-15      | 2027-06-15                       | 2026-08-01                      |
 
 For details, see the
 [Aiven for ClickHouse version support policy](/docs/products/clickhouse/reference/version-lifecycle).
@@ -174,14 +174,15 @@ For details, see the
 |---------|------------|----------------------------------| ------------------------------- |
 | 1.16    | 2024-11-21 | 2024-08-21                       | 2023-01-01                      |
 | 1.19    | N/A        | N/A                              | 2024-05-21                      |
+| 1.20 | To be announced | To be announced | 2024-09-21 |
 
 ### Aiven for Valkey™
 
 | Version | Aiven EOL       | Service creation supported until | Service creation supported from |
 | ------- |-----------------|----------------------------------| ------------------------------- |
 | 8.1.x   | To be announced | To be announced                  | 2025-11-18                      |
-| 9.0.x   | 2026-07-30      | 2026-07-30                       | 2026-03-17                      |
-| 9.1.x   | To be announced | To be announced                  | 2026-07-17                      |
+| 9.0.x   | 2026-08-31      | 2026-08-31                       | 2026-03-09                      |
+| 9.1.x   | To be announced | To be announced                  | 2026-07-15                      |
 
 ## Aiven single-versioned services EOL
 
@@ -214,7 +215,7 @@ outdated or replaced by newer versions.
 
 Aiven announces API endpoint deprecations on the
 [Aiven product updates page](https://aiven.io/changelog).
-If a replacement endpoint is available, this information
+If a replacement endpoint or sunset date is available, this information
 is included in the deprecation notice and in the API documentation.
 
 To allow clients to detect these changes automatically, the API returns specific headers
@@ -223,22 +224,44 @@ with the deprecation status and sunset date, for example:
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Deprecation: true
+Deprecation: @1777248000
 Sunset: Wed, 01 Jul 2026 00:00:00 GMT
-Link: <https://aiven.io/changelog>; rel="deprecation"
+Link: <https://aiven.io/changelog>; rel="sunset"
 ```
+
+Where:
+ - `Deprecation`: the UTC timestamp when deprecation took effect in
+   RFC 9745 @UNIX-TIMESTAMP format.
+ - `Sunset`: Optional. Date and time the endpoint will be removed.
+ - `Link`: URL for the [product update](https://aiven.io/changelog) for this
+    deprecation.
 
 Aiven works to reduce the disruptions caused by deprecations.
 The time between the deprecation and sunset statuses varies based on the endpoint's
 usage and the migration complexity. During the deprecation period,
 the endpoint remains fully functional for existing customers,
 giving you time to migrate to the newer version. Deprecated endpoints may
-not available to new customers.
+not be available to new customers.
 
 ### API endpoint sunset
 
-After the deprecation period, the endpoint transitions to sunset status and
-the API returns a `410 Gone` response.
+After the deprecation period, the endpoint transitions to sunset status.
+The route remains registered for a period after sunset so clients receive
+a `410 Gone` response instead of `404 Not Found`. The following
+is an example of the structured error body:
+
+```
+{
+  "errors": [{
+    "error_code": "retired_api_endpoint",
+    "message": "This API endpoint was deprecated on Tue, 09 Jul 2024 00:00:00 GMT and is no longer available. Use https://api.aiven.io/v1/organization/{organization_id}/user-groups instead."
+  }]
+}
+```
+
+Full route removal happens
+only after an extended post-sunset period, but
+customers should migrate before the published sunset date.
 
 ## Aiven tools EOL
 

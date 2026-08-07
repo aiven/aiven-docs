@@ -26,6 +26,7 @@ There are some limitations of the free tier:
 -   No static IPs
 -   No integrations
 -   No forking
+-   `max_connections` limit set to `76`
 -   No support services
 -   Only one service of each service type in your
     [organization](/docs/platform/concepts/orgs-units-projects)

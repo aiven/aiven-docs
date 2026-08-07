@@ -12,6 +12,9 @@ import TabItem from '@theme/TabItem';
 
 Set up a peering connection between your Aiven project VPC and an AWS VPC.
 
+Before you start, review the
+[VPC peering limitations](/docs/platform/howto/list-vpc-peering#limitations).
+
 ## Prerequisites
 
 - [Manage project networking](/docs/platform/concepts/permissions#project-permissions)

@@ -33,6 +33,9 @@ creating the peering both from the VPC in Aiven and from the SDN network in UpCl
     CIDR ranges.
 -   The networks to be peered need to be in the same cloud zone.
 
+These are in addition to the platform-wide
+[VPC peering limitations](/docs/platform/howto/list-vpc-peering#limitations).
+
 :::important
 Make sure you only create peerings between accounts, platforms, or
 networks you trust. There is no limit on what traffic can flow between

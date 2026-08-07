@@ -16,6 +16,9 @@ Set up a peering connection between your Aiven organization VPC and a Google Clo
 Establishing a peering connection between an Aiven VPC and a Google Cloud VPC requires
 creating the peering both from the VPC in Aiven and from the VPC in Google Cloud.
 
+Before you start, review the
+[VPC peering limitations](/docs/platform/howto/list-vpc-peering#limitations).
+
 ## Prerequisites
 
 - [Manage organization networking](/docs/platform/concepts/permissions#organization-permissions)

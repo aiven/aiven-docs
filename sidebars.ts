@@ -384,11 +384,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  //Apps sidebar
-  apps: [
+  //Runtime sidebar
+  runtime: [
     {
       type: 'category',
-      label: 'Apps',
+      label: 'Runtime',
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
@@ -410,13 +410,15 @@ const sidebars: SidebarsConfig = {
         'products/apps/connect-services-to-apps',
         {
           type: 'category',
-          label: 'Manage apps',
+          label: 'App management',
           items: [
             'products/apps/ports',
             'products/apps/secrets-and-variables',
             'products/apps/deployment-information',
             'products/apps/scale-apps',
+            'products/apps/change-cloud-apps',
             'products/apps/custom-domain-for-apps',
+            'products/apps/power-off-apps',
           ],
         },
       ],
@@ -674,6 +676,8 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/connect-with-java',
                     'products/kafka/howto/connect-with-go',
                     'products/kafka/howto/connect-with-cpp',
+                    'products/kafka/howto/connect-with-php',
+                    'products/kafka/howto/connect-with-csharp',
                     'products/kafka/howto/connect-with-command-line',
                     'products/kafka/howto/connect-with-kafka-rest',
                     'products/kafka/howto/connect-with-klaw',
@@ -1286,6 +1290,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/clickhouse/reference/version-lifecycle',
                 'products/clickhouse/howto/manage-clickhouse-versions',
+                'products/clickhouse/reference/upgrade-to-26-3',
                 'products/clickhouse/reference/25-8-default-settings',
               ],
             },
@@ -1370,6 +1375,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'products/datahub/get-started',
             'products/datahub/connect-datahub-to-services',
+            'products/datahub/datahub-lineage',
             'products/datahub/datahub-mcp-server',
             {
               type: 'category',
@@ -1377,6 +1383,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/datahub/manage-datahub-users',
                 'products/datahub/enable-oidc-auth-datahub',
+                'products/datahub/change-cloud',
                 {
                   type: 'category',
                   label: 'Notifications',
@@ -1385,16 +1392,23 @@ const sidebars: SidebarsConfig = {
                     'products/datahub/configure-teams-notifications',
                   ],
                 },
-                {
-                  type: 'category',
-                  label: 'Maintenance and upgrades',
-                  items: [
-                    'products/datahub/upgrade-datahub-version',
-                    'products/datahub/restore-datahub-indices',
-                  ],
-                },
               ],
             },
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              items: [
+                'products/datahub/scale-datahub-service',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              items: [
+                'products/datahub/upgrade-datahub-version',
+                'products/datahub/restore-datahub-indices',
+              ],
+          },
             'products/datahub/fork-datahub-service',
           ],
         },
@@ -1804,6 +1818,8 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/change-cloud-region',
                 'products/opensearch/reference/advanced-params',
                 'products/opensearch/concepts/dedicated-node-roles',
+                'products/opensearch/concepts/hot-warm-tiering',
+                'products/opensearch/howto/hot-warm-tiering',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/reference/plugins',
                 'products/opensearch/reference/list-of-plugins-for-each-version',
