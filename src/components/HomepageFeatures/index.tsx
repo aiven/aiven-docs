@@ -35,6 +35,18 @@ const FeatureList: FeatureItem[] = [
     description: <>Discover our managed services and how to set them up.</>,
   },
   {
+    title: 'AI features',
+    Svg: require('@site/static/images/logos/star-ai.svg').default,
+    to: '/docs/ai-features',
+    accent: 'purple',
+    description: (
+      <>
+        Explore AI-powered capabilities across Aiven services, from vector search to
+        AI assistants and agent integrations.
+      </>
+    ),
+  },
+  {
     title: 'Runtime applications',
     Svg: require('@site/static/images/icons/home/console.svg').default,
     to: '/docs/products/aiven-apps',

@@ -28,6 +28,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'AI features',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: ['ai-features'],
+    },
+    {
+      type: 'category',
       label: 'Platform',
       className: 'expandedSection',
       collapsed: false,
