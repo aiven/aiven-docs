@@ -1,10 +1,10 @@
 ---
-title: Create manifest files for Aiven Apps
+title: Create manifest files for Aiven Runtime
 sidebar_label: Create manifest files
 limited: true
 ---
 
-Aiven Apps uses container manifests to understand how to build and deploy your applications. You can define applications using two types of container manifests that work together to create complete solutions.
+Aiven Runtime uses container manifests to understand how to build and deploy your applications. You can define applications using two types of container manifests that work together to create complete solutions.
 
 - **[Compose files](/docs/products/apps/manifest-files/compose-files)** define
   multi-service solutions that can reference and orchestrate multiple Containerfiles

@@ -1,5 +1,5 @@
 ---
-title: Change application plan for Aiven Apps
+title: Change application plan for Aiven Runtime
 sidebar_label: Change application plan
 limited: true
 ---
@@ -15,8 +15,8 @@ for each service separately.
 
 To change your application's plan:
 
-1. In your project, click <ConsoleLabel name="applications"/>.
-1. Open your app.
+1. In your project, click <ConsoleLabel name="runtime"/>.
+1. Open your application.
 1. In the **Application plan usage** section, click **Change plan**.
 1. Select a tier, cloud, and plan.
 1. Click **Change**.

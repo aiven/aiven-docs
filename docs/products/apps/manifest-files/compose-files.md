@@ -1,5 +1,5 @@
 ---
-title: Create Compose files for Aiven Apps
+title: Create Compose files for Aiven Runtime
 sidebar_label: Create Compose files
 limited: true
 ---
@@ -7,7 +7,7 @@ limited: true
 import RelatedPages from "@site/src/components/RelatedPages";
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
 
-Aiven Apps scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
+Aiven Runtime scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
 Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
 
 Aiven recognizes Compose files with the following file naming conventions:
@@ -31,19 +31,19 @@ Aiven recognizes Compose files with the following file naming conventions:
   </tbody>
 </table>
 
-Aiven automatically analyzes Compose files to detect the apps to build and
+Aiven automatically analyzes Compose files to detect the applications to build and
 the Aiven services to create.
 
 ## Create a Compose file
 
-Use the following guidelines to create your Compose files for Aiven Apps.
+Use the following guidelines to create your Compose files for Aiven Runtime.
 More information on formatting Compose files is available in the
 [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md)
 and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file).
 
 ### Service integrations
 
-Aiven Apps automatically detects and creates the following data services based
+Aiven Runtime automatically detects and creates the following data services based
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
 and Aiven for OpenSearch®.
 
@@ -155,9 +155,9 @@ services:
 ### Simple web application with PostgreSQL
 
 The following example uses a Docker Compose file and a Dockerfile to
-configure a basic web app that is integrated with a PostgreSQL database.
+configure a basic web application that is integrated with a PostgreSQL database.
 
-The `docker-compose.yml` file defines the app and the PostgreSQL service,
+The `docker-compose.yml` file defines the application and the PostgreSQL service,
 along with the environment variables for integration:
 
 ```yaml
@@ -213,7 +213,7 @@ CMD ["npm", "start"]
 The following example uses a Compose file to configure a web application
 and integrate it with a Kafka broker using SASL authentication.
 
-The file defines the app and the Kafka service, along with the environment variables
+The file defines the application and the Kafka service, along with the environment variables
 for integration:
 
 ```yaml

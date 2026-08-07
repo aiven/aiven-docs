@@ -251,8 +251,8 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Apps',
-          sidebarId: 'apps',
+          label: 'Runtime',
+          sidebarId: 'runtime',
         },
         {
           type: 'docSidebar',

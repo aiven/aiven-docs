@@ -226,10 +226,10 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Event log</b>
         </>
       );
-    case 'applications':
+    case 'runtime':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Applications</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Runtime</b>
         </>
       );
     case 'projectpermissions':
@@ -628,7 +628,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'redeployapp':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Deploy latest commit</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.refresh} />{' '}
+          <b>Deploy latest commit</b>
         </>
       );
     case 'governance':

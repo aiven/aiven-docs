@@ -384,11 +384,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  //Apps sidebar
-  apps: [
+  //Runtime sidebar
+  runtime: [
     {
       type: 'category',
-      label: 'Apps',
+      label: 'Runtime',
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
