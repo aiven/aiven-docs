@@ -4,6 +4,10 @@ import styles from './styles.module.css';
 import * as AquariumIcons from '@aivenio/aquarium/icons/index';
 import {Icon} from '@iconify/react';
 
+const PERMISSIONS_DOC_LINK = '/docs/platform/concepts/permissions';
+const AVAILABILITY_DOC_LINK =
+  '/docs/platform/concepts/service-and-feature-releases';
+
 function formatPermissionValues(values: string[]): string {
   if (values.length === 0) {
     return '';
@@ -46,7 +50,17 @@ export default function RequirementsInline({
             height={20}
             className={styles.icon}
           />
-          <span className={styles.label}>{item.label}</span>
+          {item.label === 'Permissions' ? (
+            <a href={PERMISSIONS_DOC_LINK} className={styles.labelLink}>
+              Required roles or permissions
+            </a>
+          ) : item.label === 'Availability' ? (
+            <a href={AVAILABILITY_DOC_LINK} className={styles.labelLink}>
+              Availability
+            </a>
+          ) : (
+            <span className={styles.label}>{item.label}</span>
+          )}
           <span className={styles.separator}>:</span>
           <span className={styles.values}>
             {isPermissionsLabel(item.label)

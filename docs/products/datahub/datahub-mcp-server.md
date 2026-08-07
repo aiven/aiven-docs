@@ -11,19 +11,16 @@ Use the DataHub MCP server to empower AI agents with deep visibility into your d
   items={[
     {
       icon: 'people',
-      label: 'Required permissions',
+      label: 'Required roles or permissions',
       values: [
         {
           text: 'Manage services',
-          tooltip: 'Can manage and configure services',
         },
         {
           text: 'Operator',
-          tooltip: 'Can deploy and operate services',
         },
         {
           text: 'Project admin',
-          tooltip: 'Has administrative access to the project',
         },
       ],
     },

@@ -11,8 +11,8 @@ import RequirementsInline from '@site/src/components/RequirementsInline';
   items={[
     {
       icon: 'people',
-      label: 'Required role',
-      values: ['Admin', 'Manager'],
+      label: 'Permissions',
+      values: ['Admin', 'View secrets'],
     },
     {
       icon: 'layers',

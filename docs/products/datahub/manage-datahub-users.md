@@ -6,11 +6,33 @@ limited: true
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsInlineLinks from '@site/src/components/RequirementsInlineLinks';
+
+<RequirementsInlineLinks
+   items={[
+      {
+         icon: 'people',
+         label: 'Permissions',
+         description: 'Users must have at least one of the following:',
+         values: ['Organization admin', 'View services'],
+      },
+      {
+         icon: 'layers',
+         label: 'Service plans',
+         values: ['Professional', 'Premium'],
+      },
+      {
+         icon: 'performance',
+         label: 'Availability',
+         values: ['Limited availability'],
+      },
+   ]}
+/>
 
 Invite users to your DataHub service, giving them access to read or edit metadata.
 
 For programmatic access to your DataHub service, use DataHub’s
-[personal access tokens (PATs)](https://docs.datahub.com/docs/authentication/personal-access-tokens).
+[personal access tokens](https://docs.datahub.com/docs/authentication/personal-access-tokens).
 
 ## Security best practices
 
