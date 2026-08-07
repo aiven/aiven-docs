@@ -4,14 +4,14 @@ title: Standard Kafka overview
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Standard Kafka is an Apache Kafka® service from Aiven for cloud deployments, supporting
-diskless topics and object storage-backed data retention.
+Standard Kafka is an Aiven for Apache Kafka® service type that stores topic data in
+object storage through diskless topics. It is available on Aiven Cloud, runs on
+Kafka 4.x and later, and supports classic and diskless topics in the same service.
 
-Standard Kafka is available on Aiven Cloud deployments.
-It runs on Kafka 4.x and supports both classic and diskless topics within the same service.
-Classic Kafka remains available and can be selected when creating a new Kafka service.
+Standard Kafka is compatible with Apache Kafka APIs and clients.
 
-Standard Kafka remains compatible with standard Kafka APIs and clients.
+New customers can create Standard Kafka services. Classic Kafka remains available
+only for existing customers.
 
 In the Aiven CLI and advanced configuration, Standard Kafka is still identified with
 `inkless`.
@@ -25,21 +25,18 @@ Standard Kafka changes how Kafka services store and manage data:
 - **Diskless topics:** Opt-in diskless topics can be used and store all retained data in
   object storage.
 - **Managed configuration:** Some broker-level settings use managed defaults.
-- **KRaft-based metadata management:** Standard Kafka starts from major version 4.x, so
-  all services use [KRaft](/docs/products/kafka/concepts/kraft-mode) for metadata and
-  consensus, replacing ZooKeeper.
-- **Kafka Connect deployment:** Kafka Connect must be deployed as a separate service.
+- **KRaft-based metadata management:** Standard Kafka supports Apache Kafka 4.x and
+  later, so all Standard Kafka services use
+  [KRaft](/docs/products/kafka/concepts/kraft-mode) for metadata and consensus instead
+  of ZooKeeper.
+- **Kafka Connect deployment:** Kafka Connect is deployed as a separate service.
 
 ## Billing and cost
 
-Diskless topics store retained data directly in object storage. Aiven manages the
-internal service components that Standard Kafka requires and does not bill them separately.
+Aiven bills Standard Kafka services for compute, storage, and network usage as
+separate components. Billing depends on your selected service plan and actual usage.
 
-For eligible Standard Kafka services, Aiven bills compute, storage, and network usage as
-separate components. Billing also depends on the deployment model, selected service
-plan, and actual usage.
-
-For more information about how network usage is measured and priced, see
+For details on how network usage is measured and priced, see
 [Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
 
 ## When to use Standard Kafka
@@ -53,11 +50,10 @@ Use Standard Kafka to:
 
 ## Existing Classic Kafka services
 
-Existing Classic Kafka services continue to run unchanged.
-
-Upgrading or migrating an existing Classic Kafka service to Standard Kafka is not
-supported at this time. The service type is fixed at service creation. To use Standard
-Kafka, create a Kafka service with Standard as the service type.
+Existing Classic Kafka services continue to run unchanged. You cannot upgrade or
+migrate a Classic Kafka service to Standard Kafka. You set the service type when
+you create the service and cannot change it later. To use Standard Kafka, create
+a Standard Kafka service.
 
 <RelatedPages />
 
