@@ -13,7 +13,7 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Aiven builds AI capabilities directly into its managed services, from vector search in
 your database to AI assistants and tools that connect your own AI agents to your data.
-Use this page to find the right starting point for your use case.
+Use the sections below to find the right starting point for your use case.
 
 ## Choose your path
 
@@ -47,7 +47,7 @@ Store and query vector embeddings directly in the service you already run, witho
 adding a separate vector database to your stack.
 
 | Service | AI capability | Best for | Get started |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Aiven for PostgreSQL® | [pgvector](/docs/products/postgresql/concepts/pgvector) extension for vector storage and similarity search | Apps that need vector search alongside relational data | [Use pgvector](/docs/products/postgresql/howto/use-pgvector) |
 | Aiven for ClickHouse® | Vector similarity index for approximate nearest-neighbor search | Large-scale analytical workloads needing fast similarity search | [Tune the vector similarity index cache](/docs/products/clickhouse/howto/vector-similarity-index-cache) |
 | Aiven for OpenSearch® | k-NN plugin for vector search | Search-first workloads that combine full-text and vector search | [Supported plugins](/docs/products/opensearch/reference/plugins) |
@@ -58,7 +58,7 @@ The AI database optimizer analyzes slow queries automatically, and PG Studio's A
 assistant turns natural language into SQL.
 
 | Feature | What it does | Availability | Get started |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | AI database optimizer for PostgreSQL | Automatically identifies slow queries and suggests optimizations | GA | [Enable for PostgreSQL](/docs/products/postgresql/howto/ai-insights) |
 | AI database optimizer for MySQL | Automatically identifies slow queries and suggests optimizations | GA | [Enable for MySQL](/docs/products/mysql/howto/ai-insights) |
 | Standalone SQL query optimizer | Optimizes an ad-hoc query without a running service | <EarlyBadge/> | [Use the query optimizer](/docs/tools/query-optimizer) |
@@ -70,7 +70,7 @@ Give AI coding assistants and agents direct, controlled access to your Aiven ser
 instead of copying commands between tools by hand.
 
 | Tool | What it exposes | Availability | Get started |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Aiven MCP server | Create and manage services, plans, metrics, logs, and configuration from Cursor, Claude Code, and other MCP clients | GA | [Set up Aiven MCP](/docs/tools/mcp-server) |
 | Kafka setup with Skills | Create and configure a Kafka service, topics, ACLs, and Schema Registry from the command line | GA on Developer and Professional tiers | [Set up using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills) |
 | DataHub MCP server | Give AI agents natural language search, lineage tracking, and context-aware SQL generation over your data ecosystem | <LimitedBadge/> | [Use the DataHub MCP server](/docs/products/datahub/datahub-mcp-server) |
