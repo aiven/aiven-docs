@@ -25,7 +25,7 @@ Free PostgreSQL services include:
 There are some limitations of the free tier:
 
 -   Cannot create a service in a VPC
--   Cannot fork to a free plan
+-   Cannot fork a service to a free plan
 -   No static IPs
 -   No integrations
 -   No connection pooling
