@@ -70,6 +70,85 @@
   text-align: left;
 }
 
+.heroActionsRow {
+  margin-top: 1.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.heroAiCallout {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(240px, 22rem, 300px);
+}
+
+.heroAiCallout :global(.aiven-card-link) {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--aiven-brand-deep-blue) 10%, var(--aiven-card-bg) 90%),
+    var(--aiven-card-bg)
+  );
+  border-color: color-mix(in srgb, var(--aiven-brand-deep-blue) 55%, var(--aiven-card-border));
+  box-shadow: 0 0 44px -6px color-mix(in srgb, var(--aiven-brand-deep-blue) 55%, transparent);
+}
+
+.heroAiCallout :global(.aiven-card-link:hover),
+.heroAiCallout :global(.aiven-card-link:focus) {
+  box-shadow: 0 0 52px -4px color-mix(in srgb, var(--aiven-brand-deep-blue) 65%, transparent);
+}
+
+.heroAiCallout :global(.aiven-card-link)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -36%;
+  width: 22%;
+  height: 100%;
+  pointer-events: none;
+  transform: skewX(-20deg);
+  --hero-ai-shimmer-color: color-mix(in srgb, white 75%, var(--aiven-brand-deep-blue) 25%);
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    color-mix(in srgb, var(--hero-ai-shimmer-color) 8%, transparent) 12%,
+    color-mix(in srgb, var(--hero-ai-shimmer-color) 22%, transparent) 26%,
+    color-mix(in srgb, var(--hero-ai-shimmer-color) 50%, transparent) 38%,
+    var(--hero-ai-shimmer-color) 50%,
+    color-mix(in srgb, var(--hero-ai-shimmer-color) 50%, transparent) 62%,
+    color-mix(in srgb, var(--hero-ai-shimmer-color) 22%, transparent) 74%,
+    color-mix(in srgb, var(--hero-ai-shimmer-color) 8%, transparent) 88%,
+    transparent 100%
+  );
+  opacity: 0.55;
+  animation: heroAiShimmer 1s linear 1;
+}
+
+@keyframes heroAiShimmer {
+  0% {
+    left: -36%;
+  }
+  15% {
+    left: -22%;
+  }
+  85% {
+    left: 100%;
+  }
+  100% {
+    left: 114%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroAiCallout :global(.aiven-card-link)::after {
+    display: none;
+  }
+}
+
 .heroTitle {
   font-family: var(--ifm-heading-font-family);
   font-size: clamp(1.8rem, 4.8vw, 3rem);
@@ -99,11 +178,12 @@
 }
 
 .askAIForm {
-  margin-top: 1.9rem;
   display: flex;
   align-items: stretch;
   gap: 12px;
-  width: min(42rem, 100%);
+  flex: 1 1 320px;
+  max-width: 42rem;
+  min-width: 0;
 }
 
 .askAIInput {
@@ -159,11 +239,21 @@
     padding: clamp(1.25rem, 3.5vw, 2rem) 0 clamp(1.5rem, 4vw, 2.25rem);
   }
 
+  .heroActionsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
   .heroContent {
     max-width: none;
   }
 
   .askAIForm {
+    max-width: none;
+  }
+
+  .heroAiCallout {
     width: 100%;
   }
 

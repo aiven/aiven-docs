@@ -27,12 +27,9 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'category',
-      label: 'AI features',
+      type: 'doc',
+      id: 'ai-features',
       className: 'expandedSection',
-      collapsed: false,
-      collapsible: false,
-      items: ['ai-features'],
     },
     {
       type: 'category',
@@ -1404,9 +1401,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Scaling and performance',
-              items: [
-                'products/datahub/scale-datahub-service',
-              ],
+              items: ['products/datahub/scale-datahub-service'],
             },
             {
               type: 'category',
@@ -1415,7 +1410,7 @@ const sidebars: SidebarsConfig = {
                 'products/datahub/upgrade-datahub-version',
                 'products/datahub/restore-datahub-indices',
               ],
-          },
+            },
             'products/datahub/fork-datahub-service',
           ],
         },

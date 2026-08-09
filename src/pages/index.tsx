@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -8,12 +7,19 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import Asterisk from '@site/static/images/Asterisk.svg';
 import CurlyBraceRight from '@site/static/images/Curly brace left.svg';
+import Card from '@site/src/components/Card';
+import AI from '@site/static/images/logos/star-ai.svg';
 
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   const [question, setQuestion] = useState('');
+  const [shimmerKey, setShimmerKey] = useState(0);
+
+  const replayShimmer = () => {
+    setShimmerKey((key) => key + 1);
+  };
 
   const openKapa = (query: string) => {
     if (typeof window === 'undefined') {
@@ -74,6 +80,8 @@ function HomepageHeader() {
               {siteConfig.title}
             </Heading>
             <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+          </div>
+          <div className={styles.heroActionsRow}>
             <form className={styles.askAIForm} onSubmit={onAskAISubmit}>
               <input
                 type="text"
@@ -87,6 +95,18 @@ function HomepageHeader() {
                 Ask AI
               </button>
             </form>
+            <div
+              key={shimmerKey}
+              className={styles.heroAiCallout}
+              onMouseEnter={replayShimmer}>
+              <Card
+                to="/docs/ai-features"
+                iconComponent={AI}
+                titleHighlight="#6F64FF"
+                title="AI features"
+                description="Explore AI-powered capabilities across Aiven services, from vector search to AI assistants and agent integrations."
+              />
+            </div>
           </div>
         </div>
       </div>

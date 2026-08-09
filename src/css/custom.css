@@ -438,7 +438,8 @@ html[data-theme='dark'] .tabs {
 }
 
 /* Sidebar section titles */
-.expandedSection > div > a {
+.expandedSection > div > a,
+.expandedSection > a {
   font-weight: 600;
   padding-top: 1em;
   padding-bottom: 0.5em;

@@ -1,5 +1,5 @@
 ---
-title: AI features across Aiven
+title: AI features across Aiven services
 sidebar_label: AI features
 description: Find AI-powered capabilities across Aiven services, from vector search and embeddings to AI assistants and agent integrations.
 ---
