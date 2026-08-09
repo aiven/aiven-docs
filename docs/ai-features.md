@@ -17,29 +17,29 @@ Use the sections below to find the right starting point for your use case.
 
 <GridContainer columns={3}>
   <Card
-    to="#build-ai-applications-with-your-data"
+    to="#build-ai-applications-with-data"
     iconComponent={AI}
     titleHighlight="#6F64FF"
-    title="Build AI applications with your data"
+    title="Build AI applications with data"
     description="Store and query vector embeddings for search, retrieval, and RAG."
   />
   <Card
-    to="#let-ai-optimize-and-explain-your-databases"
+    to="#optimize-and-explain-databases-with-ai"
     iconComponent={AI}
     titleHighlight="#59D2F4"
-    title="Let AI optimize and explain your databases"
+    title="Optimize and explain databases with AI"
     description="Get AI-generated query optimizations and natural language SQL help."
   />
   <Card
-    to="#connect-your-ai-agents-and-tools-to-aiven"
+    to="#connect-ai-agents-and-tools-to-aiven"
     iconComponent={AI}
     titleHighlight="#FDCD12"
-    title="Connect your AI agents and tools to Aiven"
+    title="Connect AI agents and tools to Aiven"
     description="Give coding assistants and AI agents access to your Aiven services."
   />
 </GridContainer>
 
-## Build AI applications with your data
+## Build AI applications with data
 
 Store and query vector embeddings directly in the service you already run, without
 adding a separate vector database to your stack.
@@ -51,7 +51,7 @@ adding a separate vector database to your stack.
 | Aiven for OpenSearch® | k-NN plugin for vector search | Search-first workloads that combine full-text and vector search | [Supported plugins](/docs/products/opensearch/reference/plugins) |
 | Aiven for Valkey™ | Valkey Search module for vector, full-text, and hybrid search | In-memory workloads needing low-latency vector search | [Valkey Search](/docs/products/valkey/reference/valkey-modules#valkey-search) |
 
-## Let AI optimize and explain your databases
+## Optimize and explain databases with AI
 
 The AI database optimizer analyzes slow queries automatically, and PG Studio's AI
 assistant turns natural language into SQL.
@@ -63,7 +63,7 @@ assistant turns natural language into SQL.
 | Standalone SQL query optimizer | Optimizes an ad-hoc query without a running service | [Use the query optimizer](/docs/tools/query-optimizer) |
 | PG Studio AI assistant | Generates and explains SQL from natural language | [Use AI Assistant](/docs/products/postgresql/howto/pg-studio/use-ai-assistant) |
 
-## Connect your AI agents and tools to Aiven
+## Connect AI agents and tools to Aiven
 
 Give AI coding assistants and agents direct, controlled access to your Aiven services,
 instead of copying commands between tools by hand.
@@ -78,5 +78,3 @@ instead of copying commands between tools by hand.
 
 - [Get started with Aiven](/docs/get-started)
 - [Aiven dev tools](/docs/tools)
-- [Aiven for PostgreSQL®](/docs/products/postgresql)
-- [Aiven for MySQL®](/docs/products/mysql)
