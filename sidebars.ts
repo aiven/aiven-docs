@@ -338,7 +338,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'link',
-              label: 'Set up using Skills (Kafka)',
+              label: 'Kafka setup using Skills',
               href: '/docs/products/kafka/howto/set-up-kafka-with-skills',
             },
           ],
@@ -349,37 +349,37 @@ const sidebars: SidebarsConfig = {
           collapsed: false,
           collapsible: false,
           items: [
+            'tools/query-optimizer',
             {
               type: 'link',
-              label: 'pgvector search (PostgreSQL)',
-              href: '/docs/products/postgresql/concepts/pgvector',
-            },
-            {
-              type: 'link',
-              label: 'Vector similarity index (ClickHouse)',
+              label: 'ClickHouse Vector similarity index',
               href: '/docs/products/clickhouse/howto/vector-similarity-index-cache',
             },
             {
               type: 'link',
-              label: 'Valkey Search (vector search)',
-              href: '/docs/products/valkey/reference/valkey-modules#valkey-search',
-            },
-            {
-              type: 'link',
-              label: 'AI database optimizer (PostgreSQL)',
-              href: '/docs/products/postgresql/howto/ai-insights',
-            },
-            {
-              type: 'link',
-              label: 'AI database optimizer (MySQL)',
+              label: 'MySQL AI database optimizer',
               href: '/docs/products/mysql/howto/ai-insights',
             },
             {
               type: 'link',
-              label: 'PG Studio AI assistant (PostgreSQL)',
+              label: 'PG Studio AI assistant',
               href: '/docs/products/postgresql/howto/pg-studio/use-ai-assistant',
             },
-            'tools/query-optimizer',
+            {
+              type: 'link',
+              label: 'pgvector search',
+              href: '/docs/products/postgresql/concepts/pgvector',
+            },
+            {
+              type: 'link',
+              label: 'PostgreSQL AI database optimizer',
+              href: '/docs/products/postgresql/howto/ai-insights',
+            },
+            {
+              type: 'link',
+              label: 'Valkey Search',
+              href: '/docs/products/valkey/reference/valkey-modules#valkey-search',
+            },
           ],
         },
       ],

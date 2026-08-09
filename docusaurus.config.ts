@@ -263,7 +263,7 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'AI on Aiven',
+          label: 'AI',
           sidebarId: 'ai',
         },
         {

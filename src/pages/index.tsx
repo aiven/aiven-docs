@@ -99,7 +99,7 @@ function HomepageHeader() {
                 to="/docs/ai-features"
                 iconComponent={AI}
                 titleHighlight="#6F64FF"
-                title="AI on Aiven"
+                title="AI tools and features"
                 description="Explore AI-powered tools and features across Aiven services, from vector search to AI assistants and agent integrations."
               />
             </div>
