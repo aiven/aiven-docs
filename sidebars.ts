@@ -318,7 +318,7 @@ const sidebars: SidebarsConfig = {
   ai: [
     {
       type: 'category',
-      label: 'AI on Aiven',
+      label: 'AI capabilities',
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,

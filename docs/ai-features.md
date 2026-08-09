@@ -9,9 +9,9 @@ import GridContainer from "@site/src/components/GridContainer";
 import RelatedPages from "@site/src/components/RelatedPages";
 import AI from "@site/static/images/logos/star-ai.svg";
 
-Aiven builds AI capabilities directly into its managed services, from vector search in
-your database to AI assistants and tools that connect your own AI agents to your data.
-Use the sections below to find the right starting point for your use case.
+Aiven builds AI capabilities directly into its managed services, from vector search to AI assistants.
+It also provides tools that connect your own AI agents to your data. Use the
+following sections to find the right starting point for your use case.
 
 ## Choose your path
 
@@ -59,14 +59,14 @@ assistant turns natural language into SQL.
 | Feature | What it does | Get started |
 | --- | --- | --- |
 | AI database optimizer for PostgreSQL | Automatically identifies slow queries and suggests optimizations | [Enable for PostgreSQL](/docs/products/postgresql/howto/ai-insights) |
-| AI database optimizer for MySQL | Automatically identifies slow queries and suggests optimizations | [Enable for MySQL](/docs/products/mysql/howto/ai-insights) |
+| AI database optimizer for MySQL® | Automatically identifies slow queries and suggests optimizations | [Enable for MySQL](/docs/products/mysql/howto/ai-insights) |
 | Standalone SQL query optimizer | Optimizes an ad-hoc query without a running service | [Use the query optimizer](/docs/tools/query-optimizer) |
 | PG Studio AI assistant | Generates and explains SQL from natural language | [Use AI Assistant](/docs/products/postgresql/howto/pg-studio/use-ai-assistant) |
 
 ## Connect AI agents and tools to Aiven
 
-Give AI coding assistants and agents direct, controlled access to your Aiven services,
-instead of copying commands between tools by hand.
+Give AI coding assistants and agents controlled access to services such as Aiven for
+Apache Kafka®, instead of manual commands.
 
 | Tool | What it exposes | Get started |
 | --- | --- | --- |
