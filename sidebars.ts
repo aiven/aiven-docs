@@ -338,7 +338,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'link',
-              label: 'Kafka setup using Skills',
+              label: 'Kafka Skills',
               href: '/docs/products/kafka/howto/set-up-kafka-with-skills',
             },
           ],
