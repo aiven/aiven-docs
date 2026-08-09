@@ -27,11 +27,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'doc',
-      id: 'ai-features',
-      className: 'sidebarBoldLink',
-    },
-    {
       type: 'category',
       label: 'Platform',
       className: 'expandedSection',
@@ -316,6 +311,77 @@ const sidebars: SidebarsConfig = {
         'platform/reference/eol-for-major-versions',
         'platform/reference/end-of-life',
         'platform/reference/get-resource-IDs',
+      ],
+    },
+  ],
+  // AI sidebar
+  ai: [
+    {
+      type: 'category',
+      label: 'AI on Aiven',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'ai-features',
+        {
+          type: 'category',
+          label: 'AI tools',
+          collapsed: false,
+          collapsible: false,
+          items: [
+            'tools/mcp-server',
+            {
+              type: 'link',
+              label: 'DataHub MCP server',
+              href: '/docs/products/datahub/datahub-mcp-server',
+            },
+            {
+              type: 'link',
+              label: 'Set up using Skills (Kafka)',
+              href: '/docs/products/kafka/howto/set-up-kafka-with-skills',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'AI features',
+          collapsed: false,
+          collapsible: false,
+          items: [
+            {
+              type: 'link',
+              label: 'pgvector search (PostgreSQL)',
+              href: '/docs/products/postgresql/concepts/pgvector',
+            },
+            {
+              type: 'link',
+              label: 'Vector similarity index (ClickHouse)',
+              href: '/docs/products/clickhouse/howto/vector-similarity-index-cache',
+            },
+            {
+              type: 'link',
+              label: 'Valkey Search (vector search)',
+              href: '/docs/products/valkey/reference/valkey-modules#valkey-search',
+            },
+            {
+              type: 'link',
+              label: 'AI database optimizer (PostgreSQL)',
+              href: '/docs/products/postgresql/howto/ai-insights',
+            },
+            {
+              type: 'link',
+              label: 'AI database optimizer (MySQL)',
+              href: '/docs/products/mysql/howto/ai-insights',
+            },
+            {
+              type: 'link',
+              label: 'PG Studio AI assistant (PostgreSQL)',
+              href: '/docs/products/postgresql/howto/pg-studio/use-ai-assistant',
+            },
+            'tools/query-optimizer',
+          ],
+        },
       ],
     },
   ],

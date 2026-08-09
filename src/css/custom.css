@@ -444,13 +444,6 @@ html[data-theme='dark'] .tabs {
   padding-bottom: 0.5em;
 }
 
-/* Top-level sidebar doc link styled like a section title (no sub-items to expand) */
-.sidebarBoldLink > a {
-  font-weight: 600;
-  padding-top: 1em;
-  padding-bottom: 0.5em;
-}
-
 .expandedSection > div > a.menu__link.menu__link--active {
   color: var(--ifm-menu-color);
 }

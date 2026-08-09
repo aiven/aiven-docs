@@ -1,6 +1,6 @@
 ---
 title: AI features across Aiven services
-sidebar_label: AI features
+sidebar_label: Overview
 description: Find AI-powered capabilities across Aiven services, from vector search and embeddings to AI assistants and agent integrations.
 ---
 
@@ -51,6 +51,7 @@ adding a separate vector database to your stack.
 | Aiven for PostgreSQL® | [pgvector](/docs/products/postgresql/concepts/pgvector) extension for vector storage and similarity search | Apps that need vector search alongside relational data | [Use pgvector](/docs/products/postgresql/howto/use-pgvector) |
 | Aiven for ClickHouse® | Vector similarity index for approximate nearest-neighbor search | Large-scale analytical workloads needing fast similarity search | [Tune the vector similarity index cache](/docs/products/clickhouse/howto/vector-similarity-index-cache) |
 | Aiven for OpenSearch® | k-NN plugin for vector search | Search-first workloads that combine full-text and vector search | [Supported plugins](/docs/products/opensearch/reference/plugins) |
+| Aiven for Valkey™ | Valkey Search module for vector, full-text, and hybrid search | In-memory workloads needing low-latency vector search | [Valkey Search](/docs/products/valkey/reference/valkey-modules#valkey-search) |
 
 ## Let AI optimize and explain your databases
 
