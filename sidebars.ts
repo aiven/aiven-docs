@@ -29,7 +29,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'doc',
       id: 'ai-features',
-      className: 'expandedSection',
+      className: 'sidebarBoldLink',
     },
     {
       type: 'category',

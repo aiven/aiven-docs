@@ -17,10 +17,6 @@ function HomepageHeader() {
   const [question, setQuestion] = useState('');
   const [shimmerKey, setShimmerKey] = useState(0);
 
-  const replayShimmer = () => {
-    setShimmerKey((key) => key + 1);
-  };
-
   const openKapa = (query: string) => {
     if (typeof window === 'undefined') {
       return;
@@ -98,7 +94,7 @@ function HomepageHeader() {
             <div
               key={shimmerKey}
               className={styles.heroAiCallout}
-              onMouseEnter={replayShimmer}>
+              onMouseEnter={() => setShimmerKey((key) => key + 1)}>
               <Card
                 to="/docs/ai-features"
                 iconComponent={AI}
