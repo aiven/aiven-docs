@@ -1,7 +1,7 @@
 ---
-title: AI features across Aiven services
+title: AI on Aiven
 sidebar_label: Overview
-description: Find AI-powered capabilities across Aiven services, from vector search and embeddings to AI assistants and agent integrations.
+description: Find AI-powered tools and features across Aiven services, from vector search and embeddings to AI assistants and agent integrations.
 ---
 
 import Card from "@site/src/components/Card";
