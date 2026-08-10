@@ -19,14 +19,12 @@ to verify end-to-end streaming.
 Choose one of the following paths based on your workload and platform
 needs:
 
+- Create a [Standard Kafka](/docs/products/kafka/standard-kafka-overview) or
+  [Classic Kafka](/docs/products/kafka/classic-kafka-overview) service.
 - Start with [Free tier](#free-tier) for no-cost, low-throughput Kafka
   workloads.
 - Use [Developer tier](#developer-tier) for paid development and smaller
   production workloads.
-- Create [Standard Kafka](#create-a-standard-kafka-service) for
-  cloud-object-storage-backed topics.
-- Create [Classic Kafka](#create-a-classic-kafka-service) for fixed plans
-  with local broker storage.
 - Use [Skills](#set-up-a-kafka-service-using-skills) for command-line
   setup and configuration.
 
@@ -60,26 +58,17 @@ Manage the service in the console, CLI, API, or with
 
 ## Create a Standard Kafka service
 
-Standard Kafka runs Apache Kafka 4.x and supports diskless topics that store data in
-cloud object storage rather than on local disks. Compute capacity is sized based on
-stream load instead of fixed hardware plans.
-
-- Select **Standard** as the service type.
-- Select **Aiven cloud** as the deployment mode.
-- Select **AWS**, **Google**, or **Azure** and a region, then provide expected ingress,
-  egress, and retention to estimate capacity and cost.
+Create a Standard Kafka service when you need usage-based sizing and diskless topics on
+Aiven Cloud. See the
+[Standard Kafka overview](/docs/products/kafka/standard-kafka-overview) for details.
 
 **Continue with:** [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service).
 
 ## Create a Classic Kafka service
 
-Classic Kafka uses fixed plans with local broker storage. Tiered storage is available on
-supported plans and cloud providers.
-
-- Select **Classic** as the service type.
-- Select **Aiven cloud** or **BYOC** as the deployment mode.
-- Select a plan that defines compute, memory, and storage.
-- Optionally adjust disk capacity, enable tiered storage, and select the Kafka version.
+Create a Classic Kafka service when you need fixed plans, local broker storage, Free or
+Developer tiers, or BYOC. See the
+[Classic Kafka overview](/docs/products/kafka/classic-kafka-overview) for details.
 
 **Continue with:** [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service).
 

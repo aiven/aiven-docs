@@ -154,6 +154,7 @@ Parameters:
 
 <RelatedPages />
 
+- [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
 - [Free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
 - [Generate sample data in the console](/docs/products/kafka/howto/generate-sample-data)

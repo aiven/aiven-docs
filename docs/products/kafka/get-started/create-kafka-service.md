@@ -6,44 +6,23 @@ keywords: [create, kafka, service, standard, inkless, classic, byoc]
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create an Apache Kafka® service on Aiven by choosing a **service type** that defines how the service is sized and where data is stored: **Standard** or **Classic**.
+Create an Apache Kafka® service by choosing a **service type**: **Standard** or
+**Classic**. The service type sets how the service is sized and where topic data is
+stored. You cannot change it after you create the service.
 
 ## Choose a service type
 
-### Standard Kafka
+| Service type | Best for | Next step |
+| --- | --- | --- |
+| **Standard Kafka** | Usage-based sizing on Aiven Cloud, diskless topics, and mixed classic/diskless workloads | [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview) → [Create](/docs/products/kafka/get-started/create-standard-kafka-service) |
+| **Classic Kafka** | Fixed plans, local broker storage, Free/Developer tiers, and BYOC | [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview) → [Create](/docs/products/kafka/get-started/create-classic-kafka-service) |
 
-Standard Kafka uses usage-based pricing, unlimited storage, and
-supports both classic topics and diskless topics.
-
-Choose Standard Kafka if you need:
-
-- Throughput-based sizing on Aiven Cloud instead of fixed plans
-- Faster cluster scaling, version upgrades, and node recovery
-- Higher throughput per broker
-- Mixed workloads with classic topics for low latency and diskless topics for
-  lower-cost storage
-
-In the Aiven CLI and advanced configuration, Standard Kafka is still identified with
-`inkless`.
-
-[Create Standard service](/docs/products/kafka/get-started/create-standard-kafka-service)
-
-### Classic Kafka
-
-Classic Kafka uses a fixed monthly price and stores classic topics on local broker
-storage. Tiered storage is available when the selected plan and cloud support it.
-
-Choose Classic Kafka if you need:
-
-- Control over the broker size and number in the cluster deployment
-- Very large local retention
-- Complete control over the local disk size, and scaling
-- Free tier or specific cloud deployments
-- All retained data stored on local disks
-
-[Create Classic service](/docs/products/kafka/get-started/create-classic-kafka-service)
+For CLI and advanced configuration identifiers used by Standard Kafka, see the
+[Standard Kafka overview](/docs/products/kafka/standard-kafka-overview).
 
 <RelatedPages />
 
+- [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
+- [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Create a Standard Apache Kafka® service on Aiven Cloud.
+Create a Standard Apache Kafka® service on Aiven Cloud. For capabilities and when to
+use Standard Kafka, see the
+[Standard Kafka overview](/docs/products/kafka/standard-kafka-overview).
 
 ## Prerequisites
 
@@ -18,9 +20,9 @@ Create a Standard Apache Kafka® service on Aiven Cloud.
 
 ## Create a Standard service on Aiven Cloud
 
-Standard services are available on the Professional tier. On Aiven Cloud, configure the
-service by selecting stream load and retention. Standard Kafka runs on AWS, Google
-Cloud, and Microsoft Azure.
+Standard services are available on the Professional tier. Configure the service by
+selecting stream load and retention. Standard Kafka runs on AWS, Google Cloud, and
+Microsoft Azure.
 
 <Tabs groupId="inkless-aiven-cloud">
 <TabItem value="console" label="Console" default>
@@ -159,3 +161,10 @@ For a breakdown of network usage by topic type and direction, go to **Billing** 
 
 After you create a service with usage-based pricing, view usage in
 **Overview** > **Service usage**.
+
+<RelatedPages />
+
+- [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
+- [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
+- [Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing)
+- [Generate sample data in the console](/docs/products/kafka/howto/generate-sample-data)

@@ -10,48 +10,22 @@ Kafka services, manage topics, and view cluster details from clients such as
 Cursor and Claude Code.
 :::
 
-You create Kafka services using one of two **service types**: **Standard Kafka** or
-**Classic Kafka**. New customers create Standard Kafka services. Classic Kafka remains
-available for existing customers.
+You create Kafka services as **Standard Kafka** or **Classic Kafka**. New customers
+create Standard Kafka services. Classic Kafka remains available for existing
+customers. Free and Developer tier services use Classic Kafka.
 
-## Standard Kafka
-
-Standard Kafka is a service type that stores topic data in cloud object storage through
-diskless topics, giving you elastic scaling and long-term data retention without
-managing disk capacity.
-
-Standard Kafka supports:
-
-- **Diskless topics**, which store data in object storage
-- **Classic topics**, which use managed remote storage by default
-
-Use Standard Kafka for high-throughput workloads where storage elasticity and cost
-efficiency matter. For details on how Standard Kafka works, its storage model, and
-when to use it, see
-[Standard Kafka overview](/docs/products/kafka/standard-kafka-overview).
-
-## Classic Kafka
-
-Classic Kafka uses fixed plans with local broker storage and can optionally move older
-data to object storage using tiered storage.
-
-Use Classic Kafka for workloads that need predictable capacity, low-latency access to
-local storage, and plan-based broker sizing. Classic Kafka supports existing
-performance defaults and backups.
-
-Classic Kafka and Standard Kafka services can run alongside each other in the same
-project.
+- [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview): diskless
+  topics, object storage, and usage-based sizing on Aiven Cloud
+- [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview): fixed plans,
+  local broker storage, optional tiered storage, and BYOC
 
 ## Service tiers and deployment models
 
-Aiven for Apache Kafka is available on multiple service tiers and deployment models.
-
 - **Free**: Evaluate and experiment with limited throughput and storage.
-- **Developer**: A paid tier for Classic Kafka between Free and Professional. It
-  offers higher throughput, more topics and storage, and longer retention than Free,
-  and supports service integrations and optional Kafka Connect billed separately.
-- **Professional**: Supports production workloads, with full Kafka Connect support on
-  both Standard and Classic Kafka services (plan-dependent).
+- **Developer**: A paid Classic Kafka tier between Free and Professional, with higher
+  limits than Free and optional Kafka Connect billed separately.
+- **Professional**: Production workloads, with Kafka Connect on Standard and Classic
+  Kafka services (plan-dependent).
 
 Kafka services run on **Aiven Cloud** or **Bring Your Own Cloud (BYOC)**. Standard
 Kafka is available on Aiven Cloud only. On BYOC, Classic Kafka is available, with
@@ -66,20 +40,14 @@ architectures.
 
 ## Data integration with Kafka Connect
 
-Apache Kafka Connect is the standard framework for moving data between Kafka and
-external systems.
-
-Aiven for Apache Kafka® Connect provides managed source and sink connectors for common
-databases, storage systems, and data platforms. On Classic Kafka, Kafka Connect is
-optional on the Developer tier (billed separately) and supported on the Professional
-tier. On Standard Kafka, Kafka Connect is available on the Professional tier.
+Aiven for Apache Kafka® Connect provides managed source and sink connectors. On
+Classic Kafka, Kafka Connect is optional on the Developer tier (billed separately)
+and supported on the Professional tier. On Standard Kafka, Kafka Connect is available
+on the Professional tier.
 
 ## Get started
 
-If you are new to Aiven for Apache Kafka®, start with the following topics:
-
-- [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
-- [Kafka Developer tier overview](/docs/products/kafka/dev-tier/kafka-dev-tier)
+- [Get started with Aiven for Apache Kafka®](/docs/products/kafka/get-started/get-started-kafka)
 - [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service)
 - [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)

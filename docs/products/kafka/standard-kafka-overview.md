@@ -58,5 +58,6 @@ a Standard Kafka service.
 <RelatedPages />
 
 - [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service)
+- [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
