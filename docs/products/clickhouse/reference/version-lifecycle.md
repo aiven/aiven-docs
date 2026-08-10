@@ -76,4 +76,4 @@ in the Aiven service and tool version lifecycle reference.
 - [Upgrade to Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/upgrade-to-26-3)
 - [Service and feature releases](/docs/platform/concepts/service-and-feature-releases)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)
-- [Fork an Aiven service](/docs/platform/concepts/service-forking)
+- [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)

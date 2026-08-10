@@ -39,7 +39,7 @@ and connection pools are copied to the new service.
 - You can only fork services that have at least one
   [backup](/docs/platform/concepts/service_backups).
 - Service integrations are not copied over to the forked versions.
-- You cannot [fork Aiven for ClickHouse®](/docs/products/clickhouse/howto/restore-backup)
+- You cannot [fork Aiven for ClickHouse®](/docs/products/clickhouse/howto/fork-service)
   services to a lower amount of nodes.
 - Cross-project forking is supported only within the same organization.
 - Single sign-on (SSO) methods are not copied over to forked Aiven for OpenSearch® services

@@ -1,28 +1,31 @@
 ---
-title: Fork and restore from Aiven for ClickHouse® backups
-sidebar_label: Fork & restore from backups
+title: Restore an Aiven for ClickHouse® backup
+sidebar_label: Restore a backup
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import RelatedPages from "@site/src/components/RelatedPages";
 import ForkService from "@site/static/includes/fork-service-console.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
-Choose a service [backup](/docs/products/clickhouse/concepts/disaster-recovery#service-backup) to fork from and restore your Aiven for ClickHouse® service.
+Restore an Aiven for ClickHouse® service from a
+[daily backup](/docs/products/clickhouse/concepts/disaster-recovery#service-backup)
+by forking to a new service.
 
 :::important
-You cannot fork Aiven for ClickHouse services to a fewer number of nodes.
+You cannot restore Aiven for ClickHouse services to a fewer number of nodes.
 Reducing the number of nodes is only possible by
-[switching the service plan](/docs/platform/howto/scale-services) from **Business** to **Startup**
-on a running service.
+[switching the service plan](/docs/platform/howto/scale-services) from **Business** to
+**Startup** on a running service.
 :::
+
+To restore a backup:
 
 <ForkService/>
 
-Once the new fork service is running, you can set up your application's connection settings
-to point to this new fork service.
+Once the new service is running, change your application's connection settings to point
+to it and power off the original service.
 
 <RelatedPages/>
 
-- [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
-- [Configure Aiven for ClickHouse® backup settings](/docs/products/clickhouse/howto/configure-backup)
+- [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
+- [Schedule Aiven for ClickHouse® backups](/docs/products/clickhouse/howto/configure-backup)
 - [Disaster recovery in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/disaster-recovery)

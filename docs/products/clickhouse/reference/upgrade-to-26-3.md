@@ -20,7 +20,7 @@ Before upgrading:
 
 - Review [Changes that require attention](#changes-that-require-attention).
 - For production services, test the upgrade on a
-  [service fork](/docs/platform/concepts/service-forking). Aiven does not
+  [service fork](/docs/products/clickhouse/howto/fork-service). Aiven does not
   support downgrades.
 - If your service runs version 25.3, upgrade it to version 25.8 first. Direct
   upgrades from version 25.3 to 26.3 are not supported.
@@ -303,7 +303,7 @@ Aiven adopts and that can affect workloads.
 1. Check for and remove or migrate text indexes created in version 25.8,
    experimental hypothesis skip indexes, and uses of
    `detectProgrammingLanguage()`.
-1. [Fork your service](/docs/platform/concepts/service-forking) and upgrade the
+1. [Fork your service](/docs/products/clickhouse/howto/fork-service) and upgrade the
    fork.
 1. Validate continuous ingestion and insert acknowledgment behavior on the fork.
 1. Test external integrations, including Kafka engine authentication.
@@ -317,5 +317,5 @@ Aiven adopts and that can affect workloads.
 <RelatedPages/>
 
 - [Aiven for ClickHouse version support policy](/docs/products/clickhouse/reference/version-lifecycle)
-- [Fork an Aiven service](/docs/platform/concepts/service-forking)
+- [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
 - [Supported table engines](/docs/products/clickhouse/reference/supported-table-engines)

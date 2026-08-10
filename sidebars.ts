@@ -1271,14 +1271,16 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
-              link: {
-                type: 'doc',
-                id: 'products/clickhouse/concepts/service-management',
-              },
               items: [
-                'products/clickhouse/howto/secure-service',
-                'products/clickhouse/howto/list-manage-cluster',
+                'products/clickhouse/howto/create-service',
+                'products/clickhouse/howto/connect-service',
+                'products/clickhouse/howto/power-cycle-service',
+                'products/clickhouse/howto/rename-service',
+                'products/clickhouse/howto/tag-service',
+                'products/clickhouse/howto/fork-service',
+                'products/clickhouse/howto/change-cloud-region',
                 'products/clickhouse/howto/manage-users-roles',
+                'products/clickhouse/howto/secure-service',
                 'products/clickhouse/reference/advanced-params',
                 'products/clickhouse/reference/limitations',
               ],
