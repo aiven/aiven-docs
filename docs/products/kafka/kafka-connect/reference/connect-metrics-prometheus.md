@@ -1,5 +1,6 @@
 ---
 title: Aiven for Apache Kafka® Connect metrics available via Prometheus
+sidebar_label: Metrics in Prometheus
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

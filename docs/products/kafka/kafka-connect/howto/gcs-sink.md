@@ -15,11 +15,10 @@ The Google Cloud Storage (GCS) sink connector moves data from Aiven for Apache K
 - An Aiven for Apache Kafka® service with
   [Apache Kafka Connect enabled](/docs/products/kafka/kafka-connect/howto/enable-connect),
   or a [dedicated Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
-- Access to a Google Cloud project where you can create:
-  - a Google Cloud Storage bucket
-  - a Google service account with a JSON service key
-- Collect the following values for connector configuration:
-
+- Access to a Google Cloud project where you can create the following:
+  - A Google Cloud Storage bucket
+  - A Google service account with a JSON service key
+- The following values for the connector configuration:
   - `GCS_NAME`: The name of the target Google Cloud Storage bucket
   - `GCS_CREDENTIALS`: The Google service account JSON key
 
@@ -69,19 +68,48 @@ You use this key in the connector configuration as `GCS_CREDENTIALS`.
 1. Go to the **Permissions** tab.
 1. Grant access to the service account.
 
-Ensure the following permissions are granted:
+Grant the following permissions:
 
 - `storage.objects.create`
-- `storage.objects.delete` (required for overwriting, for example during re-processing)
+- `storage.objects.delete`, required for overwriting during reprocessing
 
-Grant these permissions using a custom role or the standard
+Grant these permissions with a custom role or the standard
 role **Storage Legacy Bucket Writer**.
 
 Also ensure the bucket does not have a retention policy that prevents overwriting.
 
+## Naming and data formats {#naming-and-data-formats}
+
+### Filename format
+
+The connector uses the following format for output files:
+
+```text
+<prefix><topic>-<partition>-<start-offset>[.gz]
+```
+
+The filename format has the following parts:
+
+- `<prefix>`: Filename prefix, useful for defining subdirectories in the storage bucket
+- `<topic>`: Source Apache Kafka® topic name
+- `<partition>`: Source Apache Kafka® topic partition number
+- `<start-offset>`: Offset of the first record in the file
+- `[.gz]`: File suffix added when you enable compression, depending on compression type
+
+### Data format
+
+Output files are text files with one record per line, separated by `\n`.
+
+Two data formats are available:
+
+- **Flat structure**: Default format. Commas separate field values in CSV format.
+  Set `format.output.type` to `csv`.
+- **Complex structure**: JSON Lines format. Each line is a valid JSON object.
+  Set `format.output.type` to `jsonl`.
+
 ## Create the connector configuration
 
-Create a JSON configuration file, for example, `gcs_sink.json`:
+Create a JSON configuration file, for example `gcs_sink.json`:
 
 ```json
 {
@@ -112,18 +140,13 @@ Parameters:
 - `format.output.type`: Output file format
 - `format.output.fields`: Message fields to include in output files
 
-:::tip
-You can control file naming and output formats using dedicated parameters. For details, see
-[GCS sink formats](/docs/products/kafka/kafka-connect/reference/gcs-sink-formats).
-:::
-
 ## Create a Google Cloud Storage sink connector
 
 <Tabs groupId="setup-method">
 <TabItem value="console" label="Aiven Console" default>
 
 1. Access the [Aiven Console](https://console.aiven.io/).
-1. Select your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
+1. Open your Aiven for Apache Kafka® or Aiven for Apache Kafka Connect® service.
 1. In the sidebar, click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Apache Kafka Connect is already enabled on the service.
    If not, click **Enable connector on this service**.
@@ -140,9 +163,9 @@ You can control file naming and output formats using dedicated parameters. For d
 1. Click **Apply**.
 
    :::note
-   When you paste the JSON configuration, Aiven Console parses it and automatically
-   populates the corresponding fields in the UI. Any changes you make in the UI are
-   reflected in the **Connector configuration** JSON.
+   When you paste the JSON configuration, Aiven Console parses it and
+   populates the corresponding fields in the UI. Changes you make in the UI
+   appear in the **Connector configuration** JSON.
    :::
 
 1. Click **Create connector**.
@@ -180,7 +203,7 @@ This example creates a connector with the following settings:
 - Name prefix: `my-custom-prefix/`
 - Compression: `gzip`
 - Output format: `jsonl`
-- Output fields: `value, offset`
+- Output fields: `value,offset`
 - Maximum records per file: 1
 
 ```json
