@@ -10,9 +10,10 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import Link from "@docusaurus/Link";
 import AI from "@site/static/images/logos/star-ai.svg";
 
-Aiven builds AI capabilities directly into its managed services, from vector search to AI assistants.
-It also provides tools that connect your own AI agents to your data. Use the
-following sections to find the right starting point for your use case.
+Aiven provides tools that connect your own AI agents to your data.
+It also builds AI capabilities directly into its managed services, from vector search to
+AI assistants. Use the following sections to find the right starting point for your
+use case.
 
 ## Choose your path
 
@@ -25,10 +26,10 @@ following sections to find the right starting point for your use case.
     description="Give coding assistants and AI agents access to your Aiven services."
   />
   <Card
-    to="#ai-is-built-into-these-services"
+    to="#ai-built-into-aiven-services"
     iconComponent={AI}
     titleHighlight="#6F64FF"
-    title="AI is built into these services"
+    title="AI built into Aiven services"
     description="Find vector search, query optimization, and SQL generation built into the services you already use."
   />
 </GridContainer>
@@ -44,7 +45,7 @@ Apache Kafka®, instead of manual commands.
 | DataHub MCP server | Give AI agents natural language search, lineage tracking, and context-aware SQL generation over your data ecosystem | [Use the DataHub MCP server](/docs/products/datahub/datahub-mcp-server) |
 | Kafka Skills | Create and configure a Kafka service, topics, ACLs, and Schema Registry from the command line | [Set up using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills) |
 
-## AI is built into these services
+## AI built into Aiven services
 
 These aren't separate products. They're capabilities built into the services you're
 already using.

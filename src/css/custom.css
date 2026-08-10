@@ -492,8 +492,12 @@ html[data-theme='dark'] .tabs {
 .ai-capability-box {
   border: 1px solid var(--aiven-card-border);
   border-radius: var(--aiven-radius);
-  background-color: var(--aiven-card-bg);
+  background-color: var(--aiven-grey-0);
   padding: 0.25rem 1.5rem;
+}
+
+html[data-theme='dark'] .ai-capability-box {
+  background-color: var(--aiven-grey-90);
 }
 
 .ai-capability-row {
@@ -528,7 +532,7 @@ html[data-theme='dark'] .tabs {
   padding: 0.3rem 0.9rem;
   font-size: 0.9rem;
   color: var(--aiven-inline-link-color);
-  background-color: var(--aiven-bg-layer);
+  background-color: var(--aiven-card-bg);
   text-decoration: none;
 }
 
