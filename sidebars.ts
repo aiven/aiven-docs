@@ -1271,6 +1271,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/clickhouse/concepts/service-management',
+              },
               items: [
                 'products/clickhouse/howto/create-service',
                 'products/clickhouse/howto/connect-service',
