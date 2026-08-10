@@ -11,8 +11,9 @@ import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
 :::important
-Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature.
-[Contact Aiven](https://aiven.io/contact) to request access.
+Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature,
+available for newly created BYOC services only. [Contact Aiven](https://aiven.io/contact)
+to request access.
 :::
 
 ## Encryption scope
