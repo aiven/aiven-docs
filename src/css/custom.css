@@ -488,6 +488,57 @@ html[data-theme='dark'] .tabs {
   border-color: var(--aiven-card-border-hover);
 }
 
+/* AI capability pill groups (docs/ai-features.md) */
+.ai-capability-box {
+  border: 1px solid var(--aiven-card-border);
+  border-radius: var(--aiven-radius);
+  background-color: var(--aiven-card-bg);
+  padding: 0.25rem 1.5rem;
+}
+
+.ai-capability-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--aiven-card-border);
+}
+
+.ai-capability-row:last-child {
+  border-bottom: none;
+}
+
+.ai-capability-label {
+  font-weight: 600;
+  min-width: 11rem;
+}
+
+.ai-capability-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ai-capability-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--aiven-card-border);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.9rem;
+  color: var(--aiven-inline-link-color);
+  background-color: var(--aiven-bg-layer);
+  text-decoration: none;
+}
+
+.ai-capability-pill:hover,
+.ai-capability-pill:focus {
+  color: var(--aiven-inline-link-hover-color);
+  border-color: var(--aiven-card-border-hover);
+  text-decoration: none;
+}
+
 @media screen and (max-width: 996px) {
   .navbar__items--right {
     display: flex;

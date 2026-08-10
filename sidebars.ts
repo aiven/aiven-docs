@@ -324,63 +324,16 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'ai-features',
+        'tools/mcp-server',
         {
-          type: 'category',
-          label: 'AI tools',
-          collapsed: false,
-          collapsible: false,
-          items: [
-            'tools/mcp-server',
-            {
-              type: 'link',
-              label: 'DataHub MCP server',
-              href: '/docs/products/datahub/datahub-mcp-server',
-            },
-            {
-              type: 'link',
-              label: 'Kafka Skills',
-              href: '/docs/products/kafka/howto/set-up-kafka-with-skills',
-            },
-          ],
+          type: 'link',
+          label: 'DataHub MCP server',
+          href: '/docs/products/datahub/datahub-mcp-server',
         },
         {
-          type: 'category',
-          label: 'AI features',
-          collapsed: false,
-          collapsible: false,
-          items: [
-            'tools/query-optimizer',
-            {
-              type: 'link',
-              label: 'ClickHouse Vector similarity index',
-              href: '/docs/products/clickhouse/howto/vector-similarity-index-cache',
-            },
-            {
-              type: 'link',
-              label: 'MySQL AI database optimizer',
-              href: '/docs/products/mysql/howto/ai-insights',
-            },
-            {
-              type: 'link',
-              label: 'PG Studio AI assistant',
-              href: '/docs/products/postgresql/howto/pg-studio/use-ai-assistant',
-            },
-            {
-              type: 'link',
-              label: 'pgvector search',
-              href: '/docs/products/postgresql/concepts/pgvector',
-            },
-            {
-              type: 'link',
-              label: 'PostgreSQL AI database optimizer',
-              href: '/docs/products/postgresql/howto/ai-insights',
-            },
-            {
-              type: 'link',
-              label: 'Valkey Search',
-              href: '/docs/products/valkey/reference/valkey-modules#valkey-search',
-            },
-          ],
+          type: 'link',
+          label: 'Kafka Skills',
+          href: '/docs/products/kafka/howto/set-up-kafka-with-skills',
         },
       ],
     },
