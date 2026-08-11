@@ -82,7 +82,7 @@
 .heroAiCallout {
   display: block;
   flex: 0 0 auto;
-  width: 380px;
+  width: clamp(300px, 32vw, 390px);
 }
 
 .heroTitle {
