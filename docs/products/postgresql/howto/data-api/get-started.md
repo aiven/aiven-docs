@@ -43,9 +43,9 @@ To enable Data API, you need the following:
    monthly price for the Aiven App.
 1. Click **Confirm and deploy**.
 
-Data API starts deploying and the status shows **API building**. When the app is healthy,
-the status changes to **API running** and the endpoints become available. While the service
-is still being provisioned, setup is unavailable and the Aiven Console shows
+Data API starts deploying and the **Status** shows **Building**. When the app is healthy,
+the status changes to **Running** and the endpoints become available. While the service is
+still being provisioned, setup is unavailable and the Aiven Console shows
 **Set up your data API** with a note that the service is still being provisioned.
 
 For details on the JWKS URL and audience fields, see
