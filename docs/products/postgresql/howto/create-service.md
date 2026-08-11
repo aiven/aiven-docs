@@ -12,5 +12,5 @@ Create an Aiven for PostgreSQL® service in the [Aiven Console](https://console.
 
 <RelatedPages/>
 
-- [Connect to a service](/docs/products/postgresql/howto/connect-service)
+- [Connection methods](/docs/products/postgresql/howto/list-code-samples)
 - [Create a service with the CLI, API, or Terraform](/docs/platform/howto/create_new_service)

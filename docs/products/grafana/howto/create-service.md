@@ -12,5 +12,5 @@ Create an Aiven for Grafana® service in the [Aiven Console](https://console.aiv
 
 <RelatedPages/>
 
-- [Connect to a service](/docs/products/grafana/howto/connect-service)
+- [Get started with Aiven for Grafana®](/docs/products/grafana/get-started)
 - [Create a service with the CLI, API, or Terraform](/docs/platform/howto/create_new_service)
