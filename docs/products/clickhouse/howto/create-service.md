@@ -12,5 +12,5 @@ Create an Aiven for ClickHouse® service in the [Aiven Console](https://console.
 
 <RelatedPages/>
 
-- [Connect to a service](/docs/products/clickhouse/howto/connect-service)
+- [Connect to Aiven for ClickHouse®](/docs/products/clickhouse/howto/list-connect-to-service)
 - [Create a service with the CLI, API, or Terraform](/docs/platform/howto/create_new_service)
