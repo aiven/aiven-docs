@@ -314,6 +314,30 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+  // AI sidebar
+  ai: [
+    {
+      type: 'category',
+      label: 'AI tools on Aiven',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'ai-features',
+        'tools/mcp-server',
+        {
+          type: 'link',
+          label: 'DataHub MCP server',
+          href: '/docs/products/datahub/datahub-mcp-server',
+        },
+        {
+          type: 'link',
+          label: 'Kafka Skills',
+          href: '/docs/products/kafka/howto/set-up-kafka-with-skills',
+        },
+      ],
+    },
+  ],
   // Tools sidebar
   tools: [
     {

@@ -1,13 +1,13 @@
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {FormEvent, useState} from 'react';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import HomepageFeatures, {Feature} from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import Asterisk from '@site/static/images/Asterisk.svg';
 import CurlyBraceRight from '@site/static/images/Curly brace left.svg';
+import AI from '@site/static/images/logos/star-ai.svg';
 
 import styles from './index.module.css';
 
@@ -74,6 +74,8 @@ function HomepageHeader() {
               {siteConfig.title}
             </Heading>
             <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+          </div>
+          <div className={styles.heroActionsRow}>
             <form className={styles.askAIForm} onSubmit={onAskAISubmit}>
               <input
                 type="text"
@@ -87,6 +89,20 @@ function HomepageHeader() {
                 Ask AI
               </button>
             </form>
+            <div className={styles.heroAiCallout}>
+              <Feature
+                title="AI tools and features"
+                Svg={AI}
+                to="/docs/ai-features"
+                accent="teal"
+                description={
+                  <>
+                    Explore AI-powered tools and features across Aiven services, from
+                    vector search to AI assistants and agent integrations.
+                  </>
+                }
+              />
+            </div>
           </div>
         </div>
       </div>

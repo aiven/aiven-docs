@@ -70,6 +70,21 @@
   text-align: left;
 }
 
+.heroActionsRow {
+  margin-top: 1.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.heroAiCallout {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(300px, 32vw, 390px);
+}
+
 .heroTitle {
   font-family: var(--ifm-heading-font-family);
   font-size: clamp(1.8rem, 4.8vw, 3rem);
@@ -99,11 +114,12 @@
 }
 
 .askAIForm {
-  margin-top: 1.9rem;
   display: flex;
   align-items: stretch;
   gap: 12px;
-  width: min(42rem, 100%);
+  flex: 1 1 320px;
+  max-width: 42rem;
+  min-width: 0;
 }
 
 .askAIInput {
@@ -159,11 +175,22 @@
     padding: clamp(1.25rem, 3.5vw, 2rem) 0 clamp(1.5rem, 4vw, 2.25rem);
   }
 
+  .heroActionsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
   .heroContent {
     max-width: none;
   }
 
   .askAIForm {
+    flex: 0 0 auto;
+    max-width: none;
+  }
+
+  .heroAiCallout {
     width: 100%;
   }
 

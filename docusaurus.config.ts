@@ -261,6 +261,12 @@ const config: Config = {
           sidebarId: 'tools',
         },
         {
+          type: 'docSidebar',
+          position: 'left',
+          label: 'AI',
+          sidebarId: 'ai',
+        },
+        {
           label: 'Aiven Console',
           position: 'right',
           href: 'https://console.aiven.io/login',

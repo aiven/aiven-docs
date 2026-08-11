@@ -1,5 +1,6 @@
 ---
 title: Standalone SQL query optimizer
+sidebar_label: AI query optimizer
 early: true
 ---
 
