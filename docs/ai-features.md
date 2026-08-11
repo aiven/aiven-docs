@@ -8,9 +8,10 @@ import Card from "@site/src/components/Card";
 import GridContainer from "@site/src/components/GridContainer";
 import RelatedPages from "@site/src/components/RelatedPages";
 import Link from "@docusaurus/Link";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import AI from "@site/static/images/logos/star-ai.svg";
 
-Aiven provides tools that connect your own AI agents to your data.
+Aiven provides tools that connect your AI agents to Aiven services, metadata, and data.
 It also builds AI capabilities directly into its managed services, from vector search to
 AI assistants. Use the following sections to find the right starting point for your
 use case.
@@ -23,26 +24,27 @@ use case.
     iconComponent={AI}
     titleHighlight="#FDCD12"
     title="Connect AI agents and tools to Aiven"
-    description="Give coding assistants and AI agents access to your Aiven services."
+    description="Connect AI assistants and agents to Aiven services, metadata, and data."
   />
   <Card
     to="#ai-built-into-aiven-services"
     iconComponent={AI}
     titleHighlight="#6F64FF"
     title="AI built into Aiven services"
-    description="Find vector search, query optimization, and SQL generation built into the services you already use."
+    description="Use vector search, query optimization, and SQL generation built into supported Aiven services."
   />
 </GridContainer>
 
 ## Connect AI agents and tools to Aiven
 
-Give AI coding assistants and agents controlled access to services such as Aiven for
-Apache Kafka®, instead of manual commands.
+Connect AI assistants and agents to Aiven to manage services, explore metadata, and work
+with data using MCP servers and Skills. For example, connect an agent to Aiven for
+Apache Kafka® instead of running manual commands.
 
-| Tool | What it exposes | Get started |
+| Tool | What you can do | Get started |
 | --- | --- | --- |
 | Aiven MCP server | Create and manage services, plans, metrics, logs, and configuration from Cursor, Claude Code, and other MCP clients | [Set up Aiven MCP](/docs/tools/mcp-server) |
-| DataHub MCP server | Give AI agents natural language search, lineage tracking, and context-aware SQL generation over your data ecosystem | [Use the DataHub MCP server](/docs/products/datahub/datahub-mcp-server) |
+| DataHub MCP server <LimitedBadge/> | Give AI agents natural language search, lineage tracking, and context-aware SQL generation over your data ecosystem | [Use the DataHub MCP server](/docs/products/datahub/datahub-mcp-server) |
 | Kafka Skills | Create and configure a Kafka service, topics, ACLs, and Schema Registry from the command line | [Set up using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills) |
 
 ## AI built into Aiven services
