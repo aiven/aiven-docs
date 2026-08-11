@@ -59,8 +59,6 @@ not supported.
 
 - The migration starts automatically when you upgrade your service to Apache Kafka 3.9
   in the Aiven Console.
-- The migration runs during your configured
-  [maintenance window](/docs/platform/concepts/maintenance-window).
 - During the upgrade, the service status changes to **Rebuilding**.
 - When the upgrade completes, the service status returns to **Running** and the service
   runs in KRaft mode.
