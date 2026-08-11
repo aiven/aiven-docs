@@ -22,14 +22,14 @@ use case.
   <Card
     to="#connect-ai-agents-and-tools-to-aiven"
     iconComponent={AI}
-    titleHighlight="#FDCD12"
+    titleHighlight="var(--aiven-brand-teal)"
     title="Connect AI agents and tools to Aiven"
     description="Connect AI assistants and agents to Aiven services, metadata, and data."
   />
   <Card
     to="#ai-built-into-aiven-services"
     iconComponent={AI}
-    titleHighlight="#6F64FF"
+    titleHighlight="var(--aiven-brand-teal)"
     title="AI built into Aiven services"
     description="Use vector search, query optimization, and SQL generation built into supported Aiven services."
   />

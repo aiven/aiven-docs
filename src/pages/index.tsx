@@ -15,7 +15,6 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   const [question, setQuestion] = useState('');
-  const [shimmerKey, setShimmerKey] = useState(0);
 
   const openKapa = (query: string) => {
     if (typeof window === 'undefined') {
@@ -91,14 +90,11 @@ function HomepageHeader() {
                 Ask AI
               </button>
             </form>
-            <div
-              key={shimmerKey}
-              className={styles.heroAiCallout}
-              onMouseEnter={() => setShimmerKey((key) => key + 1)}>
+            <div className={styles.heroAiCallout}>
               <Card
                 to="/docs/ai-features"
                 iconComponent={AI}
-                titleHighlight="#6F64FF"
+                titleHighlight="var(--aiven-brand-teal)"
                 title="AI tools and features"
                 description="Explore AI-powered tools and features across Aiven services, from vector search to AI assistants and agent integrations."
               />
