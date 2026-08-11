@@ -186,6 +186,7 @@
   }
 
   .askAIForm {
+    flex: 0 0 auto;
     max-width: none;
   }
 
