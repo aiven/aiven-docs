@@ -83,6 +83,10 @@
   color: var(--aiven-brand-orange);
 }
 
+.logo[data-home-feature-accent='teal'] {
+  color: var(--aiven-brand-teal);
+}
+
 /* Brand yellow is very light on pale surfaces — keep hue, add contrast */
 :global(html[data-theme='light']) .logo[data-home-feature-accent='yellow'] {
   color: color-mix(in srgb, var(--aiven-brand-yellow) 52%, var(--aiven-brand-near-black) 48%);

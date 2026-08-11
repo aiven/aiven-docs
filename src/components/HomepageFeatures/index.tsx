@@ -3,15 +3,16 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 
-type HomeFeatureAccent =
+export type HomeFeatureAccent =
   | 'deepBlue'
   | 'lightBlue'
   | 'purple'
   | 'yellow'
   | 'red'
-  | 'orange';
+  | 'orange'
+  | 'teal';
 
-type FeatureItem = {
+export type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
@@ -83,7 +84,7 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description, to, accent}: FeatureItem) {
+export function Feature({title, Svg, description, to, accent}: FeatureItem) {
   return (
     <div className={clsx('col', styles.feature)}>
       <Link to={to}>

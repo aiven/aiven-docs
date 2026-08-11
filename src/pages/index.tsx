@@ -3,11 +3,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {FormEvent, useState} from 'react';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import HomepageFeatures, {Feature} from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import Asterisk from '@site/static/images/Asterisk.svg';
 import CurlyBraceRight from '@site/static/images/Curly brace left.svg';
-import Card from '@site/src/components/Card';
 import AI from '@site/static/images/logos/star-ai.svg';
 
 import styles from './index.module.css';
@@ -91,12 +90,17 @@ function HomepageHeader() {
               </button>
             </form>
             <div className={styles.heroAiCallout}>
-              <Card
-                to="/docs/ai-features"
-                iconComponent={AI}
-                titleHighlight="var(--aiven-brand-teal)"
+              <Feature
                 title="AI tools and features"
-                description="Explore AI-powered tools and features across Aiven services, from vector search to AI assistants and agent integrations."
+                Svg={AI}
+                to="/docs/ai-features"
+                accent="teal"
+                description={
+                  <>
+                    Explore AI-powered tools and features across Aiven services, from
+                    vector search to AI assistants and agent integrations.
+                  </>
+                }
               />
             </div>
           </div>
