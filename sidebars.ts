@@ -1558,7 +1558,6 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/grafana/howto/create-service',
-                'products/grafana/howto/connect-service',
                 'products/grafana/howto/power-cycle-service',
                 'products/grafana/howto/rename-service',
                 'products/grafana/howto/tag-service',
@@ -1638,7 +1637,6 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/metrics/howto/create-service',
-                'products/metrics/howto/connect-service',
                 'products/metrics/howto/power-cycle-service',
                 'products/metrics/howto/tag-service',
                 'products/metrics/howto/change-cloud-region',
@@ -1728,7 +1726,6 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/mysql/howto/create-service',
-                'products/mysql/howto/connect-service',
                 'products/mysql/howto/power-cycle-service',
                 'products/mysql/howto/rename-service',
                 'products/mysql/howto/tag-service',
@@ -1899,7 +1896,6 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/opensearch/howto/create-service',
-                'products/opensearch/howto/connect-service',
                 'products/opensearch/howto/power-cycle-service',
                 'products/opensearch/howto/rename-service',
                 'products/opensearch/howto/tag-service',
@@ -2122,7 +2118,6 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/postgresql/howto/create-service',
-                'products/postgresql/howto/connect-service',
                 'products/postgresql/howto/power-cycle-service',
                 'products/postgresql/howto/rename-service',
                 'products/postgresql/howto/tag-service',
@@ -2381,7 +2376,6 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/valkey/howto/create-service',
-                'products/valkey/howto/connect-service',
                 'products/valkey/howto/power-cycle-service',
                 'products/valkey/howto/rename-service',
                 'products/valkey/howto/tag-service',

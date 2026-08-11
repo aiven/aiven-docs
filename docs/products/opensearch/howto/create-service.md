@@ -12,5 +12,5 @@ Create an Aiven for OpenSearch® service in the [Aiven Console](https://console.
 
 <RelatedPages/>
 
-- [Connect to a service](/docs/products/opensearch/howto/connect-service)
+- [Connect to Aiven for OpenSearch®](/docs/products/opensearch/howto/list-connect-to-service)
 - [Create a service with the CLI, API, or Terraform](/docs/platform/howto/create_new_service)

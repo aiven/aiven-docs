@@ -12,5 +12,5 @@ Create an Aiven for Metrics service in the [Aiven Console](https://console.aiven
 
 <RelatedPages/>
 
-- [Connect to a service](/docs/products/metrics/howto/connect-service)
+- [Get started with Aiven for Metrics](/docs/products/metrics/get-started)
 - [Create a service with the CLI, API, or Terraform](/docs/platform/howto/create_new_service)

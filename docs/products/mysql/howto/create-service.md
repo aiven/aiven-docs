@@ -12,5 +12,5 @@ Create an Aiven for MySQL® service in the [Aiven Console](https://console.aiven
 
 <RelatedPages/>
 
-- [Connect to a service](/docs/products/mysql/howto/connect-service)
+- [Connect to Aiven for MySQL®](/docs/products/mysql/howto/list-code-samples)
 - [Create a service with the CLI, API, or Terraform](/docs/platform/howto/create_new_service)
