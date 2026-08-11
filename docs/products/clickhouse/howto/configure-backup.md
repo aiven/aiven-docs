@@ -82,5 +82,6 @@ avn service update SERVICE_NAME \
 <RelatedPages/>
 
 - [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
-- [Fork and restore from Aiven for ClickHouse® backups](/docs/products/clickhouse/howto/restore-backup)
+- [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
+- [Restore an Aiven for ClickHouse® backup](/docs/products/clickhouse/howto/restore-backup)
 - [Disaster recovery in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/disaster-recovery)

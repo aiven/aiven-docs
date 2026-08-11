@@ -18,8 +18,8 @@ Services powered off for more than 180 days are automatically deleted.
 <TabItem value="Console" label="Console" default>
 
 1. In your project, click <ConsoleLabel name="services"/>.
-1. To power off a service, click <ConsoleLabel name="actions"/> >
-   **Power off service**.
+1. Select the service to open the <ConsoleLabel name="overview"/> page.
+1. Click <ConsoleLabel name="actions"/> > **Power off service**.
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
@@ -51,8 +51,8 @@ the network bandwidth, the disk IOPS allocated to the service, and the size of t
 <TabItem value="Console" label="Console" default>
 
 1. In your project, click <ConsoleLabel name="services"/>.
-1. To power on a service, click <ConsoleLabel name="actions"/> >
-   **Power on service**.
+1. Select the service to open the <ConsoleLabel name="overview"/> page.
+1. Click <ConsoleLabel name="actions"/> > **Power on service**.
 
 </TabItem>
 <TabItem value="CLI" label="CLI">

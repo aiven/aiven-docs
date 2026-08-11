@@ -33,7 +33,7 @@ on how to work around specific restrictions.
             [restored to one of the daily backup states](/docs/products/clickhouse/howto/restore-backup)
             only.</li>
           <li>When creating a database fork,
-            you can only [create a fork](/docs/products/clickhouse/howto/restore-backup)
+            you can only [create a fork](/docs/products/clickhouse/howto/fork-service)
             that matches the state of one of the backups.</li>
           <li>Any data inserted before the next snapshot is lost if all nodes in a
             given shard malfunction and need to be replaced. This limitation doesn't

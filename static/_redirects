@@ -12,6 +12,7 @@
 /products/postgresql/howto/list-manage-cluster   /docs/products/postgresql  301
 /products/mysql/howto/list-manage-cluster        /docs/products/mysql  301
 /products/grafana/howto/list-manage-cluster      /docs/products/grafana  301
+/products/clickhouse/howto/list-manage-cluster   /docs/products/clickhouse  301
 /products/postgresql/howto/configure-backups     /docs/products/postgresql/concepts/pg-backups  301
 /products/mysql/howto/configure-backups          /docs/products/mysql/concepts/mysql-backups  301
 /products/opensearch/howto/manage-service-users  /docs/products/opensearch/howto/control_access_to_content  301

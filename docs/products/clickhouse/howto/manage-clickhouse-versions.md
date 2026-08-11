@@ -40,7 +40,7 @@ Before upgrading your service, complete the following checks:
   including the **Requires attention** section and its checks for removed
   features.
 - Test the upgrade in a development or staging environment by
-  [forking the service](/docs/platform/concepts/service-forking) and upgrading the fork
+  [forking the service](/docs/products/clickhouse/howto/fork-service) and upgrading the fork
   first.
 - Verify that your applications and clients support the target version.
 - Ensure recent backups are available.

@@ -109,4 +109,5 @@ For all the restrictions and limits for Aiven for ClickHouse, see
 
 - [Disaster Recovery testing scenarios](/docs/platform/concepts/disaster-recovery-test-scenarios)
 - [Configure Aiven for ClickHouse® backup settings](/docs/products/clickhouse/howto/configure-backup)
-- [Fork and restore from Aiven for ClickHouse® backups](/docs/products/clickhouse/howto/restore-backup)
+- [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
+- [Restore an Aiven for ClickHouse® backup](/docs/products/clickhouse/howto/restore-backup)
