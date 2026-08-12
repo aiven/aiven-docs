@@ -24,6 +24,11 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
     <td>Asia Pacific, Singapore: Singapore</td>
   </tr>
   <tr>
+    <td>asia-pacific</td>
+    <td>avn-ovh-syd1</td>
+    <td>Asia Pacific, Australia: Sydney</td>
+  </tr>
+  <tr>
     <td>europe</td>
     <td>avn-ovh-de1</td>
     <td>Europe, Germany: Frankfurt</td>
