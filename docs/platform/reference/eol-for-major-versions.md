@@ -102,14 +102,7 @@ After the EOL date:
 
 ### Aiven for MySQL®
 
-<<<<<<< HEAD
 <EolTableMysql/>
-=======
-| Version | Aiven EOL         | Service creation supported until   | Service creation supported from |
-| ------- | ----------------- | ---------------------------------- | ------------------------------- |
-| 8.0.x   | 2026-10-31        | 2026-04-30                         | 2018-05-18                      |
-| 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-02-20                      |
->>>>>>> bd523919 (pg 19)
 
 ### Aiven for OpenSearch®
 
@@ -117,27 +110,7 @@ After the EOL date:
 
 ### Aiven for PostgreSQL®
 
-<<<<<<< HEAD
 <EolTablePostgresql/>
-=======
-Aiven for PostgreSQL® major versions reach EOL on the same date as
-the upstream open source project's EOL.
-
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 9.5     | 2021-04-15 | 2021-01-26                       | 2015-12-22                      |
-| 9.6     | 2021-11-11 | 2021-05-11                       | 2016-09-29                      |
-| 10      | 2022-11-10 | 2022-05-10                       | 2017-01-14                      |
-| 11      | 2023-11-09 | 2023-05-09                       | 2017-03-06                      |
-| 12      | 2024-11-14 | 2024-05-14                       | 2019-11-18                      |
-| 13      | 2025-11-13 | 2025-05-13                       | 2021-02-15                      |
-| 14      | 2026-11-12 | 2026-05-12                       | 2021-11-11                      |
-| 15      | 2027-11-11 | 2027-05-12                       | 2022-12-12                      |
-| 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
-| 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
-| 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
-| 19      | To be announced | To be announced             | To be announced                 |
->>>>>>> bd523919 (pg 19)
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
