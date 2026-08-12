@@ -25,9 +25,9 @@ subscription so that Aiven can access it:
    infrastructure-as-code template.
 1. You download the generated template and deploy it in your Azure subscription using
    the Azure CLI.
-1. You provision the custom cloud by supplying your Azure subscription ID to the Aiven
-   platform, which gives Aiven the permissions to access your Azure subscription, create
-   resources, and manage them onward.
+1. You provision the custom cloud by supplying your Azure subscription ID and tenant ID
+   to the Aiven platform, which gives Aiven the permissions to access your Azure
+   subscription, create resources, and manage them onward.
 1. You select Aiven projects that can use your new custom cloud for creating services.
 1. You add contact details for individuals from your organization that Aiven can reach
    out to in case of technical issues with the new cloud.
@@ -51,8 +51,8 @@ subscription so that Aiven can access it:
 
 ## Azure permissions
 
-To deploy the Aiven BYOC Terraform template, your Azure identity needs permissions in
-two areas. Assign both before running `terraform apply`.
+To deploy the Aiven BYOC Terraform template, your Azure identity needs the following
+subscription permissions. Assign them before running `terraform apply`.
 
 ### Azure subscription permissions
 
@@ -124,25 +124,6 @@ Show minimum custom role permissions for the BYOC deployer
 ```
 
 </details>
-
-### Microsoft Entra ID permissions
-
-In addition to the subscription permissions, your Azure identity must be assigned the
-**Privileged Role Administrator** (or **Global Administrator**) role in Microsoft Entra
-ID before running `terraform apply`. Terraform uses this to grant the Aiven service
-principal the `Application.ReadWrite.OwnedBy` Microsoft Graph permission, which
-enables autonomous credential rotation.
-
-This is a directory-level role that cannot be expressed in a subscription custom role
-definition. Assign it separately through the Azure portal or CLI before running
-`terraform apply`:
-
-- **Azure portal**: Go to **Microsoft Entra ID** > **Roles and administrators** >
-  **Privileged Role Administrator** > **Add assignments**, then select your Azure
-  identity.
-- **Azure CLI or programmatic assignment**: See
-  [Assign Microsoft Entra roles to users](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/manage-roles-portal)
-  in the Microsoft documentation.
 
 ## Create a custom cloud
 
@@ -274,6 +255,22 @@ definition. Assign it separately through the Azure portal or CLI before running
       For more authentication options, see the
       [Azure CLI authentication documentation](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 
+   1. Install the Aiven CCE enterprise application on your Entra tenant. Open the
+      `.tfvars` file you downloaded, copy the `aiven_cce_client_id` value, then run:
+
+      ```bash
+      az ad sp create --id "AIVEN_CCE_CLIENT_ID"
+      ```
+
+      Replace `AIVEN_CCE_CLIENT_ID` with the `aiven_cce_client_id` value from the
+      `.tfvars` file.
+
+      :::note
+      If the Aiven CCE enterprise application is already installed on your Entra tenant
+      (for example, you have another BYOC custom cloud on the same tenant), skip this
+      step.
+      :::
+
    1. Deploy the infrastructure template using Terraform with the provided variables
       file:
 
@@ -291,15 +288,15 @@ definition. Assign it separately through the Azure portal or CLI before running
 
       The template creates the following resources in your Azure subscription:
 
-      - A **service principal** for Aiven to operate the environment, with a custom
-        least-privilege role on the resource group
+      - **Role assignments** granting the Aiven CCE enterprise application operator
+        and quota-reader access in your subscription
       - A **resource group** containing all BYOC resources
       - Two **custom role definitions** in your subscription:
         `{deployment_name}-aiven-operator` (least-privilege operator on the resource
         group) and `{deployment_name}-aiven-quota-reader` (read-only compute quota
         access on the subscription)
       - **Storage accounts** (Premium LRS and Standard LRS), with the Storage Account
-        Key Operator Service Role assigned to the Aiven service principal
+        Key Operator Service Role assigned to the Aiven CCE enterprise application
       - For the `standard` deployment model:
         - Two **virtual networks** (Bastion VNet and Workload VNet) with subnets
         - **VNet peering** between the bastion and workload networks
@@ -310,15 +307,23 @@ definition. Assign it separately through the Azure portal or CLI before running
         - A **network security group (NSG)** allowing all public inbound TCP and UDP
           traffic to workload nodes
 
+   1. Retrieve the values required for the provisioning step:
+
+      ```bash
+      terraform output -raw azure_subscription_id
+      terraform output -raw azure_tenant_id
+      ```
+
 1. Provision resources by running
    [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision) and passing your Azure
-   subscription ID.
+   subscription ID and tenant ID.
 
    ```bash
-   avn byoc provision                            \
-     --organization-id "ORGANIZATION_ID"         \
-     --byoc-id "CUSTOM_CLOUD_ID"                 \
-     --azure-subscription-id "AZURE_SUBSCRIPTION_ID"
+   avn byoc provision                                \
+     --organization-id "ORGANIZATION_ID"             \
+     --byoc-id "CUSTOM_CLOUD_ID"                     \
+     --azure-subscription-id "AZURE_SUBSCRIPTION_ID" \
+     --azure-tenant-id "AZURE_TENANT_ID"
    ```
 
    Replace the following:
@@ -329,8 +334,10 @@ definition. Assign it separately through the Azure portal or CLI before running
    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
      from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
      for example `018b6442-c602-42bc-b63d-438026133f60`.
-   - `AZURE_SUBSCRIPTION_ID` with your Azure subscription ID. To retrieve it, run:
-     `az account show --query id -o tsv`.
+   - `AZURE_SUBSCRIPTION_ID` with your Azure subscription ID from the Terraform output:
+     `terraform output -raw azure_subscription_id`.
+   - `AZURE_TENANT_ID` with your Azure tenant ID from the Terraform output:
+     `terraform output -raw azure_tenant_id`.
 
 1. Enable your custom cloud in organizations, projects, or units by running
    [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
