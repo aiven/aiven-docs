@@ -95,7 +95,7 @@ After the EOL date:
 | Version | Aiven EOL         | Service creation supported until   | Service creation supported from |
 | ------- | ----------------- | ---------------------------------- | ------------------------------- |
 | 8.0.x   | 2026-10-31        | 2026-04-30                         | 2018-05-18                      |
-| 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-04-30                      |
+| 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-02-20                      |
 
 ### Aiven for OpenSearch®
 
@@ -129,6 +129,7 @@ the upstream open source project's EOL.
 | 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
 | 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
 | 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
+| 19      | To be announced | To be announced             | To be announced                 |
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
