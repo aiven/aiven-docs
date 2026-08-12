@@ -1,3 +1,6 @@
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+
+<!-- vale off -->
 
 ## OVH
 
