@@ -81,9 +81,7 @@ Some extensions are only compatible with certain PostgreSQL major versions. For
 TimescaleDB, check the
 [TimescaleDB compatibility matrix](https://www.tigerdata.com/docs/deploy/self-hosted/upgrades/major-upgrade#plan-your-upgrade-path)
 to confirm your TimescaleDB version supports the PostgreSQL major version you're
-upgrading to. That page covers self-hosted TimescaleDB upgrade steps, which don't
-apply to Aiven-managed upgrades. Aiven upgrades TimescaleDB automatically as part of
-the PostgreSQL major version upgrade.
+upgrading to.
 :::
 
 ## Limitations
