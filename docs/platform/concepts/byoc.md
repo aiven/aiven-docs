@@ -330,7 +330,7 @@ workload nodes. You are responsible for ensuring this configuration complies wit
 organization's policies and regulations.
 
 **Azure Blob Storage** accounts (Premium LRS and Standard LRS) are provisioned in your
-Azure subscription for service data.
+Azure subscription for service backups.
 
 :::note
 The service endpoint has two hostnames. The public hostname is derived from the
