@@ -43,6 +43,49 @@ affecting the running service, mostly to:
     load, when no statistics are available and caches are cold.
 <!-- vale on -->
 
+### Check extension compatibility
+
+Before upgrading, confirm that the extensions installed on your service are available
+on the PostgreSQL major version you plan to upgrade to. The automatic `pg_upgrade
+--check` only catches upgrade-blocking issues at the PostgreSQL binary level. It
+doesn't check whether your extensions have a build for the target version.
+
+Extension availability varies by PostgreSQL major version. An extension that works on
+your current version might not yet be available on the version you're upgrading to.
+Choose a target version that supports all the extensions your service depends on.
+
+To check extension compatibility:
+<!-- vale off -->
+1.  List the extensions installed on your service:
+
+    ```sql
+    SELECT extname, extversion FROM pg_extension;
+    ```
+
+1.  Check the
+    [list of extensions for each PostgreSQL version](/docs/products/postgresql/reference/list-of-extensions-for-each-version)
+    and confirm that each extension you use is available for your specific target
+    major version, not only available in general.
+1.  [Update extensions](/docs/products/postgresql/howto/manage-extensions#update-an-extension)
+    to their latest available version where possible.
+1.  If an extension isn't yet available for your target version, wait until it is, or
+    choose a different target version.
+1.  Review the release notes or changelog for each extension for behavior changes,
+    deprecated features, or migration steps tied to the target version.
+1.  If you test the upgrade on a fork, confirm the extensions load correctly and that
+    dependent queries or functions still work after the upgrade.
+<!-- vale on -->
+
+:::note
+Some extensions are only compatible with certain PostgreSQL major versions. For
+TimescaleDB, check the
+[TimescaleDB compatibility matrix](https://www.tigerdata.com/docs/deploy/self-hosted/upgrades/major-upgrade#plan-your-upgrade-path)
+to confirm your TimescaleDB version supports the PostgreSQL major version you're
+upgrading to. That page covers self-hosted TimescaleDB upgrade steps, which don't
+apply to Aiven-managed upgrades. Aiven upgrades TimescaleDB automatically as part of
+the PostgreSQL major version upgrade.
+:::
+
 ## Limitations
 
 ### Upgrade to major versions in sequence
@@ -291,3 +334,4 @@ available.
 - [Control maintenance updates with upgrade pipelines](/docs/platform/howto/controlled-upgrade)
 - [Service maintenance](/docs/platform/concepts/maintenance-window)
 - [Upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)
+- [Manage extensions](/docs/products/postgresql/howto/manage-extensions)
