@@ -5,16 +5,10 @@ sidebar_label: Version lifecycle
 
 import EolPolicyMultiVersioned from "@site/static/includes/eol-policy-multi-versioned.md";
 import RelatedPages from "@site/src/components/RelatedPages";
-import Admonition from "@theme/Admonition";
 
 Learn how Aiven manages Aiven for OpenSearch® version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
 
-<EolPolicyMultiVersioned exception={
-  <Admonition type="note" title="Exception">
-    Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
-    They're upgraded and start running the new version when powered on.
-  </Admonition>
-}/>
+<EolPolicyMultiVersioned poweredOffOutcome={<>it's upgraded and starts running the new version when powered on.</>}/>
 
 ## Version EOL dates
 

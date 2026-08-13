@@ -50,6 +50,4 @@ After the EOL date:
     version, the service is powered off and ultimately deleted.
     :::
 
--   If the service is powered off, it's deleted.
-
-    {props.exception}
+-   If the service is powered off, {props.poweredOffOutcome ? props.poweredOffOutcome : "it's deleted."}
