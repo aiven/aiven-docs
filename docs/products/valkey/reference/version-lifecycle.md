@@ -8,6 +8,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages Aiven for Valkey™ version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
 
+Aiven for Valkey identifies major versions in `major.minor` format, for example `9.0` or
+`9.1`.
+
 <EolPolicyMultiVersioned/>
 
 ## Version EOL dates

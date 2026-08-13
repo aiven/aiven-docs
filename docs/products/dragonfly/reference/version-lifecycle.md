@@ -8,6 +8,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages the Aiven for Dragonfly® service version, end of life (EOL) dates, and what happens to your service after the version reaches EOL.
 
+Aiven for Dragonfly identifies versions in `major.minor.patch` format, for example
+`1.39.0`.
+
 <EolPolicySingleVersioned/>
 
 ## Version EOL dates

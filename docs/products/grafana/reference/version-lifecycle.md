@@ -8,6 +8,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages the Aiven for Grafana® service version, end of life (EOL) dates, and what happens to your service after the version reaches EOL.
 
+Aiven for Grafana identifies versions in `major.minor.patch` format, for example
+`11.6.5`.
+
 <EolPolicySingleVersioned/>
 
 ## Version EOL dates
