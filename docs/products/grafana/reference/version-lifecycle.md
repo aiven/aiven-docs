@@ -18,7 +18,6 @@ Learn how Aiven manages the Aiven for Grafana® service version, end of life (EO
 
 <RelatedPages/>
 
-- [Aiven service and tool version lifecycle](/docs/platform/reference/eol-for-major-versions)
 - [End of life for Aiven services](/docs/platform/reference/end-of-life)
 - [Fork your Aiven for Grafana® service](/docs/products/grafana/howto/fork-service)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)

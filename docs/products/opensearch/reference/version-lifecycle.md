@@ -34,7 +34,6 @@ as such in the following table.
 
 <RelatedPages/>
 
-- [Aiven service and tool version lifecycle](/docs/platform/reference/eol-for-major-versions)
 - [Upgrade Aiven for OpenSearch®](/docs/products/opensearch/howto/os-version-upgrade)
 - [Service forking](/docs/platform/concepts/service-forking)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)

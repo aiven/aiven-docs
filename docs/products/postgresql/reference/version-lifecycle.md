@@ -31,7 +31,6 @@ source project's EOL.
 
 <RelatedPages/>
 
-- [Aiven service and tool version lifecycle](/docs/platform/reference/eol-for-major-versions)
 - [Perform a PostgreSQL® major version upgrade](/docs/products/postgresql/howto/upgrade)
 - [Service forking](/docs/platform/concepts/service-forking)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)

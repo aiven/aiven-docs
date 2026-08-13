@@ -13,13 +13,12 @@ Learn how Aiven manages Aiven for MySQL® version support, end of life (EOL) dat
 ## Version EOL dates
 
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | --------------------------------- | -------------------------------- |
+| ------- | ---------- | -------------------------------- | ------------------------------- |
 | 8.0.x   | 2026-10-31 | 2026-04-30                       | 2018-05-18                      |
 | 8.4.x   | 2032-10-30 | 2032-04-30                       | 2026-04-30                      |
 
 <RelatedPages/>
 
-- [Aiven service and tool version lifecycle](/docs/platform/reference/eol-for-major-versions)
 - [Manage Aiven for MySQL® versions](/docs/products/mysql/howto/manage-mysql-version)
 - [Service forking](/docs/platform/concepts/service-forking)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)

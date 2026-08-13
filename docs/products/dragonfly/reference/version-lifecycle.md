@@ -18,7 +18,6 @@ Learn how Aiven manages the Aiven for Dragonfly® service version, end of life (
 
 <RelatedPages/>
 
-- [Aiven service and tool version lifecycle](/docs/platform/reference/eol-for-major-versions)
 - [End of life for Aiven services](/docs/platform/reference/end-of-life)
 - [Service forking](/docs/platform/concepts/service-forking)
 - [Maintenance window](/docs/platform/concepts/maintenance-window)
