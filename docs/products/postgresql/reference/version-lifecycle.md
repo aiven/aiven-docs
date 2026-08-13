@@ -8,20 +8,26 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages Aiven for PostgreSQL® version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
 
-## Version numbering
-
-Aiven for PostgreSQL identifies major versions with a single number, for example `16` or
-`17`. Aiven for PostgreSQL major versions reach EOL on the same date as the upstream
-PostgreSQL project's EOL. The exact version your service is running is visible in the
-[Aiven Console](https://console.aiven.io/).
-
 <EolPolicyMultiVersioned/>
 
 ## Version EOL dates
 
-For EOL dates and service creation windows for Aiven for PostgreSQL versions, see the
-[Aiven for PostgreSQL EOL dates](/docs/platform/reference/eol-for-major-versions#aiven-for-postgresql)
-in the Aiven service and tool version lifecycle reference.
+Aiven for PostgreSQL® major versions reach EOL on the same date as the upstream open
+source project's EOL.
+
+| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
+| ------- | ---------- | -------------------------------- | ------------------------------- |
+| 9.5     | 2021-04-15 | 2021-01-26                       | 2015-12-22                      |
+| 9.6     | 2021-11-11 | 2021-05-11                       | 2016-09-29                      |
+| 10      | 2022-11-10 | 2022-05-10                       | 2017-01-14                      |
+| 11      | 2023-11-09 | 2023-05-09                       | 2017-03-06                      |
+| 12      | 2024-11-14 | 2024-05-14                       | 2019-11-18                      |
+| 13      | 2025-11-13 | 2025-05-13                       | 2021-02-15                      |
+| 14      | 2026-11-12 | 2026-05-12                       | 2021-11-11                      |
+| 15      | 2027-11-11 | 2027-05-12                       | 2022-12-12                      |
+| 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
+| 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
+| 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
 
 <RelatedPages/>
 

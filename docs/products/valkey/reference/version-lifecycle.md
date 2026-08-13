@@ -8,19 +8,15 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages Aiven for Valkey™ version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
 
-## Version numbering
-
-Aiven for Valkey identifies major versions in `major.minor` format, for example `9.0` or
-`9.1`. The exact version your service is running is visible in the
-[Aiven Console](https://console.aiven.io/).
-
 <EolPolicyMultiVersioned/>
 
 ## Version EOL dates
 
-For EOL dates and service creation windows for Aiven for Valkey versions, see the
-[Aiven for Valkey EOL dates](/docs/platform/reference/eol-for-major-versions#aiven-for-valkey)
-in the Aiven service and tool version lifecycle reference.
+| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
+| ------- | --------------- | -------------------------------- | ------------------------------- |
+| 8.1.x   | To be announced | To be announced                  | 2025-11-18                      |
+| 9.0.x   | 2026-08-31      | 2026-08-31                       | 2026-03-09                      |
+| 9.1.x   | To be announced | To be announced                  | 2026-07-15                      |
 
 <RelatedPages/>
 
