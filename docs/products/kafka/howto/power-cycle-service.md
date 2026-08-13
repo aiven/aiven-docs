@@ -16,7 +16,7 @@ Power off your Aiven for Apache Kafka® service to release resources and save cr
 When you power on an Aiven for Apache Kafka service, Aiven restores
 [configuration backups](/docs/products/kafka/concepts/configuration-backup)
 from the most recent backup.
-Aiven does not restore classic topic data, consumer groups, or offsets.
+Configuration backups do not include classic topic data, consumer groups, or offsets.
 [Diskless topic](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
 data remains in object storage and is available after you power the service on.
 :::
