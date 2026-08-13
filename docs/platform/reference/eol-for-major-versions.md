@@ -97,9 +97,6 @@ After the EOL date:
 | 8.0.x   | 2026-10-31        | 2026-04-30                         | 2018-05-18                      |
 | 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-04-30                      |
 
-For details, see the
-[Aiven for MySQL version lifecycle](/docs/products/mysql/reference/version-lifecycle).
-
 ### Aiven for OpenSearch®
 
 Aiven for OpenSearch® is the open source continuation of the original
@@ -113,9 +110,6 @@ dependent on the upstream project.
 | 2.19.x LTS | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2025-09-15                      |
 | 3.3.x      | 2027-02-01      | Automatic upgrade to a supported version    | 2027-02-01                       | 2026-01-20                      |
 | 3.6.x LTS  | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2026-06-23                      |
-
-For details, see the
-[Aiven for OpenSearch version lifecycle](/docs/products/opensearch/reference/version-lifecycle).
 
 ### Aiven for PostgreSQL®
 
@@ -135,9 +129,6 @@ the upstream open source project's EOL.
 | 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
 | 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
 | 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
-
-For details, see the
-[Aiven for PostgreSQL version lifecycle](/docs/products/postgresql/reference/version-lifecycle).
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
@@ -193,9 +184,6 @@ For details, see the
 | 9.0.x   | 2026-08-31      | 2026-08-31                       | 2026-03-09                      |
 | 9.1.x   | To be announced | To be announced                  | 2026-07-15                      |
 
-For details, see the
-[Aiven for Valkey version lifecycle](/docs/products/valkey/reference/version-lifecycle).
-
 ## Aiven single-versioned services EOL
 
 ### Aiven for Dragonfly®
@@ -204,17 +192,11 @@ For details, see the
 | ------- |-----------------|----------------------------------|
 | 1.39.0  | 2026-09-30      | 2026-06-17                       |
 
-For details, see the
-[Aiven for Dragonfly version lifecycle](/docs/products/dragonfly/reference/version-lifecycle).
-
 ### Aiven for Grafana®
 
 | Version | Aiven EOL       |
 | ------- | --------------- |
 | 11.6.5  | To be announced |
-
-For details, see the
-[Aiven for Grafana version lifecycle](/docs/products/grafana/reference/version-lifecycle).
 
 ## Aiven API lifecycle
 
