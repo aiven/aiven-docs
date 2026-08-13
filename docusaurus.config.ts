@@ -28,7 +28,12 @@ const posthogPlugin: PluginConfig = process.env.POSTHOG_PUBLIC_KEY
 
 const config: Config = {
   // Testing faster build
-  future: {},
+  future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+    },
+    faster: true,
+  },
   title: 'Aiven docs',
   tagline: 'Your AI-ready Open Source Data Platform',
   favicon: 'images/favicon.ico',
