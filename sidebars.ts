@@ -1537,6 +1537,7 @@ const sidebars: SidebarsConfig = {
                 'products/dragonfly/howto/eviction-policy-df',
                 'products/dragonfly/howto/compatibility-redisjson',
                 'products/dragonfly/reference/advanced-params',
+                'products/dragonfly/reference/version-lifecycle',
               ],
             },
             {
@@ -1593,7 +1594,10 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
                 id: 'products/grafana/maintenance-lifecycle',
               },
-              items: ['products/grafana/howto/maintenance-updates'],
+              items: [
+                'products/grafana/howto/maintenance-updates',
+                'products/grafana/reference/version-lifecycle',
+              ],
             },
             {
               type: 'category',
@@ -1768,6 +1772,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/mysql/howto/manage-mysql-version',
                 'products/mysql/howto/maintenance-updates',
+                'products/mysql/reference/version-lifecycle',
               ],
             },
             {
@@ -1940,6 +1945,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/os-version-upgrade',
                 'products/opensearch/howto/maintenance-updates',
+                'products/opensearch/reference/version-lifecycle',
               ],
             },
             {
@@ -2174,6 +2180,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/howto/upgrade',
                 'products/postgresql/howto/maintenance-updates',
+                'products/postgresql/reference/version-lifecycle',
               ],
             },
             {
@@ -2416,6 +2423,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/valkey/howto/valkey-version-upgrade',
                 'products/valkey/howto/maintenance-updates',
+                'products/valkey/reference/version-lifecycle',
               ],
             },
             {
