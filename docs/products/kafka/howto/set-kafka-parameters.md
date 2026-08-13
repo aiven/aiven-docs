@@ -1,5 +1,6 @@
 ---
 title: Manage Apache Kafka® parameters
+sidebar_label: Manage parameters
 ---
 
 Every Aiven for Apache Kafka® service comes with a set of configuration

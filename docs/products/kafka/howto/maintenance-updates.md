@@ -15,6 +15,12 @@ Kafka® service.
 
 <MaintenanceUpdates/>
 
+:::note
+When Aiven releases a mandatory service update for Apache Kafka®, the
+[Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure) runs
+automatically.
+:::
+
 ## Maintenance window
 
 <MaintenanceWindowConcepts/>

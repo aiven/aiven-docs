@@ -831,15 +831,11 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                {
-                  type: 'category',
-                  label: 'Service operations',
-                  items: [
-                    'products/kafka/howto/configure-custom-domain',
-                    'products/kafka/howto/set-kafka-parameters',
-                    'products/kafka/howto/configure-with-kafka-cli',
-                  ],
-                },
+                'products/kafka/howto/power-cycle-service',
+                'products/kafka/howto/tag-service',
+                'products/kafka/howto/configure-custom-domain',
+                'products/kafka/howto/set-kafka-parameters',
+                'products/kafka/howto/configure-with-kafka-cli',
                 {
                   type: 'category',
                   label: 'Advanced parameters',
