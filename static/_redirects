@@ -307,6 +307,7 @@
 /products/postgresql/reference/high-cpu-load-of-pgbouncer  /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling  301
 /products/postgresql/reference/list-of-advanced-params     /docs/products/postgresql/reference/advanced-params  301
 /products/postgresql/troubleshooting                       /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling  301
+/products/postgresql/troubleshooting/pg-password-encryption-upgrade  /docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling  301
 /products/redis                                            /docs/products/valkey  301
 /products/redis/concepts/lua-scripts-redis                 /docs/products/valkey/concepts/lua-scripts  301
 /products/redis/concepts/read-replica                      /docs/products/valkey/concepts/read-replica  301
