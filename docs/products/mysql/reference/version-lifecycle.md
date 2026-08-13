@@ -8,9 +8,6 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages Aiven for MySQL® version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
 
-Aiven for MySQL identifies major versions in `major.minor` format, for example `8.0` or
-`8.4`.
-
 <EolPolicyMultiVersioned/>
 
 ## Version EOL dates
