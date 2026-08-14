@@ -2,6 +2,9 @@
 title: Configuration backups for Aiven for Apache Kafka®
 sidebar_label: Configuration backups
 ---
+
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Aiven for Apache Kafka® includes **configuration backups** that automatically back up key service configurations at no additional cost.
 
 By eliminating the need for manual reconfiguration, Aiven for Apache Kafka® configuration
@@ -47,3 +50,8 @@ While configuration backups offer significant benefits, there are some limitatio
 
 For additional support with configuration backups for your Aiven for Apache Kafka®
 services, contact [support@aiven.io](mailto:support@aiven.io).
+
+<RelatedPages/>
+
+- [Power on/off and delete your Aiven for Apache Kafka® service](/docs/products/kafka/howto/power-cycle-service)
+- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

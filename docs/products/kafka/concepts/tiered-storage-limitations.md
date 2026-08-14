@@ -31,3 +31,4 @@ latency entirely.
 
 - [Tiered storage in Aiven for Apache Kafka® overview](/docs/products/kafka/concepts/kafka-tiered-storage)
 - [Enabled tiered storage for Aiven for Apache Kafka® service](/docs/products/kafka/howto/enable-kafka-tiered-storage)
+- [Power on/off and delete your Aiven for Apache Kafka® service](/docs/products/kafka/howto/power-cycle-service)
