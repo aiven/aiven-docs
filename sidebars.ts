@@ -1364,7 +1364,6 @@ const sidebars: SidebarsConfig = {
                 id: 'products/clickhouse/concepts/service-management',
               },
               items: [
-                'products/clickhouse/howto/create-service',
                 'products/clickhouse/howto/power-cycle-service',
                 'products/clickhouse/howto/rename-service',
                 'products/clickhouse/howto/tag-service',

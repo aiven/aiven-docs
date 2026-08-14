@@ -9,16 +9,8 @@ Manage the security, configuration, and lifecycle of your Aiven for ClickHouse®
 service from the [Aiven Console](https://console.aiven.io/) or the
 [Aiven API](/docs/tools/api).
 
-Use this section to create and connect to your service, manage service operations,
-control user access, upgrade ClickHouse versions, and review service limits and
-advanced configuration options.
-
-## Create and connect
-
-Create a service and connect with your preferred tools and clients. See
-[Create an Aiven for ClickHouse® service](/docs/products/clickhouse/howto/create-service)
-and
-[Connect to Aiven for ClickHouse®](/docs/products/clickhouse/howto/list-connect-to-service).
+Use this section to manage service operations, control user access, upgrade
+ClickHouse versions, and review service limits and advanced configuration options.
 
 ## Security
 
@@ -53,7 +45,6 @@ available configuration options.
 
 <RelatedPages/>
 
-- [Create an Aiven for ClickHouse® service](/docs/products/clickhouse/howto/create-service)
 - [Secure a managed ClickHouse service](/docs/products/clickhouse/howto/secure-service)
 - [Power on/off and delete](/docs/products/clickhouse/howto/power-cycle-service)
 - [Manage users and roles](/docs/products/clickhouse/howto/manage-users-roles)
