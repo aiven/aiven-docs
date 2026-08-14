@@ -255,20 +255,25 @@ Show minimum custom role permissions for the BYOC deployer
       For more authentication options, see the
       [Azure CLI authentication documentation](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 
-   1. Install the Aiven CCE enterprise application on your Entra tenant. Open the
-      `.tfvars` file you downloaded, copy the `aiven_cce_client_id` value, then run:
+   1. Install the Aiven CCE enterprise application on your Entra tenant:
 
       ```bash
-      az ad sp create --id "AIVEN_CCE_CLIENT_ID"
+      az login --tenant "AZURE_TENANT_ID"
+      az ad sp create --id b40b60e2-10c8-4917-bc74-18a87950e767
       ```
 
-      Replace `AIVEN_CCE_CLIENT_ID` with the `aiven_cce_client_id` value from the
-      `.tfvars` file.
+      Replace `AZURE_TENANT_ID` with your Azure tenant ID. To look it up, run:
+      `az account show --query tenantId -o tsv`.
 
       :::note
-      If the Aiven CCE enterprise application is already installed on your Entra tenant
-      (for example, you have another BYOC custom cloud on the same tenant), skip this
-      step.
+      Run these commands **once per tenant**, regardless of how many custom clouds
+      you create on the same tenant. If the Aiven CCE enterprise application is
+      already installed on your tenant, skip this step.
+
+      To remove the Aiven CCE enterprise application from your tenant after you
+      have deleted all custom clouds on it with `terraform destroy`, run:
+      `az ad sp delete --id b40b60e2-10c8-4917-bc74-18a87950e767` (after
+      `az login --tenant "AZURE_TENANT_ID"`).
       :::
 
    1. Deploy the infrastructure template using Terraform with the provided variables
