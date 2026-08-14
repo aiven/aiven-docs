@@ -316,6 +316,6 @@ Aiven adopts and that can affect workloads.
 
 <RelatedPages/>
 
-- [Aiven for ClickHouse version support policy](/docs/products/clickhouse/reference/version-lifecycle)
+- [Aiven for ClickHouse® version support policy](/docs/products/clickhouse/reference/version-support-policy)
 - [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
 - [Supported table engines](/docs/products/clickhouse/reference/supported-table-engines)
