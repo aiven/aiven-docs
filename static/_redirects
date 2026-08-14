@@ -17,6 +17,7 @@
 /products/mysql/howto/configure-backups          /docs/products/mysql/concepts/mysql-backups  301
 /products/opensearch/howto/manage-service-users  /docs/products/opensearch/howto/control_access_to_content  301
 /products/grafana/howto/create-service           /docs/products/grafana/get-started  301
+/products/clickhouse/howto/create-service        /docs/products/clickhouse/get-started  301
 /products/metrics/howto/create-service           /docs/products/metrics/get-started  301
 /products/mysql/howto/create-service             /docs/products/mysql/get-started  301
 /products/opensearch/howto/create-service        /docs/products/opensearch/get-started  301
