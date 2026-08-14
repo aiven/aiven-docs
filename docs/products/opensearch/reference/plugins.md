@@ -22,7 +22,7 @@ OpenSearch version that your service uses.
 Depending on the Aiven for OpenSearch version your service runs on, the following plugins
 are available:
 
--   [Anomaly detection](https://github.com/opensearch-project/anomaly-detection)
+-   [Anomaly Detection](https://github.com/opensearch-project/anomaly-detection)
 -   [Asynchronous search](https://github.com/opensearch-project/asynchronous-search)
 -   [ICU Analysis](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-icu)
 -   [Index Management](https://github.com/opensearch-project/index-management)
@@ -39,19 +39,20 @@ are available:
 -   [OpenSearch Dashboards Gantt Charts](https://github.com/opensearch-project/dashboards-visualizations)
 -   [OpenSearch Dashboards Reports](https://github.com/opensearch-project/dashboards-reporting)
 -   [OpenSearch Dashboards Trace Analytics](https://github.com/opensearch-project/trace-analytics)
--   [OpenSearch notifications](https://github.com/opensearch-project/notifications)
--   [OpenSearch observability](https://github.com/opensearch-project/dashboards-observability)
+-   [OpenSearch Notifications](https://github.com/opensearch-project/notifications)
+-   [OpenSearch Observability](https://github.com/opensearch-project/dashboards-observability)
 -   [OpenSearch security](/docs/products/opensearch/concepts/os-security) for RBAC, SAML,
     and OIDC
--   [OpenSearch security analytics](https://github.com/opensearch-project/security-analytics)
+-   [OpenSearch Security Analytics](https://github.com/opensearch-project/security-analytics)
 -   [OpenSearch SQL](https://github.com/opensearch-project/sql)
 -   [Phonetic analysis](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-phonetic)
+-   [Query Insights](https://github.com/opensearch-project/query-insights)
 -   [Scheduler for Dashboards Reports](https://github.com/opensearch-project/dashboards-reporting)
 -   [User Behavior Insights](https://github.com/opensearch-project/user-behavior-insights)
 
 :::note
-The **Notebooks** and **OpenSearch notification** plugins are part of
-**OpenSearch observability**.
+The **Notebooks** and **OpenSearch Notifications** plugins are part of
+**OpenSearch Observability**.
 :::
 
 ## Plugins per release
