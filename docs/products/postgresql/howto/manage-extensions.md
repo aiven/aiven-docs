@@ -20,6 +20,13 @@ To install an extension, run:
 CREATE EXTENSION EXTENSION_NAME CASCADE;
 ```
 
+:::important[pg_stat_plans and pg_stat_monitor require advanced configuration]
+Before you can install `pg_stat_plans` or `pg_stat_monitor`, enable the matching
+[advanced configuration](/docs/products/postgresql/reference/advanced-params) parameter
+for your service: `pg_stat_plans_enable` or `pg_stat_monitor_enable`. This applies a
+service restart.
+:::
+
 :::tip
 Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
 check and install PostgreSQL extensions. For example:

@@ -299,6 +299,8 @@ pglookout
 pgoutput
 pg_repack
 pg_restore
+pg_stat_monitor
+pg_stat_plans
 pgvector
 plaintext
 plc
