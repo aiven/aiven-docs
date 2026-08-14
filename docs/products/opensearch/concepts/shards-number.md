@@ -7,7 +7,7 @@ A key component of using OpenSearch® is determining the optimal number of shard
 Learn how to choose the appropriate number of shards and maximizing performance.
 
 For a broader overview of index configuration, including shard sizing guidelines, see
-[Setting the number and size of shards](/docs/products/opensearch/concepts/indices#setting-the-number-and-size-of-shards).
+[Shards and replicas](/docs/products/opensearch/concepts/indices#shards-and-replicas).
 
 ## Considerations for optimal shard count
 
@@ -52,6 +52,32 @@ These suggestions are only indicative, and optimal values depend on your
 usage patterns and anticipated data growth in OpenSearch®. Monitoring
 disk and CPU usage and upgrading when necessary to ensure optimal
 performance is essential.
+
+## Use the plan calculator
+
+To help configure your shards, the OpenSearch plan calculator is available for online
+use or download:
+
+- [View on Google
+  Docs](https://docs.google.com/spreadsheets/d/1wJwzSdnQiGIADcxb6yx1cFjDR0LEz-pg13U-Mt2PEHc) -
+  Make a copy to your Google drive to use it.
+- [Download
+  XLSX](https://docs.google.com/spreadsheets/d/1wJwzSdnQiGIADcxb6yx1cFjDR0LEz-pg13U-Mt2PEHc/export) -
+  Download and use it locally.
+
+Enter details like the number of nodes, CPUs, RAM, and max shard size to get recommended
+starting values for your setup.
+
+![Screenshot of the spreadsheet: enter your information and get recommendations.](/images/content/products/opensearch/opensearch-plan-calculator.png)
+
+Yellow cells such as `data node count`, `CPUs`, `RAM`, `Max Shard Size` are input fields
+used to calculate recommended plan sizes.
+
+:::warning
+Dashboards from Aiven for OpenSearch are not compatible across minor versions of
+OpenSearch. If your service instance runs an older OpenSearch version, expect downtime
+during migration or plan changes.
+:::
 
 ## Adjusting shard count
 
