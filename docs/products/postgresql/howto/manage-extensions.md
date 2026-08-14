@@ -24,8 +24,7 @@ CREATE EXTENSION EXTENSION_NAME CASCADE;
 Before you can install `pg_stat_plans` or `pg_stat_monitor`, enable the matching
 [advanced configuration](/docs/products/postgresql/reference/advanced-params) parameter
 for your service: `pg_stat_plans_enable` or `pg_stat_monitor_enable`. This applies a
-service restart. Without the parameter enabled, `CREATE EXTENSION` for these two
-extensions doesn't work.
+service restart.
 :::
 
 :::tip
