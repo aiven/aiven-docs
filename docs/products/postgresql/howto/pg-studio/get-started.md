@@ -17,9 +17,9 @@ see [Manage PG Studio and AI features](/docs/products/postgresql/howto/pg-studio
 
 To use PG Studio, you need:
 
-- **Aiven permissions:** The `service:data:write` permission at the organization, unit, or
-  project level. This permission is included in the **Admin**, **Developer**, and
-  **Operator** roles.
+- **Aiven permissions:** The `service:data:write` and `service:secrets:read` permissions
+  at the organization, unit, or project level. These permissions are included in the
+  **Admin**, **Developer**, and **Operator** roles.
 - **Network access:** Your IP address must be in the service's IP allowlist. PG Studio
   validates your browser's IP address, which must be allowed in the
   [service's IP filter configuration](/docs/platform/howto/restrict-access). If you get

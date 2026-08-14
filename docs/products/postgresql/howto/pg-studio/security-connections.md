@@ -50,9 +50,9 @@ the allowlist.
 
 ## Required permissions
 
-To use PG Studio, you need the `service:data:write` permission at the organization, unit,
-or project level. This permission is included in the **Admin**, **Developer**, and
-**Operator** roles.
+To use PG Studio, you need the `service:data:write` and `service:secrets:read`
+permissions at the organization, unit, or project level. These permissions are included
+in the **Admin**, **Developer**, and **Operator** roles.
 
 ## Manage PG Studio and AI features
 
