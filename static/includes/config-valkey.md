@@ -181,6 +181,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="valkey_activedefrag"/><Link to="#valkey_activedefrag"><strong>valkey_activedefrag</strong></Link></p><p><code className="type">boolean</code></p></div>
+        <div className="description"><p>Enable active memory defragmentation. When enabled, Valkey relocates objects off sparsely-used memory pages to reduce fragmentation and return memory to the operating system. Defragmentation runs on the main thread and consumes CPU, so it may increase latency under load.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="valkey_acl_channels_default"/><Link to="#valkey_acl_channels_default"><strong>valkey_acl_channels_default</strong></Link></p><p><code className="type">string</code></p></div>
         <p className="title">Default ACL for pub/sub channels used when a Valkey user is created</p><div className="description"><p>Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Valkey configuration acl-pubsub-default.</p></div>
       </td>
