@@ -46,7 +46,7 @@ between them, use
 
 <RelatedPages />
 
-- [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service)
+- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)
 - [Tiered storage for Classic Kafka](/docs/products/kafka/howto/kafka-tiered-storage-get-started)
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
-- [Create a Kafka service](/docs/products/kafka/get-started/create-kafka-service)

@@ -72,12 +72,12 @@ This allows you to:
 
 For a detailed comparison, see [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
 
-For information about how compute, storage, and network usage are billed for eligible
-Standard Kafka services, see [Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
+For information about how compute, storage, and network usage are billed, see
+[Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing).
 
 <RelatedPages/>
 
-- [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service)
+- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture)
 - [Diskless topics limitations](/docs/products/kafka/diskless/concepts/limitations)
 - [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic)

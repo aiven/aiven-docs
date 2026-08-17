@@ -16,15 +16,13 @@ to verify end-to-end streaming.
 
 ## Choose your path
 
-Choose one of the following paths based on your workload and platform
-needs:
+Choose a path based on your workload and deployment needs:
 
-- Create a [Standard Kafka](/docs/products/kafka/standard-kafka-overview) or
-  [Classic Kafka](/docs/products/kafka/classic-kafka-overview) service.
-- Start with [Free tier](#free-tier) for no-cost, low-throughput Kafka
-  workloads.
+- Start with [Free tier](#free-tier) for no-cost, low-throughput Kafka workloads.
 - Use [Developer tier](#developer-tier) for paid development and smaller
   production workloads.
+- Use [Professional tier](#professional-tier) for production workloads on Aiven Cloud
+  or Bring Your Own Cloud.
 - Use [Skills](#set-up-a-kafka-service-using-skills) for command-line
   setup and configuration.
 
@@ -39,7 +37,7 @@ For limits, regions, and supported features, see the
 - Basic Kafka workflows are supported, including service creation and sample data
   generation.
 
-**Continue with:** [Create a Kafka service using the Free tier](/docs/products/kafka/free-tier/create-free-tier-kafka-service).
+**Continue with:** [Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service).
 
 ## Developer tier
 
@@ -54,23 +52,20 @@ For limits, pricing, Karapace, Connect, integrations, and upgrades, see
 Manage the service in the console, CLI, API, or with
 [Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
 
-**Continue with:** [Create a Kafka service using the Developer tier](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
+**Continue with:** [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
 
-## Create a Standard Kafka service
+## Professional tier
 
-Create a Standard Kafka service when you need usage-based sizing and diskless topics on
-Aiven Cloud. See the
-[Standard Kafka overview](/docs/products/kafka/standard-kafka-overview) for details.
+The Professional tier is for production and workload-heavy environments.
+Create the service on Aiven Cloud, or in your own cloud account with BYOC.
 
-**Continue with:** [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service).
+For deployment options and service types, see
+[Aiven for Apache Kafka® Professional tier](/docs/products/kafka/get-started/professional-tier).
 
-## Create a Classic Kafka service
+**Continue with:**
 
-Create a Classic Kafka service when you need fixed plans, local broker storage, Free or
-Developer tiers, or BYOC. See the
-[Classic Kafka overview](/docs/products/kafka/classic-kafka-overview) for details.
-
-**Continue with:** [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service).
+- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)
 
 ## Set up a Kafka service using Skills
 

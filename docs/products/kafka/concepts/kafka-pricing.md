@@ -1,21 +1,17 @@
 ---
-title: Network pricing for Aiven for Apache Kafka®
-sidebar_label: Network pricing
+title: Pricing for Aiven for Apache Kafka®
+sidebar_label: Pricing
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-For Standard Kafka services, Aiven bills compute, storage, and network usage separately.
-Unlike Classic Kafka, where network usage costs are included in the compute price, Aiven
-measures and bills Standard Kafka network usage based on actual traffic through your
-Kafka topics.
-
-Network pricing applies to Standard Kafka plans. It does not apply to Classic Kafka
-services, including Free and Developer tiers.
+Aiven for Apache Kafka® pricing consists of compute, storage, and network usage.
+Aiven bills these components separately and measures network usage from traffic through
+your Kafka topics.
 
 ## Pricing components
 
-Aiven bills Standard Kafka services across three components:
+Aiven bills Kafka services across three components:
 
 - **Compute**: The cost of the selected service plan.
 - **Storage**: The cost of data retained by the service, based on the amount of data
@@ -27,13 +23,12 @@ Aiven bills Standard Kafka services across three components:
 Network usage depends on Kafka topic traffic. Aiven measures data that producers write
 to Kafka topics as ingress and data that consumers read from Kafka topics as egress.
 
-In Standard Kafka services, Classic topics and Diskless topics can exist in the same
-service.
+Classic topics and diskless topics can exist in the same service.
 Aiven measures network usage separately for each topic type. Ingress and egress can have
-different rates depending on whether the traffic is for Classic topics or Diskless
+different rates depending on whether the traffic is for classic topics or diskless
 topics.
 
-Measured ingress and egress will be higher than just the size of the payload data your
+Measured ingress and egress are higher than the size of the payload data your
 application sends and receives. Kafka protocol overhead, including record headers,
 message framing, and retries, can affect measured traffic, as can client batching
 behavior. Different client defaults can significantly affect how data is produced and
@@ -55,7 +50,7 @@ frequently can generate more consumed data than expected.
 When you create a service, Aiven provides a monthly cost estimate based on your
 selected configuration.
 Compute sizing is approximated based on network ingress. This approximation relies on
-several assumptions, so more compute capacity may be needed in scenarios such as:
+several assumptions, so some workloads can require more compute capacity, such as:
 
 - High egress fan-out patterns
 - A high number of partitions per broker
@@ -64,22 +59,22 @@ several assumptions, so more compute capacity may be needed in scenarios such as
 - Enabled integrations, such as Datadog or the consumer lag predictor
 - Other factors that increase demand on compute
 
-For more on factors that drive up broker resource usage, see
+For more information about factors that increase broker resource usage, see
 [Optimizing resource usage](/docs/products/kafka/howto/optimizing-resource-usage).
 
-For instructions, see
-[Review the cost estimate](/docs/products/kafka/get-started/create-standard-kafka-service#review-the-cost-estimate).
+Review the estimated monthly cost in **Service summary**. For the Console steps, see
+[Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service).
 
 ## View usage
 
-For services with network pricing, the [Aiven Console](https://console.aiven.io) shows
-usage information for the current billing period.
+The [Aiven Console](https://console.aiven.io) shows usage information for the current
+billing period.
 
 To review usage, open the service and go to **Overview** > **Service usage**. You can
 review:
 
 - Ingress and egress usage
-- Usage split by Classic topics and Diskless topics
+- Usage split by classic topics and diskless topics
 - Storage usage
 - Predicted usage for the billing period
 
@@ -97,7 +92,7 @@ Storage usage is prorated by the hour, so the Aiven Console can show usage in sm
 units. For example, \$0.12 per GB-month is equivalent to \$0.000164 per GB-hour, and
 usage can appear in units such as KB-hours or MB-hours.
 
-The Aiven Console shows network usage separately for Classic topics and Diskless topics.
+The Aiven Console shows network usage separately for classic topics and diskless topics.
 Predicted usage is based on your usage so far in the billing period. Usage information
 shown during the billing period can change as Aiven processes new usage data.
 
@@ -106,28 +101,40 @@ shown during the billing period can change as Aiven processes new usage data.
 The following factors affect your estimated or actual cost:
 
 - **Cloud and region**: Prices vary by region.
-- **Service plan**: Determines the Kafka cluster deployed, hence the compute rate.
-- **Topic type**: Classic topics and Diskless topics have different ingress and
+- **Service plan**: Determines the Kafka cluster deployed and the compute rate.
+- **Topic type**: Classic topics and diskless topics have different ingress and
   egress rates, so the share of traffic that uses each topic type affects network
-  usage costs. For network pricing rates, see the
+  usage costs. For network usage rates, see the
   [Aiven pricing page](https://aiven.io/pricing).
-- **Data produced & read**: Data produced and consumed is billed.
+- **Data produced and read**: Data produced and consumed is billed.
 - **Retention period**: Longer retention keeps data in storage for longer.
 
 ## Manage costs
 
-To manage costs, review the factors that affect your compute, storage, and network usage :
+To manage costs, review the factors that affect your compute, storage, and network usage:
 
-- Review the service plan that matches your workload, consult an expert for any tuning.
-- Use Diskless topics for high-throughput workloads that do not require low latency.
+- Review the service plan that matches your workload. Consult an expert for any tuning.
+- Use diskless topics for high-throughput workloads that do not require low latency.
 - Adjust topic retention to control storage usage.
 - Review consumer applications and client configuration if egress is higher than
   expected.
 - Monitor usage during the billing period to identify unexpected changes.
 
+## Pricing for Standard and Classic Kafka {#standard-and-classic-pricing}
+
+If **Service type** appears when you create a service, pricing depends on that type.
+
+- **Standard Kafka**: Compute, storage, and network usage are billed as separate
+  components.
+- **Classic Kafka**: Network usage is included in the compute price. This includes
+  Free and Developer tier services.
+
+You cannot change the service type after you create the service.
+
 <RelatedPages />
 
-- [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service)
+- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
+- [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
 - [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic)

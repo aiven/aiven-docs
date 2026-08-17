@@ -15,18 +15,11 @@ To create a [database service](/docs/products/services#databases) in Aiven Conso
 
 ## Create a Kafka service
 
-Create an Apache Kafka service on Aiven by choosing a **service type**.
+Create an Aiven for Apache Kafka® service on Aiven Cloud. For instructions, see
+[Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service).
 
-- **Standard Kafka** supports classic topics and diskless topics. On Aiven Cloud, sizing
-  is based on service throughput. On Bring Your Own Cloud (BYOC), sizing is based on
-  the selected plan. In Standard Kafka, classic topics use managed remote storage by
-  default.
-
-- **Classic Kafka** uses fixed plans with local broker storage, with optional tiered
-  storage when supported by the selected plan and cloud.
-
-To compare service types and start service creation, see
-[Create an Apache Kafka service on Aiven](/docs/products/kafka/get-started/create-kafka-service).
+To run Kafka in your own cloud account, see
+[Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc).
 
 <RelatedPages/>
 

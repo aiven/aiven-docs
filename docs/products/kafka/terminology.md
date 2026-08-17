@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka® concepts
+title: Apache Kafka® terminology
 sidebar_label: Terminology
 ---
 

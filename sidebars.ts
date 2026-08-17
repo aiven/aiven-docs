@@ -568,64 +568,66 @@ const sidebars: SidebarsConfig = {
                 id: 'products/kafka/get-started/get-started-kafka',
               },
               items: [
-                'products/kafka/concepts',
                 {
                   type: 'category',
                   label: 'Service tiers',
                   items: [
                     {
-                      type: 'category',
+                      type: 'doc',
+                      id: 'products/kafka/free-tier/kafka-free-tier',
                       label: 'Free tier',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/free-tier/kafka-free-tier',
-                      },
-                      items: [
-                        'products/kafka/free-tier/create-free-tier-kafka-service',
-                      ],
                     },
                     {
-                      type: 'category',
+                      type: 'doc',
+                      id: 'products/kafka/dev-tier/kafka-dev-tier',
                       label: 'Developer tier',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/dev-tier/kafka-dev-tier',
-                      },
-                      items: [
-                        'products/kafka/dev-tier/create-dev-tier-kafka-service',
-                      ],
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/get-started/professional-tier',
+                      label: 'Professional tier',
                     },
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Create a service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/get-started/create-kafka-service',
-                  },
+                  label: 'Service types',
                   items: [
                     {
-                      type: 'category',
+                      type: 'doc',
+                      id: 'products/kafka/standard-kafka-overview',
                       label: 'Standard Kafka',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/standard-kafka-overview',
-                      },
-                      items: [
-                        'products/kafka/get-started/create-standard-kafka-service',
-                      ],
                     },
                     {
-                      type: 'category',
+                      type: 'doc',
+                      id: 'products/kafka/classic-kafka-overview',
                       label: 'Classic Kafka',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/classic-kafka-overview',
-                      },
-                      items: [
-                        'products/kafka/get-started/create-classic-kafka-service',
-                      ],
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Create a Kafka service',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/free-tier/create-free-tier-kafka-service',
+                      label: 'Create a Free tier service',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/dev-tier/create-dev-tier-kafka-service',
+                      label: 'Create a Developer tier service',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/get-started/create-kafka-service',
+                      label: 'Create on Aiven Cloud',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/get-started/create-kafka-service-byoc',
+                      label: 'Create with BYOC',
                     },
                   ],
                 },
@@ -639,8 +641,10 @@ const sidebars: SidebarsConfig = {
                   items: ['products/kafka/howto/generate-sample-data-manually'],
                 },
                 'products/kafka/howto/set-up-kafka-with-skills',
+                'products/kafka/terminology',
               ],
             },
+            'products/kafka/concepts/kafka-pricing',
             {
               type: 'category',
               label: 'Connect to service',
@@ -879,7 +883,6 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/kafka/concepts/kraft-mode',
-                'products/kafka/concepts/network-pricing',
                 {
                   type: 'category',
                   label: 'Advanced parameters',

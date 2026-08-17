@@ -219,8 +219,11 @@
 /products/grafana/user-access                              /docs/products/grafana/get-started  301
 /products/influxdb                                         /docs/products/metrics  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
+/products/kafka/concepts                                   /docs/products/kafka/terminology  301
 /products/kafka/get-started                                /docs/products/kafka/get-started/create-kafka-service  301
-/products/kafka/get-started/create-inkless-service         /docs/products/kafka/get-started/create-standard-kafka-service  301
+/products/kafka/get-started/create-inkless-service         /docs/products/kafka/get-started/create-kafka-service  301
+/products/kafka/get-started/create-standard-kafka-service  /docs/products/kafka/get-started/create-kafka-service  301
+/products/kafka/get-started/create-classic-kafka-service   /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/diskless/concepts/diskless-overview        /docs/products/kafka/diskless/concepts/diskless-topic-overview  301
 /products/kafka/getting-started.html                       /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301

@@ -37,7 +37,7 @@ Aiven bills Standard Kafka services for compute, storage, and network usage as
 separate components. Billing depends on your selected service plan and actual usage.
 
 For details on how network usage is measured and priced, see
-[Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing).
+[Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing).
 
 ## When to use Standard Kafka
 
@@ -57,7 +57,7 @@ a Standard Kafka service.
 
 <RelatedPages />
 
-- [Create a Standard Kafka service](/docs/products/kafka/get-started/create-standard-kafka-service)
+- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
 - [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
-- [Network pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/network-pricing)
+- [Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
