@@ -298,11 +298,6 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   <tr>
     <td>asia-pacific</td>
-    <td>azure-india-west</td>
-    <td>Asia, India: West India</td>
-  </tr>
-  <tr>
-    <td>asia-pacific</td>
     <td>azure-indonesia-central</td>
     <td>Asia, Indonesia: Indonesia Central</td>
   </tr>
