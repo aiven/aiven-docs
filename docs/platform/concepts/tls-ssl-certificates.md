@@ -46,6 +46,12 @@ are exceptions:
     Communication is encrypted with the project CA certificate by default. You can
     enable the `letsencrypt_sasl` setting to use a public CA instead of the project CA.
     For details, see [Enable and configure SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth).
+- **Aiven for Valkey™** uses a browser-recognized (Let's Encrypt) certificate by
+  default, so no CA certificate download is required. Services created before this
+  certificate mode was enabled still use the Aiven project CA certificate. If the
+  <ConsoleLabel name="overview"/> page for your service offers a CA certificate to
+  download, your service uses the project CA. For details, see
+  [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity).
 
 You can download the project CA certificates from the <ConsoleLabel name="overview"/>
 page of your service. For steps, see [Download the project CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
