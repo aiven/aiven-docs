@@ -5,17 +5,16 @@ sidebar_label: Pricing
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Apache Kafka® pricing consists of compute, storage, and network usage.
-Aiven bills these components separately and measures network usage from traffic through
-your Kafka topics.
+You pay for the Kafka service plan, retained data, and traffic through your topics.
+Aiven bills these as compute, storage, and network usage.
 
 ## Pricing components
 
-Aiven bills Kafka services across three components:
+Aiven bills the following components separately:
 
 - **Compute**: The cost of the selected service plan.
-- **Storage**: The cost of data retained by the service, based on the amount of data
-  stored and for how long.
+- **Storage**: The cost of retained data, based on the amount stored and how long
+  it is retained.
 - **Network usage**: The cost of data produced to and consumed from Kafka topics.
 
 ## Network usage
@@ -120,16 +119,13 @@ To manage costs, review the factors that affect your compute, storage, and netwo
   expected.
 - Monitor usage during the billing period to identify unexpected changes.
 
-## Pricing for Standard and Classic Kafka {#standard-and-classic-pricing}
+## Pricing by service type
 
-If **Service type** appears when you create a service, pricing depends on that type.
+If **Service type** appears when you create a service, pricing depends on the
+selected type:
 
-- **Standard Kafka**: Compute, storage, and network usage are billed as separate
-  components.
-- **Classic Kafka**: Network usage is included in the compute price. This includes
-  Free and Developer tier services.
-
-You cannot change the service type after you create the service.
+- **Standard**: Aiven bills compute, storage, and network usage separately.
+- **Classic**: Aiven includes network usage in the compute price.
 
 <RelatedPages />
 
