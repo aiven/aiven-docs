@@ -15,10 +15,17 @@ service keeps using the pinned version until you remove the setting. Pinning can
 help you delay an upgrade until you have tested compatibility. You can return to
 automatic updates at any time.
 
+## Prerequisites
+
+- An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/get-started-kafka)
+  with Karapace enabled
+- [Aiven CLI](/docs/tools/cli)
+- [Aiven API](/docs/tools/api)
+
 ## Key considerations
 
 - You can pin your service to one of the following Karapace versions: `6.1.4`,
-  `6.2.0`, or `6.2.1`.
+  `6.2.0`, `6.2.1`, or `6.2.2`.
 - Karapace version pinning requires a service maintenance update that includes
   this feature. If your service has not received this update, Aiven returns an
   error when you try to pin the Karapace version. Apply the required maintenance
@@ -28,13 +35,6 @@ automatic updates at any time.
 Karapace version selection is not available in the Aiven Console. Use the Aiven
 CLI or Aiven API instead.
 :::
-
-## Prerequisites
-
-- An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/get-started-kafka)
-  with Karapace enabled
-- [Aiven CLI](/docs/tools/cli)
-- [Aiven API](/docs/tools/api)
 
 ## Set the Karapace version
 
