@@ -1,0 +1,139 @@
+---
+title: Manage the Karapace version
+sidebar_label: Manage the Karapace version
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Karapace is the schema registry and REST proxy service for Aiven for Apache Kafka®.
+By default, your service uses the latest supported Karapace version
+automatically.
+
+To use a fixed version, pin your service to a specific Karapace version. Your
+service keeps using the pinned version until you remove the setting. Pinning can
+help you delay an upgrade until you have tested compatibility. You can return to
+automatic updates at any time.
+
+## Prerequisites
+
+- An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/get-started-kafka)
+  with Karapace enabled
+- [Aiven CLI](/docs/tools/cli)
+- [Aiven API](/docs/tools/api)
+
+## Key considerations
+
+- You can pin your service to one of the following Karapace versions: `6.1.4`,
+  `6.2.0`, `6.2.1`, or `6.2.2`.
+- Karapace version pinning requires a service maintenance update that includes
+  this feature. If your service has not received this update, Aiven returns an
+  error when you try to pin the Karapace version. Apply the required maintenance
+  update before you pin the Karapace version.
+
+:::note
+Karapace version selection is not available in the Aiven Console. Use the Aiven
+CLI or Aiven API instead.
+:::
+
+## Set the Karapace version
+
+To pin your service to a specific Karapace version, set the `karapace_version`
+configuration option.
+
+<Tabs groupId="tool">
+<TabItem value="cli" label="Aiven CLI" default>
+
+```shell
+avn service update <SERVICE_NAME> --project <PROJECT_NAME> \
+  -c karapace_version=<VERSION>
+```
+
+Replace the following placeholders:
+
+- `<SERVICE_NAME>`: Name of your Aiven for Apache Kafka® service.
+- `<PROJECT_NAME>`: Name of your Aiven project.
+- `<VERSION>`: Karapace version to use, for example, `6.2.0`.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Use the [Aiven API](https://api.aiven.io/doc/) to update the service configuration:
+
+```shell
+curl --request PUT \
+  --url "https://api.aiven.io/v1/project/<PROJECT_NAME>/service/<SERVICE_NAME>" \
+  --header "Authorization: Bearer <API_TOKEN>" \
+  --header "Content-Type: application/json" \
+  --data '{"user_config": {"karapace_version": "<VERSION>"}}'
+```
+
+Replace the following placeholders:
+
+- `<PROJECT_NAME>`: Name of your Aiven project.
+- `<SERVICE_NAME>`: Name of your Aiven for Apache Kafka® service.
+- `<API_TOKEN>`: Your [Aiven API token](/docs/platform/howto/create_authentication_token).
+- `<VERSION>`: Karapace version to use, for example, `6.2.0`.
+
+</TabItem>
+</Tabs>
+
+## Roll back to the latest version
+
+To stop pinning and let your service follow the latest supported version
+automatically, set `karapace_version` to `null`.
+
+<Tabs groupId="tool">
+<TabItem value="cli" label="Aiven CLI" default>
+
+```shell
+avn service update <SERVICE_NAME> --project <PROJECT_NAME> \
+  -c karapace_version=null
+```
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+```shell
+curl --request PUT \
+  --url "https://api.aiven.io/v1/project/<PROJECT_NAME>/service/<SERVICE_NAME>" \
+  --header "Authorization: Bearer <API_TOKEN>" \
+  --header "Content-Type: application/json" \
+  --data '{"user_config": {"karapace_version": null}}'
+```
+
+</TabItem>
+</Tabs>
+
+## Verify the Karapace version
+
+To confirm which version your service is set to use, review the service configuration.
+
+<Tabs groupId="tool">
+<TabItem value="cli" label="Aiven CLI" default>
+
+```shell
+avn service get <SERVICE_NAME> --project <PROJECT_NAME> --json
+```
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+```shell
+curl --request GET \
+  --url "https://api.aiven.io/v1/project/<PROJECT_NAME>/service/<SERVICE_NAME>" \
+  --header "Authorization: Bearer <API_TOKEN>"
+```
+
+</TabItem>
+</Tabs>
+
+In the response, find `karapace_version` in `user_config`. If it shows a
+version number, your service is pinned to that Karapace version. If it shows
+`null`, your service uses automatic Karapace version updates.
+
+## Related pages
+
+- [Apache Kafka maintenance updates](/docs/platform/concepts/maintenance-window)
+- [Aiven CLI reference: avn service update](/docs/tools/cli/service-cli#avn-cli-service-update)
+- [Aiven API documentation](https://api.aiven.io/doc/)

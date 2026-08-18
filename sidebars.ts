@@ -724,6 +724,7 @@ const sidebars: SidebarsConfig = {
                       items: [
                         'products/kafka/karapace/get-started',
                         'products/kafka/karapace/howto/enable-karapace',
+                        'products/kafka/karapace/howto/manage-karapace-version',
                         'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
                         {
                           type: 'category',
