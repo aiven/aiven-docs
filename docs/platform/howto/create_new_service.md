@@ -15,8 +15,9 @@ To create a [database service](/docs/products/services#databases) in Aiven Conso
 
 ## Create a Kafka service
 
-Create an Aiven for Apache Kafka® service on Aiven Cloud. For instructions, see
-[Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service).
+Create an Aiven for Apache Kafka® Professional tier service on Aiven Cloud.
+For instructions, see
+[Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service).
 
 To run Kafka in your own cloud account, see
 [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc).

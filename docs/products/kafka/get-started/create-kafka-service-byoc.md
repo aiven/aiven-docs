@@ -1,5 +1,5 @@
 ---
-title: Create an Apache Kafka® service with BYOC
+title: Create an Apache Kafka® service with bring your own cloud (BYOC)
 sidebar_label: Create with BYOC
 keywords: [create, kafka, service, byoc, classic, diskless]
 ---
@@ -17,7 +17,7 @@ BYOC uses Classic Kafka with fixed plans. Classic topics are available by defaul
 You can optionally enable diskless topics on supported custom clouds.
 
 To create a Kafka service on Aiven Cloud, see
-[Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service).
+[Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service).
 
 ## Prerequisites
 
@@ -39,16 +39,15 @@ BYOC Kafka services are available on the Professional service tier.
 1. In **Deployment mode**, click **Bring your own cloud (BYOC)**.
 
    If **No custom clouds available** appears,
-   [request BYOC access](#request-byoc-access) on this page.
+   [request BYOC access](#request-byoc-access).
 
    If **Set up your custom cloud first** appears,
-   [set up a custom cloud](#set-up-a-custom-cloud) on this page.
+   [set up a custom cloud](#set-up-a-custom-cloud).
 
 1. Optional: Click **Enable diskless topics**.
 
    If **Diskless topics with BYOC aren't enabled for your account yet** appears,
-   [request diskless topics for a custom cloud](#request-diskless-topics-for-a-custom-cloud)
-   on this page.
+   [request diskless topics for a custom cloud](#request-diskless-topics-for-a-custom-cloud).
 
 1. In **Cloud**, click a cloud provider and a custom cloud.
 1. In **Plan**, click a plan.
@@ -154,7 +153,7 @@ and click **Enable diskless topics**.
 
 <RelatedPages />
 
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
 - [Enable BYOC](/docs/platform/howto/byoc/enable-byoc)
 - [Create a custom cloud](/docs/platform/howto/byoc/create-cloud/create-custom-cloud)

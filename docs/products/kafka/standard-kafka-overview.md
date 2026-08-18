@@ -4,8 +4,8 @@ title: Standard Kafka overview
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Standard Kafka is an Aiven for Apache Kafka® service type that stores topic data in
-object storage through diskless topics. It is available on Aiven Cloud, runs on
+Standard Kafka is an Aiven for Apache Kafka® service type that stores topic data in object storage through diskless topics.
+It is available on Aiven Cloud, runs on
 Kafka 4.x and later, and supports classic and diskless topics in the same service.
 
 Standard Kafka is compatible with Apache Kafka APIs and clients.
@@ -57,7 +57,7 @@ a Standard Kafka service.
 
 <RelatedPages />
 
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

@@ -606,7 +606,7 @@ const sidebars: SidebarsConfig = {
                     {
                       type: 'doc',
                       id: 'products/kafka/get-started/create-kafka-service',
-                      label: 'Create on Aiven Cloud',
+                      label: 'Create a Professional tier service',
                     },
                     {
                       type: 'doc',

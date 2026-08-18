@@ -1,7 +1,7 @@
 ---
-title: Create an Aiven for Apache Kafka® service on Aiven Cloud
-sidebar_label: Create on Aiven Cloud
-keywords: [create, kafka, service, aiven cloud, standard, classic]
+title: Create an Aiven for Apache Kafka® Professional tier service
+sidebar_label: Create a Professional tier service
+keywords: [create, kafka, service, professional, aiven cloud, standard, classic]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,8 +11,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-Create an Aiven for Apache Kafka® service on Aiven Cloud.
-Choose the service tier, deployment location, and configuration for your workload.
+Create an Aiven for Apache Kafka® Professional tier service on Aiven Cloud.
+Choose the deployment location and configuration for your workload.
 
 To create a Free or Developer tier service, see:
 
@@ -27,7 +27,7 @@ To run Kafka in your own cloud account, see
 - Access to the [Aiven Console](https://console.aiven.io)
 - An Aiven project where you can create Kafka services
 
-## Create a service on Aiven Cloud {#create-the-service}
+## Create a Professional tier service on Aiven Cloud {#create-the-service}
 
 1. In the [Aiven Console](https://console.aiven.io), open the project and
    click <ConsoleLabel name="services" />.
@@ -41,6 +41,11 @@ To run Kafka in your own cloud account, see
    - **Classic**: A predefined service plan and classic topics.
 
    You cannot change the service type after you create the service.
+
+   :::note
+   Accounts created after August 2026 create Standard Kafka services.
+   **Service type** appears only for accounts created before August 2026.
+   :::
 
 1. In **Cloud**, click a cloud provider and region.
 

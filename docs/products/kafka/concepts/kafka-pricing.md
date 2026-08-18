@@ -62,7 +62,7 @@ For more information about factors that increase broker resource usage, see
 [Optimizing resource usage](/docs/products/kafka/howto/optimizing-resource-usage).
 
 Review the estimated monthly cost in **Service summary**. For the Console steps, see
-[Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service).
+[Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service).
 
 ## View usage
 
@@ -129,7 +129,7 @@ selected type:
 
 <RelatedPages />
 
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
 - [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

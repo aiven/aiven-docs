@@ -4,7 +4,8 @@ title: Diskless topics for Apache Kafka®
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Diskless topics are a feature of Aiven's Standard Kafka services that store Kafka topic data in cloud object storage, without writing to local disk.
+Diskless topics are a feature of Standard Kafka services for Aiven for Apache Kafka®.
+They store topic data in cloud object storage without writing to local disk.
 
 Diskless topics are available in Standard Kafka services on Aiven Cloud, and on Business
 and Premium `-inkless` plans in Bring Your Own Cloud (BYOC). In BYOC deployments, Aiven
@@ -77,7 +78,7 @@ For information about how compute, storage, and network usage are billed, see
 
 <RelatedPages/>
 
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture)
 - [Diskless topics limitations](/docs/products/kafka/diskless/concepts/limitations)
 - [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic)

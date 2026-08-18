@@ -35,7 +35,7 @@ Standard Kafka is available on Aiven Cloud only.
 
 ## Create a service
 
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)
 
 For compute, storage, and network billing, see
@@ -46,5 +46,5 @@ For compute, storage, and network billing, see
 - [Get started with Aiven for Apache Kafka®](/docs/products/kafka/get-started/get-started-kafka)
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
 - [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)

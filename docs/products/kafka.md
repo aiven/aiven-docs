@@ -48,7 +48,7 @@ on the Professional tier.
 ## Get started
 
 - [Get started with Aiven for Apache Kafka®](/docs/products/kafka/get-started/get-started-kafka)
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
 - [Generate sample data](/docs/products/kafka/howto/generate-sample-data)

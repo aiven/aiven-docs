@@ -4,9 +4,9 @@ title: Classic Kafka overview
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Classic Kafka is an Aiven for Apache Kafka® service type that uses fixed plans with
-local broker storage. You can optionally move older data to object storage with tiered
-storage when the selected plan and cloud support it.
+Classic Kafka is an Aiven for Apache Kafka® service type that uses fixed plans with local broker storage.
+You can optionally move older data to object storage with tiered storage when the
+selected plan and cloud support it.
 
 Classic Kafka is compatible with Apache Kafka APIs and clients. It remains available
 for existing customers. New customers create
@@ -46,7 +46,7 @@ between them, use
 
 <RelatedPages />
 
-- [Create an Aiven for Apache Kafka® service on Aiven Cloud](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)
 - [Tiered storage for Classic Kafka](/docs/products/kafka/howto/kafka-tiered-storage-get-started)
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
