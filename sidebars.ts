@@ -591,22 +591,6 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
-                  label: 'Service types',
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'products/kafka/standard-kafka-overview',
-                      label: 'Standard Kafka',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'products/kafka/classic-kafka-overview',
-                      label: 'Classic Kafka',
-                    },
-                  ],
-                },
-                {
-                  type: 'category',
                   label: 'Create a Kafka service',
                   items: [
                     {
@@ -628,6 +612,22 @@ const sidebars: SidebarsConfig = {
                       type: 'doc',
                       id: 'products/kafka/get-started/create-kafka-service-byoc',
                       label: 'Create with BYOC',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Service types',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/standard-kafka-overview',
+                      label: 'Standard Kafka',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/classic-kafka-overview',
+                      label: 'Classic Kafka',
                     },
                   ],
                 },
