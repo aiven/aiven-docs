@@ -1,6 +1,6 @@
 ---
 title: Aiven for Apache Kafka® Developer tier
-sidebar_label: Developer tier overview
+sidebar_label: Developer tier
 keywords: [kafka developer tier, kafka dev tier, kafka paid development, kafka prototype]
 ---
 

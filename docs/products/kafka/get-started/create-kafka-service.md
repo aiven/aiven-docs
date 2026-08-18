@@ -1,47 +1,249 @@
 ---
-title: Create an Apache Kafka service on Aiven
-sidebar_label: Create Kafka service
-keywords: [create, kafka, service, cluster, inkless, classic, byoc]
+title: Create an Aiven for Apache Kafka® Professional tier service
+sidebar_label: Create a Professional tier service
+keywords: [create, kafka, service, professional, aiven cloud, standard, classic]
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
-Create an Apache Kafka® service on Aiven by choosing a **cluster type** that defines how the service is sized and where data is stored: **Inkless** or **Classic**.
+Create an Aiven for Apache Kafka® Professional tier service on Aiven Cloud.
+Choose the deployment location and configuration for your workload.
 
-## Choose a cluster type
+To create a Free or Developer tier service, see:
 
-### Inkless Kafka
+- [Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service)
+- [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service)
 
-Inkless Kafka uses throughput-based sizing and supports both classic topics and
-diskless topics, which store data in object storage.
+To run Kafka in your own cloud account, see
+[Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc).
 
-Choose Inkless Kafka if you need:
+## Prerequisites
 
-- Throughput-based sizing on Aiven Cloud instead of fixed plans
-- Faster cluster scaling, version upgrades, and node recovery
-- Higher throughput per broker
-- Mixed workloads with classic topics for low latency and diskless topics for
-  lower-cost storage
+- Access to the [Aiven Console](https://console.aiven.io)
+- An Aiven project where you can create Kafka services
 
+## Create a Professional tier service on Aiven Cloud {#create-the-service}
 
-[Create Inkless service](/docs/products/kafka/get-started/create-inkless-service)
+1. In the [Aiven Console](https://console.aiven.io), open the project and
+   click <ConsoleLabel name="services" />.
+1. Click **Create service**.
+1. Click **Apache Kafka®**.
+1. In **Service tier**, click **Professional**.
+1. In **Deployment mode**, click **Aiven cloud**.
+1. If **Service type** appears, click **Standard** or **Classic**:
 
-### Classic Kafka
+   - **Standard**: Usage-based pricing, with classic and diskless topics.
+   - **Classic**: A predefined service plan and classic topics.
 
-Classic Kafka uses fixed plans with local broker storage. Tiered storage is available
-when the selected plan and cloud support it.
+   You cannot change the service type after you create the service.
 
-Choose Classic Kafka if you need:
+   :::note
+   Accounts created after August 2026 create Standard Kafka services.
+   **Service type** appears only for accounts created before August 2026.
+   :::
 
-- Control over the broker size and number in the cluster deployment
-- Very large local retention
-- Complete control over the local disk size, and scaling
-- Free tier or specific cloud deployments
-- All retained data stored on local disks
+1. In **Cloud**, click a cloud provider and region.
 
-[Create Classic service](/docs/products/kafka/get-started/create-classic-kafka-service)
+<Tabs groupId="kafka-service-type">
+<TabItem value="standard" label="Standard" default>
+
+8. In **Average ingress**, click your expected average ingress rate.
+
+   Aiven uses this value to estimate compute demand and assumes egress is 3x ingress.
+   If you click **Custom**, enter your expected average ingress rate.
+
+1. If **Cost optimization** appears, set the estimated share of traffic in
+   diskless topics.
+
+   This section appears when you click **10 MB/s** or **Custom**. The slider previews
+   the estimated network cost for different shares of diskless topic traffic. It does
+   not change the service configuration.
+
+1. In **Retention**, click a default topic retention period.
+
+   Aiven uses this value for the storage estimate. If you click **Custom**, enter a
+   period between 1 and 30 days.
+
+1. In **Service basics**, enter a **Name**. You cannot change the name after you create
+   the service.
+1. Optional: Click **Add tag to this service** to add
+   [resource tags](/docs/platform/howto/tag-resources).
+1. In **Service summary**, review the estimated monthly cost.
+1. Click **Create service**.
+1. Wait until the service status is **Running**.
+
+### Review the cost estimate
+
+The estimate includes compute, storage, and network usage. It is based on the selected
+cloud, region, expected traffic, and retention.
+
+The estimated monthly cost is based on your selected configuration. Your invoice
+reflects actual usage during the billing period.
+
+After the service is **Running**, open **Overview** > **Service usage** to view
+ingress, egress, and storage usage.
+
+For more information, see
+[Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing).
+
+</TabItem>
+<TabItem value="classic" label="Classic">
+
+8. In **Plan**, click a plan.
+1. Optional: If **Additional disk storage** is available, adjust the disk size.
+1. Optional: If **Enable tiered storage** is available, click it to enable
+   [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
+1. In **Service basics**, enter:
+
+   - **Name**: Enter a name for the service. You cannot change the name after you
+     create the service.
+   - **Version**: Click a Kafka version. The default version is preselected.
+   - **Tags**: Optional. Add
+     [resource tags](/docs/platform/howto/tag-resources) to organize your services.
+
+1. In **Service summary**, review the estimated monthly price.
+1. Click **Create service**.
+1. Wait until the service status is **Running**.
+
+For information about Classic Kafka plans and capabilities, see
+[Classic Kafka overview](/docs/products/kafka/classic-kafka-overview).
+
+</TabItem>
+</Tabs>
+
+## Create a service with the Aiven CLI
+
+<Tabs groupId="kafka-service-type">
+<TabItem value="standard" label="Standard" default>
+
+In the Aiven CLI and advanced configuration, Standard Kafka is identified as
+`inkless`.
+
+1. List the Standard Kafka offerings available for the project:
+
+   ```bash
+   avn inkless offering list \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME
+   ```
+
+   The command returns the available offerings and their maximum ingress and egress
+   throughput.
+
+1. Optional: Filter offerings by required ingress throughput:
+
+   ```bash
+   avn inkless offering list \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME \
+     --ingress REQUIRED_MBPS
+   ```
+
+1. View pricing rates for the available offerings:
+
+   ```bash
+   avn inkless offering rates \
+     --organization-id ORGANIZATION_ID \
+     --project PROJECT_NAME \
+     --cloud-provider CLOUD_PROVIDER
+   ```
+
+   Optional: Filter rates by offering with `--offering-name OFFERING_NAME` or by
+   region with `--cloud-name CLOUD_NAME`.
+
+1. Create the service using an offering as the plan:
+
+   ```bash
+   avn service create SERVICE_NAME \
+     --project PROJECT_NAME \
+     --service-type kafka \
+     --cloud CLOUD_REGION \
+     --plan OFFERING_NAME \
+     -c kafka_version=4.1 \
+     -c tiered_storage.enabled=true \
+     -c inkless.enabled=true
+   ```
+
+1. Optional: To enable diskless topics when you create the service, also set:
+
+   ```bash
+   -c kafka_diskless.enabled=true
+   ```
+
+   You can also enable diskless topics later in the service configuration.
+
+Replace the following:
+
+- `ORGANIZATION_ID`: organization ID that owns the project
+- `PROJECT_NAME`: Aiven project name
+- `REQUIRED_MBPS`: minimum ingress throughput in megabits per second
+- `CLOUD_PROVIDER`: cloud provider for rate listings: `aws`, `google`, or `azure`
+- `CLOUD_NAME`: cloud or region identifier returned by the rates listing
+- `CLOUD_REGION`: cloud region for the service, such as `aws-us-east-1`
+- `OFFERING_NAME`: Standard Kafka offering returned by `avn inkless offering list`
+- `SERVICE_NAME`: name of the Kafka service
+
+</TabItem>
+<TabItem value="classic" label="Classic">
+
+Create a Classic Kafka service:
+
+```bash
+avn service create SERVICE_NAME \
+  --project PROJECT_NAME \
+  --service-type kafka \
+  --cloud CLOUD_REGION \
+  --plan PLAN_NAME
+```
+
+Replace the following:
+
+- `SERVICE_NAME`: name of the Kafka service
+- `PROJECT_NAME`: Aiven project name
+- `CLOUD_REGION`: cloud provider and region
+- `PLAN_NAME`: Classic Kafka plan
+
+</TabItem>
+</Tabs>
+
+## Create a Classic Kafka service with Terraform
+
+Terraform examples apply to Classic Kafka services.
+
+1. Create a file named `provider.tf` and add the following:
+
+   <TerraformSample filename='kafka/kafka_connect/provider.tf' />
+
+1. Create a file named `service.tf` and add the following:
+
+   <TerraformSample filename='kafka/kafka_connect/kafka_service.tf' />
+
+1. Create a file named `variables.tf` and add the following:
+
+   <TerraformSample filename='kafka/kafka_connect/variables.tf' />
+
+1. Create a `terraform.tfvars` file and add the values for your token and project
+   name.
+
+1. Optional: To output connection details, create a file named `output.tf` and add the
+   following:
+
+   <TerraformSample filename='kafka/kafka_connect/output.tf' />
+
+<TerraformApply />
+
+## Next steps
+
+- [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
+- [Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing)
+- [Generate sample data in the console](/docs/products/kafka/howto/generate-sample-data)
 
 <RelatedPages />
 
-- [Create Kafka topics](/docs/products/kafka/howto/create-topic)
-- [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
+- [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
+- [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)

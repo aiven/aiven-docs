@@ -570,57 +570,65 @@ const sidebars: SidebarsConfig = {
               items: [
                 {
                   type: 'category',
-                  label: 'Core concepts',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/concepts',
-                  },
-                  items: [
-                    'products/kafka/concepts/partition-segments',
-                    'products/kafka/concepts/log-compaction',
-                    'products/kafka/concepts/kraft-mode',
-                    'products/kafka/concepts/kafka-rest-api',
-                  ],
-                },
-                'products/kafka/inkless-overview',
-                {
-                  type: 'category',
                   label: 'Service tiers',
                   items: [
                     {
-                      type: 'category',
+                      type: 'doc',
+                      id: 'products/kafka/free-tier/kafka-free-tier',
                       label: 'Free tier',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/free-tier/kafka-free-tier',
-                      },
-                      items: [
-                        'products/kafka/free-tier/create-free-tier-kafka-service',
-                      ],
                     },
                     {
-                      type: 'category',
+                      type: 'doc',
+                      id: 'products/kafka/dev-tier/kafka-dev-tier',
                       label: 'Developer tier',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/dev-tier/kafka-dev-tier',
-                      },
-                      items: [
-                        'products/kafka/dev-tier/create-dev-tier-kafka-service',
-                      ],
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/get-started/professional-tier',
+                      label: 'Professional tier',
                     },
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Create a service',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/get-started/create-kafka-service',
-                  },
+                  label: 'Create a Kafka service',
                   items: [
-                    'products/kafka/get-started/create-inkless-service',
-                    'products/kafka/get-started/create-classic-kafka-service',
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/free-tier/create-free-tier-kafka-service',
+                      label: 'Create a Free tier service',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/dev-tier/create-dev-tier-kafka-service',
+                      label: 'Create a Developer tier service',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/get-started/create-kafka-service',
+                      label: 'Create a Professional tier service',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/get-started/create-kafka-service-byoc',
+                      label: 'Create with BYOC',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Service types',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/standard-kafka-overview',
+                      label: 'Standard Kafka',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'products/kafka/classic-kafka-overview',
+                      label: 'Classic Kafka',
+                    },
                   ],
                 },
                 {
@@ -633,8 +641,10 @@ const sidebars: SidebarsConfig = {
                   items: ['products/kafka/howto/generate-sample-data-manually'],
                 },
                 'products/kafka/howto/set-up-kafka-with-skills',
+                'products/kafka/terminology',
               ],
             },
+            'products/kafka/concepts/kafka-pricing',
             {
               type: 'category',
               label: 'Connect to service',
@@ -686,72 +696,69 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Topics, schema, and streams',
+              label: 'Topics',
               items: [
+                'products/kafka/howto/create-topic',
+                'products/kafka/howto/create-topics-automatically',
+                'products/kafka/howto/get-topic-partition-details',
+                'products/kafka/concepts/partition-segments',
+                'products/kafka/howto/change-retention-period',
+                'products/kafka/howto/configure-log-cleaner',
+                'products/kafka/concepts/log-compaction',
                 {
                   type: 'category',
-                  label: 'Topic management',
-                  items: [
-                    'products/kafka/howto/create-topic',
-                    'products/kafka/howto/create-topics-automatically',
-                    'products/kafka/howto/get-topic-partition-details',
-                    'products/kafka/howto/change-retention-period',
-                    'products/kafka/howto/configure-log-cleaner',
-                    {
-                      type: 'category',
-                      label: 'Manage topic catalog',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/howto/view-kafka-topic-catalog',
-                      },
-                      items: ['products/kafka/howto/manage-topics-details'],
-                    },
-                  ],
+                  label: 'Manage topic catalog',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/howto/view-kafka-topic-catalog',
+                  },
+                  items: ['products/kafka/howto/manage-topics-details'],
                 },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Schema registry',
+              items: [
+                'products/kafka/howto/schema-registry',
+                'products/kafka/howto/enable-schema-registry',
+                'products/kafka/concepts/kafka-rest-api',
                 {
                   type: 'category',
-                  label: 'Schema registry and REST proxy',
+                  label: 'Karapace',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/karapace',
+                  },
                   items: [
-                    'products/kafka/howto/schema-registry',
-                    'products/kafka/howto/enable-schema-registry',
+                    'products/kafka/karapace/get-started',
+                    'products/kafka/karapace/howto/enable-karapace',
+                    'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
                     {
                       type: 'category',
-                      label: 'Karapace',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/karapace',
-                      },
+                      label: 'Schema references',
                       items: [
-                        'products/kafka/karapace/get-started',
-                        'products/kafka/karapace/howto/enable-karapace',
-                        'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
-                        {
-                          type: 'category',
-                          label: 'Schema references',
-                          items: [
-                            'products/kafka/karapace/concepts/schema-references',
-                            'products/kafka/karapace/howto/register-schemas-with-references',
-                          ],
-                        },
-                        {
-                          type: 'category',
-                          label: 'Schema registry security',
-                          items: [
-                            'products/kafka/karapace/concepts/schema-registry-authorization',
-                            'products/kafka/karapace/concepts/acl-definition',
-                            'products/kafka/karapace/howto/enable-schema-registry-authorization',
-                            'products/kafka/karapace/howto/manage-schema-registry-authorization',
-                          ],
-                        },
-                        {
-                          type: 'category',
-                          label: 'REST proxy security',
-                          items: [
-                            'products/kafka/karapace/concepts/kafka-rest-proxy-authorization',
-                            'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
-                            'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
-                          ],
-                        },
+                        'products/kafka/karapace/concepts/schema-references',
+                        'products/kafka/karapace/howto/register-schemas-with-references',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'Schema registry security',
+                      items: [
+                        'products/kafka/karapace/concepts/schema-registry-authorization',
+                        'products/kafka/karapace/concepts/acl-definition',
+                        'products/kafka/karapace/howto/enable-schema-registry-authorization',
+                        'products/kafka/karapace/howto/manage-schema-registry-authorization',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'REST proxy security',
+                      items: [
+                        'products/kafka/karapace/concepts/kafka-rest-proxy-authorization',
+                        'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
+                        'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                       ],
                     },
                   ],
@@ -775,11 +782,44 @@ const sidebars: SidebarsConfig = {
                     },
                   ],
                 },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Storage',
+              items: [
+                'products/kafka/howto/view-kafka-storage-in-console',
                 {
                   type: 'category',
-                  label: 'Apache Kafka Streams',
+                  label: 'Diskless topics',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/diskless/concepts/diskless-topic-overview',
+                  },
                   items: [
-                    'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
+                    'products/kafka/diskless/concepts/topics-vs-classic',
+                    'products/kafka/diskless/concepts/diskless-topics-architecture',
+                    'products/kafka/diskless/concepts/batching-and-delivery',
+                    'products/kafka/diskless/concepts/partitions-and-objects',
+                    'products/kafka/diskless/concepts/limitations',
+                    'products/kafka/diskless/howto/create-diskless-topics-automatically',
+                    'products/kafka/howto/switch-topic-to-diskless',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Tiered storage (Classic Kafka)',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/howto/kafka-tiered-storage-get-started',
+                  },
+                  items: [
+                    'products/kafka/concepts/kafka-tiered-storage',
+                    'products/kafka/concepts/tiered-storage-how-it-works',
+                    'products/kafka/howto/enable-kafka-tiered-storage',
+                    'products/kafka/howto/configure-topic-tiered-storage',
+                    'products/kafka/concepts/tiered-storage-guarantees',
+                    'products/kafka/concepts/tiered-storage-limitations',
                   ],
                 },
               ],
@@ -831,11 +871,18 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/kafka/howto/power-cycle-service',
-                'products/kafka/howto/tag-service',
-                'products/kafka/howto/configure-custom-domain',
-                'products/kafka/howto/set-kafka-parameters',
-                'products/kafka/howto/configure-with-kafka-cli',
+                {
+                  type: 'category',
+                  label: 'Service operations',
+                  items: [
+                    'products/kafka/howto/power-cycle-service',
+                    'products/kafka/howto/tag-service',
+                    'products/kafka/howto/configure-custom-domain',
+                    'products/kafka/howto/set-kafka-parameters',
+                    'products/kafka/howto/configure-with-kafka-cli',
+                  ],
+                },
+                'products/kafka/concepts/kraft-mode',
                 {
                   type: 'category',
                   label: 'Advanced parameters',
@@ -847,7 +894,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/reference/advanced-params-free-tier',
                     'products/kafka/reference/advanced-params-dev-tier',
                     'products/kafka/reference/advanced-params',
-                    'products/kafka/reference/advanced-params-inkless',
+                    'products/kafka/reference/advanced-params-standard',
                   ],
                 },
               ],
@@ -876,46 +923,6 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/configure-preferred-zones',
                     'products/kafka/concepts/kafka-quotas',
                     'products/kafka/howto/manage-quotas',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Storage',
-              items: [
-                'products/kafka/howto/view-kafka-storage-in-console',
-                {
-                  type: 'category',
-                  label: 'Tiered storage (Classic Kafka)',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/howto/kafka-tiered-storage-get-started',
-                  },
-                  items: [
-                    'products/kafka/concepts/kafka-tiered-storage',
-                    'products/kafka/concepts/tiered-storage-how-it-works',
-                    'products/kafka/howto/enable-kafka-tiered-storage',
-                    'products/kafka/howto/configure-topic-tiered-storage',
-                    'products/kafka/concepts/tiered-storage-guarantees',
-                    'products/kafka/concepts/tiered-storage-limitations',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Diskless topics',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/diskless/concepts/diskless-topic-overview',
-                  },
-                  items: [
-                    'products/kafka/diskless/concepts/topics-vs-classic',
-                    'products/kafka/diskless/concepts/diskless-topics-architecture',
-                    'products/kafka/diskless/concepts/batching-and-delivery',
-                    'products/kafka/diskless/concepts/partitions-and-objects',
-                    'products/kafka/diskless/concepts/limitations',
-                    'products/kafka/diskless/howto/create-diskless-topics-automatically',
-                    'products/kafka/howto/switch-topic-to-diskless',
                   ],
                 },
               ],
@@ -986,6 +993,7 @@ const sidebars: SidebarsConfig = {
                     'products/kafka/howto/ksql-docker',
                   ],
                 },
+                'products/kafka/howto/kafka-streams-with-aiven-for-kafka',
                 {
                   type: 'category',
                   label: 'External integrations',

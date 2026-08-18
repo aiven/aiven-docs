@@ -1,5 +1,6 @@
 ---
-title: Apache Kafka® concepts
+title: Apache Kafka® terminology
+sidebar_label: Terminology
 ---
 
 A comprehensive glossary of essential Apache Kafka® terms and their meaning.

@@ -16,17 +16,13 @@ to verify end-to-end streaming.
 
 ## Choose your path
 
-Choose one of the following paths based on your workload and platform
-needs:
+Choose a path based on your workload and deployment needs:
 
-- Start with [Free tier](#free-tier) for no-cost, low-throughput Kafka
-  workloads.
+- Start with [Free tier](#free-tier) for no-cost, low-throughput Kafka workloads.
 - Use [Developer tier](#developer-tier) for paid development and smaller
   production workloads.
-- Create [Inkless Kafka](#create-an-inkless-kafka-service) for
-  cloud-object-storage-backed topics.
-- Create [Classic Kafka](#create-a-classic-kafka-service) for fixed plans
-  with local broker storage.
+- Use [Professional tier](#professional-tier) for production workloads on Aiven Cloud
+  or Bring Your Own Cloud.
 - Use [Skills](#set-up-a-kafka-service-using-skills) for command-line
   setup and configuration.
 
@@ -41,7 +37,7 @@ For limits, regions, and supported features, see the
 - Basic Kafka workflows are supported, including service creation and sample data
   generation.
 
-**Continue with:** [Create a Kafka service using the Free tier](/docs/products/kafka/free-tier/create-free-tier-kafka-service).
+**Continue with:** [Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service).
 
 ## Developer tier
 
@@ -56,33 +52,20 @@ For limits, pricing, Karapace, Connect, integrations, and upgrades, see
 Manage the service in the console, CLI, API, or with
 [Skills](/docs/products/kafka/howto/set-up-kafka-with-skills).
 
-**Continue with:** [Create a Kafka service using the Developer tier](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
+**Continue with:** [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service).
 
-## Create an Inkless Kafka service
+## Professional tier
 
-Inkless runs Apache Kafka 4.x and supports diskless topics that store data in cloud object
-storage rather than on local disks. Compute capacity is sized based on stream load instead
-of fixed hardware plans.
+The Professional tier is for production and workload-heavy environments.
+Create the service on Aiven Cloud, or in your own cloud account with BYOC.
 
-- Select **Inkless** as the service type.
-- Select **Aiven cloud** or **Bring your own cloud (BYOC)** as the deployment mode.
-- On Aiven cloud, select **AWS**, **Google**, or **Azure** and a region;
-  then provide expected ingress, egress, and retention to estimate capacity and cost.
-- On BYOC, select the BYOC environment, region, and an Inkless plan.
+For deployment options and service types, see
+[Aiven for Apache Kafka® Professional tier](/docs/products/kafka/get-started/professional-tier).
 
-**Continue with:** [Create an Inkless Kafka service](/docs/products/kafka/get-started/create-inkless-service).
+**Continue with:**
 
-## Create a Classic Kafka service
-
-Classic Kafka uses fixed plans with local broker storage. Tiered storage is available on
-supported plans and cloud providers.
-
-- Select **Classic Kafka** as the service type.
-- Select **Aiven cloud** or **BYOC** as the deployment mode.
-- Select a plan that defines compute, memory, and storage.
-- Optionally adjust disk capacity, enable tiered storage, and select the Kafka version.
-
-**Continue with:** [Create a Classic Kafka service](/docs/products/kafka/get-started/create-classic-kafka-service).
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
+- [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)
 
 ## Set up a Kafka service using Skills
 

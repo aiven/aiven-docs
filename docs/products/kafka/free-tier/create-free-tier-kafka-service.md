@@ -1,6 +1,6 @@
 ---
 title: Create a free tier Aiven for Apache Kafka® service
-sidebar_label: Create free tier service
+sidebar_label: Create a Free tier service
 keywords: [create, kafka, free tier]
 ---
 

@@ -4,12 +4,13 @@ title: Diskless topics for Apache Kafka®
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Diskless topics are a feature of Aiven's Inkless clusters that store Kafka topic data in cloud object storage, without writing to local disk.
+Diskless topics are a feature of Standard Kafka services for Aiven for Apache Kafka®.
+They store topic data in cloud object storage without writing to local disk.
 
-Diskless topics are available in Inkless Kafka services on Aiven Cloud and
-Bring Your Own Cloud (BYOC). In Bring Your Own Cloud (BYOC)
-deployments, Aiven manages the Kafka service in your cloud account, while you retain
-control over your infrastructure and data.
+Diskless topics are available in Standard Kafka services on Aiven Cloud, and on Business
+and Premium `-inkless` plans in Bring Your Own Cloud (BYOC). In BYOC deployments, Aiven
+manages the Kafka service in your cloud account, while you retain control over your
+infrastructure and data.
 
 :::note
 Diskless topics are **limited availability** on Aiven Cloud.
@@ -63,7 +64,7 @@ Diskless topics store data in cloud object storage and do not rely on broker-man
 replication or partition leadership. In Classic Kafka services, classic topics store
 data on broker-local disks and use standard Kafka replication.
 
-You can use both diskless and classic Kafka topics in the same Inkless Kafka service.
+You can use both diskless and classic Kafka topics in the same Standard Kafka service.
 This allows you to:
 
 - Adopt diskless topics gradually.
@@ -72,10 +73,12 @@ This allows you to:
 
 For a detailed comparison, see [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic).
 
+For information about how compute, storage, and network usage are billed, see
+[Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing).
 
 <RelatedPages/>
 
-- [Create an Inkless Kafka cluster](/docs/products/kafka/get-started/create-inkless-service)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Diskless topics architecture](/docs/products/kafka/diskless/concepts/diskless-topics-architecture)
 - [Diskless topics limitations](/docs/products/kafka/diskless/concepts/limitations)
 - [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic)

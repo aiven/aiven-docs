@@ -1,6 +1,6 @@
 ---
 title: Create an Aiven for Apache Kafka® Developer tier service
-sidebar_label: Create Developer tier service
+sidebar_label: Create a Developer tier service
 keywords: [create, kafka, developer tier]
 ---
 

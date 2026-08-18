@@ -1,6 +1,6 @@
 ---
 title: Aiven for Apache Kafka® free tier
-sidebar_label: Free tier overview
+sidebar_label: Free tier
 keywords: [kafka free tier, kafka free, kafka trial]
 ---
 
