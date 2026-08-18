@@ -52,10 +52,10 @@ To run Kafka in your own cloud account, see
 <Tabs groupId="kafka-service-type">
 <TabItem value="standard" label="Standard" default>
 
-8. In **Stream load**, click the expected average ingress.
+8. In **Average ingress**, click your expected average ingress rate.
 
-   Aiven estimates egress at 3x ingress. If you click **Custom**, enter the maximum
-   ingress.
+   Aiven uses this value to estimate compute demand and assumes egress is 3x ingress.
+   If you click **Custom**, enter your expected average ingress rate.
 
 1. If **Cost optimization** appears, set the estimated share of traffic in
    diskless topics.
