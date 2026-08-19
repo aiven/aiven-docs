@@ -1,16 +1,16 @@
 ---
-title: Generate Java data classes from Avro schemas
-sidebar_label: Avro schema
+title: Generate Java classes from Avro schemas
+sidebar_label: Generate Avro classes
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Generate Java data classes from Avro schema files (`.avsc`) to use with Apache Kafka® producers and consumers. Use the `avro-tools` JAR to create Java classes that match your schema structure.
+Generate Java classes from Avro schema files (`.avsc`) to use with Apache Kafka® producers and consumers. Use the `avro-tools` JAR to create Java classes that match your schema structure.
 
 ## Prerequisites
 
 - An active [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service)
-- [Karapace Schema Registry](/docs/products/kafka/karapace/concepts/schema-registry-authorization)
+- [Karapace Schema Registry](/docs/products/kafka/karapace/howto/enable-karapace)
   enabled
 - Java (JDK 8 or later)
 - [Apache Maven](https://maven.apache.org/) installed to manage dependencies
@@ -133,4 +133,5 @@ types (Guava).
 
 <RelatedPages />
 
-[Official Avro Java Getting Started Guide](https://avro.apache.org/docs/1.12.0/getting-started-java/)
+- [Use schema registry with Java producers and consumers](/docs/products/kafka/howto/use-schema-registry-in-java)
+- [Official Avro Java Getting Started Guide](https://avro.apache.org/docs/1.12.0/getting-started-java/)

@@ -1,5 +1,6 @@
 ---
 title: Manage Karapace schema registry authorization
+sidebar_label: Manage authorization
 ---
 
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
