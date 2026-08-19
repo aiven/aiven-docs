@@ -1,97 +1,103 @@
 ---
-title: Manage large shards in OpenSearch®
-sidebar_label: Manage large shard
+title: Manage large shards in Aiven for OpenSearch®
+sidebar_label: Manage large shards
 ---
 
-Ensuring an optimal shard size is a critical consideration when operating within OpenSearch.
-It is recommended that the size of
-individual shards in OpenSearch® should not exceed 50 GB as a best
-practice.
+import RelatedPages from "@site/src/components/RelatedPages";
 
-While OpenSearch does not explicitly enforce this shard size limit.
-However, exceeding this limit may result in OpenSearch being unable to
-relocate or recover index shards, potentially leading to data loss.
+Resolve the large shard size alert in Aiven for OpenSearch® by deleting old data, splitting an index, or increasing its shard count.
 
-Aiven proactively monitors shard sizes for all OpenSearch services. If a
-service's shard exceeds the recommended size, prompt notifications are
-sent using the user alert
-`user_alert_resource_usage_es_shard_too_large`. Below, you'll find
-recommended solutions on how to address this alert.
+OpenSearch doesn't enforce a shard size limit, but for guidance on the recommended range,
+see [Optimal number of shards](/docs/products/opensearch/concepts/shards-number). Shards
+that grow too large can fail to relocate or recover, which risks data loss.
 
-## Solutions to address large shards
+Aiven for OpenSearch monitors shard sizes for all services. If a shard exceeds the
+recommended size, you get a notification through the
+`user_alert_resource_usage_es_shard_too_large` alert. Use one of the following options to
+resolve it.
 
-When dealing with excessively large shards, you can consider the one of
-the following solutions:
+## Delete records from the index
 
-### 1. Delete records from the index
-
-If your application permits, permanently delete records, such as old
-logs or unnecessary records, from your index. For example, to delete
-records older than five days, use the following query:
+If your application allows it, permanently delete old or unnecessary records from the
+index. For example, delete records older than five days:
 
 ```bash
-POST /my-index/_delete_by_query
-{
+curl -X POST "https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_delete_by_query" \
+     -H 'Content-Type: application/json' \
+     -d '{
   "query": {
-     "range" : {
-         "@timestamp" : {
-
-              "lte" : now-5d
-
-            }
-        }
+    "range": {
+      "@timestamp": {
+        "lte": "now-5d"
+      }
     }
-}
+  }
+}'
 ```
 
-### 2. Re-index into several small indices
+## Reindex into several smaller indices
 
-You can split your index into several smaller indices based on certain
-criteria. For example, to create an index for each `event_type`, you can
-use following script:
+Split an index into multiple smaller indices based on a field value. For example, create
+a separate index for each `event_type`:
 
 ```bash
-POST _reindex
-{
-
+curl -X POST "https://USER:PASSWORD@HOST:PORT/_reindex" \
+     -H 'Content-Type: application/json' \
+     -d '{
   "source": {
-    "index": "logs-all-events"
+    "index": "INDEX_NAME"
   },
   "dest": {
-    "index": "logs-2-"
+    "index": "logs"
   },
   "script": {
     "lang": "painless",
-    "source": "ctx._index = 'logs-2-' + (ctx._source.event_type)"
+    "source": "ctx._index = \"logs-\" + ctx._source.event_type"
   }
-}
+}'
 ```
 
-### 3. Re-index into a new index with increased shard count
+## Reindex into a new index with more shards
 
-Another strategy involves re-indexing data into a fresh index while
-increasing the number of shards. To create an index with 2 shards,
-use the following commands:
+Create an index with a higher shard count, then reindex your data into it. For example,
+create an index with 2 shards:
 
 ```bash
-PUT /my_new_index/_settings
-{
-    "index" : {
-        "number_of_shards" : 2
-    }
-}
+curl -X PUT "https://USER:PASSWORD@HOST:PORT/NEW_INDEX_NAME" \
+     -H 'Content-Type: application/json' \
+     -d '{
+  "settings": {
+    "number_of_shards": 2
+  }
+}'
 ```
 
-Once the new index is set up, proceed to re-index your data:
+Reindex your data into the new index:
 
 ```bash
-POST _reindex
-{
+curl -X POST "https://USER:PASSWORD@HOST:PORT/_reindex" \
+     -H 'Content-Type: application/json' \
+     -d '{
   "source": {
-    "index": "my_old_index"
+    "index": "INDEX_NAME"
   },
   "dest": {
-    "index": "my_new_index"
+    "index": "NEW_INDEX_NAME"
   }
-}
+}'
 ```
+
+Replace the following in the preceding commands:
+
+- `USER`: the username for the OpenSearch cluster.
+- `PASSWORD`: the password for the OpenSearch cluster.
+- `HOST`: the hostname for the connection.
+- `PORT`: the port number for the connection.
+- `INDEX_NAME`: the name of the existing index.
+- `NEW_INDEX_NAME`: the name of the index you're creating.
+
+<RelatedPages/>
+
+- [Optimal number of shards](/docs/products/opensearch/concepts/shards-number)
+- [Manage indices in Aiven for OpenSearch®](/docs/products/opensearch/concepts/indices)
+- [Reindex Aiven for OpenSearch® data on a newer version](/docs/products/opensearch/howto/reindex-opensearch)
