@@ -5,6 +5,11 @@ sidebar_label: Use AWS PrivateLink
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import AivenConsolePrivateLinkConfiguration from "@site/static/images/content/platform/howto/use-aws-privatelink_image2.png";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import RelatedPages from "@site/src/components/RelatedPages";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 AWS [PrivateLink](https://aws.amazon.com/privatelink/) brings Aiven services to the selected virtual private cloud (VPC) in your AWS account.
 
@@ -292,6 +297,93 @@ allowed to connect a VPC endpoint:
         to include in the **Principal ARNs** field and
         click **Save**.
 
+## Allow cross-region connections
+
+AWS PrivateLink supports connections between different AWS regions. Use this
+to let a VPC endpoint in another AWS region connect to your Aiven service's
+PrivateLink endpoint service.
+
+:::important
+Cross-region connections for AWS PrivateLink are a <LimitedBadge/> feature.
+Contact the [sales team](https://aiven.io/contact) to enable this for your
+project.
+:::
+
+### Limitations
+
+- Cross-region connections work only between regions in the same AWS
+  [partition](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html).
+  For example, a standard AWS region can't connect to an AWS China region
+  because they're in different partitions.
+- Cross-region connections are supported only for AWS PrivateLink.
+  [Azure Private Link](/docs/platform/howto/use-azure-privatelink) and
+  [Google Private Service Connect](/docs/platform/howto/use-google-private-service-connect)
+  don't support connections across regions.
+- If your service is deployed with
+  [bring your own cloud (BYOC)](/docs/platform/concepts/byoc), [set up the
+  required permissions](/docs/platform/howto/byoc/aws-privatelink-byoc#set-up-permissions)
+  before you enable cross-region connections.
+- You can allow up to 16 additional regions for one PrivateLink connection.
+- Creating endpoints in additional regions can add to your AWS costs. Check
+  [AWS PrivateLink pricing](https://aws.amazon.com/privatelink/pricing/)
+  before you enable additional regions.
+
+### Set the allowed regions
+
+Use the `supported_regions` parameter to set the AWS regions, in addition to
+your service's own region, where a VPC endpoint can connect to your
+PrivateLink endpoint service. This parameter isn't available in the Aiven CLI
+or the Aiven Console.
+
+<Tabs groupId="cross-region-config">
+<TabItem value="terraform" label="Terraform" default>
+
+Add `supported_regions` to your `aiven_aws_privatelink` resource:
+
+<TerraformSample filename='resources/aiven_aws_privatelink/resource.tf' />
+
+</TabItem>
+<TabItem value="api" label="API">
+
+To set the allowed regions when you create a PrivateLink resource, call the
+[ServicePrivatelinkAWSCreate](https://api.aiven.io/doc/#tag/Service/operation/ServicePrivatelinkAWSCreate)
+endpoint:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT/service/SERVICE/privatelink/aws \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "principals": ["arn:aws:iam::012345678901:root"],
+    "supported_regions": ["eu-west-2", "us-east-1"]
+  }'
+```
+
+To update the allowed regions of an existing PrivateLink resource, call the
+[ServicePrivatelinkAWSUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServicePrivatelinkAWSUpdate)
+endpoint:
+
+```bash
+curl --request PUT \
+  --url https://api.aiven.io/v1/project/PROJECT/service/SERVICE/privatelink/aws \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'content-type: application/json' \
+  --data '{
+    "supported_regions": ["eu-west-2", "us-east-1"]
+  }'
+```
+
+Replace the following:
+
+- `PROJECT`: your project name.
+- `SERVICE`: your service name.
+- `BEARER_TOKEN`: your [Aiven authentication
+  token](/docs/platform/concepts/authentication-tokens).
+
+</TabItem>
+</Tabs>
+
 ## Deleting a privatelink connection {#h_8de68d5894}
 
 -   Using the Aiven CLI, run the following command:
@@ -317,3 +409,11 @@ allowed to connect a VPC endpoint:
     1.  In the **Confirmation** window, click **Delete**.
 
 This deletes the AWS load balancer and VPC service endpoint.
+
+<RelatedPages/>
+
+- [Use AWS PrivateLink with BYOC services](/docs/platform/howto/byoc/aws-privatelink-byoc)
+- [Use Azure Private Link with Aiven services](/docs/platform/howto/use-azure-privatelink)
+- [Use Google Private Service Connect with Aiven
+  services](/docs/platform/howto/use-google-private-service-connect)
+- [Manage project VPCs](/docs/platform/howto/manage-project-vpc)
