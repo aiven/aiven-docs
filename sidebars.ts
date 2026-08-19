@@ -445,6 +445,22 @@ const sidebars: SidebarsConfig = {
             'products/apps/power-off-apps',
           ],
         },
+        {
+          type: 'category',
+          label: 'Security and access',
+          items: [
+            {
+              type: 'category',
+              label: 'Authentication',
+              items: [
+                'products/apps/authentication/apps-authentication-overview',
+                'products/apps/authentication/add-oidc-identity-providers',
+                'products/apps/authentication/oidc-ms-entra-id',
+                'products/apps/authentication/grant-access',
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
