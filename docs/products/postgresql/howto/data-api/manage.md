@@ -97,6 +97,12 @@ without losing your entered values. If the issue persists, confirm that the serv
 the [prerequisites](/docs/products/postgresql/howto/data-api/get-started#prerequisites),
 then turn off and re-enable Data API.
 
+### The selected cloud, region, or plan isn't available
+
+If you select a cloud, region, or plan that doesn't support the Aiven App, the setup
+dialog shows an error message instead of failing partway through. Select a different
+cloud, region, or plan and try again.
+
 ### Endpoints don't reflect schema changes
 
 Endpoints reflect the database schema captured when you enabled Data API, and don't refresh

@@ -30,18 +30,22 @@ To enable Data API, you need the following:
 1. Click <ConsoleLabel name="data"/> > **Data API**.
 1. In the **Database** list, select the database to expose.
 1. Click **Set up API**.
-1. In the **DataAPI for [database]** dialog, configure the following:
+1. In the **Data API for [database]** dialog, configure the following:
    - Under **Identity provider**:
      - **JWKS URL**: Enter the HTTPS URL where your IdP publishes its public keys.
      - **Audience**: Enter the API identifier configured in your IdP.
-   - Under **Settings**, choose how to deploy the underlying
+   - Under **Cloud and plan**, choose where to deploy the underlying
      [Aiven App](/docs/products/aiven-apps):
-     - **Recommended**: Uses best-practice cloud, region, and plan for your service.
-     - **Custom**: Choose your own cloud, region, and plan. Select the service tier,
-       cloud, and plan from the available options.
+     - **Cloud**: Defaults to the same cloud and region as your PostgreSQL service. You
+       can select a different cloud and region that supports the Aiven App.
+     - **Plan**: Select a plan for the Aiven App. Free-tier plans aren't available for
+       Data API, so choose a paid plan.
 1. Review the **Summary** panel on the right, which shows the cloud, plan, and estimated
    monthly price for the Aiven App.
 1. Click **Confirm and deploy**.
+
+If the cloud, region, and plan you select don't support the Aiven App, Data API shows an
+error message so that you can pick a different combination.
 
 Data API starts deploying and the **Status** shows **Building**. When the app is healthy,
 the status changes to **Running** and the endpoints become available. While the service is
