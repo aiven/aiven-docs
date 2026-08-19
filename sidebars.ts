@@ -422,11 +422,8 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Manifest files',
-          link: {
-            type: 'doc',
-            id: 'products/apps/manifest-files/manifests',
-          },
           items: [
+            'products/apps/manifest-files/manifests',
             'products/apps/manifest-files/compose-files',
             'products/apps/manifest-files/containerfiles',
           ],
