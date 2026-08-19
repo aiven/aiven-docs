@@ -338,6 +338,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="karapace_version"/><Link to="#karapace_version"><strong>karapace_version</strong></Link></p><p><code className="type">string,null</code></p></div>
+        <div className="description"><p>Pin a specific installed Karapace version on this service. Leave null/unset to auto-follow the newest installed version.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="schema_registry"/><Link to="#schema_registry"><strong>schema_registry</strong></Link></p><p><code className="type">boolean</code></p></div>
         <p className="title">Enable Schema-Registry service</p>
       </td>
