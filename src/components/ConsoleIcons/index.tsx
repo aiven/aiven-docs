@@ -256,12 +256,6 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Event log</b>
         </>
       );
-    case 'runtime':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Runtime</b>
-        </>
-      );
     case 'swapruntimeservices':
       return (
         <>
@@ -800,6 +794,19 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.disasterRecovery} />{' '}
           <b>Disaster recovery</b>
+        </>
+      );
+    case 'runtime':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Runtime</b>
+        </>
+      );
+    case 'runtimeidp':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.lock} />{' '}
+          <b>Identity providers</b>
         </>
       );
 
