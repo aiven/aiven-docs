@@ -1,6 +1,6 @@
 ---
-title: Create manifest files for Aiven Runtime
-sidebar_label: Create manifest files
+title: Manifest files for Aiven Runtime
+sidebar_label: Overview
 limited: true
 ---
 
