@@ -21,7 +21,7 @@ To manage Data API, open your Aiven for PostgreSQL® service in the
 ## Check the status
 
 Each database that you expose runs as an independent
-[Aiven App](/docs/products/aiven-apps) with its own **Status**, shown
+[Aiven application](/docs/products/aiven-apps) with its own **Status**, shown
 on the **Data API** page:
 
 - **Building**: The application is deploying or applying a change. Setup and requests
@@ -30,7 +30,7 @@ on the **Data API** page:
 - **Powered off**: Data API is turned off for this database.
 - **Error**: The deployment failed. For next steps, see [Troubleshooting](#troubleshooting).
 
-## View the underlying Aiven App
+## View the underlying Aiven application
 
 After enabling Data API, the **Data API** page shows a **Runtime application** row with a
 link to the dedicated app running PostgREST. Aiven deploys the app in the same region as
@@ -99,9 +99,9 @@ then turn off and re-enable Data API.
 
 ### The selected cloud, region, or plan isn't available
 
-If you select a cloud, region, or plan that doesn't support the Aiven App, the setup
-dialog shows an error message instead of failing partway through. Select a different
-cloud, region, or plan and try again.
+If you select a cloud, region, or plan that doesn't support the Aiven application, the
+setup dialog shows an error message instead of failing partway through. Select a
+different cloud, region, or plan and try again.
 
 ### Endpoints don't reflect schema changes
 

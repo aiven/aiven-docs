@@ -40,15 +40,16 @@ Data API provides the following:
 ## How it works
 
 When you enable Data API for a database, Aiven deploys a dedicated
-[Aiven App](/docs/products/aiven-apps) that runs
+[Aiven application](/docs/products/aiven-apps) that runs
 PostgREST in the same region as your service and connects it to the selected database.
 PostgREST reads the database schema and publishes a REST endpoint for each table. By
 default, endpoints are published for the `public` schema. To access tables in other
 schemas, include the `Accept-Profile` header with the schema name in your requests.
 Clients call these endpoints over HTTPS and authenticate with a bearer token.
 
-Each database that you expose runs as an independent Aiven App with its own status and
-base URL. You can enable Data API for more than one database in the same service.
+Each database that you expose runs as an independent Aiven application with its own
+status and base URL. You can enable Data API for more than one database in the same
+service.
 
 ## Limitations
 
@@ -59,8 +60,8 @@ base URL. You can enable Data API for more than one database in the same service
 - Endpoints reflect the database schema captured when you enable Data API. They don't
   refresh automatically when the schema changes, but you can refresh the schema cache from
   the Aiven Console.
-- Each Data API runs as a dedicated Aiven App that is billed separately from your
-  PostgreSQL service.
+- Each Data API runs as a dedicated Aiven application that is billed separately from
+  your PostgreSQL service.
 
 ## Related pages
 
