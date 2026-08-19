@@ -3,60 +3,31 @@ title: Secret redaction in Aiven API
 sidebar_label: Secret redaction
 ---
 
-Service user passwords, service `user_config` fields, and integration endpoint secrets are redacted in API responses by default.
+Service user passwords, secret service `user_config` fields, and integration endpoint secrets are redacted in API responses by default.
 
-If your integrations require access to secrets, include the `include_secrets=true`
-query parameter in the API calls. The caller also needs to have a
-[role or permission](/docs/platform/concepts/permissions) that allows them to read secrets.
+Redacted values are shown as `<redacted>`. For integrations that send config back to Aiven,
+leaving this placeholder prevents accidental overwriting of the secret.
 
-The following is a summary of the permissions required for each secret type:
+To read secrets on a `GET` request:
 
-- **Service user passwords**: `admin`, `operator`, `developer`,
-   `service:secrets:read`, or `service:users:write`
-- **Service `user_config` secrets**: `admin`, `operator`, or `service:secrets:read`
-- **Integration endpoint secrets**: `admin` or `project:integrations:write`
+- Send `include_secrets=true` as a query parameter.
+- Use a [role or permission](/docs/platform/concepts/permissions) that can read
+  that secret type.
 
-Only the `GET` endpoints listed can reveal secrets.
-Write endpoints and the integration endpoint list always redact secrets.
+For service secrets, calls without the required permissions receive a `403 Forbidden`
+response. For integration endpoint secrets, calls return redacted values.
 
-The following endpoints include secrets:
+The following endpoints can return secrets in plaintext:
 
-- **Service user passwords**
+- `GET /project/PROJECT/service/SERVICE_NAME/user/SERVICE_USERNAME`
 
-  - `GET /project/{project}/service/{service_name}/user/{service_username}`
+- `GET /project/PROJECT/service/SERVICE_NAME`
 
-  - `GET /project/{project}/service/{service_name}`
+- `GET /project/PROJECT/service`
 
-  - `GET /project/{project}/service`
+- `GET /project/PROJECT/integration_endpoint/INTEGRATION_ENDPOINT_ID`
 
-  - `POST /project/{project}/service`
-
-  - `PUT /project/{project}/service/{service_name}`
-
-  - `PUT /project/{project}/service/{service_name}/user/{service_username}/credentials/reset`
-
-  - `PUT /project/{project}/service/{service_name}/user/{service_username}`
-
-  - `PATCH /project/{project}/service/{service_name}/service_type`
-
-- **Service user configuration**
-
-  - `GET /project/{project}/service/{service_name}`
-
-  - `GET /project/{project}/service`
-
-  - `POST /project/{project}/service`
-
-  - `PUT /project/{project}/service/{service_name}`
-
-  - `PATCH /project/{project}/service/{service_name}/service_type`
-
-- **Integration endpoint secrets**
-
-  - `GET /project/{project}/integration_endpoint/{integration_endpoint_id}`
-
-  - `GET /project/{project}/integration_endpoint`
-
-  - `POST /project/{project}/integration_endpoint`
-
-  - `PUT /project/{project}/integration_endpoint/{integration_endpoint_id}`
+Only `GET` endpoints can reveal secrets.
+Most write endpoints redact secrets. One exception is
+the `POST /project/PROJECT/service/SERVICE_NAME/user` endpoint,
+which returns newly generated credentials in plaintext.
