@@ -203,6 +203,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
                     'platform/howto/byoc/create-cloud/create-google-custom-cloud',
+                    'platform/howto/byoc/create-cloud/create-azure-custom-cloud',
                   ],
                 },
                 'platform/howto/byoc/aws-privatelink-byoc',

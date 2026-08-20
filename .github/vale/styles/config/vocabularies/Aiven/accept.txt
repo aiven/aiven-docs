@@ -96,7 +96,11 @@ dblink
 DBMS
 DBMSs
 deallocation
+CCEs?
 Debezium
+deployer
+aiven_cce_client_id
+aiven-cce-prod
 deduplicate
 defragmentation
 depends_on
@@ -448,7 +452,8 @@ vCPUs
 vectorizing
 virtualized
 VMs?
-VNet
+VNets?
+NSGs?
 VPC/MS
 VPCs?
 VPN
