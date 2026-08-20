@@ -19,8 +19,11 @@ Aiven for Valkey uses SSL encrypted connections by default. This is indicated by
 
 Aiven for Valkey services use a browser-recognized (Let's Encrypt) certificate by
 default, so no CA certificate download is required. Services created before this
-certificate mode was enabled still use the Aiven project CA certificate. For details,
-see [TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
+certificate mode was enabled still use the Aiven project CA certificate. There's no
+self-service option to use the project CA certificate for a service that uses a
+browser-recognized certificate. To request this,
+[open a support ticket](/docs/platform/howto/support). For details, see
+[TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
 
 Valkey-compatible CLI tools support SSL connections. You can connect directly to your
 service using:

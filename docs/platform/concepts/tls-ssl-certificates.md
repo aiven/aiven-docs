@@ -50,8 +50,10 @@ are exceptions:
   default, so no CA certificate download is required. Services created before this
   certificate mode was enabled still use the Aiven project CA certificate. If the
   <ConsoleLabel name="overview"/> page for your service offers a CA certificate to
-  download, your service uses the project CA. For details, see
-  [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity).
+  download, your service uses the project CA. There's no self-service option to use
+  the project CA certificate for a service that uses a browser-recognized certificate.
+  To request this, [open a support ticket](/docs/platform/howto/support). For details,
+  see [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity).
 
 You can download the project CA certificates from the <ConsoleLabel name="overview"/>
 page of your service. For steps, see [Download the project CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
