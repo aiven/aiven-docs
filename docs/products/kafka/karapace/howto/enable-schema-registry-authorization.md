@@ -1,5 +1,6 @@
 ---
 title: Enable Karapace schema registry authorization
+sidebar_label: Enable authorization
 ---
 
 Most Aiven for Apache Kafka® services will automatically have [schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization) enabled, and the functionality cannot be disabled or enabled once a service has been created.

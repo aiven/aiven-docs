@@ -13,19 +13,24 @@ Karapace resolves linked schemas during compatibility checks.
 
 ## Prerequisites
 
-- An [Aiven for Apache Kafka®](/docs/products/kafka) service with the Karapace Schema
-  Registry enabled
-- Registry connection variables: `SCHEMA_REGISTRY_URL`, `SCHEMA_REGISTRY_USER`, and
-  `SCHEMA_REGISTRY_PASSWORD`
+- An [Aiven for Apache Kafka®](/docs/products/kafka) service with
+  [Schema Registry enabled](/docs/products/kafka/karapace/howto/enable-karapace)
+- Schema Registry connection values from **Connection information** on the service
+  overview page:
+  - `SCHEMA_REGISTRY_URL`
+  - `SCHEMA_REGISTRY_USER`
+  - `SCHEMA_REGISTRY_PASSWORD`
 - `curl` available in your environment
+
+A successful registration returns JSON that includes an `id` for the schema version.
 
 ## Example: Avro records with references
 
 Avro schema references require Karapace 6.1.0 or later.
 
-In each `references` entry, `name` is a label only and can be any value. Karapace
-resolves the reference from the fully qualified type name in your schema (for example
-`com.example.Country`), together with `subject` and `version`.
+In each `references` entry, `name` is a label only and can be any value.
+Karapace resolves the reference from the fully qualified type name in your schema
+(for example, `com.example.Country`), together with `subject` and `version`.
 
 Register a `Country` schema, an `Address` schema that references `Country`, a `Job`
 schema, and a `Person` schema that references `Address` and `Job`.
@@ -61,9 +66,9 @@ schema, and a `Person` schema that references `Address` and `Job`.
      }'
    ```
 
-   In this request, `country.avsc` is only a label. Karapace resolves the `Country`
-   record through the `com.example.Country` type in the schema, together with
-   `subject` and `version`.
+   In this request, `country.avsc` is only a label.
+   Karapace resolves the `Country` record through the `com.example.Country` type in the
+   schema, together with `subject` and `version`.
 
 1. Register the `Job` schema:
 
@@ -105,6 +110,9 @@ schema, and a `Person` schema that references `Address` and `Job`.
 
 Register an `Address` message and a `Customer` message that imports `Address`.
 
+In each `references` entry, set `name` to the import path from your `.proto` file.
+The value must match the `import` statement exactly (for example, `address.proto`).
+
 1. Register the `Address` schema:
 
    ```bash
@@ -139,5 +147,5 @@ Register an `Address` message and a `Customer` message that imports `Address`.
 <RelatedPages/>
 
 - [Schema references in Karapace](/docs/products/kafka/karapace/concepts/schema-references)
-- [Get started with Karapace](/docs/products/kafka/karapace/get-started)
-- [Enable Karapace schema registry and REST APIs](/docs/products/kafka/karapace/howto/enable-karapace)
+- [Enable schema registry and REST proxy](/docs/products/kafka/karapace/howto/enable-karapace)
+- [Karapace](/docs/products/kafka/karapace)

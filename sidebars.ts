@@ -715,66 +715,50 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Schema registry',
+              label: 'Schema registry and REST proxy',
               items: [
-                'products/kafka/howto/schema-registry',
-                'products/kafka/howto/enable-schema-registry',
-                'products/kafka/concepts/kafka-rest-api',
+                'products/kafka/karapace',
+                'products/kafka/karapace/howto/enable-karapace',
                 {
                   type: 'category',
-                  label: 'Karapace',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/karapace',
-                  },
+                  label: 'Schema registry',
                   items: [
-                    'products/kafka/karapace/get-started',
-                    'products/kafka/karapace/howto/enable-karapace',
+                    'products/kafka/karapace/concepts/schema-references',
+                    'products/kafka/karapace/howto/register-schemas-with-references',
                     'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
                     {
                       type: 'category',
-                      label: 'Schema references',
+                      label: 'Develop in Java',
                       items: [
-                        'products/kafka/karapace/concepts/schema-references',
-                        'products/kafka/karapace/howto/register-schemas-with-references',
+                        'products/kafka/howto/use-schema-registry-in-java',
+                        'products/kafka/howto/generate-avro-java-classes',
+                        'products/kafka/howto/generate-protobuf-java-classes',
+                        'products/kafka/howto/generate-json-java-classes',
                       ],
                     },
                     {
                       type: 'category',
-                      label: 'Schema registry security',
+                      label: 'Authorization',
                       items: [
                         'products/kafka/karapace/concepts/schema-registry-authorization',
-                        'products/kafka/karapace/concepts/acl-definition',
                         'products/kafka/karapace/howto/enable-schema-registry-authorization',
+                        'products/kafka/karapace/concepts/acl-definition',
                         'products/kafka/karapace/howto/manage-schema-registry-authorization',
-                      ],
-                    },
-                    {
-                      type: 'category',
-                      label: 'REST proxy security',
-                      items: [
-                        'products/kafka/karapace/concepts/kafka-rest-proxy-authorization',
-                        'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
-                        'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                       ],
                     },
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Develop with schemas',
+                  label: 'REST proxy',
                   items: [
+                    'products/kafka/concepts/kafka-rest-api',
                     {
                       type: 'category',
-                      label: 'Generate Java classes from schemas',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/howto/generate-java-classes-from-schemas',
-                      },
+                      label: 'Authorization',
                       items: [
-                        'products/kafka/howto/generate-avro-java-classes',
-                        'products/kafka/howto/generate-protobuf-java-classes',
-                        'products/kafka/howto/generate-json-java-classes',
+                        'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
+                        'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                       ],
                     },
                   ],

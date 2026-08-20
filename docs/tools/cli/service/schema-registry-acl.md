@@ -24,7 +24,7 @@ Where:
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `service_name` | The name of the service                                                                                                                                          |
 | `--permission` | The permission type:<ul><li>`schema_registry_read`</li><li>`schema_registry_write`</li></ul>                                                                     |
-| `--resource`   | The resource format can be `Config:` or `Subject:<subject>`. For more information, see [ACLs definition](/docs/products/kafka/karapace/concepts/acl-definition). |
+| `--resource`   | The resource format can be `Config:` or `Subject:<subject>`. For more information, see [Schema registry ACL definitions](/docs/products/kafka/karapace/concepts/acl-definition). |
 | `--username`   | The name of a service user                                                                                                                                       |
 
 

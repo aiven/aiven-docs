@@ -219,6 +219,7 @@
 /products/grafana/user-access                              /docs/products/grafana/get-started  301
 /products/influxdb                                         /docs/products/metrics  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
+/products/kafka/concepts/schema-registry-authorization     /docs/products/kafka/karapace/concepts/schema-registry-authorization  301
 /products/kafka/concepts                                   /docs/products/kafka/terminology  301
 /products/kafka/get-started                                /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/get-started/create-inkless-service         /docs/products/kafka/get-started/create-kafka-service  301
@@ -228,12 +229,15 @@
 /products/kafka/getting-started.html                       /docs/products/kafka/get-started/create-kafka-service  301
 /products/kafka/howto                                      /docs/products/kafka/howto/list-code-samples  301
 /products/kafka/howto/connect-with-java-quick-connect      /docs/products/kafka/howto/connect-with-java  301
-/products/kafka/howto/enable-karapace                      /docs/products/kafka/howto/enable-schema-registry  301
+/products/kafka/howto/enable-karapace                      /docs/products/kafka/karapace/howto/enable-karapace  301
+/products/kafka/howto/schema-registry                      /docs/products/kafka/howto/use-schema-registry-in-java  301
+/products/kafka/howto/generate-java-classes-from-schemas    /docs/products/kafka/howto/use-schema-registry-in-java  301
+/products/kafka/howto/enable-schema-registry                /docs/products/kafka/karapace/howto/enable-karapace  301
 /products/kafka/howto/fake-sample-data                     /docs/products/kafka/howto/generate-sample-data-manually  301
-/products/kafka/howto/list-admin                           /docs/products/kafka/howto/enable-karapace  301
+/products/kafka/howto/list-admin                           /docs/products/kafka/karapace/howto/enable-karapace  301
 /products/kafka/howto/list-integration                     /docs/products/kafka/howto/integrate-service-logs-into-kafka-topic  301
 /products/kafka/howto/list-integration.html                /docs/products/kafka  301
-/products/kafka/howto/list-schema-registry                 /docs/products/kafka/howto/enable-schema-registry  301
+/products/kafka/howto/list-schema-registry                 /docs/products/kafka/karapace/howto/enable-karapace  301
 /products/kafka/howto/list-security                        /docs/products/kafka/howto/keystore-truststore  301
 /products/kafka/howto/list-tools                           /docs/products/kafka/howto/kafka-tools-config-file  301
 /products/kafka/howto/list-topic-management                /docs/products/kafka/howto/create-topic  301
@@ -264,8 +268,10 @@
 /products/kafka/kafka-mirrormaker/concepts/mirrormaker2-tuning         /docs/products/kafka/kafka-mirrormaker/concepts/configuration-layers  301
 /products/kafka/kafka-mirrormaker/reference                            /docs/products/kafka/kafka-mirrormaker/reference/advanced-params  301
 /products/kafka/karapace/concepts                                      /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
+/products/kafka/karapace/get-started                                   /docs/products/kafka/karapace  301
 /products/kafka/karapace/howto                                         /docs/products/kafka/karapace/howto/enable-karapace  301
 /products/kafka/karapace/howto/manage-kafka-rest-proxy-authorization   /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization  301
+/products/kafka/karapace/concepts/kafka-rest-proxy-authorization       /docs/products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization  301
 /products/kafka/reference                                              /docs/products/kafka/reference/advanced-params  301
 /products/kafka/reference/advanced-params-inkless                      /docs/products/kafka/reference/advanced-params-standard  301
 /products/kafka/reference/advanced-params-inkless-saas-topic           /docs/products/kafka/reference/advanced-params-standard-topic  301

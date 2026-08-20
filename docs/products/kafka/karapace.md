@@ -1,39 +1,60 @@
 ---
 title: Karapace
+sidebar_label: Karapace
 ---
 
-[Karapace](https://karapace.io/) is an Aiven-built open-source Schema Registry for
-Apache Kafka®, and provides a central repository to store and retrieve schemas.
-It consists of a **Schema Registry** and a **REST API**. All Kafka services on Aiven
-support both these features, and you can enable or disable them based on your
-requirements.
+import RelatedPages from "@site/src/components/RelatedPages";
 
-Karapace supports storing schemas in a central repository, which clients can access
-to serialize and deserialize messages. The schemas maintain their own version histories
-and you can check compatibility between versions.
+[Karapace](https://karapace.io/) is an Aiven-built open-source Schema Registry and REST Proxy for Aiven for Apache Kafka®.
+Use it to store and manage message schemas, and to produce and consume Kafka messages
+over HTTP.
+You can [enable or disable each feature independently](/docs/products/kafka/karapace/howto/enable-karapace).
 
-## Supported schema formats
+## Schema Registry
 
-Karapace supports the following schema formats:
+Schema Registry stores schemas in a central repository.
+Producers and consumers use those schemas to serialize and deserialize messages.
+You can version schemas and check compatibility before you publish changes.
+
+Supported formats:
 
 | Format      | Schema registration | Schema references |
-|-------------|--------------------|--------------------|
-| Avro        | ✓                  | ✓                  |
-| Protobuf    | ✓                  | ✓                  |
-| JSON Schema | ✓                  | -                  |
+|-------------|--------------------|-------------------|
+| Avro        | ✓                  | ✓                 |
+| Protobuf    | ✓                  | ✓                 |
+| JSON Schema | ✓                  | -                 |
 
-**Schema references** allow you to register a schema that depends on one or more
-previously registered schemas, rather than inlining those definitions each time.
-Karapace supports Avro schema references from v6.1.0 onward.
-See [Schema references in Karapace](/docs/products/kafka/karapace/concepts/schema-references)
-for details and examples.
+Schema references let one schema depend on other registered schemas instead of
+inlining every definition.
+Karapace supports Avro schema references from version 6.1.0 onward.
+For details, see
+[Schema references in Karapace](/docs/products/kafka/karapace/concepts/schema-references).
 
-Karapace REST provides a RESTful interface to your Apache Kafka cluster, allowing
-you to produce and consume messages and perform administrative cluster work using
-standard HTTP.
+## REST Proxy
+
+The REST Proxy is a Karapace component that produces and consumes Kafka events over HTTP.
+It exposes REST APIs for those operations.
+Use those APIs from tools such as `curl`, scripts, or HTTP-based services.
+
+You manage Schema Registry over HTTP with REST APIs that register, update, and delete
+schemas.
+Those APIs are separate from the Kafka REST APIs served by the REST Proxy.
+For more information, see
+[Apache Kafka REST API](/docs/products/kafka/concepts/kafka-rest-api).
+
+## Next steps
+
+1. [Enable schema registry and REST proxy](/docs/products/kafka/karapace/howto/enable-karapace)
+1. [Use schema registry with Java producers and consumers](/docs/products/kafka/howto/use-schema-registry-in-java)
+1. [Connect with Kafka REST](/docs/products/kafka/howto/connect-with-kafka-rest)
 
 ## Karapace resources
 
-- The Karapace schema registry that Aiven maintains and makes available for every
-  Aiven for Apache Kafka service: [https://karapace.io/](https://karapace.io/)
-- [GitHub repository](https://github.com/aiven/karapace)
+- [Karapace project site](https://karapace.io/)
+- [GitHub repository](https://github.com/Aiven-Open/karapace)
+
+<RelatedPages/>
+
+- [Enable schema registry and REST proxy](/docs/products/kafka/karapace/howto/enable-karapace)
+- [Apache Kafka REST API](/docs/products/kafka/concepts/kafka-rest-api)
+- [Schema references in Karapace](/docs/products/kafka/karapace/concepts/schema-references)
