@@ -330,10 +330,10 @@ project.
 
 ### Set the allowed regions
 
-Use the `supported_regions` parameter to set the AWS regions, in addition to
-your service's own region, where a VPC endpoint can connect to your
-PrivateLink endpoint service. This parameter isn't available in the Aiven CLI
-or the Aiven Console.
+Use the `supported_regions` parameter to set the additional AWS regions
+where a VPC endpoint can connect to your PrivateLink endpoint service. Your
+service's own AWS region is always included and can't be removed from this
+list. This parameter isn't available in the Aiven CLI or the Aiven Console.
 
 <Tabs groupId="cross-region-config">
 <TabItem value="terraform" label="Terraform" default>
