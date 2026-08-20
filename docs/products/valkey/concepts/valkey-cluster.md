@@ -60,6 +60,49 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 - **Use case**: Ideal for smaller datasets or applications with moderate traffic
 - **High availability**: Automatic failover to replicas if the primary fails
 
+## Cluster plans
+
+Cluster-enabled Valkey services use `cluster-N` plans, where `N` is the per-node memory
+in GiB, for example `cluster-4` (4 GiB RAM per node) and `cluster-8` (8 GiB RAM per
+node). You set the shard count and the replica count independently, using advanced
+configuration options. Available on AWS, Azure, and Google Cloud.
+
+### Configure a cluster-N plan
+
+When you create or update a service on a `cluster-N` plan, set the following advanced
+configuration options:
+
+- **`shard_count`**: Number of primary shards in the cluster. Required, from `1` to
+  `5`.
+- **`replicas`**: Number of replicas per shard. Optional, from `0` to `2`. Defaults to
+  `0`.
+
+The total node count for the cluster is `shard_count` multiplied by `1 + replicas`. For
+example, 3 shards with 1 replica each results in 6 nodes. Aiven bills `cluster-N` plans
+per node, so your invoice reflects the total node count at the time of billing.
+
+In the [Aiven Console](https://console.aiven.io), the service creation and change plan
+pages show shard count and replica steppers for `cluster-N` plans. The estimated
+monthly price updates to reflect the total node count as you change either value.
+
+To create a service on a `cluster-N` plan with the Aiven CLI, set `shard_count` and
+`replicas` with the `-c` option:
+
+```bash
+avn service create demo-valkey \
+  --service-type valkey \
+  --cloud CLOUD_AND_REGION \
+  --plan cluster-4 \
+  --project PROJECT_NAME \
+  -c shard_count=3 \
+  -c replicas=1
+```
+
+:::note
+You can't change `shard_count` and `replicas` in the same update. Change one, wait for
+the update to finish, then change the other.
+:::
+
 ## Benefits
 
 ### Performance
@@ -113,8 +156,9 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 
 ### Create a clustered service
 
-To enable clustering in Aiven for Valkey, choose a multi-node cluster plan when creating
-your service.
+To enable clustering in Aiven for Valkey, choose a `cluster-N` plan when creating your
+service. See [Cluster plans](#cluster-plans) for how to set the shard count and replica
+count.
 
 :::tip
 For high availability and improved read scalability, **add replicas** to each service
@@ -137,8 +181,10 @@ of primary nodes in your cluster changes, Aiven reshards the cluster automatical
 Resharding redistributes the hash slots, and the keys they hold, across the available
 primary nodes to keep the slots evenly balanced across shards.
 
-Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
-manages the entire process:
+The number of primary nodes changes when you update `shard_count` on a `cluster-N`
+plan. See [Configure a cluster-N plan](#configure-a-cluster-n-plan).
+
+Aiven manages the entire process:
 
 - **Slot redistribution**: Aiven divides the ranges of hash slots owned by each primary
   node and reassigns them across the updated set of primary nodes.

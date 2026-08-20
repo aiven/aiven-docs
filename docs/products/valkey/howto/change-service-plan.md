@@ -10,6 +10,13 @@ Change the service plan for your Aiven for Valkey™ service to scale resources 
 
 <ChangePlan/>
 
+:::note
+For `cluster-N` plans, `--plan` changes the per-node memory only. To change the shard
+count or the replica count, update the `shard_count` or `replicas` advanced
+configuration option instead. See
+[Cluster plans](/docs/products/valkey/concepts/valkey-cluster#cluster-plans).
+:::
+
 <RelatedPages/>
 
 - [Scale disk storage](/docs/products/valkey/howto/scale-disk-storage)
