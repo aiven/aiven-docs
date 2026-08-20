@@ -17,6 +17,14 @@ Aiven for Valkey uses SSL encrypted connections by default. This is indicated by
 `valkeys://` (with double `s`) prefix in the
 `Service URI` on the [Aiven Console](https://console.aiven.io/).
 
+Aiven for Valkey services use a browser-recognized (Let's Encrypt) certificate by
+default, so no CA certificate download is required. Services created before this
+certificate mode was enabled still use the Aiven project CA certificate. There's no
+self-service option to use the project CA certificate for a service that uses a
+browser-recognized certificate. To request this,
+[open a support ticket](/docs/platform/howto/support). For details, see
+[TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
+
 Valkey-compatible CLI tools support SSL connections. You can connect directly to your
 service using:
 
@@ -52,9 +60,8 @@ delay = yes
 accept = 127.0.0.1:6380
 connect = myredis.testproject.aivencloud.com:28173
 TIMEOUTclose = 0
-; For old services only. New ones use Let's Encrypt and there's no
-; CA cert available from Aiven console. Most environments trust
-; Let's Encrypt by default without any explicit CAfile config.
+; Only needed for services that use the Aiven project CA certificate. Most
+; environments trust Let's Encrypt certificates by default, without a CAfile.
 ; CAfile = /path/to/optional/project/cacert/that/you/can/download/from/aiven/console
 ```
 
