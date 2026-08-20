@@ -348,7 +348,15 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'tools',
-        'tools/api',
+        {
+          type: 'category',
+          label: 'Aiven API',
+          link: {
+            id: 'tools/api',
+            type: 'doc',
+          },
+          items: ['tools/api/secret-redaction'],
+        },
         'tools/mcp-server',
         {
           type: 'category',
