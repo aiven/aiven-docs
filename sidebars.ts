@@ -1502,6 +1502,7 @@ const sidebars: SidebarsConfig = {
               label: 'Maintenance and lifecycle',
               items: [
                 'products/datahub/upgrade-datahub-version',
+                'products/datahub/maintenance-updates',
                 'products/datahub/restore-datahub-indices',
               ],
             },
