@@ -6,7 +6,7 @@ limited: true
 
 import DeleteService from "@site/static/includes/delete-services.md"
 
-When you delete an Aiven for DataHub service, all service data and configuration is permanently deleted.
+When you delete an Aiven for DataHub service, all service data and configuration are permanently deleted.
 The underlying Aiven for Apache Kafka®, Aiven for OpenSearch®
 and Aiven for PostgreSQL® services are also deleted at the same time.
 
