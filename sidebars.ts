@@ -1463,9 +1463,9 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/datahub/manage-datahub-users',
-                'products/datahub/enable-oidc-auth-datahub',
                 'products/datahub/change-cloud',
+                'products/datahub/delete-service',
+                'products/datahub/power-off-service',
                 {
                   type: 'category',
                   label: 'Notifications',
