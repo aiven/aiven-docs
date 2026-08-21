@@ -1463,8 +1463,6 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/datahub/manage-datahub-users',
-                'products/datahub/enable-oidc-auth-datahub',
                 'products/datahub/change-cloud',
                 {
                   type: 'category',
@@ -1474,6 +1472,7 @@ const sidebars: SidebarsConfig = {
                     'products/datahub/configure-teams-notifications',
                   ],
                 },
+                'products/datahub/tag-services',
               ],
             },
             {
