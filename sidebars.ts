@@ -1464,6 +1464,8 @@ const sidebars: SidebarsConfig = {
               label: 'Service management',
               items: [
                 'products/datahub/change-cloud',
+                'products/datahub/delete-service',
+                'products/datahub/power-off-service',
                 {
                   type: 'category',
                   label: 'Notifications',
