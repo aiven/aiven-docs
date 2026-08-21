@@ -1,5 +1,5 @@
 ---
-title: Fork a DataHub service
+title: Fork DataHub services
 limited: true
 ---
 

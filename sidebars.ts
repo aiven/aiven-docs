@@ -1474,6 +1474,7 @@ const sidebars: SidebarsConfig = {
                     'products/datahub/configure-teams-notifications',
                   ],
                 },
+                'products/datahub/tag-services',
               ],
             },
             {
