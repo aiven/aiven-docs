@@ -16,13 +16,13 @@ Aiven recognizes Compose files with the following file naming conventions:
   <thead>
   <tr>
     <th>File type</th>
-    <th>Supported file formats</th>
+    <th>Supported file naming formats</th>
   </tr>
   </thead>
   <tbody>
   <tr>
     <td>Compose files</td>
-    <td><ul><li>`docker-compose.yml`</li><li>`docker-compose.yaml`</li><li>`compose.yml`</li><li>`compose.yaml`</li></ul></td>
+    <td><ul><li>`docker-compose.yml`</li><li>`docker-compose.yaml`</li><li>`compose.yml`</li><li>`compose.yaml`</li><li>`compose.aiven.yaml`</li><li>`compose.existing-db.yaml`</li></ul></td>
   </tr>
   <tr>
     <td>Environment-specific and override files</td>
@@ -48,13 +48,35 @@ on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven f
 and Aiven for OpenSearch®.
 
 You define the service type and version with the `image` property.
+
+Aiven integrates the services listed in the `depends_on` property:
+
+```yaml
+services:
+  web-app:
+    build: .
+    depends_on:
+      - postgres-db
+      - valkey-cache
+    environment:
+      - DATABASE_URL=postgresql://user:pass@postgres-db:5432/mydb
+
+  postgres-db:
+    image: postgres:15
+
+  valkey-cache:
+    image: valkey/valkey:7.2
+```
+
+:::note
 Service names must:
 
 - Consist only of lowercase letters a-z, numbers 0-9, and `-`
 - Begin with a lowercase letter
 - Be between 1 and 64 characters in length
+:::
 
-The following examples show how to specify the image for each supported service.
+Aiven Runtime only recognizes specific, standard images for each service type.
 
 #### Kafka
 
@@ -81,6 +103,15 @@ The following is an example for the Confluent Platform Kafka image:
 
 #### PostgreSQL
 
+Runtime supports any image with `postgres` in the name:
+
+- `postgres`
+- `postgresql` (any version/tag)
+- `bitnami/postgresql` (any version/tag)
+
+The following is an example for the official PostgreSQL image,
+specifying version 15:
+
 ```yaml
 services:
   database:
@@ -88,6 +119,16 @@ services:
 ```
 
 #### Valkey
+
+Runtime supports any image with `valkey` or `redis` in the name:
+
+- `valkey`
+- `valkey/valkey`
+- `bitnami/valkey`
+- `redis`
+- `bitnami/redis`
+
+The following is an example for the official Valkey image, specifying version 7.2:
 
 ```yaml
 services:
@@ -97,29 +138,47 @@ services:
 
 #### OpenSearch
 
+Aiven Runtime only supports the official
+`opensearchproject/opensearch` image. It can include
+registry prefixes such as `docker.io/opensearchproject/opensearch`
+and `ghcr.io/opensearchproject/opensearch`.
+
 ```yaml
 services:
   search:
     image: opensearchproject/opensearch:2.11
 ```
 
-Aiven integrates the services listed in the `depends_on` property:
+#### Custom builds and unsupported images
+
+Aiven Runtime doesn't support custom builds, non-standard images,
+and some image distributions.
+
+If you need to use custom images locally, you can use a separate Compose file
+for Aiven Runtime named `compose.aiven.yaml`. For example, the following
+includes a custom PostgreSQL build and a non-standard Redis image:
 
 ```yaml
 services:
-  web-app:
-    build: .
-    depends_on:
-      - postgres-db
-      - valkey-cache
-    environment:
-      - DATABASE_URL=postgresql://user:pass@postgres-db:5432/mydb
+  db:
+    build: ./postgres-with-my-extensions  # Custom build
+  cache:
+    image: my-redis-fork:7.0              # Non-standard image
+  api:
+    build: ./app
+```
 
-  postgres-db:
-    image: postgres:15
+To deploy this setup on Aiven Runtime without editing your main Compose file,
+create a `compose.aiven.yaml` file with the following:
 
-  valkey-cache:
-    image: valkey/valkey:7.2
+```yaml
+services:
+  db:
+    image: postgres:15  # Standard image Aiven recognizes
+  cache:
+    image: valkey:7.2   # Standard image Aiven recognizes
+  api:
+    build: ./app
 ```
 
 ### Environment variables
