@@ -80,11 +80,11 @@ Aiven Runtime only recognizes specific, standard images for each service type.
 
 #### Kafka
 
-The supported images for Kafka are:
+Runtime supports the following images for Kafka:
 
-- `apache/kafka`: Official Apache Kafka
-- `confluentinc/cp-kafka`: Confluent Platform
-- `bitnami/kafka`: Bitnami packaging
+- `apache/kafka`
+- `confluentinc/cp-kafka`
+- `bitnami/kafka`
 
 The following is an example for the official Apache Kafka image:
 
@@ -139,9 +139,8 @@ services:
 #### OpenSearch
 
 Aiven Runtime only supports the official
-`opensearchproject/opensearch` image. It can include
-registry prefixes such as `docker.io/opensearchproject/opensearch`
-and `ghcr.io/opensearchproject/opensearch`.
+`opensearchproject/opensearch` image, for example:
+
 
 ```yaml
 services:
@@ -149,13 +148,19 @@ services:
     image: opensearchproject/opensearch:2.11
 ```
 
+It can also include
+registry prefixes such as `docker.io/opensearchproject/opensearch`
+and `ghcr.io/opensearchproject/opensearch`.
+
 #### Custom builds and unsupported images
 
 Aiven Runtime doesn't support custom builds, non-standard images,
 and some image distributions.
 
 If you need to use custom images locally, you can use a separate Compose file
-for Aiven Runtime named `compose.aiven.yaml`. For example, the following
+for Aiven Runtime.
+
+For example, the following Compose file
 includes a custom PostgreSQL build and a non-standard Redis image:
 
 ```yaml
