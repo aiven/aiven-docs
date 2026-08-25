@@ -1,4 +1,3 @@
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -8,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 To use controlled upgrade pipelines, you need the following:
 
-- The feature enabled by Aiven (<LimitedBadge/>)
+- An [Advanced or Premium support tier](/docs/platform/howto/support)
 - Dev tool of your choice:
   - [Aiven CLI](/docs/tools/cli)
 
@@ -37,7 +36,6 @@ Use the Aiven CLI or API to create upgrade steps between your services.
 
 :::note
 The `upgrade-pipeline` CLI commands require Aiven CLI version 4.x or later.
-Command names and parameters may change before general availability.
 :::
 
 #### Create an upgrade step

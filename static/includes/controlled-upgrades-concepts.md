@@ -1,11 +1,9 @@
 Control when your Aiven managed services receive maintenance updates and test maintenance
 updates in development or staging environments before they reach production.
 
-:::important
-Controlled upgrade pipeline is a
-[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-feature.
-[Contact Aiven](https://aiven.io/contact) to request access.
+:::note
+Controlled upgrade pipeline is available to organizations with the
+[Advanced or Premium support tier](/docs/platform/howto/support).
 :::
 
 Aiven performs automatic
