@@ -103,13 +103,13 @@ The following is an example for the Confluent Platform Kafka image:
 
 #### PostgreSQL
 
-Runtime supports any image with `postgres` in the name:
+Runtime supports the following PostgreSQL images:
 
 - `postgres`
-- `postgresql` (any version/tag)
-- `bitnami/postgresql` (any version/tag)
+- `postgresql`
+- `bitnami/postgresql`
 
-The following is an example for the official PostgreSQL image,
+The following is an example for the official PostgreSQL image
 specifying version 15:
 
 ```yaml
@@ -120,7 +120,7 @@ services:
 
 #### Valkey
 
-Runtime supports any image with `valkey` or `redis` in the name:
+Runtime supports the following Valkey images:
 
 - `valkey`
 - `valkey/valkey`
@@ -128,7 +128,7 @@ Runtime supports any image with `valkey` or `redis` in the name:
 - `redis`
 - `bitnami/redis`
 
-The following is an example for the official Valkey image, specifying version 7.2:
+The following is an example for the official Valkey image specifying version 7.2:
 
 ```yaml
 services:
@@ -159,6 +159,7 @@ for Aiven Runtime named `compose.aiven.yaml`. For example, the following
 includes a custom PostgreSQL build and a non-standard Redis image:
 
 ```yaml
+# compose.yaml
 services:
   db:
     build: ./postgres-with-my-extensions  # Custom build
