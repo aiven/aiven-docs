@@ -9,9 +9,9 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Learn to set index retention patterns and manage maximum indices in your Aiven for OpenSearch® instance.
 
-Index retention patterns are a lightweight alternative to Index State Management (ISM)
-for capping the number of indices that match a name pattern. If you need other lifecycle
-actions, such as rollover or tiering, in the same policy, use ISM instead. For more
+Index retention patterns are a legacy approach for capping the number of indices that
+match a name pattern, from before Index State Management (ISM) was available on Aiven
+for OpenSearch. Use ISM instead for any index you're setting up now. For more
 information, see
 [Index lifecycle management](/docs/products/opensearch/concepts/indices#index-lifecycle-management).
 

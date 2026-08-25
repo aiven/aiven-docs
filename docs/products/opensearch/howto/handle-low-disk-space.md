@@ -22,16 +22,26 @@ If OpenSearch exceeded only the low or high watermark, no further action is need
 you free up space: OpenSearch continues to allow writes.
 
 If OpenSearch exceeded the flood stage watermark, it also sets
-`index.blocks.read_only_allow_delete` on the affected indices. Freeing up space doesn't
-clear this setting. Unset it manually for each affected index:
+`index.blocks.read_only_allow_delete` on every index with a shard on the affected node,
+not just the one you're cleaning up. Freeing up space doesn't clear this setting. Unset
+it on all affected indices in one request using `_all` as the target:
 
 ```bash
-curl -X PUT "https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_settings" \
+curl -X PUT "https://USER:PASSWORD@HOST:PORT/_all/_settings" \
      -H 'Content-Type: application/json' \
      -d '{
   "index.blocks.read_only_allow_delete": null
 }'
 ```
+
+To unset it on a single index instead, replace `_all` with that index's name.
+
+:::note
+`index.blocks.read_only_allow_delete` applies at the index level. While it's set, you
+can't delete individual documents from an index to shrink it, only delete the whole
+index. Free up space by deleting entire indices or removing data elsewhere, then clear
+the setting.
+:::
 
 Replace the following:
 
@@ -39,7 +49,6 @@ Replace the following:
 - `PASSWORD`: the password for the OpenSearch cluster.
 - `HOST`: the hostname for the connection.
 - `PORT`: the port number for the connection.
-- `INDEX_NAME`: the name of the affected index.
 
 :::note
 Aiven for OpenSearch doesn't unset `index.blocks.read_only_allow_delete` automatically, to

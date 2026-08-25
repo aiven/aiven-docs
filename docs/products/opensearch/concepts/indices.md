@@ -22,10 +22,13 @@ Mapping defines the fields in an index and their data types, similar to a schema
 relational database. When OpenSearch sees a field for the first time in a document, it
 can create that field automatically. This is known as dynamic mapping.
 
-Dynamic mapping is convenient when you're getting started, but it can introduce
-inconsistent field types across documents and add fields you didn't intend to create.
-Over time, this leads to bloated, inefficient indices that are slower to search and
-slower to recover after a failure.
+Dynamic mapping causes two problems in production. Every field gets indexed even if you
+never query most of them, which wastes CPU, increases index size on disk, and uses more
+memory than a deliberate mapping would. It also locks in a field's type from the first
+document that introduces it. For example, if the first document sets `user_id` to
+`12345`, OpenSearch maps `user_id` as a number. A later document that sets `user_id` to
+`A123` fails to index as a mapping conflict. If you write through the bulk API without
+checking each item's result, that failure can go unnoticed.
 
 For production workloads, define an explicit mapping when you create an index so that
 field types stay consistent and predictable. For the full mapping syntax, see the
@@ -34,16 +37,22 @@ field types stay consistent and predictable. For the full mapping syntax, see th
 ## Shards and replicas
 
 Each index is split into primary shards, the units that OpenSearch distributes across
-the nodes in your cluster. A replica is a copy of a primary shard that provides
-redundancy and protects against data loss. For details on how Aiven for OpenSearch
-manages replicas, see
+the nodes in your cluster. A replica is a copy of a primary shard. Replicas protect
+against data loss, and OpenSearch can also serve search queries from replicas, so more
+replicas can spread read load across more nodes, not just add redundancy. For details on
+how Aiven for OpenSearch manages replicas, see
 [Replication factors in Aiven for OpenSearch®](/docs/products/opensearch/concepts/index-replication).
 
-OpenSearch has a default limit of 1024 shards per index, and Aiven for OpenSearch
-doesn't add further restrictions.
+Shard count and size directly affect performance:
 
-The number and size of shards you choose affects both performance and recovery time.
-For guidance on choosing a shard count, see
+- **Memory**: Aggregations and searches over a large shard build large data structures
+  in memory. Too many large shards can exhaust the memory available to the service.
+- **Recovery time**: During recovery, such as a version upgrade or node replacement,
+  OpenSearch copies each shard in full. Large shards take longer to recover and
+  generate more disk I/O, which degrades service performance while recovery is in
+  progress.
+
+For guidance on choosing a shard count and size, see
 [Optimal number of shards](/docs/products/opensearch/concepts/shards-number).
 
 ## When to create an index
@@ -104,11 +113,15 @@ For an example that creates and applies a policy, see
 
 ### Index retention patterns
 
-As a lighter-weight alternative to ISM, Aiven for OpenSearch also provides an index
-retention feature you configure directly in the Aiven Console. It caps the number of
-indices that match a name pattern and deletes the oldest ones once that limit is
-exceeded, but it can't combine other lifecycle actions, such as rollover or tiering,
-into a single policy.
+Aiven for OpenSearch also provides an index retention feature you configure directly in
+the Aiven Console. It caps the number of indices that match a name pattern and deletes
+the oldest ones once that limit is exceeded.
+
+This is a legacy approach that predates ISM being available on Aiven for OpenSearch. It
+can't combine other lifecycle actions, such as rollover or tiering, into a single
+policy, and it only deletes indices, so it can't move data to lower-cost storage tiers.
+Use ISM for any index you're setting up now. Only rely on index retention patterns for
+existing setups you haven't migrated to ISM yet.
 
 For setup steps, see
 [Index retention patterns](/docs/products/opensearch/howto/set_index_retention_patterns).

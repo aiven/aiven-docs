@@ -11,47 +11,40 @@ For a broader overview of index configuration, including shard sizing guidelines
 
 ## Considerations for optimal shard count
 
-OpenSearch® has a default shard count limit of 1024 per index, and Aiven
-imposes no additional restrictions on the number of shards for your
-OpenSearch® service.
+The ideal number of shards depends on your data volume, usage patterns, and expected
+data growth. As a starting point, aim for a shard size of about 30 GB. For example, an
+index with 100 GB of expected data can start with 3 to 4 shards.
 
-The ideal number of shards largely depends on your data volume, usage
-patterns, and expected data growth in OpenSearch®. As a general rule of
-thumb, aim for a shard size between a few gigabytes and tens of
-gigabytes. It's better to have a slightly higher number of shards, but
-avoid overdoing it, as OpenSearch® will issue warnings for excessively
-large or numerous shards.
+A more critical limit than any single index's shard count is the total number of shards
+your service's memory can support. As a rule of thumb, don't exceed 20 shards per GB of
+memory available to the service. Going over this significantly increases the risk of
+the service running out of memory, regardless of how those shards are distributed
+across indices.
 
-For a multi-node OpenSearch® service, Aiven enforces a minimum of one
-replica per shard to ensure high availability and data redundancy. While
-there is no limit on the number of replicas per shard, adding too many
-can impact performance and increase disk usage.
+For a multi-node OpenSearch® service, Aiven enforces a minimum of one replica per shard
+to ensure high availability and data redundancy, and replicas also let OpenSearch spread
+search queries across more nodes. While there is no limit on the number of replicas per
+shard, adding too many can impact performance and increase disk usage.
 
 ## Determining shard count
 
-Consider the following recommendations for selecting the appropriate
-number of shards for your OpenSearch® index:
+Base your shard count on a target shard size, since the right target depends on how you
+query the data rather than on a single fixed divisor:
 
--   **Small data volumes with many indexes:** Start with one shard and
-    split the index if necessary.
+-   **Search-heavy indices:** Target 10-30 GB per shard. Use the lower end of that range
+    for a smaller total data volume, and the higher end as total data volume grows.
 
--   **Tens of gigabytes of data:** Begin with five shards per index to
-    avoid splitting the index for an extended period.
+-   **Write-heavy or seldom-queried indices**, such as logs: Target 30-50 GB per shard.
 
--   **Hundreds of gigabytes of data:** Calculate the starting number of
-    shards by dividing the amount of data by 10.
+Divide your expected total data volume by your target shard size to get a starting
+shard count. For example, a 250 GB search-heavy index at 25 GB per shard starts with 10
+shards.
 
-    $$number\_of\_shards = amount\_of\_data\_in\_gigabytes / 10$$
+For a small data volume spread across many indices, start with one shard per index and
+split the index later if it grows.
 
-    For example, a 250 GB index would need 25 shards.
-
--   **Terabytes of data:** Consider increasing the shard size
-    accordingly. For example, a 1 TB index might require 50 shards.
-
-These suggestions are only indicative, and optimal values depend on your
-usage patterns and anticipated data growth in OpenSearch®. Monitoring
-disk and CPU usage and upgrading when necessary to ensure optimal
-performance is essential.
+These are starting points. Monitor disk and CPU usage, and adjust as your usage patterns
+and data volume evolve.
 
 ## Use the plan calculator
 
@@ -81,18 +74,30 @@ during migration or plan changes.
 
 ## Adjusting shard count
 
-You can change the number of shards without losing your data, but this
-process requires a brief downtime while the index is rewritten.
-Additionally, if you are using OpenSearch® for daily logs or similar use
-cases, you can consider adding more shards per index to new indexes.
-Doing so will increase the number of shards per index for subsequent
-days, providing an alternative option for managing your data.
+OpenSearch doesn't let you change the shard count of an existing index directly, so
+increasing or decreasing it always means creating a different index. The right approach
+depends on how much you can prepare in advance:
 
-OpenSearch® streamlines the distribution and organization of shards
-across nodes by automating the allocation and rebalancing processes,
-simplifying scaling up or down. To change the number of
-shards, you can re-index your data. However, modifying existing indexes
-can be challenging, and therefore it is best to aim for an optimal shard
-count from the beginning. If a shard grows significantly larger than the
-others, OpenSearch® will attempt to redistribute them to balance the
-node load.
+-   **Split the index**: Use the Split API to create an index with a multiple of the
+    current shard count. The new index keeps the source index's mappings and settings
+    automatically, but it gets a new name, so you need an alias if you want existing
+    clients to keep using the original name.
+-   **Reindex to a new index**: Create an index with the shard count you want and copy
+    the data across with the Reindex API. This works for any index, but unlike the
+    Split API, it doesn't carry over mappings and settings automatically, and it needs
+    more planning around writes that happen during the copy.
+-   **Point an alias at the current index in advance**: If your application already
+    writes through an alias rather than the index name directly, you can create the
+    replacement index ahead of time and switch the alias to it in a single atomic step,
+    with no application changes.
+
+For step-by-step instructions, see
+[Manage large shards in Aiven for OpenSearch®](/docs/products/opensearch/howto/resolve-shards-too-large).
+
+If you're using OpenSearch for daily logs or a similar rolling pattern, you can also
+change the shard count for new indices going forward, without touching existing ones.
+
+OpenSearch automatically rebalances shards across nodes to even out overall disk usage
+per node. This isn't driven by individual shard size. A single large shard doesn't
+trigger rebalancing on its own, though its size can limit which nodes have enough free
+disk space to host it.
