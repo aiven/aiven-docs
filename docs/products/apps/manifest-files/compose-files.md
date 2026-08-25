@@ -47,25 +47,24 @@ Aiven Runtime automatically detects and creates the following data services base
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
 and Aiven for OpenSearch®.
 
-You define the service type and version with the `image` property.
-
-Aiven integrates the services listed in the `depends_on` property:
+Aiven integrates the services listed in the `depends_on` property.
+You define the service type and tags with the `image` property, for example:
 
 ```yaml
 services:
   web-app:
     build: .
-    depends_on:
+    depends_on:               # Services to integrate with
       - postgres-db
       - valkey-cache
     environment:
       - DATABASE_URL=postgresql://DB_USER:DB_PASSWORD@postgres-db:5432/DB_NAME
 
   postgres-db:
-    image: postgres:15
+    image: postgres:15        # PostgreSQL service
 
   valkey-cache:
-    image: valkey/valkey:7.2
+    image: valkey/valkey:7.2  # Valkey service
 ```
 
 :::note
