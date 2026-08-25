@@ -59,7 +59,7 @@ services:
       - postgres-db
       - valkey-cache
     environment:
-      - DATABASE_URL=postgresql://user:pass@postgres-db:5432/mydb
+      - DATABASE_URL=postgresql://DB_USER:DB_PASSWORD@postgres-db:5432/DB_NAME
 
   postgres-db:
     image: postgres:15
