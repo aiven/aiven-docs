@@ -52,6 +52,9 @@ examples include:
 -   **Document indexing:** Use OpenSearch to index documents to get
     meaningful **search results** from a large body of knowledge.
 
+For a full breakdown of search, agentic AI, observability, and analytics workloads, see
+[Use cases for Aiven for OpenSearch®](/docs/products/opensearch/use-cases).
+
 ## Benefits of using Aiven for OpenSearch®
 
 Aiven for OpenSearch service has many benefits, such as:
