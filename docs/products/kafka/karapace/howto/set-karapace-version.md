@@ -16,17 +16,17 @@ keeps that version until you change the setting or set it to `null`.
 
 ## Prerequisites
 
-- An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/get-started-kafka)
+- An [Aiven for Apache Kafka service](/docs/products/kafka/get-started/get-started-kafka)
   with Karapace enabled
 - A [maintenance update](/docs/products/kafka/howto/maintenance-updates#maintenance-updates)
   that includes Karapace version selection
 
 ## Set a Karapace version
 
-Set `karapace_version` to one of the Karapace versions currently available for
+Set `karapace_version` to one of the Karapace versions available for
 selection. Aiven makes the two most recent Karapace versions available for
-selection. To upgrade or roll back, change the setting to another version that
-is currently available.
+selection. To upgrade or roll back, change the setting to another available
+version.
 
 Older Karapace versions can remain supported for services already running them.
 They might no longer be available for version selection.
@@ -39,7 +39,7 @@ They might no longer be available for version selection.
 1. Click <ConsoleLabel name="service settings"/>.
 1. Click **Advanced configuration** > **Configure**.
 1. Click <ConsoleLabel name="Add config options"/>.
-1. Set **`karapace_version`** to a version currently available for selection, for
+1. Set **`karapace_version`** to a version available for selection, for
    example, `6.2.2`.
 1. Click **Save configuration**.
 
@@ -57,7 +57,7 @@ Replace the following:
 
 - `SERVICE_NAME`: name of your Aiven for Apache Kafka service
 - `PROJECT_NAME`: name of your Aiven project
-- `VERSION`: Karapace version currently available for selection, for example, `6.2.2`
+- `VERSION`: Karapace version available for selection, for example, `6.2.2`
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -77,7 +77,7 @@ Replace the following:
 - `PROJECT_NAME`: name of your Aiven project
 - `SERVICE_NAME`: name of your Aiven for Apache Kafka service
 - `API_TOKEN`: your [Aiven API token](/docs/platform/howto/create_authentication_token)
-- `VERSION`: Karapace version currently available for selection, for example, `6.2.2`
+- `VERSION`: Karapace version available for selection, for example, `6.2.2`
 
 </TabItem>
 </Tabs>
