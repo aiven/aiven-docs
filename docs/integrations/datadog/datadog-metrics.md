@@ -48,3 +48,4 @@ You can see the metrics data on your Datadog dashboard.
 - [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
 - Enable
   [database monitoring with Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog).
+- [Collect relation and function metrics with Datadog](/docs/products/postgresql/howto/monitor-relation-function-metrics-datadog).

@@ -79,6 +79,7 @@ using the `datadog_dbm_enabled` configuration parameter. For example:
 
 - Learn more about [Datadog and Aiven](/docs/integrations/datadog).
 - [Monitor PgBouncer with Datadog](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog).
+- [Collect relation and function metrics with Datadog](/docs/products/postgresql/howto/monitor-relation-function-metrics-datadog).
 - Learn more about
   [Database monitoring with Datadog](https://www.datadoghq.com/product/database-monitoring/)
   from the Datadog product page.

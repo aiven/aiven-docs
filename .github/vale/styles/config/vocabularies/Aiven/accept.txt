@@ -27,6 +27,7 @@ Ashburn
 australia
 Auth0
 autojoin
+autoanalyze
 autoscaler
 autoscaling
 autovacuum
