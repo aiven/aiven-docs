@@ -33,9 +33,9 @@ on the **Data API** page:
 ## View the underlying Aiven application
 
 After enabling Data API, the **Data API** page shows a **Runtime application** row with a
-link to the dedicated app running PostgREST. Aiven deploys the app in the same region as
-your PostgreSQL service and bills it separately. You can also find it in your project's
-**Applications** list, tagged **Data API** for easy identification.
+link to the dedicated app running PostgREST. Aiven deploys the app in the cloud and
+region you chose when you set up Data API, and bills it separately. You can also find it
+in your project's **Applications** list, tagged **Data API** for easy identification.
 
 ## Expose more databases
 
