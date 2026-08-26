@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 import byocAwsPrivate from "@site/static/images/content/figma/byoc-aws-private.png";
 import byocAwsEceHipaa from "@site/static/images/content/figma/aws-byoc-ece-hipaa.png";
 import byocAwsEcePciDss from "@site/static/images/content/figma/aws-byoc-ece-pci-dss.png";
+import byocGcpEceHipaa from "@site/static/images/content/figma/gcp-byoc-ece-hipaa.png";
+import byocGcpEcePciDss from "@site/static/images/content/figma/gcp-byoc-ece-pci-dss.png";
 import byocAwsPublic from "@site/static/images/content/figma/byoc-aws-public.png";
 import byocGcpPrivate from "@site/static/images/content/figma/byoc-gcp-private.png";
 import byocGcpPublic from "@site/static/images/content/figma/byoc-gcp-public.png";
@@ -188,7 +190,7 @@ displays only the private hostname.
 :::
 
 </TabItem>
-<TabItem value="5" label="AWS BYOC ECE HIPAA">
+<TabItem value="3" label="AWS BYOC ECE HIPAA">
 
 <img src={byocAwsEceHipaa} className="centered zoomable" alt="BYOC AWS HIPAA architecture" width="100%" />
 
@@ -213,7 +215,7 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="6" label="AWS BYOC ECE PCI DSS">
+<TabItem value="4" label="AWS BYOC ECE PCI DSS">
 
 <img src={byocAwsEcePciDss} className="centered zoomable" alt="BYOC AWS PCI DSS architecture" width="100%" />
 
@@ -238,7 +240,7 @@ For the full list of controls, requirements, and limitations, see
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
-<TabItem value="3" label="GCP BYOC private">
+<TabItem value="5" label="GCP BYOC private">
 
 <img src={byocGcpPrivate} className="centered zoomable" alt="BYOC Google Cloud private architecture" width="100%" />
 
@@ -267,7 +269,7 @@ from Aiven repositories).
 :::
 
 </TabItem>
-<TabItem value="4" label="GCP BYOC public">
+<TabItem value="6" label="GCP BYOC public">
 
 <img src={byocGcpPublic} className="centered zoomable" alt="BYOC Google Cloud public architecture" width="100%" />
 
@@ -287,6 +289,56 @@ displays only the private hostname.
 :::
 
 </TabItem>
+<TabItem value="7" label="GCP BYOC ECE HIPAA">
+
+<img src={byocGcpEceHipaa} className="centered zoomable" alt="BYOC GCP HIPAA architecture" width="100%" />
+
+The Google Cloud `hipaa` deployment model is for healthcare workloads that handle protected
+health information (PHI) under HIPAA. It builds on the Google Cloud private model and shares
+its network topology: a dedicated **BYOC VPC** with workload nodes in a private subnet and
+a **Bastion node** that proxies traffic for the Aiven management plane. On top of that
+topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
+  Aiven creates no NAT gateways.
+- Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+  [tiered storage](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
+  buckets in your own Google Cloud project, with public access prevention and uniform
+  bucket-level access enforced.
+- Aiven tags all resources with the `hipaa` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+
+</TabItem>
+<TabItem value="8" label="GCP BYOC ECE PCI DSS">
+
+<img src={byocGcpEcePciDss} className="centered zoomable" alt="BYOC GCP PCI DSS architecture" width="100%" />
+
+The Google Cloud `pci_dss` deployment model is for payment workloads that require
+cardholder data environment (CDE) isolation under PCI DSS. It builds on the Google Cloud
+private model and shares its network topology: a dedicated **BYOC VPC** with workload nodes
+in a private subnet and a **Bastion node** that proxies traffic for the Aiven management
+plane. On top of that topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
+  Aiven creates no NAT gateways.
+- Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+  [tiered storage](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
+  buckets in your own Google Cloud project, with public access prevention and uniform
+  bucket-level access enforced.
+- Aiven tags all resources with the `pci_dss` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+
+</TabItem>
 </Tabs>
 
 Firewall rules are enforced on the subnet level.
@@ -294,8 +346,8 @@ You can integrate your services using standard VPC peering techniques.
 All Aiven communication is encrypted.
 
 :::tip
-For AWS custom clouds, you can also choose a compliance deployment model (`pci_dss` or
-`hipaa`) to run services under PCI DSS or HIPAA requirements. See
+For AWS and Google Cloud custom clouds, you can also choose a compliance deployment model
+(`pci_dss` or `hipaa`) to run services under PCI DSS or HIPAA requirements. See
 [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 :::
 
