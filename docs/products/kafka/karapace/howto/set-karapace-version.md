@@ -1,30 +1,30 @@
 ---
-title: Manage the Karapace version
-sidebar_label: Manage the Karapace version
+title: Set the Karapace version
+sidebar_label: Set the Karapace version
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-You can pin your Aiven for Apache Kafka® service to a specific Karapace version.
+You can set which Karapace version your Aiven for Apache Kafka® service runs.
 
-Pin a version to test compatibility or to control which Karapace version the
-service runs. If you do not pin a version, the service uses the most recent
-Karapace version Aiven provides through maintenance updates. A pinned version
-stays in use until you change `karapace_version` or set it to `null`.
+Set a specific version to test compatibility or to control upgrades. If you do
+not set a version, the service uses the latest Karapace version available
+through maintenance updates. After you set `karapace_version`, the service
+keeps that version until you change the setting or set it to `null`.
 
 ## Prerequisites
 
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/get-started-kafka)
   with Karapace enabled
 - A [maintenance update](/docs/products/kafka/howto/maintenance-updates#maintenance-updates)
-  that includes Karapace version pinning
+  that includes Karapace version selection
 
-## Set the version
+## Set a Karapace version
 
-Set `karapace_version` to the version you want the service to run. Use the same
-setting to pin a version, upgrade, or roll back.
+Set `karapace_version` to the version you want the service to run. To upgrade
+or roll back, change the setting to another supported version.
 
 <Tabs groupId="tool">
 <TabItem value="console" label="Console" default>
@@ -80,17 +80,14 @@ Replace the following:
 
 If Aiven returns an error when you set the version, apply a
 [maintenance update](/docs/products/kafka/howto/maintenance-updates#maintenance-updates).
-The update enables Karapace version pinning or installs the selected version on
-the service nodes. You can also replace a node to install the required version.
-Then set the version again.
+The update enables Karapace version selection or installs the selected version
+on the service nodes. You can also replace a node to install the required
+version. Then set the version again.
 
-## Remove the version pin
+## Stop using a specific Karapace version
 
-Set `karapace_version` to `null` to stop pinning a version. The service then
-uses the most recent Karapace version Aiven provides through maintenance updates.
-
-The Aiven Console cannot set `karapace_version` to `null`. Use the Aiven CLI or
-Aiven API.
+Set `karapace_version` to `null` to stop using a specific version. The service
+then uses the latest Karapace version available through maintenance updates.
 
 <Tabs groupId="tool">
 <TabItem value="cli" label="CLI" default>
@@ -129,9 +126,10 @@ Replace the following:
 </TabItem>
 </Tabs>
 
-## Verify the pinned version
+## Check the Karapace version
 
-Check `karapace_version` to see whether the service is pinned.
+Check `karapace_version` to see whether the service is set to a specific
+version.
 
 <Tabs groupId="tool">
 <TabItem value="console" label="Console" default>
@@ -176,13 +174,14 @@ Replace the following:
 </TabItem>
 </Tabs>
 
-In the Aiven Console, a version number means the service is pinned to that
-version. If **`karapace_version`** is not listed or has no value, the service is
-not pinned.
+In the Aiven Console, if **`karapace_version`** shows a version number, the
+service is set to that version. If the option is not listed or has no value,
+the service is not set to a specific version.
 
 In the CLI output or API response, check `karapace_version` in `user_config`.
-A version number means the service is pinned. If the value is `null` or the
-field is not present, the service is not pinned.
+If it contains a version number, the service is set to that version. If the
+value is `null` or the field is not present, the service is not set to a
+specific version.
 
 ## Related pages
 
