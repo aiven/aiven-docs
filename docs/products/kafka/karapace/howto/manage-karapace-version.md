@@ -5,36 +5,42 @@ sidebar_label: Manage the Karapace version
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 You can pin your Aiven for Apache Kafka® service to a specific Karapace version.
 
-By default, your service uses the latest supported Karapace version and upgrades
-automatically. A pinned version stays in effect until you remove the setting.
-Pin a version to test compatibility before you accept a Karapace upgrade. You can
-return to automatic updates at any time.
+Pin a version to test compatibility or to control which Karapace version the
+service runs. If you do not pin a version, the service uses the most recent
+Karapace version Aiven provides through maintenance updates. A pinned version
+stays in use until you change `karapace_version` or set it to `null`.
 
 ## Prerequisites
 
 - An [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/get-started-kafka)
   with Karapace enabled
-- The [service maintenance update](/docs/products/kafka/howto/maintenance-updates#maintenance-updates)
-  that adds Karapace version pinning. If the update is not applied, Aiven returns
-  an error when you try to pin a version.
-- [Aiven CLI](/docs/tools/cli)
-- [Aiven API](/docs/tools/api)
+- A [maintenance update](/docs/products/kafka/howto/maintenance-updates#maintenance-updates)
+  that includes Karapace version pinning
 
-:::note
-Karapace version selection is not available in the Aiven Console. Use the Aiven
-CLI or Aiven API instead.
-:::
+## Set the version
 
-## Set the Karapace version
-
-To pin your service to a specific Karapace version, set the `karapace_version`
-configuration option.
+Set `karapace_version` to the version you want the service to run. Use the same
+setting to pin a version, upgrade, or roll back.
 
 <Tabs groupId="tool">
-<TabItem value="cli" label="Aiven CLI" default>
+<TabItem value="console" label="Console" default>
+
+1. Log in to the [Aiven Console](https://console.aiven.io/).
+1. Select your project and your Aiven for Apache Kafka service.
+1. Click <ConsoleLabel name="service settings"/>.
+1. Click **Advanced configuration** > **Configure**.
+1. Click <ConsoleLabel name="Add config options"/>.
+1. Set **`karapace_version`** to a supported version, for example, `6.2.2`.
+1. Click **Save configuration**.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Run the following command:
 
 ```shell
 avn service update SERVICE_NAME --project PROJECT_NAME \
@@ -43,14 +49,14 @@ avn service update SERVICE_NAME --project PROJECT_NAME \
 
 Replace the following:
 
-- `SERVICE_NAME`: name of your Aiven for Apache Kafka® service
+- `SERVICE_NAME`: name of your Aiven for Apache Kafka service
 - `PROJECT_NAME`: name of your Aiven project
 - `VERSION`: Karapace version to use, for example, `6.2.2`
 
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
 
-Use the [Aiven API](https://api.aiven.io/doc/) to update the service configuration:
+Send the following `PUT` request:
 
 ```shell
 curl --request PUT \
@@ -63,28 +69,48 @@ curl --request PUT \
 Replace the following:
 
 - `PROJECT_NAME`: name of your Aiven project
-- `SERVICE_NAME`: name of your Aiven for Apache Kafka® service
+- `SERVICE_NAME`: name of your Aiven for Apache Kafka service
 - `API_TOKEN`: your [Aiven API token](/docs/platform/howto/create_authentication_token)
 - `VERSION`: Karapace version to use, for example, `6.2.2`
 
 </TabItem>
 </Tabs>
 
-## Return to automatic updates
+### Troubleshoot a failed change
 
-To stop pinning and return to automatic Karapace version updates, set
-`karapace_version` to `null`.
+If Aiven returns an error when you set the version, apply a
+[maintenance update](/docs/products/kafka/howto/maintenance-updates#maintenance-updates).
+The update enables Karapace version pinning or installs the selected version on
+the service nodes. You can also replace a node to install the required version.
+Then set the version again.
+
+## Remove the version pin
+
+Set `karapace_version` to `null` to stop pinning a version. The service then
+uses the most recent Karapace version Aiven provides through maintenance updates.
+
+The Aiven Console cannot set `karapace_version` to `null`. Use the Aiven CLI or
+Aiven API.
 
 <Tabs groupId="tool">
-<TabItem value="cli" label="Aiven CLI" default>
+<TabItem value="cli" label="CLI" default>
+
+Run the following command:
 
 ```shell
 avn service update SERVICE_NAME --project PROJECT_NAME \
   -c karapace_version=null
 ```
 
+Replace the following:
+
+- `SERVICE_NAME`: name of your Aiven for Apache Kafka service
+- `PROJECT_NAME`: name of your Aiven project
+
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
+
+Send the following `PUT` request:
 
 ```shell
 curl --request PUT \
@@ -94,22 +120,46 @@ curl --request PUT \
   --data '{"user_config": {"karapace_version": null}}'
 ```
 
+Replace the following:
+
+- `PROJECT_NAME`: name of your Aiven project
+- `SERVICE_NAME`: name of your Aiven for Apache Kafka service
+- `API_TOKEN`: your [Aiven API token](/docs/platform/howto/create_authentication_token)
+
 </TabItem>
 </Tabs>
 
-## Verify the Karapace version
+## Verify the pinned version
 
-To confirm which version your service is set to use, review the service configuration.
+Check `karapace_version` to see whether the service is pinned.
 
 <Tabs groupId="tool">
-<TabItem value="cli" label="Aiven CLI" default>
+<TabItem value="console" label="Console" default>
+
+1. Log in to the [Aiven Console](https://console.aiven.io/).
+1. Select your project and your Aiven for Apache Kafka service.
+1. Click <ConsoleLabel name="service settings"/>.
+1. Click **Advanced configuration**.
+1. Check the **`karapace_version`** value.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Run the following command:
 
 ```shell
 avn service get SERVICE_NAME --project PROJECT_NAME --json
 ```
 
+Replace the following:
+
+- `SERVICE_NAME`: name of your Aiven for Apache Kafka service
+- `PROJECT_NAME`: name of your Aiven project
+
 </TabItem>
-<TabItem value="api" label="Aiven API">
+<TabItem value="api" label="API">
+
+Send the following `GET` request:
 
 ```shell
 curl --request GET \
@@ -117,15 +167,25 @@ curl --request GET \
   --header "Authorization: Bearer API_TOKEN"
 ```
 
+Replace the following:
+
+- `PROJECT_NAME`: name of your Aiven project
+- `SERVICE_NAME`: name of your Aiven for Apache Kafka service
+- `API_TOKEN`: your [Aiven API token](/docs/platform/howto/create_authentication_token)
+
 </TabItem>
 </Tabs>
 
-In the response, find `karapace_version` in `user_config`. If it shows a
-version number, your service is pinned to that Karapace version. If it shows
-`null`, your service uses automatic Karapace version updates.
+In the Aiven Console, a version number means the service is pinned to that
+version. If **`karapace_version`** is not listed or has no value, the service is
+not pinned.
+
+In the CLI output or API response, check `karapace_version` in `user_config`.
+A version number means the service is pinned. If the value is `null` or the
+field is not present, the service is not pinned.
 
 ## Related pages
 
 - [Apache Kafka maintenance updates](/docs/products/kafka/howto/maintenance-updates#maintenance-updates)
 - [Aiven CLI reference: avn service update](/docs/tools/cli/service-cli#avn-cli-service-update)
-- [Aiven API documentation](https://api.aiven.io/doc/)
+- [Aiven REST API reference](https://api.aiven.io/doc/)
