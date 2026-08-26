@@ -13,7 +13,9 @@ scope yourself.
 
 ## Prerequisites
 
-- Apply any outstanding maintenance updates mentioning the Datadog integration.
+- Apply the latest maintenance update. Aiven checks for a platform capability added in a
+  recent update before saving relation or function metrics settings, and rejects the
+  configuration without it.
 - The [Datadog Metrics integration](/docs/integrations/datadog/datadog-metrics) is enabled
   for the service.
 - For function metrics only: the `track_functions` parameter is set to `pl` or `all` in
@@ -42,12 +44,18 @@ relations either by exact name or by regular expression:
 avn service integration-update --project PROJECT_NAME \
    --user-config-json '{
       "datadog_pg_relations": [
-         {"relation_name": "orders", "schemas": ["public"]},
-         {"relation_regex": "^events_.*", "schemas": ["public", "analytics"]}
+         {"relation_name": "orders"},
+         {"relation_name": "events", "schemas": ["public", "analytics"]},
+         {"relation_regex": "^metrics_.*", "relkind": ["r", "p"]}
       ]
    }' \
    INTEGRATION_ID
 ```
+
+This example collects metrics for the `orders` relation in all schemas, for the `events`
+relation in the `public` and `analytics` schemas, and for any relation matching
+`^metrics_.*`, with lock metrics limited to ordinary tables (`r`) and partitioned tables
+(`p`).
 
 Each entry accepts the following fields.
 
@@ -78,10 +86,7 @@ relation metrics follow the name or regular expression match regardless of `relk
 | `f` | Foreign table |
 | `p` | Partitioned table |
 
-:::note
-You can configure up to 32 entries in `datadog_pg_relations`. Saving a configuration
-with more entries fails validation.
-:::
+You can configure up to 32 entries in `datadog_pg_relations`.
 
 ## Collect function metrics
 
