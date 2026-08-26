@@ -40,7 +40,7 @@ to a Karapace schema registry:
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Click **Deploy application**.
-1. Connect your **GitHub account**.
+1. Select or connect your **GitHub account**.
 1. Select your **Account**, **Repository**, and **Branch**.
 1. Click **Next**.
 1. Select your manifest file and click **Scan**. Aiven Runtime automatically detects
