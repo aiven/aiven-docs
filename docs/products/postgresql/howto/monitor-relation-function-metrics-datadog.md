@@ -78,8 +78,10 @@ relation metrics follow the name or regular expression match regardless of `relk
 | `f` | Foreign table |
 | `p` | Partitioned table |
 
-You can configure up to 32 entries in `datadog_pg_relations`, each restricted to at most
-8 schemas.
+:::note
+You can configure up to 32 entries in `datadog_pg_relations`. Saving a configuration
+with more entries fails validation.
+:::
 
 ## Collect function metrics
 
