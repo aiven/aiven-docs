@@ -23,8 +23,13 @@ keeps that version until you change the setting or set it to `null`.
 
 ## Set a Karapace version
 
-Set `karapace_version` to the version you want the service to run. To upgrade
-or roll back, change the setting to another supported version.
+Set `karapace_version` to one of the Karapace versions currently available for
+selection. Aiven makes the two most recent Karapace versions available for
+selection. To upgrade or roll back, change the setting to another version that
+is currently available.
+
+Older Karapace versions can remain supported for services already running them.
+They might no longer be available for version selection.
 
 <Tabs groupId="tool">
 <TabItem value="console" label="Console" default>
@@ -34,7 +39,8 @@ or roll back, change the setting to another supported version.
 1. Click <ConsoleLabel name="service settings"/>.
 1. Click **Advanced configuration** > **Configure**.
 1. Click <ConsoleLabel name="Add config options"/>.
-1. Set **`karapace_version`** to a supported version, for example, `6.2.2`.
+1. Set **`karapace_version`** to a version currently available for selection, for
+   example, `6.2.2`.
 1. Click **Save configuration**.
 
 </TabItem>
@@ -51,7 +57,7 @@ Replace the following:
 
 - `SERVICE_NAME`: name of your Aiven for Apache Kafka service
 - `PROJECT_NAME`: name of your Aiven project
-- `VERSION`: Karapace version to use, for example, `6.2.2`
+- `VERSION`: Karapace version currently available for selection, for example, `6.2.2`
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -71,7 +77,7 @@ Replace the following:
 - `PROJECT_NAME`: name of your Aiven project
 - `SERVICE_NAME`: name of your Aiven for Apache Kafka service
 - `API_TOKEN`: your [Aiven API token](/docs/platform/howto/create_authentication_token)
-- `VERSION`: Karapace version to use, for example, `6.2.2`
+- `VERSION`: Karapace version currently available for selection, for example, `6.2.2`
 
 </TabItem>
 </Tabs>
@@ -80,11 +86,10 @@ Replace the following:
 
 If Aiven returns an error when you set the version, apply a
 [maintenance update](/docs/products/kafka/howto/maintenance-updates#maintenance-updates).
-The update enables Karapace version selection or installs the selected version
-on the service nodes. You can also replace a node to install the required
-version. Then set the version again.
+The update enables Karapace version selection or makes the selected version
+available on the service. Then set the version again.
 
-## Stop using a specific Karapace version
+## Stop using a specific version
 
 Set `karapace_version` to `null` to stop using a specific version. The service
 then uses the latest Karapace version available through maintenance updates.
