@@ -2086,7 +2086,6 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/reference/pg-connection-limits',
                     'products/postgresql/reference/idle-connections',
                     'products/postgresql/reference/use-of-deprecated-tls-versions',
-                    'products/postgresql/troubleshooting/pg-password-encryption-upgrade',
                     'products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem',
                   ],
                 },

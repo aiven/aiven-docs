@@ -129,6 +129,7 @@ the upstream open source project's EOL.
 | 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
 | 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
 | 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
+| 19      | To be announced | To be announced             | To be announced                 |
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
