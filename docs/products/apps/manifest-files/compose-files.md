@@ -53,7 +53,7 @@ Aiven Runtime automatically detects and creates the following data services base
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
 and Aiven for OpenSearch®.
 
-Aiven integrates the services listed in the `depends_on` property.
+Aiven integrates the data services listed in the `depends_on` property.
 You define the service type and tags with the `image` property, for example:
 
 ```yaml
@@ -85,7 +85,7 @@ Aiven Runtime only recognizes specific, standard images for each service type.
 
 #### Kafka
 
-Runtime supports the following images for Kafka:
+Runtime recognizes the following images for Kafka:
 
 - `apache/kafka`
 - `confluentinc/cp-kafka`
@@ -108,7 +108,7 @@ The following is an example for the Confluent Platform Kafka image:
 
 #### PostgreSQL
 
-Runtime supports the following PostgreSQL images:
+Runtime recognizes the following PostgreSQL images:
 
 - `postgres`
 - `postgresql`
@@ -125,7 +125,7 @@ services:
 
 #### Valkey
 
-Runtime supports the following Valkey images:
+Runtime recognizes the following Valkey images:
 
 - `valkey`
 - `valkey/valkey`
@@ -143,7 +143,7 @@ services:
 
 #### OpenSearch
 
-Aiven Runtime only supports the official
+Aiven Runtime only recognizes the official
 `opensearchproject/opensearch` image, for example:
 
 
