@@ -185,7 +185,8 @@ In the **Create custom cloud** wizard:
    ```
 
    Replace `AZURE_TENANT_ID` with your Azure tenant ID. To look it up, run:
-   `az account show --query tenantId -o tsv`.
+   `az account show --query tenantId -o tsv`. The app ID is also available in the
+   variables file you downloaded as `aiven_cce_client_id`.
 
    :::note
    Run these commands **once per tenant**, regardless of how many custom clouds you
@@ -372,7 +373,8 @@ ready to use.
       ```
 
       Replace `AZURE_TENANT_ID` with your Azure tenant ID. To look it up, run:
-      `az account show --query tenantId -o tsv`.
+      `az account show --query tenantId -o tsv`. The app ID is also available in
+      the variables file you downloaded as `aiven_cce_client_id`.
 
       :::note
       Run these commands **once per tenant**, regardless of how many custom clouds
