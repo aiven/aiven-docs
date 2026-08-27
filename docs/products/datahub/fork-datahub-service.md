@@ -4,6 +4,7 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Fork an Aiven for DataHub service to create a complete copy of it from its latest backups. This restores both its PostgreSQL metadata database and OpenSearch search index.
 Both stores are restored to the latest backup available at or before
@@ -18,6 +19,15 @@ Common use cases for forking include:
 - Testing upgrades before applying them to production services.
 - Creating an instance in a different cloud provider, region, or with a different plan.
 - Renaming a service.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['Manage services', 'Recover services', 'Operator', 'Project admin'],
+    },
+  ]}
+/>
 
 ## Create a fork
 

@@ -5,6 +5,7 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Rotate your Aiven for DataHub authentication and token secrets to maintain security and prevent unauthorized access.
 
@@ -16,6 +17,15 @@ When you rotate token secrets, every previously issued API access token
 stops working permanently. This includes personal access tokens and service tokens.
 Every DataHub application service restarts simultaneously.
 Browser sessions are not affected, so logged-in users stay logged in.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+  ]}
+/>
 
 ## Rotate secrets
 
