@@ -127,6 +127,19 @@
 /platform/vpc                                          /docs/platform/howto/manage-vpc-peering  301
 /products/alloydbomni                                  /docs/products/postgresql  301
 /products/alloydbomni/advanced-params                  /docs/products/postgresql/reference/advanced-params  301
+/products/aiven-apps                                   /docs/products/runtime  301
+/products/apps/change-cloud-apps                       /docs/products/runtime/change-cloud  301
+/products/apps/connect-services-to-apps                /docs/products/runtime/connect-services-to-apps  301
+/products/apps/custom-domain-for-apps                  /docs/products/runtime/custom-domain  301
+/products/apps/deploy-apps                             /docs/products/runtime/deploy-apps  301
+/products/apps/deployment-information                  /docs/products/runtime/deployment-information  301
+/products/apps/manifest-files/compose-files            /docs/products/runtime/manifest-files/compose-files  301
+/products/apps/manifest-files/containerfiles           /docs/products/runtime/manifest-files/containerfiles  301
+/products/apps/manifest-files/manifests                /docs/products/runtime/manifest-files/manifests  301
+/products/apps/ports                                   /docs/products/runtime/ports  301
+/products/apps/power-off-apps                          /docs/products/runtime/power-off-apps  301
+/products/apps/scale-apps                              /docs/products/runtime/scale-apps  301
+/products/apps/secrets-and-variables                   /docs/products/runtime/secrets-and-variables  301
 # Aiven for Caching → Aiven for Valkey redirects
 /products/caching                                                  /docs/products/valkey  301
 /products/caching/concepts                                         /docs/products/valkey  301

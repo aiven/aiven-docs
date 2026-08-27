@@ -83,4 +83,4 @@ To run database schema migrations, you can do one of the following:
 
 - **Run migrations in CI/CD before deploying**: If you use a CI/CD pipeline, you can
   run migrations as a pipeline step before
-  [deployment](/docs/products/apps/deploy-apps#redeploy-an-application).
+  [deployment](/docs/products/runtime/deploy-apps#redeploy-an-application).

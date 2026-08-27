@@ -38,7 +38,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Runtime applications',
     Svg: require('@site/static/images/icons/home/console.svg').default,
-    to: '/docs/products/aiven-apps',
+    to: '/docs/products/runtime',
     accent: 'purple',
     description: (
       <>Run stateless apps within your existing Aiven project infrastructure.</>
