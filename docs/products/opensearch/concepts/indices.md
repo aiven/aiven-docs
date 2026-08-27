@@ -16,6 +16,13 @@ that defines its fields, rather than multiple types within the index.
 
 Aiven for OpenSearch doesn't limit the number of indices you can create.
 
+:::warning
+Avoid storing all your data in a single, continuously growing index with one
+primary shard. A single-shard index can't spread its data or query load across
+multiple nodes, and it runs into the memory and recovery-time limits described in
+[Shards and replicas](#shards-and-replicas) sooner than a properly sized index would.
+:::
+
 ## Mapping
 
 Mapping defines the fields in an index and their data types, similar to a schema in a
@@ -30,6 +37,12 @@ document that introduces it. For example, if the first document sets `user_id` t
 `A123` fails to index as a mapping conflict. If you write through the bulk API without
 checking each item's result, that failure can go unnoticed.
 
+Explicit mapping also lets you opt individual fields out of indexing. For example, if a
+field holds a large value you only need to retrieve, such as a full description, but
+never search or filter on, set `"index": false` for that field. OpenSearch then stores
+the value without building search structures for it, which saves CPU, disk space, and
+memory.
+
 For production workloads, define an explicit mapping when you create an index so that
 field types stay consistent and predictable. For the full mapping syntax, see the
 [OpenSearch mapping documentation](https://opensearch.org/docs/latest/field-types/).
@@ -37,7 +50,9 @@ field types stay consistent and predictable. For the full mapping syntax, see th
 ## Shards and replicas
 
 Each index is split into primary shards, the units that OpenSearch distributes across
-the nodes in your cluster. A replica is a copy of a primary shard. Replicas protect
+the nodes in your cluster. The number of primary shards is set when you create the index
+and can't be changed later, except by creating a different index with the Split API or
+by reindexing. A replica is a copy of a primary shard. Replicas protect
 against data loss, and OpenSearch can also serve search queries from replicas, so more
 replicas can spread read load across more nodes, not just add redundancy. For details on
 how Aiven for OpenSearch manages replicas, see

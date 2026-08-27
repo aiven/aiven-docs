@@ -36,6 +36,10 @@ curl -X PUT "https://USER:PASSWORD@HOST:PORT/_all/_settings" \
 
 To unset it on a single index instead, replace `_all` with that index's name.
 
+If the affected node is still over the flood stage watermark after you clear this
+setting, OpenSearch sets it again automatically. Confirm disk usage has actually dropped
+below the watermark before you try to clear the setting.
+
 :::note
 `index.blocks.read_only_allow_delete` applies at the index level. While it's set, you
 can't delete individual documents from an index to shrink it, only delete the whole

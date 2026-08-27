@@ -69,7 +69,8 @@ need to recreate them.
     ```
 
 1. Split it into a new index. The target shard count must be a multiple of the source
-   shard count, for example 2 shards can split into 4, 6, or 8:
+   shard count. For example, 2 shards can split into 4, 6, or 8, and 3 shards can split
+   into 6, 9, or 12:
 
     ```bash
     curl -X POST "https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_split/NEW_INDEX_NAME" \

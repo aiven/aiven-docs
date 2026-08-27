@@ -75,21 +75,40 @@ during migration or plan changes.
 ## Adjusting shard count
 
 OpenSearch doesn't let you change the shard count of an existing index directly, so
-increasing or decreasing it always means creating a different index. The right approach
-depends on how much you can prepare in advance:
+increasing or decreasing it always means creating a different index.
+
+**Best practice**: If you're not sure yet what shard count, mappings, or other settings
+you'll eventually need, create every index behind an alias from the start. Point your
+application at the alias, not the index name, from day one:
+
+```json
+PUT /events-v1
+{
+  "settings": {
+    "index.number_of_shards": 1,
+    "index.number_of_replicas": 1
+  },
+  "aliases": {
+    "events": {}
+  }
+}
+```
+
+Configure your application to use the alias `events`, not the index name `events-v1`,
+directly. Later, if you need a different shard count, mappings, or other settings,
+create `events-v2` with the settings you want, copy the data across, and switch the
+alias to it in a single atomic step, with no application changes.
+
+If you didn't set up an alias in advance, use one of the following instead:
 
 -   **Split the index**: Use the Split API to create an index with a multiple of the
     current shard count. The new index keeps the source index's mappings and settings
-    automatically, but it gets a new name, so you need an alias if you want existing
-    clients to keep using the original name.
+    automatically, but it gets a new name, so you still need an alias if you want
+    existing clients to keep using the original name.
 -   **Reindex to a new index**: Create an index with the shard count you want and copy
     the data across with the Reindex API. This works for any index, but unlike the
     Split API, it doesn't carry over mappings and settings automatically, and it needs
     more planning around writes that happen during the copy.
--   **Point an alias at the current index in advance**: If your application already
-    writes through an alias rather than the index name directly, you can create the
-    replacement index ahead of time and switch the alias to it in a single atomic step,
-    with no application changes.
 
 For step-by-step instructions, see
 [Manage large shards in Aiven for OpenSearch®](/docs/products/opensearch/howto/resolve-shards-too-large).
