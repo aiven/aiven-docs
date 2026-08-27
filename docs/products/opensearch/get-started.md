@@ -14,6 +14,10 @@ import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Learn how to use Aiven for OpenSearch®, create a service, secure access, manage indices, and explore your data.
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to create OpenSearch services, view cluster details, and manage them directly from clients like Cursor and Claude Code.
+:::
+
 Aiven for OpenSearch® is a fully managed OpenSearch service designed for reliability,
 scalability, and security. It includes OpenSearch Dashboards for data visualization and
 supports integrations for logs and monitoring.
