@@ -719,6 +719,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/kafka/karapace',
                 'products/kafka/karapace/howto/enable-karapace',
+                'products/kafka/karapace/howto/set-karapace-version',
                 {
                   type: 'category',
                   label: 'Schema registry',
