@@ -3,7 +3,19 @@ title: Delete an Aiven for DataHub service
 sidebar_label: Delete service
 ---
 
-import DeleteService from "@site/static/includes/delete-services.md"
+import DeleteService from "@site/static/includes/delete-services.md";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+
+When you delete an Aiven for DataHub service, all service data and configuration are permanently deleted.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+  ]}
+/>
 
 When you delete an Aiven for DataHub service, all service data and configuration are permanently deleted.
 

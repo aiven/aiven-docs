@@ -4,8 +4,18 @@ sidebar_label: Scale DataHub services
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Scale your Aiven for DataHub service by changing its service plan to optimize costs.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+  ]}
+/>
 
 1. In your project, click <ConsoleLabel name="services"/>.
 1. Open your DataHub service.

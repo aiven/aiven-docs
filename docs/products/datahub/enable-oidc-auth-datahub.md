@@ -4,10 +4,20 @@ sidebar_label: Enable OIDC authentication
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Use OpenID Connect (OIDC) to configure single sign-on (SSO) to your DataHub service with your identity provider.
 
 You can use any OIDC compliant provider such as Auth0, Okta, Google Identity, or Azure AD. When OIDC is enabled, all users are redirected to SSO login by default.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+  ]}
+/>
 
 ## Prerequisites
 
