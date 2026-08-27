@@ -194,8 +194,12 @@ In the **Create custom cloud** wizard:
 
    To remove the Aiven CCE enterprise application from your tenant after you have
    deleted all custom clouds on it, run:
-   `az ad sp delete --id b40b60e2-10c8-4917-bc74-18a87950e767` (after
-   `az login --tenant "AZURE_TENANT_ID"`).
+
+   ```bash
+   az login --tenant "AZURE_TENANT_ID"
+   az ad sp delete --id b40b60e2-10c8-4917-bc74-18a87950e767
+   ```
+
    :::
 
 1. Deploy the infrastructure template using Terraform:
@@ -377,8 +381,12 @@ ready to use.
 
       To remove the Aiven CCE enterprise application from your tenant after you
       have deleted all custom clouds on it with `terraform destroy`, run:
-      `az ad sp delete --id b40b60e2-10c8-4917-bc74-18a87950e767` (after
-      `az login --tenant "AZURE_TENANT_ID"`).
+
+      ```bash
+      az login --tenant "AZURE_TENANT_ID"
+      az ad sp delete --id b40b60e2-10c8-4917-bc74-18a87950e767
+      ```
+
       :::
 
    1. Deploy the infrastructure template using Terraform with the provided variables

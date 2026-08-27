@@ -47,6 +47,7 @@ Provisions resources for a custom cloud.
 | `--aws-iam-role-arn`                           | Yes (AWS)       | Identifier of the role created when running the infrastructure template in your AWS account               |
 | `--google-privilege-bearing-service-account-id`| Yes (GCP)       | Identifier of the service account created when running the infrastructure template in your Google account |
 | `--azure-subscription-id`                      | Yes (Azure)     | Azure subscription ID where the BYOC infrastructure is deployed                                          |
+| `--azure-tenant-id`                            | Yes (Azure)     | Entra ID tenant ID of the directory where the Aiven CCE enterprise application is installed              |
 
 ### `avn byoc update`
 
