@@ -13,9 +13,6 @@ scope yourself.
 
 ## Prerequisites
 
-- Apply the latest maintenance update. Aiven checks for a platform capability added in a
-  recent update before saving relation or function metrics settings, and rejects the
-  configuration without it.
 - The [Datadog Metrics integration](/docs/integrations/datadog/datadog-metrics) is enabled
   for the service.
 - For function metrics only: the `track_functions` parameter is set to `pl` or `all` in
@@ -34,6 +31,12 @@ avn service integration-list --project PROJECT_NAME SERVICE_NAME
 
 Use the `service_integration_id` value from the output as `INTEGRATION_ID` in the
 following commands.
+
+:::note
+If saving `datadog_pg_relations` or `datadog_function_metrics_enabled` fails, your
+service is pending a scheduled maintenance update. Apply the update, or wait for your
+next maintenance window, then try again.
+:::
 
 ## Collect relation metrics
 
