@@ -1,7 +1,6 @@
 ---
 title: Change cloud for Aiven for DataHub
 sidebar_label: Change cloud
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

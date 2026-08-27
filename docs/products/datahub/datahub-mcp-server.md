@@ -1,6 +1,5 @@
 ---
 title: Use the DataHub MCP server
-limited: true
 ---
 
 Use the DataHub MCP server to empower AI agents with deep visibility into your data ecosystem, enabling natural language search, end-to-end lineage tracking, and context-aware SQL generation.

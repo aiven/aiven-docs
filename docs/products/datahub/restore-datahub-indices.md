@@ -1,7 +1,6 @@
 ---
 title: Reindex Aiven for DataHub search and graph indices
 sidebar_label: Reindex search and graph indices
-limited: true
 ---
 
 Rebuild your OpenSearch indices for search and graph data if your search results or relationship graphs differ from the data in your metadata database.

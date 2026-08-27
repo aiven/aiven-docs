@@ -1,7 +1,6 @@
 ---
 title: Upgrade Aiven for DataHub
 sidebar_label: Upgrade DataHub
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

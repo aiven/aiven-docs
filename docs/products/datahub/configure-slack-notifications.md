@@ -1,7 +1,6 @@
 ---
 title: Configure Slack notifications for DataHub activity
 sidebar_label: Configure Slack notifications
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

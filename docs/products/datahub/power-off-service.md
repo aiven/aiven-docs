@@ -1,7 +1,6 @@
 ---
 title: Power an Aiven for DataHub service off or on
 sidebar_label: Power off or on
-limited: true
 ---
 
 import PowerOffOnService from "@site/static/includes/power-off-services.md"

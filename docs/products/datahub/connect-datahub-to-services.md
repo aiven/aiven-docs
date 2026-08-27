@@ -1,6 +1,5 @@
 ---
 title: Connect DataHub to services
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
