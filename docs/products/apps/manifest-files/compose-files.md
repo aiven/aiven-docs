@@ -34,6 +34,12 @@ Aiven recognizes Compose files with the following file naming conventions:
 Aiven automatically analyzes Compose files to detect the applications to build and
 the Aiven services to create.
 
+:::note
+You cannot use Compose files to deploy applications through the Aiven API or Aiven MCP.
+Use
+[Containerfiles or Dockerfiles](/docs/products/apps/manifest-files/containerfiles) instead.
+:::
+
 ## Create a Compose file
 
 Use the following guidelines to create your Compose files for Aiven Runtime.
