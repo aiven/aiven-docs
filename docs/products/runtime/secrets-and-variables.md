@@ -1,7 +1,6 @@
 ---
 title: Manage secrets and environment variables for Aiven Runtime
 sidebar_label: Manage secrets and variables
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

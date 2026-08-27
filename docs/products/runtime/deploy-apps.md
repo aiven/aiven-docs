@@ -1,6 +1,5 @@
 ---
 title: Deploy an application
-limited: true
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
