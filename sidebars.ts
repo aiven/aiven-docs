@@ -1480,9 +1480,10 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Access and security',
+              label: 'Security and access',
               items: [
                 'products/datahub/manage-datahub-users',
+                'products/datahub/permissions',
                 'products/datahub/enable-oidc-auth-datahub',
                 'products/datahub/rotate-secrets',
               ],

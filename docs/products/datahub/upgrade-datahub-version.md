@@ -5,12 +5,22 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Upgrade your Aiven for DataHub service to a new version.
 
 Aiven for DataHub services are not automatically upgraded to the latest major version
 and minor patches are not automatically applied. You can, however,
 manually upgrade your service to a newer major version.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+  ]}
+/>
 
 ## Upgrade a DataHub service
 

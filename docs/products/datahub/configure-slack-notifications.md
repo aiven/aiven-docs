@@ -5,11 +5,21 @@ limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Get activity notifications for your DataHub service in a Slack channel, including new datasets, ownership changes, tags, and glossary updates.
 
 You can enable Slack notifications by configuring a Slack app
 and setting environment variables on the actions app.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['Manage services', 'Operator', 'Project admin'],
+    },
+  ]}
+/>
 
 ## Prerequisites
 
