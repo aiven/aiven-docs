@@ -24,16 +24,17 @@ Collect the following information about the target OpenSearch service:
 If the source data is in Avro format, also collect the following
 information:
 
-- `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service
-- `SCHEMA_REGISTRY_PORT`: The Apache Kafka schema registry port
-- `SCHEMA_REGISTRY_USER`: The Apache Kafka schema registry username
-- `SCHEMA_REGISTRY_PASSWORD`: The password for the schema registry user
+- `SCHEMA_REGISTRY_HOST`: Host from the **Schema Registry** tab. This is
+  the same hostname as the Kafka service.
+- `SCHEMA_REGISTRY_PORT`: Port from the **Schema Registry** tab.
+- `SCHEMA_REGISTRY_USER`: User from the **Schema Registry** tab.
+- `SCHEMA_REGISTRY_PASSWORD`: Password from the **Schema Registry** tab.
 
 :::note
 For Aiven for OpenSearch® and Aiven for Apache Kafka®, find these values
 on the service <ConsoleLabel name="overview" /> page in the [Aiven
 Console](https://console.aiven.io/). On Aiven for Apache Kafka®, Schema
-Registry credentials are in the **Schema Registry** subtab. You can
+Registry connection details are in the **Schema Registry** tab. You can
 also run `avn service get` with the
 [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 
@@ -65,11 +66,11 @@ with the following content:
     "tasks.max":"1",
     "key.ignore": "true",
     "key.converter": "io.confluent.connect.avro.AvroConverter",
-    "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+    "key.converter.schema.registry.url": "https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT",
     "key.converter.basic.auth.credentials.source": "USER_INFO",
     "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
     "value.converter": "io.confluent.connect.avro.AvroConverter",
-    "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+    "value.converter.schema.registry.url": "https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT",
     "value.converter.basic.auth.credentials.source": "USER_INFO",
     "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
 }
@@ -104,12 +105,12 @@ schema from [Karapace](https://github.com/aiven/karapace).
 
 When the source data is Avro, set the following parameters:
 
-- `value.converter.schema.registry.url`: Schema registry URL in the form
-  `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`. Use the values from
+- `value.converter.schema.registry.url`: Schema Registry URL in the form
+  `https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT`. Use the values from
   the [prerequisites](#connect_opensearch_sink_prereq).
 - `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to
   log in with a username and password.
-- `value.converter.schema.registry.basic.auth.user.info`: Schema registry
+- `value.converter.schema.registry.basic.auth.user.info`: Schema Registry
   credentials in the form `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`.
   Use the values from the [prerequisites](#connect_opensearch_sink_prereq).
 
