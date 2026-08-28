@@ -34,8 +34,15 @@ To enable Data API, you need the following:
    - Under **Identity provider**:
      - **JWKS URL**: Enter the HTTPS URL where your IdP publishes its public keys.
      - **Audience**: Enter the API identifier configured in your IdP.
-   - Under **Cloud and plan**, choose where to deploy the underlying
-     [Aiven application](/docs/products/aiven-apps):
+   - If Aiven has a recommendation for this service, choose a deployment mode under
+     **Settings**:
+     - **Recommended** (default): Deploys the underlying
+       [Aiven application](/docs/products/aiven-apps) on the cheapest available paid
+       plan, using the same cloud and region as your PostgreSQL service when possible,
+       or the nearest available region otherwise.
+     - **Custom**: Configure your own cloud, region, and plan under **Cloud and plan**.
+   - Under **Cloud and plan**, shown when there's no recommendation or you choose
+     **Custom**:
      - **Cloud**: Defaults to the same cloud and region as your PostgreSQL service. You
        can select a different cloud and region that supports the Aiven application.
      - **Plan**: Select a plan for the Aiven application. Free-tier plans aren't
