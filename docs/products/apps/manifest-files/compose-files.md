@@ -6,6 +6,7 @@ limited: true
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
+import AppIntegrationLimitation from "@site/static/includes/runtime-app-integration-limitation.md";
 
 Aiven Runtime scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
 Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
@@ -85,6 +86,8 @@ Aiven Runtime only recognizes specific, standard images for each service type.
 When a data service is recognized as an Aiven service, any specified version
 number is ignored. The latest stable version is used. You can change the version
 in the Aiven Console before or after deploying the application.
+
+<AppIntegrationLimitation/>
 
 #### Kafka
 

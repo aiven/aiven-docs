@@ -5,10 +5,13 @@ limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import AppIntegrationLimitation from "@site/static/includes/runtime-app-integration-limitation.md";
 
 Connect your deployed application to [Aiven services](/docs/products/services).
 You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®,
 Aiven for OpenSearch®, or Aiven for Valkey™ service.
+
+<AppIntegrationLimitation/>
 
 ## Connect an Aiven service
 
