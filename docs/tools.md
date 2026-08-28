@@ -51,4 +51,10 @@ You can interact with the Aiven platform with various interfaces and tools that 
         title="Aiven MCP"
         description="Manage Aiven services and access documentation from AI-powered coding assistants."
     />
+    <Card
+        to="/docs/tools/agents"
+        iconComponent={AI}
+        title="Aiven Agents"
+        description="Create and run agents on the Aiven Platform."
+    />
 </GridContainer>
