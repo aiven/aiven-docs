@@ -12,7 +12,7 @@ You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®,
 Aiven for OpenSearch®, or Aiven for Valkey™ service.
 
 You can also define integrations when you create your application
-by using [Compose files](/docs/products/apps/manifest-files/compose-files).
+by using [Compose files](/docs/products/runtime/manifest-files/compose-files).
 
 <AppIntegrationLimitation/>
 
