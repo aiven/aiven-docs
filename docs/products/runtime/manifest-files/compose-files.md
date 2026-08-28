@@ -38,7 +38,7 @@ the Aiven services to create.
 :::note
 You cannot use Compose files to deploy applications through the Aiven API or Aiven MCP.
 Use
-[Containerfiles or Dockerfiles](/docs/products/apps/manifest-files/containerfiles) instead.
+[Containerfiles or Dockerfiles](/docs/products/runtime/manifest-files/containerfiles) instead.
 :::
 
 ## Create a Compose file
