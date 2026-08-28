@@ -719,6 +719,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/kafka/karapace',
                 'products/kafka/karapace/howto/enable-karapace',
+                'products/kafka/karapace/howto/set-karapace-version',
                 {
                   type: 'category',
                   label: 'Schema registry',
@@ -2258,6 +2259,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/report-metrics-grafana',
                 'products/postgresql/howto/visualize-grafana',
                 'products/postgresql/howto/monitor-database-with-datadog',
+                'products/postgresql/howto/monitor-relation-function-metrics-datadog',
                 'products/postgresql/howto/monitor-pgbouncer-with-datadog',
                 'products/postgresql/howto/monitor-with-pgwatch2',
 

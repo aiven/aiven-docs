@@ -22,10 +22,10 @@ organization can select that account in Aiven Runtime.
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Click **Deploy application**.
-1. Connect your **GitHub account**.
-1. Select your **Account**, **Repository** and **Branch**.
+1. Select or connect your **GitHub account**.
+1. Select your **Account**, **Repository**, and **Branch**.
 1. Click **Next**.
-1. Select your manifest file and click **Scan**. Aiven will automatically detect
+1. Select your manifest file and click **Scan**. Aiven Runtime automatically detects
    what applications and services are needed.
 1. To change the configuration of an application, click <ConsoleIcon name="edit"/>.
    To change the configuration of a service integration, click

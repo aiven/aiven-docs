@@ -1,97 +1,104 @@
 ---
-title: Manage large shards in OpenSearch®
-sidebar_label: Manage large shard
+title: Manage large shards in Aiven for OpenSearch®
+sidebar_label: Manage large shards
 ---
 
-Ensuring an optimal shard size is a critical consideration when operating within OpenSearch.
-It is recommended that the size of
-individual shards in OpenSearch® should not exceed 50 GB as a best
-practice.
+import RelatedPages from "@site/src/components/RelatedPages";
 
-While OpenSearch does not explicitly enforce this shard size limit.
-However, exceeding this limit may result in OpenSearch being unable to
-relocate or recover index shards, potentially leading to data loss.
+Resolve the large shard size alert in Aiven for OpenSearch® by deleting old data, splitting an index, or reindexing it with more shards.
 
-Aiven proactively monitors shard sizes for all OpenSearch services. If a
-service's shard exceeds the recommended size, prompt notifications are
-sent using the user alert
-`user_alert_resource_usage_es_shard_too_large`. Below, you'll find
-recommended solutions on how to address this alert.
+OpenSearch doesn't enforce a shard size limit, but for guidance on the recommended range,
+see [Optimal number of shards](/docs/products/opensearch/concepts/shards-number). Shards
+that grow too large can fail to relocate or recover, which risks data loss.
 
-## Solutions to address large shards
+Aiven for OpenSearch monitors shard sizes for all services. If a shard exceeds the
+recommended size, you get a notification through the
+`user_alert_resource_usage_es_shard_too_large` alert. Use one of the following options to
+resolve it.
 
-When dealing with excessively large shards, you can consider the one of
-the following solutions:
+## Delete old records and force merge
 
-### 1. Delete records from the index
-
-If your application permits, permanently delete records, such as old
-logs or unnecessary records, from your index. For example, to delete
-records older than five days, use the following query:
+If your application allows it, permanently delete old or unnecessary records from the
+index. For example, delete records older than five days:
 
 ```bash
-POST /my-index/_delete_by_query
-{
+curl -X POST "https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_delete_by_query" \
+     -H 'Content-Type: application/json' \
+     -d '{
   "query": {
-     "range" : {
-         "@timestamp" : {
-
-              "lte" : now-5d
-
-            }
-        }
+    "range": {
+      "@timestamp": {
+        "lte": "now-5d"
+      }
     }
-}
-```
-
-### 2. Re-index into several small indices
-
-You can split your index into several smaller indices based on certain
-criteria. For example, to create an index for each `event_type`, you can
-use following script:
-
-```bash
-POST _reindex
-{
-
-  "source": {
-    "index": "logs-all-events"
-  },
-  "dest": {
-    "index": "logs-2-"
-  },
-  "script": {
-    "lang": "painless",
-    "source": "ctx._index = 'logs-2-' + (ctx._source.event_type)"
   }
-}
+}'
 ```
 
-### 3. Re-index into a new index with increased shard count
-
-Another strategy involves re-indexing data into a fresh index while
-increasing the number of shards. To create an index with 2 shards,
-use the following commands:
+Deleting documents doesn't reduce disk usage on its own. OpenSearch only marks matching
+documents as deleted; it removes them from disk the next time it merges the underlying
+segments. To reclaim the space immediately, force a merge after the deletion completes
+and write traffic to the index has stopped:
 
 ```bash
-PUT /my_new_index/_settings
-{
-    "index" : {
-        "number_of_shards" : 2
-    }
-}
+curl -X POST "https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_forcemerge?max_num_segments=1"
 ```
 
-Once the new index is set up, proceed to re-index your data:
+:::warning
+Both operations temporarily increase disk usage before they reduce it. Deleting the
+records creates new segments to record the deletions, and the force merge rewrites the
+remaining segments into new ones before removing the old ones. Setting
+`max_num_segments` to `1` can temporarily double the shard's disk usage. Confirm you
+have enough free disk space for this spike before you start.
+:::
 
-```bash
-POST _reindex
-{
-  "source": {
-    "index": "my_old_index"
-  },
-  "dest": {
-    "index": "my_new_index"
-  }
-}
-```
+## Split the index
+
+Use the Split API to create an index with a multiple of the current shard count. The
+new index keeps the source index's mappings and settings automatically, so you don't
+need to recreate them.
+
+1. Make the source index read-only:
+
+    ```bash
+    curl -X PUT "https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_settings" \
+         -H 'Content-Type: application/json' \
+         -d '{
+      "index.blocks.write": true
+    }'
+    ```
+
+1. Split it into a new index. The target shard count must be a multiple of the source
+   shard count. For example, 2 shards can split into 4, 6, or 8, and 3 shards can split
+   into 6, 9, or 12:
+
+    ```bash
+    curl -X POST "https://USER:PASSWORD@HOST:PORT/INDEX_NAME/_split/NEW_INDEX_NAME" \
+         -H 'Content-Type: application/json' \
+         -d '{
+      "settings": {
+        "index.number_of_shards": 4,
+        "index.blocks.write": null
+      }
+    }'
+    ```
+
+The split creates an index under a new name. If your application references the index by
+name rather than through an alias, add an alias that points to the new index so existing
+clients keep working without changes. For more information, see
+[Aliases](/docs/products/opensearch/concepts/indices#aliases).
+
+## Reindex with more shards
+
+You can also create an index with the shard count you want and copy the data across
+with the Reindex API. Unlike the Split API, reindexing doesn't carry over the source
+index's mappings and settings automatically. Capture and reapply them yourself, or follow
+the full procedure in
+[Reindex Aiven for OpenSearch® data on a newer version](/docs/products/opensearch/howto/reindex-opensearch),
+which covers this end to end, including exporting and reapplying the original settings.
+
+<RelatedPages/>
+
+- [Optimal number of shards](/docs/products/opensearch/concepts/shards-number)
+- [Manage indices in Aiven for OpenSearch®](/docs/products/opensearch/concepts/indices)
+- [Reindex Aiven for OpenSearch® data on a newer version](/docs/products/opensearch/howto/reindex-opensearch)
