@@ -82,6 +82,9 @@ Service names must:
 :::
 
 Aiven Runtime only recognizes specific, standard images for each service type.
+When a data service is recognized as an Aiven service, any specified version
+number is ignored. The latest stable version is used. You can change the version
+in the Aiven Console before or after deploying the application.
 
 #### Kafka
 
@@ -114,8 +117,7 @@ Runtime recognizes the following PostgreSQL images:
 - `postgresql`
 - `bitnami/postgresql`
 
-The following is an example for the official PostgreSQL image
-specifying version 15:
+The following is an example for the official PostgreSQL image:
 
 ```yaml
 services:
@@ -133,7 +135,7 @@ Runtime recognizes the following Valkey images:
 - `redis`
 - `bitnami/redis`
 
-The following is an example for the official Valkey image specifying version 7.2:
+The following is an example for the official Valkey image:
 
 ```yaml
 services:
@@ -190,6 +192,42 @@ services:
     image: valkey:7.2   # Standard image Aiven recognizes
   api:
     build: ./app
+```
+
+#### Incorrect service detection
+
+There are cases where Runtime incorrectly identifies a service as an Aiven data service
+because it contains a string that matches a recognized image name.
+
+For example, a Compose file with an image name that includes `valkey` is
+recognized as Aiven for Valkey™ service:
+
+```yaml
+services:
+  admin-app:
+    image: my-valkey-admin-app
+```
+
+To deploy this setup on Aiven Runtime, create a separate `compose.aiven.yaml` file
+and a Containerfile or Dockerfile to describe the application. For the Valkey case,
+the following is an example of the Valkey admin app in a `compose.aiven.yaml` file:
+
+```yaml
+services:
+  admin-app:
+    build:
+      context: my-valkey-admin-app
+      dockerfile: Dockerfile
+```
+
+An example Containerfile for this case is:
+
+```dockerfile
+FROM my-valkey-admin-app
+
+EXPOSE 3000
+
+CMD ["my-valkey-admin-app"]
 ```
 
 ### Environment variables
@@ -415,3 +453,4 @@ volumes:
 
 - [Docker Compose Quickstart](https://docs.docker.com/compose/gettingstarted)
 - [Manage secrets securely in Docker Compose](https://docs.docker.com/compose/how-tos/use-secrets/)
+- [A developer's guide to Aiven Apps blog post](https://aiven.io/blog/developers-guide-to-aiven-apps)
