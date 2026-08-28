@@ -203,7 +203,7 @@ There are cases where Runtime incorrectly identifies a service as an Aiven data 
 because it contains a string that matches a recognized image name.
 
 For example, a Compose file with an image name that includes `valkey` is
-recognized as Aiven for Valkey™ service:
+recognized as an Aiven for Valkey™ service:
 
 ```yaml
 services:
@@ -456,4 +456,6 @@ volumes:
 
 - [Docker Compose Quickstart](https://docs.docker.com/compose/gettingstarted)
 - [Manage secrets securely in Docker Compose](https://docs.docker.com/compose/how-tos/use-secrets/)
-- [A developer's guide to Aiven Apps blog post](https://aiven.io/blog/developers-guide-to-aiven-apps)
+- [A Developer's Guide to Aiven Apps](https://aiven.io/blog/developers-guide-to-aiven-apps)
+- [Deploying Apache Kafka® Streams next to your data](https://aiven.io/blog/apache-kafka-streams-next-to-your-data)
+- [A Practical Guide to Deploying LMM-Powered Apps with CLIP and pgvector](https://aiven.io/blog/aiven-apps-deploy-lmm-demo)
