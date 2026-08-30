@@ -3,15 +3,13 @@ title: Aiven for ClickHouse® 26.3 default settings
 sidebar_label: Default settings in 26.3
 ---
 
-Aiven for ClickHouse® uses a managed configuration that differs from upstream ClickHouse defaults.
-These differences help keep services reliable, secure, and predictable in
-Aiven-managed environments.
+Aiven for ClickHouse® uses a managed configuration that differs from upstream ClickHouse defaults. These differences help keep services reliable, secure, and predictable in Aiven-managed environments.
 
 Aiven applies conservative defaults and constraints where upstream behavior can
 affect query correctness, upgrade compatibility, or shared resource isolation.
 
 The following sections list the settings where Aiven defaults or constraints
-differ from version 26.3, grouped by session, table, and server scope.
+differ from defaults in version 26.3, grouped by session, table, and server scope.
 
 ## How to read the settings tables
 
@@ -32,9 +30,11 @@ automatically based on your service plan and node resources.
 
 :::note
 For configurable settings and Aiven-defined limits, see
-[Advanced parameters for Aiven for ClickHouse®](/docs/products/clickhouse/reference/advanced-params)
+[Advanced parameters for Aiven for ClickHouse®][advanced-parameters]
 and [Limits and limitations](/docs/products/clickhouse/reference/limitations).
 :::
+
+[advanced-parameters]: /docs/products/clickhouse/reference/advanced-params
 
 ## Session settings
 
@@ -46,9 +46,18 @@ These settings apply to sessions and queries.
 | ------------------------------------------------------- | --------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `allow_deprecated_error_prone_window_functions`         | `0`                                     | No             | Keeps deprecated, error-prone window functions disabled.                                                                                                                         |
 | `allow_deprecated_snowflake_conversion_functions`       | `0`                                     | No             | Keeps deprecated Snowflake conversion functions disabled.                                                                                                                        |
+| `allow_experimental_alias_table_engine`                 | `0`                                     | No             | Prevents use of an experimental table engine with known data-loss and upgrade-compatibility risks.                                                                                |
+| `allow_experimental_database_paimon_rest_catalog`       | `0`                                     | No             | Prevents unsupported external catalog metadata and credentials from creating security, upgrade, and restore risks.                                                               |
 | `allow_experimental_kafka_offsets_storage_in_keeper`    | `0`                                     | No             | Keeps experimental Kafka offset storage in Keeper disabled.                                                                                                                      |
+| `allow_experimental_nullable_tuple_type`                | `0`                                     | No             | Prevents persisted `Nullable(Tuple)` data that ClickHouse 25.8 cannot read during rollback or restore.                                                                            |
+| `allow_experimental_object_storage_queue_hive_partitioning` | `0`                                  | No             | Prevents experimental per-partition Keeper state from affecting coordination, upgrade, and restore reliability.                                                                  |
+| `allow_experimental_time_series_aggregate_functions`    | `0`                                     | No             | Keeps experimental time-series aggregation disabled for customer queries until its allocation limits are safe.                                                                  |
+| `allow_experimental_ts_to_grid_aggregate_function`      | `0`                                     | No             | Keeps the alias for experimental time-series aggregation disabled under the same safety constraint.                                                                              |
+| `allow_fuzz_query_functions`                            | `0`                                     | No             | Keeps test-only query mutation functions from consuming shared resources or destabilizing the service.                                                                           |
 | `allow_introspection_functions`                         | `0`                                     | Yes            | Keeps sensitive debugging and introspection functions disabled by default.                                                                                                       |
 | `allow_non_default_profile`                             | `0`                                     | No             | Prevents switching to unmanaged profiles.                                                                                                                                        |
+| `ast_fuzzer_any_query`                                  | `0`                                     | No             | Prevents the test-only AST fuzzer from mutating write and DDL queries.                                                                                                            |
+| `ast_fuzzer_runs`                                       | `0`                                     | No             | Prevents test-only randomized query execution from consuming resources or destabilizing the service.                                                                             |
 | `cancel_http_readonly_queries_on_client_close`          | `1`                                     | Yes            | Cancels read-only HTTP queries when clients disconnect.                                                                                                                          |
 | `check_named_collection_dependencies`                   | `1`                                     | No             | Prevents removal of named collections used by tables, protecting table availability and managed backup and restore operations.                                                                                         |
 | `cluster_function_process_archive_on_multiple_nodes`    | `0`                                     | Yes            | Disables archive processing on multiple nodes by default.                                                                                                                        |
@@ -76,7 +85,7 @@ These settings apply to sessions and queries.
 | `os_thread_priority`                                    | `0`                                     | Yes            | Allowed range: `0..19`. Allows normal or lower query priority while preventing workloads from taking priority over shared service operations.                                     |
 | `os_threads_nice_value_materialized_view`               | `0`                                     | Yes            | Allowed range: `0..19`. Allows normal or lower materialized-view priority while protecting shared service operations.                                                            |
 | `os_threads_nice_value_query`                           | `0`                                     | Yes            | Allowed range: `0..19`. Allows normal or lower query priority while protecting shared service operations.                                                                        |
-| `output_format_json_quote_64bit_integers`               | `1`                                     | Yes            | Keeps JSON output compatible with clients that cannot safely represent 64-bit integers. This default can change in a future version.                                             |
+| `output_format_json_quote_64bit_integers`               | `1`                                     | Yes            | Keeps JSON output compatible with clients that cannot safely represent 64-bit integers.                                                                                          |
 | `postgresql_connection_attempt_timeout`                 | `10`                                    | Yes            | Limits each PostgreSQL connection attempt.                                                                                                                                       |
 | `postgresql_connection_pool_connect_timeout`            | `10`                                    | Yes            | Limits pooled PostgreSQL connection setup.                                                                                                                                       |
 | `push_external_roles_in_interserver_queries`            | `0`                                     | No             | External authorization is not supported. Roles must be synchronized between nodes.                                                                                               |
@@ -86,7 +95,8 @@ These settings apply to sessions and queries.
 | `query_plan_direct_read_from_text_index`                | `0`                                     | Yes            | Disables direct text-index reads because version 26.3 can return incorrect results for nullable columns and updated parts.                                                        |
 | `query_plan_remove_unused_columns`                      | `0`                                     | Yes            | Preserves earlier query-plan behavior and avoids excessive memory use for aggregate queries with `PREWHERE` filters over wide string columns.                                     |
 | `readonly`                                              | `0`                                     | Yes            | Controls read/write access for the session. You can change the value from `0` to `1`, but not from `1` to `0`.                                                                 |
-| `stream_like_engine_allow_direct_select`                | `1`                                     | Yes            | Allows direct `SELECT` queries on stream-like engines, which can have suboptimal performance or behavior. A future release returns this default to the upstream default.         |
+| `s3queue_keeper_fault_injection_probability`            | `0`                                     | No             | Prevents test-only fault injection from disrupting S3Queue ingestion and managed Keeper operations.                                                                              |
+| `stream_like_engine_allow_direct_select`                | `1`                                     | Yes            | Allows direct `SELECT` queries on stream-like engines for compatibility with existing workloads.                                                                                 |
 | `write_full_path_in_iceberg_metadata`                   | `1`                                     | Yes            | Writes full Iceberg metadata paths for compatibility with mainstream ClickHouse behavior.                                                                                        |
 
 <!-- markdownlint-enable MD013 MD060 -->
@@ -113,7 +123,7 @@ variants. See
 | `number_of_free_entries_in_pool_to_execute_optimize_entire_partition` | `25`          | Yes            | Uses the upstream default while limiting the value below the service background pool capacity.                                 |
 | `number_of_free_entries_in_pool_to_lower_max_size_of_merge`           | `8`           | Yes            | Uses the upstream default while limiting the value below the service background pool capacity.                                 |
 | `old_parts_lifetime`                                                  | `60`          | Yes            | Reduces the lifetime of outdated merged parts to lower the number of ZooKeeper or Keeper metadata nodes.                       |
-| `serialization_info_version`                                          | `basic`       | Yes            | Preserves part compatibility with ClickHouse 25.8 during rolling upgrades, rollback, and restore operations.                    |
+| `serialization_info_version`                                          | `basic`       | Yes            | Preserves part compatibility with ClickHouse 25.8 during rolling upgrades, rollback, and restore operations. Keep this value until all nodes run 26.3. |
 | `table_readonly`                                                      | `0`           | No             | Keeps an unsupported mode disabled because it can block managed operations and distributed DDL without protecting replicated tables. |
 
 <!-- markdownlint-enable MD013 MD060 -->
@@ -129,19 +139,28 @@ exposed through advanced configuration.
 
 | Setting                                         | Aiven default                                       | Description                                                                                                                                              |
 | ----------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aiven_enable_replication_queue_size_limit`     | `1`                                                 | Preserves replication queue limits that delay or reject inserts before queue growth affects service availability.                                        |
+| `aiven_enforce_default_replication_path`        | `1`                                                 | Keeps replicated tables in Aiven-managed Keeper paths to preserve service isolation and reliable lifecycle operations.                                   |
+| `aiven_prohibit_tmp_table_creation`             | `1`                                                 | Reserves internal `.tmp` table names so customer DDL cannot interfere with managed table operations.                                                     |
+| `aiven_replace_mergetree_with_replicated`       | `1`                                                 | Converts MergeTree engines to replicated variants in Replicated databases, preserving managed high availability.                                         |
+| `aiven_skip_azure_container_creation`           | `1`                                                 | Skips Azure container probing during DDL replay so backup and restore can proceed without weakening data-access authentication.                           |
 | `background_pool_size`                          | `[8..32, depending on CPU count]`                   | Sizes the background merge and mutation pool based on service CPU capacity. If an explicit service-level override is configured, Aiven preserves it.     |
+| `background_schedule_pool_size`                 | `[24..512, depending on CPU count]`                 | Scales lightweight background scheduling with service CPU capacity and avoids excessive idle threads on smaller plans.                                  |
 | `cgroups_memory_usage_observer_wait_time`       | `0`                                                 | Disables the ClickHouse cgroup memory usage observer because Aiven sets explicit memory limits for the managed server process.                           |
 | `cluster_database`                              | `default`                                           | Sets the database used by cluster-related helpers to the managed default database.                                                                       |
 | `database_atomic_delay_before_drop_table_sec`   | `0`                                                 | Removes the Atomic database delayed-drop wait to prevent race conditions in refreshable materialized views.                                              |
+| `database_replicated.internal_replication`      | `1`                                                 | Routes Distributed inserts once per shard and lets ReplicatedMergeTree handle replica distribution, preventing duplicate writes.                         |
 | `default_database`                              | `default`                                           | Uses the managed default database unless another database is selected explicitly.                                                                        |
 | `default_replica_name`                          | `{replica}`                                         | Uses the Aiven-provided replica macro in replicated table paths.                                                                                         |
 | `dictionary_user`                               | `avnadmin`                                          | Runs dictionary queries through the managed admin user.                                                                                                  |
 | `disable_internal_dns_cache`                    | `1`                                                 | Prevents ClickHouse from keeping stale internal DNS results in a managed environment where node addresses can change.                                    |
 | `display_secrets_in_show_and_select`            | `1`                                                 | Keeps server-level secret display available for privileged managed operations. User-facing profile settings hide secrets by default.                     |
+| `enforce_https_for_url_storage`                 | `1`                                                 | Requires encrypted transport for URL storage sources and HTTP dictionaries.                                                                              |
 | `iceberg_catalog_threadpool_pool_size`          | `[3..80, depending on CPU count]`                   | Scales Iceberg catalog worker concurrency with service CPU capacity.                                                                                     |
 | `iceberg_metadata_files_cache_size`             | `[~7% of RAM]`                                      | Sizes the Iceberg metadata file cache based on the managed memory budget.                                                                                |
 | `index_mark_cache_size`                         | `[~7% of RAM]`                                      | Sizes the secondary index mark cache based on the managed memory budget.                                                                                 |
 | `keep_alive_timeout`                            | `10`                                                | Limits idle keep-alive connections to 10 seconds so clients cannot hold server resources indefinitely.                                                   |
+| `load_marks_threadpool_pool_size`               | `[3..80, depending on CPU count]`                   | Scales mark-loading concurrency with service CPU capacity.                                                                                               |
 | `mark_cache_size`                               | `[~7% of RAM]`                                      | Sizes the primary mark cache based on the managed memory budget.                                                                                         |
 | `max_concurrent_queries`                        | `[147..847, depending on service size]`             | Sets a server-wide concurrency limit based on the service plan, with extra internal capacity reserved for monitoring, backup, and operator queries.      |
 | `max_connections`                               | `[1000..4000, depending on service size]`           | Sets the connection limit based on service size. Smaller nodes have lower limits to prevent overload, and larger service plans allow higher limits.      |
@@ -154,7 +173,9 @@ exposed through advanced configuration.
 | `max_server_memory_usage`                       | `[65%..70% of host RAM, depending on service size]` | Caps ClickHouse memory use below total host RAM so the node retains memory for the operating system, caching, and service management operations.         |
 | `max_table_size_to_drop`                        | `0`                                                 | Removes the server-side table-size guard for drops to avoid common operational issues.                                                                   |
 | `memory_worker_correct_memory_tracker`          | `1`                                                 | Lets the ClickHouse memory worker correct memory tracking drift.                                                                                         |
+| `mysql_require_secure_transport`                | `1`                                                 | Rejects plaintext MySQL protocol connections to protect credentials and query traffic.                                                                   |
 | `parquet_metadata_cache_size`                   | `[~7% of RAM]`                                      | Scales the Parquet metadata cache with service memory to prevent disproportionate use on smaller plans.                                                   |
+| `postgresql_require_secure_transport`           | `1`                                                 | Rejects plaintext PostgreSQL protocol connections to protect credentials and query traffic.                                                              |
 | `prefetch_threadpool_pool_size`                 | `[3..80, depending on CPU count]`                   | Scales the prefetch thread pool with service CPU capacity.                                                                                               |
 | `prepare_system_log_tables_on_startup`          | `1`                                                 | Ensures system log tables are ready immediately after startup for managed observability and diagnostics.                                                 |
 | `reserved_replicated_database_prefixes`         | `["aiven", "endpoint_", "service_"]`                | Reserves internal database name prefixes for Aiven-managed objects.                                                                                      |
