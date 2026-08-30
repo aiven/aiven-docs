@@ -1372,6 +1372,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/clickhouse/howto/manage-clickhouse-versions',
                 'products/clickhouse/reference/upgrade-to-26-3',
+                'products/clickhouse/reference/26-3-default-settings',
                 'products/clickhouse/reference/25-8-default-settings',
                 'products/clickhouse/reference/version-support-policy',
                 'products/clickhouse/reference/version-lifecycle',
