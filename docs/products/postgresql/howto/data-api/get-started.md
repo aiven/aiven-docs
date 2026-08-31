@@ -37,22 +37,22 @@ To enable Data API, you need the following:
    - If Aiven has a recommendation for this service, choose a deployment mode under
      **Settings**:
      - **Recommended** (default): Deploys the underlying
-       [Aiven application](/docs/products/aiven-apps) on the cheapest available paid
+       [Aiven Runtime application](/docs/products/aiven-apps) on the cheapest available paid
        plan, using the same cloud and region as your PostgreSQL service when possible,
        or the nearest available region otherwise.
      - **Custom**: Configure your own cloud, region, and plan under **Cloud and plan**.
    - Under **Cloud and plan**, shown when there's no recommendation or you choose
      **Custom**:
      - **Cloud**: Defaults to the same cloud and region as your PostgreSQL service. You
-       can select a different cloud and region that supports the Aiven application.
-     - **Plan**: Select a plan for the Aiven application. Free-tier plans aren't
+       can select a different cloud and region that supports the Aiven Runtime application.
+     - **Plan**: Select a plan for the Aiven Runtime application. Free-tier plans aren't
        available for Data API, so choose a paid plan.
 1. Review the **Summary** panel on the right, which shows the cloud, plan, and estimated
-   monthly price for the Aiven application.
+   monthly price for the Aiven Runtime application.
 1. Click **Confirm and deploy**.
 
-If the cloud, region, and plan you select don't support the Aiven application, Data API
-shows an error message so that you can pick a different combination.
+If the cloud, region, and plan you select don't support the Aiven Runtime application,
+Data API shows an error message so that you can pick a different combination.
 
 Data API starts deploying and the **Status** shows **Building**. When the app is healthy,
 the status changes to **Running** and the endpoints become available. While the service is
