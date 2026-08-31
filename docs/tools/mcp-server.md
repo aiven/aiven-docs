@@ -7,6 +7,7 @@ keywords: [MCP, Model Context Protocol, AI assistants, Cursor, Claude Code]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import {mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
 import MCPConfigSection from "@site/src/components/MCPConfigSection";
 import CursorConfigTab from "@site/src/components/CursorConfigTab";
@@ -20,7 +21,7 @@ import OtherClientIcon from "@site/static/images/icons/mcp-client-other.svg";
 import LocalInstallIcon from "@site/static/images/icons/local-install.svg";
 
 Create and manage Aiven services from AI assistants such as Cursor and Claude Code, including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
-Enable read-only mode in the configuration tabs to restrict the server to
+Enable [read-only mode](#read-only-mode) to restrict the server to
 non-destructive operations, or limit tools to specific services to keep the
 assistant focused.
 
@@ -30,7 +31,8 @@ assistant focused.
 - An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
   VS Code, or Gemini CLI
 - MCP access enabled for your organization by an admin in the Aiven Console
-  under **Admin settings** > **Authentication** > **Allow MCP connection**
+  under **Admin** > <ConsoleLabel name="authenticationpolicy"/> >
+  **Allow MCP connections**
 
 Authentication uses OAuth 2.0 with PKCE. When you authenticate a client for the
 first time, your browser opens so you can sign in and authorize MCP access. This
@@ -301,11 +303,36 @@ language. For example, you can do the following:
   status, plan, and cloud region of a service.
 - **Manage services**: Create, update, and delete services such as PostgreSQL®
   and Apache Kafka®, and update service plans or configuration. To allow write
-  operations, disable [read-only mode](#configure-aiven-mcp).
+  operations, disable [read-only mode](#read-only-mode).
 - **Inspect and troubleshoot services**: View service metrics, logs, and
   configuration to investigate issues.
 - **Use Aiven documentation**: Ask questions and get answers based on the Aiven
   documentation.
+
+## Read-only mode
+
+Read-only mode restricts MCP tools to viewing services and other resources. It
+blocks operations that create, modify, or delete them. You can set it at the
+organization level or the client level.
+
+### Organization level
+
+An organization admin restricts MCP connections to read-only operations for all
+users in the organization in the Aiven Console under **Admin** >
+<ConsoleLabel name="authenticationpolicy"/> > **Restrict MCP connections to
+read-only operations**. For more information, see
+[Set authentication policies for organization users](/docs/platform/howto/set-authentication-policies).
+
+Organization users cannot override this setting from their own client
+configuration. Write operations fail even when a user configures their client
+without read-only mode.
+
+### Client level
+
+Individual users enable read-only mode for their own client in the
+[installation configuration](#configure-aiven-mcp). Client-level read-only mode
+applies only to that client and does not change the policy for other users in
+the organization.
 
 ## Security and responsibility
 
@@ -334,8 +361,9 @@ Aiven secures the platform and API. You are responsible for the following:
   (principle of least privilege) and rotating them regularly.
 - **Review AI agent actions** before they run, especially for write or delete
   operations on production resources.
-- **Configure MCP servers securely**, including enabling read-only mode to
-  restrict the server to non-destructive operations.
+- **Configure MCP servers securely**, including restricting MCP connections to
+  [read-only operations](#read-only-mode) for all organization users when your
+  organization does not need write access.
 - **Keep credential exposure off in production.** The
   **Allow connection credentials** option (`allow_secrets=true`) returns
   PostgreSQL and Kafka connection credentials, including URIs, passwords, and

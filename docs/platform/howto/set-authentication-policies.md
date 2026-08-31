@@ -82,6 +82,19 @@ and comply with policies and regulations.
 This authentication policy setting also applies to access through
 personal and application tokens.
 
+### MCP connections
+
+Users can connect [MCP](/docs/tools/mcp-server) clients, such as Cursor and
+Claude Code, to the services and other resources they have access to in your
+organization. When you turn off MCP connections, no user in the organization can
+use an MCP client with your organization's resources.
+
+With MCP connections allowed, you can restrict them to read-only operations for
+all users in the organization. MCP clients can then view services and other
+resources, but they cannot create, modify, or delete them. This applies to every
+MCP connection in the organization, and organization users cannot override it
+from their own client configuration.
+
 ## Set an authentication policy
 
 1.  In the organization, click **Admin**.
