@@ -98,11 +98,18 @@ API_URL = "https://api.aiven.io/v1/service_versions"
 INCLUDES_DIR = Path("static/includes")
 PLACEHOLDER = "To be announced"
 
+# (TableConfig attribute, API field) for every date column a table may have.
+DATE_FIELDS = [
+    ("col_eol", "aiven_end_of_life_time"),
+    ("col_avail_end", "availability_end_time"),
+    ("col_avail_start", "availability_start_time"),
+]
+
 
 @dataclass
 class TableConfig:
     file_name: str                # under static/includes/
-    service_types: list[str]
+    service_type: str
     col_eol: int | None            # 0-based; None = don't auto-update this column
     col_avail_end: int | None
     col_avail_start: int | None
@@ -121,42 +128,45 @@ _OS = {"1": "1.3.x", "2": "2.17.x", "2.19": "2.19.x LTS", "3.6": "3.6.x LTS"}
 
 TABLE_CONFIG: dict[str, TableConfig] = {
     "mysql": TableConfig(
-        "eol-table-mysql.md", ["mysql"],
+        "eol-table-mysql.md", "mysql",
         col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_mysql_label),
     "opensearch": TableConfig(
-        "eol-table-opensearch.md", ["opensearch"],
+        "eol-table-opensearch.md", "opensearch",
         col_eol=1, col_avail_end=3,
         col_avail_start=None,   # API has internal pre-GA dates; include values are accurate
         label_fn=lambda v: _OS.get(v, _vx(v)),
         static_cols={2: "Automatic upgrade to a supported version"}),
     "postgresql": TableConfig(
-        "eol-table-postgresql.md", ["pg"],
+        "eol-table-postgresql.md", "pg",
         col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=str),
     "kafka": TableConfig(
-        "eol-table-kafka.md", ["kafka"],
+        "eol-table-kafka.md", "kafka",
         col_eol=1, col_avail_end=2,
         col_avail_start=None,   # API has release-plan dates, not actual GA; include is accurate
         label_fn=_vx),
     "clickhouse": TableConfig(
-        "eol-table-clickhouse.md", ["clickhouse"],
+        "eol-table-clickhouse.md", "clickhouse",
         col_eol=1, col_avail_end=2, col_avail_start=None, label_fn=str),
     "flink": TableConfig(
-        "eol-table-flink.md", ["flink"],
+        "eol-table-flink.md", "flink",
         col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=str),
     "valkey": TableConfig(
-        "eol-table-valkey.md", ["valkey"],
+        "eol-table-valkey.md", "valkey",
         col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_vx),
     # Dragonfly: not in API. Grafana: single-versioned, patch-version mismatch. Both skipped.
 }
 
 
-def fetch_versions() -> dict[tuple[str, str], dict]:
+def fetch_versions() -> dict[str, dict[str, dict]]:
     try:
         with urlopen(API_URL, timeout=30) as r:
             data = json.loads(r.read())
     except URLError as exc:
         print(f"ERROR: {API_URL}: {exc}", file=sys.stderr); sys.exit(2)
-    return {(v["service_type"], v["major_version"]): v for v in data.get("service_versions", [])}
+    by_type: dict[str, dict[str, dict]] = {}
+    for v in data.get("service_versions", []):
+        by_type.setdefault(v["service_type"], {})[v["major_version"]] = v
+    return by_type
 
 
 def fmt_date(iso: str) -> str:
@@ -192,15 +202,12 @@ def parse_table(lines: list[str]) -> tuple[list[str], list[str], list[list[str]]
 
 def build_new_row_cells(label: str, api_entry: dict, config: TableConfig, ncols: int) -> list[str]:
     """Build the cell values for a service version not yet in the table."""
-    def d(f):
-        v = api_entry.get(f); return fmt_date(v) if v else PLACEHOLDER
-
     cells = {0: label}
-    for col, f in [(config.col_eol, "aiven_end_of_life_time"),
-                   (config.col_avail_end, "availability_end_time"),
-                   (config.col_avail_start, "availability_start_time")]:
+    for col_attr, field_name in DATE_FIELDS:
+        col = getattr(config, col_attr)
         if col is not None:
-            cells[col] = d(f)
+            v = api_entry.get(field_name)
+            cells[col] = fmt_date(v) if v else PLACEHOLDER
     cells |= config.static_cols  # static_cols applied last, matching original precedence
     for i in range(ncols):
         cells.setdefault(i, PLACEHOLDER)
@@ -223,7 +230,7 @@ def render_table(header_cells: list[str], data_rows: list[list[str]]) -> list[st
     return [fmt_row(header_cells), sep] + [fmt_row(row) for row in data_rows]
 
 
-def process_file(path: Path, config: TableConfig, api_versions: dict[tuple[str, str], dict]) -> bool:
+def process_file(path: Path, config: TableConfig, api_versions: dict[str, dict[str, dict]]) -> bool:
     """Update the single table found in this include file."""
     original_text = path.read_text(encoding="utf-8")
     parsed = parse_table(original_text.splitlines(keepends=True))
@@ -233,11 +240,8 @@ def process_file(path: Path, config: TableConfig, api_versions: dict[tuple[str, 
     prefix, header_cells, data_rows, suffix = parsed
     ncols = len(header_cells)
 
-    label_to_api: dict[str, dict] = {}
-    for stype in config.service_types:
-        for (st, ver), entry in api_versions.items():
-            if st == stype:
-                label_to_api[config.label_fn(ver)] = entry
+    label_to_api = {config.label_fn(ver): entry
+                     for ver, entry in api_versions.get(config.service_type, {}).items()}
 
     seen_labels: set[str] = set()
     new_rows: list[list[str]] = []
@@ -246,12 +250,10 @@ def process_file(path: Path, config: TableConfig, api_versions: dict[tuple[str, 
         seen_labels.add(label)
         if entry := label_to_api.get(label):
             row = list(row)
-            if config.col_eol is not None and entry.get("aiven_end_of_life_time"):
-                row[config.col_eol] = fmt_date(entry["aiven_end_of_life_time"])
-            if config.col_avail_end is not None and entry.get("availability_end_time"):
-                row[config.col_avail_end] = fmt_date(entry["availability_end_time"])
-            if config.col_avail_start is not None and entry.get("availability_start_time"):
-                row[config.col_avail_start] = fmt_date(entry["availability_start_time"])
+            for col_attr, field_name in DATE_FIELDS:
+                col = getattr(config, col_attr)
+                if col is not None and entry.get(field_name):
+                    row[col] = fmt_date(entry[field_name])
         new_rows.append(row)
 
     missing_labels = sorted(
