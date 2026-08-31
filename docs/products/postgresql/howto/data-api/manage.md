@@ -1,14 +1,14 @@
 ---
 title: Manage Aiven for PostgreSQL® Data API
 sidebar_label: Manage Data API
-description: Check status, expose more databases, and turn off the Data API.
+description: Check status, expose more databases, and remove the Data API.
 limited: true
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-After you enable Data API, you can monitor it, expose more databases, and turn it off for a database you no longer need.
+After you enable Data API, you can monitor it, expose more databases, and remove it for a database you no longer need.
 
 :::note
 Data API is a <LimitedBadge/> feature.
@@ -21,14 +21,15 @@ To manage Data API, open your Aiven for PostgreSQL® service in the
 ## Check the status
 
 Each database that you expose runs as an independent
-[Aiven Runtime application](/docs/products/aiven-apps) with its own **Status**, shown
-on the **Data API** page:
+[Aiven Runtime application](/docs/products/aiven-apps). The **Data API** page shows
+whether it's ready to use:
 
-- **Building**: The application is deploying or applying a change. Setup and requests
-  might not succeed yet.
-- **Running**: The application is healthy and serving requests.
-- **Powered off**: Data API is turned off for this database.
-- **Error**: The deployment failed. For next steps, see [Troubleshooting](#troubleshooting).
+- While the application deploys, **API URL** shows **API building...**, and **Refresh
+  cache** and the edit icons next to **JWKS URL** and **Audience** aren't available yet.
+- Once the application is healthy and serving requests, **API URL** shows the real
+  endpoint, and **Refresh cache** and the edit icons become available.
+- If the deployment fails, an error message appears at the top of the page. For next
+  steps, see [Troubleshooting](#troubleshooting).
 
 ## View the underlying Aiven Runtime app
 
@@ -53,25 +54,28 @@ picks up rotated keys from the same URL. For more information, see
 
 To change the JWKS URL or audience, open the **Data API** page and select the database.
 Next to **JWKS URL** or **Audience**, click the edit icon, enter the new value, and save.
-A confirmation message confirms the update. You don't need to turn off Data API to update
-these settings.
+A confirmation message confirms the update. You don't need to remove Data API to update
+these settings, but the edit icons aren't available while the application is still
+deploying.
 
 ## Refresh the schema cache
 
 Endpoints reflect the database schema captured when you enable Data API. They don't refresh
 automatically when the schema changes. To pick up new or changed tables, click
-**Refresh cache** on the **Data API** page. A confirmation message confirms the refresh.
-This updates the PostgREST schema cache without restarting the service.
+**Refresh cache** on the **Data API** page. **Refresh cache** is available only while the
+application is running. A confirmation message confirms the refresh. Refreshing updates
+the PostgREST schema cache without restarting the service.
 
-## Turn off Data API
+## Remove Data API
 
-Turn off Data API to stop serving endpoints for a database. On the **Data API** page,
-click the database, then turn off the **Status** toggle. The endpoints stop responding
-after the application is removed.
+Remove Data API to stop serving endpoints for a database. On the **Data API** page,
+click the database, then click **Remove Data API**. In the **Delete Data API**
+confirmation dialog, click **Delete**. The endpoints stop responding after the underlying
+Aiven Runtime application is deleted.
 
-Turning off Data API doesn't change the data in your database, but it permanently deletes
-the Data API configuration for that database. To turn Data API back on, set up the JWKS
-URL and audience again.
+Removing Data API doesn't change the data in your database, but it permanently deletes
+the Data API configuration for that database. To turn Data API back on for the same
+database, set up the JWKS URL and audience again.
 
 :::note
 If you delete the PostgreSQL service, Aiven also deletes all associated Data API apps.
@@ -95,7 +99,7 @@ is **Running**, then enable Data API.
 If the deployment fails, the setup dialog shows an error message and you can try again
 without losing your entered values. If the issue persists, confirm that the service meets
 the [prerequisites](/docs/products/postgresql/howto/data-api/get-started#prerequisites),
-then turn off and re-enable Data API.
+then remove and re-enable Data API.
 
 ### The selected cloud, region, or plan isn't available
 

@@ -69,4 +69,4 @@ For details on the JWKS URL and audience fields, see
 - [Call the endpoints](/docs/products/postgresql/howto/data-api/use-endpoints) with code
   snippets.
 - [Manage your Data API](/docs/products/postgresql/howto/data-api/manage), including
-  exposing more databases and turning off the API.
+  exposing more databases and removing the API.
