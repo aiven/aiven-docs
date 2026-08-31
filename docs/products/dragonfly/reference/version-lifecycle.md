@@ -4,6 +4,7 @@ sidebar_label: Version lifecycle
 ---
 
 import EolPolicySingleVersioned from "@site/static/includes/eol-policy-single-versioned.md";
+import EolTableDragonfly from "@site/static/includes/eol-table-dragonfly.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages the Aiven for Dragonfly® service version, end of life (EOL) dates, and what happens to your service after the version reaches EOL.
@@ -15,9 +16,7 @@ Aiven for Dragonfly identifies versions in `major.minor.patch` format, for examp
 
 ## Version EOL dates
 
-| Version | Aiven EOL  | Service creation supported until |
-| ------- | ---------- | -------------------------------- |
-| 1.39.0  | 2026-09-30 | 2026-06-17                       |
+<EolTableDragonfly/>
 
 <RelatedPages/>
 

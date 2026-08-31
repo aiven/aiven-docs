@@ -4,6 +4,7 @@ sidebar_label: Version lifecycle
 ---
 
 import EolPolicyMultiVersioned from "@site/static/includes/eol-policy-multi-versioned.md";
+import EolTableMysql from "@site/static/includes/eol-table-mysql.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages Aiven for MySQL® version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
@@ -12,10 +13,7 @@ Learn how Aiven manages Aiven for MySQL® version support, end of life (EOL) dat
 
 ## Version EOL dates
 
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 8.0.x   | 2026-10-31 | 2026-04-30                       | 2018-05-18                      |
-| 8.4.x   | 2032-10-30 | 2032-04-30                       | 2026-04-30                      |
+<EolTableMysql/>
 
 <RelatedPages/>
 
