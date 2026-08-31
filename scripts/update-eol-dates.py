@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Update EOL/EOA date tables in docs/platform/reference/eol-for-major-versions.md.
+Update EOL/EOA date tables in the shared static/includes/eol-table-*.md components.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DATA SOURCE
@@ -22,6 +22,13 @@ The API returns a list of objects, each with:
 WHAT THE SCRIPT UPDATES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+Each covered service has its version table in exactly one place: a shared
+MDX include under static/includes/eol-table-<service>.md. Both
+docs/platform/reference/eol-for-major-versions.md and that service's own
+docs/products/<service>/reference/version-lifecycle.md import the same
+include, so updating the include file here keeps both pages in sync
+automatically — there is no separate step for the per-service articles.
+
 Covered services: MySQL, OpenSearch, PostgreSQL, Kafka, ClickHouse, Flink,
 Valkey. For each version returned by the API:
   - Existing rows: the Aiven EOL, "Service creation supported until", and
@@ -29,22 +36,27 @@ Valkey. For each version returned by the API:
     returns a non-null value. This includes cells that currently hold a
     placeholder string ("To be announced", "Date not set", "N/A", "TBD") —
     placeholders are replaced as soon as real dates appear in the API.
-  - Missing versions: a new row is inserted with all available dates filled in
-    and "To be announced" for any date the API does not yet provide.
+  - Missing versions: a new row is inserted with all available dates filled
+    in and "To be announced" for any date the API does not yet provide. The
+    whole table is then re-rendered with recomputed column widths, so a wide
+    new value (for example a long placeholder) realigns every row, not just
+    the one that changed.
 
-NOT covered (out of scope for this script — update manually):
-  - Dragonfly        (not present in the Aiven API)
-  - Grafana          (single-versioned; patch version in doc differs from API major)
-  - Aiven CLI        (tooling, not a managed service)
-  - Aiven Provider for Terraform  (tooling, not a managed service)
-  - Aiven Operator for Kubernetes (tooling, not a managed service)
+NOT covered (out of scope for this script — update the include manually):
+  - eol-table-dragonfly.md  (not present in the Aiven API)
+  - eol-table-grafana.md    (single-versioned; patch version in doc differs
+                              from API major)
+  - Aiven CLI, Aiven Provider for Terraform, Aiven Operator for Kubernetes
+    (tooling, not a managed service; these tables stay inline in
+    eol-for-major-versions.md, not in a shared include)
 
 Columns intentionally excluded from auto-update (col_avail_start = None):
   - OpenSearch  "Service creation supported from": the API stores internal
-    pre-GA dates that predate the public launch; the manually set dates in the
-    doc are more accurate.
+    pre-GA dates that predate the public launch; the manually set dates in
+    the include are more accurate.
   - Kafka       "Service creation supported from": the API stores release-plan
-    ("no earlier than") dates, not actual GA dates; the doc values are accurate.
+    ("no earlier than") dates, not actual GA dates; the include's values are
+    accurate.
   - ClickHouse  "Service creation supported from": same reason as Kafka.
 
 OpenSearch major version label mapping (API major → doc label):
@@ -60,9 +72,9 @@ OpenSearch major version label mapping (API major → doc label):
 USAGE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    python scripts/update-eol-dates.py [--doc-path PATH]
+    python scripts/update-eol-dates.py [--includes-dir PATH]
 
-Exit codes: 0 = no changes, 1 = doc updated, 2 = error
+Exit codes: 0 = no changes, 1 = one or more includes updated, 2 = error
 
 This script is run automatically by the GitHub Actions workflow
 .github/workflows/update-eol-dates.yaml (weekly on Mondays, 07:00 UTC) and
@@ -82,17 +94,16 @@ from urllib.error import URLError
 from urllib.request import urlopen
 
 
-
 API_URL = "https://api.aiven.io/v1/service_versions"
-DOC_PATH = Path("docs/platform/reference/eol-for-major-versions.md")
+INCLUDES_DIR = Path("static/includes")
 PLACEHOLDER = "To be announced"
-PLACEHOLDERS = frozenset({"To be announced", "Date not set", "N/A", "TBD"})
 
 
 @dataclass
-class SectionConfig:
+class TableConfig:
+    file_name: str                # under static/includes/
     service_types: list[str]
-    col_eol: int | None           # 0-based; None = don't auto-update this column
+    col_eol: int | None            # 0-based; None = don't auto-update this column
     col_avail_end: int | None
     col_avail_start: int | None
     label_fn: Callable[[str], str]
@@ -108,26 +119,33 @@ def _mysql_label(v: str) -> str:
 _OS = {"1": "1.3.x", "2": "2.17.x", "2.19": "2.19.x LTS", "3.6": "3.6.x LTS"}
 
 
-SECTION_CONFIG: dict[str, SectionConfig] = {
-    "### Aiven for MySQL": SectionConfig(
-        ["mysql"], col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_mysql_label),
-    "### Aiven for OpenSearch": SectionConfig(
-        ["opensearch"], col_eol=1, col_avail_end=3,
-        col_avail_start=None,   # API has internal pre-GA dates; doc values are accurate
+TABLE_CONFIG: dict[str, TableConfig] = {
+    "mysql": TableConfig(
+        "eol-table-mysql.md", ["mysql"],
+        col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_mysql_label),
+    "opensearch": TableConfig(
+        "eol-table-opensearch.md", ["opensearch"],
+        col_eol=1, col_avail_end=3,
+        col_avail_start=None,   # API has internal pre-GA dates; include values are accurate
         label_fn=lambda v: _OS.get(v, _vx(v)),
         static_cols={2: "Automatic upgrade to a supported version"}),
-    "### Aiven for PostgreSQL": SectionConfig(
-        ["pg"], col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=str),
-    "### Aiven for Apache Kafka": SectionConfig(
-        ["kafka"], col_eol=1, col_avail_end=2,
-        col_avail_start=None,   # API has release-plan dates, not actual GA; doc is accurate
+    "postgresql": TableConfig(
+        "eol-table-postgresql.md", ["pg"],
+        col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=str),
+    "kafka": TableConfig(
+        "eol-table-kafka.md", ["kafka"],
+        col_eol=1, col_avail_end=2,
+        col_avail_start=None,   # API has release-plan dates, not actual GA; include is accurate
         label_fn=_vx),
-    "### Aiven for ClickHouse": SectionConfig(
-        ["clickhouse"], col_eol=1, col_avail_end=2, col_avail_start=None, label_fn=str),
-    "### Aiven for Apache Flink": SectionConfig(
-        ["flink"], col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=str),
-    "### Aiven for Valkey": SectionConfig(
-        ["valkey"], col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_vx),
+    "clickhouse": TableConfig(
+        "eol-table-clickhouse.md", ["clickhouse"],
+        col_eol=1, col_avail_end=2, col_avail_start=None, label_fn=str),
+    "flink": TableConfig(
+        "eol-table-flink.md", ["flink"],
+        col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=str),
+    "valkey": TableConfig(
+        "eol-table-valkey.md", ["valkey"],
+        col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_vx),
     # Dragonfly: not in API. Grafana: single-versioned, patch-version mismatch. Both skipped.
 }
 
@@ -154,17 +172,26 @@ def is_pipe_row(line: str) -> bool:
     return line.startswith("|")
 
 
-def set_cell(parts: list[str], col_idx: int, value: str) -> None:
-    """Replace cell content at col_idx (0-based), preserving column width."""
-    i = col_idx + 1
-    if i >= len(parts) - 1 or not parts[i].strip():
-        return
-    new = f" {value} "
-    parts[i] = new + " " * max(0, len(parts[i]) - len(new))
+def parse_table(lines: list[str]) -> tuple[list[str], list[str], list[list[str]], list[str]] | None:
+    """Split file lines into (prefix, header_cells, data_rows, suffix) around the
+    file's single table, identified as a pipe row immediately followed by a
+    separator row. Returns None if no table is found."""
+    for i, line in enumerate(lines):
+        stripped = line.rstrip("\n\r")
+        if (is_pipe_row(stripped) and not is_separator_row(stripped)
+                and i + 1 < len(lines) and is_separator_row(lines[i + 1].rstrip("\n\r"))):
+            header_cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            j = i + 2
+            data_rows = []
+            while j < len(lines) and is_pipe_row(lines[j].rstrip("\n\r")):
+                data_rows.append([c.strip() for c in lines[j].rstrip("\n\r").split("|")[1:-1]])
+                j += 1
+            return lines[:i], header_cells, data_rows, lines[j:]
+    return None
 
 
-def build_new_row(label: str, api_entry: dict, config: SectionConfig, num_cols: int) -> str:
-    """Build a new markdown table row for a service version not yet in the doc."""
+def build_new_row_cells(label: str, api_entry: dict, config: TableConfig, ncols: int) -> list[str]:
+    """Build the cell values for a service version not yet in the table."""
     def d(f):
         v = api_entry.get(f); return fmt_date(v) if v else PLACEHOLDER
 
@@ -175,96 +202,94 @@ def build_new_row(label: str, api_entry: dict, config: SectionConfig, num_cols: 
         if col is not None:
             cells[col] = d(f)
     cells |= config.static_cols  # static_cols applied last, matching original precedence
-    for i in range(num_cols):
+    for i in range(ncols):
         cells.setdefault(i, PLACEHOLDER)
-    return "| " + " | ".join(cells[i] for i in range(num_cols)) + " |\n"
+    return [cells[i] for i in range(ncols)]
 
 
-def process_doc(doc_path: Path, api_versions: dict[tuple[str, str], dict]) -> bool:
-    lines = doc_path.read_text(encoding="utf-8").splitlines(keepends=True)
+def render_table(header_cells: list[str], data_rows: list[list[str]]) -> list[str]:
+    """Render header, separator, and data rows with widths recomputed from the
+    full table, so every row — including any just-inserted one — stays aligned."""
+    ncols = len(header_cells)
+    widths = [len(header_cells[i]) for i in range(ncols)]
+    for row in data_rows:
+        for i in range(ncols):
+            widths[i] = max(widths[i], len(row[i]))
 
-    current_section: str | None = None
-    current_config: SectionConfig | None = None
+    def fmt_row(cells: list[str]) -> str:
+        return "| " + " | ".join(cells[i].ljust(widths[i]) for i in range(ncols)) + " |\n"
+
+    sep = "| " + " | ".join("-" * widths[i] for i in range(ncols)) + " |\n"
+    return [fmt_row(header_cells), sep] + [fmt_row(row) for row in data_rows]
+
+
+def process_file(path: Path, config: TableConfig, api_versions: dict[tuple[str, str], dict]) -> bool:
+    """Update the single table found in this include file."""
+    original_text = path.read_text(encoding="utf-8")
+    parsed = parse_table(original_text.splitlines(keepends=True))
+    if parsed is None:
+        print(f"WARNING: no table found in {path}", file=sys.stderr)
+        return False
+    prefix, header_cells, data_rows, suffix = parsed
+    ncols = len(header_cells)
+
     label_to_api: dict[str, dict] = {}
-    past_separator = False
-    num_cols = 0
+    for stype in config.service_types:
+        for (st, ver), entry in api_versions.items():
+            if st == stype:
+                label_to_api[config.label_fn(ver)] = entry
+
     seen_labels: set[str] = set()
-    result: list[str] = []
-    changed = False
+    new_rows: list[list[str]] = []
+    for row in data_rows:
+        label = row[0] if row else ""
+        seen_labels.add(label)
+        if entry := label_to_api.get(label):
+            row = list(row)
+            if config.col_eol is not None and entry.get("aiven_end_of_life_time"):
+                row[config.col_eol] = fmt_date(entry["aiven_end_of_life_time"])
+            if config.col_avail_end is not None and entry.get("availability_end_time"):
+                row[config.col_avail_end] = fmt_date(entry["availability_end_time"])
+            if config.col_avail_start is not None and entry.get("availability_start_time"):
+                row[config.col_avail_start] = fmt_date(entry["availability_start_time"])
+        new_rows.append(row)
 
-    def missing_service_rows() -> list[str]:
-        if not current_config:
-            return []
-        return [r for _, r in sorted(
-            (version_sort_key(lbl), build_new_row(lbl, e, current_config, num_cols))
-            for lbl, e in label_to_api.items() if lbl not in seen_labels
-        )]
+    missing_labels = sorted(
+        (lbl for lbl in label_to_api if lbl not in seen_labels), key=version_sort_key)
+    for label in missing_labels:
+        new_rows.append(build_new_row_cells(label, label_to_api[label], config, ncols))
 
-    def flush() -> None:
-        nonlocal changed
-        if rows := missing_service_rows():
-            changed = True; result.extend(rows)
-
-    for line in lines:
-        stripped = line.rstrip("\n\r")
-
-        if past_separator and current_section and not is_pipe_row(stripped):
-            flush(); past_separator = False; seen_labels = set()
-
-        if stripped.startswith("### "):
-            current_section = current_config = None
-            label_to_api = {}; num_cols = 0
-            for key, cfg in SECTION_CONFIG.items():
-                if stripped.startswith(key):
-                    current_section = key; current_config = cfg
-                    for stype in cfg.service_types:
-                        for (st, ver), entry in api_versions.items():
-                            if st == stype:
-                                label_to_api[cfg.label_fn(ver)] = entry
-                    break
-
-        if current_section and is_pipe_row(stripped) and is_separator_row(stripped):
-            past_separator = True; num_cols = stripped.count("|") - 1
-
-        if current_section and past_separator and is_pipe_row(stripped) and not is_separator_row(stripped):
-            if current_config:
-                parts = stripped.split("|")
-                version_cell = parts[1].strip() if len(parts) > 2 else ""
-                seen_labels.add(version_cell)
-                if entry := label_to_api.get(version_cell):
-                    new_parts = list(parts); cfg = current_config
-                    if cfg.col_eol is not None and entry.get("aiven_end_of_life_time"):
-                        set_cell(new_parts, cfg.col_eol, fmt_date(entry["aiven_end_of_life_time"]))
-                    if cfg.col_avail_end is not None and entry.get("availability_end_time"):
-                        set_cell(new_parts, cfg.col_avail_end, fmt_date(entry["availability_end_time"]))
-                    if cfg.col_avail_start is not None and entry.get("availability_start_time"):
-                        set_cell(new_parts, cfg.col_avail_start, fmt_date(entry["availability_start_time"]))
-                    if (new_stripped := "|".join(new_parts)) != stripped:
-                        changed = True; line = new_stripped + line[len(stripped):]
-
-        result.append(line)
-
-    if past_separator and current_section:
-        flush()
-
-    if changed:
-        doc_path.write_text("".join(result), encoding="utf-8")
-    return changed
+    new_text = "".join(prefix) + "".join(render_table(header_cells, new_rows)) + "".join(suffix)
+    if new_text != original_text:
+        path.write_text(new_text, encoding="utf-8")
+        return True
+    return False
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--doc-path", type=Path, default=DOC_PATH)
+    parser.add_argument("--includes-dir", type=Path, default=INCLUDES_DIR)
     args = parser.parse_args()
 
-    if not args.doc_path.exists():
-        print(f"ERROR: doc not found at {args.doc_path}", file=sys.stderr); sys.exit(2)
+    for service, cfg in TABLE_CONFIG.items():
+        path = args.includes_dir / cfg.file_name
+        if not path.exists():
+            print(f"ERROR: table include not found for {service} at {path}", file=sys.stderr)
+            sys.exit(2)
 
     api_versions = fetch_versions()
-    changed = process_doc(args.doc_path, api_versions)
-    if changed:
-        print(f"Updated: {args.doc_path}"); sys.exit(1)
-    print("No changes."); sys.exit(0)
+
+    changed_files = []
+    for service, cfg in TABLE_CONFIG.items():
+        path = args.includes_dir / cfg.file_name
+        if process_file(path, cfg, api_versions):
+            changed_files.append(str(path))
+
+    if changed_files:
+        print("Updated:\n  " + "\n  ".join(changed_files))
+        sys.exit(1)
+    print("No changes.")
+    sys.exit(0)
 
 
 if __name__ == "__main__":
