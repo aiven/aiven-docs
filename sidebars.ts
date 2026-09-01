@@ -1670,6 +1670,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/metrics/service-management',
+              },
               items: [
                 'products/metrics/howto/power-cycle-service',
                 'products/metrics/howto/tag-service',
