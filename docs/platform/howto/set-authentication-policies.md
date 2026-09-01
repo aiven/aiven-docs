@@ -82,6 +82,25 @@ and comply with policies and regulations.
 This authentication policy setting also applies to access through
 personal and application tokens.
 
+### MCP connections
+
+Users can connect [Aiven MCP](/docs/tools/mcp-server) clients, such as Cursor
+and Claude Code, to the services and other resources they have access to in your
+organization.
+
+To allow users to connect MCP clients, select **Allow MCP connections**. If you
+turn off this setting, users cannot connect MCP clients to resources in your
+organization.
+
+When MCP connections are allowed, you can also select **Restrict MCP
+connections to read-only operations**. MCP clients can then view services and
+other resources, but they cannot create, modify, or delete them. The restriction
+applies to all MCP connections in the organization. Users cannot override it in
+their client configuration.
+
+For more information, see
+[Read-only mode](/docs/tools/mcp-server#read-only-mode).
+
 ## Set an authentication policy
 
 1.  In the organization, click **Admin**.

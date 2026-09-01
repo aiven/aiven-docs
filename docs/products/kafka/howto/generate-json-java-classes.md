@@ -1,11 +1,11 @@
 ---
-title: Generate Java data classes from JSON schemas
-sidebar_label: JSON schema
+title: Generate Java classes from JSON Schema
+sidebar_label: Generate JSON Schema classes
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Generate Java data classes from JSON Schema (`.json`) files for use in Apache Kafka® applications. Use the `jsonschema2pojo` CLI tool to generate Java classes that match your schema structure.
+Generate Java classes from JSON Schema (`.json`) files for use in Apache Kafka® applications. Use the `jsonschema2pojo` CLI tool to generate Java classes that match your schema structure.
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ src/main/java/io/aiven/example/User.java
 
 To enable additional features in Confluent’s deserializers (which are compatible
 with schema registries like
-[Karapace](/docs/products/kafka/karapace/concepts/schema-registry-authorization)), you
+[Karapace](/docs/products/kafka/karapace)), you
 can add this annotation to your JSON Schema:
 
 ```json
@@ -147,4 +147,5 @@ features.
 
 <RelatedPages />
 
-[jsonschema2pojo CLI reference](https://github.com/joelittlejohn/jsonschema2pojo/wiki/Getting-Started#the-command-line-interface)
+- [Use schema registry with Java producers and consumers](/docs/products/kafka/howto/use-schema-registry-in-java)
+- [jsonschema2pojo CLI reference](https://github.com/joelittlejohn/jsonschema2pojo/wiki/Getting-Started#the-command-line-interface)

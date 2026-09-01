@@ -1,11 +1,11 @@
 ---
-title: Generate Java data classes from Protobuf schemas
-sidebar_label: Protobuf schema
+title: Generate Java classes from Protobuf schemas
+sidebar_label: Generate Protobuf classes
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Generate Java data classes from Protocol Buffers (`.proto`) schema files for use in Apache Kafka® producers and consumers. Use the `protoc` compiler to generate Java classes that match your schema structure.
+Generate Java classes from Protocol Buffers (`.proto`) schema files for use in Apache Kafka® producers and consumers. Use the `protoc` compiler to generate Java classes that match your schema structure.
 
 ## Prerequisites
 
@@ -119,4 +119,5 @@ types or if you use advanced features in Confluent’s Protobuf support.
 
 <RelatedPages />
 
-[Protobuf Compiler Installation](https://grpc.io/docs/protoc-installation/)
+- [Use schema registry with Java producers and consumers](/docs/products/kafka/howto/use-schema-registry-in-java)
+- [Protobuf Compiler Installation](https://grpc.io/docs/protoc-installation/)

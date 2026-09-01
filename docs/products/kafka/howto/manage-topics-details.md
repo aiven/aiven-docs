@@ -64,7 +64,7 @@ Enable and manage schemas for the topic:
 - **Delete subjects**: Remove schemas that are no longer needed.
 
 :::note
-Enable the [schema registry authorization](/docs/products/kafka/concepts/schema-registry-authorization)
+Enable the [schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization)
 for your Aiven for Apache Kafka service to use the **Schemas** tab.
 :::
 

@@ -19,6 +19,7 @@ query performance.
 Before upgrading:
 
 - Review [Changes that require attention](#changes-that-require-attention).
+- Review the [26.3 default settings][default-settings-26-3].
 - For production services, test the upgrade on a
   [service fork](/docs/products/clickhouse/howto/fork-service). Aiven does not
   support downgrades.
@@ -319,3 +320,5 @@ Aiven adopts and that can affect workloads.
 - [Aiven for ClickHouse® version support policy](/docs/products/clickhouse/reference/version-support-policy)
 - [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
 - [Supported table engines](/docs/products/clickhouse/reference/supported-table-engines)
+
+[default-settings-26-3]: /docs/products/clickhouse/reference/26-3-default-settings

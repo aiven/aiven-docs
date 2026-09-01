@@ -1,11 +1,11 @@
 ---
 title: Create Compose files for Aiven Runtime
 sidebar_label: Create Compose files
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";
+import AppIntegrationLimitation from "@site/static/includes/runtime-app-integration-limitation.md";
 
 Aiven Runtime scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations.
 Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
@@ -16,13 +16,13 @@ Aiven recognizes Compose files with the following file naming conventions:
   <thead>
   <tr>
     <th>File type</th>
-    <th>Supported file formats</th>
+    <th>Supported file naming formats</th>
   </tr>
   </thead>
   <tbody>
   <tr>
     <td>Compose files</td>
-    <td><ul><li>`docker-compose.yml`</li><li>`docker-compose.yaml`</li><li>`compose.yml`</li><li>`compose.yaml`</li></ul></td>
+    <td><ul><li>`docker-compose.yml`</li><li>`docker-compose.yaml`</li><li>`compose.yml`</li><li>`compose.yaml`</li><li>`compose.aiven.yaml`</li><li>`compose.existing-db.yaml`</li></ul></td>
   </tr>
   <tr>
     <td>Environment-specific and override files</td>
@@ -33,6 +33,12 @@ Aiven recognizes Compose files with the following file naming conventions:
 
 Aiven automatically analyzes Compose files to detect the applications to build and
 the Aiven services to create.
+
+:::note
+You cannot use Compose files to deploy applications through the Aiven API or Aiven MCP.
+Use
+[Containerfiles or Dockerfiles](/docs/products/runtime/manifest-files/containerfiles) instead.
+:::
 
 ## Create a Compose file
 
@@ -47,22 +53,48 @@ Aiven Runtime automatically detects and creates the following data services base
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
 and Aiven for OpenSearch®.
 
-You define the service type and version with the `image` property.
+Aiven integrates the data services listed in the `depends_on` property.
+You define the service type and tags with the `image` property, for example:
+
+```yaml
+services:
+  web-app:
+    build: .
+    depends_on:               # Services to integrate with
+      - postgres-db
+      - valkey-cache
+    environment:
+      - DATABASE_URL=postgresql://DB_USER:DB_PASSWORD@postgres-db:5432/DB_NAME
+
+  postgres-db:
+    image: postgres:15        # PostgreSQL service
+
+  valkey-cache:
+    image: valkey/valkey:7.2  # Valkey service
+```
+
+:::note
 Service names must:
 
 - Consist only of lowercase letters a-z, numbers 0-9, and `-`
 - Begin with a lowercase letter
 - Be between 1 and 64 characters in length
+:::
 
-The following examples show how to specify the image for each supported service.
+Aiven Runtime only recognizes specific, standard images for each service type.
+When a data service is recognized as an Aiven service, any specified version
+number is ignored. The latest stable version is used. You can change the version
+in the Aiven Console before or after deploying the application.
+
+<AppIntegrationLimitation/>
 
 #### Kafka
 
-The supported images for Kafka are:
+Runtime recognizes the following images for Kafka:
 
-- `apache/kafka`: Official Apache Kafka
-- `confluentinc/cp-kafka`: Confluent Platform
-- `bitnami/kafka`: Bitnami packaging
+- `apache/kafka`
+- `confluentinc/cp-kafka`
+- `bitnami/kafka`
 
 The following is an example for the official Apache Kafka image:
 
@@ -81,6 +113,14 @@ The following is an example for the Confluent Platform Kafka image:
 
 #### PostgreSQL
 
+Runtime recognizes the following PostgreSQL images:
+
+- `postgres`
+- `postgresql`
+- `bitnami/postgresql`
+
+The following is an example for the official PostgreSQL image:
+
 ```yaml
 services:
   database:
@@ -88,6 +128,16 @@ services:
 ```
 
 #### Valkey
+
+Runtime recognizes the following Valkey images:
+
+- `valkey`
+- `valkey/valkey`
+- `bitnami/valkey`
+- `redis`
+- `bitnami/redis`
+
+The following is an example for the official Valkey image:
 
 ```yaml
 services:
@@ -97,29 +147,89 @@ services:
 
 #### OpenSearch
 
+Aiven Runtime only recognizes the official
+`opensearchproject/opensearch` image, for example:
+
+
 ```yaml
 services:
   search:
     image: opensearchproject/opensearch:2.11
 ```
 
-Aiven integrates the services listed in the `depends_on` property:
+It can also include
+registry prefixes such as `docker.io/opensearchproject/opensearch`
+and `ghcr.io/opensearchproject/opensearch`.
+
+#### Custom builds and unsupported images
+
+Aiven Runtime doesn't support custom builds, non-standard images,
+and some image distributions.
+
+If you need to use custom images locally, you can use a separate Compose file
+for Aiven Runtime.
+
+For example, the following Compose file
+includes a custom PostgreSQL build and a non-standard Redis image:
+
+```yaml
+# compose.yaml
+services:
+  db:
+    build: ./postgres-with-my-extensions  # Custom build
+  cache:
+    image: my-redis-fork:7.0              # Non-standard image
+  api:
+    build: ./app
+```
+
+To deploy this setup on Aiven Runtime without editing your main Compose file,
+create a `compose.aiven.yaml` file with the following:
 
 ```yaml
 services:
-  web-app:
-    build: .
-    depends_on:
-      - postgres-db
-      - valkey-cache
-    environment:
-      - DATABASE_URL=postgresql://user:pass@postgres-db:5432/mydb
+  db:
+    image: postgres:15  # Standard image Aiven recognizes
+  cache:
+    image: valkey:7.2   # Standard image Aiven recognizes
+  api:
+    build: ./app
+```
 
-  postgres-db:
-    image: postgres:15
+#### Incorrect service detection
 
-  valkey-cache:
-    image: valkey/valkey:7.2
+There are cases where Runtime incorrectly identifies a service as an Aiven data service
+because it contains a string that matches a recognized image name.
+
+For example, a Compose file with an image name that includes `valkey` is
+recognized as an Aiven for Valkey™ service:
+
+```yaml
+services:
+  admin-app:
+    image: my-valkey-admin-app
+```
+
+To deploy this setup on Aiven Runtime, create a separate `compose.aiven.yaml` file
+and a Containerfile or Dockerfile to describe the application. For the Valkey case,
+the following is an example of the Valkey admin app in a `compose.aiven.yaml` file:
+
+```yaml
+services:
+  admin-app:
+    build:
+      context: my-valkey-admin-app
+      dockerfile: Dockerfile
+```
+
+An example Containerfile for this case is:
+
+```dockerfile
+FROM my-valkey-admin-app
+
+EXPOSE 3000
+
+CMD ["my-valkey-admin-app"]
 ```
 
 ### Environment variables
@@ -345,3 +455,6 @@ volumes:
 
 - [Docker Compose Quickstart](https://docs.docker.com/compose/gettingstarted)
 - [Manage secrets securely in Docker Compose](https://docs.docker.com/compose/how-tos/use-secrets/)
+- [A Developer's Guide to Aiven Apps](https://aiven.io/blog/developers-guide-to-aiven-apps)
+- [Deploying Apache Kafka® Streams next to your data](https://aiven.io/blog/apache-kafka-streams-next-to-your-data)
+- [A Practical Guide to Deploying LMM-Powered Apps with CLIP and pgvector](https://aiven.io/blog/aiven-apps-deploy-lmm-demo)

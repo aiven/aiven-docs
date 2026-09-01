@@ -1,5 +1,6 @@
 ---
-title: Enable OAuth2/OIDC support for Apache Kafka® REST proxy
+title: Enable OAuth 2.0/OIDC support for Apache Kafka® REST proxy
+sidebar_label: Configure OAuth 2.0/OIDC
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,11 +13,11 @@ Secure your Apache Kafka® resources by integrating OAuth 2.0/OpenID Connect (OI
 This setup ensures that only authorized individuals can manage Apache Kafka resources
 through both token-based authentication and access control rules.
 
-## OAuth2/OIDC token handling
+## OAuth 2.0/OIDC token handling
 
 Karapace processes the JSON Web Token (JWT) obtained from the
 Authorization HTTP header, specifically when employing the Bearer
-authentication scheme. This allows OAuth2/OIDC credentials to be
+authentication scheme. This allows OAuth 2.0/OIDC credentials to be
 supplied directly to the REST proxy, which uses the provided token to
 authorize requests to Apache Kafka. When a Bearer token is presented,
 Kafka clients configured by Karapace use the SASL OAUTHBEARER mechanism
@@ -33,7 +34,7 @@ While the `sub` claim is the default identifier, this setting is
 configurable. You can specify a different JWT claim for authentication
 by adjusting the `kafka.sasl_oauthbearer_sub_claim_name` parameter. For
 more information on configuring this, see
-[Enable OAuth2/OIDC via Aiven Console](/docs/products/kafka/howto/enable-oidc).
+[Enable OAuth 2.0/OIDC via Aiven Console](/docs/products/kafka/howto/enable-oidc).
 
 To authenticate and authorize a user in Aiven for Apache Kafka, you need a service user
 and an ACL entry that describes the permissions. The JWT claim value used for
@@ -44,7 +45,7 @@ and the ACL entry.
 
 ## Managing token expiry
 
-With OAuth2/OIDC enabled, Karapace manages Apache Kafka client connections for
+With OAuth 2.0/OIDC enabled, Karapace manages Apache Kafka client connections for
 security and performance. It automatically cleans up idle clients and
 those with tokens nearing expiration, typically on a 5-minute cycle.
 This cleanup prevents unauthorized access with expired tokens and clears
@@ -53,18 +54,18 @@ idle connections.
 :::note
 Before your token expires, remove any linked consumers and producers to
 avoid security issues and service interruptions. After removal, refresh
-your OAuth2 JWT tokens and reconnect with the new tokens.
+your OAuth 2.0 JWT tokens and reconnect with the new tokens.
 :::
 
-## Configure OAuth2/OIDC authentication
+## Configure OAuth 2.0/OIDC authentication
 
-To establish OAuth2/OIDC authentication for the Karapace REST proxy,
+To establish OAuth 2.0/OIDC authentication for the Karapace REST proxy,
 complete the following prerequisites and configuration steps:
 
 ### Prerequisites
 
 -   [Aiven for Apache Kafka®](/docs/products/kafka/get-started/create-kafka-service) service running with
-    [OAuth2/OIDC enabled](/docs/products/kafka/howto/enable-oidc).
+    [OAuth 2.0/OIDC enabled](/docs/products/kafka/howto/enable-oidc).
 -   [Karapace schema registry and REST APIs enabled](/docs/products/kafka/karapace/howto/enable-karapace).
 -   Ensure access to an OIDC-compliant provider, such as Auth0, Okta,
     Google Identity Platform, or Azure.

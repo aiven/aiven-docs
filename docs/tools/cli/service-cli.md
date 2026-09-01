@@ -447,7 +447,7 @@ Service Schema commands
 ### `avn service schema-registry-acl`
 
 Manages
-[Aiven for Apache Kafka® Karapace schema registry authorization](/docs/products/kafka/concepts/schema-registry-authorization).
+[Aiven for Apache Kafka® Karapace schema registry authorization](/docs/products/kafka/karapace/concepts/schema-registry-authorization).
 
 More information on `schema-registry-acl-add`,
 `schema-registry-acl-delete`, `schema-registry-acl-list` can be found in

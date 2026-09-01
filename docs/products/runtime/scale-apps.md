@@ -1,7 +1,6 @@
 ---
 title: Change application plan for Aiven Runtime
 sidebar_label: Change application plan
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"

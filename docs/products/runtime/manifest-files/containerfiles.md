@@ -1,7 +1,6 @@
 ---
 title: Create Containerfiles and Dockerfiles for Aiven Runtime
 sidebar_label: Create Containerfiles and Dockerfiles
-limited: true
 ---
 
 import EnvVarMerging from "@site/static/includes/manifest-env-var-merging.md";

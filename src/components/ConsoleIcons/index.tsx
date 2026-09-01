@@ -232,6 +232,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Runtime</b>
         </>
       );
+    case 'swapruntimeservices':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.swapHorizontal} />{' '}
+          <b>Swap with an existing service</b>
+        </>
+      );
     case 'projectpermissions':
       return (
         <>

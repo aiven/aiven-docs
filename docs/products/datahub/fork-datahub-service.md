@@ -1,6 +1,5 @@
 ---
-title: Fork a DataHub service
-limited: true
+title: Fork DataHub services
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

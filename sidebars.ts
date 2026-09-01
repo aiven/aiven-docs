@@ -348,7 +348,15 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'tools',
-        'tools/api',
+        {
+          type: 'category',
+          label: 'Aiven API',
+          link: {
+            id: 'tools/api',
+            type: 'doc',
+          },
+          items: ['tools/api/secret-redaction'],
+        },
         'tools/mcp-server',
         {
           type: 'category',
@@ -417,32 +425,29 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       className: 'expandedSection',
       items: [
-        'products/aiven-apps',
-        'products/apps/deploy-apps',
+        'products/runtime',
+        'products/runtime/deploy-apps',
         {
           type: 'category',
           label: 'Manifest files',
-          link: {
-            type: 'doc',
-            id: 'products/apps/manifest-files/manifests',
-          },
           items: [
-            'products/apps/manifest-files/compose-files',
-            'products/apps/manifest-files/containerfiles',
+            'products/runtime/manifest-files/manifests',
+            'products/runtime/manifest-files/compose-files',
+            'products/runtime/manifest-files/containerfiles',
           ],
         },
-        'products/apps/connect-services-to-apps',
+        'products/runtime/connect-services-to-apps',
         {
           type: 'category',
           label: 'App management',
           items: [
-            'products/apps/ports',
-            'products/apps/secrets-and-variables',
-            'products/apps/deployment-information',
-            'products/apps/scale-apps',
-            'products/apps/change-cloud-apps',
-            'products/apps/custom-domain-for-apps',
-            'products/apps/power-off-apps',
+            'products/runtime/ports',
+            'products/runtime/secrets-and-variables',
+            'products/runtime/deployment-information',
+            'products/runtime/scale-apps',
+            'products/runtime/change-cloud',
+            'products/runtime/custom-domain',
+            'products/runtime/power-off-apps',
           ],
         },
       ],
@@ -718,66 +723,51 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Schema registry',
+              label: 'Schema registry and REST proxy',
               items: [
-                'products/kafka/howto/schema-registry',
-                'products/kafka/howto/enable-schema-registry',
-                'products/kafka/concepts/kafka-rest-api',
+                'products/kafka/karapace',
+                'products/kafka/karapace/howto/enable-karapace',
+                'products/kafka/karapace/howto/set-karapace-version',
                 {
                   type: 'category',
-                  label: 'Karapace',
-                  link: {
-                    type: 'doc',
-                    id: 'products/kafka/karapace',
-                  },
+                  label: 'Schema registry',
                   items: [
-                    'products/kafka/karapace/get-started',
-                    'products/kafka/karapace/howto/enable-karapace',
+                    'products/kafka/karapace/concepts/schema-references',
+                    'products/kafka/karapace/howto/register-schemas-with-references',
                     'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
                     {
                       type: 'category',
-                      label: 'Schema references',
+                      label: 'Develop in Java',
                       items: [
-                        'products/kafka/karapace/concepts/schema-references',
-                        'products/kafka/karapace/howto/register-schemas-with-references',
+                        'products/kafka/howto/use-schema-registry-in-java',
+                        'products/kafka/howto/generate-avro-java-classes',
+                        'products/kafka/howto/generate-protobuf-java-classes',
+                        'products/kafka/howto/generate-json-java-classes',
                       ],
                     },
                     {
                       type: 'category',
-                      label: 'Schema registry security',
+                      label: 'Authorization',
                       items: [
                         'products/kafka/karapace/concepts/schema-registry-authorization',
-                        'products/kafka/karapace/concepts/acl-definition',
                         'products/kafka/karapace/howto/enable-schema-registry-authorization',
+                        'products/kafka/karapace/concepts/acl-definition',
                         'products/kafka/karapace/howto/manage-schema-registry-authorization',
-                      ],
-                    },
-                    {
-                      type: 'category',
-                      label: 'REST proxy security',
-                      items: [
-                        'products/kafka/karapace/concepts/kafka-rest-proxy-authorization',
-                        'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
-                        'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                       ],
                     },
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'Develop with schemas',
+                  label: 'REST proxy',
                   items: [
+                    'products/kafka/concepts/kafka-rest-api',
                     {
                       type: 'category',
-                      label: 'Generate Java classes from schemas',
-                      link: {
-                        type: 'doc',
-                        id: 'products/kafka/howto/generate-java-classes-from-schemas',
-                      },
+                      label: 'Authorization',
                       items: [
-                        'products/kafka/howto/generate-avro-java-classes',
-                        'products/kafka/howto/generate-protobuf-java-classes',
-                        'products/kafka/howto/generate-json-java-classes',
+                        'products/kafka/karapace/howto/enable-kafka-rest-proxy-authorization',
+                        'products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy',
                       ],
                     },
                   ],
@@ -1390,6 +1380,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/clickhouse/howto/manage-clickhouse-versions',
                 'products/clickhouse/reference/upgrade-to-26-3',
+                'products/clickhouse/reference/26-3-default-settings',
                 'products/clickhouse/reference/25-8-default-settings',
                 'products/clickhouse/reference/version-support-policy',
                 'products/clickhouse/reference/version-lifecycle',
@@ -1482,9 +1473,9 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Service management',
               items: [
-                'products/datahub/manage-datahub-users',
-                'products/datahub/enable-oidc-auth-datahub',
                 'products/datahub/change-cloud',
+                'products/datahub/delete-service',
+                'products/datahub/power-off-service',
                 {
                   type: 'category',
                   label: 'Notifications',
@@ -1493,6 +1484,16 @@ const sidebars: SidebarsConfig = {
                     'products/datahub/configure-teams-notifications',
                   ],
                 },
+                'products/datahub/tag-services',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Access and security',
+              items: [
+                'products/datahub/manage-datahub-users',
+                'products/datahub/enable-oidc-auth-datahub',
+                'products/datahub/rotate-secrets',
               ],
             },
             {
@@ -1505,6 +1506,7 @@ const sidebars: SidebarsConfig = {
               label: 'Maintenance and lifecycle',
               items: [
                 'products/datahub/upgrade-datahub-version',
+                'products/datahub/maintenance-updates',
                 'products/datahub/restore-datahub-indices',
               ],
             },
@@ -2266,6 +2268,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/report-metrics-grafana',
                 'products/postgresql/howto/visualize-grafana',
                 'products/postgresql/howto/monitor-database-with-datadog',
+                'products/postgresql/howto/monitor-relation-function-metrics-datadog',
                 'products/postgresql/howto/monitor-pgbouncer-with-datadog',
                 'products/postgresql/howto/monitor-with-pgwatch2',
 
@@ -2406,7 +2409,6 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/valkey/howto/change-service-plan',
-                'products/valkey/howto/scale-disk-storage',
                 'products/valkey/concepts/memory-usage',
                 'products/valkey/troubleshooting/warning-overcommit_memory',
                 'products/valkey/howto/prepare-for-high-load',

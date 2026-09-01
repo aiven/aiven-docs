@@ -132,7 +132,7 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
-        <div className="param"><p className="name"><Link id="mysql_version"/><Link to="#mysql_version"><strong>mysql_version</strong></Link></p><p><code className="type">string,null</code></p></div>
+        <div className="param"><p className="name"><Link id="mysql_version"/><Link to="#mysql_version"><strong>mysql_version</strong></Link></p><p><code className="type">string</code></p></div>
         <p className="title">MySQL major version</p>
       </td>
     </tr>

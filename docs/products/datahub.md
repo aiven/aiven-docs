@@ -1,24 +1,17 @@
 ---
 title: Aiven for DataHub
-limited: true
 ---
 
 Aiven for [DataHub](https://docs.datahub.com/docs/features) is a cost-effective data catalog that integrates seamlessly with Aiven services.
 
 It removes complexity by automatically deploying and managing the whole infrastructure.
-You don’t have to manually create or manage the dependent Aiven Apps, or
+You don’t have to manually create or manage the underlying Aiven Apps, or
 Aiven for Apache Kafka®, Aiven for OpenSearch® and Aiven for PostgreSQL® services.
 Additionally, all services are deployed in the same region to simplify networking and
 reduce operational overhead.
 
 You can [add an unlimited number of users](/docs/products/datahub/manage-datahub-users)
 with no per-user licensing costs.
-
-:::note
-Aiven for DataHub is in
-[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-To request access, [contact Aiven](https://aiven.io/datahub#contact-us).
-:::
 
 ## Features
 

@@ -1,7 +1,6 @@
 ---
 title: Get started with Aiven for DataHub
 sidebar_label: Get started
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

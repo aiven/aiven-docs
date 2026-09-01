@@ -1,7 +1,6 @@
 ---
 title: Enable OIDC authentication for Aiven for DataHub
 sidebar_label: Enable OIDC authentication
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

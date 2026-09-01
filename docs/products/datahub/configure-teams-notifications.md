@@ -1,7 +1,6 @@
 ---
 title: Configure Teams notifications for DataHub activity
 sidebar_label: Configure Teams notifications
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
