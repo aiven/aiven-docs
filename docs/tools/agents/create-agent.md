@@ -12,7 +12,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Create an agent by describing a task or by configuring the agent manually.
 
 When you describe a task, Aiven generates a configuration that you can review and
-test before you deploy the agent.
+test before you create the agent.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ enabled Managed Agents, see [Managed Agents](/docs/tools/agents).
    such as **Slow-query digest**, **Incident RCA**, or **PR reviewer**.
 
 1. Click **Create agent**. Keep the window open. If you leave before
-   deploying, the draft and any test runs are lost.
+   creating the agent, the draft and any test runs are lost.
 
 Aiven analyzes the task and prepares the configuration. This can take a few minutes.
 During this process, Aiven:
@@ -49,7 +49,7 @@ During this process, Aiven:
 
 ### Review the generated configuration
 
-When the configuration is ready, review it before you deploy the agent.
+When the configuration is ready, review it before you create the agent.
 
 You can change:
 
@@ -70,13 +70,13 @@ For details on MCP roles and available tools, see
 1. Optional: Click **Run test** to review the output.
 1. Update the configuration if needed, then click **Run test** again.
 
-### Deploy the agent
+### Create the agent
 
-1. Click **Deploy agent**.
+1. Click **Create agent**.
 1. For **Schedule**, select **On demand** or a recurring schedule. If you select
    **Custom**, set the cadence and any extra options, such as **Time** and
    **Time zone**.
-1. Click **Deploy**.
+1. Click **Create**.
 
 The agent appears on the <ConsoleLabel name="agents"/> page with the status
 **Active**. The agent <ConsoleLabel name="agent overview"/> shows
