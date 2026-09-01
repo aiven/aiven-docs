@@ -57,8 +57,9 @@ valid during the overlap.
 ### Configure the audience
 
 The _audience_ identifies the intended recipient of a token, such as a specific API or
-tenant. Set the same audience value in your IdP and in the **Audience** field when you
-enable Data API. Data API rejects any token whose `aud` claim doesn't match.
+tenant. The audience is optional. If you set it, use the same value in your IdP and in
+the **Audience** field when you enable Data API; Data API then rejects any token whose
+`aud` claim doesn't match. If you leave it blank, Data API doesn't check the `aud` claim.
 
 ## Authorize requests with PostgreSQL roles
 
