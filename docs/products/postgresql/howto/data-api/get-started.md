@@ -16,6 +16,9 @@ To enable Data API, you need the following:
 
 - <LimitedBadge/> access to Data API. To request access,
   [contact Aiven](https://aiven.io/contact).
+- [Aiven Runtime](/docs/products/aiven-apps) enabled for your project, since Data API
+  deploys as a Runtime application. If it isn't, the Aiven Console shows
+  **Data API requires Aiven Runtime**.
 - Data API available for your service's plan and cloud. If it isn't, the Aiven Console
   shows **The data API is not available for your service**.
 - The `project:services:write` permission.
