@@ -2,7 +2,8 @@
 title: Delete user account
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import TrialCredits from "@site/static/includes/trial-credits-block-deletion.md";
 
 You can delete your personal user account as long as you are not a managed user of an organization.
 
@@ -20,3 +21,7 @@ To delete your account:
    you are part of.
 1.  Go to <ConsoleLabel name="userinformation"/> > <ConsoleLabel name="userprofile"/>.
 1.  Click **Delete account**.
+
+:::note
+<TrialCredits/>
+:::

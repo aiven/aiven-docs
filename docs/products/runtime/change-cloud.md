@@ -5,6 +5,7 @@ sidebar_label: Change cloud
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
+
 You can change the cloud provider or region of an Aiven Runtime application.
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
