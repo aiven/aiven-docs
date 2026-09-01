@@ -2401,7 +2401,6 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/valkey/howto/change-service-plan',
-                'products/valkey/howto/scale-disk-storage',
                 'products/valkey/concepts/memory-usage',
                 'products/valkey/troubleshooting/warning-overcommit_memory',
                 'products/valkey/howto/prepare-for-high-load',

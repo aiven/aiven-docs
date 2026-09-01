@@ -12,5 +12,4 @@ Change the service plan for your Aiven for Valkey™ service to scale resources 
 
 <RelatedPages/>
 
-- [Scale disk storage](/docs/products/valkey/howto/scale-disk-storage)
 - [Prepare for high load](/docs/products/valkey/howto/prepare-for-high-load)

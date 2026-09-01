@@ -168,5 +168,4 @@ For the full list of configuration options, including `valkey_activedefrag`, see
 <RelatedPages/>
 
 - [Change the service plan](/docs/products/valkey/howto/change-service-plan)
-- [Scale disk storage](/docs/products/valkey/howto/scale-disk-storage)
 - [Advanced parameters for Aiven for Valkey™](/docs/products/valkey/reference/advanced-params)
