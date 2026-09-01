@@ -1,7 +1,6 @@
 ---
 title: Power off Aiven Runtime applications
 sidebar_label: Power off applications
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

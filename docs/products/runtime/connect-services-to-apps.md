@@ -1,7 +1,6 @@
 ---
 title: Connect services to Aiven Runtime
 sidebar_label: Connect services
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

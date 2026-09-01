@@ -1,7 +1,6 @@
 ---
 title: Create Compose files for Aiven Runtime
 sidebar_label: Create Compose files
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";

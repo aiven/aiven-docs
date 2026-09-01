@@ -1,7 +1,6 @@
 ---
 title: Aiven Runtime overview
 sidebar_label: Overview
-limited: true
 ---
 
 Aiven Runtime lets you deploy and run containerized applications directly within your existing Aiven project infrastructure.
@@ -9,12 +8,6 @@ This means you can host your applications where your data is.
 Aiven automatically handles the underlying networking,
 and container orchestration, enabling developers to focus on application logic
 rather than DevOps overhead.
-
-:::note
-Aiven Runtime is in
-[limited availability](/docs/platform/concepts/service-and-feature-releases).
-To request access, [contact Aiven](https://aiven.io/apps#contact-us).
-:::
 
 ## Key features
 Aiven Runtime offers the following capabilities to streamline your development lifecycle:

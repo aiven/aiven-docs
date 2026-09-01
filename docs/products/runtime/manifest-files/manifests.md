@@ -1,7 +1,6 @@
 ---
 title: Manifest files for Aiven Runtime
 sidebar_label: Overview
-limited: true
 ---
 
 Aiven Runtime uses container manifests to understand how to build and deploy your applications. You can define applications using two types of container manifests that work together to create complete solutions.

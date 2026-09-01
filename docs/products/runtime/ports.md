@@ -1,7 +1,6 @@
 ---
 title: Manage ports for Aiven Runtime
 sidebar_label: Manage ports
-limited: true
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";

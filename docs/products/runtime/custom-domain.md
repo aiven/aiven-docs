@@ -1,7 +1,6 @@
 ---
 title: Connect a custom domain to an Aiven Runtime
 sidebar_label: Connect a custom domain
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
