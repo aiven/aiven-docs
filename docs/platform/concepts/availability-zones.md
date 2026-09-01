@@ -59,13 +59,11 @@ plan, for example, it will result in one of the servers in `fi-hel1` and
 the other in `fi-hel2`.
 :::
 
-:::note[Example]
+:::note
 With OVHcloud, AZ support depends on OVHcloud's own regional
-infrastructure and isn't available in every region. Currently, only the
-`avn-ovh-par` (Paris) and `avn-ovh-mil` (Milan) regions provide multiple
-datacenters for AZ distribution. Other OVHcloud regions run from a
-single datacenter, and whether new OVHcloud regions get AZ support
-depends on OVHcloud, not Aiven.
+infrastructure, so it isn't available in every region. Only some
+OVHcloud regions provide multiple datacenters for AZ distribution, and
+OVHcloud decides which regions have this support.
 :::
 
 ## Smart availability zones for Apache Kafka®
