@@ -21,18 +21,19 @@ import OtherClientIcon from "@site/static/images/icons/mcp-client-other.svg";
 import LocalInstallIcon from "@site/static/images/icons/local-install.svg";
 
 Create and manage Aiven services from AI assistants such as Cursor and Claude Code, including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
-Enable [read-only mode](#read-only-mode) to restrict the server to
-non-destructive operations, or limit tools to specific services to keep the
-assistant focused.
+Use [read-only mode](#read-only-mode) to limit MCP tools to viewing services
+and other resources. You can enable it in your client or as an organization
+policy.
+You can also limit tools to specific services to keep the assistant focused.
 
 ## Prerequisites
 
 - An [Aiven account](https://console.aiven.io/signup?campaign=mcp)
 - An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
   VS Code, or Gemini CLI
-- MCP access enabled for your organization by an admin in the Aiven Console
-  under **Admin** > <ConsoleLabel name="authenticationpolicy"/> >
-  **Allow MCP connections**
+- MCP access enabled for your organization by an organization admin. In the
+  Aiven Console, click **Admin** >
+  <ConsoleLabel name="authenticationpolicy"/> > **Allow MCP connections**.
 
 Authentication uses OAuth 2.0 with PKCE. When you authenticate a client for the
 first time, your browser opens so you can sign in and authorize MCP access. This
@@ -302,8 +303,9 @@ language. For example, you can do the following:
 - **View resources**: List projects, services, and integrations, or check the
   status, plan, and cloud region of a service.
 - **Manage services**: Create, update, and delete services such as PostgreSQL®
-  and Apache Kafka®, and update service plans or configuration. To allow write
-  operations, disable [read-only mode](#read-only-mode).
+  and Apache Kafka®. You can also change service plans and configuration.
+  [Read-only mode](#read-only-mode) restricts MCP tools to read-only operations,
+  such as viewing services and other resources.
 - **Inspect and troubleshoot services**: View service metrics, logs, and
   configuration to investigate issues.
 - **Use Aiven documentation**: Ask questions and get answers based on the Aiven
@@ -311,28 +313,31 @@ language. For example, you can do the following:
 
 ## Read-only mode
 
-Read-only mode restricts MCP tools to viewing services and other resources. It
-blocks operations that create, modify, or delete them. You can set it at the
-organization level or the client level.
+Read-only mode restricts MCP tools to viewing services and other resources. You
+cannot create, modify, or delete resources. Read-only mode applies at the
+organization level and the client level.
 
 ### Organization level
 
-An organization admin restricts MCP connections to read-only operations for all
-users in the organization in the Aiven Console under **Admin** >
-<ConsoleLabel name="authenticationpolicy"/> > **Restrict MCP connections to
-read-only operations**. For more information, see
-[Set authentication policies for organization users](/docs/platform/howto/set-authentication-policies).
+Organization admins can restrict MCP connections to read-only operations for
+all users in the organization.
 
-Organization users cannot override this setting from their own client
-configuration. Write operations fail even when a user configures their client
-without read-only mode.
+1. In the organization, click **Admin** >
+   <ConsoleLabel name="authenticationpolicy"/>.
+1. Select **Restrict MCP connections to read-only operations**.
+
+Users cannot override this setting in their client configuration. Write
+operations fail even if a user configures their client without read-only mode.
+
+For more information, see
+[Set authentication policies for organization users](/docs/platform/howto/set-authentication-policies).
 
 ### Client level
 
-Individual users enable read-only mode for their own client in the
-[installation configuration](#configure-aiven-mcp). Client-level read-only mode
-applies only to that client and does not change the policy for other users in
-the organization.
+You can enable read-only mode for your client in the
+[installation configuration](#configure-aiven-mcp). The setting applies only
+to that client and does not change the organization policy. It cannot
+override an organization-level restriction.
 
 ## Security and responsibility
 
@@ -347,27 +352,27 @@ Aiven secures the MCP server and data in transit. Your selected AI agent
 provider determines how the agent uses your data, including whether it uses
 that data for training. Review the provider's terms before you enable the
 integration.
-
-Decide whether to enable MCP access in your organization after evaluating the risks.
 :::
 
 Under the [shared responsibility model](https://aiven.io/responsibility-matrix),
-security and compliance for MCP usage are shared between Aiven and your organization.
-Aiven secures the platform and API. You are responsible for the following:
+security and compliance for MCP usage are shared between Aiven and your
+organization. Aiven secures the platform and API. You are responsible for the
+following:
 
-- **Decide whether to enable MCP** in your organization and evaluate the
-  associated risks.
-- **Control access** by scoping API tokens to the minimum permissions needed
-  (principle of least privilege) and rotating them regularly.
-- **Review AI agent actions** before they run, especially for write or delete
-  operations on production resources.
-- **Configure MCP servers securely**, including restricting MCP connections to
-  [read-only operations](#read-only-mode) for all organization users when your
-  organization does not need write access.
-- **Keep credential exposure off in production.** The
+- **Decide on MCP access.** Evaluate whether to enable MCP in your organization
+  and the associated risks.
+- **Control access.** Scope API tokens to the minimum permissions needed and
+  rotate them regularly.
+- **Review AI agent actions.** Review actions before they run, especially write
+  or delete operations on production resources.
+- **Limit write access.** Use [read-only mode](#read-only-mode) at the
+  organization level for all users, or at the client level for an individual
+  client.
+- **Keep credentials off in production.** The
   **Allow connection credentials** option (`allow_secrets=true`) returns
   PostgreSQL and Kafka connection credentials, including URIs, passwords, and
-  certificates, to the AI agent so it can connect to your services. Use it only
-  for development with non-production services that do not hold sensitive data.
-- **Connect to VPC-hosted PostgreSQL services**: The Aiven MCP server supports
-  direct connections to PostgreSQL services running in a private VPC.
+  certificates, to the AI agent. Use it only for development with
+  non-production services that do not hold sensitive data.
+
+The Aiven MCP server can also connect directly to PostgreSQL services running
+in a private VPC.
