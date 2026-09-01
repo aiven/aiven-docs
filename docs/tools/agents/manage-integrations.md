@@ -45,9 +45,9 @@ The following roles are available:
 | **Operator** | Full access to all services in the project, including creating and deleting services. |
 
 1. Select an **MCP role**.
-1. Under **Available tools**, select the tool groups the agent can use, such as
-   **Services**, **Kafka**, **PostgreSQL**, **Integrations**, and
-   **Applications**.
+1. Under **Available tools**, select the tool groups the agent can use:
+   **Services**, **Kafka**, **PostgreSQL**, **Integrations**,
+   **Applications**, and **Other**.
 1. Click **Save changes**.
 
 <RelatedPages/>

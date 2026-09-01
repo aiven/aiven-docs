@@ -78,9 +78,6 @@ To disable a schedule:
 The agent opens in a chat and runs the **Task** from the schedule. You can send
 follow-up messages in the same conversation.
 
-For more information, see
-[Chat with an agent](/docs/tools/agents/chat-with-agent).
-
 ## View schedule runs
 
 1. On <ConsoleLabel name="agent schedules"/>, find the schedule.

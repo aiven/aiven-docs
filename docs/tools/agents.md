@@ -23,11 +23,11 @@ Managed Agents is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 You need access for each project. In the project, click
 <ConsoleLabel name="agents"/> > **Request access**. Once access is granted,
-select **Enable agents**, or **Enable in VPC** to deploy agents and their
-database in a project VPC.
+select **Enable agents**. To run Managed Agents in a project VPC, select
+**Enable in VPC**.
 
-Agents are free for a limited time. A payment method is required to get
-started, and you won't be charged.
+Managed Agents is free during limited availability. A payment method is
+required to get started. You are not charged for using Managed Agents.
 :::
 
 :::caution
