@@ -275,6 +275,7 @@ Opensearch_acl_config
 Opensearch_acl_rule
 Opensearch_user
 operator
+OVHcloud
 ORMs
 overallocates
 overcommit
