@@ -17,10 +17,8 @@ schedule, see [Schedule an agent](/docs/tools/agents/schedule-agent).
 
 ## Prerequisites
 
-- Access to Managed Agents for the project. If you don't have access, see
-  [Managed Agents](/docs/tools/agents).
-- An existing agent. To create one, see
-  [Create an agent](/docs/tools/agents/create-agent).
+An existing agent. To create one, see
+[Create an agent](/docs/tools/agents/create-agent).
 
 ## Open an agent
 

@@ -9,32 +9,52 @@ keywords: [Managed Agents, MCP, integrations, permissions]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Choose which tools an agent can use, including built-in tools and [Aiven MCP](/docs/tools/mcp-server).
+Choose which tools and integrations an agent can use, including built-in tools
+and [Aiven MCP](/docs/tools/mcp-server).
 
-You can also add other Model Context Protocol (MCP) integrations.
+You can also connect other Model Context Protocol (MCP) integrations.
 
 ## Prerequisites
 
-- Access to Managed Agents for the project. If you don't have access, see
-  [Managed Agents](/docs/tools/agents).
-- An existing agent. To create one, see
-  [Create an agent](/docs/tools/agents/create-agent).
+Managed Agents enabled for the project. If you have not requested access or
+enabled Managed Agents, see [Managed Agents](/docs/tools/agents).
 
-## Change the tools for an agent
+## Configure tools and integrations
 
 1. In the Aiven Console, open your project.
-1. Click <ConsoleLabel name="agents"/>, then click the agent.
-1. Click <ConsoleLabel name="integrations"/>.
-1. Click the tools the agent can use:
-   - **Web Fetch:** Retrieves content from web pages.
-   - **Web Search:** Searches the web for information.
-   - **Aiven MCP:** Grants the agent access to services in the current project.
-1. Click **Save changes**.
+1. Select <ConsoleLabel name="agents"/>, then select the agent.
+1. Select <ConsoleLabel name="integrations"/>.
+1. Select the tools and integrations the agent can use.
+1. Select **Save changes**.
+
+Built-in tools include:
+
+- **Web Fetch**
+- **Web Search**
+- **Aiven MCP**
+
+To add or manage integrations, select **Advanced integration settings**.
+
+## Connect an integration
+
+In **Advanced integration settings**, connected integrations appear at the top
+of the page. The **Integrations catalog** lists other integrations you can
+connect.
+
+To connect an integration:
+
+1. Find the integration in the **Integrations catalog**.
+1. Select **Connect**.
+1. Enter the required details and credentials.
+1. Select **Connect**.
+
+To connect an integration that is not available in the catalog, select
+**Add custom integration**.
 
 ## Set the Aiven MCP role and tools
 
-When you turn on **Aiven MCP**, Aiven creates a scoped token automatically. You
-can grant any role up to your own.
+When you enable **Aiven MCP**, Aiven creates a scoped token automatically. You
+can assign an MCP role up to your own project permissions.
 
 The following roles are available:
 
@@ -45,10 +65,8 @@ The following roles are available:
 | **Operator** | Full access to all services in the project, including creating and deleting services. |
 
 1. Select an **MCP role**.
-1. Under **Available tools**, select the tool groups the agent can use:
-   **Services**, **Kafka**, **PostgreSQL**, **Integrations**,
-   **Applications**, and **Other**.
-1. Click **Save changes**.
+1. Under **Available tools**, select the tool groups the agent can use.
+1. Select **Save changes**.
 
 <RelatedPages/>
 

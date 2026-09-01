@@ -10,7 +10,6 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Create an agent by describing a task or by configuring the agent manually.
-
 When you describe a task, Aiven generates a configuration that you can review and
 test before you create the agent.
 
@@ -34,10 +33,15 @@ enabled Managed Agents, see [Managed Agents](/docs/tools/agents).
    > Summarize any issues you find and highlight anything that needs attention.
 
    To start from a suggestion, select an option under **Or start from a suggestion**,
-   such as **Slow-query digest**, **Incident RCA**, or **PR reviewer**.
+   such as **Slow-query digest**, **Incident RCA**, **PR reviewer**,
+   **Sprint status sync**, or **Deep researcher**. Some suggestions use other
+   MCP integrations, such as Slack or Jira.
 
-1. Click **Create agent**. Keep the window open. If you leave before
-   creating the agent, the draft and any test runs are lost.
+1. Click **Create agent**. Do not close this window.
+
+   Aiven prepares a draft. The agent is not saved until you click
+   **Create agent** again. If you leave, the draft and any test runs are
+   lost.
 
 Aiven analyzes the task and prepares the configuration. This can take a few minutes.
 During this process, Aiven:
@@ -62,13 +66,16 @@ You can change:
 **System instructions** define how the agent behaves. The **Task prompt** defines
 the task the agent performs when it runs.
 
-For details on MCP roles and available tools, see
+If a required integration shows **Not connected**, click **set it up now**.
+**Manage integrations** opens. You can also click
+**+ Add other integrations**. For more information, see
 [Manage integrations](/docs/tools/agents/manage-integrations).
 
 ### Test the agent
 
 1. Optional: Click **Run test** to review the output.
-1. Update the configuration if needed, then click **Run test** again.
+1. If you change the configuration, click **Save changes and Run test**.
+   **Create agent** stays unavailable until you save and run the test again.
 
 ### Create the agent
 
@@ -104,7 +111,9 @@ Manual configuration has three steps: **Agent details**, **Integrations**, and
    - **Web Fetch**
    - **Web Search**
    - **Aiven MCP**
-1. Optional: Add other MCP integrations. For more information, see
+   Connected integrations also appear in this list.
+1. Optional: Click **adding or creating MCP integrations**. For more
+   information, see
    [Manage integrations](/docs/tools/agents/manage-integrations).
 1. Click **Continue**.
 
