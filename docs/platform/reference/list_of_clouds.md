@@ -10,7 +10,7 @@ This is a reference list of the default cloud regions available per provider on 
 :::note
 
 - The list of available clouds can differ per project.
-- Not all Aiven service types are available in all cloud providers and regions.
+- Not all Aiven service types are available for all cloud providers and regions.
 - For availability zone (AZ) support, see
   [Availability zones](/docs/platform/concepts/availability-zones#aiven-services-across-availability-zones).
 
