@@ -42,6 +42,7 @@ the following:
 -   Amazon Web Services
 -   Google Cloud Platform
 -   Microsoft Azure
+-   OVHcloud
 -   UpCloud
 
 ## Supported availability zones
@@ -56,6 +57,15 @@ replicas of services is `upcloud-fi-hel`. For `upcloud-fi-hel`, UpCloud
 provides two datacenters (`fi-hel1` and `fi-hel2`). With a two-node
 plan, for example, it will result in one of the servers in `fi-hel1` and
 the other in `fi-hel2`.
+:::
+
+:::note[Example]
+With OVHcloud, AZ support depends on OVHcloud's own regional
+infrastructure and isn't available in every region. Currently, only the
+`avn-ovh-par` (Paris) and `avn-ovh-mil` (Milan) regions provide multiple
+datacenters for AZ distribution. Other OVHcloud regions run from a
+single datacenter, and whether new OVHcloud regions get AZ support
+depends on OVHcloud, not Aiven.
 :::
 
 ## Smart availability zones for Apache Kafka®
