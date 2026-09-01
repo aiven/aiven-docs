@@ -18,6 +18,13 @@ Aiven for OpenSearch® is a fully managed OpenSearch service designed for reliab
 scalability, and security. It includes OpenSearch Dashboards for data visualization and
 supports integrations for logs and monitoring.
 
+:::tip
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to create
+OpenSearch services, view cluster details, manage indexes, and search data from clients such as
+Cursor and Claude Code.
+:::
+
+
 ## Prerequisites
 
 Ensure you have the following before getting started:
