@@ -133,9 +133,9 @@ The agent appears on the <ConsoleLabel name="agents"/> page with the status
 ## Next steps
 
 - [Chat with an agent](/docs/tools/agents/chat-with-agent)
+- [Schedule an agent](/docs/tools/agents/schedule-agent)
 - [Manage an agent](/docs/tools/agents/manage-agent)
 - [Manage integrations](/docs/tools/agents/manage-integrations)
-- [Schedule an agent](/docs/tools/agents/schedule-agent)
 
 <RelatedPages/>
 

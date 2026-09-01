@@ -365,9 +365,9 @@ const sidebars: SidebarsConfig = {
           items: [
             'tools/agents/create-agent',
             'tools/agents/chat-with-agent',
+            'tools/agents/schedule-agent',
             'tools/agents/manage-agent',
             'tools/agents/manage-integrations',
-            'tools/agents/schedule-agent',
           ],
         },
         {

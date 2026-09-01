@@ -95,9 +95,9 @@ a daily schedule that asks the agent to summarize service health.
 
 - [Create an agent](/docs/tools/agents/create-agent)
 - [Chat with an agent](/docs/tools/agents/chat-with-agent)
+- [Schedule an agent](/docs/tools/agents/schedule-agent)
 - [Manage an agent](/docs/tools/agents/manage-agent)
 - [Manage integrations](/docs/tools/agents/manage-integrations)
-- [Schedule an agent](/docs/tools/agents/schedule-agent)
 
 <RelatedPages/>
 
