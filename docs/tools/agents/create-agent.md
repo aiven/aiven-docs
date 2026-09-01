@@ -17,7 +17,7 @@ test before you deploy the agent.
 ## Prerequisites
 
 Managed Agents enabled for the project. If you have not requested access or
-enabled Managed Agents yet, see [Managed Agents](/docs/tools/agents).
+enabled Managed Agents, see [Managed Agents](/docs/tools/agents).
 
 ## Create an agent by describing a task
 

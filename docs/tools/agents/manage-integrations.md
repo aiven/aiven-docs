@@ -11,11 +11,11 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Choose which tools an agent can use, including built-in tools and [Aiven MCP](/docs/tools/mcp-server).
 
-You can also add other Model Context Protocol, also called MCP, integrations.
+You can also add other Model Context Protocol (MCP) integrations.
 
 ## Prerequisites
 
-- Access to Managed Agents for the project. If you don't have access yet, see
+- Access to Managed Agents for the project. If you don't have access, see
   [Managed Agents](/docs/tools/agents).
 - An existing agent. To create one, see
   [Create an agent](/docs/tools/agents/create-agent).
