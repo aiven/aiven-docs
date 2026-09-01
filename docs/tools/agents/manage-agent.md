@@ -3,7 +3,7 @@ title: Manage an agent
 sidebar_label: Manage an agent
 description: View and update an agent's configuration, integrations, and schedules.
 limited: true
-keywords: [Aiven Agents, manage agent, edit agent]
+keywords: [Managed Agents, manage agent, edit agent]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -17,8 +17,8 @@ schedule, see [Schedule an agent](/docs/tools/agents/schedule-agent).
 
 ## Prerequisites
 
-- Access to Aiven Agents for the project. If you don't have access yet, see
-  [Aiven Agents](/docs/tools/agents).
+- Access to Managed Agents for the project. If you don't have access yet, see
+  [Managed Agents](/docs/tools/agents).
 - An existing agent. To create one, see
   [Create an agent](/docs/tools/agents/create-agent).
 
@@ -69,6 +69,6 @@ For more information, see
 
 <RelatedPages/>
 
-- [Aiven Agents](/docs/tools/agents)
+- [Managed Agents](/docs/tools/agents)
 - [Create an agent](/docs/tools/agents/create-agent)
 - [Chat with an agent](/docs/tools/agents/chat-with-agent)

@@ -3,7 +3,7 @@ title: Manage integrations
 sidebar_label: Manage integrations
 description: Configure the tools and integrations an agent can use, including access to Aiven resources.
 limited: true
-keywords: [Aiven Agents, MCP, integrations, permissions]
+keywords: [Managed Agents, MCP, integrations, permissions]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -15,8 +15,8 @@ You can also add other Model Context Protocol, also called MCP, integrations.
 
 ## Prerequisites
 
-- Access to Aiven Agents for the project. If you don't have access yet, see
-  [Aiven Agents](/docs/tools/agents).
+- Access to Managed Agents for the project. If you don't have access yet, see
+  [Managed Agents](/docs/tools/agents).
 - An existing agent. To create one, see
   [Create an agent](/docs/tools/agents/create-agent).
 
@@ -52,7 +52,7 @@ The following roles are available:
 
 <RelatedPages/>
 
-- [Aiven Agents](/docs/tools/agents)
+- [Managed Agents](/docs/tools/agents)
 - [Aiven MCP](/docs/tools/mcp-server)
 - [Create an agent](/docs/tools/agents/create-agent)
 - [Manage an agent](/docs/tools/agents/manage-agent)

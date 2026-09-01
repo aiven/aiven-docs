@@ -54,7 +54,7 @@ You can interact with the Aiven platform with various interfaces and tools that 
     <Card
         to="/docs/tools/agents"
         iconComponent={AI}
-        title="Aiven Agents"
+        title="Managed Agents"
         description="Create and run agents on the Aiven Platform."
     />
 </GridContainer>

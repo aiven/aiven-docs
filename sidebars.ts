@@ -326,7 +326,7 @@ const sidebars: SidebarsConfig = {
         'ai-features',
         {
           type: 'link',
-          label: 'Aiven Agents',
+          label: 'Managed Agents',
           href: '/docs/tools/agents',
         },
         'tools/mcp-server',
@@ -357,7 +357,7 @@ const sidebars: SidebarsConfig = {
         'tools/mcp-server',
         {
           type: 'category',
-          label: 'Aiven Agents',
+          label: 'Managed Agents',
           link: {
             id: 'tools/agents',
             type: 'doc',

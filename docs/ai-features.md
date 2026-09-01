@@ -23,7 +23,7 @@ use case.
     to="/docs/tools/agents"
     iconComponent={AI}
     titleHighlight="var(--aiven-brand-teal)"
-    title="Aiven Agents"
+    title="Managed Agents"
     description="Create and run agents on the Aiven Platform."
   />
   <Card
@@ -49,7 +49,7 @@ or on a schedule.
 
 | Tool | What you can do | Get started |
 | --- | --- | --- |
-| Aiven Agents <LimitedBadge/> | Create agents, connect MCP integrations, and run agents on demand or on a schedule | [Aiven Agents](/docs/tools/agents) |
+| Managed Agents <LimitedBadge/> | Create agents, connect MCP integrations, and run agents on demand or on a schedule | [Managed Agents](/docs/tools/agents) |
 
 ## Connect AI agents and tools to Aiven
 

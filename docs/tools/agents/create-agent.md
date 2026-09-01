@@ -3,7 +3,7 @@ title: Create an agent
 sidebar_label: Create an agent
 description: Create an agent by describing a task or configuring it manually.
 limited: true
-keywords: [Aiven Agents, create agent, AI model, system instructions]
+keywords: [Managed Agents, create agent, AI model, system instructions]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -16,8 +16,8 @@ test before you deploy the agent.
 
 ## Prerequisites
 
-- Access to Aiven Agents for the project. If you don't have access yet, see
-  [Aiven Agents](/docs/tools/agents).
+Managed Agents enabled for the project. If you have not requested access or
+enabled Managed Agents yet, see [Managed Agents](/docs/tools/agents).
 
 ## Create an agent by describing a task
 
@@ -36,7 +36,8 @@ test before you deploy the agent.
    To start from a suggestion, select an option under **Or start from a suggestion**,
    such as **Slow-query digest**, **Incident RCA**, or **PR reviewer**.
 
-1. Click **Create agent**. Keep the window open.
+1. Click **Create agent**. Keep the window open. If you leave before
+   deploying, the draft and any test runs are lost.
 
 Aiven analyzes the task and prepares the configuration. This can take a few minutes.
 During this process, Aiven:
@@ -60,6 +61,9 @@ You can change:
 
 **System instructions** define how the agent behaves. The **Task prompt** defines
 the task the agent performs when it runs.
+
+For details on MCP roles and available tools, see
+[Manage integrations](/docs/tools/agents/manage-integrations).
 
 ### Test the agent
 
@@ -126,4 +130,4 @@ The agent appears on the <ConsoleLabel name="agents"/> page with the status
 
 <RelatedPages/>
 
-- [Aiven Agents](/docs/tools/agents)
+- [Managed Agents](/docs/tools/agents)

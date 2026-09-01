@@ -1,9 +1,9 @@
 ---
 title: Chat with an agent
 sidebar_label: Chat with an agent
-description: Interact with an Aiven Agent on demand.
+description: Interact with an agent on demand.
 limited: true
-keywords: [Aiven Agents, chat, on demand]
+keywords: [Managed Agents, chat, on demand]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -13,8 +13,8 @@ Use chat to send tasks or questions to an agent and continue the conversation wi
 
 ## Prerequisites
 
-- Access to Aiven Agents for the project. If you don't have access yet, see
-  [Aiven Agents](/docs/tools/agents).
+- Access to Managed Agents for the project. If you don't have access yet, see
+  [Managed Agents](/docs/tools/agents).
 - An existing agent. To create one, see
   [Create an agent](/docs/tools/agents/create-agent).
 
@@ -43,6 +43,6 @@ recurring tasks, see
 
 <RelatedPages/>
 
-- [Aiven Agents](/docs/tools/agents)
+- [Managed Agents](/docs/tools/agents)
 - [Create an agent](/docs/tools/agents/create-agent)
 - [Schedule an agent](/docs/tools/agents/schedule-agent)

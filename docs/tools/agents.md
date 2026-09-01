@@ -1,15 +1,15 @@
 ---
-title: Aiven Agents
-sidebar_label: Aiven Agents
+title: Managed Agents
+sidebar_label: Managed Agents
 description: Create and run AI agents on the Aiven Platform with built-in tools and MCP integrations.
 limited: true
-keywords: [Aiven Agents, Agents, MCP, Model Context Protocol]
+keywords: [Managed Agents, Agents, MCP, Model Context Protocol]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven Agents lets you create and run AI agents on the Aiven Platform.
+Managed Agents lets you create and run AI agents on the Aiven Platform.
 Agents can use connected tools to gather information, investigate issues, and perform
 tasks across Aiven and other systems.
 
@@ -19,10 +19,21 @@ scheduled tasks to run automatically. Aiven manages the infrastructure required 
 run the agent.
 
 :::note
-Aiven Agents is in
+Managed Agents is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 You need access for each project. In the project, click
-<ConsoleLabel name="agents"/> > **Request access**.
+<ConsoleLabel name="agents"/> > **Request access**. Once access is granted,
+select **Enable agents**, or **Enable in VPC** to deploy agents and their
+database in a project VPC.
+
+Agents are free for a limited time. A payment method is required to get
+started, and you won't be charged.
+:::
+
+:::caution
+You are interacting with AI. Agents can make mistakes and take actions
+through connected tools, including scheduled actions. Don't enter secrets or
+data you aren't authorized to share.
 :::
 
 ## Example uses
@@ -42,7 +53,7 @@ For example, you can create an agent to:
 What an agent can do depends on its system instructions, AI model, and available
 tools and integrations.
 
-## How Aiven Agents works
+## How Managed Agents works
 
 You configure an agent with:
 
@@ -72,8 +83,8 @@ services. That is a separate setup from running agents on the Aiven Platform.
 
 You can use an agent in two ways:
 
-- [Chat with an agent](/docs/tools/agents/chat-with-agent) to send requests when
-  needed.
+- [Chat with an agent](/docs/tools/agents/chat-with-agent) to send requests
+  when needed.
 - [Schedule an agent](/docs/tools/agents/schedule-agent) to run tasks
   automatically at a specified time or interval.
 

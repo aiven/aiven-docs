@@ -3,7 +3,7 @@ title: Schedule an agent
 sidebar_label: Schedule an agent
 description: Create scheduled tasks so an agent runs automatically.
 limited: true
-keywords: [Aiven Agents, schedule, automation, recurring tasks]
+keywords: [Managed Agents, schedule, automation, recurring tasks]
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -20,8 +20,8 @@ You can also set **On demand** or a schedule when you
 
 ## Prerequisites
 
-- Access to Aiven Agents for the project. If you don't have access yet, see
-  [Aiven Agents](/docs/tools/agents).
+- Access to Managed Agents for the project. If you don't have access yet, see
+  [Managed Agents](/docs/tools/agents).
 - An existing agent. To create one, see
   [Create an agent](/docs/tools/agents/create-agent).
 
@@ -93,6 +93,6 @@ For more information, see
 
 <RelatedPages/>
 
-- [Aiven Agents](/docs/tools/agents)
+- [Managed Agents](/docs/tools/agents)
 - [Create an agent](/docs/tools/agents/create-agent)
 - [Chat with an agent](/docs/tools/agents/chat-with-agent)
