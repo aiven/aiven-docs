@@ -1,7 +1,6 @@
 ---
 title: Scale Aiven for DataHub services
 sidebar_label: Scale DataHub services
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

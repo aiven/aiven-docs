@@ -1,7 +1,6 @@
 ---
 title: Rotate Aiven for DataHub secrets
 sidebar_label: Rotate secrets
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

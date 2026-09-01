@@ -1,7 +1,6 @@
 ---
 title: Manage DataHub users
 sidebar_label: Manage users
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

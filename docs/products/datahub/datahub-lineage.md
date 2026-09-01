@@ -1,7 +1,6 @@
 ---
 title: View data lineage in DataHub
 sidebar_label: View data lineage
-limited: true
 ---
 
 Data lineage is a map of how each of your data assets moves across your systems. Lineage can help you:

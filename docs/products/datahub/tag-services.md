@@ -1,7 +1,6 @@
 ---
 title: Tag Aiven for DataHub services
 sidebar_label: Tag services
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

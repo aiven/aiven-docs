@@ -1,7 +1,6 @@
 ---
 title: Maintenance updates for Aiven for DataHub
 sidebar_label: Maintenance updates
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
