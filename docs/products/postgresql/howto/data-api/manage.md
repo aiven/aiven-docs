@@ -30,6 +30,9 @@ whether it's ready to use:
   endpoint, and **Refresh cache** and the edit icons become available.
 - If the deployment fails, an error message appears at the top of the page. For next
   steps, see [Troubleshooting](#troubleshooting).
+- If someone powers off the application from the **Applications** list, **API URL**
+  shows **API powered off** and a warning message appears at the top of the page. For
+  next steps, see [Troubleshooting](#troubleshooting).
 
 ## View the underlying Aiven Runtime app
 
@@ -55,8 +58,7 @@ picks up rotated keys from the same URL. For more information, see
 To change the JWKS URL or audience, open the **Data API** page and select the database.
 Next to **JWKS URL** or **Audience**, click the edit icon, enter the new value, and save.
 A confirmation message confirms the update. You don't need to remove Data API to update
-these settings, but the edit icons aren't available while the application is still
-deploying.
+these settings, but the edit icons are available only while the application is running.
 
 ## Refresh the schema cache
 
@@ -106,6 +108,13 @@ then remove and re-enable Data API.
 If you select a cloud, region, or plan that doesn't support the Aiven Runtime application,
 the setup dialog shows an error message instead of failing partway through. Select a
 different cloud, region, or plan and try again.
+
+### The underlying application is powered off
+
+If someone powers off the [Aiven Runtime application](/docs/products/aiven-apps) that
+runs your Data API from the **Applications** list, the **Data API** page shows a warning
+message. Click **Go to app to power it on** in the warning, then power on the
+application. Data API resumes once the application is running again.
 
 ### Endpoints don't reflect schema changes
 
