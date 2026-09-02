@@ -29,9 +29,9 @@ available while it moves to its new location.
 - Forking requires at least one existing backup on the source service. Service
   integrations aren't copied to the fork, and cross-project forking works only within
   the same organization.
-- Aiven automatically deletes a service that's been powered off for more than 180 days.
-  [Static IP addresses](/docs/platform/concepts/static-ips) keep generating costs after
-  a power-off or deletion until you remove them.
+- Aiven automatically deletes a service that's stayed powered off for an extended
+  period. [Static IP addresses](/docs/platform/concepts/static-ips) keep generating
+  costs after a power-off or deletion until you remove them.
 - For production services, enable termination protection so the service can't be
   deleted by mistake. Use the `--enable-termination-protection` flag with the
   [`avn service update` or `avn service create`
@@ -42,11 +42,6 @@ available while it moves to its new location.
 - [Power on/off and delete your Aiven for Grafana®
   service](/docs/products/grafana/howto/power-cycle-service)
 - [Rename your Aiven for Grafana® service](/docs/products/grafana/howto/rename-service)
-- [Tag your Aiven for Grafana® service](/docs/products/grafana/howto/tag-service)
 - [Fork your Aiven for Grafana® service](/docs/products/grafana/howto/fork-service)
 - [Change the cloud or region for your Aiven for Grafana®
   service](/docs/products/grafana/howto/change-cloud-region)
-- [Advanced parameters for Aiven for
-  Grafana®](/docs/products/grafana/reference/advanced-params)
-- [Send emails from Aiven for Grafana®](/docs/products/grafana/howto/send-emails)
-- [Plugins for Aiven for Grafana®](/docs/products/grafana/reference/plugins)

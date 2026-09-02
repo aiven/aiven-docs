@@ -42,5 +42,3 @@ replication, and other data integrations.
   PostgreSQL®](/docs/products/postgresql/howto/setup-logical-replication)
 - [Connect two PostgreSQL® services via datasource
   integration](/docs/products/postgresql/howto/datasource-integration)
-- [Report and analyze with Google Looker
-  Studio](/docs/products/postgresql/howto/analyze-with-google-data-studio)

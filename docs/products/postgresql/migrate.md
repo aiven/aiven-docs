@@ -24,8 +24,8 @@ much downtime you can accept.
   Data written to the source database after the dump starts isn't included, so plan for a
   period with no writes to the source.
 - **Bucardo**: An open source alternative for sources the other methods can't handle,
-  specifically PostgreSQL 9.6 or earlier, or a source where you don't have superuser
-  access to create replication slots.
+  specifically a source that doesn't support logical replication, or where you don't have
+  superuser access to create replication slots.
 
 ## Before you start
 
@@ -47,12 +47,8 @@ much downtime you can accept.
 
 - [Migrate PostgreSQL® databases to Aiven using the Aiven
   Console](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console)
-- [Prepare for migrating PostgreSQL® to Aiven using
-  aiven-db-migrate](/docs/products/postgresql/concepts/aiven-db-migrate)
 - [Migrate PostgreSQL® databases to Aiven using
   aiven-db-migrate](/docs/products/postgresql/howto/migrate-aiven-db-migrate)
-- [Migrate between PostgreSQL® instances using aiven-db-migrate in
-  Python](/docs/products/postgresql/howto/run-aiven-db-migrate-python)
 - [Migrate PostgreSQL® databases to Aiven using pg_dump and
   pg_restore](/docs/products/postgresql/howto/migrate-pg-dump-restore)
 - [Migrate PostgreSQL® databases to Aiven using

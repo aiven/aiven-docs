@@ -32,7 +32,6 @@ logging.
   custom dashboard names with `Aiven`, and don't edit the default dashboard directly.
   Aiven manages dashboards with that prefix and can overwrite your changes. Copy the
   default dashboard first to customize it.
-- PgBouncer metrics in Datadog require a Startup plan or higher.
 - Datadog's relation and function metrics are off by default. Enabling them can produce a
   large number of Datadog custom metrics, so you choose the scope yourself instead of
   Aiven collecting everything automatically.
@@ -46,18 +45,10 @@ logging.
 
 <RelatedPages/>
 
-- [PostgreSQL® metrics exposed in Grafana®](/docs/products/postgresql/reference/pg-metrics)
 - [Monitor PostgreSQL® metrics with
   Grafana®](/docs/products/postgresql/howto/report-metrics-grafana)
-- [Visualize PostgreSQL® data with
-  Grafana®](/docs/products/postgresql/howto/visualize-grafana)
 - [Monitor a database with
   Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog)
-- [Collect relation and function metrics with Datadog for Aiven for
-  PostgreSQL®](/docs/products/postgresql/howto/monitor-relation-function-metrics-datadog)
-- [Monitor PgBouncer with Datadog for Aiven for
-  PostgreSQL®](/docs/products/postgresql/howto/monitor-pgbouncer-with-datadog)
 - [Monitor PostgreSQL® metrics with
   pgwatch2](/docs/products/postgresql/howto/monitor-with-pgwatch2)
-- [Supported log formats](/docs/products/postgresql/reference/log-formats-supported)
 - [pgaudit logging](/docs/products/postgresql/howto/list-pgaudit)

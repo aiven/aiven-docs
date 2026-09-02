@@ -20,12 +20,10 @@ your service logs into OpenSearch and visualize them in Grafana.
 
 - The log integration always forwards the `MESSAGE` and timestamp fields. Select
   additional log fields if you need more context in your indexed logs.
-- The default index retention limit is 3 days. Set it to the maximum of 10000 days if
-  you don't want logs to expire.
+- Log indices have a retention limit. Raise it if you don't want logs to expire before
+  you've had a chance to review them.
 - Enable the Prometheus integration first, then find the Prometheus username and
   password in the **Integration endpoints** section of the Aiven Console.
-- Cross-cluster replication (CCR) stats in the Prometheus metrics are a limited
-  availability feature.
 - The Grafana integration requires a running Aiven for Grafana service and manual
   data source setup. It's not a one-click integration like logs.
 

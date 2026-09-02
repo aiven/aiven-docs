@@ -19,15 +19,14 @@ you can revert a change from the dashboard's version history if something goes w
 
 ## Before you start
 
-- Dashboard previews are a beta feature available in Grafana 9.0 and later, disabled by
-  default. They're not available on Hobbyist and Startup-1 plans, and you must disable
-  them before downgrading to one of those plans.
+- Dashboard previews are a beta feature, disabled by default. They're not available on
+  Hobbyist and Startup-1 plans, and you must disable them before downgrading to one of
+  those plans.
 - The metric expression replacement tool authenticates with a Grafana API key that has
   the Editor or Admin role, not with your Aiven credentials.
-- The number of dashboard versions Grafana keeps is controlled by the
-  `dashboards_versions_to_keep` [advanced
-  parameter](/docs/products/grafana/reference/advanced-params), from 1 to 100 versions
-  per dashboard.
+- The number of dashboard versions Grafana keeps for your service is configurable as an
+  [advanced parameter](/docs/products/grafana/reference/advanced-params), so you can
+  control how far back you're able to revert.
 
 <RelatedPages/>
 

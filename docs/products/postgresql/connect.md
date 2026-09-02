@@ -25,9 +25,8 @@ You can use both connection types for the same service at the same time.
 
 ## Before you connect
 
-- New connection pools default to `transaction` pool mode with a pool size of 10, and
-  you can change both when you create a pool.
-- Connection pooling requires a Startup plan or higher.
+- Connection pooling isn't available on every plan tier, so confirm your plan
+  supports it before you rely on it.
 - Every connection method requires TLS. See [Connect to Aiven for PostgreSQL®
   services](/docs/products/postgresql/howto/list-code-samples) for the supported
   `sslmode` values.

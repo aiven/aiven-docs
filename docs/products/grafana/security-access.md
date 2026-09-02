@@ -24,9 +24,10 @@ GitHub, GitLab, or Azure AD, configured as advanced parameters on the service.
   `auth_google`, `auth_github`, `auth_gitlab`, or `auth_azuread` [advanced
   parameters](/docs/products/grafana/reference/advanced-params), not through a separate
   security page.
-- Grafana 9.5.5 removed the insecure OAuth email lookup behavior that caused
-  CVE-2023-3128. Only set `oauth_allow_insecure_email_lookup` to `true` if you
-  understand the phishing and spoofing risks it reintroduces.
+- Setting `oauth_allow_insecure_email_lookup` to `true` makes Grafana look up users by
+  email instead of the unique ID your identity provider assigns them. Only enable it if
+  you understand the phishing, spoofing, and account takeover risks that email-based
+  lookup introduces.
 
 <RelatedPages/>
 

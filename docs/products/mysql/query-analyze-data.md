@@ -17,10 +17,10 @@ log output setting, so you can turn on one, the other, or both at the same time.
 
 ## Things to know
 
-- **Primary keys**: services created after 2020-06-03 require a primary key on new
-  tables by default, controlled by the `mysql.sql_require_primary_key` parameter. Add a
-  primary key even if you turn off the requirement temporarily, since large tables
-  without one can break replication and other capabilities.
+- **Primary keys**: some Aiven for MySQL services require a primary key on new tables
+  by default, controlled by the `mysql.sql_require_primary_key` parameter. Add a primary
+  key even if you turn off the requirement temporarily, since large tables without one
+  can break replication and other capabilities.
 - **Slow query logging and the AI database optimizer share a setting**: the
   `mysql.log_output` parameter controls where slow query data goes. Set it to `TABLE` to
   log to the `mysql.slow_log` table, `INSIGHTS` to send data to the AI database
@@ -35,12 +35,8 @@ log output setting, so you can turn on one, the other, or both at the same time.
 
 <RelatedPages/>
 
-- [Create Aiven for MySQL® databases](/docs/products/mysql/howto/create-database)
-- [Create new tables without primary
-  keys](/docs/products/mysql/howto/create-tables-without-primary-keys)
 - [Create missing primary keys](/docs/products/mysql/howto/create-missing-primary-keys)
+- [Enable slow query logging](/docs/products/mysql/howto/enable-slow-queries)
 - [Detect and terminate long-running queries in Aiven for
   MySQL®](/docs/products/mysql/howto/mysql-long-running-queries)
-- [Enable slow query logging](/docs/products/mysql/howto/enable-slow-queries)
-- [AI database optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
 - [Disable foreign key checks](/docs/products/mysql/howto/disable-foreign-key-checks)

@@ -23,8 +23,6 @@ trips between your application and the service.
 
 ## Things to know
 
-- `EVAL`, `EVALSHA`, and `SCRIPT LOAD` are enabled by default, so no configuration is
-  required to run Lua scripts.
 - Outages caused by custom Lua scripts aren't covered by the service level agreement
   (SLA).
 - `redis-benchmark` isn't supported because it depends on the `CONFIG` command, which

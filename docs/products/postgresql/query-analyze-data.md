@@ -15,9 +15,8 @@ Write and run queries, and identify and optimize slow queries in your Aiven for 
   suggest optimizations automatically.
 - **`pg_stat_statements`** gives you the underlying query statistics, so you can write
   your own analysis queries instead of relying on automated suggestions.
-- **PG Studio**'s AI assistant is a separate early access feature. It helps you write
-  and explain SQL from natural language, and doesn't analyze historical query
-  performance.
+- **PG Studio**'s AI assistant is a separate feature for writing and explaining SQL
+  from natural language. It doesn't analyze historical query performance.
 
 ## Historical analysis compared to live queries
 
@@ -34,7 +33,5 @@ queries, and the live tools to react to one that's already blocking other work.
   PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
 - [Identify PostgreSQL® slow queries with
   pg_stat_statements](/docs/products/postgresql/howto/identify-pg-slow-queries)
-- [Optimize Aiven for PostgreSQL® slow
-  queries](/docs/products/postgresql/howto/optimize-pg-slow-queries)
 - [Detect and terminate long-running queries in Aiven for
   PostgreSQL®](/docs/products/postgresql/howto/pg-long-running-queries)

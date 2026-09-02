@@ -25,9 +25,8 @@ Manage the lifecycle of your Aiven for PostgreSQL® service, including power sta
 - You can only fork a service that has at least one backup. Service integrations
   aren't copied to the fork, and cross-project forking works only within the same
   organization.
-- Tag keys must be unique within a service, start with a letter, and can include
-  letters, numbers, dashes, and underscores, up to 64 characters. Tag values are
-  limited to 64 UTF-8 characters.
+- Tag keys must be unique within a service, and both keys and values have their own
+  naming and length rules.
 - You can't power a service on or off with Terraform. The `state` attribute is
   read-only there, so use the console or the Aiven CLI instead.
 
@@ -35,14 +34,9 @@ Manage the lifecycle of your Aiven for PostgreSQL® service, including power sta
 
 - [Power on/off and delete your Aiven for PostgreSQL®
   service](/docs/products/postgresql/howto/power-cycle-service)
-- [Rename your Aiven for PostgreSQL®
-  service](/docs/products/postgresql/howto/rename-service)
-- [Tag your Aiven for PostgreSQL® service](/docs/products/postgresql/howto/tag-service)
 - [Fork your Aiven for PostgreSQL®
   service](/docs/products/postgresql/howto/fork-service)
 - [Migrate to a different cloud provider or
   region](/docs/products/postgresql/howto/migrate-cloud-region)
-- [Manage Aiven for PostgreSQL® service
-  users](/docs/products/postgresql/howto/manage-service-users)
 - [Advanced parameters for Aiven for
   PostgreSQL®](/docs/products/postgresql/reference/advanced-params)

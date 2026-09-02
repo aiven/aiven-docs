@@ -18,16 +18,15 @@ encrypt an otherwise plain-text connection.
 
 ## Things to know
 
-- Every service has a default `avnadmin` user with full access. Create separate
-  service users with restricted ACLs for applications and integrations instead of
-  sharing that user's credentials.
+- Every service starts with a default administrative user that has full access.
+  Create separate service users with restricted ACLs for applications and
+  integrations instead of sharing that user's credentials.
 - Aiven for Valkey restricts the server's own `ACL` and `CONFIG` commands, so you
   configure ACLs and SSL settings through the Aiven Console, Aiven CLI, Aiven API, or
   Terraform rather than by running these commands directly.
 - When you set ACL categories, commands, or keys for a user through the CLI, API, or
   Terraform, specify all three together. Pub/sub channel rules can be set on their own.
-- SSL is enabled by default. Disabling it sends credentials and data in plain text, so
-  it isn't recommended.
+- Disabling SSL sends credentials and data in plain text, so it isn't recommended.
 
 <RelatedPages/>
 
