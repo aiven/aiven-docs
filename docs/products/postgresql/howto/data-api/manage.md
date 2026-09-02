@@ -30,9 +30,6 @@ whether it's ready to use:
   endpoint, and **Refresh cache** and the edit icons become available.
 - If the deployment fails, an error message appears at the top of the page. For next
   steps, see [Troubleshooting](#troubleshooting).
-- If someone powers off the application from the **Applications** list, **API URL**
-  shows **API powered off** and a warning message appears at the top of the page. For
-  next steps, see [Troubleshooting](#troubleshooting).
 
 ## View the underlying Aiven Runtime app
 
