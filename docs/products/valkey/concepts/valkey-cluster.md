@@ -194,5 +194,6 @@ cluster. Design your application to tolerate this if you rely on a restore.
 <RelatedPages/>
 
 - [Get started with Aiven for Valkey](/docs/products/valkey/get-started)
+- [Scaling and performance](/docs/products/valkey/scaling-performance)
 - [High availability](/docs/products/valkey/concepts/high-availability)
 - [Read replica](/docs/products/valkey/concepts/read-replica)
