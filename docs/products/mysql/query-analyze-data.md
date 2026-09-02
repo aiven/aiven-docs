@@ -40,4 +40,3 @@ unrelated step to turn on the other.
 - [Enable slow query logging](/docs/products/mysql/howto/enable-slow-queries)
 - [Detect and terminate long-running queries in Aiven for
   MySQL®](/docs/products/mysql/howto/mysql-long-running-queries)
-- [Disable foreign key checks](/docs/products/mysql/howto/disable-foreign-key-checks)

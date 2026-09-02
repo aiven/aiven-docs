@@ -40,5 +40,3 @@ from the SQL statement that enables the extension.
 - [AI and vector search](/docs/products/postgresql/ai-vector-search)
 - [Set up logical replication to Aiven for
   PostgreSQL®](/docs/products/postgresql/howto/setup-logical-replication)
-- [Connect two PostgreSQL® services via datasource
-  integration](/docs/products/postgresql/howto/datasource-integration)

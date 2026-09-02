@@ -45,5 +45,3 @@ finished before you rely on the service again.
   service](/docs/products/grafana/howto/power-cycle-service)
 - [Rename your Aiven for Grafana® service](/docs/products/grafana/howto/rename-service)
 - [Fork your Aiven for Grafana® service](/docs/products/grafana/howto/fork-service)
-- [Change the cloud or region for your Aiven for Grafana®
-  service](/docs/products/grafana/howto/change-cloud-region)

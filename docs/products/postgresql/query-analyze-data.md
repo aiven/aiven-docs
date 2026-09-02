@@ -36,5 +36,3 @@ queries, and the live tools to react to one that's already blocking other work.
   PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
 - [Identify PostgreSQL® slow queries with
   pg_stat_statements](/docs/products/postgresql/howto/identify-pg-slow-queries)
-- [Detect and terminate long-running queries in Aiven for
-  PostgreSQL®](/docs/products/postgresql/howto/pg-long-running-queries)

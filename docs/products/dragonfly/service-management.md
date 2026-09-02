@@ -32,8 +32,6 @@ the service's advanced parameters.
 
 - [High availability in Aiven for
   Dragonfly®](/docs/products/dragonfly/concepts/ha-dragonfly)
-- [Data eviction policy in Aiven for
-  Dragonfly](/docs/products/dragonfly/howto/eviction-policy-df)
 - [RedisJSON v2 syntax
   compatibility](/docs/products/dragonfly/howto/compatibility-redisjson)
 - [Advanced parameters for Aiven for

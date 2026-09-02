@@ -43,7 +43,5 @@ plans, not adjusting your current one.
 - [Fork your Aiven for OpenSearch® service](/docs/products/opensearch/howto/fork-service)
 - [Dedicated node roles in Aiven for
   OpenSearch®](/docs/products/opensearch/concepts/dedicated-node-roles)
-- [Hot/warm data tiering in Aiven for
-  OpenSearch®](/docs/products/opensearch/concepts/hot-warm-tiering)
 - [High availability in Aiven for
   OpenSearch®](/docs/products/opensearch/concepts/high-availability-for-opensearch)

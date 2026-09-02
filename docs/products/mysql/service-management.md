@@ -37,6 +37,5 @@ contrast, take effect without moving or recreating any infrastructure.
 
 - [Power on/off and delete your Aiven for MySQL®
   service](/docs/products/mysql/howto/power-cycle-service)
-- [Rename your Aiven for MySQL® service](/docs/products/mysql/howto/rename-service)
 - [Fork your Aiven for MySQL® service](/docs/products/mysql/howto/fork-service)
 - [Manage Aiven for MySQL® service users](/docs/products/mysql/howto/manage-service-users)

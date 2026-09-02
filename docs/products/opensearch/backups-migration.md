@@ -55,5 +55,3 @@ where the following articles show only the Aiven Console or API.
   repositories](/docs/products/opensearch/howto/manage-custom-repo/list-manage-custom-repo)
 - [Migrate external OpenSearch or Elasticsearch snapshots to
   Aiven](/docs/products/opensearch/howto/migrate-external-snapshots-aiven-opensearch)
-- [Migrate Elasticsearch data to Aiven for
-  OpenSearch®](/docs/products/opensearch/howto/migrating_elasticsearch_data_to_aiven)

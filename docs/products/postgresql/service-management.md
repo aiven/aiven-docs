@@ -34,5 +34,3 @@ Manage the lifecycle of your Aiven for PostgreSQL® service, including power sta
   service](/docs/products/postgresql/howto/fork-service)
 - [Migrate to a different cloud provider or
   region](/docs/products/postgresql/howto/migrate-cloud-region)
-- [Advanced parameters for Aiven for
-  PostgreSQL®](/docs/products/postgresql/reference/advanced-params)

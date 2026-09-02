@@ -32,5 +32,3 @@ commands directly.
 - [Fork your Aiven for Valkey™ service](/docs/products/valkey/howto/fork-service)
 - [Advanced parameters for Aiven for
   Valkey™](/docs/products/valkey/reference/advanced-params)
-- [Restricted commands in Aiven for
-  Valkey™](/docs/products/valkey/reference/restricted-commands)

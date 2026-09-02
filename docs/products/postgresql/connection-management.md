@@ -34,7 +34,5 @@ errors](/docs/products/postgresql/troubleshooting/troubleshooting-fatal-out-of-s
 - [Connection limits per plan for Aiven for
   PostgreSQL®](/docs/products/postgresql/reference/pg-connection-limits)
 - [Keep-alive connections parameters](/docs/products/postgresql/reference/idle-connections)
-- [Verify the Aiven for PostgreSQL® password encryption
-  method](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade)
 - [Troubleshoot out-of-shared-memory
   errors](/docs/products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem)

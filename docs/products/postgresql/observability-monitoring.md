@@ -47,6 +47,4 @@ logging.
   Grafana®](/docs/products/postgresql/howto/report-metrics-grafana)
 - [Monitor a database with
   Datadog](/docs/products/postgresql/howto/monitor-database-with-datadog)
-- [Monitor PostgreSQL® metrics with
-  pgwatch2](/docs/products/postgresql/howto/monitor-with-pgwatch2)
 - [pgaudit logging](/docs/products/postgresql/howto/list-pgaudit)

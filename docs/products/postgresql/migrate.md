@@ -56,5 +56,3 @@ much downtime you can accept.
   aiven-db-migrate](/docs/products/postgresql/howto/migrate-aiven-db-migrate)
 - [Migrate PostgreSQL® databases to Aiven using pg_dump and
   pg_restore](/docs/products/postgresql/howto/migrate-pg-dump-restore)
-- [Migrate PostgreSQL® databases to Aiven using
-  Bucardo](/docs/products/postgresql/howto/migrate-using-bucardo)
