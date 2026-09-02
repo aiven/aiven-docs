@@ -2412,6 +2412,7 @@ const sidebars: SidebarsConfig = {
                 'products/valkey/concepts/memory-usage',
                 'products/valkey/troubleshooting/warning-overcommit_memory',
                 'products/valkey/howto/prepare-for-high-load',
+                'products/valkey/concepts/valkey-cluster',
               ],
             },
             {
@@ -2432,7 +2433,6 @@ const sidebars: SidebarsConfig = {
               label: 'High availability and disaster recovery',
               items: [
                 'products/valkey/concepts/high-availability',
-                'products/valkey/concepts/valkey-cluster',
                 'products/valkey/concepts/read-replica',
                 'products/valkey/howto/create-valkey-read-replica',
               ],
