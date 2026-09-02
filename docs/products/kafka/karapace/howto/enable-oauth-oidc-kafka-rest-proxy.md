@@ -113,3 +113,4 @@ properly. For more information, see
 <RelatedPages/>
 
 - [Enable OAUTH2/OIDC authentication for Aiven for Apache Kafka](/docs/products/kafka/howto/enable-oidc)
+- [Enable OAuth 2.0/OIDC authentication for Aiven for Apache Kafka® Schema Registry](/docs/products/kafka/karapace/howto/enable-oauth-oidc-schema-registry)

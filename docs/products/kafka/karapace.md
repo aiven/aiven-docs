@@ -47,6 +47,7 @@ For more information, see
 1. [Enable schema registry and REST proxy](/docs/products/kafka/karapace/howto/enable-karapace)
 1. [Use schema registry with Java producers and consumers](/docs/products/kafka/howto/use-schema-registry-in-java)
 1. [Connect with Kafka REST](/docs/products/kafka/howto/connect-with-kafka-rest)
+1. [Enable OAuth 2.0/OIDC authentication for Schema Registry](/docs/products/kafka/karapace/howto/enable-oauth-oidc-schema-registry)
 
 ## Karapace resources
 

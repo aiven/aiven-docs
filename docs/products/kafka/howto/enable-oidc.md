@@ -218,5 +218,6 @@ operational impact, apply these changes during a maintenance window.
 <RelatedPages/>
 
 - [Enable OAuth 2.0/OIDC support for Apache Kafka REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy)
+- [Enable OAuth 2.0/OIDC authentication for Aiven for Apache Kafka® Schema Registry](/docs/products/kafka/karapace/howto/enable-oauth-oidc-schema-registry)
 - [Enable and configure SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth)
 - [OAuth 2.0/OIDC with AWS IAM](/docs/products/kafka/howto/kafka-oauth2-aws-iam)
