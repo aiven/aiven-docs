@@ -13,19 +13,6 @@ import Note from "@site/static/includes/dragonflysla-note.md"
 
 <Note/>
 
-## Compatibility check
-
-Before migrating an Aiven for Caching or Aiven for Valkey database to Aiven for
-Dragonfly, review your current database setup.
-
-- **Review database setup:** Examine the data structures, storage patterns, and
-  configurations in your Aiven for Caching or Aiven for Valkey database. Identify any
-  unique features, custom settings, and specific configurations.
-- **API compatibility:** While Dragonfly closely mirrors Redis API commands, some
-  differences exist, especially with newer versions of Redis and Valkey.
-  For information on command compatibility, refer to the
-  [Dragonfly API compatibility documentation](https://www.dragonflydb.io/docs/command-reference/compatibility).
-
 ## Prerequisites
 
 Before starting the migration:

@@ -5,8 +5,32 @@ sidebar_label: Connect to service
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Connect to your Aiven for PostgreSQL® service, and manage connection pooling and
-connection limits.
+Connect to your Aiven for PostgreSQL® service, and manage connection pooling and connection limits.
+
+## Choose how to connect
+
+You can connect your clients directly to the PostgreSQL server, or through a PgBouncer
+connection pool.
+
+- **Direct connections** each use a dedicated backend process on the server, and count
+  against your service's [`max_connections`
+  limit](/docs/products/postgresql/reference/pg-connection-limits). Use direct
+  connections for administration, migrations, and applications that keep a small,
+  stable number of long-lived connections open.
+- **Pooled connections** go through PgBouncer, which reuses a smaller set of backend
+  connections across many more clients. Use pooling when many application instances or
+  short-lived connections would otherwise exhaust `max_connections`.
+
+You can use both connection types for the same service at the same time.
+
+## Before you connect
+
+- New connection pools default to `transaction` pool mode with a pool size of 10, and
+  you can change both when you create a pool.
+- Connection pooling requires a Startup plan or higher.
+- Every connection method requires TLS. See [Connect to Aiven for PostgreSQL®
+  services](/docs/products/postgresql/howto/list-code-samples) for the supported
+  `sslmode` values.
 
 <RelatedPages/>
 

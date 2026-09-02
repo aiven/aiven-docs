@@ -542,15 +542,6 @@ native OpenSearch API endpoint.
 </TabItem>
 </Tabs>
 
-## Error handling
-
-The Aiven API returns OpenSearch errors as they are.
-
-**Exceptions:**
-
-- 502: OpenSearch did not respond.
-- 409: The service is not powered on or does not support this feature.
-
 <RelatedPages/>
 
 [OpenSearch snapshot API reference](https://opensearch.org/docs/latest/api-reference/snapshots/index/)

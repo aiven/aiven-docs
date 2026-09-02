@@ -197,15 +197,6 @@ Example response:
 1. On the **Snapshots** page, find your custom repository and click
    <ConsoleLabel name="actions"/> > <ConsoleLabel name="removerepo"/> > **Remove**.
 
-## Error handling
-
-The Aiven API returns OpenSearch errors as they are.
-
-**Exceptions:**
-
-- 502: OpenSearch did not respond.
-- 409: The service is not powered on or does not support this feature.
-
 <RelatedPages/>
 
 [Manage Aiven for OpenSearch® custom repositories in OpenSearch® API](/docs/products/opensearch/howto/manage-custom-repo/custom-repositories-os-api)
