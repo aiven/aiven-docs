@@ -14,34 +14,39 @@ Each method copies schema and data from a source PostgreSQL database to Aiven fo
 PostgreSQL. Pick a method based on your source database, your permissions on it, and how
 much downtime you can accept.
 
-- **Aiven Console**: A guided migration wizard for a one-time setup. It runs the same
-  continuous migration engine as `aiven-db-migrate` behind the scenes, so it's a good
-  default when you don't need to script the process.
-- **aiven-db-migrate**: The CLI and Python tool behind the console migration. Use it to
-  automate a migration, run it from a script, or get more detailed failure output than
-  the console shows.
-- **pg_dump and pg_restore**: A point-in-time snapshot using standard PostgreSQL tools.
-  Data written to the source database after the dump starts isn't included, so plan for a
-  period with no writes to the source.
-- **Bucardo**: An open source alternative for sources the other methods can't handle,
-  specifically a source that doesn't support logical replication, or where you don't have
-  superuser access to create replication slots.
+- **[Aiven Console](/docs/products/postgresql/howto/migrate-db-to-aiven-via-console)**: A
+  guided migration wizard. It drives the same underlying migration settings as
+  `aiven-db-migrate`, so it's a good default when you don't need to script the process.
+- **[aiven-db-migrate](/docs/products/postgresql/howto/migrate-aiven-db-migrate)**: The
+  CLI and Python tool behind the console migration. Reach for it when the console isn't
+  available to you, such as migrating from a script, a CI pipeline, or another automated
+  workflow.
+- **[pg_dump and pg_restore](/docs/products/postgresql/howto/migrate-pg-dump-restore)**:
+  A one-time snapshot using standard PostgreSQL tools instead of replication. Choose this
+  when you don't need the source to stay in sync with Aiven after the initial copy.
+- **[Bucardo](/docs/products/postgresql/howto/migrate-using-bucardo)**: The fallback for
+  keeping a source continuously in sync when it can't meet the requirements for
+  `aiven-db-migrate`'s logical replication method.
 
 ## Before you start
 
-- The default method for the console and `aiven-db-migrate` is continuous migration using
-  logical replication, which keeps the source database available throughout the
-  migration. It requires either superuser access on the source or the `aiven_extras`
-  extension. Without either, the migration falls back to a one-time `pg_dump` snapshot.
+- The console and `aiven-db-migrate` both default to continuous migration using [logical
+  replication](/docs/products/postgresql/howto/setup-logical-replication), which keeps
+  the source database available throughout the migration. It requires either superuser
+  access on the source or the [`aiven_extras`
+  extension](/docs/products/postgresql/concepts/dba-tasks-pg#aiven_extras_extension).
+  Without either, the migration falls back to a one-time `pg_dump` snapshot.
 - Logical replication doesn't copy every object. Review the [PostgreSQL logical
   replication
   restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html)
   before you start, particularly around sequences and DDL changes.
-- The target Aiven for PostgreSQL service needs at least 130% of the source database's
-  size in free disk space, and its PostgreSQL version must be the same as or newer than
-  the source version.
-- The console and `aiven-db-migrate` both let you exclude specific databases
-  (`ignore_dbs`) and specific database roles (`ignore_roles`) from a migration.
+- Both the console's validation step and `aiven-db-migrate`'s pre-migration checks
+  confirm the target has enough disk space for the source data and runs a PostgreSQL
+  version that's the same as or newer than the source, so problems surface before any
+  data transfer starts.
+- The console and `aiven-db-migrate` expose the same underlying setting for excluding
+  data from a migration: specific databases (`ignore_dbs`) and specific database roles
+  (`ignore_roles`).
 
 <RelatedPages/>
 

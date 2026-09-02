@@ -9,26 +9,22 @@ Manage the lifecycle of your Aiven for PostgreSQL® service, including power sta
 
 ## Effect on availability
 
-- **Migrating** to a different cloud provider or region happens without downtime. New
-  nodes sync in the target location, and only after that sync completes does the
-  migration decommission the old ones. The service endpoint doesn't change.
-- **Powering off** stops the service and removes its virtual machines. Powering it
-  back on restores the latest backup, which can take minutes to hours depending on
-  the backup size.
-- **Forking** and **renaming** a service, which forks it under a new name and deletes
-  the original, both create a running service from the latest backup.
-- Some advanced parameters, such as `max_connections`, restart the service when you
-  change them. Check the restart indicator on each parameter before you change it.
-
-## Before you start
-
-- You can only fork a service that has at least one backup. Service integrations
-  aren't copied to the fork, and cross-project forking works only within the same
-  organization.
-- Tag keys must be unique within a service, and both keys and values have their own
-  naming and length rules.
-- You can't power a service on or off with Terraform. The `state` attribute is
-  read-only there, so use the console or the Aiven CLI instead.
+- **[Migrating](/docs/products/postgresql/howto/migrate-cloud-region)** to a
+  different cloud provider or region happens without downtime, unlike most other
+  lifecycle actions in this list.
+- **[Powering off](/docs/products/postgresql/howto/power-cycle-service)** a service
+  releases its compute entirely, unlike a restart triggered by an advanced parameter
+  change, which keeps the service allocated throughout. You can't power a service on
+  or off with Terraform, since its `state` attribute is read-only there; use the
+  console or the Aiven CLI instead.
+- **[Forking](/docs/products/postgresql/howto/fork-service)** and
+  **[renaming](/docs/products/postgresql/howto/rename-service)** a service both
+  create a running service from the latest backup. Renaming forks under a new name
+  and deletes the original, so it depends on having a backup even though its own
+  instructions don't mention one.
+- Some [advanced parameters](/docs/products/postgresql/reference/advanced-params),
+  such as `max_connections`, restart the service when you change them, unlike
+  migrating, forking, or renaming.
 
 <RelatedPages/>
 

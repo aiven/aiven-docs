@@ -5,8 +5,11 @@ sidebar_label: Service management
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Manage high availability, eviction policy, Redis compatibility, version lifecycle, and
-advanced parameters for your Aiven for Dragonfly® service.
+Manage [high availability](/docs/products/dragonfly/concepts/ha-dragonfly), [eviction
+policy](/docs/products/dragonfly/howto/eviction-policy-df), [Redis
+compatibility](/docs/products/dragonfly/howto/compatibility-redisjson), [version
+lifecycle](/docs/products/dragonfly/reference/version-lifecycle), and [advanced
+parameters](/docs/products/dragonfly/reference/advanced-params) for your Aiven for Dragonfly® service.
 
 ## What's configurable and what Aiven manages
 
@@ -17,15 +20,11 @@ the service's advanced parameters.
 
 ## Things to know
 
-- **Failover depends on your plan.** Startup plans run a single node with no automatic
-  failover. Business and Premium plans run 2 or 3 nodes with automatic failover to a
-  standby. Custom plans use a node configuration you agree with Aiven.
-- **Eviction is off by default.** `cache_mode` starts turned off, so a service can raise
-  out-of-memory errors after it reaches its `maxmemory` limit.
-- **Backups depend on your persistence setting.** Aiven backs up your data
-  automatically unless you turn off persistence. With persistence off, you can't fork
-  the service, and the service loses data if it restarts or powers off.
-- **Some Redis administrative commands are unavailable.** Aiven manages cluster
+- **Backup and forking depend on a setting, not on your plan.** Aiven backs up your
+  service by default. If you turn off persistence in the advanced parameters, backups
+  stop, you can't [fork the service](/docs/platform/concepts/service-forking), and a
+  restart or power-off loses data, regardless of how your plan handles failover.
+- **Some administrative Redis commands are unavailable.** Aiven manages cluster
   topology, replication, and node configuration for you, so some administrative Redis
   commands aren't available to you.
 

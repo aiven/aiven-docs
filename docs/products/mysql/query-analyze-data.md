@@ -9,29 +9,30 @@ Create databases and tables, tune queries, and use AI-powered tools to work with
 
 ## How data management fits together
 
-Schema design, query performance, and data integrity settings interact with each other in
-Aiven for MySQL. New tables need a primary key by default, because MySQL replication
-depends on primary keys to apply row level changes efficiently. Query performance tools,
-such as slow query logging and the AI database optimizer, read from the same underlying
-log output setting, so you can turn on one, the other, or both at the same time.
+[Primary key requirements](/docs/products/mysql/howto/create-tables-without-primary-keys)
+and [foreign key checks](/docs/products/mysql/howto/disable-foreign-key-checks) are both
+schema-level defaults that you can turn off for a single session, rather than changing
+the setting for the whole service. Slow query logging and the
+[AI database optimizer](/docs/products/mysql/howto/ai-insights) also read from the same
+underlying log destination setting, so turning one on doesn't require a separate,
+unrelated step to turn on the other.
 
 ## Things to know
 
-- **Primary keys**: some Aiven for MySQL services require a primary key on new tables
-  by default, controlled by the `mysql.sql_require_primary_key` parameter. Add a primary
-  key even if you turn off the requirement temporarily, since large tables without one
-  can break replication and other capabilities.
-- **Slow query logging and the AI database optimizer share a setting**: the
-  `mysql.log_output` parameter controls where slow query data goes. Set it to `TABLE` to
-  log to the `mysql.slow_log` table, `INSIGHTS` to send data to the AI database
-  optimizer, or `INSIGHTS,TABLE` to use both at the same time.
-- **Long-running queries**: Aiven never terminates a query automatically, even if it
-  runs indefinitely. Terminate one manually from the console or with `KILL QUERY`, or set
-  `mysql.max_execution_time` to cap how many milliseconds a read-only `SELECT` statement
-  can run before it's stopped.
-- **Foreign key checks**: enabled by default on every service to keep referential
-  integrity across tables. Disable them for a single session, for example during a data
-  migration, then re-enable them once you're done.
+- **The requirement isn't retroactive**: `mysql.sql_require_primary_key` blocks you
+  from creating a new table without a primary key, but tables that existed before you
+  turned it on can still be missing one.
+  [Add a primary key to a table that predates the
+  requirement](/docs/products/mysql/howto/create-missing-primary-keys) rather than
+  assuming the setting already covers it.
+- **Choose where slow query data lands**: the `mysql.log_output` parameter decides the
+  destination. Set it to `TABLE` for the `mysql.slow_log` table, `INSIGHTS` for the AI
+  database optimizer, or `INSIGHTS,TABLE` to send data to both at once.
+- **Cap execution time proactively**: instead of relying only on manually stopping a
+  [long-running query](/docs/products/mysql/howto/mysql-long-running-queries), you can
+  set `mysql.max_execution_time` in the
+  [advanced parameters](/docs/products/mysql/reference/advanced-params) so read-only
+  `SELECT` statements stop automatically once they run too long.
 
 <RelatedPages/>
 

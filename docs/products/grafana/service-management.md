@@ -12,26 +12,28 @@ naming, tags, forks, cloud region, email sending, plugins, and advanced paramete
 ## Lifecycle changes and ongoing configuration
 
 Service management for Aiven for Grafana® covers two kinds of changes. Lifecycle
-changes affect the service itself: powering it on or off, deleting it, forking it,
-renaming it, or moving it to a different cloud or region. Configuration changes affect
-how the running service behaves: tags, advanced parameters, SMTP settings for outbound
-email, and the plugins available to your dashboards.
+changes affect the service itself: [powering it on or off, or deleting
+it](/docs/products/grafana/howto/power-cycle-service), [forking
+it](/docs/products/grafana/howto/fork-service), [renaming
+it](/docs/products/grafana/howto/rename-service), or [moving it to a different cloud or
+region](/docs/products/grafana/howto/change-cloud-region). Configuration changes affect
+how the running service behaves: [tags](/docs/products/grafana/howto/tag-service),
+[advanced parameters](/docs/products/grafana/reference/advanced-params), [SMTP settings
+for outbound email](/docs/products/grafana/howto/send-emails), and the
+[plugins](/docs/products/grafana/reference/plugins) available to your dashboards.
 
-Most lifecycle changes trigger a status transition that you can follow from the service
-<ConsoleLabel name="overview"/> page. For example, a fork moves through **Rebuilding**
-before it reaches **Running**, and a cloud or region migration keeps the service
-available while it moves to its new location.
+Most lifecycle changes trigger a status transition that you can follow from the
+service's <ConsoleLabel name="overview"/> page, so look there to confirm a change has
+finished before you rely on the service again.
 
 ## Before you start
 
-- You can't rename a service directly. Fork it under the new name, then delete the
-  original service.
-- Forking requires at least one existing backup on the source service. Service
-  integrations aren't copied to the fork, and cross-project forking works only within
-  the same organization.
-- Aiven automatically deletes a service that's stayed powered off for an extended
-  period. [Static IP addresses](/docs/platform/concepts/static-ips) keep generating
-  costs after a power-off or deletion until you remove them.
+- Backups underpin more than one lifecycle action: forking needs an existing backup on
+  the source service, and powering off a service that has no backups permanently loses
+  its data once the service is removed.
+- Forking and renaming both produce a new service, so integrations, SSO configuration,
+  and client connections tied to the original service need to be reattached manually
+  afterward.
 - For production services, enable termination protection so the service can't be
   deleted by mistake. Use the `--enable-termination-protection` flag with the
   [`avn service update` or `avn service create`

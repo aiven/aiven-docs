@@ -5,8 +5,7 @@ sidebar_label: Query and analyze data
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use Lua scripts and benchmark performance to query and analyze data in your Aiven for
-Valkey™ service.
+Use [Lua scripts](/docs/products/valkey/concepts/lua-scripts) and [benchmark performance](/docs/products/valkey/howto/benchmark-performance) to query and analyze data in your Aiven for Valkey™ service.
 
 ## Querying a key-value store
 
@@ -20,13 +19,6 @@ Lua scripts extend what a single command can do. Instead of sending several comm
 and combining the results in your application, you send a script that runs commands on
 the server and returns one result. This keeps multi-step logic atomic and reduces round
 trips between your application and the service.
-
-## Things to know
-
-- Outages caused by custom Lua scripts aren't covered by the service level agreement
-  (SLA).
-- `redis-benchmark` isn't supported because it depends on the `CONFIG` command, which
-  Aiven for Valkey restricts. Use `memtier_benchmark` instead.
 
 <RelatedPages/>
 

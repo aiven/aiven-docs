@@ -10,34 +10,33 @@ naming, tags, forks, cloud region, node roles, plugins, and advanced parameters.
 
 ## Forking is the mechanism behind several operations
 
-Renaming a service, restoring a backup, and creating a test copy all rely on the same
-underlying action: forking a service from its latest backup into an independent copy.
-Before you rename or restore a service, keep the following in mind:
-
-- You can fork only a service that has at least one backup.
-- Forking doesn't copy service integrations. Recreate them on the new service.
-- Single sign-on (SSO) methods, such as SAML, aren't copied either, because they're
-  tied to URLs and endpoints that change during forking. Reconfigure SSO on the new
-  service before you switch your clients over.
-- Cross-project forking works only within the same organization.
+[Renaming](/docs/products/opensearch/howto/rename-service) a service,
+[restoring a backup](/docs/products/opensearch/howto/restore_opensearch_backup), and
+creating a test copy all rely on the same underlying action:
+[forking](/docs/products/opensearch/howto/fork-service) a service from its latest
+backup into an independent copy. Because rename and restore both go through this fork
+step, their constraints carry over even though those procedures don't call them out
+on their own. You can't rename or restore a service that has no existing backup.
+Neither operation copies over service integrations, and neither reconfigures single
+sign-on methods, such as
+[SAML](/docs/products/opensearch/howto/saml-sso-authentication), on the new service.
 
 ## Plan-dependent capabilities
 
-Several service management features are tied to your plan rather than a setting you
-turn on and off:
+Several service management features, including
+[dedicated node roles](/docs/products/opensearch/concepts/dedicated-node-roles),
+[hot/warm data tiering](/docs/products/opensearch/concepts/hot-warm-tiering), and
+[high availability](/docs/products/opensearch/concepts/high-availability-for-opensearch),
+depend on your service plan or cluster topology rather than a setting you turn on and
+off. Moving into or out of one of these configurations generally means changing
+plans, not adjusting your current one.
 
-- **Dedicated node roles** require a minimum OpenSearch version and are available only
-  on plans built for larger clusters. Check the requirements on the linked page before
-  you plan a migration to this topology.
-- **Hot/warm data tiering** requires a custom plan with separate hot and warm node
-  groups. [Contact Aiven](https://aiven.io/contact) to request one.
-- **High availability** depends on your plan: lower-tier plans run a single node,
-  while higher tiers run multi-node clusters with automatic failover.
 - For multi-node services, Aiven automatically sets the replication factor so every
   index replicates to at least two nodes. Turning this off requires a project-level
   allowance from Aiven, because it increases the risk of data loss if a node fails.
-- Plugin versions track the OpenSearch core version your service runs, and you can
-  only use plugins from Aiven's supported list.
+- [Plugin versions](/docs/products/opensearch/reference/list-of-plugins-for-each-version)
+  track the OpenSearch core version your service runs, and you can only use plugins
+  from [Aiven's supported list](/docs/products/opensearch/reference/plugins).
 
 <RelatedPages/>
 

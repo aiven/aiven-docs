@@ -7,22 +7,23 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Perform DBA tasks and manage schema ownership and access for your Aiven for PostgreSQL® service.
 
-## What `avnadmin` can and can't do
+## `aiven_extras` closes part of the superuser gap
 
-Aiven doesn't grant superuser access to Aiven for PostgreSQL® services, but the
-default `avnadmin` user can still manage databases, database users, extensions, and
-access permissions. The `aiven_extras` extension extends `avnadmin` with a few
-superuser-like abilities, including managing subscriptions, publications, and
-`auto_explain`, and claiming ownership of the `public` schema.
+Aiven doesn't grant [superuser
+access](/docs/products/postgresql/concepts/dba-tasks-pg) on Aiven for PostgreSQL®
+services. The `aiven_extras` extension closes part of that gap, but only for
+specific tasks. Claiming ownership of the `public` schema needs it, while setting up
+read-only access to databases or tables doesn't.
 
 ## Before you start
 
-- An internal `postgres` user, not `avnadmin`, owns the `public` schema until you
-  claim ownership with `aiven_extras`. Claim it before you plan to alter objects in
-  that schema.
-- Restricting access to databases or tables with read-only roles doesn't require the
-  `aiven_extras` extension. You can set it up with standard `GRANT` and `REVOKE`
-  statements.
+- [Claiming the `public`
+  schema](/docs/products/postgresql/howto/claim-public-schema-ownership) requires
+  `aiven_extras`, because that schema starts out owned by an internal `postgres`
+  user, not `avnadmin`.
+- [Restricting access](/docs/products/postgresql/howto/readonly-user) to databases or
+  tables with read-only roles doesn't require the extension. You can set it up with
+  standard `GRANT` and `REVOKE` statements.
 
 <RelatedPages/>
 

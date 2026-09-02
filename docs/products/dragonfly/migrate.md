@@ -5,20 +5,21 @@ sidebar_label: Migrate
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Migrate to Aiven for Dragonfly® from Aiven for Caching, Aiven for Valkey™, or an
-external Redis®* or Valkey service.
+Migrate to Aiven for Dragonfly® from [Aiven for Caching or Aiven for
+Valkey™](/docs/products/dragonfly/howto/migrate-aiven-caching-df-console), or from an
+[external Redis®* or Valkey
+service](/docs/products/dragonfly/howto/migrate-ext-redis-df-console).
 
 ## Choose your migration path
 
 Which migration guide you follow depends on where your source database runs.
 
-- Migrate from Aiven for Caching or Aiven for Valkey when Aiven already manages your
-  source service. The Aiven Console migration tool reuses that service's connection
-  details automatically, so you only select the project and service to migrate from.
-- Migrate from an external Redis or Valkey service when your source runs outside Aiven,
-  for example on your own infrastructure or with another cloud provider. You provide the
-  hostname, port, username, and password yourself, and you might need a VPC peering
-  connection if the source isn't reachable over the public internet.
+- Choose the Aiven for Caching or Aiven for Valkey path when Aiven already manages your
+  source service. You only select the project and service to migrate from.
+- Choose the external Redis or Valkey path when your source runs outside Aiven, for
+  example on your own infrastructure or with another cloud provider. You enter its
+  connection details yourself, including a VPC peering connection if the source isn't
+  reachable over the public internet.
 
 ## Things to know before you migrate
 
@@ -27,13 +28,10 @@ Which migration guide you follow depends on where your source database runs.
   API compatibility
   documentation](https://www.dragonflydb.io/docs/command-reference/compatibility) before
   you migrate.
-- **User accounts and configuration don't transfer automatically.** Migration doesn't
-  include service users, access control lists, or custom service configuration.
-  Recreate these manually on Aiven for Dragonfly after migration.
-- **Migration runs as replication.** Once you start a migration, Aiven streams data from
-  the source in real time and the target Dragonfly service stays read-only. When the
-  initial sync completes, you choose whether to keep replicating from the source or stop
-  it and switch over.
+- **Migration runs as replication either way.** Once you start a migration, Aiven
+  streams data from the source in real time and the target Dragonfly service stays
+  read-only. When the initial sync completes, you choose whether to keep replicating
+  from the source or stop it and switch over.
 
 <RelatedPages/>
 

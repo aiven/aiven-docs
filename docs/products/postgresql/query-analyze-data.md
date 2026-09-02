@@ -10,20 +10,23 @@ Write and run queries, and identify and optimize slow queries in your Aiven for 
 
 ## Tools for finding and fixing slow queries
 
-- **Aiven AI Database Optimizer**, in the <ConsoleLabel name="observe"/> section as
-  **AI insights**, analyzes query structure, table size, indexes, and column types to
-  suggest optimizations automatically.
-- **`pg_stat_statements`** gives you the underlying query statistics, so you can write
-  your own analysis queries instead of relying on automated suggestions.
-- **PG Studio**'s AI assistant is a separate feature for writing and explaining SQL
-  from natural language. It doesn't analyze historical query performance.
+- **[Aiven AI Database Optimizer](/docs/products/postgresql/howto/ai-insights)**, in
+  the <ConsoleLabel name="observe"/> section as **AI insights**, suggests
+  optimizations automatically, without you writing any analysis queries yourself.
+- **[`pg_stat_statements`](/docs/products/postgresql/howto/identify-pg-slow-queries)**
+  gives you the underlying query statistics instead, so you can write your own
+  analysis queries rather than relying on automated suggestions.
+- **[PG Studio](/docs/products/postgresql/howto/pg-studio)**'s AI assistant is a
+  separate feature. It doesn't analyze historical query performance the way AI
+  insights or `pg_stat_statements` do.
 
 ## Historical analysis compared to live queries
 
-Identifying and optimizing slow queries relies on statistics from completed
-executions, captured in `pg_stat_statements`. Detecting and terminating long-running
-queries works on queries that are running right now, using `pg_stat_activity` or the
-**Current queries** page in the console. Use the historical tools to prevent slow
+Identifying slow queries and [optimizing
+them](/docs/products/postgresql/howto/optimize-pg-slow-queries) both work from
+statistics on completed executions. [Detecting and terminating long-running
+queries](/docs/products/postgresql/howto/pg-long-running-queries), in contrast,
+targets queries that are running right now. Use the historical tools to prevent slow
 queries, and the live tools to react to one that's already blocking other work.
 
 <RelatedPages/>

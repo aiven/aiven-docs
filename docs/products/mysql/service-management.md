@@ -9,25 +9,29 @@ Manage the lifecycle of your Aiven for MySQL® service, including power state, n
 
 ## How service lifecycle actions relate
 
-Most of these actions change the service as a whole rather than a single setting.
-Renaming a service is really a fork under a new name followed by deleting the original,
-so renaming, forking, and deleting share the same mechanics and the same prerequisites,
-such as having at least one backup to fork from. Powering a service off and on, forking
-it, and moving it to a new cloud or region all trigger a state change that takes time to
-complete. Tagging a service and editing its advanced parameters take effect immediately,
-without moving or recreating any infrastructure.
+[Renaming a service](/docs/products/mysql/howto/rename-service) reuses the
+[forking](/docs/products/mysql/howto/fork-service) mechanism: It creates a fork under a
+new name, then removes the original service. That means renaming has the same backup
+prerequisite as forking, even though the renaming steps don't mention it directly.
+[Powering a service off and on](/docs/products/mysql/howto/power-cycle-service), forking
+it, and [moving it to a new cloud or
+region](/docs/products/mysql/howto/change-cloud-region) each move the service through a
+transitional state. [Tagging a service](/docs/products/mysql/howto/tag-service) and
+editing its [advanced parameters](/docs/products/mysql/reference/advanced-params), by
+contrast, take effect without moving or recreating any infrastructure.
 
 ## Things to know
 
-- **Permissions**: powering a service on or off, forking it, renaming it, and deleting
-  it use the same project-level permission as creating a service. Managing service users
-  needs a separate permission scoped to that specific service.
-- **Automatic deletion**: if you leave a service powered off for an extended period,
-  Aiven eventually deletes it, but notifies you before that happens. You have time to
-  power the service back on or fork it if you still need the data.
-- **Infrastructure as code**: you can manage tags, advanced parameters, and service
-  users with the Aiven Terraform Provider, but you can't power a service on or off with
-  Terraform. Use the Aiven Console or Aiven CLI for that.
+- **Permissions differ by action**: powering a service on or off, forking it, renaming
+  it, and deleting it all use the same project-level permission as creating a service.
+  [Managing service users](/docs/products/mysql/howto/manage-service-users) needs a
+  separate permission scoped to that specific service.
+- **You're notified before automatic deletion**: a service left powered off long enough
+  is eventually deleted, but Aiven notifies you first, giving you time to power it back
+  on or fork it if you still need the data.
+- **Terraform doesn't cover every action**: tags, advanced parameters, and service users
+  all have Terraform resources, but there's no Terraform equivalent for powering a
+  service on or off. Use the Aiven Console or Aiven CLI instead.
 
 <RelatedPages/>
 

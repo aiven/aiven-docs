@@ -9,23 +9,25 @@ Manage connection limits, idle connections, and TLS versions for your Aiven for 
 
 ## How these settings interact
 
-TCP keep-alive timeouts and `idle_in_transaction_session_timeout` protect against
-different problems. Keep-alive settings detect a client that has gone away at the
-network level, using the server-side `tcp_keepalives_idle`, `tcp_keepalives_count`,
-and `tcp_keepalives_interval` parameters. They don't detect a client that's still
-connected but has left a transaction open. A session stuck `idle in transaction`
-holds its connection, locks, and memory indefinitely until
-`idle_in_transaction_session_timeout` closes it, and enough stuck sessions can
-exhaust shared memory and make the service unavailable.
+[Keep-alive timeouts](/docs/products/postgresql/reference/idle-connections) and
+`idle_in_transaction_session_timeout` guard against different problems, and one
+doesn't substitute for the other. Keep-alives detect a client that has disconnected
+at the network level. A client that's still connected, but has left a transaction
+open, passes every keep-alive probe while it continues holding locks and memory, the
+scenario covered in [Troubleshoot out-of-shared-memory
+errors](/docs/products/postgresql/troubleshooting/troubleshooting-fatal-out-of-shared-mem).
 
 ## Before you troubleshoot a connection issue
 
-- Check whether you're near your plan's `max_connections` limit before investigating
-  further. The limit scales with plan size.
-- Confirm clients use `scram-sha-256` password encryption and a supported TLS
-  version. Aiven deprecated MD5 password encryption and older TLS versions.
-- If the service becomes unresponsive with repeated `out of shared memory` errors,
-  look for sessions stuck `idle in transaction` before adjusting connection limits.
+- Determine whether you're near your plan's
+  [`max_connections`](/docs/products/postgresql/reference/pg-connection-limits) limit
+  before investigating further.
+- Confirm clients use [`scram-sha-256` password
+  encryption](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade)
+  and a [supported TLS
+  version](/docs/products/postgresql/reference/use-of-deprecated-tls-versions).
+- If the service becomes unresponsive with `out of shared memory` errors, look for
+  stuck `idle in transaction` sessions before adjusting connection limits.
 
 <RelatedPages/>
 
