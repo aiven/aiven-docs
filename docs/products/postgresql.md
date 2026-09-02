@@ -5,7 +5,7 @@ title: Aiven for PostgreSQL®
 import DocCardList from '@theme/DocCardList';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for PostgreSQL® is is a fully managed and hosted relational database service. It's a high-performance data warehouse that offers maximum flexibility and functionality with a variety of advanced extensions out of the box.
+Aiven for PostgreSQL® is a fully managed and hosted relational database service. It's a high-performance data warehouse that offers maximum flexibility and functionality with a variety of advanced extensions out of the box.
 
 PostgreSQL® is an open source database ideal for organisations that need a well-organised
 tabular datastore. On top of the strict table and columns formats, PostgreSQL also offers
