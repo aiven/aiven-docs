@@ -101,6 +101,7 @@ Debezium
 deduplicate
 defragmentation
 depends_on
+deprovisioning
 deserialization
 deserialize
 deserializer
@@ -303,6 +304,7 @@ pg_repack
 pg_restore
 pg_stat_monitor
 pg_stat_plans
+pg_stat_statements
 pgvector
 plaintext
 plc

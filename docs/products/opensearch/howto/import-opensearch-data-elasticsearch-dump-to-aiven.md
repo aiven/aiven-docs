@@ -5,14 +5,9 @@ sidebar_label: Copy data to Aiven
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Backup your OpenSearch® data into Aiven for Opensearch.
-
-To copy the index data, we will be using `elasticsearch-dump`
-[tool](https://github.com/elasticsearch-dump/elasticsearch-dump). You
-can read the [instructions on
-GitHub](https://github.com/elasticsearch-dump/elasticsearch-dump/blob/master/README.md)
-on how to install it. From this library, we will use `elasticdump`
-command to copy the input index data to an specific output.
+Backup your OpenSearch® data into Aiven for Opensearch using the `elasticsearch-dump`
+[tool](https://github.com/elasticsearch-dump/elasticsearch-dump), copying one index at
+a time with its `elasticdump` command.
 
 ## Prerequisites {#copy-data-from-os-to-os}
 
@@ -84,11 +79,3 @@ elasticdump \
 When the dump is completed, you can check that the index is available in
 the OpenSearch service you send it to. You will be able to find it under
 **Indexes** in the <ConsoleLabel name="data"/> section in your Aiven Console.
-
-### Resources
-
-Aiven for OpenSearch databases are automatically backed up, so you can
-check more information about how the
-[Backup process works](/docs/platform/concepts/service_backups#aiven-for-opensearch).
-
-------------------------------------------------------------------------

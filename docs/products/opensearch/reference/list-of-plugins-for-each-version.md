@@ -5,15 +5,9 @@ sidebar_label: Plugin versions
 
 import MySnippet from "@site/static/includes/os-plugins.md"
 
-Plugin availability and versions in Aiven for OpenSearch® vary by OpenSearch major version. Each plugin version corresponds to the OpenSearch core version.
-
-```math
-OpenSearch\_core\_version = OpenSearch\_plugin\_version
-```
-
-:::note[Example]
-OpenSearch 2.19 uses plugins version 2.19.
-:::
+Plugin availability and versions in Aiven for OpenSearch® vary by OpenSearch major
+version. See [available plugins](/docs/products/opensearch/reference/plugins) for how
+plugin versions map to OpenSearch core versions.
 
 <!-- vale off -->
 
