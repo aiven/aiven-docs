@@ -13,9 +13,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 To create custom clouds in Aiven using self-service, select your cloud provider to integrate with.
 
 :::note
-BYOC for Oracle Cloud Infrastructure (OCI) and Microsoft Azure is in
+BYOC for Oracle Cloud Infrastructure (OCI) is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-and not available as self-service. To use BYOC with OCI or Azure, contact
+and not available as self-service. To use BYOC with OCI, contact
 [Aiven](https://aiven.io/contact).
 :::
 
@@ -31,6 +31,12 @@ and not available as self-service. To use BYOC with OCI or Azure, contact
       iconName="googleLogo"
       title="Google Cloud"
       description="Create a Google-integrated custom cloud."
+    />
+    <Card
+      to="/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud"
+      iconName="cloud"
+      title="Microsoft Azure"
+      description="Create an Azure-integrated custom cloud."
     />
 </GridContainer>
 
