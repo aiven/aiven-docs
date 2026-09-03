@@ -272,6 +272,30 @@ import Link from '@docusaurus/Link'
         <td>
             <div className="param">
               <p className="name">
+                <Link id="preferred_zones" to="#preferred_zones">
+                  <strong>preferred_zones</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="array[string]">array[string]</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>maxItems: <code>10</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>List of preferred zone IDs for service node placement. Nodes will be placed in these zones when available. If a specified zone is unavailable (e.g., due to capacity constraints), nodes will be placed in other available zones to maintain the configured number of zones for availability. Invalid zone IDs are rejected at configuration time. Zone IDs are cloud-specific: AWS uses zone IDs like &#x27;euc1-az1&#x27;, GCP uses zone names like &#x27;europe-west1-a&#x27;, and Azure uses &#x27;location/zone&#x27; format like &#x27;germanywestcentral/1&#x27;. If single_zone is enabled with an availability_zone, that setting takes precedence over preferred_zones. Changes take effect on next node recreation (e.g., maintenance or plan change). For eligible plans, nodes outside preferred zones are automatically rebalanced once per day.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
                 <Link id="private_access" to="#private_access">
                   <strong>private_access</strong>
                 </Link>
@@ -772,6 +796,30 @@ import Link from '@docusaurus/Link'
 
               <div className="description">
                 <p>Kafka broker configuration values</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="kafka.group_coordinator_rebalance_protocols" to="#kafka.group_coordinator_rebalance_protocols">
+                  <strong>kafka.group_coordinator_rebalance_protocols</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>enum: <code>classic,classic,consumer,classic,streams,classic,consumer,streams</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>The enabled consumer group rebalance protocols. Use consumer, classic, share, streams to enable Kafka share groups.</p>
               </div>
         </td>
       </tr>
@@ -1589,7 +1637,7 @@ import Link from '@docusaurus/Link'
             </div>
 
               <div className="description">
-                <p>Configure external secret providers in order to reference external secrets in connector configuration. Currently Hashicorp Vault (provider: vault, auth_method: token) and AWS Secrets Manager (provider: aws, auth_method: credentials) are supported. Secrets can be referenced in connector config with &lt;provider_name&gt;:&lt;secret_path&gt;:&lt;key_name&gt;</p>
+                <p>Configure external secret providers in order to reference external secrets in connector configuration. Currently Hashicorp Vault (provider: vault, auth_method: token) and AWS Secrets Manager (provider: aws, auth_method: credentials) are supported. Secrets can be referenced in connector config with $\{&amp;lt;provider_name&amp;gt;:&amp;lt;secret_path&amp;gt;:&amp;lt;key_name&amp;gt;\}</p>
               </div>
         </td>
       </tr>
@@ -1954,6 +2002,126 @@ import Link from '@docusaurus/Link'
         <td>
             <div className="param">
               <p className="name">
+                <Link id="kafka_connect_secret_providers.[0].azure" to="#kafka_connect_secret_providers.[0].azure">
+                  <strong>kafka_connect_secret_providers.[0].azure</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="object">object</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>required: <code>auth_method</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>Azure KeyVault secret provider configuration</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="kafka_connect_secret_providers.[0].azure.auth_method" to="#kafka_connect_secret_providers.[0].azure.auth_method">
+                  <strong>kafka_connect_secret_providers.[0].azure.auth_method</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>enum: <code>credentials</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>An enumeration.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="kafka_connect_secret_providers.[0].azure.client_id" to="#kafka_connect_secret_providers.[0].azure.client_id">
+                  <strong>kafka_connect_secret_providers.[0].azure.client_id</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>maxLength: <code>128</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>Azure client ID for the service principal.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="kafka_connect_secret_providers.[0].azure.tenant_id" to="#kafka_connect_secret_providers.[0].azure.tenant_id">
+                  <strong>kafka_connect_secret_providers.[0].azure.tenant_id</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>maxLength: <code>128</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>Azure tenant ID for the service principal.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="kafka_connect_secret_providers.[0].azure.secret" to="#kafka_connect_secret_providers.[0].azure.secret">
+                  <strong>kafka_connect_secret_providers.[0].azure.secret</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>maxLength: <code>256</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>Azure client secret for the service principal.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
                 <Link id="kafka_diskless" to="#kafka_diskless">
                   <strong>kafka_diskless</strong>
                 </Link>
@@ -1994,6 +2162,30 @@ import Link from '@docusaurus/Link'
 
               <div className="description">
                 <p>Whether to enable the Diskless functionality</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="kafka_diskless.auto_diskless_topic_regexes" to="#kafka_diskless.auto_diskless_topic_regexes">
+                  <strong>kafka_diskless.auto_diskless_topic_regexes</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="array[string]">array[string]</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>maxItems: <code>32</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>The regexes of topics to auto enable diskless. Topics matching any of the regexes will be created as diskless topics.</p>
               </div>
         </td>
       </tr>
@@ -2128,12 +2320,36 @@ import Link from '@docusaurus/Link'
 
             <div className="constraints">
               <ul>
-                  <li>enum: <code>3.8,3.9,4.0,4.1</code></li>
+                  <li>enum: <code>3.9,4.1,4.2</code></li>
               </ul>
             </div>
 
               <div className="description">
                 <p>Kafka major version</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="karapace_version" to="#karapace_version">
+                  <strong>karapace_version</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string,null">string,null</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>enum: <code>6.2.1,6.2.2,null</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>Select a Karapace version for this service, or select Latest to use the latest available version automatically. New versions become available after installation during a maintenance update.</p>
               </div>
         </td>
       </tr>
@@ -2644,6 +2860,100 @@ import Link from '@docusaurus/Link'
 
               <div className="description">
                 <p>If enabled, kafka errors which can be retried or custom errors specified for the service will not be raised, instead, a warning log is emitted. This will denoise issue tracking systems, i.e. sentry. Defaults to &#x60;true&#x60;.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="schema_registry_config.sasl_oauthbearer_authentication_enabled" to="#schema_registry_config.sasl_oauthbearer_authentication_enabled">
+                  <strong>schema_registry_config.sasl_oauthbearer_authentication_enabled</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="boolean">boolean</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>If enabled, the Schema Registry validates OAuth2/OIDC JWT bearer tokens on incoming requests. Requires the OIDC provider settings under the &#x60;kafka&#x60; configuration (&#x60;sasl_oauthbearer_jwks_endpoint_url&#x60; and related). Defaults to &#x60;false&#x60;.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="schema_registry_config.sasl_oauthbearer_authorization_enabled" to="#schema_registry_config.sasl_oauthbearer_authorization_enabled">
+                  <strong>schema_registry_config.sasl_oauthbearer_authorization_enabled</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="boolean">boolean</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>If enabled, the Schema Registry enforces role-based authorization derived from the JWT roles claim. Enabling this automatically enables &#x60;sasl_oauthbearer_authentication_enabled&#x60; when it is not already enabled, since authorization requires authentication. Defaults to &#x60;false&#x60;.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="schema_registry_config.sasl_oauthbearer_roles_claim_path" to="#schema_registry_config.sasl_oauthbearer_roles_claim_path">
+                  <strong>schema_registry_config.sasl_oauthbearer_roles_claim_path</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>maxLength: <code>128</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>JSON path used to extract the roles claim from the JWT for Schema Registry authorization. Defaults to &#x60;resource_access.karapace.roles&#x60;.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
+                <Link id="schema_registry_config.sasl_oauthbearer_method_roles" to="#schema_registry_config.sasl_oauthbearer_method_roles">
+                  <strong>schema_registry_config.sasl_oauthbearer_method_roles</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>maxLength: <code>4096</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>JSON object mapping HTTP methods to the list of roles allowed to perform them on the Schema Registry, provided as a JSON-encoded string. Role names use the &#x60;karapace.&#x60; prefix, e.g. &#x60;karapace.schema:read&#x60;. Defaults to &#x60;\{&quot;GET&quot;: [&quot;karapace.schema:read&quot;, &quot;karapace.subject:read&quot;], &quot;POST&quot;: [], &quot;PUT&quot;: [], &quot;DELETE&quot;: []\}&#x60;.</p>
               </div>
         </td>
       </tr>

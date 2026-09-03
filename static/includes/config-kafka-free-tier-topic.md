@@ -57,6 +57,30 @@ import Link from '@docusaurus/Link'
         <td>
             <div className="param">
               <p className="name">
+                <Link id="cleanup_policy" to="#cleanup_policy">
+                  <strong>cleanup_policy</strong>
+                </Link>
+              </p>
+              <p>
+                <code className="type" title="string">string</code>
+              </p>
+            </div>
+
+            <div className="constraints">
+              <ul>
+                  <li>enum: <code>compact,delete</code></li>
+              </ul>
+            </div>
+
+              <div className="description">
+                <p>Retention policy for old segments. By default, &#x27;delete&#x27; discards old segments when they reach the retention time or size limit. The &#x27;compact&#x27; setting enables log compaction for the topic.</p>
+              </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <div className="param">
+              <p className="name">
                 <Link id="delete_retention_ms" to="#delete_retention_ms">
                   <strong>delete_retention_ms</strong>
                 </Link>
