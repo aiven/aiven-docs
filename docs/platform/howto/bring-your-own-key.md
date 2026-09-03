@@ -34,6 +34,11 @@ BYOK encrypts the following using your CMKs:
   - **AWS KMS**: symmetric encryption keys (`ENCRYPT_DECRYPT`)
   - **Azure Key Vault**: RSA keys (software-protected or HSM-backed)
 
+- **Public internet access** to your KMS or key vault: Aiven connects to your key
+  management service over the public internet to perform wrap and unwrap operations,
+  so the key management service must be reachable from the public internet. Key vaults
+  that block public internet access aren't currently supported.
+
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
   the [Aiven API](/docs/tools/api)
 
