@@ -204,12 +204,6 @@ To restore a cluster, Aiven combines the stored backups with the recorded hash s
 layout, so your data returns to the same slot distribution. The cluster must keep the same
 number of primary nodes for a restore to succeed.
 
-If a node becomes unresponsive while its data is loading during a restore, for example
-because Aiven replaces the node partway through, Aiven detects which hash slots are still
-missing their data. Aiven then restores only those slots from the latest backup, leaving
-the rest of the cluster's already-restored data untouched, and the restore continues
-without starting over.
-
 :::note
 Cluster backups are not point-in-time recovery (PITR). Because each primary node is backed
 up independently, backups are not consistent across shards. A restored cluster reflects
