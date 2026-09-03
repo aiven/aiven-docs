@@ -90,13 +90,6 @@ a daily schedule that asks the agent to summarize service health.
 - [Manage an agent](/docs/tools/agents/manage-agent)
 - [Manage integrations](/docs/tools/agents/manage-integrations)
 
-:::caution
-You are interacting with AI. Agents can make mistakes and take actions
-through connected tools, including scheduled actions. Don't enter secrets or
-data you aren't authorized to share. Agents are free for a limited time.
-To get started, add a payment method. You aren't charged.
-:::
-
 <RelatedPages/>
 
 - [AI tools on Aiven](/docs/ai-features)
