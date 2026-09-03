@@ -60,7 +60,14 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/manage-unassigned-projects',
               ],
             },
-            'platform/concepts/carbon-footprint',
+            {
+              type: 'category',
+              label: 'Monitoring',
+              items: [
+                'platform/howto/organization-event-logs',
+                'platform/concepts/carbon-footprint',
+              ]
+            }
           ],
         },
         {
