@@ -1,9 +1,6 @@
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-## Step 1: Get the redirect URL
-
-1. In the application, click <ConsoleLabel name="runtimeidp"/>.
-1. Click **Add identity provider**.
-1. Select **OpenID Connect (OIDC)**.
-1. Click **Next**.
-1. Copy the **Redirect URI**.
+1. Open the console for your identity provider in another tab.
+1. In your identity provider, register a new app.
+1. Add the scopes `openid`, `profile`, and `email`.
+1. Copy the **Issuer/Provider URL**, **Client ID**, and **Client secret**.
