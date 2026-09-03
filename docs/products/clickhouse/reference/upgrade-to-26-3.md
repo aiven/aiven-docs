@@ -1,20 +1,17 @@
 ---
 title: Upgrade to Aiven for ClickHouse® 26.3
 sidebar_label: Upgrade to 26.3
-early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for ClickHouse® 26.3 is a long-term support (LTS) release available in
-Early Availability starting August 1, 2026. You can select it for new services
-or upgrade an existing service from version 25.8. Version 25.8 remains the
-default for new services.
+Aiven for ClickHouse® 26.3 is a long-term support (LTS) release.
+You can create a new service with version 26.3 or upgrade an existing service
+from version 25.8. Version 25.8 remains the default for new services.
 
-Version 26.3 makes full-text search generally available, enables asynchronous
-inserts by default, and introduces materialized common table expressions
-(CTEs), the native `Geometry` type, and improvements to JSON processing and
-query performance.
+Version 26.3 enables full-text search, asynchronous inserts by default,
+materialized common table expressions (CTEs), the native `Geometry` type, and
+improvements to JSON processing and query performance.
 
 Before upgrading:
 
