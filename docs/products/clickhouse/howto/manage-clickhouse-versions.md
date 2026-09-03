@@ -15,13 +15,13 @@ Aiven for ClickHouse supports the following major versions:
 
 - `25.3`: default for services created before May 5, 2026
 - `25.8`: default for services created on or after May 5, 2026
-- `26.3`: available in Early Availability from August 1, 2026
+- `26.3`: available in General Availability from September 1, 2026
 
 If you don't specify a version when you create a service, Aiven uses the default
-version in effect on the creation date. During Early Availability, you can select
-`26.3` when creating a new service or when upgrading a service running version
-`25.8`. Services running `25.3` must first upgrade to `25.8`. Version `25.8`
-remains the default for new services.
+version in effect on the creation date. You can select `26.3` when creating a
+new service or when upgrading a service running version `25.8`. Upgrade
+services running `25.3` to `25.8` first. Version `25.8` remains the default for
+new services.
 
 Aiven doesn't automatically upgrade existing `25.3` services to `25.8`. When using
 infrastructure as code (for example, the [Aiven Provider for Terraform](/docs/tools/terraform)
