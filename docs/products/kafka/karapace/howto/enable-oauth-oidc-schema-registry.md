@@ -34,7 +34,7 @@ basic authentication to access Schema Registry.
 By default, any client with a valid token can access Schema Registry.
 To restrict access, enable role-based authorization.
 
-Karapace extracts roles from a configured JSON path in the JWT.
+Karapace extracts roles from the JWT using a configured claim path.
 It checks those roles against the roles allowed for the requested HTTP method.
 
 Enable OIDC authentication before you enable role-based authorization.
@@ -108,7 +108,7 @@ Before you enable authorization, make sure
 
 You can optionally customize how Karapace reads and applies roles:
 
-- `schema_registry_config.sasl_oauthbearer_roles_claim_path`: JSON path used
+- `schema_registry_config.sasl_oauthbearer_roles_claim_path`: Claim path used
   to extract roles from the JWT. The default is
   `resource_access.karapace.roles`. Set this option if your identity provider
   stores roles at a different path.
