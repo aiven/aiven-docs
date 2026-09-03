@@ -137,10 +137,11 @@ primary so the shard keeps accepting writes.
 
 This differs from failover in [non-clustered Aiven for Valkey
 services](/docs/products/valkey/concepts/high-availability). A non-clustered service holds
-your whole dataset on a single primary, so failover is one event, where a standby takes
-over as the new primary. A clustered service splits your dataset across multiple shards,
-each with its own primary, so failover happens per shard, and how Aiven promotes the
-replacement primary for that shard depends on how many shards the cluster has:
+your whole dataset on a single primary, so a primary failure pauses every key until a
+standby takes over. A clustered service splits your dataset across multiple shards, each
+with its own primary, so only the keys in the affected shard's slot range are unavailable
+during a failover; the other shards keep serving traffic. How Aiven promotes the
+replacement primary for the affected shard depends on how many shards the cluster has:
 
 - **Clusters with three or more shards, where every shard has a replica**: The surviving
   primaries vote and promote a replica of the affected shard automatically, following
@@ -154,12 +155,10 @@ replacement primary for that shard depends on how many shards the cluster has:
   the service. If the shard has no replica, Aiven provisions a new node instead and
   restores its data from the most recent backup.
 
-Failover isn't instant. While a shard has uncovered hash slots, the whole cluster stops
-accepting commands, not only the keys on the affected shard. This is different from a
-non-clustered service, where a standby failure never interrupts the primary and a primary
-failure only pauses the service for a single failover event. Add at least one replica to
-every shard to reduce how long a single node failure affects your cluster. You can inspect
-cluster health at any time by running `CLUSTER NODES`.
+Failover isn't instant, so while a shard has uncovered hash slots, commands for keys in
+that shard's slot range fail; other shards keep serving their own keys without
+interruption. Add at least one replica to every shard to reduce how long a failure affects
+that shard. You can inspect cluster health at any time by running `CLUSTER NODES`.
 
 ## Resharding
 

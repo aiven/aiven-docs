@@ -7,6 +7,11 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Migrate your Valkey™ databases to Aiven for Valkey™ using the Aiven Console migration tool.
 
+:::important[Limitations]
+Migrating into a target service that uses [Valkey
+clustering](/docs/products/valkey/concepts/valkey-cluster) is not supported.
+:::
+
 ## Prerequisites
 
 Before starting the migration process, ensure the following:

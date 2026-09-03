@@ -11,6 +11,8 @@ Migrate your Redis®* databases, whether on-premise or cloud-hosted, to Aiven fo
 :::important[Limitations]
 
 - Migrating from **Google Cloud Memorystore** for Redis is not supported.
+- Migrating into a target service that uses [Valkey
+  clustering](/docs/products/valkey/concepts/valkey-cluster) is not supported.
 - Source Redis version must be equal to or lower than:
   - Redis version 7.2
   - Target Aiven for Valkey version
@@ -137,7 +139,7 @@ the following options:
 
 :::note[Verify sync and plan cutover]
 
--   **Iinitial sync completion**: The Valkey replica exposes `master_sync_in_progress`.
+-   **Initial sync completion**: The Valkey replica exposes `master_sync_in_progress`.
     When it is `0`, the initial sync (RDB load) is complete and the migration is considered
     done.
 

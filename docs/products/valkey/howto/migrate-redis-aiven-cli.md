@@ -11,6 +11,8 @@ name is `test`, and the service name for the target Aiven for Valkey is `valkey`
 :::important[Limitations]
 
 - Migrating from **Google Cloud Memorystore** for Redis is not supported.
+- Migrating into a target service that uses [Valkey
+  clustering](/docs/products/valkey/concepts/valkey-cluster) is not supported.
 - Source Redis version must be equal to or lower than:
   - Redis version 7.2
   - Target Aiven for Valkey version
