@@ -1,6 +1,6 @@
 ---
 title: Enable OAuth 2.0/OIDC authentication for Aiven for Apache Kafka® Schema Registry
-sidebar_label: Configure OAuth 2.0/OIDC
+sidebar_label: Enable OAuth 2.0/OIDC
 description: Authenticate Karapace Schema Registry requests with OAuth 2.0/OIDC bearer tokens and optionally enforce role-based authorization.
 ---
 
