@@ -26,8 +26,15 @@ This differs from the
 where Apache Kafka validates the bearer token.
 Schema Registry also validates the token.
 
-When OIDC authentication is enabled, clients use bearer tokens instead of
-basic authentication to access Schema Registry.
+When you enable OIDC authentication, clients can use a bearer token or
+basic authentication.
+Enabling OIDC authentication does not turn off basic authentication.
+
+:::note
+Keep basic authentication on while you migrate clients to JWT
+authentication.
+After all clients use JWT authentication, turn off basic authentication.
+:::
 
 ## Authorization enforcement
 
@@ -56,8 +63,8 @@ Schema Registry uses the same OIDC provider settings as Apache Kafka.
 Those settings include the JWKS endpoint, the expected issuer, and the
 expected audience.
 
-The Aiven Console does not require the issuer and audience, but Schema Registry
-needs them to validate tokens.
+The Aiven Console does not require the issuer and audience.
+Schema Registry uses them to validate tokens.
 
 For more information about configuring these settings, see
 [Enable OAuth 2.0/OIDC authentication for Apache Kafka®](/docs/products/kafka/howto/enable-oidc).
@@ -103,10 +110,11 @@ Replace `SERVICE_NAME` with the name of your Aiven for Apache Kafka service.
 Enable role-based authorization to restrict Schema Registry operations based
 on roles in the JWT.
 
-Before you enable authorization, make sure
-`schema_registry_config.sasl_oauthbearer_authentication_enabled` is enabled.
+Before you enable authorization, set
+`schema_registry_config.sasl_oauthbearer_authentication_enabled` to
+**Enabled**.
 
-You can optionally customize how Karapace reads and applies roles:
+You can customize how Karapace reads and applies roles:
 
 - `schema_registry_config.sasl_oauthbearer_roles_claim_path`: Claim path used
   to extract roles from the JWT. The default is
@@ -260,8 +268,9 @@ If authorization is on, a `POST`, `PUT`, or `DELETE` request needs a write role.
 
 ## Disable OAuth 2.0/OIDC authentication
 
-To return to basic authentication and authorization for Schema Registry, turn
-off OIDC authorization and authentication.
+To turn off OIDC authentication and authorization, set both options to
+**Disabled**.
+This does not turn off basic authentication.
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
