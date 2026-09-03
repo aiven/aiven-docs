@@ -1,7 +1,6 @@
 ---
 title: Enable IPv6 connectivity for Aiven for Apache Kafka®
 sidebar_label: Enable IPv6 connectivity
-early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,10 +10,6 @@ import ConsoleIcon from "@site/src/components/ConsoleIcons"
 
 Aiven for Apache Kafka® supports dual-stack IPv4 and IPv6 connectivity.
 Kafka clients can connect using either address type.
-
-:::warning
-This feature is in early availability. Enable it in a non-production environment first.
-:::
 
 ## Enable IPv6 connectivity
 
