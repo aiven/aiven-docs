@@ -754,9 +754,9 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/karapace/howto/enable-schema-registry-authorization',
                         'products/kafka/karapace/concepts/acl-definition',
                         'products/kafka/karapace/howto/manage-schema-registry-authorization',
-                        'products/kafka/karapace/howto/enable-oauth-oidc-schema-registry',
                       ],
                     },
+                    'products/kafka/karapace/howto/enable-oauth-oidc-schema-registry',
                   ],
                 },
                 {

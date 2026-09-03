@@ -24,7 +24,7 @@ Kafka service.
 This differs from the
 [Karapace REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy),
 where Apache Kafka validates the bearer token.
-Schema Registry validates the token directly.
+Schema Registry also validates the token.
 
 When OIDC authentication is enabled, clients use bearer tokens instead of
 basic authentication to access Schema Registry.
@@ -48,11 +48,16 @@ Before you begin, make sure you have:
 - Karapace version 6.2.1 or later
 - Access to an OIDC-compliant identity provider
 - OIDC provider settings configured for your Aiven for Apache Kafka service,
-  including `kafka.sasl_oauthbearer_jwks_endpoint_url`
+  including `kafka.sasl_oauthbearer_jwks_endpoint_url`,
+  `kafka.sasl_oauthbearer_expected_issuer`, and
+  `kafka.sasl_oauthbearer_expected_audience`
 
 Schema Registry uses the same OIDC provider settings as Apache Kafka.
-Those settings include the JWKS endpoint and, when configured, the expected
-issuer and audience.
+Those settings include the JWKS endpoint, the expected issuer, and the
+expected audience.
+
+The Aiven Console does not require the issuer and audience, but Schema Registry
+needs them to validate tokens.
 
 For more information about configuring these settings, see
 [Enable OAuth 2.0/OIDC authentication for Apache Kafka®](/docs/products/kafka/howto/enable-oidc).
@@ -74,7 +79,7 @@ For more information, see
 1. Click <ConsoleLabel name="service settings"/>.
 1. Click **Advanced configuration** > **Configure**.
 1. Click <ConsoleLabel name="Add config options"/>.
-1. Add **`schema_registry_config.sasl_oauthbearer_authentication_enabled`**.
+1. Add `schema_registry_config.sasl_oauthbearer_authentication_enabled`.
 1. Set the option to **Enabled**.
 1. Click **Save configuration**.
 
@@ -103,11 +108,11 @@ Before you enable authorization, make sure
 
 You can optionally customize how Karapace reads and applies roles:
 
-- **`schema_registry_config.sasl_oauthbearer_roles_claim_path`**: JSON path used
+- `schema_registry_config.sasl_oauthbearer_roles_claim_path`: JSON path used
   to extract roles from the JWT. The default is
   `resource_access.karapace.roles`. Set this option if your identity provider
   stores roles at a different path.
-- **`schema_registry_config.sasl_oauthbearer_method_roles`**: Maps HTTP methods
+- `schema_registry_config.sasl_oauthbearer_method_roles`: Maps HTTP methods
   to the roles allowed to use them. Set this option to customize access for
   `GET`, `POST`, `PUT`, and `DELETE` requests.
 
@@ -154,16 +159,16 @@ To allow write access, set
 1. Click <ConsoleLabel name="service settings"/>.
 1. Click **Advanced configuration** > **Configure**.
 1. Make sure
-   **`schema_registry_config.sasl_oauthbearer_authentication_enabled`** is set to
+   `schema_registry_config.sasl_oauthbearer_authentication_enabled` is set to
    **Enabled**.
 1. Click <ConsoleLabel name="Add config options"/>.
-1. Add **`schema_registry_config.sasl_oauthbearer_authorization_enabled`** and
+1. Add `schema_registry_config.sasl_oauthbearer_authorization_enabled` and
    set it to **Enabled**.
 1. Optional: Add
-   **`schema_registry_config.sasl_oauthbearer_roles_claim_path`** if your JWT
+   `schema_registry_config.sasl_oauthbearer_roles_claim_path` if your JWT
    stores roles somewhere other than `resource_access.karapace.roles`.
 1. Optional: Add
-   **`schema_registry_config.sasl_oauthbearer_method_roles`** to customize which
+   `schema_registry_config.sasl_oauthbearer_method_roles` to customize which
    roles can use each HTTP method.
 1. Click **Save configuration**.
 
@@ -194,17 +199,19 @@ avn service update SERVICE_NAME \
 
 ### Configure roles for HTTP methods
 
-Use `schema_registry_config.sasl_oauthbearer_method_roles` to map each HTTP
-method to the roles that can use it.
-The value is a JSON-encoded string.
+Set `schema_registry_config.sasl_oauthbearer_method_roles` to JSON that maps
+each HTTP method to the roles that can use it.
 
-The following example grants read access to `karapace.schema:read` and
-read and write access to `karapace.schema:write`:
+Clients with `karapace.schema:read` can read schemas.
+Clients with `karapace.schema:write` can read and write schemas.
 
 | Role | Allowed actions |
 | --- | --- |
 | `karapace.schema:read` | Read schemas (`GET`) |
 | `karapace.schema:write` | Read and write schemas (`GET`, `POST`, `PUT`, `DELETE`) |
+
+Each key in the JSON is an HTTP method. Each value is the list of roles
+allowed for that method:
 
 ```json
 {
@@ -224,9 +231,8 @@ read and write access to `karapace.schema:write`:
 }
 ```
 
-If you set this option, include all four HTTP methods: `GET`, `POST`,
-`PUT`, and `DELETE`.
-Use an empty array (`[]`) for a method that no role can use.
+When you set this option, include `GET`, `POST`, `PUT`, and `DELETE`.
+To block a method, set its value to `[]`.
 
 ## Send a request to Schema Registry
 
@@ -254,8 +260,8 @@ If authorization is on, a `POST`, `PUT`, or `DELETE` request needs a write role.
 
 ## Disable OAuth 2.0/OIDC authentication
 
-To return to basic authentication for Schema Registry, turn off OIDC
-authorization and authentication.
+To return to basic authentication and authorization for Schema Registry, turn
+off OIDC authorization and authentication.
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
@@ -264,9 +270,9 @@ authorization and authentication.
    Kafka service.
 1. Click <ConsoleLabel name="service settings"/>.
 1. Click **Advanced configuration** > **Configure**.
-1. Set **`schema_registry_config.sasl_oauthbearer_authorization_enabled`** to
+1. Set `schema_registry_config.sasl_oauthbearer_authorization_enabled` to
    **Disabled**.
-1. Set **`schema_registry_config.sasl_oauthbearer_authentication_enabled`** to
+1. Set `schema_registry_config.sasl_oauthbearer_authentication_enabled` to
    **Disabled**.
 1. Click **Save configuration**.
 
