@@ -51,7 +51,9 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
 
 - **OAUTHBEARER**: Uses OAuth 2.0 tokens for authentication. This mechanism is enabled if
   the `sasl_oauthbearer_jwks_endpoint_url` is specified in the configuration. By default,
-  it is disabled.
+  it is disabled. Schema Registry also supports OAuth 2.0/OIDC authentication and
+  role-based authorization. See
+  [Enable OAuth 2.0/OIDC authentication for Schema Registry](/docs/products/kafka/karapace/howto/enable-oauth-oidc-schema-registry).
 
 <RelatedPages/>
 
