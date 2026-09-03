@@ -19,14 +19,18 @@ If your backend needs to identify the logged-in user,
 read the identity passed in the `X-Forwarded-User` HTTP header.
 :::
 
+## Step 1: Register an app in your identity provider
+
 <IdPStep1/>
 
-## Step 2: Register an application in Microsoft Entra ID
+## Step 2: Add your identity provider to your Aiven Runtime application
 
-1. In the Microsoft Entra admin center,
-   [register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
-1. [Add the redirect URI](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri)
-    you copied from the Aiven Console to the application.
+<IdPStep2/>
+
+## Step3: Add the redirect URL to your application
 
 <IdPStep3/>
+
+## Step 4: Grant access to users
+
 <GrantAccess/>
