@@ -66,8 +66,8 @@ const sidebars: SidebarsConfig = {
               items: [
                 'platform/howto/organization-event-logs',
                 'platform/concepts/carbon-footprint',
-              ]
-            }
+              ],
+            },
           ],
         },
         {
