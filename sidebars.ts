@@ -2004,6 +2004,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/opensearch-log-integration',
                 'products/opensearch/howto/os-metrics',
+                'products/opensearch/howto/datadog-metrics',
                 'products/opensearch/howto/integrate-with-grafana',
               ],
             },
