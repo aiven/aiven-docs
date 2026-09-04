@@ -14,20 +14,50 @@ function getIconForLabel(label: string): keyof typeof AquariumIcons {
   return LABEL_ICON_MAP[label] || 'infoSign';
 }
 
-function formatPermissionValues(values: string[]): string {
+function renderPermissionValue(value: string): JSX.Element | string {
+  // Split by backticks and render code segments
+  const parts = value.split(/(`[^`]+`)/);
+  return (
+    <>
+      {parts.map((part, i) => {
+        if (part.startsWith('`') && part.endsWith('`')) {
+          return (
+            <code key={i} className={styles.inlineCode}>
+              {part.slice(1, -1)}
+            </code>
+          );
+        }
+        return <span key={i}>{part}</span>;
+      })}
+    </>
+  );
+}
+
+function formatPermissionValues(values: string[]): JSX.Element {
   if (values.length === 0) {
-    return '';
+    return <></>;
   }
 
   if (values.length === 1) {
-    return values[0];
+    return <>{renderPermissionValue(values[0])}</>;
   }
 
   if (values.length === 2) {
-    return `${values[0]} or ${values[1]}`;
+    return (
+      <>
+        {renderPermissionValue(values[0])} or {renderPermissionValue(values[1])}
+      </>
+    );
   }
 
-  return `${values.slice(0, -1).join(', ')}, or ${values[values.length - 1]}`;
+  return (
+    <>
+      {values.slice(0, -1).map((v, i) => (
+        <span key={i}>{renderPermissionValue(v)}, </span>
+      ))}
+      or {renderPermissionValue(values[values.length - 1])}
+    </>
+  );
 }
 
 function isPermissionsLabel(label: string): boolean {

@@ -77,3 +77,10 @@
 :global(html[data-theme='dark']) .values {
   color: var(--aiven-grey-30);
 }
+
+.inlineCode {
+  font-family: monospace;
+  background-color: var(--color-code-bg);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
