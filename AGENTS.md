@@ -42,4 +42,5 @@ Agent workflow rules:
 |   Topic    |        Reference         | When to load |
 | ---------- | ------------------------ | ------------ |
 | Styleguide | `@.ai-agents/docs/styleguide.md` | When writing or reviewing content for the documentation.             |
+| Permissions in procedures | `@.ai-agents/skills/documenting-permissions/SKILL.md` | When writing, updating, or reviewing procedural documentation. |
 | ---------- | ------------------------ | ------------ |
