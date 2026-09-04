@@ -584,6 +584,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Service tiers',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/get-started/service-tiers',
+                  },
                   items: [
                     {
                       type: 'doc',
@@ -605,6 +609,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Create a Kafka service',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/get-started/create-a-kafka-service',
+                  },
                   items: [
                     {
                       type: 'doc',
