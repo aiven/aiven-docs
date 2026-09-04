@@ -14,8 +14,12 @@ function getIconForLabel(label: string): keyof typeof AquariumIcons {
   return LABEL_ICON_MAP[label] || 'infoSign';
 }
 
-function renderPermissionValue(value: string): JSX.Element | string {
-  // Split by backticks and render code segments
+function renderPermissionValue(value: string | JSX.Element): JSX.Element | string {
+  if (typeof value !== 'string') {
+    return value;
+  }
+
+  // Otherwise process string for backticks
   const parts = value.split(/(`[^`]+`)/);
   return (
     <>
@@ -33,7 +37,7 @@ function renderPermissionValue(value: string): JSX.Element | string {
   );
 }
 
-function formatPermissionValues(values: string[]): JSX.Element {
+function formatPermissionValues(values: (string | JSX.Element)[]): JSX.Element {
   if (values.length === 0) {
     return <></>;
   }
@@ -67,7 +71,7 @@ function isPermissionsLabel(label: string): boolean {
 interface RequirementItem {
   icon?: keyof typeof AquariumIcons;
   label: string;
-  values: string[];
+  values: (string | JSX.Element)[];
 }
 
 interface RequirementsPanelProps {
@@ -105,7 +109,12 @@ export default function RequirementsPanel({
             <span className={styles.values}>
               {isPermissionsLabel(item.label)
                 ? formatPermissionValues(item.values)
-                : item.values.join(', ')}
+                : item.values.map((v, i) => (
+                    <span key={i}>
+                      {typeof v === 'string' ? v : v}
+                      {i < item.values.length - 1 ? ', ' : ''}
+                    </span>
+                  ))}
             </span>
           </div>
         );
