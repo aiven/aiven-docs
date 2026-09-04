@@ -332,6 +332,11 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'ai-features',
+        {
+          type: 'link',
+          label: 'Managed Agents',
+          href: '/docs/tools/agents',
+        },
         'tools/mcp-server',
         {
           type: 'link',
@@ -366,6 +371,21 @@ const sidebars: SidebarsConfig = {
           items: ['tools/api/secret-redaction'],
         },
         'tools/mcp-server',
+        {
+          type: 'category',
+          label: 'Managed Agents',
+          link: {
+            id: 'tools/agents',
+            type: 'doc',
+          },
+          items: [
+            'tools/agents/create-agent',
+            'tools/agents/chat-with-agent',
+            'tools/agents/schedule-agent',
+            'tools/agents/manage-agent',
+            'tools/agents/manage-integrations',
+          ],
+        },
         {
           type: 'category',
           label: 'Aiven Provider for Terraform',
