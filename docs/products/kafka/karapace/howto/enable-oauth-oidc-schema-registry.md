@@ -9,14 +9,14 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use OAuth 2.0/OpenID Connect (OIDC) to authenticate requests to Karapace Schema Registry with JSON Web Tokens (JWTs) issued by your identity provider.
+Use OAuth 2.0/OpenID Connect (OIDC) to authenticate requests to Karapace Schema Registry with the JSON Web Tokens (JWT) issued by your identity provider.
 
 You can also enable role-based authorization to control which Schema Registry
 operations clients can perform.
 
 ## OAuth 2.0/OIDC token handling
 
-Karapace Schema Registry validates JWTs sent with the Bearer authentication
+Karapace Schema Registry validates the JWT sent with the Bearer authentication
 scheme.
 It checks tokens against the OIDC provider settings for the Aiven for Apache
 Kafka service.
@@ -44,7 +44,57 @@ To restrict access, enable role-based authorization.
 Karapace extracts roles from the JWT using a configured claim path.
 It checks those roles against the roles allowed for the requested HTTP method.
 
+Karapace does not create or assign roles. This is done in your identity provider.
+In Karapace you set what the roles can do.
+
+- **Identity provider**: Creates roles, assigns them to users or clients,
+  and writes them into the JWT.
+- **Karapace**: Compares those strings to
+  `schema_registry_config.sasl_oauthbearer_method_roles` for the request
+  method.
+
+On each request, Karapace does the following:
+
+1. Validates the JWT signature, issuer, audience, and expiry of the token.
+2. If authorization is on, reads roles from the claim path of the token.
+   The default path is `resource_access.karapace.roles`.
+3. Looks up the request method in Karapace's config
+   `schema_registry_config.sasl_oauthbearer_method_roles`.
+4. Allows the request if any token role is in that method's list. Each method has its own entries.
+
+Karapace matches role strings. There is no role hierarchy.
+
 Enable OIDC authentication before you enable role-based authorization.
+
+### Example JWT
+
+The identity provider issues a token that contains the role strings
+Karapace accepts. For example, a token for Alex can look like the
+following:
+
+```json
+{
+  "sub": "alex",
+  "resource_access": {
+    "karapace": {
+      "roles": [
+        "karapace.schema:read",
+        "karapace.schema:write"
+      ]
+    }
+  }
+}
+```
+
+A real token also includes issuer, audience, and expiry claims.
+Karapace validates those claims before it reads roles.
+
+Karapace reads `schema_registry_config.sasl_oauthbearer_roles_claim_path`
+and extracts the role list.
+The default path is `resource_access.karapace.roles`, which matches this example.
+
+If your identity provider stores roles at a different path, such as
+`realm_access.roles`, then set the claim path to match.
 
 ## Prerequisites
 
@@ -124,8 +174,9 @@ You can customize how Karapace reads and applies roles:
   to the roles allowed to use them. Set this option to customize access for
   `GET`, `POST`, `PUT`, and `DELETE` requests.
 
-Role names use the `karapace.` prefix, for example
-`karapace.schema:read`.
+Role names such as `karapace.schema:read` are conventional strings.
+They work only when they appear in both the JWT and
+`schema_registry_config.sasl_oauthbearer_method_roles`.
 
 ### Default HTTP method roles
 
@@ -138,7 +189,12 @@ Karapace allows only read access.
 | Register or update schemas | `POST`, `PUT` | None |
 | Delete schemas | `DELETE` | None |
 
-An empty array (`[]`) means no role can use that method.
+An empty array (`[]`) means no role is permitted to use that method, even with a
+valid token.
+
+A token that contains `karapace.schema:read` can send `GET` requests.
+`POST`, `PUT`, and `DELETE` stay blocked by default until you add roles to those
+lists.
 
 Karapace uses the following default mapping:
 
@@ -210,13 +266,14 @@ avn service update SERVICE_NAME \
 Set `schema_registry_config.sasl_oauthbearer_method_roles` to JSON that maps
 each HTTP method to the roles that can use it.
 
-Clients with `karapace.schema:read` can read schemas.
-Clients with `karapace.schema:write` can read and write schemas.
+Karapace does not infer permissions from a role name. Roles must be listed under every method you wish to permit the client to use.
 
-| Role | Allowed actions |
+The following mapping is a common convention:
+
+| Role | Methods to list |
 | --- | --- |
-| `karapace.schema:read` | Read schemas (`GET`) |
-| `karapace.schema:write` | Read and write schemas (`GET`, `POST`, `PUT`, `DELETE`) |
+| `karapace.schema:read` | `GET` |
+| `karapace.schema:write` | `GET`, `POST`, `PUT`, `DELETE` |
 
 Each key in the JSON is an HTTP method. Each value is the list of roles
 allowed for that method:
@@ -242,6 +299,19 @@ allowed for that method:
 When you set this option, include `GET`, `POST`, `PUT`, and `DELETE`.
 To block a method, set its value to `[]`.
 
+### Set roles in your identity provider
+
+Create the role strings in your identity provider, then map them in
+Karapace:
+
+1. Create the role names you want and assign them to users or clients.
+1. Confirm an issued token contains those roles at the claim path
+   Karapace reads.
+1. Map each HTTP method to the role names that can use it.
+
+The identity provider grants the role. Karapace decides which of those
+granted roles can use each HTTP method.
+
 ## Send a request to Schema Registry
 
 Send the JWT in the `Authorization` header of each Schema Registry request.
@@ -264,7 +334,8 @@ Replace the following:
 - `SCHEMA_REGISTRY_URL`: the Schema Registry URL from **Connection information**
 
 This example uses `GET`, so it works with the default read roles.
-If authorization is on, a `POST`, `PUT`, or `DELETE` request needs a write role.
+If authorization is on, map a write role to `POST`, `PUT`, or `DELETE`
+before you send those requests.
 
 ## Disable OAuth 2.0/OIDC authentication
 
