@@ -1,12 +1,12 @@
 ---
 title: Get started with PG Studio
 sidebar_label: Get started
-description: Open PG Studio and run your first queries.
+description: Open the SQL editor or Table editor and run your first queries.
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
-Open PG Studio and run your first queries.
+Open the <ConsoleIcon name="sql editor"/> or <ConsoleIcon name="table editor"/> and run your first queries.
 
 :::note
 PG Studio and its AI features are on by default, so no setup is needed. To turn them off,
@@ -26,15 +26,13 @@ To use PG Studio, you need:
   the `Access is not allowed from the IP address` error, add your IP address to the
   allowlist.
 
-## Open PG Studio
+## Open the SQL editor or Table editor
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.
-1. Click <ConsoleIcon name="aieditor" />.
+1. Click <ConsoleIcon name="sql editor"/> or <ConsoleIcon name="table editor"/> in the
+   left-hand menu.
 1. Click the source database and schema selectors.
-
-PG Studio opens a split view that shows the SQL editor and the **AI Assistant** panel. Use
-the editor selectors to change the database source and schema.
 
 If AI features are off for your organization, the **AI Assistant** panel does not appear.
 
@@ -45,7 +43,7 @@ You can write SQL directly. If AI features are on, you can also use the
 
 ### Write SQL manually
 
-1. In the SQL editor, enter your query, for example:
+1. In the <ConsoleIcon name="sql editor"/>, enter your query, for example:
 
    ```sql
    SELECT * FROM users LIMIT 10;
@@ -58,15 +56,14 @@ You can write SQL directly. If AI features are on, you can also use the
 
 1. In the **AI Assistant** panel, describe what you need, for example:
    **Show all users who signed up in the last 7 days**.
-1. Review the generated SQL in the SQL editor.
+1. Review the generated SQL in the <ConsoleIcon name="sql editor"/>.
 1. Click **Run** to execute the query.
 
 ## Explore your schema
 
+1. Click <ConsoleIcon name="table editor"/> in the left-hand menu.
 1. Click **Open schema map** to view your database structure as an interactive diagram.
 1. Browse tables, columns, and relationships.
-1. Ask schema questions in the **AI Assistant** panel, such as
-   **How are the orders and customers tables related?**.
 
 ## Related pages
 
