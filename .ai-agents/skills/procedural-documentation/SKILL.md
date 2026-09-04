@@ -12,6 +12,7 @@ This skill guides agents in writing clear, consistent procedural documentation t
 Before writing or reviewing procedures, verify:
 
 - [ ] **Intro sentence**: One sentence, single line, immediately after frontmatter, states goal/benefit
+- [ ] **Permissions**: Most procedures require specific roles or permissions, and should include the `RequirementsPanel` (see [documenting-permissions](#related-skills) skill)
 - [ ] **Prerequisites**: List requirements only (no instructions); link if setup steps needed
 - [ ] **Structure**: Group related tasks in section headings using imperative verbs
 - [ ] **Steps**: Numbered list (1. for all steps), imperative mood, clear action verbs
@@ -111,6 +112,10 @@ Before writing or reviewing procedures, verify:
 - **DO NOT include Terraform tabs for deletion/removal procedures** (document tool syntax, not Aiven features)
 - Exception: Include Terraform tabs for deletion if there are feature-specific warnings or notes
 - When deletion is tool-generic, link to Terraform/Kubernetes docs instead
+
+## Related skills
+
+- **[documenting-permissions](../documenting-permissions/SKILL.md)**: Use this to add a quick reference on the roles or permissions required to complete a task. Covers the `RequirementsPanel` component, which helps standardize permission documentation patterns.
 
 ## Patterns
 
