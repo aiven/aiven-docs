@@ -896,6 +896,11 @@ contact your account team.
   </tr>
   <tr>
     <td>Asia-Pacific</td>
+    <td>ap-singapore-2</td>
+    <td>Singapore, Singapore West: Singapore</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
     <td>ap-sydney-1</td>
     <td>Australia, Australia East: Sydney</td>
   </tr>
