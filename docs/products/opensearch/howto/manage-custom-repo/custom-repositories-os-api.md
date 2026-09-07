@@ -25,7 +25,7 @@ Use the OpenSearch® API for configuring custom repositories in Aiven for OpenSe
 ## Limitations
 
 - Supported storage services
-  - Amazon S3
+  - Amazon S3, or any S3-compatible object storage service
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
 - The following operations are not supported via native OpenSearch API:
