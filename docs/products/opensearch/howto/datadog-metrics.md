@@ -1,6 +1,6 @@
 ---
 title: Aiven for OpenSearch® metrics sent to Datadog
-sidebar_label: Metrics in Datadog
+sidebar_label: Monitor OS with Datadog
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
