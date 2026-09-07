@@ -4,6 +4,7 @@ early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -227,6 +228,33 @@ Service Connect access for your Aiven for Apache Kafka service while allowing Ai
 Apache Kafka Connect to only be connected via VPC peering.
 :::
 
+## Allow cross-region connections
+
+Private Service Connect endpoints in Google Cloud can accept traffic from other
+regions. This is a setting you configure on your own Private Service Connect
+endpoint. Aiven doesn't need to make any changes to support it.
+
+Keep your Private Service Connect endpoint in the same region as your Aiven
+service. Enabling global access lets clients in other regions, such as
+Compute Engine VMs, Cloud VPN tunnels, or Cloud Interconnect, reach that
+endpoint.
+
+To enable global access on your endpoint, run the following command in the
+[Google Cloud CLI](https://cloud.google.com/sdk/gcloud):
+
+```bash
+gcloud beta compute forwarding-rules update FORWARDING_RULE_NAME \
+  --allow-psc-global-access
+```
+
+Replace `FORWARDING_RULE_NAME` with the name of your Private Service Connect
+endpoint from [Step 2: Create a connection in Google
+Cloud](#step-2-create-a-connection-in-google-cloud).
+
+For more information, see [Google Cloud's blog post on global access for
+Private Service
+Connect](https://cloud.google.com/blog/products/networking/access-managed-services-globally-with-private-service-connect).
+
 ## Acquire connection information
 
 ### One Private Service Connect connection
@@ -290,3 +318,9 @@ your Aiven service:
 ```bash
 avn service privatelink google delete SERVICE_NAME
 ```
+
+<RelatedPages/>
+
+- [Use AWS PrivateLink with Aiven services](/docs/platform/howto/use-aws-privatelinks)
+- [Use Azure Private Link with Aiven services](/docs/platform/howto/use-azure-privatelink)
+- [Manage project VPCs](/docs/platform/howto/manage-project-vpc)
