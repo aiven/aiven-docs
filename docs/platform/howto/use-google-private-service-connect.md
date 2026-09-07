@@ -236,16 +236,17 @@ Apache Kafka Connect to only be connected via VPC peering.
 ## Allow cross-region connections
 
 Private Service Connect endpoints in Google Cloud can accept traffic from other
-regions. This is a setting you configure on your own Private Service Connect
-endpoint. Aiven doesn't need to make any changes to support it.
+regions. You configure this setting, called global access, on your own Private
+Service Connect endpoint.
 
 Keep your Private Service Connect endpoint in the same region as your Aiven
 service. Enabling global access lets clients in other regions, such as
 Compute Engine VMs, Cloud VPN tunnels, or Cloud Interconnect, reach that
 endpoint.
 
-To enable global access on your endpoint, run the following command in the
-[Google Cloud CLI](https://cloud.google.com/sdk/gcloud):
+Enable global access on a new or existing endpoint without disrupting traffic.
+To do this, run the following command in the [Google Cloud
+CLI](https://cloud.google.com/sdk/gcloud):
 
 ```bash
 gcloud beta compute forwarding-rules update FORWARDING_RULE_NAME \
@@ -255,10 +256,6 @@ gcloud beta compute forwarding-rules update FORWARDING_RULE_NAME \
 Replace `FORWARDING_RULE_NAME` with the name of your Private Service Connect
 endpoint from [Step 2: Create a connection in Google
 Cloud](#step-2-create-a-connection-in-google-cloud).
-
-For more information, see [Google Cloud's blog post on global access for
-Private Service
-Connect](https://cloud.google.com/blog/products/networking/access-managed-services-globally-with-private-service-connect).
 
 ## Acquire connection information
 
