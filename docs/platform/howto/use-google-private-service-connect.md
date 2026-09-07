@@ -211,9 +211,14 @@ In the [Aiven Console](https://console.aiven.io/):
 
 </TabItem>
 <TabItem value="2" label="CLI">
+
+<!-- vale off -->
+
 In the [Aiven CLI](/docs/tools/cli), set `user_config.privatelink_access.SERVICE_COMPONENT`
 to `true` for the components to enable. Take the following command as an example for Aiven
 for Apache Kafka®:
+
+<!-- vale on -->
 
 ```bash
 avn service update -c privatelink_access.kafka=true SERVICE_NAME
