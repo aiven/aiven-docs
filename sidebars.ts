@@ -44,6 +44,11 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Organizations and units',
+              link: {
+                type: 'generated-index',
+                description:
+                  'Manage your organizations and units.',
+              },
               items: [
                 'tools/aiven-console/howto/create-orgs-and-units',
                 'platform/howto/manage-organizations',
@@ -53,6 +58,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Projects',
+              link: {
+                type: 'generated-index',
+                description: 'Manage your projects.',
+              },
               items: [
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
@@ -63,6 +72,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Monitoring',
+              link: {
+                type: 'generated-index',
+                description: 'Monitoring and observability on the Aiven Platform.',
+              },
               items: [
                 'platform/howto/organization-event-logs',
                 'platform/concepts/carbon-footprint',
