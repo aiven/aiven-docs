@@ -45,7 +45,7 @@ Use the Aiven Console or API for configuring custom repositories in Aiven for Op
 
 You can configure custom repositories for the following object storage services:
 
-- Amazon S3, or any S3-compatible object storage service
+- Amazon S3 or any S3-compatible object storage service
 - Google Cloud Storage (GCS)
 - Microsoft Azure Blob Storage
 
@@ -53,7 +53,7 @@ You can configure custom repositories for the following object storage services:
 <TabItem value="api" label="Aiven API">
 
 - Supported storage services
-  - Amazon S3, or any S3-compatible object storage service
+  - Amazon S3 or any S3-compatible object storage service
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
 - To
