@@ -249,7 +249,7 @@ To do this, run the following command in the [Google Cloud
 CLI](https://cloud.google.com/sdk/gcloud):
 
 ```bash
-gcloud beta compute forwarding-rules update FORWARDING_RULE_NAME \
+gcloud compute forwarding-rules update FORWARDING_RULE_NAME \
   --allow-psc-global-access
 ```
 
