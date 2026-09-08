@@ -240,6 +240,7 @@
 /products/flink/howto/list-flink-tables                    /docs/products/flink/howto/list-flink-table-integrations  301
 /products/flink/howto/list-get-started                     /docs/products/flink/get-started  301
 /products/flink/howto/list-integrations                    /docs/products/flink/howto/create-integration  301
+/products/flink/howto/list-manage-cluster                  /docs/products/flink  301
 /products/flink/howto/real-time-alerting-solution          /docs/products/flink/howto/list-get-started  301
 /products/flink/list-overview                              /docs/products/flink  301
 /products/flink/reference                                  /docs/products/flink/reference/advanced-params  301
