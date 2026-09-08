@@ -63,18 +63,30 @@ the **Audience** field when you enable Data API; Data API then rejects any token
 
 ## Authorize requests with PostgreSQL roles
 
-Data API uses standard PostgreSQL roles and table privileges for authorization. You create
-the roles and grant the privileges, and the token carries a `role` claim that names the role
-to use. PostgreSQL then enforces that role's privileges.
+Data API uses standard PostgreSQL roles and table privileges for authorization. The token
+carries a `role` claim that names the role to use, and PostgreSQL enforces that role's
+privileges.
+
+### Roles Data API creates automatically
+
+When you enable Data API for a database, Aiven creates two PostgreSQL roles for it. You
+don't need to create either role yourself:
+
+- **`postgrest_authenticator`**: The role Data API uses to connect to your database,
+  instead of your service's admin user. It can only assume roles that you explicitly
+  grant to it, so a request can never access more than what you've granted.
+- **`web_anon`**: The default role for requests whose token doesn't include a `role`
+  claim. It has no privileges.
 
 :::note
-If a token doesn't include a `role` claim, the request runs as the default `web_anon` role,
-which has no privileges. Include a `role` claim in every token that needs to access data.
+If a token doesn't include a `role` claim, the request runs as `web_anon`. Include a
+`role` claim in every token that needs to access data.
 :::
 
 ### Create a role and grant privileges
 
-Connect to your database and create a role with the privileges to expose:
+Connect to your database and create a role with the privileges to expose, then grant it
+to `postgrest_authenticator` so Data API can assume it:
 
 ```sql
 -- Create the role
