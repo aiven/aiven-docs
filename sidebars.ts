@@ -549,7 +549,6 @@ const sidebars: SidebarsConfig = {
                     'products/flink/howto/manage-flink-tables',
                   ],
                 },
-                'products/flink/howto/list-manage-cluster',
                 'products/flink/howto/upgrade-flink-version',
                 {
                   type: 'category',
