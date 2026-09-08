@@ -9,92 +9,10 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use OAuth 2.0/OpenID Connect (OIDC) to authenticate requests to Karapace Schema Registry with the JSON Web Tokens (JWT) issued by your identity provider.
+Use OAuth 2.0/OpenID Connect (OIDC) to authenticate requests to Karapace Schema Registry with JSON Web Tokens (JWTs) issued by your identity provider.
 
 You can also enable role-based authorization to control which Schema Registry
 operations clients can perform.
-
-## OAuth 2.0/OIDC token handling
-
-Karapace Schema Registry validates the JWT sent with the Bearer authentication
-scheme.
-It checks tokens against the OIDC provider settings for the Aiven for Apache
-Kafka service.
-
-This differs from the
-[Karapace REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy),
-where Apache Kafka validates the bearer token.
-Schema Registry also validates the token.
-
-When you enable OIDC authentication, clients can use a bearer token or
-basic authentication.
-Enabling OIDC authentication does not turn off basic authentication.
-
-:::note
-Keep basic authentication on while you migrate clients to JWT
-authentication.
-After all clients use JWT authentication, turn off basic authentication.
-:::
-
-## Authorization enforcement
-
-By default, any client with a valid token can access Schema Registry.
-To restrict access, enable role-based authorization.
-
-Karapace extracts roles from the JWT using a configured claim path.
-It checks those roles against the roles allowed for the requested HTTP method.
-
-Karapace does not create or assign roles. This is done in your identity provider.
-In Karapace you set what the roles can do.
-
-- **Identity provider**: Creates roles, assigns them to users or clients,
-  and writes them into the JWT.
-- **Karapace**: Compares those strings to
-  `schema_registry_config.sasl_oauthbearer_method_roles` for the request
-  method.
-
-On each request, Karapace does the following:
-
-1. Validates the JWT signature, issuer, audience, and expiry of the token.
-2. If authorization is on, reads roles from the claim path of the token.
-   The default path is `resource_access.karapace.roles`.
-3. Looks up the request method in Karapace's config
-   `schema_registry_config.sasl_oauthbearer_method_roles`.
-4. Allows the request if any token role is in that method's list. Each method has its own entries.
-
-Karapace matches role strings. There is no role hierarchy.
-
-Enable OIDC authentication before you enable role-based authorization.
-
-### Example JWT
-
-The identity provider issues a token that contains the role strings
-Karapace accepts. For example, a token for Alex can look like the
-following:
-
-```json
-{
-  "sub": "alex",
-  "resource_access": {
-    "karapace": {
-      "roles": [
-        "karapace.schema:read",
-        "karapace.schema:write"
-      ]
-    }
-  }
-}
-```
-
-A real token also includes issuer, audience, and expiry claims.
-Karapace validates those claims before it reads roles.
-
-Karapace reads `schema_registry_config.sasl_oauthbearer_roles_claim_path`
-and extracts the role list.
-The default path is `resource_access.karapace.roles`, which matches this example.
-
-If your identity provider stores roles at a different path, such as
-`realm_access.roles`, then set the claim path to match.
 
 ## Prerequisites
 
@@ -104,17 +22,17 @@ Before you begin, make sure you have:
   [Schema Registry enabled](/docs/products/kafka/karapace/howto/enable-karapace)
 - Karapace version 6.2.1 or later
 - Access to an OIDC-compliant identity provider
-- OIDC provider settings configured for your Aiven for Apache Kafka service,
-  including `kafka.sasl_oauthbearer_jwks_endpoint_url`,
-  `kafka.sasl_oauthbearer_expected_issuer`, and
-  `kafka.sasl_oauthbearer_expected_audience`
+- The following OIDC provider settings configured for your Aiven for Apache
+  Kafka service:
+  - `kafka.sasl_oauthbearer_jwks_endpoint_url`
+  - `kafka.sasl_oauthbearer_expected_issuer`
+  - `kafka.sasl_oauthbearer_expected_audience`
 
 Schema Registry uses the same OIDC provider settings as Apache Kafka.
-Those settings include the JWKS endpoint, the expected issuer, and the
-expected audience.
 
-The Aiven Console does not require the issuer and audience.
-Schema Registry uses them to validate tokens.
+The Aiven Console does not require the expected issuer or audience settings
+when you configure Kafka OIDC, but Schema Registry requires both for
+authentication.
 
 For more information about configuring these settings, see
 [Enable OAuth 2.0/OIDC authentication for Apache Kafka®](/docs/products/kafka/howto/enable-oidc).
@@ -122,11 +40,28 @@ For more information about configuring these settings, see
 :::note
 If your service runs a Karapace version earlier than 6.2.1, apply the
 available maintenance update first.
+
 For more information, see
 [Set the Karapace version](/docs/products/kafka/karapace/howto/set-karapace-version).
 :::
 
 ## Enable OIDC authentication
+
+Karapace Schema Registry validates the JWT in the `Authorization` header
+against the OIDC provider settings configured for the service.
+
+This differs from the
+[Karapace REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy),
+where Apache Kafka validates the bearer token.
+
+Enabling OIDC authentication does not disable basic authentication. Clients
+can authenticate with either a bearer token or basic authentication.
+
+:::note
+Keep basic authentication enabled while you migrate clients to JWT
+authentication. After all clients use JWT authentication, you can disable
+basic authentication.
+:::
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
@@ -157,31 +92,101 @@ Replace `SERVICE_NAME` with the name of your Aiven for Apache Kafka service.
 
 ## Enable role-based authorization
 
-Enable role-based authorization to restrict Schema Registry operations based
-on roles in the JWT.
+When OIDC authentication is enabled and role-based authorization is disabled,
+any client with a valid token can access Schema Registry.
 
-Before you enable authorization, set
-`schema_registry_config.sasl_oauthbearer_authentication_enabled` to
-**Enabled**.
+To restrict access based on roles, enable
+`schema_registry_config.sasl_oauthbearer_authorization_enabled`.
 
-You can customize how Karapace reads and applies roles:
+:::note
+Enabling role-based authorization also enables OIDC authentication if it is
+not already enabled.
+:::
 
-- `schema_registry_config.sasl_oauthbearer_roles_claim_path`: Claim path used
-  to extract roles from the JWT. The default is
-  `resource_access.karapace.roles`. Set this option if your identity provider
-  stores roles at a different path.
-- `schema_registry_config.sasl_oauthbearer_method_roles`: Maps HTTP methods
-  to the roles allowed to use them. Set this option to customize access for
-  `GET`, `POST`, `PUT`, and `DELETE` requests.
+<Tabs groupId="method">
+<TabItem value="console" label="Console" default>
 
-Role names such as `karapace.schema:read` are conventional strings.
-They work only when they appear in both the JWT and
+1. In the Aiven Console, select your project and choose your Aiven for Apache
+   Kafka service.
+1. Click <ConsoleLabel name="service settings"/>.
+1. Click **Advanced configuration** > **Configure**.
+1. Click <ConsoleLabel name="Add config options"/>.
+1. Add `schema_registry_config.sasl_oauthbearer_authorization_enabled`.
+1. Set the option to **Enabled**.
+1. Optional: Add
+   `schema_registry_config.sasl_oauthbearer_roles_claim_path` if your JWT
+   includes roles somewhere other than `resource_access.karapace.roles`.
+1. Click **Save configuration**.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Run the following command:
+
+```bash
+avn service update SERVICE_NAME \
+  -c schema_registry_config.sasl_oauthbearer_authorization_enabled=true
+```
+
+Replace `SERVICE_NAME` with the name of your Aiven for Apache Kafka service.
+
+To use a different roles claim path, add
+`schema_registry_config.sasl_oauthbearer_roles_claim_path`. For example:
+
+```bash
+avn service update SERVICE_NAME \
+  -c schema_registry_config.sasl_oauthbearer_authorization_enabled=true \
+  -c schema_registry_config.sasl_oauthbearer_roles_claim_path=realm_access.roles
+```
+
+</TabItem>
+</Tabs>
+
+When you enable authorization, Karapace uses the default roles claim path and
+HTTP method role mapping unless you customize them.
+
+By default:
+
+- Karapace reads roles from `resource_access.karapace.roles`.
+- `GET` requests are allowed for `karapace.schema:read` and
+  `karapace.subject:read`.
+- `POST`, `PUT`, and `DELETE` requests are blocked.
+
+### How role-based authorization works
+
+Karapace extracts roles from the JWT using the configured claim path and
+checks them against the roles allowed for the requested HTTP method.
+
+Karapace does not create or assign roles. You create and assign roles in your
+identity provider.
+
+Role names are strings that you define. For example, you can use names such as
+`karapace.schema:read`. They are not built-in Karapace roles.
+
+In Karapace, you configure which roles can use each HTTP method.
+
+For each request, Karapace does the following:
+
+1. Validates the JWT signature, expiration, issuer, and audience.
+1. If authorization is enabled, reads the roles from the configured claim
+   path. The default path is `resource_access.karapace.roles`.
+1. Looks up the roles allowed for the requested HTTP method in
+   `schema_registry_config.sasl_oauthbearer_method_roles`.
+1. Allows the request if at least one role in the JWT matches an allowed
+   role.
+
+Karapace matches exact role strings and does not use a role hierarchy. A role
+grants access only when the same string appears in both the JWT and
 `schema_registry_config.sasl_oauthbearer_method_roles`.
+
+If your identity provider includes roles at a different path, such as
+`realm_access.roles`, set
+`schema_registry_config.sasl_oauthbearer_roles_claim_path` to that path.
 
 ### Default HTTP method roles
 
 If you do not set `schema_registry_config.sasl_oauthbearer_method_roles`,
-Karapace allows only read access.
+Karapace uses this default mapping:
 
 | Action | HTTP method | Default roles |
 | --- | --- | --- |
@@ -189,14 +194,12 @@ Karapace allows only read access.
 | Register or update schemas | `POST`, `PUT` | None |
 | Delete schemas | `DELETE` | None |
 
-An empty array (`[]`) means no role is permitted to use that method, even with a
-valid token.
+An empty array (`[]`) means no role can use that method, even with a valid
+token.
 
-A token that contains `karapace.schema:read` can send `GET` requests.
-`POST`, `PUT`, and `DELETE` stay blocked by default until you add roles to those
-lists.
-
-Karapace uses the following default mapping:
+A client whose token includes `karapace.schema:read` can send `GET` requests.
+`POST`, `PUT`, and `DELETE` requests remain blocked until you
+[customize roles for HTTP methods](#customize-roles-for-http-methods).
 
 ```json
 {
@@ -210,72 +213,60 @@ Karapace uses the following default mapping:
 }
 ```
 
-To allow write access, set
+### Example JWT
+
+The identity provider issues a token that includes the roles assigned to the
+user or client. For example:
+
+```json
+{
+  "sub": "alex",
+  "resource_access": {
+    "karapace": {
+      "roles": [
+        "karapace.schema:read",
+        "karapace.schema:write"
+      ]
+    }
+  }
+}
+```
+
+This example omits the issuer, audience, and expiration claims.
+Karapace validates these claims before it reads roles.
+
+The default claim path, `resource_access.karapace.roles`, matches this example.
+
+### Configure roles in your identity provider
+
+How you configure roles varies by identity provider.
+
+In your identity provider, do the following:
+
+1. Create the roles and assign them to users or clients.
+1. Configure the provider to include those roles in the claim that Karapace
+   reads.
+1. Confirm that issued tokens include the roles in that claim.
+
+Use the same role strings that you plan to list in
 `schema_registry_config.sasl_oauthbearer_method_roles`.
 
-### Configure authorization
+### Customize roles for HTTP methods
 
-<Tabs groupId="method">
-<TabItem value="console" label="Console" default>
+Set `schema_registry_config.sasl_oauthbearer_method_roles` to a JSON string
+that maps each HTTP method to the roles that can use it.
 
-1. In the Aiven Console, select your project and choose your Aiven for Apache
-   Kafka service.
-1. Click <ConsoleLabel name="service settings"/>.
-1. Click **Advanced configuration** > **Configure**.
-1. Make sure
-   `schema_registry_config.sasl_oauthbearer_authentication_enabled` is set to
-   **Enabled**.
-1. Click <ConsoleLabel name="Add config options"/>.
-1. Add `schema_registry_config.sasl_oauthbearer_authorization_enabled` and
-   set it to **Enabled**.
-1. Optional: Add
-   `schema_registry_config.sasl_oauthbearer_roles_claim_path` if your JWT
-   stores roles somewhere other than `resource_access.karapace.roles`.
-1. Optional: Add
-   `schema_registry_config.sasl_oauthbearer_method_roles` to customize which
-   roles can use each HTTP method.
-1. Click **Save configuration**.
+Karapace does not infer permissions from role names. To allow a client to use
+an HTTP method, list the role under that method.
 
-</TabItem>
-<TabItem value="cli" label="CLI">
+The following mapping uses a common role convention:
 
-To enable role-based authorization using the default roles claim path and
-default HTTP method roles, run:
-
-```bash
-avn service update SERVICE_NAME \
-  -c schema_registry_config.sasl_oauthbearer_authorization_enabled=true
-```
-
-Replace `SERVICE_NAME` with the name of your Aiven for Apache Kafka service.
-
-To customize the HTTP method roles, include
-`schema_registry_config.sasl_oauthbearer_method_roles`. For example:
-
-```bash
-avn service update SERVICE_NAME \
-  -c schema_registry_config.sasl_oauthbearer_authorization_enabled=true \
-  -c 'schema_registry_config.sasl_oauthbearer_method_roles={"GET":["karapace.schema:read","karapace.schema:write"],"POST":["karapace.schema:write"],"PUT":["karapace.schema:write"],"DELETE":["karapace.schema:write"]}'
-```
-
-</TabItem>
-</Tabs>
-
-### Configure roles for HTTP methods
-
-Set `schema_registry_config.sasl_oauthbearer_method_roles` to JSON that maps
-each HTTP method to the roles that can use it.
-
-Karapace does not infer permissions from a role name. Roles must be listed under every method you wish to permit the client to use.
-
-The following mapping is a common convention:
-
-| Role | Methods to list |
+| Role | HTTP methods |
 | --- | --- |
 | `karapace.schema:read` | `GET` |
 | `karapace.schema:write` | `GET`, `POST`, `PUT`, `DELETE` |
 
-Each key in the JSON is an HTTP method. Each value is the list of roles
+Each key in the JSON object is an HTTP method. Each value is a list of roles
 allowed for that method:
 
 ```json
@@ -296,21 +287,35 @@ allowed for that method:
 }
 ```
 
-When you set this option, include `GET`, `POST`, `PUT`, and `DELETE`.
-To block a method, set its value to `[]`.
+When you set this option, include `GET`, `POST`, `PUT`, and `DELETE`. To block
+a method, set its value to `[]`.
 
-### Set roles in your identity provider
+<Tabs groupId="method">
+<TabItem value="console" label="Console" default>
 
-Create the role strings in your identity provider, then map them in
-Karapace:
+1. In the Aiven Console, select your project and choose your Aiven for Apache
+   Kafka service.
+1. Click <ConsoleLabel name="service settings"/>.
+1. Click **Advanced configuration** > **Configure**.
+1. Click <ConsoleLabel name="Add config options"/>.
+1. Add `schema_registry_config.sasl_oauthbearer_method_roles`.
+1. Enter the JSON object as a single string.
+1. Click **Save configuration**.
 
-1. Create the role names you want and assign them to users or clients.
-1. Confirm an issued token contains those roles at the claim path
-   Karapace reads.
-1. Map each HTTP method to the role names that can use it.
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-The identity provider grants the role. Karapace decides which of those
-granted roles can use each HTTP method.
+Run the following command:
+
+```bash
+avn service update SERVICE_NAME \
+  -c 'schema_registry_config.sasl_oauthbearer_method_roles={"GET":["karapace.schema:read","karapace.schema:write"],"POST":["karapace.schema:write"],"PUT":["karapace.schema:write"],"DELETE":["karapace.schema:write"]}'
+```
+
+Replace `SERVICE_NAME` with the name of your Aiven for Apache Kafka service.
+
+</TabItem>
+</Tabs>
 
 ## Send a request to Schema Registry
 
@@ -330,18 +335,26 @@ curl \
 
 Replace the following:
 
-- `ACCESS_TOKEN`: a valid JWT from your identity provider
-- `SCHEMA_REGISTRY_URL`: the Schema Registry URL from **Connection information**
+- `ACCESS_TOKEN`: A valid JWT from your identity provider.
+- `SCHEMA_REGISTRY_URL`: The Schema Registry URL from **Connection information**.
 
-This example uses `GET`, so it works with the default read roles.
-If authorization is on, map a write role to `POST`, `PUT`, or `DELETE`
-before you send those requests.
+This example sends a `GET` request.
 
-## Disable OAuth 2.0/OIDC authentication
+- If only OIDC authentication is enabled, any client with a valid token can
+  send the request.
+- If role-based authorization is also enabled, the token must include a role
+  allowed for `GET`. With the default mapping, the allowed roles are
+  `karapace.schema:read` and `karapace.subject:read`.
 
-To turn off OIDC authentication and authorization, set both options to
-**Disabled**.
-This does not turn off basic authentication.
+Before sending `POST`, `PUT`, or `DELETE` requests, configure an allowed role
+for the corresponding method. The default mapping blocks these methods.
+
+## Disable OIDC authentication and authorization
+
+To disable OIDC authentication and role-based authorization, set both options
+to **Disabled**.
+
+Disabling OIDC authentication does not disable basic authentication.
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
