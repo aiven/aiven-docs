@@ -125,5 +125,3 @@ curl -X PUT \
 </Tabs>
 
 <RelatedPages/>
-
-[Service backup](/docs/platform/concepts/service_backups)

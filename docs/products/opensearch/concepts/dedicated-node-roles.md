@@ -171,8 +171,7 @@ dedicated node roles, available under Cluster plans.
 ### Scale a cluster plan
 
 To move to another dedicated-role layout, change the service plan to a
-different eligible plan, available under Cluster plans. For steps, see
-[Change a service plan](/docs/platform/howto/scale-services).
+different eligible plan, available under Cluster plans.
 
 ### Disable dedicated node roles
 

@@ -154,6 +154,3 @@ resource to set
 </Tabs>
 
 <RelatedPages/>
-
-- [Control maintenance updates with upgrade pipelines](/docs/platform/howto/controlled-upgrade)
-- [Service maintenance](/docs/platform/concepts/maintenance-window)

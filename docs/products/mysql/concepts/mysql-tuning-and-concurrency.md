@@ -126,7 +126,7 @@ Out of memory conditions will occur.
 At \~18 MB per connection, a 4 GiB service has a potential memory usage
 of 4068 MB (18 \* 226). This is less than the service RAM, but exceeds
 the
-[service memory limit](/docs/platform/concepts/service-memory-limits).
+service memory limit.
 
 **For performance and stability, the following calculation is
 recommended:**

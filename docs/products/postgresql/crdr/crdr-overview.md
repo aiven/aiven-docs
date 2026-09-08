@@ -225,4 +225,3 @@ operations and data resiliency purposes.
 - [Aiven for PostgreSQL high availability](/docs/products/postgresql/concepts/high-availability)
 - [Aiven for PostgreSQL backups](/docs/products/postgresql/concepts/pg-backups)
 - [Aiven for PostgreSQL read-only replica](/docs/products/postgresql/howto/create-read-replica)
-- [Backup to another region](/docs/platform/concepts/backup-to-another-region)

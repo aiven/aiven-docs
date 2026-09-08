@@ -481,7 +481,6 @@ the results.
 <RelatedPages/>
 <!-- vale off -->
 -   [Aggregation tutorial](opensearch-aggregations-and-nodejs).
--   [Pausing the service](/docs/platform/concepts/service-power-cycle).
 -   [Demo
     repository](https://github.com/aiven/demo-open-search-node-js). All
     the examples we run in this tutorial can be found in:
