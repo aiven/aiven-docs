@@ -58,8 +58,8 @@ collected metrics.
 1. In the **Aiven services** section, click **Grafana Metrics Dashboard**.
 1. In the **Dashboard integration** window:
    1. Choose either a new or existing Aiven for Grafana service.
-      - If you choose to use a new service, follow instructions on
-        [how to create a service](/docs/platform/howto/create_new_service).
+      - If you choose to use a new service, follow the instructions on
+        how to create a service.
       - If you're already using Grafana on Aiven, you can integrate
         your Aiven for Metrics or Aiven for PostgreSQL as an additional data source for that
         existing Grafana.
