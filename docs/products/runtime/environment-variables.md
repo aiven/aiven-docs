@@ -2,18 +2,19 @@
 title: Integrated service environment variables
 ---
 
-Aiven Runtime provides connection details as environment variables for each connected service.
+Aiven Runtime maps connection details as environment variables for each connected service.
 It scans Compose, Containerfile, and Dockerfile manifests during application creation.
 It detects supported data services in Compose files and connects them to your application.
 It reads existing variable names when they include supported connection values. If it
 doesn't find a supported connection value, it suggests conventional variable names based on
 relationships defined in the `depends_on` property of the Compose file.
 
-## Default variables
+## Default environment variables
 
-The following variables are suggested by default. You can customize the variable names.
+The following environment variables are added by default. They're required for the
+integrations, but you can customize the variable names.
 
-|         Service         |         Variable          |            Description             |
+|         Service         |            Key            |               Value                |
 | ----------------------- | ------------------------- | ---------------------------------- |
 | Aiven for PostgreSQL®   | `DATABASE_URL`            | The complete service URI.          |
 | Aiven for Valkey™       | `VALKEY_URL`              | The complete service URI.          |
