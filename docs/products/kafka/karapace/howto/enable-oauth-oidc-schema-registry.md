@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use OAuth 2.0/OpenID Connect (OIDC) to authenticate requests to Karapace Schema Registry with JSON Web Tokens (JWTs) issued by your identity provider.
+Use OAuth 2.0/OpenID Connect (OIDC) to authenticate requests to Karapace Schema Registry with a JSON Web Token (JWT) issued by your identity provider.
 
 You can also enable role-based authorization to control which Schema Registry
 operations clients can perform.
@@ -54,8 +54,9 @@ This differs from the
 [Karapace REST proxy](/docs/products/kafka/karapace/howto/enable-oauth-oidc-kafka-rest-proxy),
 where Apache Kafka validates the bearer token.
 
-Enabling OIDC authentication does not disable basic authentication. Clients
-can authenticate with either a bearer token or basic authentication.
+In Karapace 6.2.3 and later, enabling OIDC authentication does not disable
+basic authentication. Clients can authenticate with a bearer token or with
+basic authentication.
 
 :::note
 Keep basic authentication enabled while you migrate clients to JWT
@@ -103,6 +104,9 @@ Enabling role-based authorization also enables OIDC authentication if it is
 not already enabled.
 :::
 
+When you enable authorization, add the roles claim path and HTTP method
+roles options. If you do not change the values, Karapace uses the defaults.
+
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
 
@@ -113,9 +117,8 @@ not already enabled.
 1. Click <ConsoleLabel name="Add config options"/>.
 1. Add `schema_registry_config.sasl_oauthbearer_authorization_enabled`.
 1. Set the option to **Enabled**.
-1. Optional: Add
-   `schema_registry_config.sasl_oauthbearer_roles_claim_path` if your JWT
-   includes roles somewhere other than `resource_access.karapace.roles`.
+1. Add `schema_registry_config.sasl_oauthbearer_roles_claim_path`.
+1. Add `schema_registry_config.sasl_oauthbearer_method_roles`.
 1. Click **Save configuration**.
 
 </TabItem>
@@ -142,9 +145,6 @@ avn service update SERVICE_NAME \
 </TabItem>
 </Tabs>
 
-When you enable authorization, Karapace uses the default roles claim path and
-HTTP method role mapping unless you customize them.
-
 By default:
 
 - Karapace reads roles from `resource_access.karapace.roles`.
@@ -168,8 +168,8 @@ In Karapace, you configure which roles can use each HTTP method.
 For each request, Karapace does the following:
 
 1. Validates the JWT signature, expiration, issuer, and audience.
-1. If authorization is enabled, reads the roles from the configured claim
-   path. The default path is `resource_access.karapace.roles`.
+1. Reads the roles from the configured claim path. The default path is
+   `resource_access.karapace.roles`.
 1. Looks up the roles allowed for the requested HTTP method in
    `schema_registry_config.sasl_oauthbearer_method_roles`.
 1. Allows the request if at least one role in the JWT matches an allowed
@@ -340,9 +340,9 @@ Replace the following:
 
 This example sends a `GET` request.
 
-- If only OIDC authentication is enabled, any client with a valid token can
+- If you enable only OIDC authentication, any client with a valid token can
   send the request.
-- If role-based authorization is also enabled, the token must include a role
+- If you also enable role-based authorization, the token includes a role
   allowed for `GET`. With the default mapping, the allowed roles are
   `karapace.schema:read` and `karapace.subject:read`.
 
