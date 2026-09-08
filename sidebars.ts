@@ -1548,6 +1548,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/dragonfly/service-management',
+              },
               items: [
                 'products/dragonfly/concepts/ha-dragonfly',
                 'products/dragonfly/howto/eviction-policy-df',
@@ -1559,6 +1563,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Migrate',
+              link: {
+                type: 'doc',
+                id: 'products/dragonfly/migrate',
+              },
               items: [
                 'products/dragonfly/howto/migrate-aiven-caching-df-console',
                 'products/dragonfly/howto/migrate-ext-redis-df-console',
@@ -1578,6 +1586,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/service-management',
+              },
               items: [
                 'products/grafana/howto/power-cycle-service',
                 'products/grafana/howto/rename-service',
@@ -1629,6 +1641,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Manage dashboards',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/manage-dashboards',
+              },
               items: [
                 'products/grafana/howto/dashboard-previews',
                 'products/grafana/howto/replace-expression-string',
@@ -1637,6 +1653,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Security and access',
+              link: {
+                type: 'doc',
+                id: 'products/grafana/security-access',
+              },
               items: [
                 'products/grafana/howto/rotating-grafana-service-credentials',
                 'products/grafana/howto/oauth-configuration',
@@ -1659,6 +1679,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/metrics/service-management',
+              },
               items: [
                 'products/metrics/howto/power-cycle-service',
                 'products/metrics/howto/tag-service',
@@ -1734,6 +1758,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Query and analyze data',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/query-analyze-data',
+              },
               items: [
                 'products/mysql/howto/create-database',
                 'products/mysql/howto/create-tables-without-primary-keys',
@@ -1747,6 +1775,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/service-management',
+              },
               items: [
                 'products/mysql/howto/power-cycle-service',
                 'products/mysql/howto/rename-service',
@@ -1791,6 +1823,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'High availability and  disaster recovery',
+              link: {
+                type: 'doc',
+                id: 'products/mysql/high-availability',
+              },
               items: [
                 'products/mysql/concepts/high-availability',
                 'products/mysql/concepts/mysql-replication',
@@ -1808,6 +1844,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Backup and restore',
+                  link: {
+                    type: 'doc',
+                    id: 'products/mysql/backup-and-restore',
+                  },
                   items: [
                     'products/mysql/concepts/mysql-backups',
                     'products/mysql/howto/use-incremental-backups',
@@ -1819,6 +1859,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Migration',
+                  link: {
+                    type: 'doc',
+                    id: 'products/mysql/migration',
+                  },
                   items: [
                     'products/mysql/howto/do-check-service-migration',
                     'products/mysql/howto/migrate-db-to-aiven-via-console',
@@ -1868,6 +1912,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Indices and storage',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/indices-storage',
+              },
               items: [
                 'products/opensearch/concepts/indices',
                 'products/opensearch/concepts/when-create-index',
@@ -1917,6 +1965,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/service-management',
+              },
               items: [
                 'products/opensearch/howto/power-cycle-service',
                 'products/opensearch/howto/rename-service',
@@ -1963,6 +2015,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Backups and migration',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/backups-migration',
+              },
               items: [
                 'products/opensearch/howto/restore_opensearch_backup',
                 'products/opensearch/howto/backup-to-another-region',
@@ -2001,6 +2057,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Integrations',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/integrations',
+              },
               items: [
                 'products/opensearch/howto/opensearch-log-integration',
                 'products/opensearch/howto/os-metrics',
@@ -2011,15 +2071,13 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Security and access',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/security-access',
+              },
               items: [
-                {
-                  type: 'category',
-                  label: 'Access control',
-                  items: [
-                    'products/opensearch/concepts/access_control',
-                    'products/opensearch/howto/control_access_to_content',
-                  ],
-                },
+                'products/opensearch/concepts/access_control',
+                'products/opensearch/howto/control_access_to_content',
                 {
                   type: 'category',
                   label: 'OpenSearch Security',
@@ -2066,6 +2124,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Connect to service',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/connect',
+              },
               items: [
                 {
                   type: 'category',
@@ -2092,6 +2154,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Connection pooling',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/connection-pooling',
+                  },
                   items: [
                     'products/postgresql/concepts/pg-connection-pooling',
                     'products/postgresql/howto/manage-pool',
@@ -2102,6 +2168,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Connection management',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/connection-management',
+                  },
                   items: [
                     'products/postgresql/reference/pg-connection-limits',
                     'products/postgresql/reference/idle-connections',
@@ -2115,6 +2185,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Query and analyze data',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/query-analyze-data',
+              },
               items: [
                 {
                   type: 'category',
@@ -2140,6 +2214,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/service-management',
+              },
               items: [
                 'products/postgresql/howto/power-cycle-service',
                 'products/postgresql/howto/rename-service',
@@ -2198,6 +2276,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'High availability and disaster recovery',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/high-availability',
+              },
               items: [
                 'products/postgresql/concepts/high-availability',
                 'products/postgresql/concepts/upgrade-failover',
@@ -2258,6 +2340,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Migrate',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/migrate',
+                  },
                   items: [
                     'products/postgresql/howto/migrate-db-to-aiven-via-console',
                     'products/postgresql/concepts/aiven-db-migrate',
@@ -2273,6 +2359,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Observability and monitoring',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/observability-monitoring',
+              },
               items: [
                 'products/postgresql/reference/pg-metrics',
                 'products/postgresql/howto/report-metrics-grafana',
@@ -2300,6 +2390,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Integrations and extensions',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/integrations-extensions',
+              },
               items: [
                 {
                   type: 'category',
@@ -2320,6 +2414,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'AI and vector search',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/ai-vector-search',
+                  },
                   items: [
                     'products/postgresql/concepts/pgvector',
                     'products/postgresql/howto/use-pgvector',
@@ -2328,6 +2426,10 @@ const sidebars: SidebarsConfig = {
                 {
                   type: 'category',
                   label: 'Logical replication',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/logical-replication',
+                  },
                   items: [
                     'products/postgresql/howto/setup-logical-replication',
                     'products/postgresql/howto/logical-replication-aws-aurora',
@@ -2342,6 +2444,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'User and schema',
+              link: {
+                type: 'doc',
+                id: 'products/postgresql/user-schema',
+              },
               items: [
                 'products/postgresql/concepts/dba-tasks-pg',
                 'products/postgresql/howto/claim-public-schema-ownership',
@@ -2391,6 +2497,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Query and analyze data',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/query-analyze-data',
+              },
               items: [
                 'products/valkey/concepts/lua-scripts',
                 'products/valkey/howto/benchmark-performance',
@@ -2399,6 +2509,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Service management',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/service-management',
+              },
               items: [
                 'products/valkey/howto/power-cycle-service',
                 'products/valkey/howto/rename-service',
@@ -2441,6 +2555,10 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'High availability and disaster recovery',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/high-availability',
+              },
               items: [
                 'products/valkey/concepts/high-availability',
                 'products/valkey/concepts/read-replica',
@@ -2467,11 +2585,19 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Observability and monitoring',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/observability-monitoring',
+              },
               items: ['products/valkey/reference/valkey-metrics-in-prometheus'],
             },
             {
               type: 'category',
               label: 'Security and access',
+              link: {
+                type: 'doc',
+                id: 'products/valkey/security-access',
+              },
               items: [
                 'products/valkey/howto/configure-acl-permissions',
                 'products/valkey/howto/manage-ssl-connectivity',
