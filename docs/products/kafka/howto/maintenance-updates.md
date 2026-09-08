@@ -32,4 +32,3 @@ automatically.
 <RelatedPages/>
 
 - [Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

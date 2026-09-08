@@ -13,7 +13,7 @@ by forking to a new service.
 :::important
 You cannot restore Aiven for ClickHouse services to a fewer number of nodes.
 Reducing the number of nodes is only possible by
-[switching the service plan](/docs/platform/howto/scale-services) from **Business** to
+switching the service plan from **Business** to
 **Startup** on a running service.
 :::
 

@@ -75,7 +75,7 @@ Throughout the CRDR cycle, CRDR peer services or service nodes go into the follo
 
   :::tip[Upgrading your plan]
   If your Aiven for PostgreSQL service uses a Hobbyist, Free, or Developer plan,
-  [upgrade](/docs/platform/howto/scale-services) to at least a Startup plan.
+  upgrade to at least a Startup plan.
   :::
 
 - **Console restrictions**: When creating a recovery service through

@@ -13,5 +13,4 @@ ownership, cost allocation, and governance.
 
 <RelatedPages/>
 
-- [Use resource tags](/docs/platform/howto/tag-resources)
 - [Fork Aiven for OpenSearch®](/docs/products/opensearch/howto/fork-service)

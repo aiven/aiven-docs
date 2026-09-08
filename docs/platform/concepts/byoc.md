@@ -366,7 +366,7 @@ For AWS custom clouds, you can also choose a compliance deployment model (`pci_d
 ## BYOC service backups
 
 Depending on the BYOC service, Aiven takes
-[regular service backups](/docs/platform/concepts/service_backups) to enable forking, point
+regular service backups to enable forking, point
 in time recovery (PITR), and disaster recovery.
 
 :::important

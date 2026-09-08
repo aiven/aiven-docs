@@ -93,7 +93,7 @@ loss. If the upgrade does not progress, old nodes remain in the cluster.
 :::
 
 If sufficient disk capacity is available, you can downgrade to a smaller plan. Use the
-[Aiven Console](/docs/platform/howto/scale-services) or the
+Aiven Console or the
 [Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-update) to perform the downgrade.
 
 The upgrade process remains the same when changing the node type during a service plan

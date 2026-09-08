@@ -42,7 +42,7 @@ The following example shows you how to create and integrate these services:
 <TabItem value="console" label="Console" default>
 
 1.  In the Aiven Console,
-    [create the 3 services](create_new_service): Aiven for Apache Kafka®, Aiven for
+    create 3 services: Aiven for Apache Kafka®, Aiven for
     PostgreSQL®, and Aiven for Grafana®.
 
     :::note

@@ -61,5 +61,4 @@ To reduce your carbon footprint, you can:
 - Optimize resource usage by scaling down unused services.
 - Choose greener regions powered by renewable energy.
 - Use tiered storage and more aggressive caching.
-- Use [disk autoscaler](/docs/platform/howto/disk-autoscaler#why-use-disk-autoscaling)
-  to increase storage only when needed.
+- Use disk autoscaler to increase storage only when needed.

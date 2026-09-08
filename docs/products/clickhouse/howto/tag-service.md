@@ -13,5 +13,4 @@ ownership, cost allocation, and governance.
 
 <RelatedPages/>
 
-- [Use resource tags](/docs/platform/howto/tag-resources)
 - [Power on/off and delete your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/power-cycle-service)

@@ -76,7 +76,7 @@ Before you configure controlled maintenance updates, ensure the following:
 - Your service is Aiven for PostgreSQL.
 - Aiven has enabled this <LimitedBadge/> feature for your project.
 - Your service has a configured
-  [maintenance window](/docs/platform/concepts/maintenance-window#set-the-maintenance-window).
+  maintenance window.
 - You can update service configuration with
   [Aiven API endpoints](https://api.aiven.io/doc/#tag/Service) or
   [Aiven CLI service commands](/docs/tools/cli/service-cli).
@@ -273,6 +273,5 @@ the next window. In this case, `state` is `COMPLETED_EARLY`.
 
 <RelatedPages/>
 
-- [Service maintenance, updates and upgrades](/docs/platform/concepts/maintenance-window)
 - [Aiven for PostgreSQL upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)
 - [Aiven CLI service commands](/docs/tools/cli/service-cli)

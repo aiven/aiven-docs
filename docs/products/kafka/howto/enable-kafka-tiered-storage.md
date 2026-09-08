@@ -17,7 +17,7 @@ You can enable tiered storage for topics in a Classic Kafka service.
 - Access to an Aiven organization and at least one project.
 - Aiven for Apache Kafka® service with Apache Kafka version 3.6 or later. Upgrade to the
   latest default version and apply
-  [maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
+   maintenance updates
   for the latest fixes and improvements when using tiered storage.
 - [Aiven CLI](/docs/tools/cli).
 
@@ -34,7 +34,7 @@ of tiered storage before enabling it.
 
 1. In the [Aiven Console](https://console.aiven.io/), select your project.
 1. Create an Aiven for Apache Kafka service or select an existing one.
-   - For [a new service](/docs/platform/howto/create_new_service):
+   - For a new service:
 
      1. On the **Create Apache Kafka® service** page, scroll down to
         the **Tiered storage** section.

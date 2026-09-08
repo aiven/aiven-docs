@@ -166,8 +166,7 @@ The dedicated node roles feature is plan-based.
 ### Start using dedicated node roles
 
 Create an Aiven for OpenSearch® service and choose a plan that includes
-dedicated node roles, available under Cluster plans. For steps, see
-[Get started with Aiven for OpenSearch®](/docs/products/opensearch/get-started#create-an-aiven-for-opensearch-service).
+dedicated node roles, available under Cluster plans.
 
 ### Scale a cluster plan
 
@@ -179,7 +178,6 @@ different eligible plan, available under Cluster plans. For steps, see
 
 Change the service plan to a plan without dedicated node roles. This
 returns the service to a standard node layout where nodes share roles.
-For steps, see [Change a service plan](/docs/platform/howto/scale-services).
 
 <RelatedPages/>
 

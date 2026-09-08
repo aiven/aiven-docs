@@ -59,7 +59,7 @@ Aiven provides security updates for LTS versions until their EOA date. After EOA
 Aiven doesn't guarantee security updates.
 
 Aiven delivers security updates as maintenance updates that you can apply during
-the [maintenance window](/docs/platform/concepts/maintenance-window). If you
+the maintenance window. If you
 don't apply a patch for a critical vulnerability within 14 days, Aiven applies
 it automatically.
 

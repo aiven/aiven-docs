@@ -58,9 +58,6 @@ only changed parts are backed up and files already available in the
 object storage are left out from the backup.
 :::
 
-For more information on backups in Aiven, see
-[Backups at Aiven](/docs/platform/concepts/service_backups).
-
 ### Service recovery
 
 Regardless of whether your Aiven for ClickHouse service is powered on or powered off, you

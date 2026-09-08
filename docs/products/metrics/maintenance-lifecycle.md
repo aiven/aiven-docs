@@ -12,4 +12,3 @@ Aiven for Metrics service.
 
 - [Maintenance and updates](/docs/products/metrics/howto/maintenance-updates)
 - [Track restore progress](/docs/products/metrics/howto/track-restore-progress)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

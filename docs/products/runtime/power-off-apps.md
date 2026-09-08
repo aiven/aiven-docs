@@ -8,7 +8,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 You can power an Aiven Runtime application on or off at any time.
 
 Powering off applications doesn't affect the connected services. You can
-[power off services](/docs/platform/concepts/service-power-cycle) individually.
+power off services individually.
 
 Applications that are powered off for more than 180 days are automatically deleted.
 

@@ -40,7 +40,7 @@ collected metrics.
         -   **For Aiven for PostgreSQL**: This stores metrics in a relational format, suitable
             if you prefer SQL-based querying
         -   If you choose to use a new service, follow instructions on
-            [how to create a service](/docs/platform/howto/create_new_service).
+            how to create a service.
         -   If you're already using Aiven for Metrics or Aiven for PostgreSQL,
             you can submit your Aiven for ClickHouse metrics to the existing service.
     1.  Click **Enable**.

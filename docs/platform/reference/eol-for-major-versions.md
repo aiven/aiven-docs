@@ -76,8 +76,7 @@ When Aiven sets the EOL date for a service major version:
 
 ## EOL best practices
 
-- Use [service forking](/docs/platform/concepts/service-forking) to test the version
-  upgrade before upgrading your production services.
+- Fork your service to test the version upgrade before upgrading your production services.
 - Upgrade to the supported version before the EOL date. This gives you time to test
   compatibility, resolve any issues, and plan the upgrade on your schedule.
 

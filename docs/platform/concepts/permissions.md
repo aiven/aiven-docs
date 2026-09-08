@@ -17,7 +17,7 @@ and [groups](/docs/platform/howto/manage-groups).
 
 You can grant access to principals at the organization, organizational unit,
 and project level. To give users access to a specific service,
-[create service users](/docs/platform/howto/create_new_service_user).
+create service users.
 
 Roles and permissions are cumulative. This means that a user's effective access
 is the combination of all roles and permissions granted to them at every level. This

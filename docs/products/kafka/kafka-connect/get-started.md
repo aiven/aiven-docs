@@ -16,7 +16,7 @@ Get started with Aiven for Apache Kafka® Connect and integrate it with an Aiven
 ## Prerequisites
 
 Your project must include at least one Aiven for Apache Kafka® service. If it does
-not, [create one](/docs/platform/howto/create_new_service).
+not, create one.
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>

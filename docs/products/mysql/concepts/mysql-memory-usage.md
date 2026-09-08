@@ -9,7 +9,7 @@ import OutOfMemory from "@site/static/includes/out-of-memory-condition.md";
 
 MySQL memory utilization can appear high, even if the service is relatively idle.
 
-[All services are subject to operating overhead](/docs/platform/concepts/service-memory-limits), but some services, including MySQL, pre-allocate memory.
+All services are subject to operating overhead, but some services, including MySQL, pre-allocate memory.
 This can lead to a false impression that the service is misbehaving,
 when it is actually operating under normal conditions.
 
@@ -109,13 +109,12 @@ In the above example, the global buffers consume \~1.6 GiB of memory;
 almost half the RAM on a 4 GB service. However, this does not denote any
 particular issue, but rather, standard operating conditions.
 
-When memory issues are suspected, or the service is encountering
-[Out of memory conditions](/docs/platform/concepts/out-of-memory-conditions), the buffers, queries, and concurrency should be examined to
+When memory issues are suspected or the service encounters out-of-memory conditions,
+the buffers, queries, and concurrency should be examined to
 determine if:
 
 -   The buffer pool is full and checkpointing frequently
--   The sum of the buffer pools are greater than the
-    [available service memory](/docs/platform/concepts/service-memory-limits)
+-   The sum of the buffer pools are greater than the available service memory
 -   Queries are generating excessive temporary (spill) files
 
 ## Service memory limits

@@ -18,5 +18,3 @@ Learn how Aiven manages Aiven for OpenSearch® version support, end of life (EOL
 <RelatedPages/>
 
 - [Upgrade Aiven for OpenSearch®](/docs/products/opensearch/howto/os-version-upgrade)
-- [Service forking](/docs/platform/concepts/service-forking)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

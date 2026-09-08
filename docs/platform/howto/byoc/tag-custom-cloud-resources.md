@@ -53,8 +53,8 @@ the tag propagates to your own cloud infrastructure.
 
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
-[Create a resource tag for a BYOC service the same way you create it for a regular
-Aiven-managed service](/docs/platform/howto/tag-resources#add-tags-to-services).
+Create a resource tag for a BYOC service the same way you create it for a regular
+Aiven-managed service.
 Ensure you use the `byoc_resource_tag` prefix in the tag key.
 
 For example, to label all VMs running a particular BYOC service with the tag that has

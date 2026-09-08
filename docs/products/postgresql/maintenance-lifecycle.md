@@ -11,4 +11,3 @@ maintenance updates.
 <RelatedPages/>
 
 - [Upgrade the PostgreSQL version](/docs/products/postgresql/howto/upgrade)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

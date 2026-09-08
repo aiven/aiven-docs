@@ -45,5 +45,4 @@ There are some limitations of the free tier:
 
 - [Get started with Aiven for PostgreSQL®](/docs/products/postgresql/get-started)
 - [Supported extensions](/docs/products/postgresql/reference/list-of-extensions)
-- [Change a service plan](/docs/platform/howto/scale-services)
 - [Service pricing](/docs/platform/concepts/service-pricing)
