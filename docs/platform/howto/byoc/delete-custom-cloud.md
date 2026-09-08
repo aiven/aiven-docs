@@ -53,8 +53,7 @@ them earlier, you're advised to do that after deleting your cloud.
 ### Delete BYOC-deployed services
 
 Before deleting your custom cloud,
-[delete all services](/docs/platform/concepts/service-power-cycle#delete-service) hosted
-in it.
+delete all services hosted in it.
 
 :::important
 

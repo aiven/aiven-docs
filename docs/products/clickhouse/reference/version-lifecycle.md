@@ -24,5 +24,3 @@ stages, and security updates, see
 
 - [Manage Aiven for ClickHouse® versions](/docs/products/clickhouse/howto/manage-clickhouse-versions)
 - [Upgrade to Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/upgrade-to-26-3)
-- [Service forking](/docs/platform/concepts/service-forking)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

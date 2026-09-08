@@ -25,7 +25,7 @@ service configuration.
   recommended to avoid compatibility issues.
 - Support is limited to the latest connector version and the most recent previous
   version. Breaking changes, if known, are mentioned in
-  [maintenance update notifications](/docs/platform/concepts/maintenance-window#maintenance-updates).
+  maintenance update notifications.
 - Setting a connector version applies to the entire plugin, ensuring that all
   connectors provided by the plugin (such as source and sink connectors) use the same
   version.

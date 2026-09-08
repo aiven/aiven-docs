@@ -46,13 +46,12 @@ Although mandatory upgrades don't require your action, you can still
 [run](/docs/products/opensearch/howto/os-version-upgrade#upgrade-your-service) them
 yourself as soon as they become
 [available](/docs/products/opensearch/howto/os-version-upgrade#available-or-upcoming-upgrades).
-Otherwise, they are applied automatically during the
-[maintenance window](/docs/platform/concepts/maintenance-window#maintenance-window).
+Otherwise, they are applied automatically during the maintenance window.
 
 - **Version patches**: `major.minor.patch1` > `major.minor.patch2`, for example,
   `2.19.1` > `2.19.2`
   - Scheduled and applied during your
-    [maintenance window](/docs/platform/concepts/maintenance-window#maintenance-window)
+    maintenance window
   - Possible after any voluntary manual minor version upgrade to ensure the patch version
     consistency between the cluster nodes
 - Cluster node version upgrades after **node replacements** in disaster recovery scenarios
@@ -155,6 +154,3 @@ resource to set
 </Tabs>
 
 <RelatedPages/>
-
-- [Control maintenance updates with upgrade pipelines](/docs/platform/howto/controlled-upgrade)
-- [Service maintenance](/docs/platform/concepts/maintenance-window)

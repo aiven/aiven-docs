@@ -29,7 +29,7 @@ If you are removing disk storage:
 
    - You can only remove storage that you previously added using this
      feature. To downgrade further, you can
-     [change your service plan](/docs/platform/howto/scale-services).
+    change your service plan.
    :::
 
 1. Click **Save Changes**.

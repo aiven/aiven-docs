@@ -28,7 +28,7 @@ the upgrade:
 
 ### Test upgrading on a fork
 
-We recommend to test the upgrade on [a fork](/docs/platform/concepts/service-forking) of
+We recommend to test the upgrade on a fork of
 the database to be upgraded. Testing on a fork provides the benefit of
 verifying the impact of the upgrade for the specific service without
 affecting the running service, mostly to:
@@ -329,7 +329,5 @@ available.
 
 <RelatedPages/>
 
-- [Control maintenance updates with upgrade pipelines](/docs/platform/howto/controlled-upgrade)
-- [Service maintenance](/docs/platform/concepts/maintenance-window)
 - [Upgrade and failover procedures](/docs/products/postgresql/concepts/upgrade-failover)
 - [Manage extensions](/docs/products/postgresql/howto/manage-extensions)

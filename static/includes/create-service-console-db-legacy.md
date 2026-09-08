@@ -17,7 +17,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 1. In the **Service details**, enter a name for your service.
 
-1. Optional: Add [service tags](/docs/platform/howto/tag-resources).
+1. Optional: Add service tags.
 
 1. In the **Service summary**, click **Create service**.
 

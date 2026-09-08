@@ -26,7 +26,7 @@ the DataHub resources beyond what is documented.
 
 1. In the **Service basics**, enter a name for your service.
 
-1. Optional: Add [service tags](/docs/platform/howto/tag-resources).
+1. Optional: Add [service tags](/docs/products/datahub/tag-services).
 
 1. In the **Service summary**, click **Create service**.
 

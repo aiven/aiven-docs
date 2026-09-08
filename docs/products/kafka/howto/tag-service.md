@@ -12,5 +12,4 @@ Add key-value tags to your Aiven for Apache Kafka® service to organize services
 
 <RelatedPages/>
 
-- [Use resource tags](/docs/platform/howto/tag-resources)
 - [Power on/off and delete your Aiven for Apache Kafka® service](/docs/products/kafka/howto/power-cycle-service)

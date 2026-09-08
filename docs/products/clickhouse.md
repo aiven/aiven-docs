@@ -32,21 +32,20 @@ appropriate for the plan you have selected.
 ## Easy management
 
 -   **Scalability:** You can seamlessly
-    [scale your ClickHouse cluster](/docs/platform/howto/scale-services) horizontally or vertically as your data and needs change
+    scale your ClickHouse cluster horizontally or vertically as your data and needs change
     using the pre-packaged plans. Aiven for ClickHouse also supports
     [sharding](/docs/products/clickhouse/howto/use-shards-with-distributed-table) as a horizontal cluster scaling strategy.
 -   **Resource tags:** You can assign metadata to your services in the
     form of tags. They help you organize, search, and filter Aiven
     resources. You can
-    [tag your service](/docs/platform/howto/tag-resources) by purpose, owner, environment, or any other criteria.
+    tag your service by purpose, owner, environment, or any other criteria.
 -   **Forking:** Forking an Aiven for ClickHouse service creates a new
     database service containing the latest snapshot of an existing
     service. Forks don't stay up-to-date with the parent database, but
     you can write to them. It provides a risk-free way of working with
     your production data and schema. For example, you can use them to
     test upgrades, new schema migrations, or load test your app with a
-    different plan. Learn how to
-    [fork an Aiven service](/docs/platform/concepts/service-forking).
+    different plan.
 
 ## Effective maintenance
 
@@ -54,7 +53,7 @@ appropriate for the plan you have selected.
     that the ClickHouse software and the underlying platform stays
     up-to-date with the latest patches and updates with zero downtime.
     You can set
-    [maintenance windows](/docs/platform/concepts/maintenance-window) for your service to make sure the changes occur during
+    maintenance windows for your service to make sure the changes occur during
     times that do not affect productivity.
 -   **Backups and disaster recovery:** Aiven for ClickHouse has
     automatic backups taken every 24 hours. The retention period depends

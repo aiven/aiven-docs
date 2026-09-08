@@ -84,11 +84,3 @@ elasticdump \
 When the dump is completed, you can check that the index is available in
 the OpenSearch service you send it to. You will be able to find it under
 **Indexes** in the <ConsoleLabel name="data"/> section in your Aiven Console.
-
-### Resources
-
-Aiven for OpenSearch databases are automatically backed up, so you can
-check more information about how the
-[Backup process works](/docs/platform/concepts/service_backups#aiven-for-opensearch).
-
-------------------------------------------------------------------------

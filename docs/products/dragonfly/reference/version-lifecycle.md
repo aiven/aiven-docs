@@ -21,5 +21,3 @@ Aiven for Dragonfly identifies versions in `major.minor.patch` format, for examp
 <RelatedPages/>
 
 - [End of life for Aiven services](/docs/platform/reference/end-of-life)
-- [Service forking](/docs/platform/concepts/service-forking)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

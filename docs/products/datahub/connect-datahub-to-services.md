@@ -13,8 +13,8 @@ Add connectors to your DataHub service to ingest data.
 1. Select services from projects in your organization and organizational units.
 1. Click **Add connectors**.
 
-A [service user](/docs/platform/howto/create_new_service_user) is created in
-each connected service to give DataHub read access to the service.
+A service user is created in each connected service
+to give DataHub read access to the service.
 
 To view connected services in the DataHub UI, click **Data Sources**.
 

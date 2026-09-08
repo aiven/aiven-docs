@@ -9,7 +9,7 @@ Adjust the plan of your applications at any time to scale them and optimize cost
 
 When you change an application plan, the currently running commit is redeployed.
 Service plans for the connected services do not change. You can
-[change the service plans](/docs/platform/howto/scale-services)
+change the service plans
 for each service separately.
 
 To change your application's plan:

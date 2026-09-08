@@ -72,7 +72,7 @@ To run Kafka in your own cloud account, see
 1. In **Service basics**, enter a **Name**. You cannot change the name after you create
    the service.
 1. Optional: Click **Add tag to this service** to add
-   [resource tags](/docs/platform/howto/tag-resources).
+   resource tags.
 1. In **Service summary**, review the estimated monthly cost.
 1. Click **Create service**.
 1. Wait until the service status is **Running**.
@@ -104,7 +104,7 @@ For more information, see
      create the service.
    - **Version**: Click a Kafka version. The default version is preselected.
    - **Tags**: Optional. Add
-     [resource tags](/docs/platform/howto/tag-resources) to organize your services.
+   resource tags to organize your services.
 
 1. In **Service summary**, review the estimated monthly price.
 1. Click **Create service**.

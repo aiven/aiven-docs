@@ -11,4 +11,3 @@ updates.
 <RelatedPages/>
 
 - [Manage the MySQL version](/docs/products/mysql/howto/manage-mysql-version)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

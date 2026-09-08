@@ -6,6 +6,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleCreateServiceUser from "@site/static/includes/service-users-instructions.md";
 
 Create and manage service users in Aiven for Apache Kafka® to enable secure access and interaction with your service.
 
@@ -22,8 +23,7 @@ the specified pattern.
 <Tabs groupId="add-user">
 <TabItem value="console" label="Aiven Console" default>
 
-To add service users using the Aiven Console, see
-[Create a service user](/docs/platform/howto/create_new_service_user).
+<ConsoleCreateServiceUser/>
 
 After creating a user, download their access key and certificate from the **Users** page.
 

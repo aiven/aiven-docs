@@ -18,4 +18,3 @@ Learn how Aiven manages Aiven for Apache Kafka® version support, end of life (E
 <RelatedPages/>
 
 - [Apache Kafka® upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

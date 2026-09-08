@@ -77,8 +77,7 @@ To navigate between different projects or view all projects click the
 the organization or organizational unit that you are currently working
 in. Selecting a project opens the **Services** page with a list of all
 services in that project. You can view the status of the services
-and
-[create new services](/docs/platform/howto/create_new_service).
+and create new services.
 
 On the **Services** page you can also access the
 [integration endpoints](/docs/platform/concepts/service-integration), VPCs, project logs,
