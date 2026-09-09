@@ -2,17 +2,20 @@
 title: Integrated service environment variables
 ---
 
-Aiven Runtime maps connection details as environment variables for each connected service.
-It scans Compose, Containerfile, and Dockerfile manifests during application creation.
-It detects supported data services in Compose files and connects them to your application.
-It reads existing variable names when they include supported connection values. If it
-doesn't find a supported connection value, it suggests conventional variable names based on
-relationships defined in the `depends_on` property of the Compose file.
+Aiven Runtime exposes connection details as environment variables for connected data services.
+During application creation, you can select a Compose, Containerfile, or Dockerfile
+manifest to scan. For Compose files, Aiven detects supported data service images,
+and suggests Aiven services and integrations. If an environment variable in the Compose
+file points to one of those detected data services, Aiven uses that variable name.
+Otherwise, if you listed the service in the `depends_on` property of the Compose file,
+a default environment variable name is suggested.
+
+The environment variables are required for the integrations,
+but you can customize the variable names.
 
 ## Default environment variables
 
-The following environment variables are added by default. They're required for the
-integrations, but you can customize the variable names.
+The following environment variables are added by default:
 
 |         Service         |            Key            |               Value                |
 | ----------------------- | ------------------------- | ---------------------------------- |
