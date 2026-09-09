@@ -32,20 +32,26 @@ appropriate for the plan you have selected.
 ## Easy management
 
 -   **Scalability:** You can seamlessly
-    scale your ClickHouse cluster horizontally or vertically as your data and needs change
-    using the pre-packaged plans. Aiven for ClickHouse also supports
-    [sharding](/docs/products/clickhouse/howto/use-shards-with-distributed-table) as a horizontal cluster scaling strategy.
+    [scale your ClickHouse cluster](/docs/products/clickhouse/howto/change-service-plan)
+    horizontally or vertically as your data and needs change
+    using the pre-packaged plans. You can also
+    [scale disk storage](/docs/products/clickhouse/howto/scale-disk-storage)
+    independently of the plan. Aiven for ClickHouse also supports
+    [sharding](/docs/products/clickhouse/howto/use-shards-with-distributed-table)
+    as a horizontal cluster scaling strategy.
 -   **Resource tags:** You can assign metadata to your services in the
     form of tags. They help you organize, search, and filter Aiven
     resources. You can
-    tag your service by purpose, owner, environment, or any other criteria.
+    [tag your service](/docs/products/clickhouse/howto/tag-service)
+    by purpose, owner, environment, or any other criteria.
 -   **Forking:** Forking an Aiven for ClickHouse service creates a new
     database service containing the latest snapshot of an existing
     service. Forks don't stay up-to-date with the parent database, but
     you can write to them. It provides a risk-free way of working with
     your production data and schema. For example, you can use them to
     test upgrades, new schema migrations, or load test your app with a
-    different plan.
+    different plan. Learn how to
+    [fork an Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service).
 
 ## Effective maintenance
 
@@ -53,11 +59,15 @@ appropriate for the plan you have selected.
     that the ClickHouse software and the underlying platform stays
     up-to-date with the latest patches and updates with zero downtime.
     You can set
-    maintenance windows for your service to make sure the changes occur during
+    [maintenance windows](/docs/products/clickhouse/howto/maintenance-updates)
+    for your service to make sure the changes occur during
     times that do not affect productivity.
 -   **Backups and disaster recovery:** Aiven for ClickHouse has
     automatic backups taken every 24 hours. The retention period depends
-    on your plan tier. See the details on [Plan
+    on your plan tier. See
+    [disaster recovery](/docs/products/clickhouse/concepts/disaster-recovery),
+    [schedule backups](/docs/products/clickhouse/howto/configure-backup),
+    and [Plan
     comparison](https://aiven.io/pricing?product=clickhouse&tab=plan-comparison).
 
 ## Intelligent observability
@@ -109,10 +119,11 @@ ClickHouse in
     [Aiven CLI](/docs/tools/cli) client
     provides greater flexibility of use for proficient administrators
     allowing scripting repetitive actions with ease.
--   **REST APIs:** [Aiven APIs](/docs/tools/api) allow you to manage Aiven resources in a programmatic
-    way using HTTP requests. The whole functionality available via Aiven
-    Console is also available via APIs enabling you to build custom
-    integrations with ClickHouse and the Aiven platform.
+-   **REST APIs:** [Aiven APIs](/docs/tools/api) allow you to manage Aiven
+    resources in a programmatic way using HTTP requests. The whole
+    functionality available via Aiven Console is also available via APIs
+    enabling you to build custom integrations with ClickHouse and the Aiven
+    platform.
 
 <!-- vale off -->
 <RelatedPages/>

@@ -40,7 +40,7 @@ collected metrics.
         -   **For Aiven for PostgreSQL**: This stores metrics in a relational format, suitable
             if you prefer SQL-based querying
         -   If you choose to use a new service, follow instructions on
-            how to create a service.
+            [how to create a service](/docs/products/clickhouse/get-started#create-an-aiven-for-clickhouse-service).
         -   If you're already using Aiven for Metrics or Aiven for PostgreSQL,
             you can submit your Aiven for ClickHouse metrics to the existing service.
     1.  Click **Enable**.
@@ -59,7 +59,7 @@ collected metrics.
 1. In the **Dashboard integration** window:
    1. Choose either a new or existing Aiven for Grafana service.
       - If you choose to use a new service, follow the instructions on
-        how to create a service.
+        [how to create a service](/docs/products/clickhouse/get-started#create-an-aiven-for-clickhouse-service).
       - If you're already using Grafana on Aiven, you can integrate
         your Aiven for Metrics or Aiven for PostgreSQL as an additional data source for that
         existing Grafana.

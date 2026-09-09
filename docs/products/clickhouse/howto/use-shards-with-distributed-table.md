@@ -13,7 +13,7 @@ data evenly across all the cluster nodes.
 
 ## Set up a sharded service with a database
 
-1.  Create an Aiven for ClickHouse® service
+1.  [Create an Aiven for ClickHouse® service](/docs/products/clickhouse/get-started#create-an-aiven-for-clickhouse-service)
     with multiple shards.
 
     :::note
