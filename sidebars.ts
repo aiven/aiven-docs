@@ -435,6 +435,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'products/runtime',
         'products/runtime/deploy-apps',
+        'products/runtime/connect-github-account',
         {
           type: 'category',
           label: 'Manifest files',
