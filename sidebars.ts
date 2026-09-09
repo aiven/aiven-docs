@@ -927,6 +927,7 @@ const sidebars: SidebarsConfig = {
               label: 'Maintenance and lifecycle',
               items: [
                 'products/kafka/howto/maintenance-updates',
+                'products/kafka/howto/controlled-upgrade-pipelines',
                 'products/kafka/concepts/upgrade-procedure',
                 'products/kafka/reference/version-lifecycle',
               ],
@@ -1392,6 +1393,7 @@ const sidebars: SidebarsConfig = {
               label: 'Maintenance and lifecycle',
               items: [
                 'products/clickhouse/howto/maintenance-updates',
+                'products/clickhouse/howto/controlled-upgrade-pipelines',
                 'products/clickhouse/howto/manage-clickhouse-versions',
                 'products/clickhouse/reference/upgrade-to-26-3',
                 'products/clickhouse/reference/26-3-default-settings',
@@ -1616,6 +1618,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/grafana/howto/maintenance-updates',
+                'products/grafana/howto/controlled-upgrade-pipelines',
                 'products/grafana/reference/version-lifecycle',
               ],
             },
@@ -1692,6 +1695,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/metrics/howto/maintenance-updates',
+                'products/metrics/howto/controlled-upgrade-pipelines',
                 'products/metrics/howto/track-restore-progress',
               ],
             },
@@ -1962,6 +1966,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/os-version-upgrade',
                 'products/opensearch/howto/maintenance-updates',
+                'products/opensearch/howto/controlled-upgrade-pipelines',
                 'products/opensearch/reference/version-lifecycle',
               ],
             },
@@ -2197,6 +2202,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/howto/upgrade',
                 'products/postgresql/howto/maintenance-updates',
+                'products/postgresql/howto/controlled-upgrade-pipelines',
                 'products/postgresql/reference/version-lifecycle',
               ],
             },
@@ -2440,6 +2446,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/valkey/howto/valkey-version-upgrade',
                 'products/valkey/howto/maintenance-updates',
+                'products/valkey/howto/controlled-upgrade-pipelines',
                 'products/valkey/reference/version-lifecycle',
               ],
             },

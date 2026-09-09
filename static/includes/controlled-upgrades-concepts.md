@@ -8,8 +8,7 @@ feature.
 [Contact Aiven](https://aiven.io/contact) to request access.
 :::
 
-Aiven performs automatic
-[service maintenance for security fixes, minor software updates](/docs/platform/concepts/maintenance-window),
+Aiven performs automatic service maintenance for security fixes, minor software updates,
 and other platform changes. The controlled upgrade pipeline feature lets you link services
 of the same type in an ordered sequence to control when each service receives updates.
 After a maintenance update upgrades a service at the initial pipeline step, you validate
@@ -60,8 +59,7 @@ When a maintenance update upgrades your source service:
   after the configured delay. The default delay is 7 days.
 1. After validation, the destination service becomes eligible for the same
    maintenance update.
-1. The destination service receives the update during its next
-   [maintenance window](/docs/platform/concepts/maintenance-window).
+1. The destination service receives the update during its next maintenance window.
 
 If one source service has multiple destination services, one validation for the
 source service applies to all connected destination services.
@@ -71,8 +69,7 @@ source service applies to all connected destination services.
 Validation and the maintenance window control different things:
 
 - **Validation** controls _what_ version the destination service upgrades to.
-- The [maintenance window](/docs/platform/concepts/maintenance-window) controls _when_
-  the upgrade happens.
+- The maintenance window controls _when_ the upgrade happens.
 
 After you validate an update, or automatic validation applies, the destination service
 receives the validated version during its next scheduled maintenance window. Validation
