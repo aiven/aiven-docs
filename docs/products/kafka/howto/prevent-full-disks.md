@@ -68,8 +68,10 @@ Parameters:
 
 ## Manage storage usage and settings
 
-See the
-[storage usage and settings](/docs/products/kafka/howto/view-kafka-storage-in-console) page.
+See
+[storage usage and settings](/docs/products/kafka/howto/view-kafka-storage-in-console).
+To add or remove disk on Classic Kafka, see
+[Scale disk storage](/docs/products/kafka/howto/scale-disk-storage).
 
 ## Delete one or more topics
 

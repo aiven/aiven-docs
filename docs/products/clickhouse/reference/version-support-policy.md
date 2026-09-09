@@ -59,7 +59,9 @@ Aiven provides security updates for LTS versions until their EOA date. After EOA
 Aiven doesn't guarantee security updates.
 
 Aiven delivers security updates as maintenance updates that you can apply during
-the maintenance window. If you
+the
+[maintenance window](/docs/products/clickhouse/howto/maintenance-updates#set-the-maintenance-window).
+If you
 don't apply a patch for a critical vulnerability within 14 days, Aiven applies
 it automatically.
 
@@ -75,3 +77,4 @@ versions, see
 - [Upgrade to Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/upgrade-to-26-3)
 - [Service and feature releases](/docs/platform/concepts/service-and-feature-releases)
 - [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
+- [Maintenance and updates](/docs/products/clickhouse/howto/maintenance-updates)

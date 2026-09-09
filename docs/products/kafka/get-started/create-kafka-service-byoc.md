@@ -66,7 +66,7 @@ BYOC Kafka services are available on the Professional service tier.
      create the service.
    - **Version**: Click a Kafka version. The default version is preselected.
    - **Tags**: Optional. Add
-   resource tags to organize your services.
+     [resource tags](/docs/products/kafka/howto/tag-service) to organize your services.
 
 1. Review the **Service summary**, then click **Create service**.
 1. Wait until the service status is **Running**.

@@ -58,12 +58,14 @@ When you start a sample data session, the generator:
 
 - Access to the [Aiven Console](https://console.aiven.io).
 - Permission to create and manage Aiven for Apache Kafka services in your project.
+- An Aiven for Apache Kafka® service. To create one, see
+  [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service).
 
 ## Start a data stream
 
 1. In the [Aiven Console](https://console.aiven.io), select an existing
    **Aiven for Apache Kafka** service or
-  create a service.
+   [create a service](/docs/products/kafka/get-started/create-kafka-service).
 1. On the <ConsoleLabel name="overview" /> page, in the **Start data stream** section,
    click **Generate sample data**.
 1. In the setup wizard:
@@ -106,3 +108,4 @@ time, and a link to review messages.
 
 - [View topic details and partitions](/docs/products/kafka/howto/get-topic-partition-details)
 - [Enable Schema Registry and Kafka REST Proxy](/docs/products/kafka/karapace/howto/enable-karapace)
+- [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)

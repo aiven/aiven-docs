@@ -156,3 +156,4 @@ cannot be downgraded to the free tier.
 
 - [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
+- [Change the service plan](/docs/products/kafka/howto/change-service-plan)

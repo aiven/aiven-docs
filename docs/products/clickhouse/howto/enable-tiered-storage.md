@@ -18,10 +18,8 @@ Before you enable tiered storage, review the [limitations](/docs/products/clickh
 -   Depending on how to activate tiered storage, you need:
     - [Aiven Console](https://console.aiven.io) or
     - SQL and an SQL client (for example, the [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
--   All maintenance updates are applied on your service (check in the
-    [Aiven Console](https://console.aiven.io): your service's
-    <ConsoleLabel name="service settings"/> > **Service management** >
-    **Maintenance updates**).
+-   All [maintenance updates](/docs/products/clickhouse/howto/maintenance-updates)
+    are applied on your service.
 
 ## Activate tiered storage on a table
 

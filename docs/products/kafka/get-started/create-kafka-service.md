@@ -72,7 +72,7 @@ To run Kafka in your own cloud account, see
 1. In **Service basics**, enter a **Name**. You cannot change the name after you create
    the service.
 1. Optional: Click **Add tag to this service** to add
-   resource tags.
+   [resource tags](/docs/products/kafka/howto/tag-service).
 1. In **Service summary**, review the estimated monthly cost.
 1. Click **Create service**.
 1. Wait until the service status is **Running**.
@@ -104,7 +104,7 @@ For more information, see
      create the service.
    - **Version**: Click a Kafka version. The default version is preselected.
    - **Tags**: Optional. Add
-   resource tags to organize your services.
+     [resource tags](/docs/products/kafka/howto/tag-service) to organize your services.
 
 1. In **Service summary**, review the estimated monthly price.
 1. Click **Create service**.
@@ -247,3 +247,4 @@ Terraform examples apply to Classic Kafka services.
 
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
 - [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
+- [Change the plan for your Standard Kafka service](/docs/products/kafka/howto/change-standard-kafka-plan)

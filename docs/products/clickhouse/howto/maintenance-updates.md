@@ -1,5 +1,5 @@
 ---
-title: Maintenance and updates for your Aiven for Apache Kafka® service
+title: Maintenance and updates for your Aiven for ClickHouse® service
 sidebar_label: Maintenance and updates
 ---
 
@@ -8,18 +8,11 @@ import MaintenanceWindowConcepts from "@site/static/includes/maintenance-window-
 import MaintenanceWindowInstructions from "@site/static/includes/maintenance-window-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Manage maintenance updates and set the maintenance window for your Aiven for Apache
-Kafka® service.
+Manage maintenance updates and set the maintenance window for your Aiven for ClickHouse® service.
 
 ## Maintenance updates
 
 <MaintenanceUpdates/>
-
-:::note
-When Aiven releases a mandatory service update for Apache Kafka®, the
-[Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure) runs
-automatically.
-:::
 
 ## Maintenance window
 
@@ -31,5 +24,7 @@ automatically.
 
 <RelatedPages/>
 
-- [Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure)
-- [Change the service plan](/docs/products/kafka/howto/change-service-plan)
+- [Manage versions in Aiven for ClickHouse®](/docs/products/clickhouse/howto/manage-clickhouse-versions)
+- [Change the service plan](/docs/products/clickhouse/howto/change-service-plan)
+- [Aiven for ClickHouse version lifecycle](/docs/products/clickhouse/reference/version-lifecycle)
+- [Scale disk storage](/docs/products/clickhouse/howto/scale-disk-storage)

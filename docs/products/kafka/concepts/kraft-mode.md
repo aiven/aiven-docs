@@ -60,8 +60,8 @@ not supported.
 - If you upgrade your service to Apache Kafka 3.9, the upgrade starts immediately.
   After all service nodes are running on Apache Kafka 3.9, the KRaft migration starts
   automatically. The configured
-  maintenance window does not affect
-  when the upgrade or migration starts.
+  [maintenance window](/docs/products/kafka/howto/maintenance-updates#set-the-maintenance-window)
+  does not affect when the upgrade or migration starts.
 - If Aiven upgrades your service because Apache Kafka 3.8 has reached end of life,
   the version upgrade starts during the configured maintenance window. The KRaft
   migration starts after the version upgrade completes.

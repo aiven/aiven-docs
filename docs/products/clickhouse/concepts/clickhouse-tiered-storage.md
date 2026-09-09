@@ -163,3 +163,4 @@ threshold to control how your data is stored between the two layers.
 
 -   [Check data volume distribution between different disks](/docs/products/clickhouse/howto/check-data-tiered-storage)
 -   [Transfer data between network-attached block storage and object storage](/docs/products/clickhouse/howto/transfer-data-tiered-storage)
+-   [Scale disk storage](/docs/products/clickhouse/howto/scale-disk-storage)

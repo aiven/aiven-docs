@@ -27,5 +27,6 @@ to it and power off the original service.
 <RelatedPages/>
 
 - [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
+- [Change the service plan](/docs/products/clickhouse/howto/change-service-plan)
 - [Schedule Aiven for ClickHouse® backups](/docs/products/clickhouse/howto/configure-backup)
 - [Disaster recovery in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/disaster-recovery)
