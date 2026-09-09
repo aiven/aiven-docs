@@ -1607,6 +1607,8 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/grafana/howto/change-service-plan',
+                'products/grafana/howto/scale-disk-storage',
+                'products/grafana/howto/disk-autoscaler',
                 'products/grafana/howto/prepare-for-high-load',
                 'products/grafana/concepts/service-memory',
               ],
