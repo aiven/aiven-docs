@@ -91,7 +91,7 @@
 /platform/howto/change-billing-contact                 /docs/platform/howto/use-billing-groups  301
 /platform/howto/change-support-tier                    /docs/platform/howto/support  301
 /platform/howto/cleanup-powered-off-services           /docs/platform/concepts/service-power-cycle  301
-/platform/howto/controlled-upgrade                       /docs/products/services  301
+/platform/howto/controlled-upgrade                       /docs/products/postgresql/howto/controlled-upgrade-pipelines  301
 /platform/howto/console-fork-service                   /docs/platform/concepts/service-forking  301
 /platform/howto/create-billing-groups                  /docs/platform/howto/use-billing-groups  301
 /platform/howto/create_new_service                        /docs/products/services  301
