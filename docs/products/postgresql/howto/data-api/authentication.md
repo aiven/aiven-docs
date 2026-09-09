@@ -41,11 +41,17 @@ The URL format depends on your IdP. The following are common patterns:
 Replace `TENANT_NAME`, `OKTA_DOMAIN`, and `TENANT_ID` with the values from your IdP. For the
 exact URL, see your IdP's documentation.
 
+When you enable Data API or update the JWKS URL, the Aiven Console fetches the URL and
+checks that it returns a valid JWKS document: an HTTP 200 response with a JSON body that
+contains a non-empty `keys` array, where each key has a `kty` field. If the check fails,
+the console rejects the value and shows the reason, for example that the endpoint is
+unreachable or returned an error.
+
 :::note
-Data API checks that the JWKS URL uses HTTPS, but doesn't verify that it's reachable when
-you save it. An incorrect or unreachable URL causes all requests to fail at runtime. The
-console status doesn't surface this error, so make sure the URL is correct and publicly
-reachable before saving.
+This check confirms that the URL is reachable and returns a well-formed JWKS document
+when you save it. It doesn't detect a JWKS URL that becomes unreachable later, or one
+that's reachable but serves the wrong IdP's keys; either causes requests to fail at
+runtime.
 :::
 
 Because Data API reads the keys from the JWKS URL, key rotation is automatic. When your IdP

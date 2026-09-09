@@ -54,8 +54,11 @@ picks up rotated keys from the same URL. For more information, see
 
 To change the JWKS URL or audience, open the **Data API** page and select the database.
 Next to **JWKS URL** or **Audience**, click the edit icon, enter the new value, and save.
-A confirmation message confirms the update. You don't need to remove Data API to update
-these settings, but the edit icons are available only while the application is running.
+If you change the JWKS URL, the console
+[validates it](/docs/products/postgresql/howto/data-api/authentication#configure-the-jwks-url)
+before saving. A confirmation message confirms the update. You don't need to remove Data
+API to update these settings, but the edit icons are available only while the
+application is running.
 
 ## Refresh the schema cache
 
