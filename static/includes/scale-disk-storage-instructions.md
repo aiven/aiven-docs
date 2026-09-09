@@ -2,19 +2,29 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Prerequisites
+### Add storage when you create a service
+
+To add storage while you create a service:
+
+1. In **Additional disk storage**, set the size with the slider or enter a value in GB.
+1. Review the estimated monthly cost.
+1. In the **Service summary**, click **Create service**.
+
+Change additional storage later on the running service, or enable automatic
+disk scaling with Aiven Autoscaler.
+
+### Change storage on a running service
 
 You cannot add or remove storage when service nodes are in the
-rebuilding state, for example, during a maintenance update or a
+rebuilding state, for example during a maintenance update or a
 service upgrade.
 
 If you are removing disk storage:
 
--   Make sure the data in your service does not exceed your service's
-    allocated storage. If it does, you will not be able to remove the additional storage.
--   Plan for the time it takes to rebuild the service. The time it takes
-    depends on the service.
-
+- Make sure the data in your service does not exceed the allocated storage.
+  If it does, you cannot remove the additional storage.
+- Plan for the time it takes to rebuild the service. The time depends on
+  the service.
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -29,7 +39,7 @@ If you are removing disk storage:
 
    - You can only remove storage that you previously added using this
      feature. To downgrade further, you can
-    change your service plan.
+     change your service plan.
    :::
 
 1. Click **Save Changes**.

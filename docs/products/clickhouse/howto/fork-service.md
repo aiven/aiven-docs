@@ -24,8 +24,8 @@ copied to the new service.
 - Point-in-time recovery is not supported. You can restore only to a daily backup state.
 - You cannot fork Aiven for ClickHouse services to a fewer number of nodes.
   Reducing the number of nodes is only possible by
-  switching the service plan from **Business** to
-  **Startup** on a running service.
+  [changing the service plan](/docs/products/clickhouse/howto/change-service-plan)
+  from **Business** to **Startup** on a running service.
 
 <ForkInstructions/>
 
@@ -36,4 +36,5 @@ settings to point to this new fork service.
 
 - [Schedule Aiven for ClickHouse® backups](/docs/products/clickhouse/howto/configure-backup)
 - [Restore an Aiven for ClickHouse® backup](/docs/products/clickhouse/howto/restore-backup)
+- [Change the service plan](/docs/products/clickhouse/howto/change-service-plan)
 - [Rename your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/rename-service)

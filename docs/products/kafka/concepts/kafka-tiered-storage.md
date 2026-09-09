@@ -20,7 +20,7 @@ storage by default and you cannot turn it off.
 
 - Aiven for Apache Kafka® supports tiered storage starting from Apache Kafka® version
   3.6 or later. It is recommended to upgrade to the latest default version and apply
-  maintenance updates
+  [maintenance updates](/docs/products/kafka/howto/maintenance-updates)
   when using tiered storage for the latest fixes and improvements.
 - Tiered storage is not available on startup plans.
 

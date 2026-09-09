@@ -23,4 +23,5 @@ stages, and security updates, see
 <RelatedPages/>
 
 - [Manage Aiven for ClickHouse® versions](/docs/products/clickhouse/howto/manage-clickhouse-versions)
+- [Maintenance and updates](/docs/products/clickhouse/howto/maintenance-updates)
 - [Upgrade to Aiven for ClickHouse 26.3](/docs/products/clickhouse/reference/upgrade-to-26-3)

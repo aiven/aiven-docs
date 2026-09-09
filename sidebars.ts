@@ -901,15 +901,12 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Scaling and performance',
               items: [
-                {
-                  type: 'category',
-                  label: 'Scaling',
-                  items: [
-                    'products/kafka/concepts/horizontal-vertical-scaling',
-                    'products/kafka/howto/prevent-full-disks',
-                    'products/kafka/howto/optimizing-resource-usage',
-                  ],
-                },
+                'products/kafka/concepts/horizontal-vertical-scaling',
+                'products/kafka/howto/change-service-plan',
+                'products/kafka/howto/change-standard-kafka-plan',
+                'products/kafka/howto/scale-disk-storage',
+                'products/kafka/howto/prevent-full-disks',
+                'products/kafka/howto/optimizing-resource-usage',
                 {
                   type: 'category',
                   label: 'Performance and quotas',
@@ -1384,8 +1381,17 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Scaling and performance',
+              items: [
+                'products/clickhouse/howto/change-service-plan',
+                'products/clickhouse/howto/scale-disk-storage',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Maintenance and lifecycle',
               items: [
+                'products/clickhouse/howto/maintenance-updates',
                 'products/clickhouse/howto/manage-clickhouse-versions',
                 'products/clickhouse/reference/upgrade-to-26-3',
                 'products/clickhouse/reference/26-3-default-settings',
