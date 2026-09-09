@@ -110,6 +110,7 @@ for the GitHub permissions.
     },
     {
       label: 'GitHub permissions',
+      icon: 'people',                      # Override the default icon
       values: [
         <>
           Organization owner on{' '}
