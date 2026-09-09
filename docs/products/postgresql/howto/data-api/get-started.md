@@ -57,9 +57,9 @@ To enable Data API, you need the following:
 If the cloud, region, and plan you select don't support the Aiven Runtime application,
 Data API shows an error message so that you can pick a different combination.
 
-Data API starts deploying and the **Status** shows **Building**. When the app is healthy,
-the status changes to **Running** and the endpoints become available. While the service is
-still being provisioned, setup is unavailable and the Aiven Console shows
+Data API starts deploying and the **Status** shows **Deploying**. When the app is
+healthy, the status changes to **Running** and the endpoints become available. While
+the service is still being provisioned, setup is unavailable and the Aiven Console shows
 **Set up your data API** with a note that the service is still being provisioned.
 
 For details on the JWKS URL and audience fields, see

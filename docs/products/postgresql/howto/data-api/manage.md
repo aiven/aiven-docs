@@ -21,15 +21,18 @@ To manage Data API, open your Aiven for PostgreSQL® service in the
 ## Check the status
 
 Each database that you expose runs as an independent
-[Aiven Runtime application](/docs/products/aiven-apps). The **Data API** page shows
-whether it's ready to use:
+[Aiven Runtime application](/docs/products/aiven-apps). The **Data API** page shows a
+**Status** chip for each database:
 
-- While the application deploys, **API URL** shows **API building...**, and **Refresh
-  cache** and the edit icons next to **JWKS URL** and **Audience** aren't available yet.
-- Once the application is healthy and serving requests, **API URL** shows the real
-  endpoint, and **Refresh cache** and the edit icons become available.
-- If the deployment fails, an error message appears at the top of the page. For next
-  steps, see [Troubleshooting](#troubleshooting).
+- **Deploying**: The application is deploying or applying a change. **API URL** shows
+  **API building...**, and **Refresh cache** and the edit icons next to **JWKS URL** and
+  **Audience** aren't available yet.
+- **Running**: The application is healthy and serving requests. **API URL** shows the
+  real endpoint, and **Refresh cache** and the edit icons become available.
+- **Error**: The deployment failed. An error message appears at the top of the page. For
+  next steps, see [Troubleshooting](#troubleshooting).
+- **Disabled**: The underlying application is powered off. A warning message appears at
+  the top of the page. For next steps, see [Troubleshooting](#troubleshooting).
 
 ## View the underlying Aiven Runtime app
 
