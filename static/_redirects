@@ -54,7 +54,7 @@
 /platform/concepts/choosing-timeseries-database        /docs/platform/howto/list-service  301
 /platform/concepts/corporate-billing                   /docs/platform/concepts/billing-and-payment  301
 /platform/concepts/corporate-billing.html              /docs/platform/concepts/billing-and-payment  301
-/platform/concepts/dynamic-disk-sizing                 /docs/platform/howto/add-storage-space  301
+/platform/concepts/dynamic-disk-sizing                 /docs/products/postgresql/howto/scale-disk-storage  301
 /platform/concepts/free-plan                           /docs/platform/concepts/service-pricing  301
 /platform/concepts/free-trial                          /docs/platform/concepts/service-pricing  301
 /platform/concepts/hourly-billing-model                /docs/platform/concepts/billing-and-payment  301
@@ -78,7 +78,7 @@
 /platform/howto/access-service-logs                    /docs/platform/howto/list-monitoring  301
 /platform/howto/add-groups-projects                    /docs/platform/howto/manage-groups  301
 /platform/howto/add-project-members                    /docs/platform/howto/manage-permissions  301
-/platform/howto/add-storage-space                         /docs/products/services  301
+/platform/howto/add-storage-space                         /docs/products/postgresql/howto/scale-disk-storage  301
 /platform/howto/billing-assign-projects                /docs/platform/howto/use-billing-groups  301
 /platform/howto/billing-aws-marketplace-subscription   /docs/marketplace-setup  301
 /platform/howto/billing-azure-marketplace-subscription /docs/marketplace-setup  301
@@ -97,7 +97,7 @@
 /platform/howto/create_new_service                        /docs/products/services  301
 /platform/howto/create_new_service_user                   /docs/products/services  301
 /platform/howto/custom-plans                           /docs/platform/concepts/service-pricing  301
-/platform/howto/disk-autoscaler                           /docs/products/services  301
+/platform/howto/disk-autoscaler                           /docs/products/postgresql/howto/disk-autoscaler  301
 /platform/howto/download-ca-cert                       /docs/platform/concepts/tls-ssl-certificates  301
 /platform/howto/enable-aiven-password                  /docs/platform/reference/password-policy  301
 /platform/howto/list-account                           /docs/platform/howto/list-user  301

@@ -20,5 +20,6 @@ Scale the disk storage of your Aiven for MySQL® service up or down without disr
 
 <RelatedPages/>
 
+- [Disk autoscaler](/docs/products/mysql/howto/disk-autoscaler)
 - [Change the service plan](/docs/products/mysql/howto/change-service-plan)
 - [Memory and out-of-memory conditions](/docs/products/mysql/concepts/mysql-memory-usage)

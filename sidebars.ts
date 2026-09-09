@@ -905,6 +905,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/howto/change-service-plan',
                 'products/kafka/howto/change-standard-kafka-plan',
                 'products/kafka/howto/scale-disk-storage',
+                'products/kafka/howto/disk-autoscaler',
                 'products/kafka/howto/prevent-full-disks',
                 'products/kafka/howto/optimizing-resource-usage',
                 {
@@ -1386,6 +1387,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/clickhouse/howto/change-service-plan',
                 'products/clickhouse/howto/scale-disk-storage',
+                'products/clickhouse/howto/disk-autoscaler',
               ],
             },
             {
@@ -1776,6 +1778,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/mysql/howto/change-service-plan',
                 'products/mysql/howto/scale-disk-storage',
+                'products/mysql/howto/disk-autoscaler',
                 'products/mysql/concepts/mysql-memory-usage',
                 'products/mysql/concepts/mysql-tuning-and-concurrency',
                 'products/mysql/howto/identify-disk-usage-issues',
@@ -1952,6 +1955,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/change-service-plan',
                 'products/opensearch/howto/scale-disk-storage',
+                'products/opensearch/howto/disk-autoscaler',
                 'products/opensearch/howto/prepare-for-high-load',
                 'products/opensearch/concepts/service-memory',
               ],
@@ -2185,6 +2189,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/howto/change-service-plan',
                 'products/postgresql/howto/scale-disk-storage',
+                'products/postgresql/howto/disk-autoscaler',
                 'products/postgresql/concepts/pg-shared-buffers',
                 'products/postgresql/concepts/pg-disk-usage',
                 'products/postgresql/howto/pg-object-size',

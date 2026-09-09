@@ -20,5 +20,6 @@ Scale the disk storage of your Aiven for PostgreSQL® service up or down without
 
 <RelatedPages/>
 
+- [Disk autoscaler](/docs/products/postgresql/howto/disk-autoscaler)
 - [Change the service plan](/docs/products/postgresql/howto/change-service-plan)
 - [Memory and out-of-memory conditions](/docs/products/postgresql/concepts/pg-shared-buffers)
