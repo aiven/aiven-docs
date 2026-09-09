@@ -25,6 +25,7 @@ services only.
 
 <RelatedPages/>
 
+- [Disk autoscaler](/docs/products/kafka/howto/disk-autoscaler)
 - [Change the service plan](/docs/products/kafka/howto/change-service-plan)
 - [Prevent full disks](/docs/products/kafka/howto/prevent-full-disks)
 - [Scaling options in Apache Kafka®](/docs/products/kafka/concepts/horizontal-vertical-scaling)

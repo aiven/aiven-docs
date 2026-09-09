@@ -20,5 +20,6 @@ Scale the disk storage of your Aiven for OpenSearch® service up or down without
 
 <RelatedPages/>
 
+- [Disk autoscaler](/docs/products/opensearch/howto/disk-autoscaler)
 - [Change the service plan](/docs/products/opensearch/howto/change-service-plan)
 - [Memory and out-of-memory conditions](/docs/products/opensearch/concepts/service-memory)

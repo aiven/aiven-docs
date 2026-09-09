@@ -1,5 +1,5 @@
 ---
-title: Scale disk storage for your Aiven for PostgreSQL® service
+title: Scale disk storage for your Aiven for Grafana® service
 sidebar_label: Scale disk storage
 ---
 
@@ -8,7 +8,7 @@ import DiskLimitations from "@site/static/includes/scale-disk-storage-limitation
 import DiskInstructions from "@site/static/includes/scale-disk-storage-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Scale the disk storage of your Aiven for PostgreSQL® service up or down without disrupting the running service.
+Scale the disk storage of your Aiven for Grafana® service up or down without disrupting the running service.
 
 <DiskConcepts/>
 
@@ -20,6 +20,6 @@ Scale the disk storage of your Aiven for PostgreSQL® service up or down without
 
 <RelatedPages/>
 
-- [Disk autoscaler](/docs/products/postgresql/howto/disk-autoscaler)
-- [Change the service plan](/docs/products/postgresql/howto/change-service-plan)
-- [Memory and out-of-memory conditions](/docs/products/postgresql/concepts/pg-shared-buffers)
+- [Disk autoscaler](/docs/products/grafana/howto/disk-autoscaler)
+- [Change the service plan](/docs/products/grafana/howto/change-service-plan)
+- [Memory and out-of-memory conditions](/docs/products/grafana/concepts/service-memory)

@@ -26,6 +26,7 @@ object storage instead, see
 
 <RelatedPages/>
 
+- [Disk autoscaler](/docs/products/clickhouse/howto/disk-autoscaler)
 - [Change the service plan](/docs/products/clickhouse/howto/change-service-plan)
 - [Tiered storage in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/clickhouse-tiered-storage)
 - [Fork your Aiven for ClickHouse® service](/docs/products/clickhouse/howto/fork-service)
