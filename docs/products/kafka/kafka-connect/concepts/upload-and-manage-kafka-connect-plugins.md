@@ -1,7 +1,7 @@
 ---
 title: Upload and manage Kafka Connect plugins
-sidebar_label: Upload and manage plugins
-description: Upload and manage custom Kafka Connect plugins and versions for your organization.
+sidebar_label: Upload connector plugins
+description: Upload custom Kafka Connect plugin JAR files and manage plugin versions for your Aiven organization.
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";

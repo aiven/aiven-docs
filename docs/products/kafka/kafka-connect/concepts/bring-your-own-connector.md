@@ -1,7 +1,15 @@
 ---
 title: Bring your own connector for Aiven for Apache Kafka Connect®
 sidebar_label: Bring your own connector
+description: Upload custom Kafka Connect plugins and create connectors from those plugins on Aiven for Apache Kafka Connect.
 limited: true
+keywords:
+  [
+    bring your own connector,
+    custom Kafka Connect plugin,
+    custom Kafka connector,
+    upload Kafka Connect plugin,
+  ]
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
