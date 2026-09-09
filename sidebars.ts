@@ -1082,6 +1082,7 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/kafka-connect/concepts/upload-and-manage-kafka-connect-plugins',
+                    'products/kafka/kafka-connect/concepts/create-connectors-from-custom-plugins',
                   ],
                 },
                 {
