@@ -58,11 +58,12 @@ In Karapace 6.2.3 and later, enabling OIDC authentication does not disable
 basic authentication. Clients can authenticate with a bearer token or with
 basic authentication.
 
-:::note
-Keep basic authentication enabled while you migrate clients to JWT
-authentication. After all clients use JWT authentication, you can disable
-basic authentication.
-:::
+Schemas remain visible in the Aiven Console after you enable OIDC
+authentication because the Console connects to Schema Registry with basic
+credentials.
+
+You cannot disable Schema Registry basic authentication in the Aiven Console
+or with the Aiven CLI.
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
@@ -340,9 +341,9 @@ Replace the following:
 
 This example sends a `GET` request.
 
-- If you enable only OIDC authentication, any client with a valid token can
-  send the request.
-- If you also enable role-based authorization, the token includes a role
+- If OIDC authentication is enabled and role-based authorization is disabled,
+  any client with a valid token can send the request.
+- If role-based authorization is also enabled, the token must include a role
   allowed for `GET`. With the default mapping, the allowed roles are
   `karapace.schema:read` and `karapace.subject:read`.
 
@@ -354,7 +355,8 @@ for the corresponding method. The default mapping blocks these methods.
 To disable OIDC authentication and role-based authorization, set both options
 to **Disabled**.
 
-Disabling OIDC authentication does not disable basic authentication.
+Disabling OIDC authentication does not affect basic authentication. Basic
+authentication remains enabled.
 
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
