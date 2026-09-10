@@ -2,6 +2,7 @@
 title: Service backups
 ---
 
+import ServiceBackupsConcepts from "@site/static/includes/service-backups-concepts.md";
 import EditBackupSchedule from "@site/static/includes/service-backups-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
@@ -9,17 +10,7 @@ Learn how Aiven backs up your services automatically, where backups are stored, 
 
 All Aiven services, except for Aiven for Apache Kafka®, have automatic encrypted backups.
 
-Backups are stored in the object storage of the cloud region where the service is created,
-for example, S3 for AWS or Google Cloud Storage for Google Cloud.
-
-:::note
-If you change a
-service's cloud provider or an availability zone, its backups are not migrated
-from their original location.
-:::
-
-Whenever a service is powered on from a powered-off state, the latest available
-backup is automatically restored.
+<ServiceBackupsConcepts/>
 
 ## Access to backups
 
