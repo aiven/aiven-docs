@@ -13,6 +13,7 @@ keywords:
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 After an organization admin publishes a custom Kafka Connect plugin, you can create connectors from it on your Kafka Connect service.
 
@@ -133,9 +134,9 @@ topics they use. Review the connector logs for details about the incompatibility
 <!-- REVIEWER NOTE: Add a link to the final Diskless topic compatibility
 guidance or error reference when available. -->
 
-## Next steps
+<RelatedPages/>
 
-- [Bring your own connector](./bring-your-own-connector)
-- [Upload and manage Kafka Connect plugins](./upload-and-manage-kafka-connect-plugins)
-- [Create a Kafka Connect connector](/docs/products/kafka/kafka-connect/howto/create-connector)
-- [Troubleshoot Kafka Connect](/docs/products/kafka/kafka-connect/howto/troubleshoot)
+- [Bring your own connector](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector)
+- [Upload and manage Kafka Connect plugins](/docs/products/kafka/kafka-connect/concepts/upload-and-manage-kafka-connect-plugins)
+- [Available Apache Kafka® Connect connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins)
+- [Troubleshoot connector list unavailable in Apache Kafka® Connect](/docs/products/kafka/kafka-connect/concepts/connect-plugin-list-not-available)
