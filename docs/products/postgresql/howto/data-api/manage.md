@@ -38,8 +38,9 @@ Each database that you expose runs as an independent
 
 After enabling Data API, the **Data API** page shows a **Runtime application** row with a
 link to the dedicated app running PostgREST. Aiven deploys the app in the cloud and
-region you chose when you set up Data API, and bills it separately. You can also find it
-in your project's **Applications** list, tagged **Data API** for easy identification.
+region you chose when you set up Data API, and bills it separately. Aiven Runtime isn't
+available in all clouds and regions yet. You can also find the app in your project's
+**Runtime** list, tagged **Data API** for easy identification.
 
 ## Expose more databases
 
@@ -84,7 +85,7 @@ database, set up the JWKS URL and audience again.
 
 :::note
 If you delete the PostgreSQL service, Aiven also deletes all associated Data API apps.
-The apps are no longer accessible from the **Applications** list or anywhere else.
+The apps are no longer accessible from the **Runtime** list or anywhere else.
 :::
 
 ## Troubleshooting
@@ -115,7 +116,7 @@ different cloud, region, or plan and try again.
 ### The underlying application is powered off
 
 If someone powers off the [Aiven Runtime application](/docs/products/aiven-apps) that
-runs your Data API from the **Applications** list, the **Data API** page shows a warning
+runs your Data API from the **Runtime** list, the **Data API** page shows a warning
 message. Click **Go to app to power it on** in the warning, then power on the
 application. Data API resumes once the application is running again.
 

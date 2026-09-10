@@ -29,8 +29,6 @@ Data API provides the following:
   without writing or hosting an API server.
 - **Schema-driven endpoints**: Each table gets endpoints for the `GET`, `POST`, `PATCH`,
   and `DELETE` methods, based on your database schema.
-- **Ready-to-use code snippets**: Copy `curl`, JavaScript, or Python snippets for each
-  endpoint.
 - **Authentication with your identity provider**: Authenticate requests with the JSON Web
   Tokens (JWTs) issued by your own identity provider (IdP) and verified against your JWKS
   URL.
@@ -43,6 +41,8 @@ When you enable Data API for a database, Aiven deploys a dedicated
 [Aiven Runtime application](/docs/products/aiven-apps) that runs PostgREST and connects it
 to the selected database. By default, the application runs in the same cloud and region as
 your PostgreSQL service, but you can choose a different one when you set up Data API.
+Aiven Runtime isn't available in all clouds and regions yet, so the cloud and region you
+can choose from may be more limited than for your PostgreSQL service.
 PostgREST reads the database schema and publishes a REST endpoint for each table. By
 default, endpoints are published for the `public` schema. To access tables in other
 schemas, include the `Accept-Profile` header with the schema name in your requests.
