@@ -70,7 +70,7 @@ two exceptions:
 - Aiven for MySQL® doesn't enforce TLS at all, so it accepts unencrypted connections
   unless you require TLS for your own database users with `ALTER USER ... REQUIRE SSL`.
 - Aiven for Valkey™ lets you
-  [turn off TLS](/docs/products/valkey/reference/advanced-params#valkey_ssl).
+  [turn off TLS](/docs/products/valkey/howto/manage-ssl-connectivity#allow-plain-text-connections).
 
 Communication between virtual machines within Aiven is secured with
 either TLS or IPsec. There are no unencrypted plaintext connections.
