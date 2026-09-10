@@ -2508,42 +2508,41 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'platform/howto/list-service',
+        'platform/howto/create_new_service',
+        'platform/howto/create_new_service_user',
+        'platform/concepts/service-power-cycle',
+        'platform/concepts/rename-services',
+        'platform/howto/tag-resources',
+        'platform/concepts/service-forking',
         {
           type: 'category',
-          label: 'Concepts',
+          label: 'Scaling and performance',
           items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
             'platform/concepts/service-memory-limits',
             'platform/concepts/out-of-memory-conditions',
-            'platform/concepts/maintenance-window',
+            'platform/howto/prepare-for-high-load',
           ],
         },
-        'platform/howto/controlled-upgrade',
         {
           type: 'category',
-          label: 'Backup and restore',
+          label: 'Maintenance and lifecycle',
+          items: [
+            'platform/concepts/maintenance-window',
+            'platform/howto/controlled-upgrade',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Backups and migration',
           items: [
             'platform/concepts/service_backups',
             'platform/howto/restore_progress_updates',
             'platform/concepts/backup-to-another-region',
           ],
         },
-        {
-          type: 'category',
-          label: 'Service scaling',
-          items: [
-            'platform/howto/scale-services',
-            'platform/howto/add-storage-space',
-            'platform/howto/disk-autoscaler',
-          ],
-        },
-
-        'platform/howto/create_new_service',
-        'platform/concepts/service-power-cycle',
-        'platform/concepts/rename-services',
-        'platform/howto/tag-resources',
-        'platform/howto/create_new_service_user',
-        'platform/concepts/service-forking',
-        'platform/howto/prepare-for-high-load',
       ],
     },
     {
