@@ -54,6 +54,9 @@ curl --request POST                                                          \
 Replace the placeholders with your project name, service name, bearer token, and the
 username to create.
 
+To restrict the privileges granted to the new user, add the optional `mysql_grants`
+field. See [Restrict privileges for a new user](#restrict-privileges-for-a-new-user).
+
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
@@ -64,7 +67,78 @@ to create and manage service users.
 </TabItem>
 </Tabs>
 
+## Restrict privileges for a new user
+
+You can restrict the privileges assigned to a new Aiven for MySQL service user when you
+create it with the Aiven API. By default, a service user gets admin-level privileges,
+including the ability to create other users.
+
+To restrict these privileges, set `mysql_grants` to an array containing only the
+privileges to assign. Set it to an empty array to create a user with no privileges
+beyond connecting to the service. Omit the field to keep the default admin-level
+privileges.
+
+```bash
+curl --request POST                                                          \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user \
+  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                         \
+  --header 'content-type: application/json'                                  \
+  --data '{"username": "USERNAME", "mysql_grants": ["SELECT", "INSERT"]}'
+```
+
+Replace the placeholders with your project name, service name, bearer token, and the
+username to create.
+
+If `mysql_grants` includes `CREATE USER` or `ROLE_ADMIN`, the created user can also grant
+every privilege in the list to other users, equivalent to MySQL's `WITH GRANT OPTION`.
+
+### Available privileges
+
+`mysql_grants` accepts the following values:
+
+| Privilege | Applies to |
+| --- | --- |
+| `ALTER` | Databases you create |
+| `ALTER ROUTINE` | Databases you create |
+| `CREATE` | The service and databases you create |
+| `CREATE ROUTINE` | Databases you create |
+| `CREATE TEMPORARY TABLES` | Databases you create |
+| `CREATE USER` | The service |
+| `CREATE VIEW` | Databases you create |
+| `DELETE` | Databases you create |
+| `DROP` | The service and databases you create |
+| `EVENT` | Databases you create |
+| `EXECUTE` | Databases you create |
+| `INDEX` | Databases you create |
+| `INSERT` | Databases you create |
+| `LOCK TABLES` | Databases you create |
+| `PROCESS` | The service |
+| `REFERENCES` | Databases you create |
+| `RELOAD` | The service |
+| `REPLICATION_APPLIER` | The service |
+| `REPLICATION CLIENT` | The service |
+| `REPLICATION SLAVE` | The service |
+| `ROLE_ADMIN` | The service |
+| `SELECT` | Databases you create, and read-only access to system databases |
+| `SHOW DATABASES` | The service |
+| `SHOW VIEW` | Databases you create |
+| `TRIGGER` | Databases you create |
+| `UPDATE` | Databases you create |
+
+For privileges that apply to databases, Aiven revokes the privilege from the service's
+system databases, except `SELECT`. This keeps read access to system information on every
+user without allowing changes to it.
+
+### Requirements
+
+Restricting privileges at user creation requires your Aiven for MySQL service to
+support granular grants. If your service doesn't support this capability, requests
+that include `mysql_grants` fail with an HTTP `400 Bad Request` status code. To add
+support, review and apply pending
+[maintenance updates](/docs/products/mysql/howto/maintenance-updates) on your service.
+
 <RelatedPages/>
 
 - [Create a database](/docs/products/mysql/howto/create-database)
 - [Connect to your service](/docs/products/mysql/howto/list-code-samples)
+- [Maintenance updates](/docs/products/mysql/howto/maintenance-updates)
