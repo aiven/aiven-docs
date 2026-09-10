@@ -17,7 +17,7 @@ manually upgrade your service to a newer major version.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

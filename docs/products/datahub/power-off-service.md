@@ -16,7 +16,7 @@ Ingestion restarts and access is restored when you power the service back on.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

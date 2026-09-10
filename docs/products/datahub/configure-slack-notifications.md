@@ -15,7 +15,7 @@ and setting environment variables on the actions app.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

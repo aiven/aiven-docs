@@ -21,7 +21,7 @@ Browser sessions are not affected, so logged-in users stay logged in.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

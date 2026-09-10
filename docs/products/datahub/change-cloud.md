@@ -12,7 +12,7 @@ You can change the cloud provider or region of an Aiven for DataHub service at a
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Manage service configuration', 'Operator', 'Project admin'],
+      values: ['role:project:manager', '`project:services:write`', '`service:configuration:write`', '`role:project:admin`'],
     },
   ]}
 />

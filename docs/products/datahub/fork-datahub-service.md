@@ -23,7 +23,7 @@ Common use cases for forking include:
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Recover services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:services:recover`', '`role:project:admin`'],
     },
   ]}
 />

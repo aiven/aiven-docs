@@ -12,7 +12,7 @@ Start using DataHub by creating and configuring your first service.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

@@ -16,7 +16,7 @@ Aiven for DataHub service.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Maintain services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:services:maintenance`', '`role:project:admin`'],
     },
   ]}
 />

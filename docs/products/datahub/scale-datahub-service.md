@@ -12,7 +12,7 @@ Scale your Aiven for DataHub service by changing its service plan to optimize co
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

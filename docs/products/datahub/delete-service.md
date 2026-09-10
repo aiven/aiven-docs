@@ -12,7 +12,7 @@ When you delete an Aiven for DataHub service, all service data and configuration
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

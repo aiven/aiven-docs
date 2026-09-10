@@ -26,7 +26,7 @@ and existing reads keep working. Always test reindexing in a staging environment
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />

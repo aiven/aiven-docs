@@ -21,7 +21,7 @@ Within a service, the tag keys must be unique.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Manage service configuration', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`service:configuration:write`', '`role:project:admin`'],
     },
   ]}
 />

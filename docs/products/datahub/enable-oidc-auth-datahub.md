@@ -14,7 +14,7 @@ You can use any OIDC compliant provider such as Auth0, Okta, Google Identity, or
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['`project:services:write`', '`role:project:admin`'],
     },
   ]}
 />
