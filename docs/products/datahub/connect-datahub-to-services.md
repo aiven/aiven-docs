@@ -11,7 +11,7 @@ Add connectors to your DataHub service to ingest data.
   items={[
     {
       label: 'Permissions',
-      values: ['Manage services', 'Operator', 'Project admin'],
+      values: ['For the DataHub service: `role:project:admin` or `project:integrations:write`. For the service you are connecting, you must have permission to manage service users: `role:project:admin`, `role:project:manager`, or `service:users:write`.'],
     },
   ]}
 />
