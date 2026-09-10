@@ -2502,6 +2502,52 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Service management',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/list-service',
+        {
+          type: 'category',
+          label: 'Concepts',
+          items: [
+            'platform/concepts/service-memory-limits',
+            'platform/concepts/out-of-memory-conditions',
+            'platform/concepts/maintenance-window',
+          ],
+        },
+        'platform/howto/controlled-upgrade',
+        {
+          type: 'category',
+          label: 'Backup and restore',
+          items: [
+            'platform/concepts/service_backups',
+            'platform/howto/restore_progress_updates',
+            'platform/concepts/backup-to-another-region',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Service scaling',
+          items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
+          ],
+        },
+
+        'platform/howto/create_new_service',
+        'platform/concepts/service-power-cycle',
+        'platform/concepts/rename-services',
+        'platform/howto/tag-resources',
+        'platform/howto/create_new_service_user',
+        'platform/concepts/service-forking',
+        'platform/howto/prepare-for-high-load',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Integrations',
       className: 'expandedSection',
       collapsed: false,
