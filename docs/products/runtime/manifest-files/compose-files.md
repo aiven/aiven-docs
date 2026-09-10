@@ -51,7 +51,9 @@ and in the [Docker Compose file reference](https://docs.docker.com/reference/com
 
 Aiven Runtime automatically detects and creates the following data services based
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
-and Aiven for OpenSearch®.
+and Aiven for OpenSearch®. Runtime uses variable names in the Compose file that point to
+the data services. If there are no variable names, it uses
+[default environment variable names](/docs/products/runtime/secrets-and-variables#integrated-service-environment-variables).
 
 Aiven integrates the data services listed in the `depends_on` property.
 You define the service type and tags with the `image` property, for example:

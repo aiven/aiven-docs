@@ -30,7 +30,7 @@ you can manually [redeploy your app](/docs/products/runtime/deploy-apps#redeploy
 
 ## Integrated service environment variables
 
-During application creation, you can select a Compose, Containerfile, or Dockerfile
+To create an application, you can select a Compose, Containerfile, or Dockerfile
 manifest to scan. For Compose files, Aiven detects supported data service images,
 and suggests Aiven services and integrations. If an environment variable in the Compose
 file points to one of those detected data services, Aiven uses that variable name.

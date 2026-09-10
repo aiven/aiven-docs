@@ -444,14 +444,7 @@ const sidebars: SidebarsConfig = {
             'products/runtime/manifest-files/containerfiles',
           ],
         },
-        {
-          type: 'category',
-          label: 'Integrations',
-          items: [
-            'products/runtime/connect-services-to-apps',
-            'products/runtime/environment-variables',
-          ],
-        },
+        'products/runtime/connect-services-to-apps',
         {
           type: 'category',
           label: 'App management',
