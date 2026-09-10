@@ -41,7 +41,10 @@ To connect your GitHub account, install the Aiven Platform app on GitHub:
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Click **Deploy application**.
-1. Click <ConsoleIcon name="plusCircle"/> **Connect another account**.
+1. If you did not connect an account before, click **Connect GitHub account**.
+
+   If you have connected other accounts,
+   click <ConsoleIcon name="plusCircle"/> **Connect another account**.
 1. Click **GitHub**.
 1. On the tab that opens, select a GitHub account.
 1. Select **All repositories** or choose specific repositories.
