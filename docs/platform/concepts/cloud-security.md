@@ -64,10 +64,10 @@ that provides an object storage is used.
 
 ## Networking security
 
-Customer access to provided services uses TLS encrypted connections by default. Some
-services, such as Aiven for Valkey™, let you turn this off. For Aiven for MySQL®, the
-server doesn't enforce TLS, so it accepts unencrypted connections unless you require
-TLS for your own database users with `ALTER USER ... REQUIRE SSL`.
+Aiven enforces TLS encrypted connections for customer access to services by default,
+with two exceptions. Aiven for Valkey™ lets you turn off TLS if you choose to. Aiven
+for MySQL® doesn't enforce TLS at all, so it accepts unencrypted connections unless
+you require TLS for your own database users with `ALTER USER ... REQUIRE SSL`.
 
 Communication between virtual machines within Aiven is secured with
 either TLS or IPsec. There are no unencrypted plaintext connections.
