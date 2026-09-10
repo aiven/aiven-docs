@@ -2,6 +2,8 @@
 title: Cloud security
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Learn about Aiven's access control, encryption, network security, data privacy and operator access.
 
 ## Cloud provider accounts
@@ -62,9 +64,13 @@ that provides an object storage is used.
 
 ## Networking security
 
-Customer access to provided services is only provided over TLS encrypted
-connections. There is no option for using unencrypted plaintext
-connections.
+Aiven enforces TLS encrypted connections for customer access to services by default, with
+two exceptions:
+
+- Aiven for MySQL® doesn't enforce TLS at all, so it accepts unencrypted connections
+  unless you require TLS for your own database users with `ALTER USER ... REQUIRE SSL`.
+- Aiven for Valkey™ lets you
+  [turn off TLS](/docs/products/valkey/howto/manage-ssl-connectivity#allow-plain-text-connections).
 
 Communication between virtual machines within Aiven is secured with
 either TLS or IPsec. There are no unencrypted plaintext connections.
@@ -156,3 +162,10 @@ the latest maintenance patches applied.
 All Aiven backend and customer services are configured to use trusted
 NTP (Network Time Protocol) servers of the respective cloud provider
 where each service is deployed.
+
+<RelatedPages/>
+
+- [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity)
+- [Advanced parameters for Aiven for Valkey™](/docs/products/valkey/reference/advanced-params)
+- [Manage Aiven for MySQL® service users](/docs/products/mysql/howto/manage-service-users)
+- [Roles and permissions](/docs/platform/concepts/permissions)
