@@ -6,6 +6,7 @@ description: Upload custom Kafka Connect plugin JAR files and manage plugin vers
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Upload and manage custom Kafka Connect plugins for your organization. Users with access to a Kafka Connect service can then create connectors from those plugins.
 
@@ -164,7 +165,7 @@ If the upload fails, match the message to the following actions:
 | No connector classes found. | Select a file that contains at least one Kafka Connect source or sink connector class, or check with the plugin author. |
 | Upload is taking longer than expected. | Don't close **Upload plugin** until the upload finishes. |
 
-## Next steps
+<RelatedPages/>
 
-- [Bring your own connector](./bring-your-own-connector)
-- [Create connectors from custom plugins](./create-connectors-from-custom-plugins)
+- [Bring your own connector](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector)
+- [Create custom Kafka Connect connectors](/docs/products/kafka/kafka-connect/concepts/create-connectors-from-custom-plugins)
