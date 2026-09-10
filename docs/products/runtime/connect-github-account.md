@@ -1,5 +1,5 @@
 ---
-title: Connect a GitHub account
+title: Connect or configure a GitHub account
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
@@ -66,5 +66,5 @@ or uninstall the Aiven Platform app.
 ## Troubleshooting
 
 If you have issues connecting your GitHub account,
-[uninstall the Aiven Platform app on GitHub](https://docs.github.com/en/enterprise-cloud@latest/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
+[uninstall the Aiven Platform app from GitHub](https://docs.github.com/en/enterprise-cloud@latest/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
 and try again.
