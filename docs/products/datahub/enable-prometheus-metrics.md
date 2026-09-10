@@ -8,9 +8,11 @@ import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Enable Prometheus metrics for your Aiven for DataHub service to monitor its performance and health.
-The service exposes operational metrics including request rates, latencies, and resource usage.
+The service exposes operational metrics including request rates, latencies,
+and resource usage.
 
-You can enable Prometheus metrics and secure them by setting environment variables in the GMS application and
+You can enable Prometheus metrics and secure them by setting environment variables
+in the GMS application.
 
 <RequirementsPanel
   items={[
@@ -73,9 +75,9 @@ Requests without a valid token return an HTTP `401 Unauthorized` status code.
 
 ## Access related metrics
 
-Related metrics in JSON format are available at the `/actuator/metrics` endpoint.
+You can get related metrics in JSON format at the `/actuator/metrics` endpoint.
 
 ## Security
 
 To restrict access to the metrics to authenticated users,
-Do not expose port `4319` and do not include Prometheus to the excluded paths.
+do not expose port `4319` and do not include Prometheus in the excluded paths.
