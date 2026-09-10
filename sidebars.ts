@@ -57,7 +57,6 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
                 'platform/howto/view-project-logs',
-                'platform/howto/manage-unassigned-projects',
               ],
             },
             {

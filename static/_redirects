@@ -97,6 +97,7 @@
 /platform/howto/list-user                              /docs/platform/howto/manage-org-users  301
 /platform/howto/make-super-admin                       /docs/platform/howto/manage-permissions  301
 /platform/howto/manage-org-vpc-peering-upcloud         /docs/platform/howto/list-organization-vpc-peering  301
+/platform/howto/manage-unassigned-projects             /docs/platform/howto/manage-project  301
 /platform/howto/manage-vpc-peering                     /docs/platform/howto/manage-project-vpc  301
 /platform/howto/metrics-integrations                   /docs/platform/howto/list-monitoring  301
 /platform/howto/migrate-services                       /docs/products/postgresql/howto/list-replication-migration  301
