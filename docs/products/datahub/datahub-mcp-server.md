@@ -2,7 +2,27 @@
 title: Use the DataHub MCP server
 ---
 
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+
 Make your data ecosystem visible to AI agents with the DataHub MCP server, enabling natural language search, end-to-end lineage tracking, and context-aware SQL generation.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'DataHub UI permissions',
+      icon: 'people',
+      values: [
+        <>
+          <code>Generate Personal Access Tokens</code> or
+          <code>Manage All Access Tokens</code>. <br/>
+          View the <a href="https://docs.datahub.com/docs/authorization/policies">
+          DataHub access control policies documentation
+          </a>
+        </>,
+      ],
+    },
+  ]}
+/>
 
 ## Prerequisites
 

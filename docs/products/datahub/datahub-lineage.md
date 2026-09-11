@@ -3,6 +3,8 @@ title: View data lineage in DataHub
 sidebar_label: View data lineage
 ---
 
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+
 Data lineage is a map of how each of your data assets moves across your systems. Lineage can help you:
 
 - Understand your data flows at a glance, even in complex architectures.
@@ -19,6 +21,22 @@ In DataHub, data assets are called datasets.
 External services that you connect to DataHub are not shown in the
 data lineage.
 :::
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'DataHub UI permissions',
+      values: [
+          <>
+          <code>Reader</code>, <code>Editor</code>, or <code>Admin</code> <br/>
+          View the <a href="https://docs.datahub.com/docs/authorization/policies">
+          DataHub access control policies documentation
+          </a>
+        </>,
+      ],
+    },
+  ]}
+/>
 
 ## View lineage for a dataset
 

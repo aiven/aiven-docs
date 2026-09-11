@@ -4,8 +4,18 @@ sidebar_label: Get started
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Start using DataHub by creating and configuring your first service.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`role:project:admin`'],
+    },
+  ]}
+/>
 
 :::important
 To avoid issues, don’t make any changes to the plans or other settings of

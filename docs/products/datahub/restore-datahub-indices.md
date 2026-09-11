@@ -1,7 +1,10 @@
 ---
 title: Reindex Aiven for DataHub search and graph indices
 sidebar_label: Reindex search and graph indices
+limited: true
 ---
+
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Rebuild your OpenSearch indices for search and graph data if your search results or relationship graphs differ from the data in your metadata database.
 This is useful:
@@ -18,6 +21,15 @@ replays every aspect from the database back into search and graph stores.
 
 You can run this at any time. Events are replayed asynchronously
 and existing reads keep working. Always test reindexing in a staging environment first.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`role:project:admin`'],
+    },
+  ]}
+/>
 
 ## Prerequisites
 

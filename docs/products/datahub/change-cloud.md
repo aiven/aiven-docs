@@ -4,8 +4,18 @@ sidebar_label: Change cloud
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can change the cloud provider or region of an Aiven for DataHub service at any time.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['role:project:manager', '`project:services:write`', '`service:configuration:write`', '`role:project:admin`'],
+    },
+  ]}
+/>
 
 1. In your project, click <ConsoleLabel name="services"/>.
 1. Open your DataHub service.
