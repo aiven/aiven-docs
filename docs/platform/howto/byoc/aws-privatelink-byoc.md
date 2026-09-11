@@ -14,6 +14,9 @@ Enable and manage AWS PrivateLink for your Aiven services deployed in your own c
 - AWS PrivateLink for Aiven BYOC is a feature with [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 - You can enable AWS PrivateLink for your Aiven BYOC service only if it uses the [AWS BYOC
   private deployment](/docs/platform/concepts/byoc#byoc-architecture) model.
+- To use [cross-region
+  connections](/docs/platform/howto/use-aws-privatelinks#allow-cross-region-connections)
+  with a BYOC service, [set up the required permissions](#set-up-permissions) first.
 
 ## Prerequisites
 
@@ -37,6 +40,11 @@ required permissions to your own AWS account:
 
 See
 [Use AWS PrivateLink with Aiven services](/docs/platform/howto/use-aws-privatelinks#enable-aws-privatelink).
+
+## Allow cross-region connections
+
+See
+[Allow cross-region connections](/docs/platform/howto/use-aws-privatelinks#allow-cross-region-connections).
 
 <RelatedPages/>
 
