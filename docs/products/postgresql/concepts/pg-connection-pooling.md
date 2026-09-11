@@ -3,15 +3,11 @@ title: Aiven for PostgreSQL® connection pooling with PgBouncer
 sidebar_label: PgBouncer connection pooling
 ---
 
-import VerifyPasswordEncryption from "@site/static/includes/pg-password-encryption.md";
-
 Connection pooling in Aiven for PostgreSQL® services allows you to maintain very large numbers of connections to a database while minimizing the consumption of server resources.
 
 :::note
 Connection pooling requires a startup plan or higher.
 :::
-
-<VerifyPasswordEncryption/>
 
 ## About connection pooling
 
