@@ -218,6 +218,8 @@ JSONPath
 JumpCloud
 JVM's
 JWT's
+JWTs?
+JWKS
 Kafbat
 Kafdrop
 kafka
@@ -272,6 +274,7 @@ Okta
 Omni
 onboarding
 Opendistro
+OpenAPI
 OpenSearch
 OpenSearch Security
 Opensearch_acl_config
@@ -316,6 +319,7 @@ PNGs?
 Podman
 pooler
 PostgreSQL
+PostgREST
 Postman
 preformatted
 prepper
