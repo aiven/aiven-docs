@@ -4,7 +4,9 @@ sidebar_label: Manage queries
 description: Save and organize your queries for reuse.
 ---
 
-PG Studio lets you save useful SQL and revisit recently executed statements, so you can continue analysis without rewriting queries.
+import ConsoleIcon from "@site/src/components/ConsoleIcons";
+
+The <ConsoleIcon name="sql editor"/> lets you save useful SQL and revisit recently executed statements, so you can continue analysis without rewriting queries.
 
 ## Save queries
 
@@ -13,11 +15,12 @@ users in the same Aiven for PostgreSQL service can't see your saved queries.
 
 To save a query:
 
-1. In the SQL editor, write or generate your query.
+1. In the <ConsoleIcon name="sql editor"/>, write or generate your query.
 1. Run the query and verify the result.
 1. Click **Save**.
 
-PG Studio saves the query using the current tab name. The query appears in **Saved queries**.
+The <ConsoleIcon name="sql editor"/> saves the query using the current tab name. The
+query appears in **Saved queries**.
 
 ## Access saved queries and query history
 
@@ -29,7 +32,7 @@ For write query history and fork-based rollback, see
 
 To open a saved query or a recent query:
 
-1. In the SQL editor, click **Saved queries**.
+1. In the <ConsoleIcon name="sql editor"/>, click **Saved queries**.
 1. Select a query from the list to load it into the editor.
 1. Click **Run** to execute the query.
 
