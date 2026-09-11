@@ -235,6 +235,7 @@ Klaw
 Kpow
 Kubernetes
 kuromoji
+LibreDB
 LLM
 LLMs
 Loggly
