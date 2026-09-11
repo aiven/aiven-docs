@@ -5,6 +5,7 @@ accessor
 accessors
 Addons
 africa
+[Aa]gentic
 AIInsights
 Aiven
 aiven_cmk
@@ -47,6 +48,7 @@ business
 BYOC
 Cassandra
 Centrify
+chatbots?
 checkpointing
 CIDRs
 CLI's
@@ -148,6 +150,7 @@ filesets
 Fileset
 Filesets
 Flink
+Fluentd
 Followerfetching
 Forecast
 Forecasted
@@ -249,6 +252,7 @@ Mezmo
 MirrorMaker
 MongoDB
 multicast
+multimodal
 mydumper
 myhoard
 myloader
@@ -289,6 +293,7 @@ Papertrail
 parallelization
 Paulo
 Paxos
+PDFs?
 peering
 peerings
 Percona
@@ -342,6 +347,7 @@ refcard
 reindex
 reindexed
 reindexing
+rerank\w*
 remoteSecure
 renewables
 repo

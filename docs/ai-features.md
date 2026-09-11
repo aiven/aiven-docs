@@ -63,6 +63,12 @@ already using.
     </span>
   </div>
   <div className="ai-capability-row">
+    <span className="ai-capability-label">Agentic AI</span>
+    <span className="ai-capability-pills">
+      <Link className="ai-capability-pill" to="/docs/products/opensearch/use-cases#agentic-ai">OpenSearch</Link>
+    </span>
+  </div>
+  <div className="ai-capability-row">
     <span className="ai-capability-label">Query optimization</span>
     <span className="ai-capability-pills">
       <Link className="ai-capability-pill" to="/docs/products/postgresql/howto/ai-insights">Postgres</Link>
