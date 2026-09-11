@@ -1,5 +1,6 @@
 188
 ACL
+avnadmin
 ACLs
 accessor
 accessors
@@ -458,6 +459,11 @@ NSGs?
 VPC/MS
 VPCs?
 VPN
+GKE
+kubectl
+PSC
+replayer
+RFS
 VPNs
 wget
 Wireshark
