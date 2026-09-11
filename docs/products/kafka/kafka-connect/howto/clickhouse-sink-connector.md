@@ -128,9 +128,8 @@ Create a file named `clickhouse_sink_connector.json` with the following configur
 - `username`: Username for authentication in the ClickHouse service.
 - `password`: Password for authentication in the ClickHouse service.
 - `ssl`: Set to `true` to enable SSL encryption.
-- `jdbcConnectionProperties`: Extra ClickHouse connection properties. For
-  ClickHouse 25.10 or later, set
-  `custom_http_params=enable_http_compression=0`.
+- `jdbcConnectionProperties`: Turns off HTTP response compression for ClickHouse
+  25.10 or later. Set `custom_http_params=enable_http_compression=0`.
 
 For more configuration options, see the
 [ClickHouse sink connector GitHub repository](https://github.com/ClickHouse/clickhouse-kafka-connect).
