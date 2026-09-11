@@ -103,6 +103,36 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Services</b>
         </>
       );
+    case 'agents':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.cpuChip} /> <b>Agents</b>
+        </>
+      );
+    case 'agentoverview':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dashboard} /> <b>Overview</b>
+        </>
+      );
+    case 'agentschedules':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.time} /> <b>Agent schedules</b>
+        </>
+      );
+    case 'newchat':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} /> <b>New chat</b>
+        </>
+      );
+    case 'chathistory':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.chat} /> <b>Chat history</b>
+        </>
+      );
     case 'aiinsights':
       return (
         <>
