@@ -4,18 +4,33 @@ title: Deploy an application
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import GitHubAccountVisibilityNote from "@site/static/includes/runtime-github-account-visibility-note.md";
 
 Build and deploy applications using Aiven Runtime from source code in a GitHub repository.
 
-You must be an Aiven [organization admin](/docs/platform/concepts/permissions)
-to connect your GitHub account. On GitHub, you must be
-an [organization owner](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners).
-You can also connect a personal GitHub account.
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin` to connect a GitHub account. `project:services:write`, `role:project:manager`, or `role:project:admin` to deploy applications.'],
+    },
+    {
+      label: 'GitHub permissions',
+      icon: 'people',
+      values: [
+         <>
+           To connect a GitHub organization account, you must be an{' '}
+           <a href="https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners">
+             organization owner
+           </a>. You can also connect a personal GitHub account.
+         </>,
+       ],
+    }
+  ]}
+/>
 
-:::note
-When you connect a GitHub account to your Aiven organization, all users in that
-organization can select that account in Aiven Runtime.
-:::
+<GitHubAccountVisibilityNote/>
 
 ## Deploy an application
 
