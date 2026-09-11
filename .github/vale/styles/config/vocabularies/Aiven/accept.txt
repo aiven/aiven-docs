@@ -45,6 +45,7 @@ BTAR
 Bucardo
 business
 BYOC
+BYOK
 Cassandra
 Centrify
 checkpointing
