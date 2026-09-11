@@ -44,6 +44,7 @@ For compute, storage, and network billing, see
 <RelatedPages />
 
 - [Get started with Aiven for Apache Kafka®](/docs/products/kafka/get-started/get-started-kafka)
+- [Aiven for Apache Kafka® service tiers](/docs/products/kafka/get-started/service-tiers)
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
 - [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)

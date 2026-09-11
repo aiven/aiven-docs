@@ -82,4 +82,5 @@ Free tier Kafka services operate as follows:
 
 <RelatedPages/>
 
-[Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service)
+- [Aiven for Apache Kafka® service tiers](/docs/products/kafka/get-started/service-tiers)
+- [Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service)
