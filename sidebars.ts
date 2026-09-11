@@ -1075,6 +1075,18 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                   type: 'category',
+                  label: 'Bring your own connector',
+                  link: {
+                    type: 'doc',
+                    id: 'products/kafka/kafka-connect/concepts/bring-your-own-connector',
+                  },
+                  items: [
+                    'products/kafka/kafka-connect/concepts/upload-and-manage-kafka-connect-plugins',
+                    'products/kafka/kafka-connect/concepts/create-connectors-from-custom-plugins',
+                  ],
+                },
+                {
+                  type: 'category',
                   label: 'Source connectors',
                   items: [
                     'products/kafka/kafka-connect/howto/amqp-source-connector',
