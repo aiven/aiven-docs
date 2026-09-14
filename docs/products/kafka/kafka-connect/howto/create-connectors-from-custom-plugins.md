@@ -63,7 +63,8 @@ from **Ready for install** to **Installed**.
 1. Click <ConsoleLabel name="Connectors"/>.
 1. Click the **Custom plugins** tab.
 
-Connectors are grouped by plugin. Each group shows the plugin version.
+The **Custom plugins** tab groups connectors by plugin. Each group shows the
+plugin version.
 
 For each connector, you can view its:
 
@@ -89,20 +90,8 @@ the Kafka Connect service.
 Changing the plugin version briefly restarts Kafka Connect and its active
 connector tasks.
 
-After the restart, check the connector status and logs for configuration or
+After the restart, review the connector status and logs for configuration or
 compatibility errors.
-
-## Delete a plugin or version
-
-Organization admins cannot delete a plugin version that is installed on a
-Kafka Connect service.
-
-Connectors that use the version keep running until you delete those
-connectors or change the plugin version on the service.
-
-After the version is removed from all services, an organization admin can
-delete it. For more information, see
-[Delete a plugin version](/docs/products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins#delete-a-plugin-version).
 
 ## Troubleshoot
 
@@ -110,14 +99,14 @@ delete it. For more information, see
 
 - Confirm that you selected **Custom plugins** instead of **Aiven-managed**.
 - Ask your organization admin whether the plugin and version are available.
-- Confirm that the uploaded `.jar` file contains the source or sink connector
-  class you need.
+- Confirm that the uploaded `.jar` or `.zip` file contains the source or sink
+  connector class you need.
 
 ### A plugin has no connector classes
 
 If a plugin shows **No connector classes available for this plugin**, ask your
-organization admin to confirm that the uploaded `.jar` file contains a valid
-Kafka Connect source or sink connector class.
+organization admin to confirm that the uploaded `.jar` or `.zip` file contains
+a valid Kafka Connect source or sink connector class.
 
 ### Connector creation restarts the service
 

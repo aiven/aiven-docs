@@ -23,15 +23,21 @@ Bring your own connector is available on standalone Kafka Connect services.
 Organization admins upload and manage plugins for the organization. Users with
 access to a Kafka Connect service can create connectors from those plugins.
 
-Custom plugins support Kafka Connect source and sink connectors. Single message
-transforms, header converters, and other plugin types are not supported.
+A custom plugin file requires at least one Kafka Connect source or sink
+connector class. Aiven detects these connector classes and lists them for you
+to configure.
+
+A plugin file can also contain other class types, such as Single Message
+Transforms or header converters. Aiven doesn't detect or list these separately,
+and they aren't supported plugin types, even if they work because they're
+packaged alongside a connector class.
 
 ## Key concepts
 
 Bring your own connector uses the following concepts:
 
-- **Plugin**: A Kafka Connect plugin that you upload as a `.jar` file. A plugin
-  can contain one or more source or sink connector classes.
+- **Plugin**: A Kafka Connect plugin that you upload as a `.jar` or `.zip`
+  file. A plugin can contain one or more source or sink connector classes.
 - **Version**: A specific version of a plugin, for example `2.15.3`. You can
   upload multiple versions of a plugin. Uploading a new version does not
   replace existing versions.
@@ -49,12 +55,12 @@ Connect service.
 
 Bring your own connector works as follows:
 
-1. **Upload a plugin.** An organization admin uploads a `.jar` file and
-   specifies a version.
+1. **Upload a plugin.** An organization admin uploads a `.jar` or `.zip` file
+   and specifies a version.
 1. **Identify connector classes.** Aiven processes the file and identifies
    the source and sink connector classes.
 1. **Review connector classes.** The organization admin reviews the classes
-   and adds a name, author, documentation URL, and description.
+   and can update the name, author, documentation URL, and description.
 1. **Create a connector.** If you have access to a Kafka Connect service,
    select **Custom plugins**, choose a connector class, and configure the
    connector.

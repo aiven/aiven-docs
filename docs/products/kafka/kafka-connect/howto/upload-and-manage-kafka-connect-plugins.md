@@ -1,7 +1,7 @@
 ---
 title: Upload and manage Kafka Connect plugins
 sidebar_label: Upload connector plugins
-description: Upload custom Kafka Connect plugin JAR files and manage plugin versions for your Aiven organization.
+description: Upload custom Kafka Connect plugin files and manage plugin versions for your Aiven organization.
 limited: true
 ---
 
@@ -20,8 +20,8 @@ Before you begin, make sure you have:
 
 - Bring your own connector enabled for your organization
 - The Organization admin role
-- A `.jar` file that is 150 MB or smaller and contains at least one Kafka
-  Connect source or sink connector class
+- A `.jar` or `.zip` file that is 150 MB or smaller and contains at least one
+  Kafka Connect source or sink connector class
 
 :::note
 Aiven provides the platform to upload and manage plugins. You are
@@ -40,8 +40,8 @@ plugins that you upload.
    - **Description**: Optional. Information about what the plugin does and any
      customizations.
 1. Click **Next**.
-1. On **Upload plugin**, in **JAR file**, select a `.jar` file that is 150 MB
-   or smaller.
+1. On **Upload plugin**, select a `.jar` or `.zip` file that is 150 MB or
+   smaller.
 1. Select the confirmation that you are responsible for the security,
    compatibility, and runtime behavior of the plugin.
 1. Click **Upload**.
@@ -81,6 +81,8 @@ The **Versions** tab shows each plugin version and the following information:
 - **Description**
 - **Created at** date
 
+Each plugin version has its own description.
+
 ## View connectors that use a version
 
 The **Versions** tab shows how many connectors use each plugin version.
@@ -93,13 +95,13 @@ where they run.
 1. On the **Versions** tab, click the plugin version.
 1. Click **Active connectors**.
 
-## Edit plugin details
+## Edit plugin description
 
 1. Click **Admin** in the top navigation bar.
 1. Click <ConsoleLabel name="platform management"/> > **Kafka Connect plugins**.
 1. Click a plugin.
 1. In **Plugin details**, click **Edit**.
-1. Update the plugin information.
+1. Update the plugin description.
 1. Click **Save**.
 
 ## Edit connector class details
@@ -117,7 +119,7 @@ where they run.
 1. Click <ConsoleLabel name="platform management"/> > **Kafka Connect plugins**.
 1. Click a plugin.
 1. Click **Upload new version**.
-1. In **JAR file**, select a `.jar` file that is 150 MB or smaller.
+1. Select a `.jar` or `.zip` file that is 150 MB or smaller.
 1. Enter:
    - **Version**: A version identifier, for example `2.15.3`.
    - **Description**: Optional. Information about the changes in this version.
@@ -142,8 +144,8 @@ Aiven adds the new version without replacing existing versions.
 ## Delete a plugin version
 
 :::important
-You cannot delete a plugin version that is installed on a Kafka Connect service
-in the organization.
+You cannot delete a plugin version while a Kafka Connect service in the
+organization uses it.
 
 If a service uses `latest`, you also cannot delete the plugin version that
 currently resolves to `latest`.
@@ -165,9 +167,8 @@ To find the services that use the plugin version, see
 ## Delete a plugin
 
 :::important
-Deleting a plugin deletes all its versions except those installed on a Kafka
-Connect service. This also applies to the plugin version that `latest` resolves
-to.
+Deleting a plugin deletes all its versions except those used by a Kafka Connect
+service. This also applies to the plugin version that `latest` resolves to.
 
 To delete the plugin and all its versions, first remove or change those plugin
 versions on every affected service.
@@ -187,17 +188,16 @@ If the upload fails, match the message to the following actions:
 
 | Message | Recommended action |
 | --- | --- |
-| Select a JAR file to upload | The upload accepts only a `.jar` file. Select a `.jar` file. |
+| Select a JAR file to upload | Select a `.jar` or `.zip` file. |
 | Upload failed | Check your connection. Try again. |
-| Plugin validation failed. | Select a `.jar` file that packages a Kafka Connect plugin. |
-| No connector classes were discovered in this plugin. | Select a file that contains at least one Kafka Connect source or sink connector class, or check with the plugin author. |
+| Plugin validation failed. | Select a `.jar` or `.zip` file that packages a Kafka Connect plugin. |
+| No connector classes were discovered in this plugin. | Select a file that contains at least one Kafka Connect source or sink connector class, or contact the plugin author. |
 | Upload is taking longer than expected. | Don't close **Upload plugin** until the upload finishes. |
 
 ### A plugin version is in use
 
-If the plugin version is installed on a Kafka Connect service, the delete
-fails. The error lists the plugin name, version, and number of affected
-services.
+If a Kafka Connect service uses the plugin version, Aiven rejects the delete.
+The error lists the plugin name, version, and number of affected services.
 
 Remove the plugin version from those services, then try the delete again. For
 more information about the services that use the version, see
