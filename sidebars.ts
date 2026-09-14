@@ -2103,6 +2103,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/connect-zapier',
                     'products/postgresql/howto/connect-datagrip',
                     'products/postgresql/howto/connect-dbeaver',
+                    'products/postgresql/howto/connect-libredb-studio',
                   ],
                 },
                 {
