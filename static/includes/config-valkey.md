@@ -187,6 +187,18 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="valkey_active_defrag_ignore_bytes"/><Link to="#valkey_active_defrag_ignore_bytes"><strong>valkey_active_defrag_ignore_bytes</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1048576</code></li><li>max: <code>1073741824</code></li><li>default: <code>104857600</code></li></ul></div>
+        <p className="title">Active defrag minimum fragmentation waste</p><div className="description"><p>Minimum amount of fragmentation waste, in bytes, before active defragmentation starts. Only takes effect when `valkey_activedefrag` is enabled.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="valkey_active_defrag_threshold_lower"/><Link to="#valkey_active_defrag_threshold_lower"><strong>valkey_active_defrag_threshold_lower</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>100</code></li><li>default: <code>10</code></li></ul></div>
+        <div className="description"><p>Minimum percentage of fragmentation before active defragmentation starts. Only takes effect when `valkey_activedefrag` is enabled.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="valkey_acl_channels_default"/><Link to="#valkey_acl_channels_default"><strong>valkey_acl_channels_default</strong></Link></p><p><code className="type">string</code></p></div>
         <p className="title">Default ACL for pub/sub channels used when a Valkey user is created</p><div className="description"><p>Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Valkey configuration acl-pubsub-default.</p></div>
       </td>
