@@ -13,11 +13,8 @@ keywords:
 ---
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
-import RelatedPages from "@site/src/components/RelatedPages";
 
-Bring your own connector lets you upload Kafka Connect plugins and create
-connectors from the connector classes they provide on Aiven for Apache Kafka®
-Connect.
+Bring your own connector lets you upload Kafka Connect plugins and create connectors from the connector classes they provide on Aiven for Apache Kafka® Connect.
 
 This feature is in <LimitedBadge/>. To try it, contact the
 [sales team](https://aiven.io/contact).
@@ -25,6 +22,9 @@ This feature is in <LimitedBadge/>. To try it, contact the
 Bring your own connector is available on standalone Kafka Connect services.
 Organization admins upload and manage plugins for the organization. Users with
 access to a Kafka Connect service can create connectors from those plugins.
+
+Custom plugins support Kafka Connect source and sink connectors. Single message
+transforms, header converters, and other plugin types are not supported.
 
 ## Key concepts
 
@@ -42,19 +42,8 @@ Bring your own connector uses the following concepts:
   service. Each connector has its own name and configuration.
 
 You can create multiple connectors from the same connector class. You can also
-change the plugin version used by a connector.
-
-<!-- REVIEWER NOTE: Confirm deletion behavior before publishing it in the
-user documentation. The design shows connectors continuing to run until the
-next service upgrade after a plugin or version is deleted, while implementation
-behavior needs confirmation.
-Document the confirmed behavior in create-connectors-from-custom-plugins.md
-under "What happens when a plugin or version is deleted". -->
-
-<!-- REVIEWER NOTE: Confirm the maximum plugin file size before publishing it.
-The design sources show different limits. Add the confirmed value to
-upload-and-manage-kafka-connect-plugins.md, where users need it when uploading
-a file. -->
+change the plugin version for all connectors that use that plugin on a Kafka
+Connect service.
 
 ## How it works
 
@@ -69,19 +58,24 @@ Bring your own connector works as follows:
 1. **Create a connector.** If you have access to a Kafka Connect service,
    select **Custom plugins**, choose a connector class, and configure the
    connector.
-1. **Install the plugin.** When you create the first connector that uses a
-   plugin version, Aiven installs that version on the Kafka Connect service.
+1. **Install the plugin.** If the plugin version isn't installed on the Kafka
+   Connect service, Aiven installs it when you create a connector that uses
+   that version.
 
-Installing a plugin version briefly restarts the Kafka Connect service and
-its active connector tasks.
+Installing a plugin version briefly restarts Kafka Connect and its active
+connector tasks.
 
 ## Responsibility for custom plugins
 
+Aiven provides the platform to upload plugins, install them on Kafka Connect
+services, and create connectors from those plugins.
+
 You are responsible for the security, compatibility, and runtime behavior of
-plugins that you upload. Only upload plugins from sources that you trust.
+the plugins that you upload and the connectors that you create from them. Only
+upload plugins from sources that you trust.
 
 ## Next steps
 
-- [Upload and manage Kafka Connect plugins](/docs/products/kafka/kafka-connect/concepts/upload-and-manage-kafka-connect-plugins)
-- [Create custom Kafka Connect connectors](/docs/products/kafka/kafka-connect/concepts/create-connectors-from-custom-plugins)
+- [Upload and manage Kafka Connect plugins](/docs/products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins)
+- [Create connectors from custom plugins](/docs/products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins)
 - [Available Apache Kafka® Connect connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins)
