@@ -51,7 +51,8 @@ API URL, and authentication settings.
 ## Rotate identity provider keys
 
 Key rotation is automatic. Data API reads your IdP's public keys from the JWKS URL and
-picks up rotated keys from the same URL. For more information, see
+picks up rotated keys from the same URL, refreshing them about every 12 hours by
+default. For more information, see
 [Configure the JWKS URL](/docs/products/postgresql/howto/data-api/authentication#configure-the-jwks-url).
 
 ## Change authentication settings
