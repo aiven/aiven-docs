@@ -1081,8 +1081,8 @@ const sidebars: SidebarsConfig = {
                     id: 'products/kafka/kafka-connect/concepts/bring-your-own-connector',
                   },
                   items: [
-                    'products/kafka/kafka-connect/concepts/upload-and-manage-kafka-connect-plugins',
-                    'products/kafka/kafka-connect/concepts/create-connectors-from-custom-plugins',
+                    'products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins',
+                    'products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins',
                   ],
                 },
                 {
