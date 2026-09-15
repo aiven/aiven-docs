@@ -1529,6 +1529,11 @@ const sidebars: SidebarsConfig = {
                 'products/datahub/restore-datahub-indices',
               ],
             },
+            {
+              type: 'category',
+              label: 'Monitoring',
+              items: ['products/datahub/enable-prometheus-metrics'],
+            },
             'products/datahub/fork-datahub-service',
           ],
         },
