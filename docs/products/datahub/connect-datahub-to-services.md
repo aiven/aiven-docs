@@ -3,8 +3,18 @@ title: Connect DataHub to services
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Add connectors to your DataHub service to ingest data.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['For the DataHub service: `role:project:admin` or `project:integrations:write`. For the service you are connecting, you must have permission to manage service users: `role:project:admin`, `role:project:manager`, or `service:users:write`.'],
+    },
+  ]}
+/>
 
 ## Connect Aiven services
 
