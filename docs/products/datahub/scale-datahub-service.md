@@ -36,10 +36,7 @@ and Aiven for OpenSearch® services.
 Beyond changing the DataHub service plan, you can also scale the underlying resources
 for your DataHub service.
 
-Aiven sends notifications when services have disk storage
-or performance issues. You can also view the service plan usage and
-metrics for each service on its page.
-
+You can view service plan usage and metrics for each service on its page.
 More information on scaling and optimizing the underlying services is available
 on these pages:
 
