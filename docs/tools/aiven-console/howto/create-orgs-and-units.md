@@ -46,6 +46,9 @@ are available in the
 
 ## Create an organization
 
+You can create only one organization for your user account. To separate and organize your
+projects and services, create organizational units.
+
 :::important
 You can only verify a domain in one organization, meaning you can't set up SAML
 authentication, user provisioning with SCIM, or managed users for the same domain
@@ -63,11 +66,9 @@ for the new organization such as:
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-:::note
 You cannot create an organization while logged in with
 an [identity provider](/docs/platform/howto/list-identity-providers). To create an
 organization, log in to the Aiven Console using another authentication method.
-:::
 
 1.  Click <ConsoleLabel name="User information"/> > <ConsoleLabel name="Organizations"/>.
 1.  Click **Create organization**.
