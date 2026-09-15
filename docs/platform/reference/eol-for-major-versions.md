@@ -124,6 +124,11 @@ For details, see the
 
 ### Aiven for Apache Flink® {#aiven-for-flink}
 
+:::important Service sunset
+New service creation is no longer available. Existing services remain
+available during the sunset period.
+:::
+
 <EolTableFlink/>
 
 ### Aiven for Valkey™
@@ -163,7 +168,7 @@ is included in the deprecation notice and in the API documentation.
 To allow clients to detect these changes automatically, the API returns specific headers
 with the deprecation status and sunset date, for example:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 Deprecation: @1777248000
@@ -171,12 +176,14 @@ Sunset: Wed, 01 Jul 2026 00:00:00 GMT
 Link: <https://aiven.io/changelog>; rel="sunset"
 ```
 
-Where:
- - `Deprecation`: the UTC timestamp when deprecation took effect in
-   RFC 9745 @UNIX-TIMESTAMP format.
- - `Sunset`: Optional. Date and time the endpoint will be removed.
- - `Link`: URL for the [product update](https://aiven.io/changelog) for this
-    deprecation.
+The response headers provide the following information:
+
+- **`Deprecation`**: The UTC timestamp when deprecation took effect, in the
+  RFC 9745 `@UNIX-TIMESTAMP` format.
+- **`Sunset`**: Optional. The date and time when the endpoint becomes
+  unavailable.
+- **`Link`**: The [product update](https://aiven.io/changelog) URL for the
+  deprecation.
 
 Aiven works to reduce the disruptions caused by deprecations.
 The time between the deprecation and sunset statuses varies based on the endpoint's
@@ -192,7 +199,7 @@ The route remains registered for a period after sunset so clients receive
 a `410 Gone` response instead of `404 Not Found`. The following
 is an example of the structured error body:
 
-```
+```json
 {
   "errors": [{
     "error_code": "retired_api_endpoint",
@@ -201,9 +208,8 @@ is an example of the structured error body:
 }
 ```
 
-Full route removal happens
-only after an extended post-sunset period, but
-customers should migrate before the published sunset date.
+Full route removal happens only after an extended post-sunset period.
+Migrate before the published sunset date.
 
 ## Aiven tools EOL
 
@@ -226,8 +232,8 @@ certain changes require Aiven to deprecate older versions of the tools.
 
 ### Aiven Provider for Terraform
 
-Older versions will continue to work, but there will be no new features
-or bug fixes after the EOL date.
+After an Aiven Provider for Terraform version reaches EOL, it receives no new
+features or bug fixes but remains functional.
 
 | Version | Aiven EOL       |
 | ------- | --------------- |
