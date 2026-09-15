@@ -288,7 +288,7 @@ avn service logs pg-demo
 ```
 
 :::note
-Use `avn service logs -f` sparingly.
+Use `avn service logs SERVICE_NAME -f` sparingly.
 For continuous log monitoring, set up a
 [log integration](/docs/platform/concepts/service-integration).
 :::
