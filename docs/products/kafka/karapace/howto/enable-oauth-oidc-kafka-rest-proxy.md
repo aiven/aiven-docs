@@ -23,6 +23,21 @@ authorize requests to Apache Kafka. When a Bearer token is presented,
 Kafka clients configured by Karapace use the SASL OAUTHBEARER mechanism
 to send the JWT for validation.
 
+## Schema Registry authentication
+
+Karapace REST proxy also communicates with Schema Registry when processing
+schema-based messages.
+
+With Karapace 6.2.3 or later, the REST proxy can authenticate to Schema Registry
+using JWT or basic authentication. The REST proxy supports both authentication
+methods simultaneously.
+
+This authentication is separate from the OAuth 2.0/OIDC authentication that
+the REST proxy uses to authenticate to Apache Kafka.
+
+To configure JWT authentication for Schema Registry, see
+[Enable OAuth 2.0/OIDC authentication for Schema Registry](/docs/products/kafka/karapace/howto/enable-oauth-oidc-schema-registry).
+
 ## Authorization enforcement
 
 In the underlying Aiven for Apache Kafka® service, the default mechanism
@@ -37,8 +52,8 @@ more information on configuring this, see
 [Enable OAuth 2.0/OIDC via Aiven Console](/docs/products/kafka/howto/enable-oidc).
 
 To authenticate and authorize a user in Aiven for Apache Kafka, you need a service user
-and an ACL entry that describes the permissions. The JWT claim value used for
-authentication should explicitly match the service user in the system. This service
+and an ACL entry that describes the permissions. Match the JWT claim value used for
+authentication to the service user in the system. This service
 user needs to be associated with an ACL entry that outlines their permissions, ensuring
 that the identity of the user making the request aligns with both the service user
 and the ACL entry.
