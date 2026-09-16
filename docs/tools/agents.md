@@ -15,8 +15,11 @@ tasks across Aiven and other systems.
 
 You define what an agent does, choose the AI model it uses, and give it access
 to the tools it needs. You can interact with an agent in a chat or configure
-scheduled tasks to run automatically. Aiven manages the infrastructure required to
-run the agent.
+scheduled tasks to run automatically.
+
+Managed Agents is built on open-source agent technology. Aiven manages the
+infrastructure required to run your agents, so you don't need to deploy or
+maintain the underlying infrastructure.
 
 :::note
 Managed Agents is in
@@ -36,8 +39,8 @@ actions through connected tools. Run these tasks on demand or
 For example, you can create an agent to:
 
 - Review Aiven for PostgreSQL® logs, summarize the findings, and send an update to Slack.
-- Monitor Aiven for Apache Kafka® consumer lag and create a Jira issue when the lag
-  requires action.
+- Check consumer lag in Aiven for Apache Kafka® and create a Jira issue when the
+  lag requires action.
 - Investigate an incident using information from multiple systems and summarize the
   findings.
 - Run recurring operational checks and report the results to your team.
@@ -60,11 +63,11 @@ questions.
 
 ## Tools and integrations
 
-Agents can use built-in tools such as **Web Fetch** and **Web Search**.
+Agents can use built-in tools such as Web Fetch and Web Search.
 
 You can also connect an agent to Aiven through
-[Aiven MCP](/docs/tools/mcp-server), or add other MCP integrations such as
-Slack, GitHub, and Jira. You choose which tools each agent can use.
+[Aiven MCP](/docs/tools/mcp-server) or to other MCP integrations, such as Slack,
+GitHub, and Jira. You choose which tools each agent can use.
 
 When you connect Aiven MCP, you grant access to services in the current project
 and assign an MCP role. You can grant any role up to your own. Aiven creates a
