@@ -323,7 +323,7 @@ project.
   [bring your own cloud (BYOC)](/docs/platform/concepts/byoc), [set up the
   required permissions](/docs/platform/howto/byoc/aws-privatelink-byoc#set-up-permissions)
   before you enable cross-region connections.
-- You can allow up to 16 additional regions for one PrivateLink connection.
+- You can allow up to 64 additional regions for one PrivateLink connection.
 - Creating endpoints in additional regions can add to your AWS costs. Check
   [AWS PrivateLink pricing](https://aws.amazon.com/privatelink/pricing/)
   before you enable additional regions.
@@ -348,10 +348,12 @@ avn service privatelink aws create \
   SERVICE_NAME
 ```
 
-To update the allowed regions of an existing PrivateLink resource:
+To update the allowed regions of an existing PrivateLink resource, include the
+`--principal` arguments for your existing entries too:
 
 ```bash
 avn service privatelink aws update \
+  --principal arn:aws:iam::012345678901:root \
   --supported-regions eu-west-2,us-east-1 \
   SERVICE_NAME
 ```
