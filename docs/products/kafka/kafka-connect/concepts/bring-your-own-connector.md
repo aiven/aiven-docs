@@ -60,7 +60,7 @@ plugin.
 
 A custom plugin has the following requirements:
 
-- **File format:** `.jar` or `.zip`.
+- **File type:** JAR or zip file.
 - **Contents:** At least one Kafka Connect source or sink connector class.
 
 Aiven detects the source and sink connector classes in the plugin and lists
@@ -74,7 +74,7 @@ They aren't supported, even if they work when packaged with a connector class.
 
 Bring your own connector works as follows:
 
-1. **Upload a plugin.** An organization admin uploads a `.jar` or `.zip` file
+1. **Upload a plugin.** An organization admin uploads a JAR or zip file
    and specifies a plugin version.
 1. **Review connector classes.** Aiven detects the source and sink connector
    classes. The organization admin reviews each class and can update its
