@@ -241,6 +241,7 @@ Klaw
 Kpow
 Kubernetes
 kuromoji
+Lakehouse
 LibreDB
 LLM
 LLMs
