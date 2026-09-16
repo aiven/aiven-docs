@@ -34,15 +34,42 @@ Build and deploy applications using Aiven Runtime from source code in a GitHub r
 
 <GitHubAccountVisibilityNote/>
 
-## ## Prerequisites
+You cannot use Compose files to deploy applications through the Aiven API or Aiven MCP.
+Use
+[Containerfiles or Dockerfiles](/docs/products/runtime/manifest-files/containerfiles) instead.
 
-- ...
+## Prerequisites
 
+<Tabs groupId="group1">
+<TabItem value="console" label="Console" default>
+
+- A GitHub account
+
+</TabItem>
+<TabItem value="cli" label="CLI" default>
+
+- The [Aiven CLI installed](/docs/tools/cli)
+- [An Aiven token](/docs/platform/concepts/authentication-tokens)
+- A [connected GitHub account](/docs/products/runtime/connect-github-account)
+
+</TabItem>
+<TabItem value="api" label="API" default>
+
+- [An Aiven token](/docs/platform/concepts/authentication-tokens)
+- A [connected GitHub account](/docs/products/runtime/connect-github-account)
+
+</TabItem>
+</Tabs>
 
 ## Deploy an application
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
+
+:::note
+When you connect a GitHub account to your Aiven organization, all users in that
+organization can select that account in Aiven Runtime.
+:::
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Click **Deploy application**.
@@ -57,96 +84,174 @@ Build and deploy applications using Aiven Runtime from source code in a GitHub r
 1. To deploy the application and create the services, click **Deploy**.
 
 </TabItem>
-<TabItem value="" label="">
+<TabItem value="cli" label="CLI">
 
+1. To choose a project, run:
 
-1. Authenticate and pick a project
-avn user login
+   ```bash
+   avn project switch PROJECT_NAME
+   ```
 
-1. avn project switch YOUR_PROJECT
+   Where `PROJECT_NAME` is the name of your Aiven project.
 
-1. Choose GitHub account, repository, and branch. On the CLI you pass them as configuration, not as picker clicks.
+1. Optional: Create data services for the app to use with the `avn service create` command.
+   The following example creates a PostgreSQL service:
 
-You need:
+   ```bash
+   avn service create example-postgres \
+     --project PROJECT_NAME \
+     -t pg \
+     --cloud aws-eu-west-1 \
+     --plan startup-4
+   ```
 
-VCS_INTEGRATION_ID — for example vcs51174433e50
-REMOTE_REPOSITORY_ID — GitHub numeric repo ID
-REPOSITORY_URL — for example https://github.com/org/repo.git
-BRANCH — for example main
-CONTAINERFILE_PATH — for example Dockerfile or docker-compose.yml
-BUILD_PATH — usually .
-Console’s Scan step discovers these from the repo. The CLI does not scan; you set the paths yourself (from the repo, or from a scan you already ran in Console).
+1. Get your `VCS_INTEGRATION_ID` from the Aiven API. This is Aiven's ID
+   for the GitHub Aiven App installation linked to your organization when
+   you [connected your GitHub account](/docs/products/runtime/connect-github-account).
+   To get your ID, run:
 
-
-1. Optional: create any data services the app should use (PostgreSQL, Kafka, Valkey, OpenSearch). Create these before the application, same as Console deploy.
-
-
-avn service create my-postgres \
-  --project PROJECT_NAME \
-  -t pg \
-  --cloud aws-eu-west-1 \
-  --plan startup-4
-
-
-1. Create the application
-
-     ```bash
-        ```
-   avn service create my-app \
-  --project PROJECT_NAME \
-  -t application \
-  --cloud aws-eu-west-1 \
-  --plan startup-50-1024 \
-  -c application.source.vcs_integration_id=VCS_INTEGRATION_ID \
-  -c application.source.remote_repository_id=REMOTE_REPOSITORY_ID \
-  -c application.source.repository_url=https://github.com/org/repo.git \
-  -c application.source.branch=main \
-  -c application.source.build_path=. \
-  -c application.source.containerfile_path=Dockerfile \
-  -c 'application.ports=[{"name":"http","port":8080,"protocol":"HTTP"}]' \
-  -c 'application.environment_variables=[{"key":"LOG_LEVEL","value":"INFO","kind":"variable"}]'
-  ```
-
-   Add --project-vpc-id VPC_ID if the project requires a VPC.
-
-   For CLI you have to read VCS_INTEGRATION_ID and REMOTE_REPOSITORY_ID from the API.
-
-   VCS_INTEGRATION_ID is Aiven’s ID for the GitHub App installation linked to your organization (vcs…). It is created when an org admin finishes Connect GitHub in Console.
-
+   ```bash
    curl -sS \
      "https://api.aiven.io/v1/organization/ORGANIZATION_ID/application/vcs-integrations" \
      -H "Authorization: Bearer $AIVEN_TOKEN"
-   Use vcs_integrations[].vcs_integration_id. vcs_account_name is the GitHub org or user you connected (for example my-github-org).
+   ```
 
-   REMOTE_REPOSITORY_ID is GitHub’s numeric repository ID, as a string (for example "1234567890"). It is not the repo name.
+   Where `ORGANIZATION_ID` is the
+   [Aiven organization ID](/docs/platform/reference/get-resource-IDs) the GitHub account
+   is connected to.
 
+1. Get the ID of the connected repository from the Aiven API.
+   To get the `REMOTE_REPOSITORY_ID`, run the following command using the
+    `VCS_INTEGRATION_ID`:
+
+   ```bash
    curl -sS \
      "https://api.aiven.io/v1/organization/ORGANIZATION_ID/application/vcs-integrations/VCS_INTEGRATION_ID/repositories" \
      -H "Authorization: Bearer $AIVEN_TOKEN"
-   Use repositories[].remote_repository_id for the row whose full_name is org/repo. You also get source_url (the clone URL to pass as repository_url).
+   ```
 
-   Same ID on GitHub: repo Settings (the numeric ID) or GET https://api.github.com/repos/ORG/REPO → id.
+1. To create the application, run the following:
 
-1. Optional: attach service credentials (CLI equivalent of edit app integration config).
+   ```bash
+   avn service create example-app \
+   --project PROJECT_NAME \
+   -t application \
+   --cloud aws-eu-west-1 \
+   --plan startup-50-1024 \
+   -c application.source.vcs_integration_id=VCS_INTEGRATION_ID \
+   -c application.source.remote_repository_id=REMOTE_REPOSITORY_ID \
+   -c application.source.repository_url=REPOSITORY_URL \
+   -c application.source.branch=BRANCH_NAME \
+   -c application.source.build_path=. \
+   -c application.source.containerfile_path=Dockerfile \
+   -c 'application.ports=[{"name":"http","port":8080,"protocol":"HTTP"}]' \
+   ```
+
+   Where:
+   - `VCS_INTEGRATION_ID` is the GitHub Aiven app ID.
+   - `REMOTE_REPOSITORY_ID` is the ID of the connected repository.
+   - `REPOSITORY_URL` is the URL of the connected repository.
+   - `BRANCH_NAME` is the branch to deploy.
 
 
-avn service integration-create \
-  --project PROJECT_NAME \
-  -t application_service_credential \
-  -s my-postgres \
-  -d my-app \
-  -c service_type=pg \
-  -c exposed_values.connection_string.environment_variable_key=DATABASE_URL
+   To use a project VPC, add `--project-vpc-id VPC_ID`.
 
-3. Wait until it is running
-avn service wait my-app --project YOUR_PROJECT
-avn service get my-app --project YOUR_PROJECT
+1. Optional: Integrate your data services with the app.
+   For example, to integrate the PostgreSQL service with the app, run:
 
-Watch state (REBUILDING / RUNNING / error states). Connection info and published HTTP ports
- come from the service.
+   ```bash
+   avn service integration-create \
+     --project PROJECT_NAME \
+     -t application_service_credential \
+     -s example-postgres \
+     -d example-app \
+     --user-config-json '{"service_type":"pg","exposed_values":{"connection_string":{"environment_variable_key":"DATABASE_URL"}}}'
+   ```
 
+:::tip
+To check the status of your services or applications, run
+`avn service wait SERVICE_NAME --project PROJECT_NAME`.
+:::
 
+</TabItem>
+<TabItem value="api" label="API">
 
+1. Optional: Create data services to integrate with your application using the
+  `POST /v1/project/{project}/service` endpoint. For example, the following
+  creates Aiven for PostgreSQL® service:
+
+     ```bash
+      curl -sS -X POST "https://api.aiven.io/v1/project/example-project/service" \
+        -H "Authorization: Bearer $AIVEN_TOKEN" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "service_name": "example-postgres-service",
+          "service_type": "pg",
+          "plan": "startup-4",
+          "cloud": "aws-eu-west-1"
+        }'
+     ```
+
+1. To create the application, use the `POST/v1/project/{project}/service` endpoint. The
+   following example deploys an application, sets environment variables, and integrates
+   the app with an existing PostgreSQL service:
+
+   ```bash
+   curl -sS -X POST \
+     "https://api.aiven.io/v1/project/PROJECT_NAME/service" \
+     -H "Authorization: Bearer $AIVEN_TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "service_name": "example-app",
+       "service_type": "application",
+       "cloud": "aws-eu-west-1",
+       "plan": "startup-50-1024",
+       "user_config": {
+         "application": {
+           "source": {
+             "repository_url": "REPOSITORY_URL",
+             "branch": "BRANCH_NAME",
+             "build_path": "./",
+             "containerfile_path": "Dockerfile"
+           },
+           "ports": [
+             { "name": "http", "port": 8080, "protocol": "HTTP" }
+           ],
+           "environment_variables": [
+             { "key": "LOG_LEVEL", "value": "INFO", "kind": "variable" },
+             { "key": "API_KEY", "value": "secret", "kind": "secret" }
+           ]
+         }
+       },
+       "service_integrations": [
+         {
+           "integration_type": "application_service_credential",
+           "source_service": "example-postgres-service",
+           "user_config": {
+             "service_type": "pg",
+             "exposed_values": {
+               "connection_string": {
+                 "environment_variable_key": "DATABASE_URL"
+               }
+             }
+           }
+         }
+       ]
+     }'
+   ```
+
+   Where:
+   - `PROJECT_NAME` is the name of your Aiven project.
+   - `REPOSITORY_URL` is the URL of the connected repository.
+   - `BRANCH_NAME` is the branch to deploy.
+   - `containerfile_path`: Use the repository-relative path for your
+     Dockerfile or Containerfile. For example, `./Dockerfile` or `./api/Dockerfile.prod`.
+   - `build_path` is the build context and defaults to `./.`.
+     If you set `build_path` and omit `containerfile_path`, Aiven searches that directory
+     for a Dockerfile/Containerfile.
+   - `source_service` is the name of the service to integrate with the application.
+
+   To use a project VPC, add `"project_vpc_id": "VPC_ID"`.
 
 </TabItem>
 </Tabs>
@@ -160,29 +265,3 @@ the selected branch.
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.
 1. On the **Overview** page, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="redeployapp"/>.
-
-
-
-
-There is no dedicated avn subcommand for this; call the same endpoint the Console uses:
-
-avn rest POST /project/YOUR_PROJECT/service/my-app/application/redeploy
-
-
-<!--
-
-update app
-
-
-# Config / env (secrets redacted unless you have permission and request them)
-avn service get my-app --project YOUR_PROJECT
-avn rest GET /project/YOUR_PROJECT/service/my-app/application/environment-variables
-
-# Update source, ports, or env
-avn service update my-app --project YOUR_PROJECT \
-  -c application.source.branch=main \
-  -c 'application.ports=[{"name":"http","port":8080,"protocol":"HTTP"}]'
-
-# Delete
-avn service terminate my-app --project YOUR_PROJECT
--->
