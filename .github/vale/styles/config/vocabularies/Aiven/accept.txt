@@ -211,6 +211,7 @@ Java
 java_lang_Memory
 JMX
 JobManager
+Jira
 Jolokia
 jq
 json
