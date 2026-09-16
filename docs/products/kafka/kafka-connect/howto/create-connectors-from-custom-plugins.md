@@ -117,7 +117,7 @@ Try the following:
 
 - Click **Custom plugins** instead of **Aiven-managed**.
 - Ask your organization admin to confirm that the plugin version is available.
-- Confirm that the uploaded `.jar` or `.zip` file contains the required source
+- Confirm that the uploaded JAR or zip file contains the required source
   or sink connector class.
 
 ### A connector fails after a plugin version change

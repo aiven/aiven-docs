@@ -29,7 +29,7 @@ Before you begin, make sure:
 - You have the
   [organization admin role](/docs/platform/concepts/permissions#organization-roles).
 - Bring your own connector is enabled for your organization.
-- You have a `.jar` or `.zip` file that is no larger than 150 MB.
+- You have a JAR or zip file that is no larger than 150 MB.
 - The file contains at least one Kafka Connect source or sink connector class.
 
 :::note
@@ -48,8 +48,8 @@ the plugins that you upload. Only upload plugins from sources that you trust.
    - **Description**: Optional. Information about what the plugin does and any
      customizations.
 1. Click **Next**.
-1. On **Upload plugin**, in **JAR file**, click **Choose file** and select a
-   `.jar` or `.zip` file that is no larger than 150 MB.
+1. In **Plugin file**, click **Choose file** and select a JAR or zip file that
+   is no larger than 150 MB.
 1. Select the confirmation that you are responsible for the security,
    compatibility, and runtime behavior of the plugin.
 1. Click **Upload**.
@@ -148,8 +148,8 @@ A plugin can have multiple versions.
    - **Version**: A version identifier, for example `2.16.0`.
    - **Description**: Optional. Information about the changes in this version.
 1. Click **Next**.
-1. On **Upload plugin**, in **JAR file**, click **Choose file** and select a
-   `.jar` or `.zip` file that is no larger than 150 MB.
+1. In **Plugin file**, click **Choose file** and select a JAR or zip file that
+   is no larger than 150 MB.
 1. Select the confirmation that you are responsible for the security,
    compatibility, and runtime behavior of the plugin.
 1. Click **Upload**.
@@ -215,7 +215,7 @@ Aiven validates the file media type, not its filename extension.
 
 Confirm that the file:
 
-- Is a valid `.jar` or `.zip` file.
+- Is a valid JAR or zip file.
 - Is no larger than 150 MB.
 - Contains a valid Kafka Connect plugin.
 
