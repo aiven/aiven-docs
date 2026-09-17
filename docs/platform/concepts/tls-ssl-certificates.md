@@ -60,6 +60,8 @@ are exceptions:
   the project CA certificate for a service that uses a browser-recognized certificate.
   To request this, [open a support ticket](/docs/platform/howto/support). For details,
   see [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity).
+  If your service uses the project CA certificate, it also goes through periodic
+  [certificate rotation](#certificate-rotation) like other services that use this CA.
 
 You can download the project CA certificates from the <ConsoleLabel name="overview"/>
 page of your service. For steps, see [Download the project CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
@@ -72,20 +74,23 @@ browser-recognized certificate, [open a support ticket](/docs/platform/howto/sup
 ## Certificate rotation
 
 To keep certificates secure, Aiven periodically rotates the project CA certificate,
-even though its listed expiration date can be many years away. Project CA
-certificates are valid for 10 years, and Aiven automatically starts rotating a
-certificate about 6 months before it expires. All services in a project share the
-same CA, so a rotation happens at the project level, but each service picks up the
-new certificate during its own maintenance window. Because of this, services in
-the same project can start trusting the new certificate at different times.
+even though its listed expiration date can be many years away. A rotation can
+happen because the certificate is approaching expiration, or for other operational
+or security reasons. All services in a project share the same CA, so a rotation
+happens at the project level, but each service picks up the new certificate during
+its own maintenance window, using the same [maintenance
+process](/docs/platform/concepts/maintenance-window) as other updates. Because of
+this, services in the same project can start trusting the new certificate at
+different times.
 
 During a rotation, your service trusts both the current and the new CA certificate.
-This overlap is sometimes called a certificate bundle. If your client verifies the
-server certificate against a specific CA, for example using PostgreSQL's
-`verify-ca` or `verify-full` modes, or MySQL's `VERIFY_CA` or `VERIFY_IDENTITY`
-modes, update your client to trust the new certificate in the bundle before the
-rotation completes. Otherwise, your client can't verify the server certificate and
-the connection fails.
+This overlap is sometimes called a certificate bundle. This matters if your client
+verifies the server certificate against a specific CA. Examples include
+PostgreSQL's `verify-ca` or `verify-full` modes, MySQL's `VERIFY_CA` or
+`VERIFY_IDENTITY` modes, and an older Aiven for Valkey™ service that still uses
+the project CA certificate. In these cases, update your client to trust the new
+certificate in the bundle before the rotation completes. Otherwise, your client
+can't verify the server certificate and the connection fails.
 
 Aiven sends an email notification to your project and service contacts before a
 certificate rotation. Confirm that your
