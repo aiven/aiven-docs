@@ -6,6 +6,8 @@ limited: true
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import MyImg from "@site/static/images/content/figma/valkey-cluster.png";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Aiven for Valkey™ clustering provides a managed, scalable solution for distributed in-memory data storage with built-in high availability and automatic failover capabilities.
 
@@ -81,22 +83,75 @@ The total node count for the cluster is `shard_count` multiplied by `1 + replica
 example, 3 shards with 1 replica each results in 6 nodes. Aiven bills `cluster-N` plans
 per node, so your invoice reflects the total node count at the time of billing.
 
-In the [Aiven Console](https://console.aiven.io), the service creation and change plan
-pages show shard count and replica steppers for `cluster-N` plans. The estimated
-monthly price updates to reflect the total node count as you change either value.
+<Tabs groupId="method">
+<TabItem value="console" label="Console" default>
 
-To create a service on a `cluster-N` plan with the Aiven CLI, set `shard_count` and
-`replicas` with the `-c` option:
+In the [Aiven Console](https://console.aiven.io), when you create a service or change
+the plan for a `cluster-N` service, use the shard count and replica steppers. The
+estimated monthly price updates to reflect the total node count as you change either
+value.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Set `shard_count` and `replicas` with the
+[avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) or
+[avn service update](/docs/tools/cli/service-cli#avn-cli-service-update) command:
 
 ```bash
-avn service create demo-valkey \
+avn service create SERVICE_NAME \
   --service-type valkey \
-  --cloud CLOUD_AND_REGION \
   --plan cluster-4 \
+  --cloud CLOUD_AND_REGION \
   --project PROJECT_NAME \
   -c shard_count=3 \
   -c replicas=1
 ```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your service.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+- `PROJECT_NAME`: Name of your project.
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Call the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+or [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint and set `shard_count` and `replicas` in `user_config`:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "service_name": "SERVICE_NAME",
+    "service_type": "valkey",
+    "plan": "cluster-4",
+    "cloud": "CLOUD_AND_REGION",
+    "user_config": {
+      "shard_count": 3,
+      "replicas": 1
+    }
+  }'
+```
+
+Parameters:
+
+- `PROJECT_NAME`: Name of your project.
+- `SERVICE_NAME`: Name of your service.
+- `BEARER_TOKEN`: Your API authentication token.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+
+</TabItem>
+</Tabs>
+
+:::note
+Terraform and the Aiven Operator for Kubernetes® don't yet support the `shard_count`
+and `replicas` options for `cluster-N` plans.
+:::
 
 :::note
 You can't change `shard_count` and `replicas` in the same update. Change one, wait for
