@@ -315,10 +315,6 @@ project.
   [partition](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html).
   For example, a standard AWS region can't connect to an AWS China region
   because they're in different partitions.
-- Cross-region connections are supported only for AWS PrivateLink.
-  [Azure Private Link](/docs/platform/howto/use-azure-privatelink) and
-  [Google Private Service Connect](/docs/platform/howto/use-google-private-service-connect)
-  don't support connections across regions.
 - If your service is deployed with
   [bring your own cloud (BYOC)](/docs/platform/concepts/byoc), [set up the
   required permissions](/docs/platform/howto/byoc/aws-privatelink-byoc#set-up-permissions)
