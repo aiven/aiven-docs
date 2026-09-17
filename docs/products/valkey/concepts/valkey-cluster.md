@@ -146,12 +146,84 @@ Parameters:
 - `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
 
 </TabItem>
-</Tabs>
+<TabItem value="terraform" label="Terraform">
+
+Use the
+[`aiven_valkey`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey)
+resource to set `shard_count` and `replicas` in `valkey_user_config`:
+
+```hcl
+resource "aiven_valkey" "example" {
+  project      = var.PROJECT_NAME
+  cloud_name   = "CLOUD_AND_REGION"
+  plan         = "cluster-4"
+  service_name = "SERVICE_NAME"
+
+  valkey_user_config {
+    shard_count = 3
+    replicas    = 1
+  }
+}
+```
+
+Parameters:
+
+- `PROJECT_NAME`: Name of your project.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+- `SERVICE_NAME`: Name of your service.
 
 :::note
-Terraform and the Aiven Operator for Kubernetes® don't yet support the `shard_count`
-and `replicas` options for `cluster-N` plans.
+`shard_count` and `replicas` aren't available in the Terraform provider yet. This
+example works after the provider adds support for these options.
 :::
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Use the [Valkey](https://aiven.github.io/aiven-operator/resources/valkey.html) resource
+to set `shard_count` and `replicas` in `userConfig`:
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: Valkey
+metadata:
+  name: SERVICE_NAME
+spec:
+  authSecretRef:
+    name: aiven-token
+    key: token
+
+  connInfoSecretTarget:
+    name: valkey-connection
+
+  project: PROJECT_NAME
+  cloudName: CLOUD_AND_REGION
+  plan: cluster-4
+
+  userConfig:
+    shard_count: 3
+    replicas: 1
+```
+
+Apply the updated configuration:
+
+```bash
+kubectl apply -f valkey-service.yaml
+```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your service.
+- `PROJECT_NAME`: Name of your project.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+
+:::note
+`shard_count` and `replicas` aren't available in the Aiven Operator for Kubernetes® yet.
+This example works after the operator adds support for these options.
+:::
+
+</TabItem>
+</Tabs>
 
 :::note
 You can't change `shard_count` and `replicas` in the same update. Change one, wait for
