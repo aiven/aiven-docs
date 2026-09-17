@@ -39,13 +39,16 @@ add it to an existing service.
 
 ## Connect your Amazon S3 bucket
 
-1. In the Aiven Console, go to your organization's **Integration endpoints**.
-1. Click **Create integration endpoint**, select **Amazon S3**, and enter your AWS
-   access key, secret key, and bucket name.
-1. Click **Create**.
-1. Open your PostgreSQL for Analytics service page and go to **Integrations**.
-1. Add a **Lakehouse credentials** integration and select the Amazon S3 endpoint you
-   created.
+1. In the Aiven Console, go to your project.
+1. Click **Integration endpoints**.
+1. Click **Amazon S3**, then click **Add new endpoint**.
+1. Enter an endpoint name.
+1. In **Url**, enter your bucket's virtual-hosted-style URL:
+   `https://BUCKET_NAME.s3.REGION.amazonaws.com`.
+1. Enter the **Access Key Id** and **Secret Access Key** for an AWS user with read
+   and write access to the bucket, and click **Create**.
+1. Open your PostgreSQL for Analytics service page and click **Integrations**.
+1. Click **Lakehouse credentials**, and select the Amazon S3 endpoint you created.
 
 ## Enable the extension
 
@@ -57,28 +60,29 @@ CREATE EXTENSION pg_lake CASCADE;
 
 ## Create an Iceberg table
 
-Create a table that stores its data as Iceberg files in your S3 bucket:
+Create a table that stores its data as Iceberg files in your S3 bucket. Set `location`
+to a path in your bucket:
 
 ```sql
-CREATE TABLE ORDERS_ANALYTICS (
+CREATE TABLE orders_analytics (
     order_id bigint,
     customer_id bigint,
     order_total numeric,
     created_at timestamptz
-) USING iceberg;
+) USING iceberg WITH (location = 's3://BUCKET_NAME/orders_analytics');
 ```
 
 Load data into the table from an existing PostgreSQL table:
 
 ```sql
-INSERT INTO ORDERS_ANALYTICS SELECT * FROM orders;
+INSERT INTO orders_analytics SELECT * FROM orders;
 ```
 
 Query the Iceberg table with standard SQL:
 
 ```sql
 SELECT customer_id, sum(order_total)
-FROM ORDERS_ANALYTICS
+FROM orders_analytics
 GROUP BY customer_id
 ORDER BY sum(order_total) DESC
 LIMIT 10;
@@ -86,6 +90,22 @@ LIMIT 10;
 
 For more on managing extensions, see
 [Manage Aiven for PostgreSQL® extensions](/docs/products/postgresql/howto/manage-extensions).
+
+## Maintain Iceberg tables
+
+Iceberg tables accumulate data files, snapshots, and metadata over time,
+particularly if you insert data frequently in small batches. Run vacuum
+maintenance regularly to compact data files, expire old snapshots, and remove
+orphan files:
+
+```sql
+VACUUM orders_analytics;
+```
+
+Without regular maintenance, frequent small writes can leave many small files in
+your S3 bucket, which slows down queries. Schedule maintenance with
+[pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension) or run it manually
+after loading data in batches.
 
 <RelatedPages/>
 
