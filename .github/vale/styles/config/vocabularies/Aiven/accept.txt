@@ -473,3 +473,7 @@ zapier
 zdm-proxy
 Zipkin
 ZooKeeper
+nmslib
+faiss
+knn_vector
+hnsw

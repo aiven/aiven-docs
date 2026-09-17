@@ -1913,6 +1913,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/concepts/when-create-index',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/howto/reindex-opensearch',
+                'products/opensearch/howto/migrate-knn-nmslib-engine',
                 'products/opensearch/howto/set_index_retention_patterns',
                 'products/opensearch/concepts/index-replication',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
