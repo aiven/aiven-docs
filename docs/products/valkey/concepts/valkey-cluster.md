@@ -175,7 +175,42 @@ Parameters:
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes">
 
-`shard_count` and `replicas` aren't available in the Aiven Operator for Kubernetes®.
+Use the [Valkey](https://aiven.github.io/aiven-operator/resources/valkey.html) resource
+to set `shard_count` and `replicas` in `userConfig`:
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: Valkey
+metadata:
+  name: SERVICE_NAME
+spec:
+  authSecretRef:
+    name: aiven-token
+    key: token
+
+  connInfoSecretTarget:
+    name: valkey-connection
+
+  project: PROJECT_NAME
+  cloudName: CLOUD_AND_REGION
+  plan: cluster-4
+
+  userConfig:
+    shard_count: 3
+    replicas: 1
+```
+
+Apply the updated configuration:
+
+```bash
+kubectl apply -f valkey-service.yaml
+```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your service.
+- `PROJECT_NAME`: Name of your project.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
 
 </TabItem>
 </Tabs>
