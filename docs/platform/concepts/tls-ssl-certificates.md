@@ -72,11 +72,12 @@ browser-recognized certificate, [open a support ticket](/docs/platform/howto/sup
 ## Certificate rotation
 
 To keep certificates secure, Aiven periodically rotates the project CA certificate,
-even though its listed expiration date can be many years away. All services in a
-project share the same CA, so a rotation happens at the project level, but each
-service picks up the new certificate during its own maintenance window. Because of
-this, services in the same project can start trusting the new certificate at
-different times.
+even though its listed expiration date can be many years away. Project CA
+certificates are valid for 10 years, and Aiven automatically starts rotating a
+certificate about 6 months before it expires. All services in a project share the
+same CA, so a rotation happens at the project level, but each service picks up the
+new certificate during its own maintenance window. Because of this, services in
+the same project can start trusting the new certificate at different times.
 
 During a rotation, your service trusts both the current and the new CA certificate.
 This overlap is sometimes called a certificate bundle. If your client verifies the
