@@ -66,7 +66,7 @@ Use
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-:::note
+:::important
 When you connect a GitHub account to your Aiven organization, all users in that
 organization can select that account in Aiven Runtime.
 :::
@@ -255,7 +255,6 @@ To check the status of your services or applications, run
 
 </TabItem>
 </Tabs>
-
 
 ## Redeploy an application
 
