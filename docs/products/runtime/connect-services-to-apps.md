@@ -54,7 +54,9 @@ Where:
 - `source-service` is the name of the data service to connect.
 - `dest-service` is the name of your application.
 - `service_type` is the type of data service. For example, `pg` for PostgreSQL.
-- `environment_variable_key` is the environment variable your application reads for the connection URI. Do not also set this variable in the application user config; Aiven injects it.
+- `environment_variable_key` is the environment variable your application reads for the
+   connection URI. For other services, view the list of
+   [default variables](/docs/products/runtime/secrets-and-variables#default-environment-variables).
 
 
 </TabItem>
@@ -85,10 +87,12 @@ curl -sS -X POST "https://api.aiven.io/v1/project/PROJECT_NAME/integration" \
 
 Where:
 - `PROJECT_NAME` is the name of your Aiven project.
-- `AIVEN_TOKEN` is your Aiven token.
 - `source_service` is the name of the data service to integrate with your application.
 - `dest_service` is the name of your application.
 - `service_type` is the type of data service, for example `pg` for PostgreSQL.
+- `environment_variable_key` is the environment variable your application reads for the
+   connection URI. For other services, view the list of
+   [default variables](/docs/products/runtime/secrets-and-variables#default-environment-variables).
 
 </TabItem>
 </Tabs>
