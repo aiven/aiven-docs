@@ -167,6 +167,13 @@ of primary nodes in your cluster changes, Aiven reshards the cluster automatical
 Resharding redistributes the hash slots, and the keys they hold, across the available
 primary nodes to keep the slots evenly balanced across shards.
 
+Resharding has a few prerequisites:
+
+- All nodes in the service must be in the `Running` state.
+- No other change that alters the instance size or cloud region can be in progress at the
+  same time.
+- No other reshard can already be in progress.
+
 Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
 manages the entire process:
 
@@ -195,26 +202,39 @@ more information, see [Memory management](/docs/products/valkey/concepts/memory-
 
 ## Backup and restore
 
-Aiven for Valkey automatically backs up your clustered service. Each primary node backs up
-the data for the hash slots it owns, and Aiven stores these backups in a remote location.
-Backups run independently for each primary and need no coordination from your application.
+Aiven for Valkey automatically backs up your clustered service. For each shard, Aiven
+backs up a replica if the shard has one, or the primary if it doesn't. This keeps the
+extra backup load off primaries where possible. Aiven stores these backups in a remote
+location. Backups run independently for each shard and need no coordination from your
+application.
+
+If a reshard is still moving slots when a backup is due, Aiven waits for the new layout to
+settle before starting the backup. If the topology changes while a backup is running, for
+example during a reshard or failover, the backup fails and retries automatically.
+
+Cluster mode doesn't support delta backups: Every backup is a full backup.
 
 To restore a cluster, Aiven combines the stored backups with the recorded hash slot
 layout, so your data returns to the same slot distribution. The cluster must keep the same
 number of primary nodes for a restore to succeed.
 
 :::note
-Cluster backups are not point-in-time recovery (PITR). Because each primary node is backed
-up independently, backups are not consistent across shards. A restored cluster reflects
-each primary's data as of its own backup, not a single moment in time across the whole
-cluster. Design your application to tolerate this if you rely on a restore.
+Cluster backups are not point-in-time recovery (PITR). Because each shard is backed up
+independently, backups are not consistent across shards. A restored cluster reflects each
+shard's data as of its own backup, not a single moment in time across the whole cluster.
+Design your application to tolerate this if you rely on a restore.
 :::
 
 ## Limitations and considerations
 
 - Valkey clustering is in
   [limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-- Valkey clustering is supported for new services only.
+- Valkey clustering is supported for new services only. You can't convert an existing
+  standalone service to a cluster plan, or a clustered service back to standalone.
+- Migrating data into a cluster from an external Redis or Valkey server isn't supported.
+- Aiven places a shard's primary and its replicas in different availability zones when
+  possible, but this isn't guaranteed. If they land in the same zone, an outage of that
+  zone can make the whole shard unavailable.
 - Performance factors
 
   - Network latency between shards can affect cross-shard operations.
