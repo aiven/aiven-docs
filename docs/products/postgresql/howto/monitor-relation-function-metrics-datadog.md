@@ -53,9 +53,10 @@ avn service integration-update --project PROJECT_NAME \
 `datadog_pg_dbname` scopes relation and function metrics only. Database Monitoring
 collects query statistics from every database on the service regardless of this option.
 
-The database must exist and can't be an internal database, such as `template0`,
-`template1`, or `pgbouncer`. Saving an invalid or nonexistent database name fails
-validation.
+The name must be 1-63 characters, start with a letter, digit, or underscore, and
+otherwise contain only letters, digits, underscores, and hyphens. The database doesn't
+need to exist yet. If it doesn't, the Datadog agent logs a connection error until you
+create it, then reports metrics with no further configuration change needed.
 
 ## Collect relation metrics
 
