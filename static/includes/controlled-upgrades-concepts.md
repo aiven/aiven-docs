@@ -112,3 +112,6 @@ the protection that upgrade pipelines provide.
 - **No permanent blocking**: You cannot prevent an update indefinitely. Automatic
   validation applies after the configured delay, up to the maximum delay.
 - **No validation rollback**: You cannot undo a validation after it is recorded.
+- **Support tier downgrade**: Creating a new upgrade step requires your organization
+  to have an active Advanced or Premium support tier at that time. If you downgrade
+  your support tier, existing upgrade steps and their validations continue to work.
