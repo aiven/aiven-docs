@@ -2179,6 +2179,8 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/identify-pg-slow-queries',
                 'products/postgresql/howto/optimize-pg-slow-queries',
                 'products/postgresql/howto/pg-long-running-queries',
+                'products/postgresql/concepts/pg-analytics',
+                'products/postgresql/howto/enable-pg-analytics',
               ],
             },
             {

@@ -236,6 +236,7 @@ Klaw
 Kpow
 Kubernetes
 kuromoji
+Lakehouse
 LibreDB
 LLM
 LLMs
@@ -428,6 +429,7 @@ tokenizer
 tokenizers
 toolchain
 Transport Layer Security
+Trino
 truststore
 truststores
 Uber
@@ -447,6 +449,7 @@ UpCloud
 upsert
 upstreams
 URIs?
+Url
 UUIDs?
 uv
 Valkey
