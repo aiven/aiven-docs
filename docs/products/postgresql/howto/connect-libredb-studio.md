@@ -19,7 +19,7 @@ machine.
 
   ```bash
   docker run -p 3000:3000 -v libredb:/app/data \
-    -e STORAGE_PROVIDER=sqlite ghcr.io/libredb/libredb-studio:0.15.0
+    -e STORAGE_PROVIDER=sqlite ghcr.io/libredb/libredb-studio:0.16.1
   ```
 
   `STORAGE_PROVIDER=sqlite` keeps saved connections on the server instead of in the
