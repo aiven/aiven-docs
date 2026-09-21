@@ -21,6 +21,9 @@ customers. Free and Developer tier services use Classic Kafka.
 
 ## Service tiers and deployment models
 
+Compare limits and features in
+[Aiven for Apache Kafka® service tiers](/docs/products/kafka/get-started/service-tiers).
+
 - **Free**: Evaluate and experiment with limited throughput and storage.
 - **Developer**: A paid Classic Kafka tier between Free and Professional, with higher
   limits than Free and optional Kafka Connect billed separately.
@@ -48,6 +51,7 @@ on the Professional tier.
 ## Get started
 
 - [Get started with Aiven for Apache Kafka®](/docs/products/kafka/get-started/get-started-kafka)
+- [Aiven for Apache Kafka® service tiers](/docs/products/kafka/get-started/service-tiers)
 - [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
 - [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc)
 - [Create Kafka topics](/docs/products/kafka/howto/create-topic)
