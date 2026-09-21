@@ -22,7 +22,19 @@ Manage maintenance updates and set the maintenance window for your Aiven for MyS
 
 <MaintenanceWindowInstructions/>
 
+## Certificate rotation
+
+Aiven periodically rotates the CA certificate for your project, including for
+your Aiven for MySQL® service. This rotation uses the same maintenance process
+described in [Maintenance updates](#maintenance-updates), applied during your
+service's maintenance window, to update your service to trust and use the new
+certificate. If you connect using the `VERIFY_CA` or `VERIFY_IDENTITY` SSL mode,
+update your client to trust the new certificate before the rotation completes.
+For details on the certificate bundle and rotation process, see
+[TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation).
+
 <RelatedPages/>
 
 - [Version upgrades](/docs/products/mysql/howto/manage-mysql-version)
 - [Change the service plan](/docs/products/mysql/howto/change-service-plan)
+- [TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates)
