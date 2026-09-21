@@ -2039,6 +2039,7 @@ const sidebars: SidebarsConfig = {
                   ],
                 },
                 'products/opensearch/howto/migrating_elasticsearch_data_to_aiven',
+                'products/opensearch/howto/migrate-using-migration-assistant-gcp',
               ],
             },
             {
