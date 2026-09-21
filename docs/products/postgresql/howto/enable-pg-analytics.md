@@ -5,37 +5,35 @@ sidebar_label: Enable PostgreSQL for Analytics
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Enable [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics) on a new
-Aiven for PostgreSQL® service, connect it to your Amazon S3 bucket, and create your
-first Iceberg table.
+Request access to [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics)
+for an existing Aiven for PostgreSQL® service, connect it to your Amazon S3 bucket,
+and create your first Iceberg table.
 
 :::note
 PostgreSQL for Analytics is in
-[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-)
-and requires [access from Aiven](https://aiven.io/contact) before you can use it.
+[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+There's no self-service toggle: Aiven enables it for you on a per-service basis after
+a request.
 :::
 
 ## Prerequisites
 
-- Access to PostgreSQL for Analytics granted by Aiven for your organization.
+- An existing Aiven for PostgreSQL 17 service running a production workload.
 - An [organization or project admin](/docs/platform/concepts/permissions) role in the
-  project where you create the service.
+  project where that service runs.
 - An Amazon S3 bucket that you own, and an AWS access key with permission to read from
   and write to that bucket.
 
-## Create a PostgreSQL for Analytics service
+## Request access
 
-1. Log in to the [Aiven Console](https://console.aiven.io/) and go to your organization
-   and project.
-1. Click **Create service** and select **PostgreSQL®**.
-1. Select a PostgreSQL 17 service plan.
-1. In the service creation options, select **PostgreSQL for Analytics**.
-1. Enter a service name, select a cloud region, and click **Create service**.
-
-:::important
-You can enable PostgreSQL for Analytics only when you create a service. You can't
-add it to an existing service.
-:::
+1. [Contact Aiven](https://aiven.io/contact) or your account team, and share the
+   Aiven for PostgreSQL service to enable PostgreSQL for Analytics on and your
+   analytical use case.
+1. Aiven reviews your request against LA eligibility, including your service's data
+   volume.
+1. After approval, Aiven enables PostgreSQL for Analytics on your service and
+   schedules an onboarding call to walk through the feature and set expectations for
+   this LA stage.
 
 ## Connect your Amazon S3 bucket
 
@@ -111,5 +109,5 @@ after loading data in batches.
 
 - [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics)
 - [Manage Aiven for PostgreSQL® extensions](/docs/products/postgresql/howto/manage-extensions)
-- [Create an Aiven for PostgreSQL® service](/docs/products/postgresql/get-started)
+- [Use the pg_cron extension](/docs/products/postgresql/howto/use-pg-cron-extension)
 - [Limited availability and early access features](/docs/platform/concepts/service-and-feature-releases)
