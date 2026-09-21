@@ -13,7 +13,7 @@ serve predictions from pretrained models or to connect your cluster to an extern
 model, such as a large language model (LLM), through the native OpenSearch ML Commons REST
 API.
 
-## Feature scope
+## Scope
 
 Aiven for OpenSearch supports the following ML Commons capabilities:
 
@@ -23,7 +23,7 @@ Aiven for OpenSearch supports the following ML Commons capabilities:
   or arbitrary ML models is not supported, because running an uploaded model executes
   arbitrary code on the service nodes.
 - **Interface**: The ML Commons REST API is available through the standard OpenSearch
-  API. There's no dedicated Aiven Console UI for the feature, but the
+  API. There's no dedicated Aiven Console UI for ML Commons, but the
   [ML Commons OpenSearch Dashboards plugin](https://docs.opensearch.org/latest/ml-commons-plugin/ml-dashboard/)
   is available in OpenSearch Dashboards.
 - **Multi-tenancy**: Not supported.
