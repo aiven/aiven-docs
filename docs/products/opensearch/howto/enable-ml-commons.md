@@ -45,11 +45,11 @@ your Aiven for OpenSearch service.
 <TabItem value="gui" label="Console" default>
 
 1.  Log in to the [Aiven Console](https://console.aiven.io/).
-1.  On the <ConsoleLabel name="Services"/> page, select your Aiven for OpenSearch service.
-1.  On the <ConsoleLabel name="service settings"/> page, scroll to the
+1.  Click <ConsoleLabel name="Services"/>, then select your Aiven for OpenSearch service.
+1.  Click <ConsoleLabel name="service settings"/>. Scroll to the
     **Advanced configuration** section and click **Configure**.
-1.  Click **Add configuration options** and select an `ml_commons_*` option from the
-    list.
+1.  Click **Add configuration options**, then select an `ml_commons_*` option from
+    the list.
 1.  Set the value and click **Save configuration**.
 
 </TabItem>
