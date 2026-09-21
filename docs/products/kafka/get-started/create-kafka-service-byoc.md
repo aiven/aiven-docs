@@ -111,8 +111,9 @@ Replace `INKLESS_PLAN_NAME` with a plan such as `business-8-inkless`.
 </TabItem>
 </Tabs>
 
-For more information about diskless topics, see
-[Diskless topics for Apache Kafka®](/docs/products/kafka/diskless/concepts/diskless-topic-overview).
+Enabling diskless topics creates an Aiven for PostgreSQL® service in the project.
+For details, see
+[Diskless topic limitations and behavior](/docs/products/kafka/diskless/concepts/limitations#internal-metadata-service).
 
 ## Request BYOC access {#request-byoc-access}
 
