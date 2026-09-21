@@ -1970,16 +1970,10 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/hot-warm-tiering',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/reference/plugins',
-                'products/opensearch/reference/list-of-plugins-for-each-version',
-                'products/opensearch/reference/opensearch-limitations',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Machine learning',
-              items: [
                 'products/opensearch/concepts/ml-commons',
                 'products/opensearch/howto/enable-ml-commons',
+                'products/opensearch/reference/list-of-plugins-for-each-version',
+                'products/opensearch/reference/opensearch-limitations',
               ],
             },
             {
