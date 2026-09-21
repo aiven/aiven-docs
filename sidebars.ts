@@ -1885,6 +1885,7 @@ const sidebars: SidebarsConfig = {
                 type: 'doc',
               },
               items: [
+                'products/opensearch/use-cases',
                 'products/opensearch/concepts/opensearch-free-tier',
                 'products/opensearch/howto/create-free-tier-opensearch',
                 'products/opensearch/howto/sample-dataset',
