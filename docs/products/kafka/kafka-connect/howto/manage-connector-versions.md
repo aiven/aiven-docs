@@ -34,8 +34,8 @@ service configuration.
 - Multi-version support is available for all connectors where Aiven has published and
   supports more than one version. Support will continue to expand as new versions are
   released.
-- Set a specific version to prevent automatic upgrades. If not set, the latest published
-  version is used.
+- Set a specific version to prevent automatic upgrades. If not set, the connector uses
+  the default version for that plugin.
 - See [Check available connector versions](#check-available-connector-versions) to
   confirm which versions are supported before setting a version.
 - Setting `plugin_version` in the connector configuration (for example, in
@@ -58,9 +58,12 @@ in production.
 
 :::note
 Aiven supports multiple Debezium versions through multi-version support, including
-versions 1.9.7, 2.5.0, 2.7.4, and 3.1.0.
+versions 1.9.7, 2.5.0, 2.7.4, 3.1.0, and 3.5.2.
 
 To prevent automatic upgrades during maintenance, pin the connector version using
+the `plugin_versions` property.
+
+Debezium 3.1.0 remains the default version. To use Debezium 3.5.2, set it with
 the `plugin_versions` property.
 
 If you use Debezium for PostgreSQL with version 1.9.7 and the `wal2json` format, do not
@@ -68,7 +71,6 @@ upgrade to version 2.0 or later until you migrate to `pgoutput`.
 
 For upgrade steps, see [Set a connector version](#set-version).
 :::
-
 
 ## Limitations
 
@@ -100,7 +102,6 @@ must all use the same plugin version.
 - [Aiven API](/docs/tools/api)
 - [Aiven Provider for Terraform](/docs/tools/terraform)
 
-
 ## Check available connector versions {#check-available-connector-versions}
 
 Before selecting a connector version, check which versions are available for your
@@ -114,8 +115,8 @@ supported and can be set if needed. Use one of the following methods:
 1. Select your Aiven for Apache Kafka Connect service.
 1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 
-Connectors that support multiple versions display **2 versions** next to their names on
-the <ConsoleLabel name="manage stream" /> > **Connectors** page.
+Connectors that support multiple versions display the number of available versions next
+to their names on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
 
 :::note
 When setting up a new connector, a default version is selected. To change it, go to the
@@ -215,13 +216,14 @@ Connector version selection in the Aiven Console is available only for
 1. Click <ConsoleLabel name="actions"/> > **Change connector version**.
 1. In the **Version setup** window:
    - Select the version to use.
-   - Optional: If you select the latest version, you can turn on
+   - Optional: If you select the latest available version, you can turn on
      **Enable version updates** to automatically update the connector to newer
      versions during maintenance updates.
 
      :::note
-     **Enable version updates** is available only for the latest (default) version. This
-     option is unavailable for older versions because automatic updates apply only to the latest version.
+     **Enable version updates** is available only for the latest available version. This
+     option is unavailable for older versions because automatic updates apply only to the
+     latest available version.
      :::
 1. Depending on your selection, click:
    - **Install version and restart service** to apply the selected version.
