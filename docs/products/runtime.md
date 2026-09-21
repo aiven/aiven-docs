@@ -25,3 +25,12 @@ Aiven Runtime offers the following capabilities to streamline your development l
 Aiven Runtime is ideal for filtering data streams in real time, building anomaly detection,
 creating admin dashboards, running LLMs and AI Agents securely,
 or shipping other internal tools in a secure and scalable way.
+
+## Get started
+
+To start using Aiven Runtime with your own application, make sure you have
+[container manifests](/docs/products/runtime/manifest-files/manifests) in your repository.
+You [deploy the application](/docs/products/runtime/deploy-apps) by connecting your
+GitHub account and selecting the repository and branch.
+
+You can also test Runtime using one of Aiven's [templates](https://templates.aiven.io).
