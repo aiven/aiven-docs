@@ -1,8 +1,8 @@
----
+ ---
 title: Manage users in an organization
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Adding users to your organization lets you give them access to specific projects and services within that organization.
 
@@ -36,6 +36,8 @@ To remove a user from an organization:
 1.  Find the user to remove and click
     <ConsoleLabel name="actions"/> > **Remove** and confirm.
 
+    You can also select multiple users and click <ConsoleLabel name="remove"/>.
+
 ## Resend an invite
 
 To resend an invite to a user:
@@ -44,5 +46,7 @@ To resend an invite to a user:
 1.  Find the email address to resend an invite to and click
     <ConsoleLabel name="actions"/> > **Resend invite**.
 
-They receive a new email with instructions for signing up or accepting the
+    You can also select multiple users and click <ConsoleLabel name="resendinvite"/>.
+
+The users receive a new email with instructions for signing up or accepting the
 invite.

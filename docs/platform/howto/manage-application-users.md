@@ -112,4 +112,6 @@ to check when one of the application user's tokens was last used.
 
 1.  Click **Admin** > <ConsoleLabel name="application users"/>.
 1.  Find the user and click <ConsoleLabel name="actions"/> >
-<ConsoleIcon name="delete"/> **Delete**.
+    <ConsoleIcon name="delete"/> **Delete**.
+
+    You can also select multiple users and click <ConsoleLabel name="delete"/>.

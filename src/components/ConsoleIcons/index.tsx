@@ -568,6 +568,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
         </>
       );
+    case 'remove':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Remove</b>
+        </>
+      );
+    case 'deactivateuser':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Deactivate</b>
+        </>
+      );
     case 'delete':
       return (
         <>
@@ -794,6 +806,12 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.disasterRecovery} />{' '}
           <b>Disaster recovery</b>
+        </>
+      );
+    case 'resendinvite':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.send} /> <b>Resend invite</b>
         </>
       );
 
