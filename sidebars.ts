@@ -1976,6 +1976,14 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Machine learning',
+              items: [
+                'products/opensearch/concepts/ml-commons',
+                'products/opensearch/howto/enable-ml-commons',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Scaling and performance',
               link: {
                 type: 'doc',

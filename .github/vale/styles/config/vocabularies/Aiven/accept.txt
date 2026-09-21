@@ -295,6 +295,7 @@ peering
 peerings
 Percona
 performant
+[Pp]retrained
 pg_dump
 pgAdmin
 PGAudit
