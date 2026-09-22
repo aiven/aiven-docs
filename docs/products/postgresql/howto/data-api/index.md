@@ -38,7 +38,7 @@ Data API provides the following:
 ## How it works
 
 When you enable Data API for a database, Aiven deploys a dedicated
-[Aiven Runtime application](/docs/products/aiven-apps) that runs PostgREST and connects it
+[Aiven Runtime application](/docs/products/runtime) that runs PostgREST and connects it
 to the selected database. By default, the application runs in the same cloud and region as
 your PostgreSQL service, but you can choose a different one when you set up Data API.
 Aiven Runtime isn't available in all clouds and regions yet, so the cloud and region you
