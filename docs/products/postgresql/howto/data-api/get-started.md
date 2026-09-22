@@ -16,7 +16,7 @@ To enable Data API, you need the following:
 
 - <LimitedBadge/> access to Data API. To request access,
   [contact Aiven](https://aiven.io/contact).
-- [Aiven Runtime](/docs/products/aiven-apps) enabled for your project, since Data API
+- [Aiven Runtime](/docs/products/runtime) enabled for your project, since Data API
   deploys as a Runtime application. If it isn't, the Aiven Console shows
   **Data API requires Aiven Runtime**.
 - Data API available for your service's plan and cloud. If it isn't, the Aiven Console
@@ -40,7 +40,7 @@ To enable Data API, you need the following:
    - If Aiven has a recommendation for this service, choose a deployment mode under
      **Settings**:
      - **Recommended** (default): Deploys the underlying
-       [Aiven Runtime application](/docs/products/aiven-apps) on the cheapest available paid
+       [Aiven Runtime application](/docs/products/runtime) on the cheapest available paid
        plan, using the same cloud and region as your PostgreSQL service when possible,
        or the nearest available region otherwise.
      - **Custom**: Configure your own cloud, region, and plan under **Cloud and plan**.

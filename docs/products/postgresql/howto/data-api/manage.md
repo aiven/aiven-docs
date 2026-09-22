@@ -21,7 +21,7 @@ To manage Data API, open your Aiven for PostgreSQL® service in the
 ## Check the status
 
 Each database that you expose runs as an independent
-[Aiven Runtime application](/docs/products/aiven-apps). The **Data API** page shows a
+[Aiven Runtime application](/docs/products/runtime). The **Data API** page shows a
 **Status** chip for each database:
 
 - **Deploying**: The application is deploying or applying a change. **API URL** shows
@@ -116,7 +116,7 @@ different cloud, region, or plan and try again.
 
 ### The underlying application is powered off
 
-If someone powers off the [Aiven Runtime application](/docs/products/aiven-apps) that
+If someone powers off the [Aiven Runtime application](/docs/products/runtime) that
 runs your Data API from the **Runtime** list, the **Data API** page shows a warning
 message. Click **Go to app to power it on** in the warning, then power on the
 application. Data API resumes once the application is running again.
