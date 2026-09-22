@@ -3,13 +3,21 @@ title: Manage Aiven for PostgreSQL® extensions
 sidebar_label: Manage extensions
 ---
 
-Aiven for PostgreSQL® allows a series of pre-approved extensions to be installed.
+import RelatedPages from "@site/src/components/RelatedPages";
 
-:::note[Who can manage extensions]
-All database users can manage extensions: both the default `avnadmin` user and other
-database users created via the Aiven Console, API, CLI, or Aiven Provider for Terraform.
-This is the expected behavior because of the extension whitelist configuration in
-Aiven for PostgreSQL.
+Install, update, and remove PostgreSQL® extensions on Aiven for PostgreSQL using SQL commands.
+
+Aiven for PostgreSQL supports a curated set of extensions that you install, update, and
+remove using SQL commands. All database users can manage extensions, including the
+default `avnadmin` user and any other database user created through the Aiven Console,
+Aiven CLI, Aiven API, or Aiven Provider for Terraform. Aiven for PostgreSQL applies an
+extension allowlist at the service level, so managing extensions doesn't require
+elevated database privileges.
+
+:::tip
+Instead of running SQL commands, you can also manage extensions using an AI assistant
+connected to [Aiven MCP](/docs/tools/mcp-server), or using the extension manager in the
+Aiven Console.
 :::
 
 ## Install an extension
@@ -20,21 +28,6 @@ To install an extension, run:
 CREATE EXTENSION EXTENSION_NAME CASCADE;
 ```
 
-:::important[pg_stat_plans and pg_stat_monitor require advanced configuration]
-Before you can install `pg_stat_plans` or `pg_stat_monitor`, enable the matching
-[advanced configuration](/docs/products/postgresql/reference/advanced-params) parameter
-for your service: `pg_stat_plans_enable` or `pg_stat_monitor_enable`. This applies a
-service restart.
-:::
-
-:::tip
-Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to
-check and install PostgreSQL extensions. For example:
-
-> Check whether `pg_trgm` and `pg_stat_statements` are installed on
-> `my-pg-service`, and install any that are missing.
-:::
-
 ## Update an extension
 
 To upgrade an already-installed extension to the latest version, run:
@@ -42,18 +35,6 @@ To upgrade an already-installed extension to the latest version, run:
 ```sql
 ALTER EXTENSION EXTENSION_NAME UPDATE;
 ```
-
-To experiment with upgrading, remember that you can fork
-your existing database to try this operation on a copy rather than your
-live database.
-
-:::warning
-When a service is updated via a maintenance update, this does not update
-the extension versions that are used automatically. The reason for this
-is that user schemas and functions can (and do often) rely on specific
-versions of an extension being used, so we can't assume that all
-extensions are safe to upgrade.
-:::
 
 ## Delete an extension
 
@@ -63,19 +44,37 @@ To delete an extension, run:
 DROP EXTENSION EXTENSION_NAME;
 ```
 
-## Request a new extension
+## Request an extension
 
-We are always open to suggestions of additional extensions that can be
-useful to many of our customers, and there are a few that can be enabled
-on request if you need them. For any extensions not on the
+Aiven welcomes suggestions for additional extensions, and some extensions can be enabled
+on request. For any extension that's not on the
 [list of approved extensions](/docs/products/postgresql/reference/list-of-extensions),
-make a request through [Aiven Ideas](https://ideas.aiven.io/). Be sure to include:
+[open a support ticket](/docs/platform/howto/support#create-a-support-ticket) and
+include:
 
--   Which extension is requested
--   Which database service and user database should have them
+-   The extension you're requesting.
+-   The database service and user database that need it.
 
-:::warning
-"Untrusted" language extensions such as `plpythonu` cannot be
-supported as they would compromise our ability to guarantee the highest
-possible service level.
-:::
+## FAQ
+
+-   **Do you need extra configuration before installing `pg_stat_plans` or
+    `pg_stat_monitor`?** Yes. Enable the matching
+    [advanced configuration](/docs/products/postgresql/reference/advanced-params)
+    parameter for your service, `pg_stat_plans_enable` or `pg_stat_monitor_enable`,
+    before you install either extension. Enabling either parameter applies a service
+    restart.
+-   **Does a maintenance update also update your extensions?** No. User schemas and
+    functions often rely on specific extension versions, so Aiven for PostgreSQL doesn't
+    assume that every extension is safe to upgrade automatically. To test an extension
+    upgrade before applying it to your live database, fork your service and run the
+    upgrade on the copy.
+-   **Can you install untrusted language extensions, such as `plpythonu`?** No. Aiven
+    for PostgreSQL doesn't support _untrusted_ language extensions because they would
+    compromise the ability to guarantee the highest possible service level.
+
+<RelatedPages/>
+
+-   [Extensions on Aiven for PostgreSQL®](/docs/products/postgresql/reference/list-of-extensions)
+-   [Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version)
+-   [Advanced parameters for Aiven for PostgreSQL®](/docs/products/postgresql/reference/advanced-params)
+-   [Support](/docs/platform/howto/support)
