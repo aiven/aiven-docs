@@ -46,7 +46,7 @@ database, set `datadog_pg_dbname`:
 
 ```bash
 avn service integration-update --project PROJECT_NAME \
-   --user-config-json '{"datadog_pg_dbname": "analytics"}' \
+   --user-config-json '{"datadog_pg_dbname": "DATABASE_NAME"}' \
    INTEGRATION_ID
 ```
 
