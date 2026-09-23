@@ -182,7 +182,7 @@ html[data-theme='dark'] {
   background-color: var(--docusaurus-details-bg);
 }
 
-.markdown details div {
+.markdown details div:not(.theme-code-block):not(.theme-code-block *) {
   color: var(--ifm-font-color-base) !important;
 }
 
