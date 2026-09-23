@@ -21,13 +21,13 @@ Custom dictionary files are categorized into four types:
   query matching.
 - **WordNet**: Provide semantic relationships between words, such as synonyms and
   antonyms.
-- **XML**: Define hyphenation patterns for the `hyphenation_decompounder` token filter,
-  which splits compound words for languages such as German, Dutch, and the
-  Scandinavian languages.
+- **Hyphenation patterns**: Define XML hyphenation patterns for the
+  `hyphenation_decompounder` token filter, which splits compound words for languages
+  such as German, Dutch, and the Scandinavian languages.
 
 :::note
 Stopwords, synonyms, and WordNet files must be in plain text (UTF-8 encoded) format.
-XML files must be well-formed XML (UTF-8 encoded).
+Hyphenation patterns files must be well-formed XML (UTF-8 encoded).
 :::
 
 ## Upload files
@@ -42,7 +42,7 @@ Upload new custom dictionary files to your OpenSearch service.
 1. In the <ConsoleLabel name="data"/> section, click **Indexes**.
 1. Click **Upload file** in the **Custom dictionary files** section.
 1. In the **Upload a custom dictionary file** screen:
-   - Select **File type** (Stopwords, Synonyms, WordNet, XML).
+   - Select **File type** (Stopwords, Synonyms, WordNet, Hyphenation patterns).
    - Enter a **File name**.
    - Choose the file from your system and click **Upload**.
 
@@ -63,7 +63,7 @@ Parameters:
 
 - `PROJECT_NAME`: Your Aiven project name.
 - `<stopwords|synonyms|wordnet|hyphenation_patterns>`: The type of dictionary file to
-  upload. Use `hyphenation_patterns` for the XML file type shown in the Console.
+  upload. Use `hyphenation_patterns` for the **Hyphenation patterns** (XML) file type.
 - `<file_path>`: Path to the local file on your system.
 - `<file_name>`: The name of the file to appear in Aiven for OpenSearch.
 - `SERVICE_NAME`: Name of your OpenSearch service.
@@ -181,7 +181,7 @@ Parameters:
 - For OpenSearch Cross-Cluster Replication (CCR), files must be uploaded to
   both services manually.
 - Use alphanumeric characters and underscores only for file names.
-- XML files must be well-formed XML, or the upload is rejected.
+- Hyphenation patterns files must be well-formed XML, or the upload is rejected.
 
 ## Example: How to use custom dictionary files with indexes
 
