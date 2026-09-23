@@ -4,6 +4,7 @@ sidebar_label: View data lineage
 ---
 
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 Data lineage is a map of how each of your data assets moves across your systems. Lineage can help you:
 
@@ -14,10 +15,10 @@ Data lineage is a map of how each of your data assets moves across your systems.
 
 When you
 [connect Aiven services to your Aiven for DataHub service](/docs/products/datahub/connect-datahub-to-services),
-DataHub automatically builds this map of your data assets.
-In DataHub, data assets are called datasets.
+DataHub automatically builds this map of your data assets and syncs them
+on a schedule. In DataHub, data assets are called datasets.
 
-:::note
+:::note[Note]
 External services that you connect to DataHub are not shown in the
 data lineage.
 :::
@@ -44,3 +45,15 @@ data lineage.
 1. [Log in to DataHub](/docs/products/datahub/get-started#log-in-to-datahub).
 1. Search for and open a dataset.
 1. Click **Lineage**.
+
+## Refresh lineage
+
+You can manually trigger a re-emission of lineage data between connected services.
+This is useful when you make changes to service integrations or schemas.
+
+To manually refresh lineage:
+
+1. In the Aiven Console, go to your DataHub service.
+1. Click <ConsoleLabel name="connectors"/> .
+1. For the connector to refresh, click
+   <ConsoleLabel name="Actions"/> > <ConsoleLabel name="refreshlineage"/>.
