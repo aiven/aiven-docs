@@ -86,8 +86,8 @@ per node, so your invoice reflects the total node count at the time of billing.
 <Tabs groupId="method">
 <TabItem value="console" label="Console" default>
 
-In the [Aiven Console](https://console.aiven.io), when you create a service or change
-the plan for a `cluster-N` service, use the shard count and replica steppers. The
+In the [Aiven Console](https://console.aiven.io), when you create a service or update
+the topology of a `cluster-N` service, use the shard count and replica steppers. The
 estimated monthly price updates to reflect the total node count as you change either
 value.
 
