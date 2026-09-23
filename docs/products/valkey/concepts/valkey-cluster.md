@@ -172,7 +172,8 @@ Resharding has a few prerequisites:
 - All nodes in the service must be in the `Running` state.
 - No other change that alters the instance size or cloud region can be in progress at the
   same time.
-- No other reshard can already be in progress.
+- A backup that matches the service's current shard count must exist. If you just
+  resharded, wait for the next backup to complete before you reshard again.
 
 Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
 manages the entire process:
@@ -232,9 +233,12 @@ Design your application to tolerate this if you rely on a restore.
 - Valkey clustering is supported for new services only. You can't convert an existing
   standalone service to a cluster plan, or a clustered service back to standalone.
 - Migrating data into a cluster from an external Redis or Valkey server isn't supported.
-- Aiven places a shard's primary and its replicas in different availability zones when
-  possible, but this isn't guaranteed. If they land in the same zone, an outage of that
-  zone can make the whole shard unavailable.
+- Aiven places a shard's primary and each replica in different availability zones when it
+  creates the cluster or replaces a node, as long as enough zones and capacity are
+  available.
+- This placement isn't guaranteed during an availability zone outage or a capacity
+  shortfall, and Aiven doesn't currently rebalance nodes into different zones afterward.
+  A shard without a replica has no availability zone redundancy regardless.
 - Performance factors
 
   - Network latency between shards can affect cross-shard operations.
