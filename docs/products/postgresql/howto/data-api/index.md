@@ -62,8 +62,7 @@ service.
   Aiven Console.
 - Each Data API runs as a dedicated Aiven Runtime application that is billed separately
   from your PostgreSQL service. Aiven Runtime applications are supported for select
-  cloud providers, regions, and plans. When you set up Data API, choose a supported
-  combination in the **Cloud and plan** step.
+  cloud providers, regions, and plans.
 
 ## Related pages
 

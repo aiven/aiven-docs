@@ -91,14 +91,6 @@ The apps are no longer accessible from the **Runtime** list or anywhere else.
 
 ## Troubleshooting
 
-### Aiven Runtime isn't enabled for the project
-
-Data API deploys as an [Aiven Runtime](/docs/products/runtime) application. This is
-rare, since Aiven Runtime is enabled by default for most projects, but if the Aiven
-Console shows **Data API requires Aiven Runtime**, [contact Aiven
-support](/docs/platform/howto/support#create-a-support-ticket) to enable it for your
-project.
-
 ### The service is still being provisioned
 
 Setup is unavailable while the service is still being provisioned. Wait until the service

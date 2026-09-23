@@ -46,8 +46,7 @@ To enable Data API, you need the following:
      - **Cloud**: Defaults to the same cloud and region as your PostgreSQL service. You
        can select a different cloud and region that supports the Aiven Runtime
        application. The picker only ever lists clouds and regions that Aiven Runtime
-       actually supports, so you don't need to check availability yourself before
-       starting.
+       actually supports.
      - **Plan**: Select a plan for the Aiven Runtime application. Free-tier plans aren't
        available for Data API, so choose a paid plan.
 1. Review the **Summary** panel on the right, which shows the cloud, plan, and estimated
