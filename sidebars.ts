@@ -497,6 +497,7 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        'products/runtime/runtime-logs',
       ],
     },
   ],
