@@ -21,6 +21,8 @@ Add connectors to your DataHub service to ingest data.
 1. In your DataHub service, click <ConsoleLabel name="datahubconnectors"/>.
 1. Click **Add connectors**.
 1. Select services from projects in your organization and organizational units.
+1. Optional: Click **Emit lineage** to immediately start sending
+   lineage data after the connectors are added.
 1. Click **Add connectors**.
 
 A service user is created in each connected service
