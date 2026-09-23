@@ -39,7 +39,9 @@ project.
 
 After Aiven support enables ML Commons for your project, configure the ML Commons cluster
 settings as [advanced parameters](/docs/products/opensearch/reference/advanced-params) on
-your Aiven for OpenSearch service.
+your Aiven for OpenSearch service. The following example sets
+`ml_commons_only_run_on_ml_node` to `false`, which is only needed on a plan without
+dedicated ML nodes.
 
 <Tabs groupId="config-methods">
 <TabItem value="gui" label="Console" default>
@@ -60,7 +62,7 @@ to configure ML Commons settings:
 
 ```bash
 avn service update SERVICE_NAME \
-  -c opensearch.ml_commons_only_run_on_ml_node=true \
+  -c opensearch.ml_commons_only_run_on_ml_node=false \
   -c opensearch.ml_commons_model_access_control_enabled=true
 ```
 
@@ -81,7 +83,7 @@ curl --request PUT \
   --data '{
     "user_config": {
       "opensearch": {
-        "ml_commons_only_run_on_ml_node": true,
+        "ml_commons_only_run_on_ml_node": false,
         "ml_commons_model_access_control_enabled": true
       }
     }
@@ -96,11 +98,15 @@ Replace `PROJECT_NAME`, `SERVICE_NAME`, and `API_TOKEN` with your values.
 The full list of `ml_commons_*` options, including their types and defaults, is in
 [Advanced parameters for Aiven for OpenSearch](/docs/products/opensearch/reference/advanced-params).
 
-## Run ML tasks on dedicated ML nodes
+## Run ML tasks on the right nodes
 
-If your service uses a cluster plan with dedicated ML nodes, Aiven doesn't automatically
-move ML workloads onto them. Set `ml_commons_only_run_on_ml_node` to `true` so that ML
-tasks run on the dedicated `ml`-role nodes instead of on data nodes.
+By default, `ml_commons_only_run_on_ml_node` is `true`, so ML tasks only run on nodes
+with the `ml` role.
+
+- If your service uses a cluster plan with dedicated ML nodes, leave this setting at its
+  default so ML tasks run there instead of on data nodes.
+- If your service doesn't have dedicated ML nodes, set `ml_commons_only_run_on_ml_node`
+  to `false` so ML tasks can run on data nodes.
 
 ## Deploy a pretrained model
 
@@ -134,17 +140,20 @@ models and connectors:
 1.  Map the `ml_full_access` and `ml_readonly_access` roles to specific backend roles
     using OpenSearch Security.
 
-:::note
-Once `ml_commons_model_access_control_enabled` or
-`ml_commons_connector_access_control_enabled` is `true`, you can't disable OpenSearch
-Security management for the service. Turn off both settings first.
-:::
+## Redeploy models after node changes
 
-## Restore behavior
+- If some of a service's `ml`-role nodes (or `data` nodes, on plans without dedicated ML
+  nodes) become unavailable, for example during a node replacement or plan change,
+  affected models move to a `PARTIALLY_DEPLOYED` state. They redeploy automatically if
+  `ml_commons_model_auto_redeploy_enable` is `true` (the default).
+- If all of those nodes become unavailable at once, for example during a power cycle,
+  models move to `DEPLOY_FAILED`. Call `_deploy` for each model to make it available
+  again.
 
-After a service restores from a snapshot, deployed models come back in an `UNDEPLOYED`
-state. Call `_deploy` for each model, or set `ml_commons_model_auto_deploy_enable` to
-`true` so restored models redeploy automatically.
+`ml_commons_model_auto_deploy_enable` (`true` by default) only applies to externally
+hosted models that haven't been deployed yet: it deploys them automatically on their
+first prediction request. Pretrained built-in models always need an explicit `_deploy`
+call.
 
 <RelatedPages/>
 

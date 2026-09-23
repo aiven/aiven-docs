@@ -17,16 +17,17 @@ API.
 
 Aiven for OpenSearch supports the following ML Commons capabilities:
 
-- **Compute**: CPU nodes only. GPU-backed ML nodes are not supported.
+- **Compute**: ML tasks currently run on CPU only. GPU-backed ML nodes aren't supported.
 - **Model deployment**: Deploy OpenSearch-provided pretrained models in the cluster, or
-  connect to an externally hosted model through a remote connector. Registering custom
-  or arbitrary ML models is not supported, because running an uploaded model executes
-  arbitrary code on the service nodes.
+  connect to an externally hosted model through a remote connector. Aiven for OpenSearch
+  doesn't support `plugins.ml_commons.allow_registering_model_via_url` or
+  `plugins.ml_commons.allow_registering_model_via_local_file`, so you can't register a
+  custom ML model.
 - **Interface**: The ML Commons REST API is available through the standard OpenSearch
   API. There's no dedicated Aiven Console UI for ML Commons, but the
   [ML Commons OpenSearch Dashboards plugin](https://docs.opensearch.org/latest/ml-commons-plugin/ml-dashboard/)
   is available in OpenSearch Dashboards.
-- **Multi-tenancy**: Not supported.
+- **Multi-tenancy**: Not currently supported.
 
 ## Where ML tasks run
 
@@ -40,13 +41,11 @@ ML Commons tasks can run on data nodes or on nodes with a dedicated `ml` role.
   plan with dedicated ML nodes, [contact Aiven support](https://aiven.io/support-services).
 
 A node group with the `ml` role can't also have the `data` or `cluster_manager` role: ML
-nodes are always dedicated. Because ML inference uses native memory rather than the JVM
-heap, dedicated ML nodes get a smaller heap: the lesser of 25% of the node's memory or
-8 GiB, leaving the rest available for loading models.
+nodes are always dedicated.
 
-Aiven doesn't automatically set `ml_commons_only_run_on_ml_node` to `true` based on your
-service plan. If you use a plan with dedicated ML nodes and want ML tasks to run there
-instead of on data nodes, set `ml_commons_only_run_on_ml_node` to `true` yourself.
+By default, `ml_commons_only_run_on_ml_node` is `true`, so ML tasks only run on nodes
+with the `ml` role. If your plan doesn't have dedicated ML nodes, set
+`ml_commons_only_run_on_ml_node` to `false` so ML tasks can run on data nodes instead.
 
 For general information about node roles, see
 [Dedicated node roles in Aiven for OpenSearch](/docs/products/opensearch/concepts/dedicated-node-roles).
@@ -64,10 +63,6 @@ Aiven for OpenSearch supports two ways to bring a model into your cluster:
   the external provider's infrastructure. Aiven for OpenSearch doesn't limit which
   remote model provider you connect to; any provider supported by the OpenSearch ML
   Commons connector blueprints works.
-
-Uploading and registering a custom ML model isn't supported. Deploying a custom model
-would run arbitrary code inside the service containers, which is a security risk Aiven
-doesn't offer for managed services.
 
 ## Access control and security roles
 
@@ -94,25 +89,32 @@ enabled for your service:
 To restrict which users can manage models or connectors, set
 `ml_commons_model_access_control_enabled` or `ml_commons_connector_access_control_enabled`
 to `true`. Both settings enforce access by backend role, which requires OpenSearch
-Security management. Because of this dependency, you can't disable OpenSearch Security
-management for a service while either setting is `true`.
+Security management.
 
 ## Backup and restore
 
 The system indices ML Commons uses to store models, connectors, and configuration are
 included in your service's regular snapshots.
 
-After a restore, deployed models come back in an `UNDEPLOYED` state. To make a model
-available for predictions again, either call `_deploy` for that model or set
-`ml_commons_model_auto_deploy_enable` to `true` so restored models redeploy automatically.
+Deployed models depend on the nodes that host them. If a service loses some of its
+`ml`-role nodes (or `data` nodes, on plans without dedicated ML nodes) but not all, for
+example during a node replacement or plan change, affected models move to a
+`PARTIALLY_DEPLOYED` state. They redeploy automatically when
+`ml_commons_model_auto_redeploy_enable` is `true` (the default). If a service loses all
+of those nodes at once, for example during a power cycle, models move to
+`DEPLOY_FAILED` and need an explicit `_deploy` call to become available again.
+
+`ml_commons_model_auto_deploy_enable` (`true` by default) only affects externally hosted
+models that haven't been deployed yet: it deploys them automatically on their first
+prediction request. Pretrained built-in models always need an explicit `_deploy` call.
 
 ## Limitations
 
-- ML nodes run on CPU only. GPU-backed ML nodes aren't supported.
+- ML nodes run on CPU only. GPU-backed ML nodes aren't supported yet.
 - Registering or deploying custom ML models isn't supported.
-- ML Commons doesn't support multi-tenant OpenSearch Dashboards.
-- Aiven doesn't automatically set `ml_commons_only_run_on_ml_node` based on your service
-  plan.
+- Aiven doesn't support enabling multi-tenancy for ML Commons at the moment.
+- On plans without dedicated ML nodes, set `ml_commons_only_run_on_ml_node` to `false`
+  yourself; Aiven doesn't do this automatically.
 
 <RelatedPages/>
 
