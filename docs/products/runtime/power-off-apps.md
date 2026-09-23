@@ -20,6 +20,9 @@ Applications that are powered off for more than 180 days are automatically delet
 
 ## Power on an application
 
+Powering an application on triggers a redeployment of the branch's
+previously deployed commit. It doesn't deploy the latest commit.
+
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.
 1. Click <ConsoleLabel name="actions"/> > **Power on app**.
