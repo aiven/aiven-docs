@@ -224,6 +224,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Logs</b>
         </>
       );
+    case 'runtimelogs':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Runtime logs</b>
+        </>
+      );
+    case 'buildlogs':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.jobsAndData} /> <b>Build logs</b>
+        </>
+      );
     case 'integrationendpoints':
       return (
         <>
