@@ -5,7 +5,7 @@ sidebar_label: ML Commons
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-ML Commons brings machine learning training and inference into your Aiven for OpenSearch® service, so you can run predictions and connect to language models without a separate ML platform.
+ML Commons brings machine learning training and inference into your Aiven for OpenSearch® service, so you can generate embeddings, rank results, and connect to language models without a separate ML platform.
 
 The [ML Commons](https://docs.opensearch.org/latest/ml-commons-plugin/) plugin provides a
 unified interface for integrating machine learning into an OpenSearch cluster. Use it to
@@ -13,11 +13,12 @@ serve predictions from pretrained models or to connect your cluster to an extern
 model, such as a large language model (LLM), through the native OpenSearch ML Commons REST
 API.
 
-## Scope
+## Capabilities
 
 Aiven for OpenSearch supports the following ML Commons capabilities:
 
-- **Compute**: ML tasks currently run on CPU only. GPU-backed ML nodes aren't supported.
+- **Compute**: ML tasks currently run on CPU only. GPU-backed ML nodes will be supported
+  in a future release.
 - **Model deployment**: Deploy OpenSearch-provided pretrained models in the cluster, or
   connect to an externally hosted model through a remote connector. Aiven for OpenSearch
   doesn't support `plugins.ml_commons.allow_registering_model_via_url` or
@@ -27,7 +28,6 @@ Aiven for OpenSearch supports the following ML Commons capabilities:
   API. There's no dedicated Aiven Console UI for ML Commons, but the
   [ML Commons OpenSearch Dashboards plugin](https://docs.opensearch.org/latest/ml-commons-plugin/ml-dashboard/)
   is available in OpenSearch Dashboards.
-- **Multi-tenancy**: Not currently supported.
 
 ## Where ML tasks run
 
@@ -65,10 +65,6 @@ Aiven for OpenSearch supports two ways to bring a model into your cluster:
   Commons connector blueprints works.
 
 ## Access control and security roles
-
-Access to the ML Commons cluster settings requires an ACL that's enabled by Aiven support
-for your project. See
-[Enable ML Commons for Aiven for OpenSearch](/docs/products/opensearch/howto/enable-ml-commons).
 
 ML Commons provides two built-in security roles:
 
@@ -110,7 +106,7 @@ prediction request. Pretrained built-in models always need an explicit `_deploy`
 
 ## Limitations
 
-- ML nodes run on CPU only. GPU-backed ML nodes aren't supported yet.
+- ML nodes run on CPU only. GPU-backed ML nodes will be supported in a future release.
 - Registering or deploying custom ML models isn't supported.
 - Aiven doesn't support enabling multi-tenancy for ML Commons at the moment.
 - On plans without dedicated ML nodes, set `ml_commons_only_run_on_ml_node` to `false`

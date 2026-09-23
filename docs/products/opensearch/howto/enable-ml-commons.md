@@ -6,42 +6,20 @@ sidebar_label: Enable ML Commons
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
-import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Enable the ML Commons plugin for your Aiven for OpenSearch® service, configure its
-cluster settings, and deploy a pretrained or externally hosted model.
-
-<RequirementsPanel
-  items={[
-    {
-      label: 'Access',
-      values: [
-        <>
-          Enabled by Aiven support for your project. Request access before
-          you configure ML Commons.
-        </>,
-      ],
-    },
-  ]}
-/>
+Configure ML Commons cluster settings for your Aiven for OpenSearch® service, and deploy
+a pretrained or externally hosted model.
 
 For background on what ML Commons supports in Aiven for OpenSearch, see
 [ML Commons for Aiven for OpenSearch](/docs/products/opensearch/concepts/ml-commons).
 
-## Request access
-
-ML Commons cluster settings are gated by a project-level ACL.
-[Contact Aiven support](https://aiven.io/support-services) to enable ML Commons for your
-project.
-
 ## Configure ML Commons cluster settings
 
-After Aiven support enables ML Commons for your project, configure the ML Commons cluster
-settings as [advanced parameters](/docs/products/opensearch/reference/advanced-params) on
-your Aiven for OpenSearch service. The following example sets
-`ml_commons_only_run_on_ml_node` to `false`, which is only needed on a plan without
-dedicated ML nodes.
+Configure the ML Commons cluster settings as
+[advanced parameters](/docs/products/opensearch/reference/advanced-params) on your Aiven
+for OpenSearch service. The following example sets `ml_commons_only_run_on_ml_node` to
+`false`, which is only needed on a plan without dedicated ML nodes.
 
 <Tabs groupId="config-methods">
 <TabItem value="gui" label="Console" default>
