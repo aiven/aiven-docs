@@ -16,7 +16,7 @@ Data API is a <LimitedBadge/> feature.
 
 To manage Data API, open your Aiven for PostgreSQL® service in the
 [Aiven Console](https://console.aiven.io/login) and click
-<ConsoleLabel name="data"/> > **Data API**.
+<ConsoleLabel name="connect"/> > **Data API**.
 
 ## Check the status
 
@@ -91,10 +91,13 @@ The apps are no longer accessible from the **Runtime** list or anywhere else.
 
 ## Troubleshooting
 
-### Data API is not available for the service
+### Aiven Runtime isn't enabled for the project
 
-Data API must be available for your service's plan and cloud. If it isn't, the Aiven
-Console shows **The data API is not available for your service**.
+Data API deploys as an [Aiven Runtime](/docs/products/runtime) application. This is
+rare, since Aiven Runtime is enabled by default for most projects, but if the Aiven
+Console shows **Data API requires Aiven Runtime**, [contact Aiven
+support](/docs/platform/howto/support#create-a-support-ticket) to enable it for your
+project.
 
 ### The service is still being provisioned
 
@@ -123,7 +126,9 @@ application. Data API resumes once the application is running again.
 
 ### Endpoints don't reflect schema changes
 
-Endpoints reflect the database schema captured when you enabled Data API, and don't refresh
-automatically when the schema changes. To pick up new or changed tables, click
+Endpoints reflect the database schema captured when you enabled Data API, and don't
+refresh automatically when the schema changes. A `GET` request to a new or changed
+table can still succeed, but `POST`, `PATCH`, and `DELETE` requests to it fail with a
+`404` error until you refresh the cache. To pick up new or changed tables, click
 **Refresh cache** on the **Data API** page. For more information, see
 [Refresh the schema cache](#refresh-the-schema-cache).
