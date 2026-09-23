@@ -16,12 +16,9 @@ To enable Data API, you need the following:
 
 - <LimitedBadge/> access to Data API. To request access,
   [contact Aiven](https://aiven.io/contact).
-- [Aiven Runtime](/docs/products/runtime) enabled for your project, since Data API
-  deploys as a Runtime application. If it isn't, the Aiven Console shows
-  **Data API requires Aiven Runtime**.
-- Data API available for your service's plan and cloud. If it isn't, the Aiven Console
-  shows **The data API is not available for your service**.
-- The `project:services:write` permission.
+- The [`project:services:write`](/docs/platform/concepts/permissions)
+  permission. If you don't have it, ask an admin to grant it. See
+  [Manage permissions](/docs/platform/howto/manage-permissions).
 - An identity provider (IdP) that issues JWTs and publishes a
   [JWKS URL](/docs/products/postgresql/howto/data-api/authentication) over HTTPS. Auth0,
   Okta, and Microsoft Entra ID are common options.
@@ -30,7 +27,7 @@ To enable Data API, you need the following:
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.
-1. Click <ConsoleLabel name="data"/> > **Data API**.
+1. Click <ConsoleLabel name="connect"/> > **Data API**.
 1. In the **Database** list, select the database to expose.
 1. Click **Set up API**.
 1. In the **Data API for [database]** dialog, configure the following:
@@ -47,7 +44,9 @@ To enable Data API, you need the following:
    - Under **Cloud and plan**, shown when there's no recommendation or you choose
      **Custom**:
      - **Cloud**: Defaults to the same cloud and region as your PostgreSQL service. You
-       can select a different cloud and region that supports the Aiven Runtime application.
+       can select a different cloud and region that supports the Aiven Runtime
+       application. The picker only ever lists clouds and regions that Aiven Runtime
+       actually supports.
      - **Plan**: Select a plan for the Aiven Runtime application. Free-tier plans aren't
        available for Data API, so choose a paid plan.
 1. Review the **Summary** panel on the right, which shows the cloud, plan, and estimated

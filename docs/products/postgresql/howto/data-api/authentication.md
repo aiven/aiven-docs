@@ -114,29 +114,38 @@ Adjust the granted privileges to match what each role should be able to do. A ro
 
 ### Add the role to your IdP tokens
 
-Configure your IdP to include a `role` claim in its tokens, set to the PostgreSQL role name,
-such as `api_worker`. The following example adds the claim in Auth0:
+Configure your IdP to include a `role` claim in its tokens, set to the PostgreSQL role
+name, such as `api_worker`. The following example adds the claim in Auth0.
+
+This example assumes you already have an API and a Machine-to-Machine application
+authorized for it in Auth0. If you just created the API, Auth0 automatically creates a
+companion Test Application that's already authorized for it, so you can use that
+instead of creating your own. If you create your own application, authorize it
+explicitly: open the API's **Application Access** tab, select your application, go to
+its **Client Access** tab, and click **Grant Access**.
 
 1. In Auth0, go to **Actions** > **Library**, then click **Create Action** >
-   **Build from Scratch**.
-1. Name the action, set the trigger to **Machine to Machine**, and add the following code:
+   **Create Custom Action**.
+1. Name the action and set the trigger to **M2M / Client-Credentials**. Leave **Runtime**
+   at its recommended default.
+1. Auth0 creates an empty `onExecuteCredentialsExchange` function. Add this line inside
+   its body:
 
    ```javascript
-   exports.onExecuteCredentialsExchange = async (event, api) => {
-     // Replace 'api_worker' with the name of your PostgreSQL role
-     api.accessToken.setCustomClaim('role', 'api_worker');
-   };
+   // Replace 'api_worker' with the name of your PostgreSQL role
+   api.accessToken.setCustomClaim('role', 'api_worker');
    ```
 
 1. Click **Save Draft**, then **Deploy**.
-1. Go to **Actions** > **Triggers**, click **Credentials Exchange**, and add the action to
-   the flow between **Start** and **Complete**.
+1. Go to **Actions** > **Triggers**, click the **credentials-exchange** trigger under
+   **Machine to Machine**, and drag your action from the **Custom** tab into the flow
+   between **Start** and **Complete**.
 1. Click **Apply**.
 
-When requesting a token, include the audience parameter so the IdP issues a token valid for
-Data API.
+When requesting a token, include the audience parameter so the IdP issues a token valid
+for Data API.
 
 :::tip
-Grant each role only the privileges it needs. The token controls which role runs the query,
-and PostgreSQL enforces the privileges of that role.
+Grant each role only the privileges it needs. The token controls which role runs the
+query, and PostgreSQL enforces the privileges of that role.
 :::

@@ -18,7 +18,7 @@ Data API is a <LimitedBadge/> feature.
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL®
    service.
-1. Click <ConsoleLabel name="data"/> > **Data API**.
+1. Click <ConsoleLabel name="connect"/> > **Data API**.
 1. Select the database with Data API enabled.
 
 The **Data API** page shows the **API URL** for the database. All endpoints are relative to
@@ -46,6 +46,8 @@ curl -X POST "https://REST_API_BASE_URL/products" \
   -d '{"name": "Notebook", "price": 9.99}'
 ```
 
+A successful request returns `201 Created` with an empty body, not the inserted row.
+
 Update a row that matches a filter:
 
 ```bash
@@ -54,6 +56,8 @@ curl -X PATCH "https://REST_API_BASE_URL/products?id=eq.1" \
   -H "Authorization: Bearer TOKEN" \
   -d '{"price": 12.99}'
 ```
+
+A successful request returns `204 No Content` with an empty body.
 
 For the full query syntax, including filtering, ordering, and pagination, see the
 [PostgREST documentation](https://postgrest.org/en/stable/references/api.html).
