@@ -353,6 +353,44 @@ connection information.
 </TabItem>
 </Tabs>
 
+### Connect from Node.js
+
+Aiven Runtime provides the PostgreSQL connection URL in the configured
+[environment variable](/docs/products/runtime/secrets-and-variables#default-environment-variables).
+
+With `node-postgres`, enable libpq-compatible TLS behavior before using the generated URL:
+
+```javascript
+const { Client } = require("pg");
+
+const databaseUrl = new URL(process.env.DATABASE_URL);
+databaseUrl.searchParams.set("uselibpqcompat", "true");
+
+const client = new Client({
+  connectionString: databaseUrl.toString(),
+});
+
+await client.connect();
+```
+
+This produces a connection string equivalent to:
+
+```
+postgresql://USER:PASSWORD@HOST:PORT/DATABASE?sslmode=require&uselibpqcompat=true
+```
+
+:::note
+`sslmode=require` encrypts the connection but does not verify the server certificate.
+:::
+
+Once Runtime generates `uselibpqcompat=true` itself, simplify the example to:
+
+```javascript
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+});
+```
+
 ## Disconnect an Aiven service
 
 <Tabs groupId="group1">
