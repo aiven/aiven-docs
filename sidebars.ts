@@ -478,6 +478,7 @@ const sidebars: SidebarsConfig = {
             'products/runtime/power-off-apps',
           ],
         },
+        'products/runtime/runtime-logs',
       ],
     },
   ],
