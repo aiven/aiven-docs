@@ -67,7 +67,7 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 Cluster-enabled Valkey services use `cluster-N` plans, where `N` is the per-node memory
 in GiB, for example `cluster-4` (4 GiB RAM per node) and `cluster-8` (8 GiB RAM per
 node). You set the shard count and the replica count independently, using advanced
-configuration options. Available on AWS, Azure, and Google Cloud.
+configuration options.
 
 ### Configure a cluster-N plan
 
