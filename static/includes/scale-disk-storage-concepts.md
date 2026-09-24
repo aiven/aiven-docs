@@ -1,4 +1,4 @@
-/eol-for-major-versions#aiven-for-flinkAdding or removing disk storage does not disrupt the running service.
+Adding or removing disk storage does not disrupt the running service.
 You pay only for extra storage instead of upgrading compute resources.
 
 You can add extra storage when you create a service or after it is running.
