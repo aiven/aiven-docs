@@ -46,7 +46,8 @@ a request.
 1. Enter the **Access Key Id** and **Secret Access Key** for an AWS user with read
    and write access to the bucket, and click **Create**.
 1. Open your PostgreSQL for Analytics service page and click **Integrations**.
-1. Click **Lakehouse credentials**, and select the Amazon S3 endpoint you created.
+1. Click **PostgreSQL for Analytics Credentials Integration**, and select the Amazon
+   S3 endpoint you created.
 
 ## Enable the extension
 
