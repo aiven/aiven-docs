@@ -22,8 +22,8 @@ appropriate shard.
   maintain service availability.
 - **Minimal downtime**: Designed to handle both expected maintenance and unexpected
   failures with minimal service interruption.
-- **Read replicas**: Each shard includes at least one read replica for redundancy and
-  improved read performance.
+- **Read replicas**: Add up to two replicas per shard for redundancy and improved read
+  performance.
 
 ### Scalability
 
