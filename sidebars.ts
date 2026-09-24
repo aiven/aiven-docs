@@ -179,140 +179,6 @@ const sidebars: SidebarsConfig = {
             'platform/howto/saml/add-onelogin-idp',
           ],
         },
-        {
-          type: 'category',
-          label: 'Networking and security',
-          items: [
-            'platform/concepts/cloud-security',
-            'platform/reference/list_of_clouds',
-            'platform/howto/migrate-services-cloud-region',
-            'platform/concepts/availability-zones',
-            'platform/concepts/enhanced-compliance-env',
-            {
-              type: 'category',
-              label: 'Bring your own cloud',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/byoc',
-              },
-              items: [
-                'platform/concepts/byoc-enhanced-compliance',
-                'platform/howto/byoc/networking-security',
-                'platform/howto/byoc/enable-byoc',
-                {
-                  type: 'category',
-                  label: 'Create custom clouds',
-                  link: {
-                    type: 'doc',
-                    id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
-                  },
-                  items: [
-                    'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
-                    'platform/howto/byoc/create-cloud/create-google-custom-cloud',
-                    'platform/howto/byoc/create-cloud/create-azure-custom-cloud',
-                  ],
-                },
-                'platform/howto/byoc/aws-privatelink-byoc',
-                'platform/howto/byoc/assign-project-custom-cloud',
-                'platform/howto/byoc/add-customer-info-custom-cloud',
-                'platform/howto/byoc/tag-custom-cloud-resources',
-                'platform/howto/byoc/store-data',
-                'platform/howto/byoc/rename-custom-cloud',
-                'platform/howto/byoc/download-infrastructure-template',
-                'platform/howto/byoc/delete-custom-cloud',
-                'platform/howto/byoc/manage-byoc-service',
-                'platform/howto/byoc/view-custom-cloud-status',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'VPCs',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/vpcs',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Manage VPCs',
-                  link: {
-                    type: 'doc',
-                    id: 'platform/howto/list-manage-vpc',
-                  },
-                  items: [
-                    'platform/howto/manage-project-vpc',
-                    'platform/howto/manage-organization-vpc',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Peer VPCs',
-                  link: {
-                    type: 'doc',
-                    id: 'platform/howto/list-vpc-peering',
-                  },
-                  items: [
-                    {
-                      type: 'category',
-                      label: 'Project VPC peering',
-                      link: {
-                        type: 'doc',
-                        id: 'platform/howto/list-project-vpc-peering',
-                      },
-                      items: [
-                        'platform/howto/vpc-peering-aws',
-                        'platform/howto/vnet-peering-azure',
-                        'platform/howto/vpc-peering-gcp',
-                        'platform/howto/vpc-peering-upcloud',
-                      ],
-                    },
-                    {
-                      type: 'category',
-                      label: 'Organization VPC peering',
-                      link: {
-                        type: 'doc',
-                        id: 'platform/howto/list-organization-vpc-peering',
-                      },
-                      items: [
-                        'platform/howto/manage-org-vpc-peering-aws',
-                        'platform/howto/manage-org-vpc-peering-azure',
-                        'platform/howto/manage-org-vpc-peering-google',
-                      ],
-                    },
-                  ],
-                },
-                'platform/howto/vpc-service-management',
-                'platform/howto/google-cloud-functions',
-                'platform/howto/public-access-in-vpc',
-                'platform/howto/attach-vpc-aws-tgw',
-                {
-                  type: 'category',
-                  label: 'Private link',
-                  items: [
-                    'platform/howto/use-aws-privatelinks',
-                    'platform/howto/use-azure-privatelink',
-                    'platform/howto/use-google-private-service-connect',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'IP addresses',
-              items: [
-                'platform/reference/service-ip-address',
-                'platform/concepts/static-ips',
-                'platform/howto/restrict-access',
-                'platform/howto/private-ip-resolution',
-              ],
-            },
-            'platform/concepts/aiven-node-firewall-configuration',
-            'platform/howto/configure-project-base-port',
-            'platform/concepts/tls-ssl-certificates',
-            'platform/howto/bring-your-own-key',
-            'platform/concepts/disaster-recovery-test-scenarios',
-          ],
-        },
         'platform/concepts/service-and-feature-releases',
         'platform/howto/feature-preview',
         'platform/reference/eol-for-major-versions',
@@ -1363,6 +1229,11 @@ const sidebars: SidebarsConfig = {
           type: 'link',
           label: 'Service management',
           href: '/docs/platform/howto/list-service',
+        },
+        {
+          type: 'link',
+          label: 'Networking and security',
+          href: '/docs/platform/concepts/cloud-security',
         },
       ],
     },
@@ -3680,6 +3551,150 @@ const sidebars: SidebarsConfig = {
             'products/runtime/power-off-apps',
           ],
         },
+      ],
+    },
+  ],
+  //Networking and security dedicated sidebar
+  'services-networking-security': [
+    {
+      type: 'link',
+      label: '← Back to Products',
+      href: '/docs/products/services',
+    },
+    {
+      type: 'category',
+      label: 'Networking and security',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/concepts/cloud-security',
+        'platform/reference/list_of_clouds',
+        'platform/howto/migrate-services-cloud-region',
+        'platform/concepts/availability-zones',
+        'platform/concepts/enhanced-compliance-env',
+        {
+          type: 'category',
+          label: 'Bring your own cloud',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/byoc',
+          },
+          items: [
+            'platform/concepts/byoc-enhanced-compliance',
+            'platform/howto/byoc/networking-security',
+            'platform/howto/byoc/enable-byoc',
+            {
+              type: 'category',
+              label: 'Create custom clouds',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
+              },
+              items: [
+                'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
+                'platform/howto/byoc/create-cloud/create-google-custom-cloud',
+                'platform/howto/byoc/create-cloud/create-azure-custom-cloud',
+              ],
+            },
+            'platform/howto/byoc/aws-privatelink-byoc',
+            'platform/howto/byoc/assign-project-custom-cloud',
+            'platform/howto/byoc/add-customer-info-custom-cloud',
+            'platform/howto/byoc/tag-custom-cloud-resources',
+            'platform/howto/byoc/store-data',
+            'platform/howto/byoc/rename-custom-cloud',
+            'platform/howto/byoc/download-infrastructure-template',
+            'platform/howto/byoc/delete-custom-cloud',
+            'platform/howto/byoc/manage-byoc-service',
+            'platform/howto/byoc/view-custom-cloud-status',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'VPCs',
+          link: {
+            type: 'doc',
+            id: 'platform/concepts/vpcs',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Manage VPCs',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-manage-vpc',
+              },
+              items: [
+                'platform/howto/manage-project-vpc',
+                'platform/howto/manage-organization-vpc',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Peer VPCs',
+              link: {
+                type: 'doc',
+                id: 'platform/howto/list-vpc-peering',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Project VPC peering',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/list-project-vpc-peering',
+                  },
+                  items: [
+                    'platform/howto/vpc-peering-aws',
+                    'platform/howto/vnet-peering-azure',
+                    'platform/howto/vpc-peering-gcp',
+                    'platform/howto/vpc-peering-upcloud',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Organization VPC peering',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/list-organization-vpc-peering',
+                  },
+                  items: [
+                    'platform/howto/manage-org-vpc-peering-aws',
+                    'platform/howto/manage-org-vpc-peering-azure',
+                    'platform/howto/manage-org-vpc-peering-google',
+                  ],
+                },
+              ],
+            },
+            'platform/howto/vpc-service-management',
+            'platform/howto/google-cloud-functions',
+            'platform/howto/public-access-in-vpc',
+            'platform/howto/attach-vpc-aws-tgw',
+            {
+              type: 'category',
+              label: 'Private link',
+              items: [
+                'platform/howto/use-aws-privatelinks',
+                'platform/howto/use-azure-privatelink',
+                'platform/howto/use-google-private-service-connect',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'IP addresses',
+          items: [
+            'platform/reference/service-ip-address',
+            'platform/concepts/static-ips',
+            'platform/howto/restrict-access',
+            'platform/howto/private-ip-resolution',
+          ],
+        },
+        'platform/concepts/aiven-node-firewall-configuration',
+        'platform/howto/configure-project-base-port',
+        'platform/concepts/tls-ssl-certificates',
+        'platform/howto/bring-your-own-key',
+        'platform/concepts/disaster-recovery-test-scenarios',
       ],
     },
   ],
