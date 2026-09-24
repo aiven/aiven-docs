@@ -443,11 +443,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  //Runtime sidebar
-  runtime: [
+  //Products sidebar (previously 'services', now includes runtime)
+  products: [
     {
       type: 'category',
-      label: 'Runtime',
+      label: 'Products',
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
@@ -496,14 +496,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
       ],
-    },
-  ],
-
-  //Services sidebar
-  services: [
-    {
-      type: 'category',
-      label: 'Services',
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
@@ -2647,6 +2639,41 @@ const sidebars: SidebarsConfig = {
               },
               items: ['integrations/prometheus-system-metrics'],
             },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Runtime',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        'products/runtime',
+        'products/runtime/deploy-apps',
+        'products/runtime/connect-github-account',
+        {
+          type: 'category',
+          label: 'Manifest files',
+          items: [
+            'products/runtime/manifest-files/manifests',
+            'products/runtime/manifest-files/compose-files',
+            'products/runtime/manifest-files/containerfiles',
+          ],
+        },
+        'products/runtime/connect-services-to-apps',
+        {
+          type: 'category',
+          label: 'App management',
+          items: [
+            'products/runtime/ports',
+            'products/runtime/secrets-and-variables',
+            'products/runtime/deployment-information',
+            'products/runtime/scale-apps',
+            'products/runtime/change-cloud',
+            'products/runtime/custom-domain',
+            'products/runtime/power-off-apps',
           ],
         },
       ],

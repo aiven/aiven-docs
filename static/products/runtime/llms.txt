@@ -1,0 +1,26 @@
+# Aiven for Runtime
+
+> Aiven Runtime lets you deploy and run containerized applications directly within your existing Aiven project infrastructure. This means you can host your applications where your data is. Aiven automatically handles the…
+
+> Links below point to Markdown versions of each page in this section.
+> For the full text of these pages, see [llms-full.txt](https://aiven.io/docs/products/runtime/llms-full.txt).
+> For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+## Overview
+
+- [Aiven Runtime overview](https://aiven.io/docs/products/runtime.md): Aiven Runtime lets you deploy and run containerized applications directly within your existing Aiven project infrastructure. This means you can host your applications where your data is. Aiven automatically handles the…
+- [Deploy an application](https://aiven.io/docs/products/runtime/deploy-apps.md): Build and deploy applications using Aiven Runtime from source code in a GitHub repository.
+- [Connect services to Aiven Runtime](https://aiven.io/docs/products/runtime/connect-services-to-apps.md): Connect your deployed application to Aiven services. You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for OpenSearch®, or Aiven for Valkey™ service.
+
+## Manifest files
+
+- [Manifest files for Aiven Runtime](https://aiven.io/docs/products/runtime/manifest-files/manifests.md): Aiven Runtime uses container manifests to understand how to build and deploy your applications. You can define applications using two types of container manifests that work together to create complete solutions.
+- [Create Compose files for Aiven Runtime](https://aiven.io/docs/products/runtime/manifest-files/compose-files.md): Aiven Runtime scans your repository for Compose files, such as Docker Compose files, to detect applications, identify supported data services, and create integrations. Compose files must be in YAML format and follow…
+- [Create Containerfiles and Dockerfiles for Aiven Runtime](https://aiven.io/docs/products/runtime/manifest-files/containerfiles.md): Aiven Runtime automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure applications.
+
+## App management
+
+- [Manage ports for Aiven Runtime](https://aiven.io/docs/products/runtime/ports.md): To make your application available on public networks, you can configure it to listen on ports for HTTP/S traffic. Public ports allow traffic between your application and clients on the internet such as browsers. You…
+- [Manage secrets and environment variables for Aiven Runtime](https://aiven.io/docs/products/runtime/secrets-and-variables.md): Environment variables and secrets let you configure your application at runtime instead of embedding settings and sensitive information into your code. You can use them to pass information like API keys and database…
+- [Change branch](https://aiven.io/docs/products/runtime/deployment-information.md): You can change your application's branch at any time. Changing the branch triggers a redeployment of the selected branch's latest commit.
+- [Change application plan for Aiven Runtime](https://aiven.io/docs/products/runtime/scale-apps.md): Adjust the plan of your applications at any time to scale them and optimize costs.

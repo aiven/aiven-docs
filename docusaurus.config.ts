@@ -250,14 +250,8 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Services',
-          sidebarId: 'services',
-        },
-        {
-          type: 'docSidebar',
-          position: 'left',
-          label: 'Runtime',
-          sidebarId: 'runtime',
+          label: 'Products',
+          sidebarId: 'products',
         },
         {
           type: 'docSidebar',

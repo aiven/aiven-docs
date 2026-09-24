@@ -1,0 +1,25 @@
+# Organizations, units, and projects
+
+> The Aiven Platform uses organizations, organizational units, and projects to efficiently and securely organize your services and manage access.
+
+> Links below point to Markdown versions of each page in this section.
+> For the full text of these pages, see [llms-full.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms-full.txt).
+> For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+## Overview
+
+- [Organizations, units, and projects](https://aiven.io/docs/platform/concepts/orgs-units-projects.md): The Aiven Platform uses organizations, organizational units, and projects to efficiently and securely organize your services and manage access.
+- [Track your carbon footprint](https://aiven.io/docs/platform/concepts/carbon-footprint.md): The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage in your organization to help you monitor and reduce your emissions.
+
+## Organizations and units
+
+- [Create organizations and organizational units](https://aiven.io/docs/tools/aiven-console/howto/create-orgs-and-units.md): Organizations and organizational units help you group projects and apply common settings like authentication and access.
+- [Manage organizations](https://aiven.io/docs/platform/howto/manage-organizations.md): Learn how to manage your organizations via the Aiven Console.
+- [View event logs for organizations and organizational units](https://aiven.io/docs/platform/howto/view-organization-logs.md): Monitor activity in your Aiven organization with the organization and organizational unit event logs.
+
+## Projects
+
+- [Manage projects](https://aiven.io/docs/platform/howto/manage-project.md): Projects help you organize your Aiven services and centrally configure settings for all services in the project. You can create projects in your organization or its organizational units.
+- [Manage project and service notifications](https://aiven.io/docs/platform/howto/technical-emails.md): To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications. Notifications include information about plan sizes, performance,…
+- [View project logs](https://aiven.io/docs/platform/howto/view-project-logs.md): Monitor activity in your Aiven projects with the project event log.
+- [Manage unassigned projects](https://aiven.io/docs/platform/howto/manage-unassigned-projects.md): An unassigned project is a project that isn't assigned to an organization or organizational unit. Projects that are part of an organization or unit are easier to maintain as common settings, like authentication, are…
