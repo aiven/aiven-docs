@@ -1,0 +1,141 @@
+---
+title: Enable ML Commons for Aiven for OpenSearch®
+sidebar_label: Enable ML Commons
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
+Configure ML Commons cluster settings for your Aiven for OpenSearch® service, and deploy
+a pretrained or externally hosted model.
+
+For background on what ML Commons supports in Aiven for OpenSearch, see
+[ML Commons for Aiven for OpenSearch](/docs/products/opensearch/concepts/ml-commons).
+
+## Configure ML Commons cluster settings
+
+Configure the ML Commons cluster settings as
+[advanced parameters](/docs/products/opensearch/reference/advanced-params) on your Aiven
+for OpenSearch service. The following example sets `ml_commons_only_run_on_ml_node` to
+`false`, which is only needed on a plan without dedicated ML nodes.
+
+<Tabs groupId="config-methods">
+<TabItem value="gui" label="Console" default>
+
+1.  Log in to the [Aiven Console](https://console.aiven.io/).
+1.  Click <ConsoleLabel name="Services"/>, then select your Aiven for OpenSearch service.
+1.  Click <ConsoleLabel name="service settings"/>. Scroll to the
+    **Advanced configuration** section and click **Configure**.
+1.  Click **Add configuration options**, then select an `ml_commons_*` option from
+    the list.
+1.  Set the value and click **Save configuration**.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Use the [`avn service update`](/docs/tools/cli/service-cli#avn-cli-service-update) command
+to configure ML Commons settings:
+
+```bash
+avn service update SERVICE_NAME \
+  -c opensearch.ml_commons_only_run_on_ml_node=false \
+  -c opensearch.ml_commons_model_access_control_enabled=true
+```
+
+Replace `SERVICE_NAME` with your Aiven for OpenSearch service name.
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Call the
+[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint to configure ML Commons settings:
+
+```bash
+curl --request PUT \
+  --url "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
+  --header "Authorization: Bearer API_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "user_config": {
+      "opensearch": {
+        "ml_commons_only_run_on_ml_node": false,
+        "ml_commons_model_access_control_enabled": true
+      }
+    }
+  }'
+```
+
+Replace `PROJECT_NAME`, `SERVICE_NAME`, and `API_TOKEN` with your values.
+
+</TabItem>
+</Tabs>
+
+The full list of `ml_commons_*` options, including their types and defaults, is in
+[Advanced parameters for Aiven for OpenSearch](/docs/products/opensearch/reference/advanced-params).
+
+## Run ML tasks on the right nodes
+
+By default, `ml_commons_only_run_on_ml_node` is `true`, so ML tasks only run on nodes
+with the `ml` role.
+
+- If your service uses a cluster plan with dedicated ML nodes, leave this setting at its
+  default so ML tasks run there instead of on data nodes.
+- If your service doesn't have dedicated ML nodes, set `ml_commons_only_run_on_ml_node`
+  to `false` so ML tasks can run on data nodes.
+
+## Deploy a pretrained model
+
+To deploy an OpenSearch-provided pretrained model, use the ML Commons REST API through
+the standard OpenSearch API. Registering, deploying, and running predictions with a
+pretrained model follows the same steps as
+[registering a pretrained model](https://docs.opensearch.org/latest/ml-commons-plugin/pretrained-models/)
+in OpenSearch.
+
+## Connect to an externally hosted model
+
+To connect to a model hosted outside your Aiven for OpenSearch service, such as a
+third-party LLM API:
+
+1.  Add the endpoint of your model provider to
+    `ml_commons_trusted_connector_endpoints_regex`.
+1.  Create a connector and register a remote model using the
+    [OpenSearch connector blueprint](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/blueprints/)
+    for your model provider.
+
+## Restrict access to ML models and connectors
+
+By default, all service users have the `ml_full_access` role and can register, deploy,
+use, and delete any model or connector. To restrict which users can manage or use ML
+models and connectors:
+
+1.  [Enable OpenSearch Security management](/docs/products/opensearch/howto/enable-opensearch-security)
+    for your service.
+1.  Set `ml_commons_model_access_control_enabled`,
+    `ml_commons_connector_access_control_enabled`, or both to `true`.
+1.  Map the `ml_full_access` and `ml_readonly_access` roles to specific backend roles
+    using OpenSearch Security.
+
+## Redeploy models after node changes
+
+- If some of a service's `ml`-role nodes (or `data` nodes, on plans without dedicated ML
+  nodes) become unavailable, for example during a node replacement or plan change,
+  affected models move to a `PARTIALLY_DEPLOYED` state. They redeploy automatically if
+  `ml_commons_model_auto_redeploy_enable` is `true` (the default).
+- If all of those nodes become unavailable at once, for example during a power cycle,
+  models move to `DEPLOY_FAILED`. Call `_deploy` for each model to make it available
+  again.
+
+`ml_commons_model_auto_deploy_enable` (`true` by default) only applies to externally
+hosted models that haven't been deployed yet: it deploys them automatically on their
+first prediction request. Pretrained built-in models always need an explicit `_deploy`
+call.
+
+<RelatedPages/>
+
+- [ML Commons for Aiven for OpenSearch](/docs/products/opensearch/concepts/ml-commons)
+- [Advanced parameters for Aiven for OpenSearch](/docs/products/opensearch/reference/advanced-params)
+- [Enable OpenSearch Security management](/docs/products/opensearch/howto/enable-opensearch-security)
+- [OpenSearch Security for Aiven for OpenSearch](/docs/products/opensearch/concepts/os-security)
