@@ -12,6 +12,7 @@ import EolTableFlink from "@site/static/includes/eol-table-flink.md";
 import EolTableValkey from "@site/static/includes/eol-table-valkey.md";
 import EolTableDragonfly from "@site/static/includes/eol-table-dragonfly.md";
 import EolTableGrafana from "@site/static/includes/eol-table-grafana.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services and single-versioned services.
 
@@ -90,7 +91,10 @@ After the EOL date:
     version, the service is powered off and ultimately deleted.
     :::
 
--   If the service is powered off, it's deleted.
+-   If the service is powered off, it's deleted 7 days after the later of the EOL date
+    and the power-off date. This is shorter than the
+    [180-day period](/docs/platform/concepts/service-power-cycle#power-off-a-service) for
+    services that haven't reached EOL.
 
     :::note[Exception]
     Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
@@ -247,3 +251,10 @@ features or bug fixes but remains functional.
 | Version | Aiven EOL       |
 | ------- | --------------- |
 | 0.x     | To be announced |
+
+<RelatedPages/>
+
+- [Power on/off a service](/docs/platform/concepts/service-power-cycle)
+- [Fork a service](/docs/platform/concepts/service-forking)
+- [Service backups](/docs/platform/concepts/service_backups)
+- [Controlled upgrades](/docs/platform/howto/controlled-upgrade)
