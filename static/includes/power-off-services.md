@@ -17,7 +17,7 @@ Services powered off for more than 180 days are automatically deleted.
 :::note
 This 180-day grace period doesn't apply to services with a version that has reached
 [end of life (EOL)](/docs/platform/reference/eol-for-major-versions#eol-best-practices).
-Powered-off EOL services are deleted sooner.
+Powered-off EOL services are deleted within 7 days.
 :::
 
 <Tabs groupId="sync">
