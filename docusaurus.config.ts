@@ -262,7 +262,7 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Tools',
+          label: 'Dev tools',
           sidebarId: 'tools',
         },
         {
