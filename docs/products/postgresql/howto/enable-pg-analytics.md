@@ -51,11 +51,14 @@ a request.
 
 ## Enable the extension
 
-Connect to your service and run:
+Connect to your service with your primary service user, `avnadmin`, and run:
 
 ```sql
 CREATE EXTENSION pg_lake CASCADE;
 ```
+
+This grants your primary service user the `lake_read` and `lake_write` roles, which
+it can then grant to other database users who need to work with Iceberg tables.
 
 ## Create an Iceberg table
 
