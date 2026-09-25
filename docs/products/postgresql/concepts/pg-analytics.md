@@ -75,6 +75,13 @@ resources.
   bucket for this feature.
 - You can't fork a PostgreSQL for Analytics service, and read replicas aren't
   supported. You can still power off the service.
+- You can't perform a major version upgrade on a PostgreSQL for Analytics service.
+  PostgreSQL for Analytics currently supports PostgreSQL 17 only.
+- The `pg_lake_spatial` extension isn't available during LA.
+- The Amazon S3 endpoint you connect PostgreSQL for Analytics to is a project-level
+  object, shared with other integrations such as Aiven for ClickHouse® and Vector.
+  It remains visible elsewhere in your project. Only creating a PostgreSQL for
+  Analytics integration from it is restricted to enabled services.
 - PostgreSQL for Analytics runs on a single node. There's no distributed mode, so
   query performance scales with the size of that node, not by adding more nodes.
 - PostgreSQL for Analytics owns the Iceberg tables it creates. Writing to the same
