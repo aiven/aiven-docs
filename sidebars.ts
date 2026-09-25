@@ -2183,6 +2183,7 @@ const sidebars: SidebarsConfig = {
                     id: 'products/postgresql/howto/data-api/index',
                   },
                   items: [
+                    'products/postgresql/howto/data-api/tutorial',
                     'products/postgresql/howto/data-api/get-started',
                     'products/postgresql/howto/data-api/authentication',
                     'products/postgresql/howto/data-api/use-endpoints',
