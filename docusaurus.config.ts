@@ -244,14 +244,20 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Platform',
-          sidebarId: 'main',
+          label: 'Get started',
+          sidebarId: 'getstarted',
         },
         {
           type: 'docSidebar',
           position: 'left',
           label: 'Products',
           sidebarId: 'products',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          label: 'Admin',
+          sidebarId: 'main',
         },
         {
           type: 'docSidebar',
