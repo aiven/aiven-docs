@@ -1173,6 +1173,20 @@ const sidebars: SidebarsConfig = {
     'platform/howto/feature-preview',
     {
       type: 'category',
+      label: 'Runtime applications',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        {
+          type: 'link',
+          label: 'Aiven Runtime',
+          href: '/docs/products/runtime',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Integrations',
       className: 'expandedSection',
       collapsed: false,
@@ -1184,20 +1198,6 @@ const sidebars: SidebarsConfig = {
           type: 'link',
           label: 'Monitoring and logs',
           href: '/docs/platform/howto/list-monitoring',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Runtime applications',
-      collapsed: false,
-      collapsible: false,
-      className: 'expandedSection',
-      items: [
-        {
-          type: 'link',
-          label: 'Aiven Runtime',
-          href: '/docs/products/runtime',
         },
       ],
     },
