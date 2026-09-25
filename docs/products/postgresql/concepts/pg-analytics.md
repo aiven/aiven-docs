@@ -49,9 +49,7 @@ maintaining a pipeline to keep the two in sync.
 PostgreSQL for Analytics runs a separate analytical query engine alongside PostgreSQL
 in your service. When you run a query against an Iceberg table, PostgreSQL forwards the
 analytical parts of that query to this engine, which reads and writes the underlying
-Parquet files in your S3 bucket. Aiven allocates dedicated CPU and memory to this
-engine so that analytical queries don't compete with your PostgreSQL workload for
-resources.
+Parquet files in your S3 bucket.
 
 ## Requirements
 
@@ -84,6 +82,11 @@ resources.
   Analytics integration from it is restricted to enabled services.
 - PostgreSQL for Analytics runs on a single node. There's no distributed mode, so
   query performance scales with the size of that node, not by adding more nodes.
+- During LA, Aiven is still rolling out resource isolation between PostgreSQL and
+  the analytical query engine. Heavy analytical queries can affect the resources
+  available to your PostgreSQL workload on the same node. This is why LA is
+  concierge-based: Aiven reviews your workload before enabling the feature and
+  monitors it with you afterward.
 - PostgreSQL for Analytics owns the Iceberg tables it creates. Writing to the same
   Iceberg table from outside your PostgreSQL service, for example directly from
   another engine, isn't supported.
