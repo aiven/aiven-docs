@@ -21,7 +21,7 @@ browser, so a team connects through one URL.
   docker run -p 3000:3000 -v libredb:/app/data \
     -e STORAGE_PROVIDER=sqlite \
     -e STORAGE_ENCRYPTION_KEY=ENCRYPTION_KEY \
-    ghcr.io/libredb/libredb-studio:0.16.2
+    ghcr.io/libredb/libredb-studio:0.17.0
   ```
 
   Replace `ENCRYPTION_KEY` with at least 32 characters, for example the output of
