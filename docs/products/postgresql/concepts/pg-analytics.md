@@ -76,6 +76,9 @@ Parquet files in your S3 bucket.
 - You can't perform a major version upgrade on a PostgreSQL for Analytics service.
   PostgreSQL for Analytics currently supports PostgreSQL 17 only.
 - The `pg_lake_spatial` extension isn't available during LA.
+- Numeric columns without a declared precision and scale lose exact decimal semantics
+  in Iceberg tables. Always declare `numeric(P,S)` on columns you migrate. See
+  [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
 - The Amazon S3 endpoint you connect PostgreSQL for Analytics to is a project-level
   object, shared with other integrations such as Aiven for ClickHouse® and Vector.
   It remains visible elsewhere in your project. Only creating a PostgreSQL for

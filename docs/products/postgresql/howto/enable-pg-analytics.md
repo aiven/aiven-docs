@@ -70,10 +70,35 @@ to a path in your bucket:
 CREATE TABLE orders_analytics (
     order_id bigint,
     customer_id bigint,
-    order_total numeric,
+    order_total numeric(18,4),
     created_at timestamptz
 ) USING iceberg WITH (location = 's3://BUCKET_NAME/orders_analytics');
 ```
+
+:::important[Always declare precision and scale on numeric columns]
+Iceberg can't represent a `numeric` column with no declared precision and scale as an
+exact decimal. If you create an Iceberg table from a `numeric` column without one,
+PostgreSQL for Analytics converts it to `double precision`, an inexact binary
+floating-point type, and only reports this with a low-severity `NOTICE`, which many
+clients don't show by default:
+
+```text
+NOTICE:  column "order_total" has type that cannot be stored as an Iceberg
+decimal, converting to double precision
+HINT:  Use numeric(P,S) with precision <= 38 to preserve exact decimal
+semantics.
+```
+
+A single converted value usually looks correct, but summing many of them, as most
+analytical queries do, accumulates rounding error. Totals computed through
+PostgreSQL for Analytics can silently stop matching the source data. This is
+particularly risky for financial, billing, or audit workloads.
+
+Before creating an Iceberg table, declare an explicit `numeric(P,S)` with a precision
+of 38 or less on every numeric column you migrate. If you can't change the source
+table, cast the column explicitly in your `SELECT`, for example
+`total::numeric(18,4)`.
+:::
 
 Load data into the table from an existing PostgreSQL table:
 
