@@ -83,10 +83,11 @@ events. The SQL editor runs statements and `EXPLAIN` plans against the service.
 Aiven gives each service its own port. Take the port from the Aiven Console rather than
 the **`3306`** that choosing **MySQL** fills in.
 
-Typed in by hand instead of pasted, the URI leaves **SSL Mode** at **`disable`**. Aiven
-for MySQL does not enforce TLS, so nothing refuses that connection. Set the mode to
-**`require`** or higher yourself. See
-[Cloud security](/docs/platform/concepts/cloud-security).
+A new connection starts with **SSL Mode** at **`disable`**, and a hand-typed one stays
+there. Aiven for MySQL does not enforce TLS, so nothing refuses that connection. Set the
+mode to **`require`** or higher yourself. See
+[Cloud security](/docs/platform/concepts/cloud-security). The dialog keeps the last mode
+it held, so read the mode again if you add a second connection after pasting a URI.
 
 Each saved connection keeps a pool of up to 10 server connections while it is active. A
 few saved connections take a noticeable share of a small plan. See
