@@ -14,7 +14,7 @@ to specific users and groups.
 Aiven Runtime applications support identity providers
 that are OpenID Connect (OIDC) compliant:
 
-- [Microsoft Entra ID](/docs/products/apps/authentication/oidc-ms-entra-id/)
+- [Microsoft Entra ID](/docs/products/runtime/authentication/oidc-ms-entra-id/)
 - ...
 - ...
 

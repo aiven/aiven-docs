@@ -12,7 +12,6 @@ import GrantAccess from "@site/static/includes/idp-apps-grant-access.md";
 
 You can give users access to an Aiven Runtime application through identity providers (IdPs) that support OpenID Connect (OIDC).
 
-
 :::note
 Aiven handles authentication and blocks unauthenticated traffic at the platform level.
 If your backend needs to identify the logged-in user,
