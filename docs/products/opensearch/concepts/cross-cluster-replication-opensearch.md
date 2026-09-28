@@ -41,7 +41,15 @@ means that follower clusters are not backed up independently.
     on leader and follower services.
 -   During a node recycle event, replication will pause until the service is
     operational again.
+-   Cross-cluster replication is not supported when tiered storage is enabled
+    on the leader or the follower.
+-   A follower can't be forked or used as the source of a read replica, and
+    can't act as a leader for another cross-cluster replication pairing,
+    while it remains a follower.
+-   A leader can't be deleted or powered off while it still has a follower.
+    Delete or promote the follower first.
 
 <RelatedPages/>
 
-[Set up cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch).
+- [Set up cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch)
+- [Best practices for cross-cluster replication in Aiven for OpenSearch®](/docs/products/opensearch/howto/ccr-best-practices-opensearch)
