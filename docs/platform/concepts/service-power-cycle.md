@@ -26,3 +26,4 @@ automatic backup is also taken before the service is powered off.
 
 - [Fork a service](/docs/platform/concepts/service-forking)
 - [Service backups](/docs/platform/concepts/service_backups)
+- [Version lifecycle](/docs/platform/reference/eol-for-major-versions)
