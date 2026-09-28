@@ -404,6 +404,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Connectors</b>
         </>
       );
+    case 'refreshlineage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Refresh lineage</b>
+        </>
+      );
     case 'schemas':
       return (
         <>
