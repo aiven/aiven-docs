@@ -25,6 +25,3 @@ Let users access an Aiven Runtime application through the Microsoft Entra ID ide
 [Add the redirect URI](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri)
 you copied from the Aiven Console to the application.
 
-## Step 4: Grant access to users
-
-<GrantAccess/>

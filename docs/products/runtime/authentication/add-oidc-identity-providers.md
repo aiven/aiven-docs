@@ -29,7 +29,3 @@ read the identity passed in the `X-Forwarded-User` HTTP header.
 ## Step3: Add the redirect URL to your application
 
 <IdPStep3/>
-
-## Step 4: Grant access to users
-
-<GrantAccess/>
