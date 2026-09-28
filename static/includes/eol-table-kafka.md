@@ -1,13 +1,14 @@
 Aiven for Apache Kafka versions reach EOL one year after they become available on the
 Aiven Platform.
 
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 3.8.x   | 2026-09-30 | 2026-06-30                       | 2024-09-06                      |
-| 3.9.x   | 2027-09-30 | 2027-06-30                       | 2025-03-20                      |
-| 4.0.x   | 2026-09-18 | 2026-06-18                       | 2025-09-18                      |
-| 4.1.x   | 2027-01-31 | 2026-09-10                       | 2025-12-10                      |
-| 4.2.x   | 2027-06-15 | 2027-03-15                       | 2026-06-15                      |
+| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
+| ------- | --------------- | -------------------------------- | ------------------------------- |
+| 3.8.x   | 2026-09-30      | 2026-06-30                       | 2024-09-06                      |
+| 3.9.x   | 2027-09-30      | 2027-06-30                       | 2025-03-20                      |
+| 4.0.x   | 2026-09-18      | 2026-06-18                       | 2025-09-18                      |
+| 4.1.x   | 2027-01-31      | 2026-09-10                       | 2025-12-10                      |
+| 4.2.x   | 2027-06-15      | 2027-03-15                       | 2026-06-15                      |
+| 4.3.x   | To be announced | To be announced                  | To be announced                 |
 
 :::note
 Apache Kafka 3.8 is the last version that supports ZooKeeper.
