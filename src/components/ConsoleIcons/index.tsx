@@ -806,7 +806,7 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.lock} />{' '}
-          <b>Identity providers</b>
+          <b>Authentication</b>
         </>
       );
 
