@@ -4,7 +4,6 @@ sidebar_label: Manage extensions
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
-import ConsoleIcon from "@site/src/components/ConsoleIcons";
 
 Install, update, and remove PostgreSQL® extensions on Aiven for PostgreSQL using SQL commands.
 
@@ -17,8 +16,8 @@ elevated database privileges.
 
 :::tip
 Instead of running SQL commands, you can also manage extensions using an AI assistant
-connected to [Aiven MCP](/docs/tools/mcp-server), or
-[using the extensions manager in the Aiven Console](#manage-extensions-in-the-aiven-console).
+connected to [Aiven MCP](/docs/tools/mcp-server), or using the extensions manager in
+[PG Studio](/docs/products/postgresql/howto/pg-studio/#extensions).
 :::
 
 ## Install an extension
@@ -44,54 +43,6 @@ To delete an extension, run:
 ```sql
 DROP EXTENSION EXTENSION_NAME;
 ```
-
-## Manage extensions in the Aiven Console
-
-The extensions manager is part of
-[PG Studio](/docs/products/postgresql/howto/pg-studio/). It runs the same SQL commands for
-you, in the database you select.
-
-### Prerequisites
-
-- The `service:data:write` and `service:secrets:read` permissions at the organization,
-  unit, or project level. These permissions are included in the **Admin**, **Developer**,
-  and **Operator** roles.
-- Your IP address in the
-  [service's IP filter configuration](/docs/platform/howto/restrict-access).
-- PG Studio turned on for your organization, which is the default. See
-  [Manage PG Studio and AI features](/docs/products/postgresql/howto/pg-studio/security-connections#manage-pg-studio-and-ai-features).
-
-### View extensions
-
-1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
-   service.
-1. In the left-hand menu, click <ConsoleIcon name="pgextensions"/>.
-1. Select a database.
-
-The list shows the extensions you can enable in that database, with the installed version,
-schema, and description of each. An **Update available** label marks installed extensions
-that have a newer version. To find an extension, search by its name.
-
-### Enable an extension
-
-1. Turn on the extension.
-1. In **Schema**, select the schema to create the extension in. The default is `public`.
-   Some extensions can only be created in a specific schema, and some can't be moved to
-   another schema after you create them.
-1. Click **Enable**.
-
-### Update an installed extension
-
-1. Next to the extension, click **Update**.
-1. Click **Update** to confirm.
-
-### Disable an extension
-
-1. Turn off the extension.
-1. Optional: Select **Drop the objects that depend on the extension** to also drop the
-   tables, indexes, functions, and other objects that depend on it. If you don't select
-   it, disabling fails while any of those objects exist.
-1. Click **Disable**.
 
 ## Request an extension
 
