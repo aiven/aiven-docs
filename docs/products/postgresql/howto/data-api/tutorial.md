@@ -13,7 +13,6 @@ Expose a table in Aiven for PostgreSQL® as REST endpoints, secure them with Aut
 
 :::note
 Data API access is <LimitedBadge/>.
-To request access, [contact Aiven](https://aiven.io/contact).
 :::
 
 ## Prerequisites
@@ -101,6 +100,12 @@ Request a token from Auth0 with the client credentials grant. Replace the placeh
 with your Auth0 domain and the client ID and secret of the Machine to Machine
 application authorized for your API:
 
+:::tip
+Keep the client secret private; anyone with it can request tokens for your API. The
+access token expires after a period set by your Auth0 API configuration, so request a
+new one when it does.
+:::
+
 ```bash
 curl --request POST \
   --url "https://AUTH0_DOMAIN/oauth/token" \
@@ -120,8 +125,11 @@ following step.
 
 ## Step 7: Call the endpoints
 
-Find your API URL on the **Data API** page. Read the products, using the access
-token from step 6 as `TOKEN`:
+Find your API URL on the **Data API** page. The following examples use
+`REST_API_BASE_URL` for that URL and `TOKEN` for the access token from step 6. Replace
+both placeholders with your own values.
+
+Read the products:
 
 ```bash
 curl "https://REST_API_BASE_URL/products?select=id,name,price" \
