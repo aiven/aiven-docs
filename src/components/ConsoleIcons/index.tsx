@@ -152,6 +152,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.table} /> <b>Tables</b>
         </>
       );
+    case 'pgextensions':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.puzzlePiece} />{' '}
+          <b>Extensions</b>
+        </>
+      );
     case 'openschemamap':
       return (
         <>

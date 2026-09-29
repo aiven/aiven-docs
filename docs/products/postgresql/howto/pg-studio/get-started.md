@@ -27,13 +27,15 @@ To use PG Studio, you need:
   the `Access is not allowed from the IP address` error, add your IP address to the
   allowlist.
 
-## Open the SQL editor or Tables
+## Open a PG Studio feature
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.
 1. In the left-hand menu, click one of the following:
    - <ConsoleIcon name="sql editor"/>: Write and run SQL queries.
    - <ConsoleIcon name="pgtables"/>: Browse tables and open the schema map.
+   - <ConsoleIcon name="pgextensions"/>: Enable, update, and disable extensions. See
+     [Manage extensions in the Aiven Console](/docs/products/postgresql/howto/manage-extensions#manage-extensions-in-the-aiven-console).
 1. Select the source database.
 
 If AI features are off for your organization, the **AI Assistant** panel does not appear

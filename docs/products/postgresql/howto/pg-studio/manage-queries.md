@@ -7,7 +7,7 @@ description: Save and organize your queries for reuse.
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Save useful SQL and revisit recently executed statements in the <ConsoleIcon name="sql editor"/>, so you can continue analysis without rewriting queries.
+Save useful SQL in the <ConsoleIcon name="sql editor"/>, so you can reopen and rerun queries without rewriting them.
 
 ## Save queries
 
@@ -22,15 +22,9 @@ To save a query:
 
 The query is saved under the current tab name and appears in **Saved queries**.
 
-## Access saved queries and query history
+## Open saved queries
 
-**Saved queries** shows both your explicitly saved queries and your recent query history,
-so you can return to any previous work.
-
-For write query history and fork-based rollback, see
-[View and revert write query history](/docs/products/postgresql/howto/pg-studio/write-run-queries#view-and-revert-write-query-history).
-
-To open a saved query or a recent query:
+To open a saved query:
 
 1. In the <ConsoleIcon name="sql editor"/>, click **Saved queries**.
 1. Select a query from the list to load it into the editor.

@@ -34,14 +34,17 @@ For AI query generation scope, see [How AI assistance works](/docs/products/post
   - Statement timeout: 30 seconds
   - Lock timeout: 10 seconds
   - Connection timeout: 10 seconds
-  - Maximum result size: 5,000 rows
+  - Result size: Large results are truncated. To see specific rows, add a `LIMIT` clause
+    or refine your query.
 - **Encrypted connections:** All database connections use SSL/TLS encryption.
-- **Rate limiting:** Two query executions every two seconds per user per service; one
-  AI request every two seconds per user per service.
-- **Write query safeguards:** When you run a write query, the
-  <ConsoleIcon name="sql editor"/> prompts you to confirm before executing.
-- **Fork testing option:** You can test write queries on a database fork instead of modifying
-  live data directly.
+- **Rate limiting:** 15 query executions every 10 seconds per user per service; one AI
+  request every two seconds per user per service.
+
+:::warning
+Write queries run against your live data without a confirmation step. To test changes
+first, [fork your service](/docs/platform/concepts/service-forking) and run the queries
+on the fork.
+:::
 
 ## Network access requirements
 
