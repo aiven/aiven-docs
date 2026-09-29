@@ -1,12 +1,13 @@
 ---
 title: Get started with PG Studio
 sidebar_label: Get started
-description: Open the SQL editor or Table editor and run your first queries.
+description: Open the SQL editor or Tables, run your first queries, and explore your tables and schema.
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
-Open the <ConsoleIcon name="sql editor"/> or <ConsoleIcon name="table editor"/> and run your first queries.
+Run your first queries in the <ConsoleIcon name="sql editor"/>, and explore your tables and schema in <ConsoleIcon name="pgtables"/>.
 
 :::note
 PG Studio and its AI features are on by default, so no setup is needed. To turn them off,
@@ -26,15 +27,17 @@ To use PG Studio, you need:
   the `Access is not allowed from the IP address` error, add your IP address to the
   allowlist.
 
-## Open the SQL editor or Table editor
+## Open the SQL editor or Tables
 
 1. In the [Aiven Console](https://console.aiven.io/login), open your Aiven for PostgreSQL
    service.
-1. Click <ConsoleIcon name="sql editor"/> or <ConsoleIcon name="table editor"/> in the
-   left-hand menu.
-1. Click the source database and schema selectors.
+1. In the left-hand menu, click one of the following:
+   - <ConsoleIcon name="sql editor"/>: Write and run SQL queries.
+   - <ConsoleIcon name="pgtables"/>: Browse tables and open the schema map.
+1. Select the source database.
 
-If AI features are off for your organization, the **AI Assistant** panel does not appear.
+If AI features are off for your organization, the **AI Assistant** panel does not appear
+in the <ConsoleIcon name="sql editor"/>.
 
 ## Run your first query
 
@@ -59,14 +62,22 @@ You can write SQL directly. If AI features are on, you can also use the
 1. Review the generated SQL in the <ConsoleIcon name="sql editor"/>.
 1. Click **Run** to execute the query.
 
+## Explore your tables
+
+1. In the left-hand menu, click <ConsoleIcon name="pgtables"/>.
+1. Select the source database. The table list shows the tables of that database, grouped
+   by schema.
+1. Click a table. The table opens in its own tab and shows up to 100 rows.
+
 ## Explore your schema
 
-1. Click <ConsoleIcon name="table editor"/> in the left-hand menu.
-1. Click **Open schema map** to view your database structure as an interactive diagram.
+1. In the left-hand menu, click <ConsoleIcon name="pgtables"/>.
+1. Click <ConsoleIcon name="open schema map"/>. The schema map opens in its own tab and
+   shows your database structure as an interactive diagram.
 1. Browse tables, columns, and relationships.
 
-## Related pages
+<RelatedPages/>
 
-- [Use AI Assistant](/docs/products/postgresql/howto/pg-studio/use-ai-assistant)
-- [Write and run queries](/docs/products/postgresql/howto/pg-studio/write-run-queries)
+- [Use AI Assistant in PG Studio](/docs/products/postgresql/howto/pg-studio/use-ai-assistant)
+- [Write and run queries in PG Studio](/docs/products/postgresql/howto/pg-studio/write-run-queries)
 - [PG Studio overview](/docs/products/postgresql/howto/pg-studio/)

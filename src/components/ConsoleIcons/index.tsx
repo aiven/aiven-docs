@@ -146,10 +146,17 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>SQL editor</b>
         </>
       );
-    case 'tableeditor':
+    case 'pgtables':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.table} /> <b>Table editor</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.table} /> <b>Tables</b>
+        </>
+      );
+    case 'openschemamap':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.map} />{' '}
+          <b>Open schema map</b>
         </>
       );
     case 'generativeai':

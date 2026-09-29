@@ -5,8 +5,9 @@ description: Generate and explain SQL queries with natural language.
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
-The AI Assistant in the <ConsoleIcon name="sql editor"/> helps you generate SQL queries and understand your database using natural language.
+Generate SQL queries and understand your database using natural language with the AI Assistant in the <ConsoleIcon name="sql editor"/>.
 
 :::note
 AI features are on by default. If they are off for your organization, the **AI Assistant**
@@ -76,11 +77,11 @@ When you work in the <ConsoleIcon name="sql editor"/>, click **Ask AI** for the 
 
 1. Ask a schema question in the **AI Assistant** panel, such as how tables relate or what a column stores.
 1. Review the response or generated SQL.
-1. To browse tables and relationships visually, click <ConsoleIcon name="table editor"/>
-   in the left-hand menu, then click **Open schema map**.
+1. Optional: To browse tables and relationships visually, go to the left-hand menu and
+   click <ConsoleIcon name="pgtables"/>. Then click <ConsoleIcon name="open schema map"/>.
 
-## Related pages
+<RelatedPages/>
 
-- [Write and run queries](/docs/products/postgresql/howto/pg-studio/write-run-queries)
+- [Write and run queries in PG Studio](/docs/products/postgresql/howto/pg-studio/write-run-queries)
 - [Get started with PG Studio](/docs/products/postgresql/howto/pg-studio/get-started)
 - [PG Studio overview](/docs/products/postgresql/howto/pg-studio/)

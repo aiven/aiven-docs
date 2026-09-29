@@ -5,8 +5,9 @@ description: Save and organize your queries for reuse.
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
-The <ConsoleIcon name="sql editor"/> lets you save useful SQL and revisit recently executed statements, so you can continue analysis without rewriting queries.
+Save useful SQL and revisit recently executed statements in the <ConsoleIcon name="sql editor"/>, so you can continue analysis without rewriting queries.
 
 ## Save queries
 
@@ -19,8 +20,7 @@ To save a query:
 1. Run the query and verify the result.
 1. Click **Save**.
 
-The <ConsoleIcon name="sql editor"/> saves the query using the current tab name. The
-query appears in **Saved queries**.
+The query is saved under the current tab name and appears in **Saved queries**.
 
 ## Access saved queries and query history
 
@@ -57,8 +57,8 @@ Deleting a query removes it only from your saved queries list in the editor. It 
 delete any database objects created earlier by running SQL in your database.
 :::
 
-## Related pages
+<RelatedPages/>
 
-- [Write and run queries](/docs/products/postgresql/howto/pg-studio/write-run-queries)
+- [Write and run queries in PG Studio](/docs/products/postgresql/howto/pg-studio/write-run-queries)
 - [Get started with PG Studio](/docs/products/postgresql/howto/pg-studio/get-started)
 - [PG Studio overview](/docs/products/postgresql/howto/pg-studio/)

@@ -5,6 +5,7 @@ description: Understand how PG Studio connects and protects your data.
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how PG Studio connects to your database and ensures safe, controlled access.
 
@@ -65,7 +66,7 @@ yourself. The two controls are independent, so you can turn either one off or on
 affecting the other. To change either setting, contact the
 [Aiven support team](mailto:support@aiven.io).
 
-## Related pages
+<RelatedPages/>
 
 - [Get started with PG Studio](/docs/products/postgresql/howto/pg-studio/get-started)
 - [Restrict access to services](/docs/platform/howto/restrict-access)
