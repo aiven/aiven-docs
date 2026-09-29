@@ -4,15 +4,13 @@ sidebar_label: Add Okta
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import IdPStep1 from "@site/static/includes/oidc-idp-apps-step1.md";
-import IdPStep2 from "@site/static/includes/oidc-idp-apps-step2.md";
-import GrantAccess from "@site/static/includes/idp-apps-grant-access.md";
+import AivenSetup from "@site/static/includes/oidc-idp-apps-aiven-instructions.md";
 
 Let users access an Aiven Runtime application through the Okta identity provider (IdP).
 
 ## Step 1: Add Okta as an identity provider to your Aiven Runtime application
 
-<IdPStep2/>
+<AivenSetup/>
 
 ## Step 2: Register an application in Okta
 
