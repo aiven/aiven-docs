@@ -478,6 +478,23 @@ const sidebars: SidebarsConfig = {
             'products/runtime/power-off-apps',
           ],
         },
+        {
+          type: 'category',
+          label: 'Security and access',
+          items: [
+            {
+              type: 'category',
+              label: 'Authentication',
+              items: [
+                'products/runtime/authentication/apps-authentication-overview',
+                'products/runtime/authentication/add-oidc-identity-providers',
+                'products/runtime/authentication/oidc-auth0',
+                'products/runtime/authentication/oidc-ms-entra-id',
+                'products/runtime/authentication/oidc-okta',
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
