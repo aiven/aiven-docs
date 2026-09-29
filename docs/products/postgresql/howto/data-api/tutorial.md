@@ -19,8 +19,8 @@ Data API access is <LimitedBadge/>.
 
 - <LimitedBadge/> access to Data API. To request access,
   [contact Aiven](https://aiven.io/contact).
-- An Aiven for PostgreSQL service on a paid plan, with
-  [Aiven Runtime](/docs/products/runtime) enabled for your project.
+- An Aiven for PostgreSQL service on a paid plan. Data API deploys as an
+  [Aiven Runtime](/docs/products/runtime) application.
 - The [`project:services:write`](/docs/platform/concepts/permissions) permission. If
   you don't have it, ask an admin to grant it.
 - An [Auth0](https://auth0.com) account with an API and a Machine to Machine
