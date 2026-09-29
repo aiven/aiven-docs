@@ -1936,6 +1936,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/concepts/index-replication',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
                 'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                'products/opensearch/howto/ccr-best-practices-opensearch',
                 'products/opensearch/howto/resolve-shards-too-large',
                 'products/opensearch/howto/handle-low-disk-space',
                 'products/opensearch/reference/low-space-watermarks',

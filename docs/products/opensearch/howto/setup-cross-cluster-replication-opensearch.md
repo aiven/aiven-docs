@@ -351,4 +351,5 @@ Removing the integration transitions the follower service to a standalone servic
 <RelatedPages/>
 
 - [Cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
+- [Best practices for cross-cluster replication in Aiven for OpenSearch®](/docs/products/opensearch/howto/ccr-best-practices-opensearch)
 - [OpenSearch® cross-cluster replication via the OpenSearch API](https://opensearch.org/docs/latest/replication-plugin/get-started/)
