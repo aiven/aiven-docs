@@ -2,23 +2,21 @@
 title: Build a REST API with Aiven for PostgreSQL® Data API
 sidebar_label: Tutorial
 description: Turn a table into REST endpoints, secure them with Auth0, and call them with a bearer token.
-limited: true
+early: true
 ---
 
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Expose a table in Aiven for PostgreSQL® as REST endpoints, secure them with Auth0, and call them with a bearer token.
 
 :::note
-Data API access is <LimitedBadge/>.
+Data API is in <EarlyBadge/>.
 :::
 
 ## Prerequisites
 
-- <LimitedBadge/> access to Data API. To request it,
-  [contact Aiven](https://aiven.io/contact).
 - The [`project:services:write`](/docs/platform/concepts/permissions) permission. If
   you don't have it, ask an admin to grant it.
 - An [Auth0](https://auth0.com) account with an API and a Machine to Machine

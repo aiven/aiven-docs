@@ -2,16 +2,16 @@
 title: Call the Aiven for PostgreSQL® Data API endpoints
 sidebar_label: Use endpoints
 description: Find your API URL and call your database over HTTPS with bearer token authentication.
-limited: true
+early: true
 ---
 
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 After you enable Data API for a database, you can find your API URL and call your endpoints over HTTPS.
 
 :::note
-Data API is a <LimitedBadge/> feature.
+Data API is in <EarlyBadge/>.
 :::
 
 ## Find the base URL
