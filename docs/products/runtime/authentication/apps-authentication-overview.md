@@ -1,7 +1,6 @@
 ---
 title: Authentication for Aiven Runtime applications
 sidebar_label: Overview
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
@@ -12,10 +11,12 @@ you can add identity providers to your application and grant access
 to specific users and groups.
 
 Aiven Runtime applications support identity providers
-that are OpenID Connect (OIDC) compliant:
+that are
+[OpenID Connect (OIDC) compliant](/docs/products/runtime/authentication/oidc-overview/),
+such as:
 
+- [Auth0](/docs/products/runtime/authentication/oidc-auth0/)
 - [Microsoft Entra ID](/docs/products/runtime/authentication/oidc-ms-entra-id/)
-- ...
-- ...
+- [Okta](/docs/products/runtime/authentication/oidc-okta/)
 
 You can add multiple identity providers to an application.
