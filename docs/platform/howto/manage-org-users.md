@@ -21,8 +21,7 @@ To add users to your organization, send them an invite:
 1.  Enter the email addresses of the people to invite.
 1.  Click **Invite users**.
 
-The users receive an email with instructions to sign up (for new users)
-and accept the invite.
+The users receive an email with instructions.
 
 ## Remove users from an organization
 
