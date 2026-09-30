@@ -401,7 +401,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'refreshlineage':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Refresh lineage</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} />{' '}
+          <b>Refresh lineage</b>
         </>
       );
     case 'schemas':
@@ -566,6 +567,18 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
+        </>
+      );
+    case 'remove':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Remove</b>
+        </>
+      );
+    case 'deactivateuser':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Deactivate</b>
         </>
       );
     case 'delete':
@@ -796,6 +809,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Disaster recovery</b>
         </>
       );
+    case 'resendinvite':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.send} /> <b>Resend invite</b>
+        </>
+      );
     case 'runtime':
       return (
         <>
@@ -805,8 +824,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'runtimeidp':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.lock} />{' '}
-          <b>Authentication</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.lock} /> <b>Authentication</b>
         </>
       );
 
