@@ -401,7 +401,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'refreshlineage':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} /> <b>Refresh lineage</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} />{' '}
+          <b>Refresh lineage</b>
         </>
       );
     case 'schemas':
@@ -812,6 +813,8 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.send} /> <b>Resend invite</b>
+        </>
+      );
     case 'runtime':
       return (
         <>
@@ -821,8 +824,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'runtimeidp':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.lock} />{' '}
-          <b>Authentication</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.lock} /> <b>Authentication</b>
         </>
       );
 
