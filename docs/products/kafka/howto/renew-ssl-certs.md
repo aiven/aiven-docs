@@ -12,8 +12,8 @@ certificates. These are separate processes, and both can happen close together:
 |              | Service user certificate renewal                                                  | Project CA rotation                                                                                                                        |
 | ------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | What changes | The certificate and private key of one service user                               | The CA certificate that signs certificates in the project                                                                                  |
-| When         | About three months before the user certificate expires                            | When the certificate approaches expiration, or for operational or security reasons, even if the expiration date is years away.            |
-| What you do  | Download and deploy the renewed certificate and key, then acknowledge the renewal | Update clients to trust the CA certificate bundle. After the new CA becomes active, reset credentials for client-certificate users.        |
+| When         | About three months before the user certificate expires                            | When the certificate approaches expiration, or for operational or security reasons, even if the expiration date is years away             |
+| What you do  | Download and deploy the renewed certificate and key, then acknowledge the renewal | Update clients to trust the CA certificate bundle. After you apply the first update on every service, reset credentials for client-certificate users. |
 
 ## SSL certificate renewal schedule
 
@@ -72,8 +72,8 @@ curl --request PUT \
 
 When Aiven rotates the project CA certificate, existing service users keep their
 certificates, which the previous CA signed. If your service users authenticate with
-client certificates, reset their credentials after the new CA becomes active. This
-makes the new CA sign their certificates.
+client certificates, reset their credentials after you apply the first maintenance
+update on every service in the project. This makes the new CA sign their certificates.
 
 The new CA becomes active after all services in the project complete the first
 **Scheduled maintenance for TLS certificate update**. For the full sequence, see
@@ -83,6 +83,18 @@ Before you reset credentials, update your clients to trust the CA certificate bu
 The bundle contains both the current and new CA certificates, so clients can trust
 certificates signed by either CA during the rotation. For steps, see
 [Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
+
+To reset the credentials of a service user:
+
+1. Open your service in the [Aiven Console](https://console.aiven.io/).
+1. Click **Access & Control** > **Users** in the sidebar.
+1. Click `...` next to the user, and then select **Reset credentials**.
+1. Click **Show access key** and **Show access cert** to download the new certificate
+   and key. Deploy them to your application.
+
+For a client-certificate user, a reset generates a new password, a new certificate,
+and a new private key. The new CA signs the certificate. If the user also
+authenticates with SASL, update those clients with the new password.
 
 ## Turn off certificate expiration notifications for SASL services
 
@@ -103,4 +115,4 @@ To turn off these notifications:
 <RelatedPages/>
 
 - [TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates)
-- [Maintenance and updates](/docs/products/kafka/howto/maintenance-updates)
+- [Maintenance and updates for your Aiven for Apache Kafka® service](/docs/products/kafka/howto/maintenance-updates)

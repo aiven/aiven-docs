@@ -53,8 +53,8 @@ are exceptions:
     enable the `letsencrypt_sasl` setting to use a public CA instead of the project CA.
     For details, see [Enable and configure SASL authentication](/docs/products/kafka/howto/kafka-sasl-auth).
 
-  If your clients trust the project CA certificate,
-  [certificate rotation](#certificate-rotation) affects them.
+  If your clients trust the project CA certificate, or your service users authenticate
+  with client certificates, [certificate rotation](#certificate-rotation) affects you.
 - **Aiven for Valkey™** uses a browser-recognized (Let's Encrypt) certificate by
   default, so no CA certificate download is required. Services created before this
   certificate mode was enabled still use the Aiven project CA certificate. If the
@@ -82,17 +82,17 @@ other operational or security reasons.
 
 ### Check if a rotation affects your clients
 
-A rotation affects you if your client verifies the server certificate against the
-project CA certificate. This applies to:
+A rotation affects the following clients and service users:
 
 - PostgreSQL clients that use `sslmode=verify-ca` or `verify-full`
 - MySQL clients that use `VERIFY_CA` or `VERIFY_IDENTITY`
 - Apache Kafka clients that trust the project CA certificate
+- Apache Kafka service users that authenticate with client certificates
 - Clients of an older Aiven for Valkey service that still uses the project CA
   certificate
 
-If your client is affected, download the certificate bundle and configure your client
-to trust it before the second maintenance update. Otherwise, the client can't
+If your client is affected, download the CA certificate bundle and configure your
+client to trust it before the second maintenance update. Otherwise, the client can't
 verify the server certificate and the connection fails.
 
 ### How a rotation works
@@ -101,11 +101,13 @@ All services in a project share the same CA, so a rotation applies to the whole
 project. Each service switches to the new CA certificate through two maintenance
 updates. Both updates are named **Scheduled maintenance for TLS certificate update**.
 They use the same [maintenance process](/docs/platform/concepts/maintenance-window)
-as other updates and run during the maintenance window of each service.
+as other updates.
 
 1. **Aiven notifies you.** Aiven notifies your project and service contacts that an
    updated CA certificate bundle is available. The bundle contains both the current
-   and new CA certificates.
+   and new CA certificates. To receive this notification, make sure your
+   [project and service contacts](/docs/platform/howto/technical-emails) are up to
+   date.
 
 1. **You update your clients.** Download the certificate bundle and configure your
    clients to trust it. Complete this step before the second maintenance update. For
@@ -131,9 +133,6 @@ as other updates and run during the maintenance window of each service.
 Services in the same project have separate maintenance windows, so they can be at
 different steps at the same time.
 
-To receive these notifications, make sure your
-[project and service contacts](/docs/platform/howto/technical-emails) are up to date.
-
 ## Download CA certificates
 
 During a certificate rotation, the CA certificate that you download contains both the
@@ -157,5 +156,4 @@ avn service user-creds-download --username <username> <service-name>
 - [Service maintenance, updates and upgrades](/docs/platform/concepts/maintenance-window)
 - [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity)
 - [Support](/docs/platform/howto/support)
-- [Maintenance and updates for Aiven for Apache Kafka®](/docs/products/kafka/howto/maintenance-updates)
 - [Renew and acknowledge service user SSL certificates](/docs/products/kafka/howto/renew-ssl-certs)
