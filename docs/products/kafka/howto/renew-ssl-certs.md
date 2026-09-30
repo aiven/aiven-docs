@@ -2,6 +2,7 @@
 title: Renew and acknowledge service user SSL certificates
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages"
 
 Aiven for Apache Kafka® automatically generates a new SSL certificate for service users about three months before the existing certificate's expiration date. This new certificate includes a renewed private key.
@@ -9,7 +10,7 @@ Aiven for Apache Kafka® automatically generates a new SSL certificate for servi
 Aiven also rotates the project certificate authority (CA) that signs these user
 certificates. These are separate processes, and both can happen close together:
 
-|              | Service user certificate renewal                                                  | Project CA rotation                                                                                                                        |
+| Detail       | Service user certificate renewal                                                  | Project CA rotation                                                                                                                        |
 | ------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | What changes | The certificate and private key of one service user                               | The CA certificate that signs certificates in the project                                                                                  |
 | When         | About three months before the user certificate expires                            | When the certificate approaches expiration, or for operational or security reasons, even if the expiration date is years away             |
@@ -88,7 +89,7 @@ To reset the credentials of a service user:
 
 1. Open your service in the [Aiven Console](https://console.aiven.io/).
 1. Click **Access & Control** > **Users** in the sidebar.
-1. Click `...` next to the user, and then select **Reset credentials**.
+1. In the user row, click <ConsoleLabel name="actions" /> > <ConsoleLabel name="reset" />.
 1. Click **Show access key** and **Show access cert** to download the new certificate
    and key. Deploy them to your application.
 
