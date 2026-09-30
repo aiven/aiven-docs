@@ -32,10 +32,6 @@ Build and deploy applications using Aiven Runtime from source code in a GitHub r
   ]}
 />
 
-You cannot use Compose files to deploy applications through the Aiven API or Aiven MCP.
-Use
-[Containerfiles or Dockerfiles](/docs/products/runtime/manifest-files/containerfiles) instead.
-
 When you push changes to your GitHub repository, they don't
 automatically trigger deployments in Aiven Runtime.
 To deploy new commits, [redeploy the application](#redeploy-an-application).
