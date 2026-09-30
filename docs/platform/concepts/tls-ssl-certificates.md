@@ -99,9 +99,11 @@ verify the server certificate and the connection fails.
 
 All services in a project share the same CA, so a rotation applies to the whole
 project. Each service switches to the new CA certificate through two maintenance
-updates. Both updates are named **Scheduled maintenance for TLS certificate update**.
+updates. Aiven names both updates **Scheduled maintenance for TLS certificate update**.
 They use the same [maintenance process](/docs/platform/concepts/maintenance-window)
 as other updates.
+
+A rotation works as follows:
 
 1. **Aiven notifies you.** Aiven notifies your project and service contacts that an
    updated CA certificate bundle is available. The bundle contains both the current
@@ -120,15 +122,16 @@ as other updates.
 
 1. **The new CA becomes active.** This happens after all services in the project
    complete the first maintenance update. From this point, Aiven signs the
-   certificates of new service users and credential resets with the new CA. If you
-   use Kafka client-certificate authentication, reset the credentials of those
-   service users after this step. For steps, see
-   [Reset credentials after a project CA rotation](/docs/products/kafka/howto/renew-ssl-certs#reset-credentials-after-a-project-ca-rotation).
+   certificates of new service users and credential resets with the new CA.
 
 1. **Each service applies the second maintenance update.** Aiven schedules this
    update after the new CA becomes active. After this update, the service presents
    a certificate signed by the new CA. Clients that don't trust the new CA can no
    longer connect.
+
+If you use Kafka client-certificate authentication, reset the credentials of your
+existing service users after step 4. For steps, see
+[Reset credentials after a project CA rotation](/docs/products/kafka/howto/renew-ssl-certs#reset-credentials-after-a-project-ca-rotation).
 
 Services in the same project have separate maintenance windows, so they can be at
 different steps at the same time.
