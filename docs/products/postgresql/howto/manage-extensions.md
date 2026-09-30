@@ -16,8 +16,8 @@ elevated database privileges.
 
 :::tip
 Instead of running SQL commands, you can also manage extensions using an AI assistant
-connected to [Aiven MCP](/docs/tools/mcp-server), or using the extension manager in the
-Aiven Console.
+connected to [Aiven MCP](/docs/tools/mcp-server), or using the extensions manager in
+[PG Studio](/docs/products/postgresql/howto/pg-studio/#extensions).
 :::
 
 ## Install an extension
@@ -75,6 +75,7 @@ include:
 <RelatedPages/>
 
 -   [Extensions on Aiven for PostgreSQL®](/docs/products/postgresql/reference/list-of-extensions)
+-   [PG Studio for Aiven for PostgreSQL®](/docs/products/postgresql/howto/pg-studio/)
 -   [Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version)
 -   [Advanced parameters for Aiven for PostgreSQL®](/docs/products/postgresql/reference/advanced-params)
 -   [Support](/docs/platform/howto/support)

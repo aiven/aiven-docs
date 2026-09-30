@@ -140,10 +140,30 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>AI insights</b>
         </>
       );
-    case 'aieditor':
+    case 'sqleditor':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>PG Studio</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>SQL editor</b>
+        </>
+      );
+    case 'pgtables':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.table} /> <b>Tables</b>
+        </>
+      );
+    case 'pgextensions':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.puzzlePiece} />{' '}
+          <b>Extensions</b>
+        </>
+      );
+    case 'openschemamap':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.map} />{' '}
+          <b>Open schema map</b>
         </>
       );
     case 'generativeai':
