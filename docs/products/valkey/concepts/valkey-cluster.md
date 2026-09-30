@@ -153,7 +153,8 @@ replacement primary for the affected shard depends on how many shards the cluste
   this case, Aiven promotes the replica that's furthest ahead in replication, meaning the
   one with the least data loss, once it confirms the failed primary is no longer part of
   the service. If the shard has no replica, Aiven provisions a new node instead and
-  restores its data from the most recent backup.
+  restores its data from the most recent backup. The shard loses any writes it accepted
+  after that backup.
 
 Failover isn't instant, so while a shard has uncovered hash slots, commands for keys in
 that shard's slot range fail; other shards keep serving their own keys without
@@ -170,10 +171,17 @@ primary nodes to keep the slots evenly balanced across shards.
 Resharding has a few prerequisites:
 
 - All nodes in the service must be in the `Running` state.
-- No other change that alters the instance size or cloud region can be in progress at the
+- No change to the instance size or cloud region can be in progress or requested at the
   same time.
-- A backup that matches the service's current shard count must exist. If you just
-  resharded, wait for the next backup to complete before you reshard again.
+- The most recent backup must match the service's current shard count. After a reshard,
+  wait for the next backup to complete before you reshard again.
+- You cannot change `shard_count` and `replicas` in the same request. Change one, wait
+  for the update to finish, then change the other.
+
+:::note
+Aiven triggers a backup after each reshard settles. Smaller plans keep fewer backups, so
+several plan changes in a row can push older backups out of retention.
+:::
 
 Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
 manages the entire process:
@@ -203,15 +211,16 @@ more information, see [Memory management](/docs/products/valkey/concepts/memory-
 
 ## Backup and restore
 
-Aiven for Valkey automatically backs up your clustered service. For each shard, Aiven
-backs up a replica if the shard has one, or the primary if it doesn't. This keeps the
-extra backup load off primaries where possible. Aiven stores these backups in a remote
-location. Backups run independently for each shard and need no coordination from your
-application.
+Aiven for Valkey automatically backs up your clustered service. If your shards have
+replicas, Aiven backs up the replicas, which keeps the extra backup load off your
+primaries. If your shards have no replicas, Aiven backs up the primaries instead. Aiven
+stores these backups in a remote location. Backups run independently for each shard and
+need no coordination from your application.
 
 If a reshard is still moving slots when a backup is due, Aiven waits for the new layout to
 settle before starting the backup. If the topology changes while a backup is running, for
-example during a reshard or failover, the backup fails and retries automatically.
+example during a reshard or failover, the backup fails and the next scheduled backup takes
+over.
 
 Cluster mode doesn't support delta backups: Every backup is a full backup.
 
@@ -233,12 +242,12 @@ Design your application to tolerate this if you rely on a restore.
 - Valkey clustering is supported for new services only. You can't convert an existing
   standalone service to a cluster plan, or a clustered service back to standalone.
 - Migrating data into a cluster from an external Redis or Valkey server isn't supported.
-- Aiven places a shard's primary and each replica in different availability zones when it
-  creates the cluster or replaces a node, as long as enough zones and capacity are
-  available.
-- This placement isn't guaranteed during an availability zone outage or a capacity
-  shortfall, and Aiven doesn't currently rebalance nodes into different zones afterward.
-  A shard without a replica has no availability zone redundancy regardless.
+- When Aiven creates a cluster, it places each shard's primary and replicas in different
+  availability zones, as long as the region has enough zones available. This placement is
+  best effort, not a guarantee.
+- Aiven doesn't apply the same zone spread when it replaces a node later, and it doesn't
+  rebalance existing nodes into different zones. A shard without a replica has no
+  availability zone redundancy.
 - Performance factors
 
   - Network latency between shards can affect cross-shard operations.
