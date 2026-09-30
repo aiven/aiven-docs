@@ -183,3 +183,4 @@ returns the service to a standard node layout where nodes share roles.
 - [High availability in Aiven for OpenSearch®](/docs/products/opensearch/concepts/high-availability-for-opensearch)
 - [Shards and replicas](/docs/products/opensearch/concepts/shards-number)
 - [Service plans](/docs/platform/concepts/service-pricing)
+- [ML Commons for Aiven for OpenSearch®](/docs/products/opensearch/concepts/ml-commons)

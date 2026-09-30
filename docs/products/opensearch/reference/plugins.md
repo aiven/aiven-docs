@@ -33,10 +33,14 @@ are available:
 -   [Learning to Rank](https://github.com/opensearch-project/opensearch-learning-to-rank-base)
     (OpenSearch 2.19.5 and later)
 -   [Mapper Size](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/mapper-size)
+-   [ML Commons](/docs/products/opensearch/concepts/ml-commons) for machine learning
+    training and inference
 -   [Neural Search](https://github.com/opensearch-project/neural-search)
 -   [Notebooks](https://github.com/opensearch-project/dashboards-notebooks)
 -   [OpenSearch Dashboards Alerting](https://github.com/opensearch-project/alerting-dashboards-plugin)
 -   [OpenSearch Dashboards Gantt Charts](https://github.com/opensearch-project/dashboards-visualizations)
+-   [OpenSearch Dashboards Machine Learning](https://github.com/opensearch-project/ml-commons-dashboards)
+    for managing ML Commons models and connectors from OpenSearch Dashboards
 -   [OpenSearch Dashboards Reports](https://github.com/opensearch-project/dashboards-reporting)
 -   [OpenSearch Dashboards Trace Analytics](https://github.com/opensearch-project/trace-analytics)
 -   [OpenSearch Notifications](https://github.com/opensearch-project/notifications)
