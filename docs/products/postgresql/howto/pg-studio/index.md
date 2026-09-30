@@ -54,7 +54,7 @@ In the <ConsoleIcon name="sql editor"/>, you can use:
 
 - **Query editor:** Write and edit SQL across multiple tabs. Run a single statement or
   select multiple statements to execute them all at once, with each result shown in its
-  own tab. Execute write operations within query timeouts and rate limits.
+  own tab.
 - **Table list:** Browse the schemas and tables of the selected database while you write
   queries.
 - **AI Assistant panel:** Describe what you need in natural language. The assistant

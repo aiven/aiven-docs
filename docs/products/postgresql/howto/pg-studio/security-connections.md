@@ -24,10 +24,6 @@ PG Studio ensures safe, controlled access:
 
 For AI query generation scope, see [How AI assistance works](/docs/products/postgresql/howto/pg-studio/use-ai-assistant#how-ai-assistance-works).
 
-- **Single-statement validation:** The <ConsoleIcon name="sql editor"/> allows only one
-  SQL statement per execution.
-- **Automatic safety checks:** The <ConsoleIcon name="sql editor"/> validates all
-  generated SQL for safety before execution.
 - **Restricted unsafe requests:** Requests for privilege escalation or malicious SQL are
   blocked.
 - **Timeouts and limits:**
@@ -39,12 +35,6 @@ For AI query generation scope, see [How AI assistance works](/docs/products/post
 - **Encrypted connections:** All database connections use SSL/TLS encryption.
 - **Rate limiting:** 15 query executions every 10 seconds per user per service; one AI
   request every two seconds per user per service.
-
-:::warning
-Write queries run against your live data without a confirmation step. To test changes
-first, [fork your service](/docs/platform/concepts/service-forking) and run the queries
-on the fork.
-:::
 
 ## Network access requirements
 
