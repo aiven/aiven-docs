@@ -79,6 +79,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'platform/concepts/service-pricing',
             'platform/concepts/tax-information',
+            'platform/howto/billing-reports',
             {
               type: 'category',
               label: 'Payment methods',
