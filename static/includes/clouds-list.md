@@ -870,6 +870,11 @@ contact your account team.
   </thead>
   <tbody>
   <tr>
+    <td>Africa</td>
+    <td>af-johannesburg-1</td>
+    <td>South Africa, South Africa Central: Johannesburg</td>
+  </tr>
+  <tr>
     <td>Asia-Pacific</td>
     <td>ap-melbourne-1</td>
     <td>Australia, Australia Southeast: Melbourne</td>
