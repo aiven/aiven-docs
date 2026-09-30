@@ -29,10 +29,11 @@ the default browser-recognized certificate, Aiven periodically rotates that CA
 certificate. To identify which certificate your service uses, see
 [Certificate requirements](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
 
-A rotation takes two maintenance updates, both named **Scheduled maintenance for
-TLS certificate update**. Aiven applies each update during your service's
-maintenance window, as described in [Maintenance updates](#maintenance-updates).
-A rotation progresses through the following stages:
+Rotation can start years before the certificate's own expiration date. A rotation
+takes two maintenance updates, both named **Scheduled maintenance for TLS
+certificate update**. Aiven applies each update during your service's maintenance
+window, as described in [Maintenance updates](#maintenance-updates). A rotation
+progresses through the following stages:
 
 1. Aiven notifies your project and service contacts that an updated CA
    certificate bundle is available. The bundle contains both the current and the
@@ -47,13 +48,11 @@ A rotation progresses through the following stages:
 
 :::important
 Update every client that trusts the project CA certificate before the second
-maintenance update. After that update, your service presents a certificate
-signed by the new CA certificate. Clients that don't trust it can't verify the
-server certificate, so connections fail.
+maintenance update. Clients that don't trust the new CA certificate can't verify
+the server certificate, so connections fail.
 :::
 
-To prepare, download the CA certificate bundle when Aiven notifies you, and add
-the new certificate to the trust store of each client. For steps, see
+To download the bundle, see
 [Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
 For more about the bundle and the rotation process, see
 [Certificate rotation](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation).
