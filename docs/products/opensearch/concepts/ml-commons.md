@@ -54,8 +54,9 @@ For general information about node roles, see
 
 Aiven for OpenSearch supports two ways to bring a model into your cluster:
 
-- **Pretrained models**: Register and deploy a model that OpenSearch provides
-  out of the box. These models run in the cluster on data nodes or dedicated ML nodes.
+- **Pretrained models**: Register and deploy one of the
+  [OpenSearch-provided pretrained models](https://docs.opensearch.org/latest/ml-commons-plugin/pretrained-models/).
+  These models run in the cluster on data nodes or dedicated ML nodes.
 - **Externally hosted models**: Connect to a model hosted outside your Aiven for
   OpenSearch service, such as a third-party LLM API, using a
   [remote connector](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/index/).
