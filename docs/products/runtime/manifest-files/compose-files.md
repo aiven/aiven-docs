@@ -47,6 +47,38 @@ More information on formatting Compose files is available in the
 [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md)
 and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file).
 
+### Deploy an application from an existing image
+
+Aiven Runtime does not deploy applications directly from the `image` property
+in your Compose file. Use `build` instead and reference a
+Containerfile or Dockerfile in the repository.
+
+For applications that are available as public container images,
+create a Containerfile or Dockerfile that uses the image in its `FROM` instruction:
+
+```dockerfile
+FROM provider/image
+```
+
+Reference that file using `build` in the Compose file.
+
+For example, the following Dockerfile uses the public NGINX image:
+
+```dockerfile
+FROM docker.io/library/nginx:alpine
+```
+
+Reference this Dockerfile in your Compose file using the `build` property:
+
+```yaml
+services:
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      ...
+```
+
 ### Service integrations
 
 Aiven Runtime automatically detects and creates the following data services based
