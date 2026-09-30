@@ -29,7 +29,23 @@ automatically.
 
 <MaintenanceWindowInstructions/>
 
+## Certificate rotation
+
+Aiven periodically rotates the project CA certificate. Your Aiven for Apache Kafka
+service switches to the new certificate through two maintenance updates named
+**Scheduled maintenance for TLS certificate update**, which run during your
+maintenance window.
+
+Update your clients to trust the new CA certificate before the second maintenance
+update. If your service users authenticate with client certificates, reset their
+credentials after the new CA becomes active. For details, see
+[Certificate rotation](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation)
+and
+[Reset credentials after a project CA rotation](/docs/products/kafka/howto/renew-ssl-certs#reset-credentials-after-a-project-ca-rotation).
+
 <RelatedPages/>
 
 - [Kafka upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure)
 - [Change the service plan](/docs/products/kafka/howto/change-service-plan)
+- [TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates)
+- [Renew and acknowledge service user SSL certificates](/docs/products/kafka/howto/renew-ssl-certs)

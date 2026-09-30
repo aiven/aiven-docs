@@ -25,6 +25,10 @@ You can use TLS in two ways:
   certificate for your Apache Kafka broker and your broker validates
   the certificate for your client.
 
+If your clients trust the project CA certificate, Aiven periodically rotates this
+certificate. For details, see
+[Certificate rotation](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation).
+
 ## Simple Authentication and Security Layer
 
 **Simple Authentication and Security Layer (SASL)** allows alternative login
