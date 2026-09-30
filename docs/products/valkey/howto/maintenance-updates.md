@@ -24,16 +24,39 @@ Manage maintenance updates and set the maintenance window for your Aiven for Val
 
 ## Certificate rotation
 
-If your Aiven for Valkey™ service still uses the project CA certificate rather
-than the default browser-recognized certificate, Aiven periodically rotates
-this CA certificate. This rotation uses the same maintenance process described
-in [Maintenance updates](#maintenance-updates), applied during your service's
-maintenance window, to update your service to trust and use the new
-certificate. Update any client that trusts the project CA certificate to trust
-the new certificate before the rotation completes, otherwise your client can't
-verify the server certificate and the connection fails. For details on the
-certificate bundle and rotation process, see
-[TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation).
+If your Aiven for Valkey™ service uses the project CA certificate rather than
+the default browser-recognized certificate, Aiven periodically rotates that CA
+certificate. To identify which certificate your service uses, see
+[Certificate requirements](/docs/platform/concepts/tls-ssl-certificates#certificate-requirements).
+
+A rotation takes two maintenance updates, both named **Scheduled maintenance for
+TLS certificate update**. Aiven applies each update during your service's
+maintenance window, as described in [Maintenance updates](#maintenance-updates).
+A rotation progresses through the following stages:
+
+1. Aiven notifies your project and service contacts that an updated CA
+   certificate bundle is available. The bundle contains both the current and the
+   new CA certificate.
+1. The first **Scheduled maintenance for TLS certificate update** makes your
+   service trust the new CA certificate.
+1. After every service in the project has this update applied, the new CA
+   certificate becomes the active CA for the project.
+1. The second **Scheduled maintenance for TLS certificate update** makes your
+   service present a server certificate signed by the new CA certificate.
+1. Aiven retires the old CA certificate, which is no longer trusted.
+
+:::important
+Update every client that trusts the project CA certificate before the second
+maintenance update. After that update, your service presents a certificate
+signed by the new CA certificate. Clients that don't trust it can't verify the
+server certificate, so connections fail.
+:::
+
+To prepare, download the CA certificate bundle when Aiven notifies you, and add
+the new certificate to the trust store of each client. For steps, see
+[Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
+For more about the bundle and the rotation process, see
+[Certificate rotation](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation).
 
 <RelatedPages/>
 
