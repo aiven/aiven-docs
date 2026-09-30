@@ -1,7 +1,6 @@
 ---
 title: Control maintenance updates with upgrade pipelines
 sidebar_label: Controlled upgrade
-limited: true
 ---
 
 import ControlledUpgradesConcepts from "@site/static/includes/controlled-upgrades-concepts.md";
