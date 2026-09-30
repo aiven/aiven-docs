@@ -14,8 +14,12 @@
   font-size: 110%;
   font-family: Inter;
   color: var(--aiven-adm-title-color);
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 600;
+}
+
+.alert>div:first-child::first-letter {
+  text-transform: uppercase;
 }
 
 .alert>div:first-child>span {

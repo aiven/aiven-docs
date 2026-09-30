@@ -18,7 +18,9 @@ speeds up the upgrade itself.
 
 - When changing a service plan, reserve an additional 25% of disk space. This requirement
   applies to upgrades and downgrades.
-- Downgrading to a plan with fewer VMs is supported for Aiven for ClickHouse® only.
+- Downgrading to a plan with fewer VMs is supported for most services, including
+  Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for OpenSearch®,
+  Aiven for ClickHouse®, Aiven for MySQL®, Aiven for Metrics, and Aiven for Valkey™.
 - Changing a service plan triggers a node recycle, service rebuilding, and any pending
   maintenance updates.
 

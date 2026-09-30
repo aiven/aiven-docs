@@ -3,14 +3,26 @@ title: Connect DataHub to services
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Add connectors to your DataHub service to ingest data.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['For the DataHub service: `role:project:admin` or `project:integrations:write`. For the service you are connecting, you must have permission to manage service users: `role:project:admin`, `role:project:manager`, or `service:users:write`.'],
+    },
+  ]}
+/>
 
 ## Connect Aiven services
 
 1. In your DataHub service, click <ConsoleLabel name="datahubconnectors"/>.
 1. Click **Add connectors**.
 1. Select services from projects in your organization and organizational units.
+1. Optional: Click **Emit lineage** to immediately start sending
+   lineage data after the connectors are added.
 1. Click **Add connectors**.
 
 A service user is created in each connected service

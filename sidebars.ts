@@ -317,7 +317,6 @@ const sidebars: SidebarsConfig = {
         'platform/howto/feature-preview',
         'platform/reference/eol-for-major-versions',
         'platform/reference/end-of-life',
-        'platform/reference/get-resource-IDs',
       ],
     },
   ],
@@ -331,6 +330,11 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'ai-features',
+        {
+          type: 'link',
+          label: 'Managed Agents',
+          href: '/docs/tools/agents',
+        },
         'tools/mcp-server',
         {
           type: 'link',
@@ -365,6 +369,21 @@ const sidebars: SidebarsConfig = {
           items: ['tools/api/secret-redaction'],
         },
         'tools/mcp-server',
+        {
+          type: 'category',
+          label: 'Managed Agents',
+          link: {
+            id: 'tools/agents',
+            type: 'doc',
+          },
+          items: [
+            'tools/agents/create-agent',
+            'tools/agents/chat-with-agent',
+            'tools/agents/schedule-agent',
+            'tools/agents/manage-agent',
+            'tools/agents/manage-integrations',
+          ],
+        },
         {
           type: 'category',
           label: 'Aiven Provider for Terraform',
@@ -418,6 +437,7 @@ const sidebars: SidebarsConfig = {
             'tools/cli/vpc',
           ],
         },
+        'platform/reference/get-resource-IDs',
         'tools/query-optimizer',
         'tools/doc-diff-llms',
       ],
@@ -434,6 +454,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'products/runtime',
         'products/runtime/deploy-apps',
+        'products/runtime/connect-github-account',
         {
           type: 'category',
           label: 'Manifest files',
@@ -455,6 +476,23 @@ const sidebars: SidebarsConfig = {
             'products/runtime/change-cloud',
             'products/runtime/custom-domain',
             'products/runtime/power-off-apps',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Security and access',
+          items: [
+            {
+              type: 'category',
+              label: 'Authentication',
+              items: [
+                'products/runtime/authentication/apps-authentication-overview',
+                'products/runtime/authentication/add-oidc-identity-providers',
+                'products/runtime/authentication/oidc-auth0',
+                'products/runtime/authentication/oidc-ms-entra-id',
+                'products/runtime/authentication/oidc-okta',
+              ],
+            },
           ],
         },
       ],
@@ -1506,9 +1544,10 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Access and security',
+              label: 'Security and access',
               items: [
                 'products/datahub/manage-datahub-users',
+                'products/datahub/permissions',
                 'products/datahub/enable-oidc-auth-datahub',
                 'products/datahub/rotate-secrets',
               ],
@@ -1526,6 +1565,11 @@ const sidebars: SidebarsConfig = {
                 'products/datahub/maintenance-updates',
                 'products/datahub/restore-datahub-indices',
               ],
+            },
+            {
+              type: 'category',
+              label: 'Monitoring',
+              items: ['products/datahub/enable-prometheus-metrics'],
             },
             'products/datahub/fork-datahub-service',
           ],
@@ -1740,6 +1784,7 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/howto/connect-from-mysql-workbench',
                 'products/mysql/howto/connect-with-dbeaver',
                 'products/mysql/howto/connect-with-datagrip',
+                'products/mysql/howto/connect-libredb-studio',
                 'products/mysql/concepts/max-number-of-connections',
               ],
             },
@@ -1886,10 +1931,12 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/concepts/when-create-index',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/howto/reindex-opensearch',
+                'products/opensearch/howto/migrate-knn-nmslib-engine',
                 'products/opensearch/howto/set_index_retention_patterns',
                 'products/opensearch/concepts/index-replication',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
                 'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                'products/opensearch/howto/ccr-best-practices-opensearch',
                 'products/opensearch/howto/resolve-shards-too-large',
                 'products/opensearch/howto/handle-low-disk-space',
                 'products/opensearch/reference/low-space-watermarks',
@@ -2102,6 +2149,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/connect-zapier',
                     'products/postgresql/howto/connect-datagrip',
                     'products/postgresql/howto/connect-dbeaver',
+                    'products/postgresql/howto/connect-libredb-studio',
                   ],
                 },
                 {
@@ -2144,6 +2192,21 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/pg-studio/write-run-queries',
                     'products/postgresql/howto/pg-studio/manage-queries',
                     'products/postgresql/howto/pg-studio/security-connections',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Data API',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/howto/data-api/index',
+                  },
+                  items: [
+                    'products/postgresql/howto/data-api/tutorial',
+                    'products/postgresql/howto/data-api/get-started',
+                    'products/postgresql/howto/data-api/authentication',
+                    'products/postgresql/howto/data-api/use-endpoints',
+                    'products/postgresql/howto/data-api/manage',
                   ],
                 },
                 'products/postgresql/howto/ai-insights',

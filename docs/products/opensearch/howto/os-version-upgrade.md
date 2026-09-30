@@ -74,6 +74,22 @@ Track upgrades for your service via:
 
 Downgrades are not supported: You cannot revert to a previous version or change to a lower
 
+### k-NN field requirements
+
+If your indices use [k-NN fields](/docs/products/opensearch/reference/plugins), Aiven
+for OpenSearch checks them during specific upgrades and blocks the upgrade
+(`403 Forbidden`) if a check fails. The error response lists the affected index names.
+
+- **OpenSearch 1.x to 2.x**: Fails if any index has the legacy `index.knn: true`
+  setting. Reindex the affected indices with an explicit `knn_vector` field mapping
+  before upgrading.
+- **OpenSearch 1.x to 2.x**: Fails if any `knn_vector` field name contains a space or
+  one of `" * \ < | , > / ?`. Rename the field or reindex the affected indices with
+  valid field names before upgrading.
+- **OpenSearch 2.19 to 3.x**: Fails if any `knn_vector` field uses the deprecated
+  `nmslib` engine. To resolve this, see
+  [Migrate off the nmslib engine](/docs/products/opensearch/howto/migrate-knn-nmslib-engine).
+
 ### Prerequisites for upgrade
 
 To upgrade your service version, check that:
@@ -154,3 +170,8 @@ resource to set
 </Tabs>
 
 <RelatedPages/>
+
+- [Reindex Aiven for OpenSearch data on a newer version](/docs/products/opensearch/howto/reindex-opensearch)
+- [Migrate off the nmslib k-NN engine](/docs/products/opensearch/howto/migrate-knn-nmslib-engine)
+- [Available plugins for Aiven for OpenSearch](/docs/products/opensearch/reference/plugins)
+- [Versions of Aiven-managed services and tools](/docs/platform/reference/eol-for-major-versions)

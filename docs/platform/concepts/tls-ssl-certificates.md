@@ -3,6 +3,7 @@ title: TLS/SSL certificates
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RelatedPages from "@site/src/components/RelatedPages"
 
 All traffic to Aiven services is always protected by TLS. It ensures that third parties can't eavesdrop or modify the data while in transit between Aiven services and the clients accessing them.
 
@@ -38,6 +39,11 @@ are exceptions:
   the database, but does not verify the server certificate. For more
   information, see the [PostgreSQL
   documentation](https://www.postgresql.org/docs/current/ssl-tcp.html)
+- **Aiven for MySQL®** requires the Aiven project CA certificate to connect when using
+  `VERIFY_CA` or `VERIFY_IDENTITY` as the SSL mode. `VERIFY_CA` requires the client to
+  verify that the server certificate is signed by the Aiven CA, while `VERIFY_IDENTITY`
+  also validates the hostname. For more information, see the [MySQL
+  documentation](https://dev.mysql.com/doc/refman/8.4/en/using-encrypted-connections.html).
 - **Aiven for Apache Kafka®** supports different authentication methods:
   - **Client certificate**. The client authenticates with a client certificate and key.
     This method requires the Aiven project CA certificate, the client certificate, and
@@ -54,6 +60,8 @@ are exceptions:
   the project CA certificate for a service that uses a browser-recognized certificate.
   To request this, [open a support ticket](/docs/platform/howto/support). For details,
   see [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity).
+  If your service uses the project CA certificate, it also goes through periodic
+  [certificate rotation](#certificate-rotation) like other services that use this CA.
 
 You can download the project CA certificates from the <ConsoleLabel name="overview"/>
 page of your service. For steps, see [Download the project CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
@@ -62,6 +70,32 @@ page of your service. For steps, see [Download the project CA certificates](/doc
 Some older services use the Aiven project CA certificate. To switch to a
 browser-recognized certificate, [open a support ticket](/docs/platform/howto/support).
 :::
+
+## Certificate rotation
+
+To keep certificates secure, Aiven periodically rotates the project CA certificate,
+even though its listed expiration date can be many years away. A rotation can
+happen because the certificate is approaching expiration, or for other operational
+or security reasons. All services in a project share the same CA, so a rotation
+happens at the project level, but each service picks up the new certificate during
+its own maintenance window, using the same [maintenance
+process](/docs/platform/concepts/maintenance-window) as other updates. Because of
+this, services in the same project can start trusting the new certificate at
+different times.
+
+During a rotation, your service trusts both the current and the new CA certificate.
+This overlap is sometimes called a certificate bundle. This matters if your client
+verifies the server certificate against a specific CA. Examples include
+PostgreSQL's `verify-ca` or `verify-full` modes, MySQL's `VERIFY_CA` or
+`VERIFY_IDENTITY` modes, and an older Aiven for Valkey™ service that still uses
+the project CA certificate. In these cases, update your client to trust the new
+certificate in the bundle before the rotation completes. Otherwise, your client
+can't verify the server certificate and the connection fails.
+
+Aiven sends an email notification to your project and service contacts before a
+certificate rotation. Confirm that your
+[project and service contacts](/docs/platform/howto/technical-emails) are up to date
+so that you receive these notifications.
 
 ## Download CA certificates
 
@@ -76,3 +110,10 @@ You can also use the `avn service user-creds-download` [CLI](/docs/tools/cli/ser
 ```bash
 avn service user-creds-download --username <username> <service-name>
 ```
+
+<RelatedPages/>
+
+- [Manage project and service notifications](/docs/platform/howto/technical-emails)
+- [Service maintenance, updates and upgrades](/docs/platform/concepts/maintenance-window)
+- [Manage SSL connectivity in Aiven for Valkey™](/docs/products/valkey/howto/manage-ssl-connectivity)
+- [Support](/docs/platform/howto/support)

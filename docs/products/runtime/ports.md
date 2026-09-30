@@ -26,6 +26,10 @@ connections from your application:
 The domain name for your application is in the **Connection information**
 section for the application.
 
+Adding or changing ports triggers a redeployment of the branch's
+previously deployed commit.
+
+
 ## Add ports to an application
 
 To expose ports for an existing application:

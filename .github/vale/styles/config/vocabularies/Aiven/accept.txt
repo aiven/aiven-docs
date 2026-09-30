@@ -211,6 +211,7 @@ Java
 java_lang_Memory
 JMX
 JobManager
+Jira
 Jolokia
 jq
 json
@@ -218,6 +219,8 @@ JSONPath
 JumpCloud
 JVM's
 JWT's
+JWTs?
+JWKS
 Kafbat
 Kafdrop
 kafka
@@ -235,6 +238,7 @@ Klaw
 Kpow
 Kubernetes
 kuromoji
+LibreDB
 LLM
 LLMs
 Loggly
@@ -272,6 +276,7 @@ Okta
 Omni
 onboarding
 Opendistro
+OpenAPI
 OpenSearch
 OpenSearch Security
 Opensearch_acl_config
@@ -316,6 +321,7 @@ PNGs?
 Podman
 pooler
 PostgreSQL
+PostgREST
 Postman
 preformatted
 prepper
@@ -471,3 +477,7 @@ zapier
 zdm-proxy
 Zipkin
 ZooKeeper
+nmslib
+faiss
+knn_vector
+hnsw
