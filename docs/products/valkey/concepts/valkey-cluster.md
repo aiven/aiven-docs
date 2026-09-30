@@ -245,8 +245,10 @@ Design your application to tolerate this if you rely on a restore.
   standalone service to a cluster plan, or a clustered service back to standalone.
 - Migrating data into a cluster from an external Redis or Valkey server isn't supported.
 - Aiven places each shard's primary and replicas in different availability zones when it
-  creates the cluster and when it replaces a node, as long as the region has enough zones
-  available. This placement is best effort, not a guarantee.
+  creates the cluster. When Aiven replaces a node, it puts the replacement in the same
+  zone, which preserves that spread.
+- This placement is best effort. If a zone is unavailable, or doesn't offer the instance
+  type your plan needs, a shard can end up with its primary and replica in one zone.
 - Aiven doesn't rebalance existing nodes into different zones afterward, for example after
   a replica moves or after zone capacity recovers. A shard without a replica has no
   availability zone redundancy.
