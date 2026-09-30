@@ -170,6 +170,7 @@ primary nodes to keep the slots evenly balanced across shards.
 
 Resharding has a few prerequisites:
 
+- The service must run Valkey 9.0 or later.
 - The service must be powered on.
 - All nodes in the service must be in the `Running` state.
 - No change to the instance size or cloud region can be in progress or requested at the
