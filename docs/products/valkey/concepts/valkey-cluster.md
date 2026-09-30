@@ -244,11 +244,11 @@ Design your application to tolerate this if you rely on a restore.
 - Valkey clustering is supported for new services only. You can't convert an existing
   standalone service to a cluster plan, or a clustered service back to standalone.
 - Migrating data into a cluster from an external Redis or Valkey server isn't supported.
-- When Aiven creates a cluster, it places each shard's primary and replicas in different
-  availability zones, as long as the region has enough zones available. This placement is
-  best effort, not a guarantee.
-- Aiven doesn't apply the same zone spread when it replaces a node later, and it doesn't
-  rebalance existing nodes into different zones. A shard without a replica has no
+- Aiven places each shard's primary and replicas in different availability zones when it
+  creates the cluster and when it replaces a node, as long as the region has enough zones
+  available. This placement is best effort, not a guarantee.
+- Aiven doesn't rebalance existing nodes into different zones afterward, for example after
+  a replica moves or after zone capacity recovers. A shard without a replica has no
   availability zone redundancy.
 - Performance factors
 
