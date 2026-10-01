@@ -24,14 +24,20 @@ Manage maintenance updates and set the maintenance window for your Aiven for Pos
 
 ## Certificate rotation
 
-Aiven periodically rotates the CA certificate for your project, including for
-your Aiven for PostgreSQL® service. This rotation uses the same maintenance
-process described in [Maintenance updates](#maintenance-updates), applied during
-your service's maintenance window, to update your service to trust and use the
-new certificate. If you connect using `sslmode=verify-ca` or `verify-full`,
-update your client to trust the new certificate before the rotation completes.
-For details on the certificate bundle and rotation process, see
-[TLS/SSL certificates](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation).
+Aiven periodically rotates the CA certificate for your project. This affects your
+Aiven for PostgreSQL® service if you connect with `sslmode=verify-ca` or
+`verify-full`. Your service switches to the new certificate through two
+maintenance updates, applied during your maintenance window as described in
+[Maintenance updates](#maintenance-updates).
+
+:::important
+Configure your clients to trust the new CA certificate before the second
+maintenance update. Otherwise, your clients can't verify the server certificate
+and connections fail.
+:::
+
+For the full rotation process, including how to get the new certificate, see
+[Certificate rotation](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation).
 
 <RelatedPages/>
 
