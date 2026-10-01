@@ -180,11 +180,6 @@ Resharding has a few prerequisites:
 - You cannot change `shard_count` and `replicas` in the same request. Change one, wait
   for the update to finish, then change the other.
 
-:::note
-Aiven triggers a backup after each reshard settles. Smaller plans keep fewer backups, so
-several plan changes in a row can push older backups out of retention.
-:::
-
 Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
 manages the entire process:
 
