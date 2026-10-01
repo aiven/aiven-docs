@@ -30,6 +30,8 @@ are available:
 -   [Job Scheduler](https://github.com/opensearch-project/job-scheduler)
 -   [k-NN](https://github.com/opensearch-project/k-NN)
 -   [Kuromoji (Japanese Analysis)](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-kuromoji)
+-   [Flow Framework](https://github.com/opensearch-project/flow-framework)
+    (OpenSearch 3.6 and later)
 -   [Learning to Rank](https://github.com/opensearch-project/opensearch-learning-to-rank-base)
     (OpenSearch 2.19.5 and later)
 -   [Mapper Size](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/mapper-size)
@@ -49,6 +51,8 @@ are available:
     and OIDC
 -   [OpenSearch Security Analytics](https://github.com/opensearch-project/security-analytics)
 -   [OpenSearch SQL](https://github.com/opensearch-project/sql)
+-   [OpenSearch Skills](https://github.com/opensearch-project/skills)
+    (OpenSearch 3.6 and later)
 -   [Phonetic analysis](https://github.com/opensearch-project/OpenSearch/tree/main/plugins/analysis-phonetic)
 -   [Query Insights](https://github.com/opensearch-project/query-insights)
 -   [Scheduler for Dashboards Reports](https://github.com/opensearch-project/dashboards-reporting)
