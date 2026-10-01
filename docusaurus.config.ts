@@ -390,7 +390,9 @@ const config: Config = {
     },
     mermaid: {
       options: {
-        maxTextSize: 1000,
+        // Mermaid's own default. Lower values make larger diagrams fail to
+        // render with "Maximum text size in diagram exceeded".
+        maxTextSize: 50000,
       },
     },
     markdown: {
