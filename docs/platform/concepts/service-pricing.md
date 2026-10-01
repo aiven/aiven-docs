@@ -10,8 +10,7 @@ All Aiven services are billed based on actual usage so you only pay for the reso
 Services are charged by the hour while they are powered on. The minimum hourly charge
 unit is one hour. For example, if you create an Aiven service and power it off after
 40 minutes, you are charged for one hour of usage. After 20.5 hours, you are charged
-for 21 hours. [Powering off a service](/docs/platform/concepts/service-power-cycle)
-stops the accumulation of new charges immediately.
+for 21 hours. Powering off a service stops the accumulation of new charges immediately.
 
 Costs for all services in a project are charged separately, but you can consolidate
 the charges for multiple projects by assigning them to a

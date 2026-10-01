@@ -29,6 +29,7 @@
 /products/opensearch/howto/connect-service       /docs/products/opensearch/howto/list-connect-to-service  301
 /products/postgresql/howto/connect-service       /docs/products/postgresql/howto/list-code-samples  301
 /products/valkey/howto/connect-service           /docs/products/valkey/howto/connect-services  301
+/products/valkey/howto/scale-disk-storage        /docs/products/valkey/howto/change-service-plan  301
 /category/administrative-tasks                   /docs/get-started  301
 /category/concepts                               /docs/get-started  301
 /category/concepts-1                             /docs/get-started  301
@@ -73,6 +74,9 @@
 /platform/howto/billing-aws-marketplace-subscription   /docs/marketplace-setup  301
 /platform/howto/billing-azure-marketplace-subscription /docs/marketplace-setup  301
 /platform/howto/billing-google-cloud-platform-marketplace-subscription /docs/marketplace-setup  301
+/platform/howto/btar/disable-backup-to-another-region     /docs/platform/concepts/backup-to-another-region  301
+/platform/howto/btar/enable-backup-to-another-region      /docs/platform/concepts/backup-to-another-region  301
+/platform/howto/btar/manage-backup-to-another-region      /docs/platform/concepts/backup-to-another-region  301
 /platform/howto/byoc/create-custom-cloud               /docs/platform/howto/byoc/create-cloud/create-custom-cloud  301
 /platform/howto/byoc/gcp                               /docs/platform/howto/byoc/create-cloud/create-google-custom-cloud  301
 /platform/howto/change-billing-contact                 /docs/platform/howto/use-billing-groups  301
@@ -93,6 +97,7 @@
 /platform/howto/list-user                              /docs/platform/howto/manage-org-users  301
 /platform/howto/make-super-admin                       /docs/platform/howto/manage-permissions  301
 /platform/howto/manage-org-vpc-peering-upcloud         /docs/platform/howto/list-organization-vpc-peering  301
+/platform/howto/manage-unassigned-projects             /docs/platform/howto/manage-project  301
 /platform/howto/manage-vpc-peering                     /docs/platform/howto/manage-project-vpc  301
 /platform/howto/metrics-integrations                   /docs/platform/howto/list-monitoring  301
 /platform/howto/migrate-services                       /docs/products/postgresql/howto/list-replication-migration  301
@@ -127,6 +132,19 @@
 /platform/vpc                                          /docs/platform/howto/manage-vpc-peering  301
 /products/alloydbomni                                  /docs/products/postgresql  301
 /products/alloydbomni/advanced-params                  /docs/products/postgresql/reference/advanced-params  301
+/products/aiven-apps                                   /docs/products/runtime  301
+/products/apps/change-cloud-apps                       /docs/products/runtime/change-cloud  301
+/products/apps/connect-services-to-apps                /docs/products/runtime/connect-services-to-apps  301
+/products/apps/custom-domain-for-apps                  /docs/products/runtime/custom-domain  301
+/products/apps/deploy-apps                             /docs/products/runtime/deploy-apps  301
+/products/apps/deployment-information                  /docs/products/runtime/deployment-information  301
+/products/apps/manifest-files/compose-files            /docs/products/runtime/manifest-files/compose-files  301
+/products/apps/manifest-files/containerfiles           /docs/products/runtime/manifest-files/containerfiles  301
+/products/apps/manifest-files/manifests                /docs/products/runtime/manifest-files/manifests  301
+/products/apps/ports                                   /docs/products/runtime/ports  301
+/products/apps/power-off-apps                          /docs/products/runtime/power-off-apps  301
+/products/apps/scale-apps                              /docs/products/runtime/scale-apps  301
+/products/apps/secrets-and-variables                   /docs/products/runtime/secrets-and-variables  301
 # Aiven for Caching → Aiven for Valkey redirects
 /products/caching                                                  /docs/products/valkey  301
 /products/caching/concepts                                         /docs/products/valkey  301
@@ -205,6 +223,7 @@
 /products/flink/howto/list-flink-tables                    /docs/products/flink/howto/list-flink-table-integrations  301
 /products/flink/howto/list-get-started                     /docs/products/flink/get-started  301
 /products/flink/howto/list-integrations                    /docs/products/flink/howto/create-integration  301
+/products/flink/howto/list-manage-cluster                  /docs/products/flink  301
 /products/flink/howto/real-time-alerting-solution          /docs/products/flink/howto/list-get-started  301
 /products/flink/list-overview                              /docs/products/flink  301
 /products/flink/reference                                  /docs/products/flink/reference/advanced-params  301

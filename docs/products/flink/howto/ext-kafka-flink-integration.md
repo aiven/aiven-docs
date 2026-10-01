@@ -299,7 +299,7 @@ Console](https://console.aiven.io/):
 1.  Log in to [Aiven Console](https://console.aiven.io/) and choose your
     project.
 1.  From the **Services** page, you can either
-    [create an Aiven for Apache Flink](/docs/platform/howto/create_new_service)
+    create an Aiven for Apache Flink
     service or select an existing service.
 1.  Next, configure an external Apache Kafka service integration
     endpoint:

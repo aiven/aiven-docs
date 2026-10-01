@@ -26,7 +26,7 @@ periodically for change.
 ## Service memory
 
 The
-[service memory](/docs/platform/concepts/service-memory-limits) can be calculated as:
+service memory can be calculated as:
 
 where the overhead is currently .
 
@@ -101,7 +101,7 @@ Aiven configures a default value for the `max_connections` parameter for
 all MySQL services.
 
 The [max_connections](max-number-of-connections) parameter is based off the service
-[usable memory](/docs/platform/concepts/service-memory-limits).
+usable memory.
 
 ```sql
 select @@max_connections;
@@ -120,13 +120,13 @@ using all available memory.
 
 In many instances, if the `max connections` are fully utilized, resource
 overcommitment and
-[Out of memory conditions](/docs/platform/concepts/out-of-memory-conditions) will occur.
+Out of memory conditions will occur.
 :::
 
 At \~18 MB per connection, a 4 GiB service has a potential memory usage
 of 4068 MB (18 \* 226). This is less than the service RAM, but exceeds
 the
-[service memory limit](/docs/platform/concepts/service-memory-limits).
+service memory limit.
 
 **For performance and stability, the following calculation is
 recommended:**

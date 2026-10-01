@@ -1,12 +1,21 @@
 ---
 title: Get started with Aiven for DataHub
 sidebar_label: Get started
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Start using DataHub by creating and configuring your first service.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`role:project:admin`'],
+    },
+  ]}
+/>
 
 :::important
 To avoid issues, don’t make any changes to the plans or other settings of
@@ -27,7 +36,7 @@ the DataHub resources beyond what is documented.
 
 1. In the **Service basics**, enter a name for your service.
 
-1. Optional: Add [service tags](/docs/platform/howto/tag-resources).
+1. Optional: Add [service tags](/docs/products/datahub/tag-services).
 
 1. In the **Service summary**, click **Create service**.
 

@@ -9,7 +9,8 @@ const {
   fetchUserConfigSchema,
   mapPoliciesIntoConfigs,
   getKafkaConfigPageHandlebarsTemplate,
-  createMarkdownFileFromHandlebarsTemplate
+  createMarkdownFileFromHandlebarsTemplate,
+  replaceUnicode
 } = require('./shared.js');
 
 function mapUserConfigSchemaIntoConfigs(userConfigSchema) {
@@ -23,8 +24,7 @@ function mapUserConfigSchemaIntoConfigs(userConfigSchema) {
         const schemaEnum = schema.enum?.map(String);
 
         let schemaDocs = schema.description ? schema.description : schema.title
-        schemaDocs = schemaDocs.replaceAll(/\${/g, '');
-        schemaDocs = schemaDocs.replaceAll(/}/g, '');
+        schemaDocs = replaceUnicode(schemaDocs);
 
         configs.push({
           path: schemaPath,

@@ -57,10 +57,16 @@ const sidebars: SidebarsConfig = {
                 'platform/howto/manage-project',
                 'platform/howto/technical-emails',
                 'platform/howto/view-project-logs',
-                'platform/howto/manage-unassigned-projects',
               ],
             },
-            'platform/concepts/carbon-footprint',
+            {
+              type: 'category',
+              label: 'Monitoring',
+              items: [
+                'platform/howto/organization-event-logs',
+                'platform/concepts/carbon-footprint',
+              ],
+            },
           ],
         },
         {
@@ -203,6 +209,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
                     'platform/howto/byoc/create-cloud/create-google-custom-cloud',
+                    'platform/howto/byoc/create-cloud/create-azure-custom-cloud',
                   ],
                 },
                 'platform/howto/byoc/aws-privatelink-byoc',
@@ -310,7 +317,6 @@ const sidebars: SidebarsConfig = {
         'platform/howto/feature-preview',
         'platform/reference/eol-for-major-versions',
         'platform/reference/end-of-life',
-        'platform/reference/get-resource-IDs',
       ],
     },
   ],
@@ -324,6 +330,11 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'ai-features',
+        {
+          type: 'link',
+          label: 'Managed Agents',
+          href: '/docs/tools/agents',
+        },
         'tools/mcp-server',
         {
           type: 'link',
@@ -348,8 +359,31 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'tools',
-        'tools/api',
+        {
+          type: 'category',
+          label: 'Aiven API',
+          link: {
+            id: 'tools/api',
+            type: 'doc',
+          },
+          items: ['tools/api/secret-redaction'],
+        },
         'tools/mcp-server',
+        {
+          type: 'category',
+          label: 'Managed Agents',
+          link: {
+            id: 'tools/agents',
+            type: 'doc',
+          },
+          items: [
+            'tools/agents/create-agent',
+            'tools/agents/chat-with-agent',
+            'tools/agents/schedule-agent',
+            'tools/agents/manage-agent',
+            'tools/agents/manage-integrations',
+          ],
+        },
         {
           type: 'category',
           label: 'Aiven Provider for Terraform',
@@ -403,6 +437,7 @@ const sidebars: SidebarsConfig = {
             'tools/cli/vpc',
           ],
         },
+        'platform/reference/get-resource-IDs',
         'tools/query-optimizer',
         'tools/doc-diff-llms',
       ],
@@ -417,29 +452,47 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       className: 'expandedSection',
       items: [
-        'products/aiven-apps',
-        'products/apps/deploy-apps',
+        'products/runtime',
+        'products/runtime/deploy-apps',
+        'products/runtime/connect-github-account',
         {
           type: 'category',
           label: 'Manifest files',
           items: [
-            'products/apps/manifest-files/manifests',
-            'products/apps/manifest-files/compose-files',
-            'products/apps/manifest-files/containerfiles',
+            'products/runtime/manifest-files/manifests',
+            'products/runtime/manifest-files/compose-files',
+            'products/runtime/manifest-files/containerfiles',
           ],
         },
-        'products/apps/connect-services-to-apps',
+        'products/runtime/connect-services-to-apps',
         {
           type: 'category',
           label: 'App management',
           items: [
-            'products/apps/ports',
-            'products/apps/secrets-and-variables',
-            'products/apps/deployment-information',
-            'products/apps/scale-apps',
-            'products/apps/change-cloud-apps',
-            'products/apps/custom-domain-for-apps',
-            'products/apps/power-off-apps',
+            'products/runtime/ports',
+            'products/runtime/secrets-and-variables',
+            'products/runtime/deployment-information',
+            'products/runtime/scale-apps',
+            'products/runtime/change-cloud',
+            'products/runtime/custom-domain',
+            'products/runtime/power-off-apps',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Security and access',
+          items: [
+            {
+              type: 'category',
+              label: 'Authentication',
+              items: [
+                'products/runtime/authentication/apps-authentication-overview',
+                'products/runtime/authentication/add-oidc-identity-providers',
+                'products/runtime/authentication/oidc-auth0',
+                'products/runtime/authentication/oidc-ms-entra-id',
+                'products/runtime/authentication/oidc-okta',
+              ],
+            },
           ],
         },
       ],
@@ -533,7 +586,6 @@ const sidebars: SidebarsConfig = {
                     'products/flink/howto/manage-flink-tables',
                   ],
                 },
-                'products/flink/howto/list-manage-cluster',
                 'products/flink/howto/upgrade-flink-version',
                 {
                   type: 'category',
@@ -719,6 +771,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/kafka/karapace',
                 'products/kafka/karapace/howto/enable-karapace',
+                'products/kafka/karapace/howto/set-karapace-version',
                 {
                   type: 'category',
                   label: 'Schema registry',
@@ -746,6 +799,7 @@ const sidebars: SidebarsConfig = {
                         'products/kafka/karapace/howto/manage-schema-registry-authorization',
                       ],
                     },
+                    'products/kafka/karapace/howto/enable-oauth-oidc-schema-registry',
                   ],
                 },
                 {
@@ -884,15 +938,13 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Scaling and performance',
               items: [
-                {
-                  type: 'category',
-                  label: 'Scaling',
-                  items: [
-                    'products/kafka/concepts/horizontal-vertical-scaling',
-                    'products/kafka/howto/prevent-full-disks',
-                    'products/kafka/howto/optimizing-resource-usage',
-                  ],
-                },
+                'products/kafka/concepts/horizontal-vertical-scaling',
+                'products/kafka/howto/change-service-plan',
+                'products/kafka/howto/change-standard-kafka-plan',
+                'products/kafka/howto/scale-disk-storage',
+                'products/kafka/howto/disk-autoscaler',
+                'products/kafka/howto/prevent-full-disks',
+                'products/kafka/howto/optimizing-resource-usage',
                 {
                   type: 'category',
                   label: 'Performance and quotas',
@@ -913,6 +965,7 @@ const sidebars: SidebarsConfig = {
               label: 'Maintenance and lifecycle',
               items: [
                 'products/kafka/howto/maintenance-updates',
+                'products/kafka/howto/controlled-upgrade-pipelines',
                 'products/kafka/concepts/upgrade-procedure',
                 'products/kafka/reference/version-lifecycle',
               ],
@@ -1367,10 +1420,22 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
+              label: 'Scaling and performance',
+              items: [
+                'products/clickhouse/howto/change-service-plan',
+                'products/clickhouse/howto/scale-disk-storage',
+                'products/clickhouse/howto/disk-autoscaler',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Maintenance and lifecycle',
               items: [
+                'products/clickhouse/howto/maintenance-updates',
+                'products/clickhouse/howto/controlled-upgrade-pipelines',
                 'products/clickhouse/howto/manage-clickhouse-versions',
                 'products/clickhouse/reference/upgrade-to-26-3',
+                'products/clickhouse/reference/26-3-default-settings',
                 'products/clickhouse/reference/25-8-default-settings',
                 'products/clickhouse/reference/version-support-policy',
                 'products/clickhouse/reference/version-lifecycle',
@@ -1479,9 +1544,10 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Access and security',
+              label: 'Security and access',
               items: [
                 'products/datahub/manage-datahub-users',
+                'products/datahub/permissions',
                 'products/datahub/enable-oidc-auth-datahub',
                 'products/datahub/rotate-secrets',
               ],
@@ -1499,6 +1565,11 @@ const sidebars: SidebarsConfig = {
                 'products/datahub/maintenance-updates',
                 'products/datahub/restore-datahub-indices',
               ],
+            },
+            {
+              type: 'category',
+              label: 'Monitoring',
+              items: ['products/datahub/enable-prometheus-metrics'],
             },
             'products/datahub/fork-datahub-service',
           ],
@@ -1579,6 +1650,8 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/grafana/howto/change-service-plan',
+                'products/grafana/howto/scale-disk-storage',
+                'products/grafana/howto/disk-autoscaler',
                 'products/grafana/howto/prepare-for-high-load',
                 'products/grafana/concepts/service-memory',
               ],
@@ -1592,6 +1665,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/grafana/howto/maintenance-updates',
+                'products/grafana/howto/controlled-upgrade-pipelines',
                 'products/grafana/reference/version-lifecycle',
               ],
             },
@@ -1668,6 +1742,7 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/metrics/howto/maintenance-updates',
+                'products/metrics/howto/controlled-upgrade-pipelines',
                 'products/metrics/howto/track-restore-progress',
               ],
             },
@@ -1709,6 +1784,7 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/howto/connect-from-mysql-workbench',
                 'products/mysql/howto/connect-with-dbeaver',
                 'products/mysql/howto/connect-with-datagrip',
+                'products/mysql/howto/connect-libredb-studio',
                 'products/mysql/concepts/max-number-of-connections',
               ],
             },
@@ -1748,6 +1824,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/mysql/howto/change-service-plan',
                 'products/mysql/howto/scale-disk-storage',
+                'products/mysql/howto/disk-autoscaler',
                 'products/mysql/concepts/mysql-memory-usage',
                 'products/mysql/concepts/mysql-tuning-and-concurrency',
                 'products/mysql/howto/identify-disk-usage-issues',
@@ -1855,10 +1932,12 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/concepts/when-create-index',
                 'products/opensearch/concepts/shards-number',
                 'products/opensearch/howto/reindex-opensearch',
+                'products/opensearch/howto/migrate-knn-nmslib-engine',
                 'products/opensearch/howto/set_index_retention_patterns',
                 'products/opensearch/concepts/index-replication',
                 'products/opensearch/concepts/cross-cluster-replication-opensearch',
                 'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                'products/opensearch/howto/ccr-best-practices-opensearch',
                 'products/opensearch/howto/resolve-shards-too-large',
                 'products/opensearch/howto/handle-low-disk-space',
                 'products/opensearch/reference/low-space-watermarks',
@@ -1911,6 +1990,14 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/hot-warm-tiering',
                 'products/opensearch/concepts/high-availability-for-opensearch',
                 'products/opensearch/reference/plugins',
+                {
+                  type: 'category',
+                  label: 'Machine learning',
+                  items: [
+                    'products/opensearch/concepts/ml-commons',
+                    'products/opensearch/howto/enable-ml-commons',
+                  ],
+                },
                 'products/opensearch/reference/list-of-plugins-for-each-version',
                 'products/opensearch/reference/opensearch-limitations',
               ],
@@ -1925,6 +2012,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/change-service-plan',
                 'products/opensearch/howto/scale-disk-storage',
+                'products/opensearch/howto/disk-autoscaler',
                 'products/opensearch/howto/prepare-for-high-load',
                 'products/opensearch/concepts/service-memory',
               ],
@@ -1939,6 +2027,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/os-version-upgrade',
                 'products/opensearch/howto/maintenance-updates',
+                'products/opensearch/howto/controlled-upgrade-pipelines',
                 'products/opensearch/reference/version-lifecycle',
               ],
             },
@@ -1986,6 +2075,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/howto/opensearch-log-integration',
                 'products/opensearch/howto/os-metrics',
+                'products/opensearch/howto/datadog-metrics',
                 'products/opensearch/howto/integrate-with-grafana',
               ],
             },
@@ -2068,6 +2158,7 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/connect-zapier',
                     'products/postgresql/howto/connect-datagrip',
                     'products/postgresql/howto/connect-dbeaver',
+                    'products/postgresql/howto/connect-libredb-studio',
                   ],
                 },
                 {
@@ -2110,6 +2201,21 @@ const sidebars: SidebarsConfig = {
                     'products/postgresql/howto/pg-studio/write-run-queries',
                     'products/postgresql/howto/pg-studio/manage-queries',
                     'products/postgresql/howto/pg-studio/security-connections',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Data API',
+                  link: {
+                    type: 'doc',
+                    id: 'products/postgresql/howto/data-api/index',
+                  },
+                  items: [
+                    'products/postgresql/howto/data-api/tutorial',
+                    'products/postgresql/howto/data-api/get-started',
+                    'products/postgresql/howto/data-api/authentication',
+                    'products/postgresql/howto/data-api/use-endpoints',
+                    'products/postgresql/howto/data-api/manage',
                   ],
                 },
                 'products/postgresql/howto/ai-insights',
@@ -2156,6 +2262,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/howto/change-service-plan',
                 'products/postgresql/howto/scale-disk-storage',
+                'products/postgresql/howto/disk-autoscaler',
                 'products/postgresql/concepts/pg-shared-buffers',
                 'products/postgresql/concepts/pg-disk-usage',
                 'products/postgresql/howto/pg-object-size',
@@ -2173,6 +2280,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/postgresql/howto/upgrade',
                 'products/postgresql/howto/maintenance-updates',
+                'products/postgresql/howto/controlled-upgrade-pipelines',
                 'products/postgresql/reference/version-lifecycle',
               ],
             },
@@ -2259,6 +2367,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/report-metrics-grafana',
                 'products/postgresql/howto/visualize-grafana',
                 'products/postgresql/howto/monitor-database-with-datadog',
+                'products/postgresql/howto/monitor-relation-function-metrics-datadog',
                 'products/postgresql/howto/monitor-pgbouncer-with-datadog',
                 'products/postgresql/howto/monitor-with-pgwatch2',
 
@@ -2399,10 +2508,10 @@ const sidebars: SidebarsConfig = {
               },
               items: [
                 'products/valkey/howto/change-service-plan',
-                'products/valkey/howto/scale-disk-storage',
                 'products/valkey/concepts/memory-usage',
                 'products/valkey/troubleshooting/warning-overcommit_memory',
                 'products/valkey/howto/prepare-for-high-load',
+                'products/valkey/concepts/valkey-cluster',
               ],
             },
             {
@@ -2415,6 +2524,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/valkey/howto/valkey-version-upgrade',
                 'products/valkey/howto/maintenance-updates',
+                'products/valkey/howto/controlled-upgrade-pipelines',
                 'products/valkey/reference/version-lifecycle',
               ],
             },
@@ -2423,7 +2533,6 @@ const sidebars: SidebarsConfig = {
               label: 'High availability and disaster recovery',
               items: [
                 'products/valkey/concepts/high-availability',
-                'products/valkey/concepts/valkey-cluster',
                 'products/valkey/concepts/read-replica',
                 'products/valkey/howto/create-valkey-read-replica',
               ],
@@ -2470,54 +2579,41 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'platform/howto/list-service',
+        'platform/howto/create_new_service',
+        'platform/howto/create_new_service_user',
+        'platform/concepts/service-power-cycle',
+        'platform/concepts/rename-services',
+        'platform/howto/tag-resources',
+        'platform/concepts/service-forking',
         {
           type: 'category',
-          label: 'Concepts',
-          items: [
-            'platform/concepts/service-memory-limits',
-            'platform/concepts/out-of-memory-conditions',
-            'platform/concepts/maintenance-window',
-          ],
-        },
-        'platform/howto/controlled-upgrade',
-        {
-          type: 'category',
-          label: 'Backup and restore',
-          items: [
-            'platform/concepts/service_backups',
-            'platform/howto/restore_progress_updates',
-            {
-              type: 'category',
-              label: 'Backup to another region',
-              link: {
-                type: 'doc',
-                id: 'platform/concepts/backup-to-another-region',
-              },
-              items: [
-                'platform/howto/btar/enable-backup-to-another-region',
-                'platform/howto/btar/manage-backup-to-another-region',
-                'platform/howto/btar/disable-backup-to-another-region',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Service scaling',
+          label: 'Scaling and performance',
           items: [
             'platform/howto/scale-services',
             'platform/howto/add-storage-space',
             'platform/howto/disk-autoscaler',
+            'platform/concepts/service-memory-limits',
+            'platform/concepts/out-of-memory-conditions',
+            'platform/howto/prepare-for-high-load',
           ],
         },
-
-        'platform/howto/create_new_service',
-        'platform/concepts/service-power-cycle',
-        'platform/concepts/rename-services',
-        'platform/howto/tag-resources',
-        'platform/howto/create_new_service_user',
-        'platform/concepts/service-forking',
-        'platform/howto/prepare-for-high-load',
+        {
+          type: 'category',
+          label: 'Maintenance and lifecycle',
+          items: [
+            'platform/concepts/maintenance-window',
+            'platform/howto/controlled-upgrade',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Backups and migration',
+          items: [
+            'platform/concepts/service_backups',
+            'platform/howto/restore_progress_updates',
+            'platform/concepts/backup-to-another-region',
+          ],
+        },
       ],
     },
     {

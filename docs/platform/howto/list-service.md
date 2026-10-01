@@ -31,7 +31,7 @@ product portfolio.
 -   Aiven for PostgreSQL® with the TimescaleDB extension is your best
     choice if you already use PostgreSQL, require **SQL compatibility**
     and have a limited time series use case.
--   Aiven for Clickhouse® is your best choice when you need a high-prformance
+-   Aiven for ClickHouse® is your best choice when you need a high-performance
     columnar time series database for OLAP workloads or a data analytics warehouse.
 
 See our time series on

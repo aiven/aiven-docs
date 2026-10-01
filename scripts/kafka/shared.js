@@ -7,6 +7,23 @@ const AIVEN_API_POLICY_LIST_URL = `${AIVEN_API_BASE_URL}/kafka/policies`;
 
 const UNQUOTED_INTEGER = /("[a-zA-Z0-9-_]+"):(-?[0-9._]+)/g;
 
+function replaceUnicode(content) {
+  const codeMappings = {
+    '&#x27;': "'",
+    '&#x60;': '`',
+  };
+
+  let replacedContent = content.replace(/&#x[0-9a-fA-F]+;/g, (match) => {
+    return codeMappings[match] || match;
+  });
+  replacedContent = replacedContent.replace(/{/g, '\\{');
+  replacedContent = replacedContent.replace(/}/g, '\\}');
+  replacedContent = replacedContent.replace(/</g, '&lt;');
+  replacedContent = replacedContent.replace(/>/g, '&gt;');
+
+  return replacedContent;
+}
+
 function parseResponseData(text) {
   return JSON.parse(text.replaceAll(UNQUOTED_INTEGER, '$1:"$2"'));
 }
@@ -138,5 +155,6 @@ module.exports = {
   getKafkaConfigPageHandlebarsTemplate,
   fetchPolicies,
   fetchUserConfigSchema,
-  mapPoliciesIntoConfigs
+  mapPoliciesIntoConfigs,
+  replaceUnicode,
 };

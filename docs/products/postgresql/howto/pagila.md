@@ -19,7 +19,7 @@ around with PostgreSQL and the SQL language.
 ## Load Pagila to your Aiven for PostgreSQL service
 
 Before exploring the Pagila database, follow the
-[create a service](/docs/platform/howto/create_new_service) to start a PostgreSQL instance.
+create a service to start a PostgreSQL instance.
 
 1.  Download `pagila-schema.sql` and `pagila-data.sql` from the
     [devrimgunduz/pagila](https://github.com/devrimgunduz/pagila/tree/master) repository.

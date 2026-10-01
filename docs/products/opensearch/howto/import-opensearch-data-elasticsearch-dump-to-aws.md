@@ -53,9 +53,3 @@ elasticdump \
 --s3SecretAccessKey "${SECRET_ACCESS_KEY}" \
 --input=SERVICE_URI/INPUT_INDEX_NAME --output "s3://${BUCKET_NAME}/${FILE_NAME}.json"
 ```
-
-### Resources
-
-Aiven for OpenSearch databases are automatically backed up, so you can
-check more information about how the
-[Backup process works](/docs/platform/concepts/service_backups#aiven-for-opensearch).

@@ -27,6 +27,10 @@ or
 if your service and networking configuration allows it. For more information on migrating
 your existing services to the custom cloud, contact your account team.
 
+If the status is **Creation failed**, provisioning validation encountered an
+unrecoverable error. Delete the custom cloud and re-create it after resolving the
+issue.
+
 <RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)

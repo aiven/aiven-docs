@@ -9,8 +9,7 @@ or migrate to another cloud or region.
 
 ## Prerequisites
 
-- At least one
-  [Aiven service with BTAR enabled](/docs/platform/howto/btar/enable-backup-to-another-region)
+- At least one Aiven service with BTAR enabled
 - Access to the [Aiven Console](https://console.aiven.io/)
 - [Aiven API](/docs/tools/api)
 - [Aiven CLI](/docs/tools/cli)
@@ -78,7 +77,7 @@ As output, you get metrics including replication lags at specific points in time
 
 You can use the [Aiven Console](/docs/tools/aiven-console), [API](/docs/tools/api), or
 [CLI](/docs/tools/cli) to recover your service from a backup in another region. To restore
-your service using BTAR, [create a fork](/docs/platform/concepts/service-forking) of the
+ your service using BTAR, create a fork of the
 original service in the region where the secondary backup resides.
 
 :::note

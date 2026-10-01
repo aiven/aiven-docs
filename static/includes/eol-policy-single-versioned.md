@@ -8,7 +8,7 @@ time. The version your service is currently running is visible in the
 ## Version updates
 
 Aiven updates the version as part of regular platform maintenance and rolls it out
-during your service's [maintenance window](/docs/platform/concepts/maintenance-window).
+during your service's maintenance window.
 Because you don't select a version, Aiven doesn't send the EOL email notifications and
 reminders described for
 [multi-versioned services](/docs/platform/reference/eol-for-major-versions#service-version-eol-policy).

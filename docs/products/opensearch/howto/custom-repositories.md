@@ -45,7 +45,7 @@ Use the Aiven Console or API for configuring custom repositories in Aiven for Op
 
 You can configure custom repositories for the following object storage services:
 
-- Amazon S3
+- Amazon S3 or any S3-compatible object storage service
 - Google Cloud Storage (GCS)
 - Microsoft Azure Blob Storage
 
@@ -53,7 +53,7 @@ You can configure custom repositories for the following object storage services:
 <TabItem value="api" label="Aiven API">
 
 - Supported storage services
-  - Amazon S3
+  - Amazon S3 or any S3-compatible object storage service
   - Google Cloud Storage (GCS)
   - Microsoft Azure Blob Storage
 - To
@@ -116,6 +116,7 @@ curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_n
           "base_path": "your/path",
           "bucket": "AWS_BUCKET",
           "region": "AWS_REGION",
+          "endpoint": "S3_ENDPOINT",
           "server_side_encryption": true,
           "readonly": false
         }
@@ -124,6 +125,12 @@ curl -s --url "https://api.aiven.io/v1/project/{project_name}/service/{service_n
   }
 }'
 ```
+
+:::note
+
+Aiven for OpenSearch supports Amazon S3 and any S3-compatible object storage service. To connect to a service other than Amazon S3, set `endpoint` to that service's S3 API endpoint URL.
+
+:::
 
 </TabItem>
 </Tabs>

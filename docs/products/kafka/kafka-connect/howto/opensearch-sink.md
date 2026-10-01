@@ -4,58 +4,43 @@ sidebar_label: OpenSearch® sink connector
 ---
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-The OpenSearch sink connector enables you to move data from an Aiven for Apache Kafka® cluster to an OpenSearch® instance for further processing and analysis.
+The OpenSearch sink connector writes data from Aiven for Apache Kafka® to OpenSearch®.
 
-<!-- vale off -->
-:::warning
-This article describes how to create a sink connector to OpenSearch®.
-Similar instructions are available also for Elasticsearch® in the
-[dedicated article](elasticsearch-sink).
-:::
-
-:::note
-See the full set of available parameters and configuration
-options in the [connector's
-documentation](https://github.com/aiven/opensearch-connector-for-apache-kafka/blob/main/docs/opensearch-sink-connector-config-options.rst).
-:::
-<!-- vale on -->
 ## Prerequisites {#connect_opensearch_sink_prereq}
 
-To setup an OpenSearch sink connector, you need an Aiven for Apache
+To set up an OpenSearch sink connector, you need an Aiven for Apache
 Kafka service
 [with Kafka Connect enabled](enable-connect) or a
 [dedicated Aiven for Apache Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
 
-Also collect the following information about the
-target OpenSearch service upfront:
+Collect the following information about the target OpenSearch service:
 
--   `OS_CONNECTION_URL`: The OpenSearch connection URL, in the form of
-    `https://HOST:PORT`
--   `OS_USERNAME`: The OpenSearch username to connect
--   `OS_PASSWORD`: The password for the username selected
--   `TOPIC_LIST`: The list of topics to sink divided by comma
--   `APACHE_KAFKA_HOST`: The hostname of the Apache Kafka service, only
-    needed when using Avro as data format
--   `SCHEMA_REGISTRY_PORT`: The Apache Kafka's schema registry port,
-    only needed when using Avro as data format
--   `SCHEMA_REGISTRY_USER`: The Apache Kafka's schema registry
-    username, only needed when using Avro as data format
--   `SCHEMA_REGISTRY_PASSWORD`: The Apache Kafka's schema registry user
-    password, only needed when using Avro as data format
+- `OS_CONNECTION_URL`: The OpenSearch connection URL, in the form of
+  `https://HOST:PORT`
+- `OS_USERNAME`: The OpenSearch username to connect
+- `OS_PASSWORD`: The password for the username selected
+- `TOPIC_LIST`: The comma-separated list of topics to sink
+
+If the source data is in Avro format, also collect the following
+information:
+
+- `SCHEMA_REGISTRY_HOST`: Host from the **Schema Registry** tab. This is
+  the same hostname as the Kafka service.
+- `SCHEMA_REGISTRY_PORT`: Port from the **Schema Registry** tab.
+- `SCHEMA_REGISTRY_USER`: User from the **Schema Registry** tab.
+- `SCHEMA_REGISTRY_PASSWORD`: Password from the **Schema Registry** tab.
 
 :::note
-If you're using Aiven for OpenSearch® and Aiven for Apache Kafka® the
-above details are available in the [Aiven
-console](https://console.aiven.io/) service *Overview tab* or via the
-dedicated `avn service get` command with the
+For Aiven for OpenSearch® and Aiven for Apache Kafka®, find these values
+on the service <ConsoleLabel name="overview" /> page in the [Aiven
+Console](https://console.aiven.io/). On Aiven for Apache Kafka®, Schema
+Registry connection details are in the **Schema Registry** tab. You can
+also run `avn service get` with the
 [Aiven CLI](/docs/tools/cli/service-cli#avn_service_get).
 
-The `SCHEMA_REGISTRY` related parameters are available in the Aiven for
-Apache Kafka® service page, *Overview* tab, and *Schema Registry* subtab
-
 As of version 3.0, Aiven for Apache Kafka no longer supports Confluent
-Schema Registry. For more information, read [the article describing the
-replacement, Karapace](https://help.aiven.io/en/articles/5651983)
+Schema Registry. For more information, see
+[Karapace](/docs/products/kafka/karapace).
 :::
 
 ## Setup an OpenSearch sink connector with Aiven Console
@@ -66,8 +51,8 @@ Console](https://console.aiven.io/).
 
 ### Define a Kafka Connect configuration file
 
-Define the connector configurations in a file (we'll refer to it with
-the name `opensearch_sink.json`) with the following content:
+Define the connector configuration in a file named `opensearch_sink.json`
+with the following content:
 
 ```json
 {
@@ -81,11 +66,11 @@ the name `opensearch_sink.json`) with the following content:
     "tasks.max":"1",
     "key.ignore": "true",
     "key.converter": "io.confluent.connect.avro.AvroConverter",
-    "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+    "key.converter.schema.registry.url": "https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT",
     "key.converter.basic.auth.credentials.source": "USER_INFO",
     "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
     "value.converter": "io.confluent.connect.avro.AvroConverter",
-    "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+    "value.converter.schema.registry.url": "https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT",
     "value.converter.basic.auth.credentials.source": "USER_INFO",
     "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD"
 }
@@ -93,97 +78,139 @@ the name `opensearch_sink.json`) with the following content:
 
 The configuration file contains the following entries:
 
--   `name`: the connector name
--   `connection.url`, `connection.username`, `connection.password`: sink
-    OpenSearch parameters collected in the
-    [prerequisite](/docs/products/kafka/kafka-connect/howto/opensearch-sink#connect_opensearch_sink_prereq) phase.
--   `type.name`: the OpenSearch type name to be used when indexing.
--   `key.ignore`: boolean flag dictating if to ignore the message key.
-    If set to true, the document ID is generated as message's
-    `topic+partition+offset`, the message key is used as ID otherwise.
--   `tasks.max`: maximum number of tasks to execute in parallel. By
-    default this is 1.
--   `key.converter` and `value.converter`: defines the messages data
-    format in the Apache Kafka topic. The
-    `io.confluent.connect.avro.AvroConverter` converter translates
-    messages from the Avro format. To retrieve the messages schema we
-    use Aiven's [Karapace schema
-    registry](https://github.com/aiven/karapace) as specified by the
-    `schema.registry.url` parameter and related credentials.
+- `name`: Name of the connector.
+- `connection.url`, `connection.username`, `connection.password`:
+  OpenSearch connection values from the
+  [prerequisites](#connect_opensearch_sink_prereq).
+- `type.name`: OpenSearch type name the connector uses when indexing.
+- `key.ignore`: If `true`, the connector ignores the message key and
+  sets the document ID to `topic+partition+offset`. Otherwise it uses
+  the message key.
+- `tasks.max`: Maximum number of tasks to run in parallel. The default
+  is `1`.
+- `key.converter` and `value.converter`: Define the message data format
+  in the Apache Kafka topic. For Avro, use
+  `io.confluent.connect.avro.AvroConverter`.
+- `existing.resource.type` and `topic.to.existing.resource.mapping`:
+  Optional properties that send records to an existing OpenSearch
+  resource, such as an index alias, instead of an index named after the
+  topic. Add them before you create the connector. For details, see
+  [Write to an existing OpenSearch resource](#connect_opensearch_sink_existing_resource).
 
 :::note
-The `key.converter` and `value.converter` sections are only needed when
-the source data is in Avro format. If omitted the messages will be read
-as binary format.
+Include the `key.converter` and `value.converter` sections only when
+the source data is in Avro format. If you omit them, Kafka Connect
+reads the messages as binary. For Avro, the converter retrieves the
+schema from [Karapace](https://github.com/aiven/karapace).
 
-When using Avro as source data format, set following
-parameters:
+When the source data is Avro, set the following parameters:
 
--   `value.converter.schema.registry.url`: pointing to the Aiven for
-    Apache Kafka schema registry URL in the form of
-    `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT` with the
-    `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/opensearch-sink#connect_opensearch_sink_prereq).
--   `value.converter.basic.auth.credentials.source`: to the value
-    `USER_INFO`, since you're going to login to the schema registry
-    using username and password.
--   `value.converter.schema.registry.basic.auth.user.info`: passing the
-    required schema registry credentials in the form of
-    `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD` with the
-    `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD` parameters
-    [retrieved in the previous step](/docs/products/kafka/kafka-connect/howto/elasticsearch-sink#connect_elasticsearch_sink_prereq).
+- `value.converter.schema.registry.url`: Schema Registry URL in the form
+  `https://SCHEMA_REGISTRY_HOST:SCHEMA_REGISTRY_PORT`. Use the values from
+  the [prerequisites](#connect_opensearch_sink_prereq).
+- `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to
+  log in with a username and password.
+- `value.converter.schema.registry.basic.auth.user.info`: Schema Registry
+  credentials in the form `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`.
+  Use the values from the [prerequisites](#connect_opensearch_sink_prereq).
+
 :::
+
+<!-- vale off -->
+:::note
+For the full set of connector parameters, see the [OpenSearch sink
+connector configuration
+options](https://github.com/aiven/opensearch-connector-for-apache-kafka/blob/main/docs/opensearch-sink-connector-config-options.rst).
+:::
+<!-- vale on -->
 
 ### Create a Kafka Connect connector with the Aiven Console
 
 To create a Kafka Connect connector:
 
-1.  Log in to the [Aiven Console](https://console.aiven.io/) and select
-    the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
-    service where the connector needs to be defined.
+1. Log in to the [Aiven Console](https://console.aiven.io/) and select
+   the Aiven for Apache Kafka® or Aiven for Apache Kafka Connect®
+   service where the connector needs to be defined.
+1. Click <ConsoleLabel name="manage stream" /> > **Connectors** from the left sidebar.
+1. Select **Create New Connector**, it is enabled only for services
+   [with Kafka Connect enabled](enable-connect).
+1. Select **OpenSearch sink**.
+1. In the **Common** tab, locate the **Connector configuration** text
+   box and click on **Edit**.
+1. Paste the connector configuration (stored in the
+   `opensearch_sink.json` file) in the form.
+1. Click **Apply**.
 
-2.  Select <ConsoleLabel name="manage stream" /> > **Connectors** from the left sidebar.
+   :::note
+   The Aiven Console parses the configuration file and fills the
+   relevant UI fields. You can review the UI fields across the various
+   tab and change them if necessary. The changes will be reflected in
+   JSON format in the **Connector configuration** text box.
+   :::
 
-3.  Select **Create New Connector**, it is enabled only for
-    services
-    [with Kafka Connect enabled](enable-connect).
-
-4.  Select **OpenSearch sink**.
-
-5.  In the **Common** tab, locate the **Connector configuration** text
-    box and select on **Edit**.
-
-6.  Paste the connector configuration (stored in the
-    `opensearch_sink.json` file) in the form.
-
-7.  Select **Apply**.
-
-    :::note
-    The Aiven Console parses the configuration file and fills the
-    relevant UI fields. You can review the UI fields across the various
-    tab and change them if necessary. The changes will be reflected in
-    JSON format in the **Connector configuration** text box.
-    :::
-
-8.  After all the settings are correctly configured, select **Create
-    connector**.
-
-9.  Verify the connector status under <ConsoleLabel name="manage stream" /> > **Connectors**.
-
-10. Verify the presence of the data in the target OpenSearch service,
-    the index name is equal to the Apache Kafka topic name.
+1. After all the settings are correctly configured, click **Create
+   connector**.
+1. Verify the connector status under <ConsoleLabel name="manage stream" /> > **Connectors**.
+1. Verify that the data is available in the target OpenSearch resource.
+   By default, the connector writes to an index based on the Apache
+   Kafka topic name. In your Aiven for OpenSearch service, select
+   <ConsoleLabel name="opensearchindexes" /> to view the index. If the
+   configuration maps the topic to an existing resource, verify that
+   resource instead. See
+   [Write to an existing OpenSearch resource](#connect_opensearch_sink_existing_resource).
 
 :::note
 You can also create connectors using the
 [Aiven CLI command](/docs/tools/cli/service/connector#avn_service_connector_create).
 :::
 
+## Write to an existing OpenSearch resource {#connect_opensearch_sink_existing_resource}
+
+From connector version 3.2.0, you can write to an existing OpenSearch
+resource. The connector does not create an index from the Kafka topic
+name.
+
+Writing to an existing resource is useful when you manage index rotation
+with a write alias. You rotate daily or weekly indices behind a stable
+alias.
+
+Create the target resource in OpenSearch before you start the connector.
+Then set the following properties in the connector configuration:
+
+- `existing.resource.type`: The type of existing OpenSearch resource.
+  To write to an index alias, set this to `index_alias`.
+- `topic.to.existing.resource.mapping`: Maps Kafka topics to existing
+  OpenSearch resources. Use the format `topic_name:resource_name`.
+  Separate multiple mappings with commas.
+
+```json
+{
+    "connection.url": "OS_CONNECTION_URL",
+    "connection.username": "OS_USERNAME",
+    "connection.password": "OS_PASSWORD",
+    "existing.resource.type": "index_alias",
+    "topic.to.existing.resource.mapping": "orders:orders_write_alias",
+    "key.ignore": "true",
+    "schema.ignore": "true"
+}
+```
+
+This example maps the `orders` topic to the `orders_write_alias` alias.
+
+For other `existing.resource.type` values, see the [connector
+configuration
+options](https://github.com/aiven/opensearch-connector-for-apache-kafka/blob/main/docs/opensearch-sink-connector-config-options.rst).
+
 ## Create daily OpenSearch indices
 
-You might need to create an OpenSearch index on daily basis to store
-the Apache Kafka messages. Adding the following `TimestampRouter`
-transformation in the connector properties file provides a way to define
-the index name as concatenation of the topic name and message date.
+To write through a stable write alias, use an existing resource mapping.
+To include the message date in the index name, use the `TimestampRouter`
+transformation and create the indices first.
+
+To store the Apache Kafka messages in a daily OpenSearch index, add the
+following `TimestampRouter` transformation to the connector properties
+file. The transformation defines the index name as the topic name
+followed by the message date.
 
 ```json
 "transforms": "TimestampRouter",
@@ -200,10 +227,10 @@ connector. You can create OpenSearch indices in many ways including
 [CURL commands](/docs/products/opensearch/howto/opensearch-with-curl).
 :::
 
-## Example: Create an OpenSearch® sink connector on a topic with a JSON schema
+## Create a sink connector for JSON with a schema
 
-If you have a topic named `iot_measurements` containing the following
-data in JSON format, with a defined JSON schema:
+If you have a topic named `iot_measurements` that contains the following
+JSON, including an embedded schema:
 
 ```json
 {
@@ -247,16 +274,14 @@ data in JSON format, with a defined JSON schema:
 ```
 
 :::note
-Since the JSON schema needs to be defined in every message, there is a
-big overhead to transmit the information. To achieve a better
-performance in term of information-message ratio you should use the Avro
-format together with the [Karapace schema
-registry](https://karapace.io/) provided by Aiven
+Each message includes the JSON schema, which increases payload size. For
+a smaller payload, use Avro with
+[Karapace](/docs/products/kafka/karapace).
 :::
 
 You can sink the `iot_measurements` topic to OpenSearch with the
-following connector configuration, after replacing the placeholders for
-`OS_CONNECTION_URL`, `OS_USERNAME` and `OS_PASSWORD`:
+following connector configuration, after replacing `OS_CONNECTION_URL`,
+`OS_USERNAME`, and `OS_PASSWORD`:
 
 ```json
 {
@@ -273,19 +298,18 @@ following connector configuration, after replacing the placeholders for
 }
 ```
 
-The configuration file contains the following peculiarities:
+The configuration file contains the following entries:
 
--   `"topics": "iot_measurements"`: setting the topic to sink
--   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
-    the message value is in plain JSON format without a schema
--   `"key.ignore": "true"`: the connector is ignoring the message key
-    (empty), and generating documents with ID equal to
-    `topic+partition+offset`
+- `topics`: Set to `iot_measurements`.
+- `value.converter`: JSON converter. The sample messages include an
+  embedded schema, so leave schema support enabled.
+- `key.ignore`: If `true`, the connector ignores the empty message key
+  and sets the document ID to `topic+partition+offset`.
 
-## Example: Create an OpenSearch® sink connector on a topic in plain JSON format
+## Create a sink connector for schemaless JSON
 
-If you have a topic named `students` containing the following data in
-JSON format, without a defined schema:
+If you have a topic named `students` that contains the following
+schemaless JSON:
 
 ```text
 Key: 1 Value: {"student_id":1, "student_name":"Carla"}
@@ -294,8 +318,8 @@ Key: 3 Value: {"student_id":3, "student_name":"Mary"}
 ```
 
 You can sink the `students` topic to OpenSearch with the following
-connector configuration, after replacing the placeholders for
-`OS_CONNECTION_URL`, `OS_USERNAME` and `OS_PASSWORD`:
+connector configuration, after replacing `OS_CONNECTION_URL`,
+`OS_USERNAME`, and `OS_PASSWORD`:
 
 ```json
 {
@@ -314,23 +338,16 @@ connector configuration, after replacing the placeholders for
 }
 ```
 
-The configuration file contains the following peculiarities:
+The configuration file contains the following entries:
 
--   `"topics": "students"`: setting the topic to sink
--   `"key.converter": "org.apache.kafka.connect.storage.StringConverter"`:
-    the message key is a string
--   `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`:
-    the message value is in plain JSON format without a schema
--   `"value.converter.schemas.enable": "false"`: since the data in the
-    value doesn't have a schema, the connector shouldn't try to read
-    it and sets it to null
--   `"schema.ignore": "true"`: since the value schema is null, the
-    connector doesn't infer it before pushing the data to OpenSearch
+- `topics`: Set to `students`.
+- `key.converter`: String converter for the message key.
+- `value.converter`: JSON converter for the message value.
+- `value.converter.schemas.enable`: Set to `false` when the value has no
+  schema so the connector does not read a schema.
+- `schema.ignore`: Set to `true` so the connector does not infer a
+  schema before it writes to OpenSearch.
 
 :::note
-The OpenSearch document ID is set as the message key
+The connector sets the OpenSearch document ID to the message key.
 :::
-
-import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
-
-<ElasticSearch/>

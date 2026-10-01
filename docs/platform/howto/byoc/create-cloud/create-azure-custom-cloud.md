@@ -1,0 +1,530 @@
+---
+title: Create a Microsoft Azure-integrated custom cloud
+sidebar_label: Microsoft Azure
+keywords: [Azure, Microsoft Azure, byoc, bring your own cloud, custom cloud]
+---
+
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/RelatedPages";
+
+Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
+
+Azure supports two deployment models:
+
+- **Standard** (`standard`): Two separate VNets (Bastion and Workload) connected via
+  VNet peering. Aiven routes management traffic through a bastion host proxy, and
+  workload nodes are not accessible from the public internet.
+- **Standard public** (`standard_public`): A single Workload VNet with publicly
+  addressed service VMs. Aiven connects to service nodes directly over the public
+  internet.
+
+To configure a custom cloud in your Aiven organization and prepare your Azure
+subscription so that Aiven can access it:
+
+1. In the Aiven Console or with the Aiven CLI client, you specify new cloud details to
+   generate a Terraform infrastructure-as-code template.
+1. You download the generated template and deploy it in your Azure subscription using
+   the Azure CLI and Terraform.
+1. You provision the custom cloud by supplying your Azure subscription ID and tenant ID
+   to the Aiven platform, which gives Aiven the permissions to access your Azure
+   subscription, create resources, and manage them onward.
+1. You select Aiven projects that can use your new custom cloud for creating services.
+1. You add contact details for individuals from your organization that Aiven can reach
+   out to in case of technical issues with the new cloud.
+
+## Prerequisites
+
+- You have [enabled the BYOC feature](/docs/platform/howto/byoc/enable-byoc).
+- You have an active Azure subscription where the BYOC infrastructure will be deployed.
+- Your Azure identity (user or service principal) has the
+  [required Azure permissions](#azure-permissions).
+- You have the
+  [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+  role in your Aiven organization.
+- Depending on the tool you use to create the custom cloud:
+  - **Console**: Access to the [Aiven Console](https://console.aiven.io/), or
+  - **CLI**:
+    - [Aiven CLI client](/docs/tools/cli) installed
+    - Aiven organization ID from the output of the `avn organization list` command or
+      from the [Aiven Console](https://console.aiven.io/) >
+      <ConsoleLabel name="userinformation"/> \> <ConsoleLabel name="organizations"/>.
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) (`az`)
+  installed.
+- Terraform >= 1.0 installed.
+
+## Azure permissions
+
+To deploy the Aiven BYOC Terraform template, your Azure identity needs the following
+subscription permissions. Assign them before running `terraform apply`.
+
+### Azure subscription permissions
+
+Assign one of the following to your Azure identity on the subscription:
+
+- **Owner** built-in role (simplest, but broad), or
+- A custom role with the minimum permissions defined below.
+
+<details><summary>
+Show minimum custom role permissions for the BYOC deployer
+</summary>
+
+```json
+{
+    "Actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/subscriptions/resourceGroups/delete",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/write",
+        "Microsoft.Network/virtualNetworks/delete",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/virtualNetworks/subnets/delete",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/peer/action",
+        "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read",
+        "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write",
+        "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete",
+        "Microsoft.Network/networkSecurityGroups/read",
+        "Microsoft.Network/networkSecurityGroups/write",
+        "Microsoft.Network/networkSecurityGroups/delete",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/networkSecurityGroups/securityRules/read",
+        "Microsoft.Network/networkSecurityGroups/securityRules/write",
+        "Microsoft.Network/networkSecurityGroups/securityRules/delete",
+        "Microsoft.Network/natGateways/read",
+        "Microsoft.Network/natGateways/write",
+        "Microsoft.Network/natGateways/delete",
+        "Microsoft.Network/natGateways/join/action",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/publicIPAddresses/delete",
+        "Microsoft.Network/publicIPAddresses/join/action",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/delete",
+        "Microsoft.Storage/storageAccounts/listkeys/action",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.Authorization/roleDefinitions/read",
+        "Microsoft.Authorization/roleDefinitions/write",
+        "Microsoft.Authorization/roleDefinitions/delete"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/{subscriptionId}"
+    ],
+    "DataActions": [],
+    "Description": "Minimum permissions for running the Aiven BYOC Azure Terraform template.",
+    "Name": "Aiven BYOC Terraform Operator",
+    "NotActions": [],
+    "NotDataActions": []
+}
+```
+
+</details>
+
+## Create a custom cloud
+
+Create a custom cloud either in the Aiven Console or with the Aiven CLI.
+
+<Tabs groupId="group1">
+<TabItem value="console" label="Aiven Console" default>
+
+#### Launch the BYOC setup
+
+1. Log in to the [Aiven Console](https://console.aiven.io/), and go to an organization.
+1. Click **Admin** in the top navigation, and click
+   <ConsoleLabel name="bringyourowncloud"/> in the sidebar.
+1. In the **Bring your own cloud** view, select **Create custom cloud**.
+
+#### Generate an infrastructure template
+
+In the **Create custom cloud** wizard:
+
+1. Specify cloud details:
+
+   - **Cloud provider**: Select **Microsoft Azure**.
+   - **Deployment model**: Choose a model:
+     - **Standard**: Two VNets (Bastion and Workload) connected via VNet peering.
+       Workload nodes are not accessible from the public internet.
+     - **Standard public**: A single Workload VNet with publicly addressed service VMs.
+       The service endpoint has two hostnames: a private one and a public one derived
+       from it by adding a `public-` prefix. The Service URI shown in the Aiven Console
+       displays only the private hostname.
+   - **Cloud region**: Select an Azure region, for example `westeurope`.
+   - **CIDR**: Enter an IP address range for the virtual networks Aiven creates in your
+     Azure subscription, for example `10.0.0.0/16`, `172.31.0.0/16`, or
+     `192.168.0.0/20`.
+   - **Display name**: Enter a name for your custom cloud.
+
+1. Click **Next** and review the deployment settings.
+1. Click **Next** to generate the template.
+
+#### Deploy the template
+
+1. On the **Infrastructure template** page, download the **Infrastructure template**
+   and the **Variables file**.
+
+   :::important
+   Do not modify the downloaded files. Changing any parameters, names, or
+   configurations may result in provisioning failures or unexpected behavior.
+   :::
+
+1. Install the Aiven CCE enterprise application on your Entra tenant:
+
+   ```bash
+   az login --tenant "AZURE_TENANT_ID"
+   az ad sp create --id b40b60e2-10c8-4917-bc74-18a87950e767
+   ```
+
+   Replace `AZURE_TENANT_ID` with your Azure tenant ID. To look it up, run:
+   `az account show --query tenantId -o tsv`. The app ID is also available in the
+   variables file you downloaded as `aiven_cce_client_id`.
+
+   :::note
+   Run these commands **once per tenant**, regardless of how many custom clouds you
+   create on the same tenant. If the Aiven CCE enterprise application is already
+   installed on your tenant, skip this step.
+
+   To remove the Aiven CCE enterprise application from your tenant after you have
+   deleted all custom clouds on it, run:
+
+   ```bash
+   az login --tenant "AZURE_TENANT_ID"
+   az ad sp delete --id b40b60e2-10c8-4917-bc74-18a87950e767
+   ```
+
+   :::
+
+1. Deploy the infrastructure template using Terraform:
+
+   ```bash
+   terraform init
+   terraform apply -var-file=FILE_NAME.tfvars
+   ```
+
+   Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
+
+1. In the **Create custom cloud** wizard, enter the identifiers from the Terraform
+   output:
+
+   - **Subscription ID**: Run `terraform output -raw azure_subscription_id`.
+   - **Tenant ID**: Run `terraform output -raw azure_tenant_id`.
+
+1. Click **Next**.
+
+#### Assign to projects and add contacts
+
+1. Select the projects that can use your new custom cloud, then click **Next**.
+1. Add contact details for team members Aiven can reach out to in case of technical
+   issues with the new cloud:
+   - **Email**
+   - **Real name**
+   - **Role** (for example, **Admin**)
+1. Click **Create custom cloud**.
+
+When your custom cloud's
+[status is **Active**](/docs/platform/howto/byoc/view-custom-cloud-status), it's
+ready to use.
+
+</TabItem>
+<TabItem value="cli" label="Aiven CLI">
+
+1. Generate an IaC template by running
+   [avn byoc create](/docs/tools/cli/byoc#avn-byoc-create).
+
+   ```bash
+   avn byoc create                               \
+     --organization-id "ORGANIZATION_ID"         \
+     --deployment-model "DEPLOYMENT_MODEL"       \
+     --cloud-provider "azure"                    \
+     --cloud-region "CLOUD_REGION_NAME"          \
+     --reserved-cidr "CIDR_BLOCK"                \
+     --display-name "CUSTOM_CLOUD_DISPLAY_NAME"
+   ```
+
+   Replace the following:
+
+   - `ORGANIZATION_ID` with the ID of your Aiven organization to connect with your own
+     cloud account to create the custom cloud, for example `org123a456b789`. Get your
+     `ORGANIZATION_ID`
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+   - `DEPLOYMENT_MODEL` with the deployment model to use:
+     - `standard`: Two VNets (Bastion and Workload) connected via VNet peering.
+       Workload nodes are not accessible from the public internet.
+     - `standard_public`: A single Workload VNet with publicly addressed service VMs.
+       The service endpoint has two hostnames: a private one and a public one derived
+       from it by adding a `public-` prefix. The Service URI shown in the Aiven
+       Console displays only the private hostname.
+   - `CLOUD_REGION_NAME` with the name of an Azure region where to create your custom
+     cloud:
+     1. Pick a region from the **Cloud** column in the supported
+        [Azure cloud regions](/docs/platform/reference/list_of_clouds#azure) table.
+     1. Drop the `azure-` prefix from the selected region name, for example,
+        `azure-westeurope` > `westeurope`.
+   - `CIDR_BLOCK` with a CIDR block defining the IP address range for the virtual
+     networks that Aiven creates in your own cloud account, for example: `10.0.0.0/16`,
+     `172.31.0.0/16`, or `192.168.0.0/20`.
+   - `CUSTOM_CLOUD_DISPLAY_NAME` with the name of your custom cloud, which you can set
+     arbitrarily.
+
+   <details><summary>
+   Show sample output
+   </summary>
+
+   ```json
+   {
+       "custom_cloud_environment": {
+           "cloud_provider": "azure",
+           "cloud_region": "westeurope",
+           "contact_emails": [
+               {
+                   "email": "firstname.secondname@domain.com",
+                   "real_name": "Test User",
+                   "role": "Admin"
+               }
+           ],
+           "custom_cloud_environment_id": "018b6442-c602-42bc-b63d-438026133f60",
+           "deployment_model": "standard",
+           "display_name": "My BYOC Cloud on Azure",
+           "errors": [],
+           "reserved_cidr": "10.0.0.0/16",
+           "state": "draft",
+           "tags": {},
+           "update_time": "2024-05-07T14:24:18Z"
+       }
+   }
+   ```
+
+   </details>
+
+1. Deploy the IaC template.
+
+   1. Download the template and the variable file:
+
+      - [avn byoc template terraform get-template](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-template)
+
+            ```bash
+            avn byoc template terraform get-template             \
+              --organization-id "ORGANIZATION_ID"                \
+              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tf"
+            ```
+
+         Replace the following:
+
+         - `ORGANIZATION_ID` with the ID of your Aiven organization, for example
+           `org123a456b789`. Get your `ORGANIZATION_ID`
+           [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+         - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
+           extract from the output of the
+           [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command, for example
+           `018b6442-c602-42bc-b63d-438026133f60`.
+
+      - [avn byoc template terraform get-vars](/docs/tools/cli/byoc#avn-byoc-template-terraform-get-vars)
+
+            ```bash
+            avn byoc template terraform get-vars                     \
+              --organization-id "ORGANIZATION_ID"                    \
+              --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tfvars"
+            ```
+
+         Replace the following:
+
+         - `ORGANIZATION_ID` with the ID of your Aiven organization, for example
+           `org123a456b789`. Get your `ORGANIZATION_ID`
+           [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+         - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can
+           extract from the output of the
+           [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command, for example
+           `018b6442-c602-42bc-b63d-438026133f60`.
+
+   1. Optionally, modify the template as needed.
+
+      :::note
+      To connect to a custom-cloud service from IP address ranges outside the custom
+      cloud, add specific ingress rules before you apply the Terraform infrastructure
+      template.
+
+      Before adding ingress rules, see the examples provided in the downloaded Terraform
+      template.
+      :::
+
+   1. Authenticate with Azure using the Azure CLI:
+
+      ```bash
+      az login
+      ```
+
+      For more authentication options, see the
+      [Azure CLI authentication documentation](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+
+   1. Install the Aiven CCE enterprise application on your Entra tenant:
+
+      ```bash
+      az login --tenant "AZURE_TENANT_ID"
+      az ad sp create --id b40b60e2-10c8-4917-bc74-18a87950e767
+      ```
+
+      Replace `AZURE_TENANT_ID` with your Azure tenant ID. To look it up, run:
+      `az account show --query tenantId -o tsv`. The app ID is also available in
+      the variables file you downloaded as `aiven_cce_client_id`.
+
+      :::note
+      Run these commands **once per tenant**, regardless of how many custom clouds
+      you create on the same tenant. If the Aiven CCE enterprise application is
+      already installed on your tenant, skip this step.
+
+      To remove the Aiven CCE enterprise application from your tenant after you
+      have deleted all custom clouds on it with `terraform destroy`, run:
+
+      ```bash
+      az login --tenant "AZURE_TENANT_ID"
+      az ad sp delete --id b40b60e2-10c8-4917-bc74-18a87950e767
+      ```
+
+      :::
+
+   1. Deploy the infrastructure template using Terraform with the provided variables
+      file:
+
+      ```bash
+      terraform init
+      terraform apply -var-file=FILE_NAME.tfvars
+      ```
+
+      Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
+
+      :::important
+      The `-var-file` option is required to pass the configuration variables to
+      Terraform.
+      :::
+
+      The template creates the following resources in your Azure subscription:
+
+      - **Role assignments** granting the Aiven CCE enterprise application operator
+        and quota-reader access in your subscription
+      - A **resource group** containing all BYOC resources
+      - Two **custom role definitions** in your subscription:
+        `{deployment_name}-aiven-operator` (least-privilege operator on the resource
+        group) and `{deployment_name}-aiven-quota-reader` (read-only compute quota
+        access on the subscription)
+      - **Storage accounts** (Premium LRS and Standard LRS), with the Storage Account
+        Key Operator Service Role assigned to the Aiven CCE enterprise application
+      - For the `standard` deployment model:
+        - Two **virtual networks** (Bastion VNet and Workload VNet) with subnets
+        - **VNet peering** between the bastion and workload networks
+        - **Network security groups (NSGs)** controlling ingress and egress
+        - **NAT gateways** for outbound internet access from both networks
+      - For the `standard_public` deployment model:
+        - A **Workload VNet** with a single subnet for service VMs
+        - A **network security group (NSG)** allowing all public inbound TCP and UDP
+          traffic to workload nodes
+
+   1. Retrieve the values required for the provisioning step:
+
+      ```bash
+      terraform output -raw azure_subscription_id
+      terraform output -raw azure_tenant_id
+      ```
+
+1. Provision resources by running
+   [avn byoc provision](/docs/tools/cli/byoc#avn-byoc-provision) and passing your Azure
+   subscription ID and tenant ID.
+
+   ```bash
+   avn byoc provision                                \
+     --organization-id "ORGANIZATION_ID"             \
+     --byoc-id "CUSTOM_CLOUD_ID"                     \
+     --azure-subscription-id "AZURE_SUBSCRIPTION_ID" \
+     --azure-tenant-id "AZURE_TENANT_ID"
+   ```
+
+   Replace the following:
+
+   - `ORGANIZATION_ID` with the ID of your Aiven organization, for example
+     `org123a456b789`. Get your `ORGANIZATION_ID`
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+   - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
+     from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
+     for example `018b6442-c602-42bc-b63d-438026133f60`.
+   - `AZURE_SUBSCRIPTION_ID` with your Azure subscription ID from the Terraform output:
+     `terraform output -raw azure_subscription_id`.
+   - `AZURE_TENANT_ID` with your Azure tenant ID from the Terraform output:
+     `terraform output -raw azure_tenant_id`.
+
+1. Enable your custom cloud in organizations, projects, or units by running
+   [avn byoc cloud permissions add](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add).
+
+   ```bash
+   avn byoc cloud permissions add        \
+     --organization-id "ORGANIZATION_ID" \
+     --byoc-id "CUSTOM_CLOUD_ID"         \
+     --account "ACCOUNT_ID"
+   ```
+
+   Replace the following:
+
+   - `ORGANIZATION_ID` with the ID of your Aiven organization, for example
+     `org123a456b789`. Get your `ORGANIZATION_ID`
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+   - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
+     from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
+     for example `018b6442-c602-42bc-b63d-438026133f60`.
+   - `ACCOUNT_ID` with the identifier of your account (organizational unit) in Aiven,
+     for example `a484338c34d7`. You can extract `ACCOUNT_ID` from the output of the
+     `avn organization list` command.
+
+1. Add customer contacts for the new cloud by running
+   [avn byoc update](/docs/tools/cli/byoc#avn-byoc-update).
+
+   ```bash
+   avn byoc update                     \
+   --organization-id "ORGANIZATION_ID" \
+   --byoc-id "CUSTOM_CLOUD_ID"         \
+   '
+       {
+       "contact_emails": [
+           {
+           "email": "EMAIL_ADDRESS",
+           "real_name": "John Doe",
+           "role": "Admin"
+           }
+       ]
+       }
+   '
+   ```
+
+   Replace the following:
+
+   - `ORGANIZATION_ID` with the ID of your Aiven organization, for example
+     `org123a456b789`. Get your `ORGANIZATION_ID`
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+   - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
+     from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
+     for example `018b6442-c602-42bc-b63d-438026133f60`.
+
+</TabItem>
+</Tabs>
+
+## Limitations
+
+The following features are not supported for Azure custom clouds:
+
+- **Enhanced compliance (ECE)** deployment models (`pci_dss`, `hipaa`)
+- **Static IPs**
+- **VNet peering** from the Aiven Console: manage peering directly in your Azure
+  subscription
+- **PrivateLink**
+
+<RelatedPages/>
+
+- [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+- [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
+- [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)

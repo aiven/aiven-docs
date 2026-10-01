@@ -152,9 +152,8 @@ Upgrades apply immediately. The service state becomes **Rebuilding** and remains
 accessible. When the state switches to **Running**, the new plan is active. Paid services
 cannot be downgraded to the free tier.
 
-For more information, see [Change a service plan](/docs/platform/howto/scale-services).
-
 <RelatedPages />
 
 - [Kafka free tier overview](/docs/products/kafka/free-tier/kafka-free-tier)
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)
+- [Change the service plan](/docs/products/kafka/howto/change-service-plan)

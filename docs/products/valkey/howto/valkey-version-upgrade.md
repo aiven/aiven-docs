@@ -223,5 +223,3 @@ Parameters:
 - `N.N`: Service version, for example `8.1`
 
 <RelatedPages/>
-
-[Service maintenance](/docs/platform/concepts/maintenance-window)

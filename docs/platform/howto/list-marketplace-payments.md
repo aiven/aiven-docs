@@ -23,7 +23,7 @@ does not disrupt your services.
 1. Collect information about your accounts:
 
    * In the Aiven Console,
-     copy your [organization ID](/docs/platform/reference/get-resource-IDs).
+     copy your [billing group ID](/docs/platform/reference/get-resource-IDs).
 
    * In the AWS Marketplace, copy your subscription ID.
 
@@ -38,7 +38,7 @@ does not disrupt your services.
 1. Collect information about your accounts:
 
    * In the [Aiven Console](https://console.aiven.io/),
-     copy your [organization ID](/docs/platform/reference/get-resource-IDs).
+     copy your [billing group ID](/docs/platform/reference/get-resource-IDs).
 
    * In the Azure Marketplace, copy your subscription ID.
 
@@ -53,7 +53,7 @@ does not disrupt your services.
 1. Collect information about your accounts:
 
    * In the [Aiven Console](https://console.aiven.io/),
-     copy your [organization ID](/docs/platform/reference/get-resource-IDs).
+     copy your [billing group ID](/docs/platform/reference/get-resource-IDs).
 
    * In the Google Cloud Marketplace, copy your order ID.
 

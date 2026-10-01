@@ -10,6 +10,11 @@
   font-family: var(--aiven-card-font-family);
 }
 
+.cardDescription {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
 a.cardContainer:hover,
 a.cardContainer:focus {
   text-decoration: none;

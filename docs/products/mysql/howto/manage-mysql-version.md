@@ -52,7 +52,7 @@ To revert to a previous version:
 Before upgrading your service:
 
 - **Test in development**: Test the upgrade in a development environment first, for
-  example, using [service forking](/docs/platform/concepts/service-forking).
+  example, using service forking.
 - **Backup your data**: Ensure you have recent backups. Backups are automatic, but verify
   they exist.
 
@@ -230,5 +230,3 @@ Parameters:
 - `N.N`: Service version, for example `8.1`
 
 <RelatedPages/>
-
-[Service maintenance](/docs/platform/concepts/maintenance-window)

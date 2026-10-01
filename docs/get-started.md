@@ -248,18 +248,6 @@ Start deploying services in your project to stream, store, or analyze your data.
       title="View all services"
       description="Choose a service to learn more about it."
   />
-  <Card
-    to="/docs/platform/howto/create_new_service"
-    iconName="clipboardCheck"
-    title="Create a service"
-    description="Create your first Aiven service."
-  />
-  <Card
-    to="/docs/platform/howto/list-service"
-    iconName="book"
-    title="Manage your services"
-    description="Learn about backups, maintenance, service resources, and more."
-  />
 </GridContainer>
 
 #### Create a service using the dev tools

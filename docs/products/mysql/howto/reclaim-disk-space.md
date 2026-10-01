@@ -32,7 +32,7 @@ command, you can:
 -   **Temporarily upgrade to a larger service plan** to get access to
     more disk space. You can downgrade your plan again afterward. Read
     more on how to
-    [upgrade your plan](/docs/platform/howto/scale-services) for that.
+    upgrade your plan for that.
 
 :::note
 When you perform a temporary upgrade, it may require waiting for a

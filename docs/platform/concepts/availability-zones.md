@@ -42,6 +42,7 @@ the following:
 -   Amazon Web Services
 -   Google Cloud Platform
 -   Microsoft Azure
+-   OVHcloud
 -   UpCloud
 
 ## Supported availability zones
@@ -56,6 +57,13 @@ replicas of services is `upcloud-fi-hel`. For `upcloud-fi-hel`, UpCloud
 provides two datacenters (`fi-hel1` and `fi-hel2`). With a two-node
 plan, for example, it will result in one of the servers in `fi-hel1` and
 the other in `fi-hel2`.
+:::
+
+:::note
+With OVHcloud, AZ support depends on OVHcloud's own regional
+infrastructure, so it isn't available in every region. Only some
+OVHcloud regions provide multiple datacenters for AZ distribution, and
+OVHcloud decides which regions have this support.
 :::
 
 ## Smart availability zones for Apache Kafka®
@@ -74,5 +82,4 @@ fully available when a node or a whole AZ is lost.
 -   [Create and use read-only replicas](/docs/products/postgresql/howto/create-read-replica)
 -   [Migrate service to another cloud or region](/docs/platform/howto/migrate-services-cloud-region)
 -   [Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
--   [OpenSearch backups](/docs/platform/concepts/service_backups#aiven-for-opensearch)
 -   [MySQL backups](/docs/products/mysql/concepts/mysql-backups)

@@ -13,4 +13,3 @@ Prepare your Aiven for Valkey™ service for higher than usual traffic to avoid 
 <RelatedPages/>
 
 - [Change the service plan](/docs/products/valkey/howto/change-service-plan)
-- [Scale disk storage](/docs/products/valkey/howto/scale-disk-storage)

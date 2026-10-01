@@ -11,4 +11,3 @@ updates.
 <RelatedPages/>
 
 - [Upgrade the Valkey version](/docs/products/valkey/howto/valkey-version-upgrade)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

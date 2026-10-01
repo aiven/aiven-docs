@@ -8,7 +8,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Calculate the total number of simultaneous connections available to all users combined on your Aiven for MySQL® service, and learn why the per-user connection limit is a separate setting.
 
 The maximum number of simultaneous connections in Aiven for MySQL® depends on
-[how much RAM your service has](/docs/platform/howto/scale-services). This
+how much RAM your service has. This
 `max_connections` value applies to all users of the service combined, not to each user
 individually.
 

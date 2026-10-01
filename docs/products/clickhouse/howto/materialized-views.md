@@ -26,9 +26,9 @@ diagram:
 ```mermaid
 flowchart LR
   a[Kafka topic]
-  b{{Kafka table engine}}
+  b[Kafka table engine]
   c[Materialized view]
-  d{{Merge Tree<br /> family table}}
+  d[Merge Tree family table]
   a --> b --> c --> d
 ```
 

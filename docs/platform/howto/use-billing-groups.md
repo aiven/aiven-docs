@@ -2,7 +2,8 @@
 title: Manage billing groups
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import TrialCredits from "@site/static/includes/trial-credits-block-deletion.md";
 
 Costs associated with services and features in an Aiven project are charged to the payment method assigned to its [billing group](/docs/platform/concepts/billing-and-payment#billing-groups).
 
@@ -74,3 +75,7 @@ different billing group first.
 1.  Find the billing group to delete and click **Details**.
 1.  Click <ConsoleLabel name="actions"/> at the top of the page.
 1.  Click <ConsoleLabel name="delete"/>.
+
+:::note
+<TrialCredits/>
+:::

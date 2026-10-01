@@ -28,6 +28,7 @@ Ashburn
 australia
 Auth0
 autojoin
+autoanalyze
 autoscaler
 autoscaling
 autovacuum
@@ -98,7 +99,10 @@ dblink
 DBMS
 DBMSs
 deallocation
+CCEs?
 Debezium
+deployer
+aiven_cce_client_id
 deduplicate
 defragmentation
 depends_on
@@ -210,6 +214,7 @@ Java
 java_lang_Memory
 JMX
 JobManager
+Jira
 Jolokia
 jq
 json
@@ -217,6 +222,8 @@ JSONPath
 JumpCloud
 JVM's
 JWT's
+JWTs?
+JWKS
 Kafbat
 Kafdrop
 kafka
@@ -234,6 +241,7 @@ Klaw
 Kpow
 Kubernetes
 kuromoji
+LibreDB
 LLM
 LLMs
 Loggly
@@ -272,12 +280,14 @@ Okta
 Omni
 onboarding
 Opendistro
+OpenAPI
 OpenSearch
 OpenSearch Security
 Opensearch_acl_config
 Opensearch_acl_rule
 Opensearch_user
 operator
+OVHcloud
 ORMs
 overallocates
 overcommit
@@ -293,6 +303,7 @@ peering
 peerings
 Percona
 performant
+[Pp]retrained
 pg_dump
 pgAdmin
 PGAudit
@@ -316,6 +327,7 @@ PNGs?
 Podman
 pooler
 PostgreSQL
+PostgREST
 Postman
 preformatted
 prepper
@@ -454,7 +466,8 @@ vCPUs
 vectorizing
 virtualized
 VMs?
-VNet
+VNets?
+NSGs?
 VPC/MS
 VPCs?
 VPN
@@ -471,3 +484,7 @@ zapier
 zdm-proxy
 Zipkin
 ZooKeeper
+nmslib
+faiss
+knn_vector
+hnsw

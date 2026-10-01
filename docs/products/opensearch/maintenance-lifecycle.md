@@ -11,4 +11,3 @@ maintenance updates.
 <RelatedPages/>
 
 - [Upgrade the OpenSearch version](/docs/products/opensearch/howto/os-version-upgrade)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

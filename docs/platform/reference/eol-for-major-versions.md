@@ -3,6 +3,17 @@ title: Aiven service and tool version lifecycle
 sidebar_label: Version lifecycle
 ---
 
+import EolTableMysql from "@site/static/includes/eol-table-mysql.md";
+import EolTableOpensearch from "@site/static/includes/eol-table-opensearch.md";
+import EolTablePostgresql from "@site/static/includes/eol-table-postgresql.md";
+import EolTableKafka from "@site/static/includes/eol-table-kafka.md";
+import EolTableClickhouse from "@site/static/includes/eol-table-clickhouse.md";
+import EolTableFlink from "@site/static/includes/eol-table-flink.md";
+import EolTableValkey from "@site/static/includes/eol-table-valkey.md";
+import EolTableDragonfly from "@site/static/includes/eol-table-dragonfly.md";
+import EolTableGrafana from "@site/static/includes/eol-table-grafana.md";
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services and single-versioned services.
 
 :::note
@@ -66,8 +77,7 @@ When Aiven sets the EOL date for a service major version:
 
 ## EOL best practices
 
-- Use [service forking](/docs/platform/concepts/service-forking) to test the version
-  upgrade before upgrading your production services.
+- Fork your service to test the version upgrade before upgrading your production services.
 - Upgrade to the supported version before the EOL date. This gives you time to test
   compatibility, resolve any issues, and plan the upgrade on your schedule.
 
@@ -81,7 +91,10 @@ After the EOL date:
     version, the service is powered off and ultimately deleted.
     :::
 
--   If the service is powered off, it's deleted.
+-   If the service is powered off, it's deleted 7 days after the later of the EOL date
+    and the power-off date. This is shorter than the
+    [180-day period](/docs/platform/concepts/service-power-cycle#power-off-a-service) for
+    services that haven't reached EOL.
 
     :::note[Exception]
     Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
@@ -92,111 +105,49 @@ After the EOL date:
 
 ### Aiven for MySQL®
 
-| Version | Aiven EOL         | Service creation supported until   | Service creation supported from |
-| ------- | ----------------- | ---------------------------------- | ------------------------------- |
-| 8.0.x   | 2026-10-31        | 2026-04-30                         | 2018-05-18                      |
-| 8.4.x   | 2032-10-30        | 2032-04-30                         | 2026-04-30                      |
+<EolTableMysql/>
 
 ### Aiven for OpenSearch®
 
-Aiven for OpenSearch® is the open source continuation of the original
-Elasticsearch service. The EOL for Aiven for OpenSearch® is generally
-dependent on the upstream project.
-
-| Version    | Aiven EOL       | After EOL                                   | Service creation supported until | Service creation supported from |
-| ---------- | --------------- | ------------------------------------------- | -------------------------------- | ------------------------------- |
-| 1.3.x      | 2026-07-26      | Automatic upgrade to 2.19                   | 2026-07-26                       | 2022-05-19                      |
-| 2.17.x     | 2026-07-26      | Automatic upgrade to 2.19                   | 2026-07-26                       | 2024-10-15                      |
-| 2.19.x LTS | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2025-09-15                      |
-| 3.3.x      | 2027-02-01      | Automatic upgrade to a supported version    | 2027-02-01                       | 2026-01-20                      |
-| 3.6.x LTS  | Date not set    | Automatic upgrade to a supported version    | Date not set                     | 2026-06-23                      |
+<EolTableOpensearch/>
 
 ### Aiven for PostgreSQL®
 
-Aiven for PostgreSQL® major versions reach EOL on the same date as
-the upstream open source project's EOL.
-
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-| ------- | ---------- | -------------------------------- | ------------------------------- |
-| 9.5     | 2021-04-15 | 2021-01-26                       | 2015-12-22                      |
-| 9.6     | 2021-11-11 | 2021-05-11                       | 2016-09-29                      |
-| 10      | 2022-11-10 | 2022-05-10                       | 2017-01-14                      |
-| 11      | 2023-11-09 | 2023-05-09                       | 2017-03-06                      |
-| 12      | 2024-11-14 | 2024-05-14                       | 2019-11-18                      |
-| 13      | 2025-11-13 | 2025-05-13                       | 2021-02-15                      |
-| 14      | 2026-11-12 | 2026-05-12                       | 2021-11-11                      |
-| 15      | 2027-11-11 | 2027-05-12                       | 2022-12-12                      |
-| 16      | 2028-11-09 | 2028-05-09                       | 2024-01-08                      |
-| 17      | 2029-11-08 | 2029-05-08                       | 2024-12-09                      |
-| 18      | 2030-11-07 | 2030-05-07                       | 2025-09-25                      |
+<EolTablePostgresql/>
 
 ### Aiven for Apache Kafka® {#aiven-for-kafka}
 
-Aiven for Apache Kafka® versions reach end of life (EOL) one year after they become
-available on the Aiven platform.
-
-| Version   | Aiven EOL  | Service creation supported until | Service creation supported from |
-| --------- | ---------- | -------------------------------- | ------------------------------- |
-| 3.8.x     | 2026-09-30 | 2026-06-30                       | 2024-09-06                      |
-| 3.9.x     | 2027-09-30 | 2027-06-30                       | 2025-03-20                      |
-| 4.0.x     | 2026-09-18 | 2026-06-18                       | 2025-09-18                      |
-| 4.1.x     | 2027-01-31 | 2026-09-10                       | 2025-12-10                      |
-| 4.2.x     | 2027-06-15 | 2027-03-15                       | 2026-06-15                      |
-
-:::note
-Apache Kafka 3.8 is the last version that supports ZooKeeper.
-
-Starting with Apache Kafka 3.9, Aiven for Apache Kafka uses KRaft (Kafka Raft)
-to manage metadata and controllers instead of ZooKeeper. For details about the
-migration process and rollout limitations, see:
-
-- [KRaft in Aiven for Apache Kafka®](/docs/products/kafka/concepts/kraft-mode)
-- [Transitioning to KRaft](/docs/products/kafka/concepts/upgrade-procedure#transitioning-to-kraft)
-
-To support the transition to KRaft, Aiven supports Apache Kafka 3.8 until the EOL date
-shown in the table. The EOL date already includes the extended support period.
-:::
+<EolTableKafka/>
 
 ### Aiven for ClickHouse®
 
-| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
-| ------- | --------------- | -------------------------------- | ------------------------------- |
-| 25.3    | 2026-09-30      | 2026-08-17                       | 2025-12-15                      |
-| 25.8    | 2027-02-28      | 2026-11-30                       | 2026-03-25                      |
-| 26.3    | 2027-09-15      | 2027-06-15                       | 2026-08-01                      |
+<EolTableClickhouse/>
 
 For details, see the
-[Aiven for ClickHouse version support policy](/docs/products/clickhouse/reference/version-lifecycle).
+[Aiven for ClickHouse version support policy](/docs/products/clickhouse/reference/version-support-policy).
 
 ### Aiven for Apache Flink® {#aiven-for-flink}
 
-| Version | Aiven EOL  | Service creation supported until | Service creation supported from |
-|---------|------------|----------------------------------| ------------------------------- |
-| 1.16    | 2024-11-21 | 2024-08-21                       | 2023-01-01                      |
-| 1.19    | N/A        | N/A                              | 2024-05-21                      |
-| 1.20 | To be announced | To be announced | 2024-09-21 |
+:::important Service sunset
+New service creation is no longer available. Existing services remain
+available during the sunset period.
+:::
+
+<EolTableFlink/>
 
 ### Aiven for Valkey™
 
-| Version | Aiven EOL       | Service creation supported until | Service creation supported from |
-| ------- |-----------------|----------------------------------| ------------------------------- |
-| 8.1.x   | To be announced | To be announced                  | 2025-11-18                      |
-| 9.0.x   | 2026-08-31      | 2026-08-31                       | 2026-03-09                      |
-| 9.1.x   | To be announced | To be announced                  | 2026-07-15                      |
+<EolTableValkey/>
 
 ## Aiven single-versioned services EOL
 
 ### Aiven for Dragonfly®
 
-| Version | Aiven EOL       | Service creation supported until |
-| ------- |-----------------|----------------------------------|
-| 1.39.0  | 2026-09-30      | 2026-06-17                       |
+<EolTableDragonfly/>
 
 ### Aiven for Grafana®
 
-| Version | Aiven EOL       |
-| ------- | --------------- |
-| 11.6.5  | To be announced |
+<EolTableGrafana/>
 
 ## Aiven API lifecycle
 
@@ -221,7 +172,7 @@ is included in the deprecation notice and in the API documentation.
 To allow clients to detect these changes automatically, the API returns specific headers
 with the deprecation status and sunset date, for example:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 Deprecation: @1777248000
@@ -229,12 +180,14 @@ Sunset: Wed, 01 Jul 2026 00:00:00 GMT
 Link: <https://aiven.io/changelog>; rel="sunset"
 ```
 
-Where:
- - `Deprecation`: the UTC timestamp when deprecation took effect in
-   RFC 9745 @UNIX-TIMESTAMP format.
- - `Sunset`: Optional. Date and time the endpoint will be removed.
- - `Link`: URL for the [product update](https://aiven.io/changelog) for this
-    deprecation.
+The response headers provide the following information:
+
+- **`Deprecation`**: The UTC timestamp when deprecation took effect, in the
+  RFC 9745 `@UNIX-TIMESTAMP` format.
+- **`Sunset`**: Optional. The date and time when the endpoint becomes
+  unavailable.
+- **`Link`**: The [product update](https://aiven.io/changelog) URL for the
+  deprecation.
 
 Aiven works to reduce the disruptions caused by deprecations.
 The time between the deprecation and sunset statuses varies based on the endpoint's
@@ -250,7 +203,7 @@ The route remains registered for a period after sunset so clients receive
 a `410 Gone` response instead of `404 Not Found`. The following
 is an example of the structured error body:
 
-```
+```json
 {
   "errors": [{
     "error_code": "retired_api_endpoint",
@@ -259,9 +212,8 @@ is an example of the structured error body:
 }
 ```
 
-Full route removal happens
-only after an extended post-sunset period, but
-customers should migrate before the published sunset date.
+Full route removal happens only after an extended post-sunset period.
+Migrate before the published sunset date.
 
 ## Aiven tools EOL
 
@@ -284,8 +236,8 @@ certain changes require Aiven to deprecate older versions of the tools.
 
 ### Aiven Provider for Terraform
 
-Older versions will continue to work, but there will be no new features
-or bug fixes after the EOL date.
+After an Aiven Provider for Terraform version reaches EOL, it receives no new
+features or bug fixes but remains functional.
 
 | Version | Aiven EOL       |
 | ------- | --------------- |
@@ -299,3 +251,10 @@ or bug fixes after the EOL date.
 | Version | Aiven EOL       |
 | ------- | --------------- |
 | 0.x     | To be announced |
+
+<RelatedPages/>
+
+- [Power on/off a service](/docs/platform/concepts/service-power-cycle)
+- [Fork a service](/docs/platform/concepts/service-forking)
+- [Service backups](/docs/platform/concepts/service_backups)
+- [Controlled upgrades](/docs/platform/howto/controlled-upgrade)

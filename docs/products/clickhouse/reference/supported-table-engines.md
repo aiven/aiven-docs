@@ -89,7 +89,6 @@ before upgrading, for example with refreshable materialized views.
 | `Merge` | 25.3, 25.8, 26.3 |
 | `Null` | 25.3, 25.8, 26.3 |
 | `Set` | 25.3, 25.8, 26.3 |
-| `TimeSeries` | 25.8, 26.3 |
 
 ## Testing and utility engines
 

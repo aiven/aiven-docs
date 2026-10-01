@@ -17,6 +17,10 @@ mid-2022, where the feature needs to be
 [enabled](/docs/products/kafka/karapace/howto/enable-schema-registry-authorization).
 :::
 
+To authenticate Schema Registry with OAuth 2.0/OIDC bearer tokens and
+restrict operations by JWT roles, see
+[Enable OAuth 2.0/OIDC authentication for Aiven for Apache Kafka® Schema Registry](/docs/products/kafka/karapace/howto/enable-oauth-oidc-schema-registry).
+
 ## Common use cases
 
 Some of the common use cases for Karapace schema registry authorization

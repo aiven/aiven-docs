@@ -2,7 +2,8 @@
 title: Manage organizations
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import TrialCredits from "@site/static/includes/trial-credits-block-deletion.md";
 
 Learn how to manage your organizations via the Aiven Console.
 
@@ -20,6 +21,11 @@ Learn how to manage your organizations via the Aiven Console.
 1.  After all the organizational units have been deleted, on the
     **Organization** page click **Delete**.
 1.  To confirm, click **Delete**.
+
+:::note
+<TrialCredits/>
+:::
+
 
 ## Rename an organization
 

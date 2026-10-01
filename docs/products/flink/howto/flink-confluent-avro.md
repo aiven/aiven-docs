@@ -16,7 +16,7 @@ transformations.
 
 ## Prerequisites
 
--   [Aiven for Apache Flink service](/docs/platform/howto/create_new_service) with Aiven for Apache Kafka® integration. See
+-   Aiven for Apache Flink service with Aiven for Apache Kafka® integration. See
     [Create Apache Flink® data service integrations](/docs/products/flink/howto/create-integration) for more information.
 -   Aiven for Apache Kafka® service with Karapace Schema registry
     enabled. See

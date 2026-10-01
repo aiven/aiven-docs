@@ -46,7 +46,7 @@ graph LR
 
 ## Dynamic Disk Sizing
 
-[Dynamic Disk Sizing](/docs/platform/howto/add-storage-space) adds capacity to both tiers
+Dynamic Disk Sizing adds capacity to both tiers
 at the same time. You cannot expand a single tier on its own. The added space is distributed
 proportionally to each tier's base volume size.
 
@@ -70,4 +70,3 @@ supported.
 - [Manage hot/warm data tiering](/docs/products/opensearch/howto/hot-warm-tiering)
 - [Dedicated node roles in Aiven for OpenSearch®](/docs/products/opensearch/concepts/dedicated-node-roles)
 - [Index State Management policies](/docs/products/opensearch/howto/migrate-ism-policies)
-- [Dynamic Disk Sizing](/docs/platform/howto/add-storage-space)

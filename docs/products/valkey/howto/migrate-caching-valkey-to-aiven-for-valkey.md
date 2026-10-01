@@ -11,7 +11,9 @@ Migrate your Valkey™ databases to Aiven for Valkey™ using the Aiven Console 
 
 Before starting the migration process, ensure the following:
 
-- Target [Aiven for Valkey service](/docs/products/valkey/get-started)
+- Target [Aiven for Valkey service](/docs/products/valkey/get-started) that doesn't use
+  [Valkey clustering](/docs/products/valkey/concepts/valkey-cluster), which isn't
+  supported as a migration target
 - Source database details:
   - **Hostname or connection string**: The public hostname, connection string, or
     IP address used to connect to the database

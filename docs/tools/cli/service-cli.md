@@ -287,6 +287,13 @@ Retrieves the selected service logs.
 avn service logs pg-demo
 ```
 
+:::note
+Use `avn service logs SERVICE_NAME -f` sparingly.
+For continuous log monitoring, set up a
+[log integration](/docs/platform/concepts/service-integration).
+:::
+
+
 ### `avn service maintenance-start`
 
 Starts the service maintenance updates.

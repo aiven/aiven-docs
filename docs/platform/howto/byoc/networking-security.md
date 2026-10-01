@@ -35,7 +35,7 @@ on relevant ports.
 | -------------- | -----------------| --------------------------------------------------------------------------------------------------------------------------------------- |
 | Bastion subnet | Aiven Management | Communication channel with the Aiven Management plane used to collect metrics and logs from the bastion and workload nodes              |
 | Bastion subnet | Aiven Management | Required for the bastion and workload nodes to make calls to the Aiven Management plane                                                 |
-| Bastion subnet | AWS CloudFront   | Used for downloading RPM packages for bastion nodes setup                                                                               |
+| Bastion subnet | Aiven software repositories | Used for downloading RPM packages for bastion nodes setup                                                                    |
 | Bastion subnet | Workload subnet  | Aiven uses SSH from the bastion subnet to the workload subnet for troubleshooting, setup, or configuration tasks on the workload nodes. |
 | Bastion subnet | Workload subnet  | Aiven Management plane accesses the workload nodes via the bastion node to retrieve status information and perform routine operations.  |
 | Bastion subnet | DNS & NTP        | Destination dependant on cloud provider                                                                                                 |
@@ -77,7 +77,7 @@ varies depending on the services, features, and plugins being used.
 | --------------- | -------------------------| -------------------------------------------------------------------------------------------------------------------------- |
 | Workload subnet | Aiven Management         | Communication channel with the Aiven Management plane used to collect metrics and logs from the bastion and workload nodes |
 | Workload subnet | Aiven Management         | Required for the bastion and workload nodes to make calls to the Aiven Management plane                                    |
-| Workload subnet | AWS CloudFront           | Used for downloading RPM packages for workload nodes setup                                                                 |
+| Workload subnet | Aiven software repositories | Used for downloading RPM packages for workload nodes setup                                                              |
 | Workload subnet | Workload subnet          | Intra-subnet communication between Aiven nodes. Ports are dynamic and dependent on services, features, and plugins used.   |
 | Workload subnet | Your remote applications | Varies depending on services being used.                                                                                   |
 | Workload subnet | DNS & NTP                | Destination dependant on cloud provider                                                                                    |

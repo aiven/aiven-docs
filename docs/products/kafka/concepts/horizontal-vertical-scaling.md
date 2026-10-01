@@ -3,6 +3,8 @@ title: Scaling options in Apache Kafka®
 sidebar_label: Scaling options
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Aiven for Apache Kafka® has a number of predefined plans that specify the number of brokers and the capacity of individual brokers.
 The predefined plans consist of 3, 6, 9, 15, or 30 brokers, but we can also create larger custom plans based on customer requirements.
 
@@ -75,3 +77,13 @@ brokers the old nodes are removed.
 Depending on the data volumes, it may take some time until the Apache
 Kafka cluster is fully balanced.
 :::
+
+You can also add disk without changing the plan. See
+[Scale disk storage](/docs/products/kafka/howto/scale-disk-storage).
+
+<RelatedPages/>
+
+- [Change the service plan](/docs/products/kafka/howto/change-service-plan)
+- [Scale disk storage](/docs/products/kafka/howto/scale-disk-storage)
+- [Prevent full disks](/docs/products/kafka/howto/prevent-full-disks)
+- [Optimizing resource usage for Aiven for Apache Kafka®](/docs/products/kafka/howto/optimizing-resource-usage)

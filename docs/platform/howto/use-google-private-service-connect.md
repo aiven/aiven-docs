@@ -4,6 +4,7 @@ early: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -210,9 +211,14 @@ In the [Aiven Console](https://console.aiven.io/):
 
 </TabItem>
 <TabItem value="2" label="CLI">
+
+<!-- vale off -->
+
 In the [Aiven CLI](/docs/tools/cli), set `user_config.privatelink_access.SERVICE_COMPONENT`
 to `true` for the components to enable. Take the following command as an example for Aiven
 for Apache Kafka®:
+
+<!-- vale on -->
 
 ```bash
 avn service update -c privatelink_access.kafka=true SERVICE_NAME
@@ -226,6 +232,30 @@ Each service component can be controlled separately. For example, you can enable
 Service Connect access for your Aiven for Apache Kafka service while allowing Aiven for
 Apache Kafka Connect to only be connected via VPC peering.
 :::
+
+## Allow cross-region connections
+
+Private Service Connect endpoints in Google Cloud can accept traffic from other
+regions. You configure this setting, called global access, on your own Private
+Service Connect endpoint.
+
+Keep your Private Service Connect endpoint in the same region as your Aiven
+service. Enabling global access lets clients in other regions, such as
+Compute Engine VMs, Cloud VPN tunnels, or Cloud Interconnect, reach that
+endpoint.
+
+Enable global access on a new or existing endpoint without disrupting traffic.
+To do this, run the following command in the [Google Cloud
+CLI](https://cloud.google.com/sdk/gcloud):
+
+```bash
+gcloud compute forwarding-rules update FORWARDING_RULE_NAME \
+  --allow-psc-global-access
+```
+
+Replace `FORWARDING_RULE_NAME` with the name of your Private Service Connect
+endpoint from [Step 2: Create a connection in Google
+Cloud](#step-2-create-a-connection-in-google-cloud).
 
 ## Acquire connection information
 
@@ -290,3 +320,9 @@ your Aiven service:
 ```bash
 avn service privatelink google delete SERVICE_NAME
 ```
+
+<RelatedPages/>
+
+- [Use AWS PrivateLink with Aiven services](/docs/platform/howto/use-aws-privatelinks)
+- [Use Azure Private Link with Aiven services](/docs/platform/howto/use-azure-privatelink)
+- [Manage project VPCs](/docs/platform/howto/manage-project-vpc)

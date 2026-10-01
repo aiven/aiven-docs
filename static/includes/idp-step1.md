@@ -1,6 +1,6 @@
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-## Step 1: Add the IdP in the Aiven Console {#add-idp-aiven-console}
+## Step 1: Add the IdP in the Aiven Console
 
 1. In the organization, click **Admin**.
 1. Click <ConsoleLabel name="idp"/> .
