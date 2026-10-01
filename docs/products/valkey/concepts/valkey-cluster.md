@@ -248,7 +248,8 @@ Design your application to tolerate this if you rely on a restore.
   creates the cluster. When Aiven replaces a node, it puts the replacement in the same
   zone, which preserves that spread.
 - This placement is best effort. If a zone is unavailable, or doesn't offer the instance
-  type your plan needs, a shard can end up with its primary and replica in one zone.
+  type your plan needs, a shard can end up with its primary and replica in one zone. For
+  more information, see [Availability zones](/docs/platform/concepts/availability-zones).
 - Aiven doesn't rebalance existing nodes into different zones afterward, for example after
   a replica moves or after zone capacity recovers. A shard without a replica has no
   availability zone redundancy.
