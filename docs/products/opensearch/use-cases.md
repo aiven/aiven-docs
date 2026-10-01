@@ -109,8 +109,9 @@ following Agentic AI section.
 
 Agentic workloads let a model decide what to retrieve and what to do next, rather than
 running a query you wrote in advance. OpenSearch runs the agent itself: the
-[ML Commons](/docs/products/opensearch/concepts/ml-commons) plugin (`opensearch-ml`) hosts agents, tools, and memory in the cluster,
-exposed through a REST API, so agent state lives next to the data the agent reasons over.
+[ML Commons](/docs/products/opensearch/concepts/ml-commons) plugin (`opensearch-ml`)
+hosts agents, tools, and memory in the cluster, exposed through a REST API, so agent state
+lives next to the data the agent reasons over.
 
 ### What you can build with agents
 
