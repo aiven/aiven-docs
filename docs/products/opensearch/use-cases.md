@@ -292,7 +292,7 @@ Two plugins support analytical use:
 - [Get started with Aiven for OpenSearch®](/docs/products/opensearch/get-started)
 - [Aggregations overview](/docs/products/opensearch/concepts/aggregations)
 - [Plugins available with Aiven for OpenSearch®](/docs/products/opensearch/reference/plugins)
-- [ML Commons for Aiven for OpenSearch®](/docs/products/opensearch/concepts/ml-commons)
+- [Enable the OpenSearch log integration](/docs/products/opensearch/howto/opensearch-log-integration)
 
 <div class="trademark">
 
