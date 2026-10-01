@@ -5,9 +5,8 @@ sidebar_label: Enable PostgreSQL for Analytics
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Request access to [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics)
-for an existing Aiven for PostgreSQL® service, connect it to your Amazon S3 bucket,
-and create your first Iceberg table.
+<!-- markdownlint-disable-next-line MD013 -->
+Request access to [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics), connect your service to your Amazon S3 bucket, and create your first Iceberg table.
 
 :::note
 PostgreSQL for Analytics is in
@@ -18,7 +17,8 @@ a request.
 
 ## Prerequisites
 
-- An existing Aiven for PostgreSQL 17 service running a production workload.
+- An Aiven for PostgreSQL 17 service with PostgreSQL for Analytics enabled, created
+  by Aiven during onboarding.
 - An [organization or project admin](/docs/platform/concepts/permissions) role in the
   project where that service runs.
 - An Amazon S3 bucket that you own, and an AWS access key with permission to read from
@@ -26,14 +26,17 @@ a request.
 
 ## Request access
 
-1. [Contact Aiven](https://aiven.io/contact) or your account team, and share the
-   Aiven for PostgreSQL service to enable PostgreSQL for Analytics on and your
-   analytical use case.
-1. Aiven reviews your request against LA eligibility, including your service's data
-   volume.
-1. After approval, Aiven enables PostgreSQL for Analytics on your service and
-   schedules an onboarding call to walk through the feature and set expectations for
-   this LA stage.
+1. [Contact Aiven](https://aiven.io/contact) or your account team, and describe your
+   analytical use case and the data volume you plan to work with.
+1. Aiven reviews your request against LA eligibility, including your data volume.
+1. After approval, Aiven creates a PostgreSQL service with PostgreSQL for Analytics
+   enabled and schedules an onboarding call to walk through the feature and set
+   expectations for this LA stage.
+
+:::important
+PostgreSQL for Analytics is set when the service is created. You can't add it to an
+existing Aiven for PostgreSQL service.
+:::
 
 ## Connect your Amazon S3 bucket
 
@@ -46,8 +49,8 @@ a request.
 1. Enter the **Access Key Id** and **Secret Access Key** for an AWS user with read
    and write access to the bucket, and click **Create**.
 1. Open your PostgreSQL for Analytics service page and click **Integrations**.
-1. Click **PostgreSQL for Analytics Credentials Integration**, and select the Amazon
-   S3 endpoint you created.
+1. Under **Endpoint integrations**, click **PostgreSQL for Analytics Credentials**,
+   and select the Amazon S3 endpoint you created.
 
 ## Enable the extension
 

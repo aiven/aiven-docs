@@ -5,15 +5,14 @@ sidebar_label: PostgreSQL for Analytics
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Run analytical SQL queries directly against an Aiven for PostgreSQL® service by adding
-Iceberg tables backed by your own Amazon S3 bucket, without a separate data warehouse or
-an ETL pipeline.
+<!-- markdownlint-disable-next-line MD013 -->
+Run analytical SQL queries directly against an Aiven for PostgreSQL® service by adding Iceberg tables backed by your own Amazon S3 bucket, without a separate data warehouse or an ETL pipeline.
 
 :::note
 PostgreSQL for Analytics is in
 [limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 There's no self-service way to turn it on. [Request access](https://aiven.io/contact),
-and Aiven enables it on your service after a short onboarding call. Only a subset of
+and Aiven sets it up with you during a short onboarding call. Only a subset of
 functionality is available at this stage, and behavior can change before general
 availability.
 :::
@@ -53,9 +52,8 @@ Parquet files in your S3 bucket.
 
 ## Requirements
 
-- An existing Aiven for PostgreSQL 17 service running a production workload. Aiven
-  enables PostgreSQL for Analytics on this service; you don't create a separate
-  service for it.
+- A PostgreSQL 17 service with PostgreSQL for Analytics enabled. Aiven creates this
+  service for you during onboarding.
 - A data volume in the range of a few hundred GB to a few TB. Contact Aiven if your
   data volume falls outside this range.
 - An Amazon S3 bucket that you own and manage, used to store Iceberg table data.
@@ -66,13 +64,15 @@ Parquet files in your S3 bucket.
   There's no self-service toggle in the [Aiven Console](https://console.aiven.io/), the
   Aiven CLI, the [Aiven Provider for Terraform](/docs/tools/terraform), or the Aiven
   Operator for Kubernetes to turn it on yourself.
+- PostgreSQL for Analytics is set when the service is created. You can't add it to an
+  existing Aiven for PostgreSQL service.
 - Aiven doesn't enforce a minimum plan size, but small plans don't have enough memory
   headroom for both PostgreSQL and the analytical query engine. Avoid enabling
   PostgreSQL for Analytics on your smallest plans.
 - Only Amazon S3 buckets are supported as storage. Aiven doesn't provide a managed S3
   bucket for this feature.
-- You can't fork a PostgreSQL for Analytics service, and read replicas aren't
-  supported. You can still power off the service.
+- Forks and read replicas aren't supported for a PostgreSQL for Analytics service.
+  You can still power off the service.
 - You can't perform a major version upgrade on a PostgreSQL for Analytics service.
   PostgreSQL for Analytics currently supports PostgreSQL 17 only.
 - The `pg_lake_spatial` extension isn't available during LA.
