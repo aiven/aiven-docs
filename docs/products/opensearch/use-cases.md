@@ -108,9 +108,10 @@ following Agentic AI section.
 ## Agentic AI
 
 Agentic workloads let a model decide what to retrieve and what to do next, rather than
-running a query you wrote in advance. OpenSearch runs the agent itself: the ML Commons
-plugin (`opensearch-ml`) hosts agents, tools, and memory in the cluster, exposed through a
-REST API, so agent state lives next to the data the agent reasons over.
+running a query you wrote in advance. OpenSearch runs the agent itself: the
+[ML Commons](/docs/products/opensearch/concepts/ml-commons) plugin (`opensearch-ml`)
+hosts agents, tools, and memory in the cluster, exposed through a REST API, so agent state
+lives next to the data the agent reasons over.
 
 ### What you can build with agents
 
@@ -144,9 +145,9 @@ Choose an agent type by how much reasoning and state the task needs.
 
 ### Agent memory
 
-Agent memory is part of ML Commons and is available from OpenSearch 3.3. It is exposed
-through a REST API, so it works with any agent framework, not only agents that run inside
-OpenSearch.
+Agent memory is part of [ML Commons](/docs/products/opensearch/concepts/ml-commons) and is
+available from OpenSearch 3.3. It is exposed through a REST API, so it works with any
+agent framework, not only agents that run inside OpenSearch.
 
 Memory containers hold sessions, working memory for the current interaction, and long-term
 memory extracted from it. Extraction strategies cover user preferences, semantic facts,
@@ -158,9 +159,10 @@ need a second datastore.
 
 Agents act by calling tools: running a search, querying an index, or calling an external
 API. The Skills plugin (`opensearch-skills`) ships tools for working with OpenSearch
-itself, and ML Commons registers the tools an agent is allowed to use. You can install the
-`aiven-setup` skill to
-[streamline your OpenSearch development workflow](https://www.skills.sh/opensearch-project/opensearch-agent-skills/opensearch-skills).
+itself, and [ML Commons](/docs/products/opensearch/concepts/ml-commons) registers the
+tools an agent is allowed to use. You can install the `aiven-setup` skill to [streamline
+your OpenSearch development
+workflow](https://www.skills.sh/opensearch-project/opensearch-agent-skills/opensearch-skills).
 
 OpenSearch Agent Skills, introduced in 3.6, extend this to external clients over MCP, so
 an agent running in an IDE such as Claude Code, Codex, or Cursor can build search
