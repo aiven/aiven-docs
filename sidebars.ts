@@ -1179,7 +1179,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
-      items: ['tools/query-optimizer', 'tools/doc-diff-llms'],
+      items: ['tools/query-optimizer'],
     },
   ],
   //ClickHouse dedicated sidebar
@@ -3925,6 +3925,15 @@ const sidebars: SidebarsConfig = {
       },
       items: ['tools/terraform/howto/use-opentofu'],
     },
+  ],
+  // Doc change monitor dedicated sidebar
+  'tools-doc-diff-llms': [
+    {
+      type: 'link',
+      label: '← Back to Docs',
+      href: '/docs',
+    },
+    'tools/doc-diff-llms',
   ],
 };
 

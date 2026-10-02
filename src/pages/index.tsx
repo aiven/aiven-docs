@@ -131,6 +131,11 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <div className={styles.postFeaturesCta}>
+          <Link to="/docs/tools/doc-diff-llms" className={styles.heroTextCta}>
+            Track Aiven docs changes
+          </Link>
+        </div>
       </main>
     </Layout>
   );

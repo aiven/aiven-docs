@@ -106,6 +106,21 @@
   color: var(--aiven-adm-text-color)
 }
 
+.heroTextCta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.postFeaturesCta {
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2.5rem) clamp(2rem, 5vw, 3rem);
+  text-align: right;
+}
+
 .buttons {
   margin-top: 1.6rem;
   display: flex;
