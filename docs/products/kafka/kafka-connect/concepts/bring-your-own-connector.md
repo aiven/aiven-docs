@@ -28,7 +28,7 @@ Bring your own connector is available on
 
 Bring your own connector uses the following concepts:
 
-- **Custom plugin**: A JAR or zip file that contains one or more connector classes.
+- **Custom plugin**: A JAR or ZIP file that contains one or more connector classes.
   You upload a plugin to Aiven and install it on a Kafka Connect service.
   Unlike Aiven-managed connectors, which Aiven provides and maintains, you upload
   and install custom plugins yourself.
@@ -46,7 +46,8 @@ Bring your own connector uses the following concepts:
   configuration. You can create multiple connectors from the same connector class.
 
 A Kafka Connect service uses one version of each plugin at a time.
-Uploading a new plugin version doesn't change the version installed on a service.
+Uploading a new plugin version doesn't change the version installed on a service,
+unless the service is configured to always use the latest version.
 To use a different version,
 [change the plugin version](/docs/products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins#change-the-plugin-version)
 on the service. The change applies to every connector on that service that uses the plugin.
@@ -59,7 +60,7 @@ Kafka Connect service's **Connectors** page.
 
 To use a custom plugin:
 
-1. **Upload a plugin.** An organization admin uploads a JAR or zip file
+1. **Upload a plugin.** An organization admin uploads a JAR or ZIP file
    and specifies a plugin version.
 1. **Review connector classes.** Aiven detects the source and sink connector
    classes. The organization admin reviews each class and can update its
@@ -70,9 +71,10 @@ To use a custom plugin:
 1. **Create a connector.** A developer, operator, or project admin chooses a
    connector class from the installed plugin and configures the connector.
 
-:::warning
+:::warning[Warning]
 Installing a plugin version or changing the installed version restarts Kafka
-Connect, which briefly interrupts running connectors.
+Connect, which briefly interrupts running connectors. This includes an automatic
+switch on a service that always uses the latest version.
 :::
 
 ## Roles and permissions for custom plugins
@@ -93,12 +95,15 @@ same access as managing connectors. For more information about roles and permiss
 
 A custom plugin has the following requirements:
 
-- **File type:** JAR or zip file.
+- **File type:** An unencrypted JAR file, or a ZIP file built with the Confluent
+  [`kafka-connect-maven-plugin`](https://github.com/confluentinc/kafka-connect-maven-plugin).
+  Other ZIP structures aren't guaranteed to work.
 - **File size:** No larger than 150 MB.
-- **Contents:** At least one Kafka Connect source or sink connector class.
+- **Contents:** At least one class that implements a Kafka Connect source or sink
+  connector.
 
-Aiven detects the source and sink connector classes in the plugin and lists
-them for review and configuration.
+After you upload a plugin, Aiven detects its source and sink connector classes
+and lists them in the Aiven Console for review.
 
 A plugin file can also contain other Kafka Connect components, such as
 Single Message Transforms, which modify records, or header converters.
@@ -109,10 +114,12 @@ Aiven doesn't list these components separately or support them.
 Aiven provides the platform to upload plugins, install them on Kafka Connect
 services, and create connectors from those plugins.
 
-Your organization is responsible for the security of the custom plugins it uploads,
-their compatibility with your Kafka Connect service, and their behavior at runtime.
+Your organization is responsible for the custom plugins it uses, especially
+plugins from third parties. This includes their security and their behavior at
+runtime. It also includes their compatibility with the Kafka Connect version that
+your service runs.
 Your organization is also responsible for the connectors it creates from them.
-Only upload plugins from sources that you trust.
+Only use plugins from sources that you trust.
 
 ## Next steps
 

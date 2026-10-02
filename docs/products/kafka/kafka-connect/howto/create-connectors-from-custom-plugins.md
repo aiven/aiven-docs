@@ -51,8 +51,8 @@ Before you begin, make sure that:
 - You have the configuration values and credentials required by the connector.
 
 :::note[Note]
-Your organization is responsible for the custom plugins it uploads and the connectors
-it creates from them. For more information, see
+Your organization is responsible for the connectors it creates from custom plugins.
+For more information, see
 [Responsibility for custom plugins](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#responsibility-for-custom-plugins).
 :::
 
@@ -82,7 +82,8 @@ The plugin status moves from **Ready for install** to **Installing** to
 until the service is back up, which usually takes a minute or two.
 
 Uploading a newer plugin version doesn't change the version installed on the
-service. To use the new version,
+service, unless the service is configured to always use the latest version.
+Otherwise, to use the new version,
 [change the plugin version](#change-the-plugin-version).
 
 ## Create a connector from an installed plugin
@@ -137,8 +138,9 @@ In your Kafka Connect service:
    - A specific plugin version, for example `3.6.1`. The installed version is
      labeled **(Current)**. The service keeps running the selected version until
      you change it.
-   - **Always use latest version**. The service uses the latest version that an
-     organization admin has uploaded.
+   - **Always use latest version**. The service switches to the latest version that an
+     organization admin has uploaded. The switch happens automatically after an upload,
+     but not immediately, and restarts Kafka Connect.
 1. Review the upload date and connector classes for the selected version.
 1. Click **Change**.
 

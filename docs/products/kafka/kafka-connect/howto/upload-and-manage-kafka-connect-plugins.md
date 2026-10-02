@@ -30,14 +30,12 @@ For definitions of plugin, plugin version, connector class, and connector, see
 Before you begin, make sure:
 
 - Bring your own connector is enabled for your organization.
-- You have a plugin file that meets the following requirements:
-  - **File type:** JAR or zip file.
-  - **File size:** No larger than 150 MB.
-  - **Contents:** At least one Kafka Connect source or sink connector class.
+- You have a plugin file that meets the
+  [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements).
 
 :::note[Note]
-Your organization is responsible for the plugins that you upload. Only upload
-plugins from sources that you trust. For more information, see
+Your organization is responsible for the plugins you upload. Only upload plugins
+from sources that you trust. For more information, see
 [Responsibility for custom plugins](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#responsibility-for-custom-plugins).
 :::
 
@@ -56,9 +54,7 @@ Uploading a plugin makes it available to your organization, but doesn't
    - **Description**: Optional. Information about what the plugin does and any
      customizations.
 1. Click **Next**.
-1. In **Plugin file**, click **Choose file** and select a JAR or zip file that
-   is no larger than 150 MB and contains at least one Kafka Connect source or
-   sink connector class.
+1. In **Plugin file**, click **Choose file** and select the plugin file.
 1. Select the checkbox to confirm that you are responsible for the security,
    compatibility, and runtime behavior of the plugin.
 1. Click **Upload**.
@@ -88,7 +84,14 @@ instructions, see
 ## Upload a new plugin version
 
 A plugin can have multiple versions. Uploading a new version doesn't replace
-existing versions or change the version installed on a Kafka Connect service.
+existing versions. It also doesn't change the version installed on a Kafka Connect
+service, unless the service is configured to always use the latest version.
+
+:::warning[Warning]
+Services configured with **Always use latest version** switch to the new version
+automatically. The switch isn't immediate and restarts Kafka Connect, which briefly
+interrupts its connectors.
+:::
 
 1. In the [Aiven Console](https://console.aiven.io/), select your organization.
 1. Click **Admin**.
@@ -99,9 +102,7 @@ existing versions or change the version installed on a Kafka Connect service.
    - **Version**: A version identifier, for example `2.16.0`.
    - **Description**: Optional. Information about the changes in this version.
 1. Click **Next**.
-1. In **Plugin file**, click **Choose file** and select a JAR or zip file that
-   is no larger than 150 MB and contains at least one Kafka Connect source or
-   sink connector class.
+1. In **Plugin file**, click **Choose file** and select the plugin file.
 1. Select the checkbox to confirm that you are responsible for the security,
    compatibility, and runtime behavior of the plugin.
 1. Click **Upload**.
@@ -197,7 +198,14 @@ To find connectors that use the version, see
 
 ## Delete a plugin
 
-Deleting a plugin can't be undone.
+:::important
+You can't delete a plugin while any of its versions is installed on a Kafka Connect
+service in your organization. Uninstall the plugin from those services first. For
+more information, see
+[Uninstall a plugin](/docs/products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins#uninstall-a-plugin).
+
+Deleting a plugin also deletes all its versions. You can't undo this action.
+:::
 
 1. In the [Aiven Console](https://console.aiven.io/), select your organization.
 1. Click **Admin**.
@@ -213,8 +221,8 @@ Deleting a plugin can't be undone.
 Aiven checks the actual format of the file, so renaming a file doesn't make it
 valid.
 
-Confirm that the file is a JAR or zip file, is no larger than 150 MB, and
-contains at least one Kafka Connect source or sink connector class.
+Confirm that the file meets the
+[custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements).
 
 ### No connector classes are detected
 
@@ -224,10 +232,11 @@ Aiven can detect.
 Check the plugin documentation or contact the plugin author if an expected class
 is missing.
 
-### You can't delete a plugin version
+### You can't delete a plugin or a plugin version
 
-A Kafka Connect service uses the plugin version. Change or remove the version on
-every service that uses it, and try again.
+A Kafka Connect service uses the plugin or one of its versions. Change or remove
+the plugin version on every service that uses it before you delete the version.
+Uninstall the plugin from every service that uses it before you delete the plugin.
 
 <RelatedPages/>
 
