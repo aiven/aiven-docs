@@ -9,10 +9,6 @@ service/clickhouse:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/clickhouse/**'
 
-service/dragonfly:
-  - changed-files:
-      - any-glob-to-any-file: 'docs/products/dragonfly/**'
-
 service/flink:
   - changed-files:
       - any-glob-to-any-file: 'docs/products/flink/**'

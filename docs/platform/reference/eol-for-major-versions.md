@@ -10,7 +10,6 @@ import EolTableKafka from "@site/static/includes/eol-table-kafka.md";
 import EolTableClickhouse from "@site/static/includes/eol-table-clickhouse.md";
 import EolTableFlink from "@site/static/includes/eol-table-flink.md";
 import EolTableValkey from "@site/static/includes/eol-table-valkey.md";
-import EolTableDragonfly from "@site/static/includes/eol-table-dragonfly.md";
 import EolTableGrafana from "@site/static/includes/eol-table-grafana.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
@@ -140,10 +139,6 @@ available during the sunset period.
 <EolTableValkey/>
 
 ## Aiven single-versioned services EOL
-
-### Aiven for Dragonfly®
-
-<EolTableDragonfly/>
 
 ### Aiven for Grafana®
 

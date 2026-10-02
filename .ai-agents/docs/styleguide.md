@@ -451,7 +451,6 @@ When a command uses more than one placeholder, follow it with a short list intro
 - Aiven for PostgreSQL®
 - Aiven for Metrics
 - Aiven for MySQL
-- Aiven for Dragonfly
 - Aiven for Thanos™
 - Aiven for Grafana®
 - Aiven for Valkey™

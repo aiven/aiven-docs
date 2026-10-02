@@ -43,7 +43,6 @@ Valkey. For each version returned by the API:
     the one that changed.
 
 NOT covered (out of scope for this script — update the include manually):
-  - eol-table-dragonfly.md  (not present in the Aiven API)
   - eol-table-grafana.md    (single-versioned; patch version in doc differs
                               from API major)
   - Aiven CLI, Aiven Provider for Terraform, Aiven Operator for Kubernetes
@@ -153,7 +152,7 @@ TABLE_CONFIG: dict[str, TableConfig] = {
     "valkey": TableConfig(
         "eol-table-valkey.md", "valkey",
         col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_vx),
-    # Dragonfly: not in API. Grafana: single-versioned, patch-version mismatch. Both skipped.
+    # Grafana: single-versioned, patch-version mismatch. Skipped.
 }
 
 
