@@ -1125,6 +1125,7 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    'tools/query-optimizer',
     'platform/concepts/service-and-feature-releases',
     'platform/reference/eol-for-major-versions',
     'platform/reference/end-of-life',
@@ -1172,14 +1173,6 @@ const sidebars: SidebarsConfig = {
           href: '/docs/platform/howto/list-monitoring',
         },
       ],
-    },
-    {
-      type: 'category',
-      label: 'Tools',
-      collapsed: false,
-      collapsible: false,
-      className: 'expandedSection',
-      items: ['tools/query-optimizer'],
     },
   ],
   //ClickHouse dedicated sidebar
