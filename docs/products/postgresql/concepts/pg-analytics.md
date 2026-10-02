@@ -35,10 +35,8 @@ maintaining a pipeline to keep the two in sync.
   you use for your operational workload.
 - **No ETL pipeline**: Load data into Iceberg tables from your existing PostgreSQL
   tables directly.
-- **Open storage format**: Data is stored as standard Iceberg tables in your own S3
-  bucket, so other tools that support Iceberg can read the same files. External
-  query engines, such as Trino, can connect to your PostgreSQL service as an Iceberg
-  catalog and query the data in S3 directly, without going through PostgreSQL.
+- **Open storage format**: Data is stored as standard Apache Iceberg tables in an S3
+  bucket you own, not in a proprietary format inside the database.
 - **Faster analytical queries**: Queries against Iceberg tables run through a
   columnar, vectorized engine instead of PostgreSQL's row-based executor, which
   speeds up queries that scan or aggregate large datasets.
@@ -50,13 +48,17 @@ in your service. When you run a query against an Iceberg table, PostgreSQL forwa
 analytical parts of that query to this engine, which reads and writes the underlying
 Parquet files in your S3 bucket.
 
+Aiven splits the service's memory evenly between PostgreSQL and the analytical query
+engine, so each gets half of the memory in your plan. Analytical queries work within
+their own half, so they don't consume the memory your transactional workload depends
+on.
+
 ## Requirements
 
 - A PostgreSQL 17 service with PostgreSQL for Analytics enabled. Aiven creates this
   service for you during onboarding.
-- A data volume in the range of a few hundred GB to a few TB. Contact Aiven if your
-  data volume falls outside this range.
-- An Amazon S3 bucket that you own and manage, used to store Iceberg table data.
+- An Amazon S3 bucket that you own and manage, used to store Iceberg table data. The
+  bucket must be in the same region as your service.
 
 ## Limitations
 
@@ -66,9 +68,9 @@ Parquet files in your S3 bucket.
   Operator for Kubernetes to turn it on yourself.
 - PostgreSQL for Analytics is set when the service is created. You can't add it to an
   existing Aiven for PostgreSQL service.
-- Aiven doesn't enforce a minimum plan size, but small plans don't have enough memory
-  headroom for both PostgreSQL and the analytical query engine. Avoid enabling
-  PostgreSQL for Analytics on your smallest plans.
+- Because memory is split evenly between the two engines, only half your plan's memory
+  is available to PostgreSQL. Aiven doesn't enforce a minimum plan size, but the
+  smallest plans don't leave either engine enough memory to work with.
 - Only Amazon S3 buckets are supported as storage. Aiven doesn't provide a managed S3
   bucket for this feature.
 - Forks and read replicas aren't supported for a PostgreSQL for Analytics service.
@@ -76,8 +78,9 @@ Parquet files in your S3 bucket.
 - You can't perform a major version upgrade on a PostgreSQL for Analytics service.
   PostgreSQL for Analytics currently supports PostgreSQL 17 only.
 - The `pg_lake_spatial` extension isn't available during LA.
-- Numeric columns without a declared precision and scale lose exact decimal semantics
-  in Iceberg tables. Always declare `numeric(P,S)` on columns you migrate. See
+- Numeric columns without a declared precision and scale are stored as
+  `double precision` in Iceberg tables, which loses exact decimal semantics. Declare
+  `numeric(P,S)` on the columns you migrate, or turn off the automatic conversion. See
   [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
 - The Amazon S3 endpoint you connect PostgreSQL for Analytics to is a project-level
   object, shared with other integrations such as Aiven for ClickHouse® and Vector.
@@ -85,11 +88,6 @@ Parquet files in your S3 bucket.
   Analytics integration from it is restricted to enabled services.
 - PostgreSQL for Analytics runs on a single node. There's no distributed mode, so
   query performance scales with the size of that node, not by adding more nodes.
-- During LA, Aiven is still rolling out resource isolation between PostgreSQL and
-  the analytical query engine. Heavy analytical queries can affect the resources
-  available to your PostgreSQL workload on the same node. This is why LA is
-  concierge-based: Aiven reviews your workload before enabling the feature and
-  monitors it with you afterward.
 - PostgreSQL for Analytics owns the Iceberg tables it creates. Writing to the same
   Iceberg table from outside your PostgreSQL service, for example directly from
   another engine, isn't supported.

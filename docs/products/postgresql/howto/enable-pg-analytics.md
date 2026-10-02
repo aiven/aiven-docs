@@ -21,14 +21,14 @@ a request.
   by Aiven during onboarding.
 - An [organization or project admin](/docs/platform/concepts/permissions) role in the
   project where that service runs.
-- An Amazon S3 bucket that you own, and an AWS access key with permission to read from
-  and write to that bucket.
+- An Amazon S3 bucket that you own, in the same region as your service, and an AWS
+  access key with permission to read from and write to that bucket.
 
 ## Request access
 
 1. [Contact Aiven](https://aiven.io/contact) or your account team, and describe your
    analytical use case and the data volume you plan to work with.
-1. Aiven reviews your request against LA eligibility, including your data volume.
+1. Aiven reviews your request against the eligibility criteria for this LA stage.
 1. After approval, Aiven creates a PostgreSQL service with PostgreSQL for Analytics
    enabled and schedules an onboarding call to walk through the feature and set
    expectations for this LA stage.
@@ -97,10 +97,19 @@ analytical queries do, accumulates rounding error. Totals computed through
 PostgreSQL for Analytics can silently stop matching the source data. This is
 particularly risky for financial, billing, or audit workloads.
 
-Before creating an Iceberg table, declare an explicit `numeric(P,S)` with a precision
-of 38 or less on every numeric column you migrate. If you can't change the source
-table, cast the column explicitly in your `SELECT`, for example
-`total::numeric(18,4)`.
+PostgreSQL for Analytics makes this conversion by default. To keep exact decimal
+semantics, declare an explicit `numeric(P,S)` with a precision of 38 or less on every
+numeric column you migrate. If you can't change the source table, cast the column in
+your `SELECT`, for example `total::numeric(18,4)`.
+
+To catch these columns instead of converting them, turn the conversion off for your
+session. Creating a table with an unbounded numeric column then fails with an error
+instead of a notice:
+
+```sql
+SET pg_lake_iceberg.unsupported_numeric_as_double = off;
+```
+
 :::
 
 Load data into the table from an existing PostgreSQL table:
