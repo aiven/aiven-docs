@@ -30,7 +30,7 @@
     "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/react": "^18.2.48",
     "algoliasearch": "^5.56.0",
-    "axios": "^1.18.0",
+    "axios": "^1.20.0",
     "cheerio": "^1.0.0",
     "clsx": "^1.2.1",
     "commander": "^12.1.0",
