@@ -179,11 +179,6 @@ const sidebars: SidebarsConfig = {
         },
         'tools/mcp-server',
         {
-          type: 'link',
-          label: 'Managed Agents',
-          href: '/docs/tools/agents',
-        },
-        {
           type: 'category',
           label: 'Infrastructure as code',
           className: 'expandedSection',
@@ -1145,6 +1140,20 @@ const sidebars: SidebarsConfig = {
           type: 'link',
           label: 'Aiven Runtime',
           href: '/docs/products/runtime',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Managed Agents',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        {
+          type: 'link',
+          label: 'Managed Agents',
+          href: '/docs/tools/agents',
         },
       ],
     },
@@ -3876,15 +3885,17 @@ const sidebars: SidebarsConfig = {
     },
   ],
   // Managed Agents dedicated sidebar
-  'tools-agents': [
+  'services-agents': [
     {
       type: 'link',
-      label: '← Back to Dev tools',
-      href: '/docs/tools',
+      label: '← Back to Products',
+      href: '/docs/products/services',
     },
     {
       type: 'category',
       label: 'Managed Agents',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'tools/agents',
