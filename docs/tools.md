@@ -8,22 +8,16 @@ import GridContainer from "@site/src/components/GridContainer";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 import AI from "@site/static/images/logos/star-ai.svg";
 import API from "@site/static/images/icons/home/dataflow-03.svg";
+import tool from "@site/static/images/icons/home/tool.svg";
 
-You can interact with the Aiven platform with various interfaces and tools that best suit your workflow.
+Use your preferred tools to manage your infrastructure on the Aiven Platform.
 
 <GridContainer>
     <Card
-        to="/docs/tools/terraform"
-        iconName="terraform"
-        iconColor="var(--aiven-terraform-provider-purple)"
-        title="Aiven Terraform Provider"
-        description="Automate infrastructure provisioning and management on the Aiven Platform."
-    />
-    <Card
-        to="/docs/tools/kubernetes"
-        iconComponent={K8sIcon}
-        title="Aiven Kubernetes Operator"
-        description="Create and manage Aiven services directly within your Kubernetes clusters."
+        to="/docs/tools/aiven-console"
+        iconComponent={tool}
+        title="Aiven Console"
+        description="Create and run agents on the Aiven Platform."
     />
     <Card
         to="/docs/tools/api"
@@ -40,21 +34,22 @@ You can interact with the Aiven platform with various interfaces and tools that 
         description="Manage your Aiven services through the command-line interface."
     />
     <Card
-        to="/docs/tools/query-optimizer"
-        iconComponent={AI}
-        title="SQL query optimizer"
-        description="Use AI to optimize your queries."
-    />
-    <Card
         to="/docs/tools/mcp-server"
         iconComponent={AI}
         title="Aiven MCP"
         description="Manage Aiven services and access documentation from AI-powered coding assistants."
     />
     <Card
-        to="/docs/tools/agents"
-        iconComponent={AI}
-        title="Managed Agents"
-        description="Create and run agents on the Aiven Platform."
+        to="/docs/tools/terraform"
+        iconName="terraform"
+        iconColor="var(--aiven-terraform-provider-purple)"
+        title="Aiven Terraform Provider"
+        description="Automate infrastructure provisioning and management with Terraform."
+    />
+    <Card
+        to="/docs/tools/kubernetes"
+        iconComponent={K8sIcon}
+        title="Aiven Kubernetes Operator"
+        description="Create and manage Aiven services directly within your Kubernetes clusters."
     />
 </GridContainer>
