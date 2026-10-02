@@ -40,6 +40,37 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'User management',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        {
+          type: 'link',
+          label: 'Organization user management',
+          href: '/docs/platform/howto/manage-org-users',
+        },
+        {
+          type: 'link',
+          label: 'Permissions',
+          href: '/docs/platform/concepts/permissions',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Account settings',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/edit-user-profile',
+        'platform/howto/change-your-email-address',
+        'platform/howto/delete-user',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Billing',
       className: 'expandedSection',
       collapsed: false,
@@ -61,37 +92,6 @@ const sidebars: SidebarsConfig = {
         'platform/howto/download-invoices',
         'platform/howto/credits',
         'platform/howto/reactivate-suspended-project',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'User management',
-      className: 'expandedSection',
-      collapsed: false,
-      collapsible: false,
-      items: [
-        {
-          type: 'link',
-          label: 'Organization user management',
-          href: '/docs/platform/howto/manage-org-users',
-        },
-        {
-          type: 'link',
-          label: 'Permissions',
-          href: '/docs/platform/concepts/permissions',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'User account',
-      className: 'expandedSection',
-      collapsed: false,
-      collapsible: false,
-      items: [
-        'platform/howto/edit-user-profile',
-        'platform/howto/change-your-email-address',
-        'platform/howto/delete-user',
       ],
     },
     {
