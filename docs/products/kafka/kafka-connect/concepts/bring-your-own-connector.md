@@ -115,10 +115,10 @@ Aiven provides the platform to upload plugins, install them on Kafka Connect
 services, and create connectors from those plugins.
 
 Your organization is responsible for the custom plugins it uses, especially
-plugins from third parties. This includes their security and their behavior at
-runtime. It also includes their compatibility with the Kafka Connect version that
-your service runs.
-Your organization is also responsible for the connectors it creates from them.
+plugins from third parties. This includes making sure that each plugin is secure,
+works with the Kafka Connect version that your service runs, and performs as you
+expect with your data and workload. Your organization is also responsible for the
+connectors it creates from them.
 Only use plugins from sources that you trust.
 
 ## Next steps
