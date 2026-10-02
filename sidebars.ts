@@ -71,24 +71,14 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         {
-          type: 'category',
+          type: 'link',
           label: 'Organization user management',
-          items: [
-            'platform/howto/manage-org-users',
-            'platform/concepts/application-users',
-            'platform/howto/manage-application-users',
-            'platform/concepts/managed-users',
-            'platform/concepts/discovered-organizations',
-            'platform/howto/manage-groups',
-          ],
+          href: '/docs/platform/howto/manage-org-users',
         },
         {
-          type: 'category',
+          type: 'link',
           label: 'Permissions',
-          items: [
-            'platform/concepts/permissions',
-            'platform/howto/manage-permissions',
-          ],
+          href: '/docs/platform/concepts/permissions',
         },
       ],
     },
@@ -112,41 +102,14 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         {
-          type: 'category',
+          type: 'link',
           label: 'Authentication',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-authentication',
-          },
-          items: [
-            'platform/howto/add-authentication-method',
-            'platform/reference/password-policy',
-            'platform/reference/change-password',
-            'platform/howto/user-2fa',
-            'platform/howto/set-authentication-policies',
-            'platform/concepts/authentication-tokens',
-            'platform/howto/create_authentication_token',
-          ],
+          href: '/docs/platform/howto/list-authentication',
         },
         {
-          type: 'category',
+          type: 'link',
           label: 'Identity providers and domains',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-identity-providers',
-          },
-          items: [
-            'platform/howto/manage-domains',
-            'platform/howto/saml/add-identity-providers',
-            'platform/howto/saml/rotate-scim-token',
-            'platform/howto/saml/add-auth0-idp',
-            'platform/howto/saml/add-fusionauth-idp',
-            'platform/howto/saml/add-google-idp',
-            'platform/howto/saml/add-jumpcloud-idp',
-            'platform/howto/saml/add-azure-idp',
-            'platform/howto/saml/add-okta-idp',
-            'platform/howto/saml/add-onelogin-idp',
-          ],
+          href: '/docs/platform/howto/list-identity-providers',
         },
         'platform/howto/unsafe-passwords',
       ],
@@ -1701,8 +1664,8 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  // User account sidebar
-  'user-account': [
+  // Organization user management sidebar
+  'organization-user-management': [
     {
       type: 'link',
       label: '← Back to Admin',
@@ -1710,14 +1673,87 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'User account',
+      label: 'Organization user management',
       link: {
         type: 'doc',
-        id: 'platform/howto/edit-user-profile',
+        id: 'platform/howto/manage-org-users',
       },
       items: [
-        'platform/howto/change-your-email-address',
-        'platform/howto/delete-user',
+        'platform/concepts/application-users',
+        'platform/howto/manage-application-users',
+        'platform/concepts/managed-users',
+        'platform/concepts/discovered-organizations',
+        'platform/howto/manage-groups',
+      ],
+    },
+  ],
+  // Permissions sidebar
+  permissions: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Permissions',
+      link: {
+        type: 'doc',
+        id: 'platform/concepts/permissions',
+      },
+      items: ['platform/howto/manage-permissions'],
+    },
+  ],
+  // Authentication sidebar
+  authentication: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Authentication',
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-authentication',
+      },
+      items: [
+        'platform/howto/add-authentication-method',
+        'platform/reference/password-policy',
+        'platform/reference/change-password',
+        'platform/howto/user-2fa',
+        'platform/howto/set-authentication-policies',
+        'platform/concepts/authentication-tokens',
+        'platform/howto/create_authentication_token',
+      ],
+    },
+  ],
+  // Identity providers and domains sidebar
+  'identity-providers-domains': [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Identity providers and domains',
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-identity-providers',
+      },
+      items: [
+        'platform/howto/manage-domains',
+        'platform/howto/saml/add-identity-providers',
+        'platform/howto/saml/rotate-scim-token',
+        'platform/howto/saml/add-auth0-idp',
+        'platform/howto/saml/add-fusionauth-idp',
+        'platform/howto/saml/add-google-idp',
+        'platform/howto/saml/add-jumpcloud-idp',
+        'platform/howto/saml/add-azure-idp',
+        'platform/howto/saml/add-okta-idp',
+        'platform/howto/saml/add-onelogin-idp',
       ],
     },
   ],
