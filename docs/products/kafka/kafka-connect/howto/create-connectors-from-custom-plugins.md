@@ -151,10 +151,14 @@ see [A connector fails after a plugin version change](#a-connector-fails-after-a
 ## Uninstall a plugin
 
 :::warning
-Uninstalling a plugin restarts Kafka Connect. Connectors that use the plugin stop
-working, but Aiven doesn't delete them. The console lists them under
-**Unavailable connectors**. To restore them, [install the plugin version](#install-a-plugin)
-again. To remove them, delete them from that list.
+Uninstalling a plugin restarts Kafka Connect. After the restart, connectors that
+use the plugin fail because Kafka Connect can't find the plugin classes. It can take
+a short time for the connector status to change to **Failed**.
+
+Aiven keeps these connectors so you can review the Kafka Connect logs and find the
+cause. The Aiven Console lists them under **Unavailable connectors**. To restore
+them, [install the plugin version](#install-a-plugin) again. The connectors then
+recover automatically. To remove them, delete them from the list.
 :::
 
 In your Kafka Connect service:
