@@ -1,14 +1,17 @@
 ---
 title: Enhanced compliance BYOC clouds
 sidebar_label: Enhanced compliance
-keywords: [AWS, Amazon Web Services, byoc, bring your own cloud, custom cloud, compliance, PCI DSS, HIPAA, enhanced compliance]
+keywords: [AWS, Amazon Web Services, Google Cloud, GCP, byoc, bring your own cloud, custom cloud, compliance, PCI DSS, HIPAA, enhanced compliance]
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Enhanced compliance clouds are
 [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) custom clouds that you create
-in your own AWS account to run Aiven services under specific compliance requirements.
+in your own AWS or Google Cloud account to run Aiven services under specific compliance
+requirements.
 
 :::important
 To enable this feature, contact your account team. After the
@@ -21,14 +24,13 @@ compliance deployment model when you
 Enhanced compliance BYOC clouds are different from
 [Aiven-managed enhanced compliance environments (ECE)](/docs/platform/concepts/enhanced-compliance-env),
 which run on Aiven-managed infrastructure. Enhanced compliance BYOC clouds run in your own
-AWS account through BYOC.
+AWS or Google Cloud account through BYOC.
 :::
 
 ## Compliance deployment models
 
-When you create an AWS custom cloud, you choose a deployment model. In addition to the
-private (`standard`) and public (`standard_public`) models, two compliance models are
-available:
+When you create a custom cloud, you choose a deployment model. In addition to the private
+(`standard`) and public (`standard_public`) models, two compliance models are available:
 
 - `hipaa`: For healthcare workloads that handle protected health information (PHI) under the
   Health Insurance Portability and Accountability Act (HIPAA).
@@ -44,35 +46,66 @@ An enhanced compliance cloud builds on the private (`standard`) BYOC deployment 
 runs in a dedicated VPC with no shared infrastructure and adds the following controls:
 
 - **No public service access**: Workload nodes have no public IPs, and services are not
-  reachable from the public internet. You access them over
-  [VPC peering](/docs/platform/howto/vpc-peering-aws) or
-  [AWS PrivateLink](/docs/platform/howto/byoc/aws-privatelink-byoc). Indirect access paths,
-  such as public query APIs, are also blocked.
-- **Bastion-proxied egress**: Workload subnets have no internet egress. The bastion host
+  reachable from the public internet. You access them over private connectivity (see
+  [Provider specifics](#provider-specifics)). Indirect access paths, such as public query
+  APIs, are also blocked.
+- **Bastion-proxied egress**: Workload subnets have no internet egress. A bastion host
   proxies outbound traffic to the Aiven management plane and package repositories. Aiven
-  creates no NAT gateways by default. If your compliance requirements allow it, you can
+  provisions no NAT gateways by default. If your compliance requirements allow it, you can
   permit limited egress to specific address ranges, but it is never required.
-- **Customer-owned object storage**: Amazon S3 access is restricted to buckets in your own
-  AWS account through a VPC gateway endpoint. Aiven stores service
+- **Customer-owned object storage**: Aiven stores service
   [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-  [cold data](/docs/platform/howto/byoc/store-data) there, so your data stays in your
-  account and Aiven-owned buckets are not used.
+  [cold data](/docs/platform/howto/byoc/store-data) in object storage in your own cloud
+  account, so your data stays in your account and Aiven-owned buckets are not used.
 - **Resource tagging for governance**: Aiven tags all resources with their compliance model
   (`pci_dss` or `hipaa`) for governance and audit traceability.
 - **No forking or cross-cloud migration**: You cannot fork or migrate a service running in
-  an enhanced compliance cloud to another cloud. This keeps your data in your AWS account
+  an enhanced compliance cloud to another cloud. This keeps your data in your own account
   and prevents a migrated service from depending on backup storage left behind in its
   original cloud.
+
+### Provider specifics
+
+The same compliance models run on AWS and Google Cloud, with these provider differences:
+
+<Tabs groupId="cloud-provider">
+<TabItem value="aws" label="Amazon Web Services" default>
+
+- **Private connectivity**: Access services over
+  [VPC peering](/docs/platform/howto/vpc-peering-aws) or
+  [AWS PrivateLink](/docs/platform/howto/byoc/aws-privatelink-byoc).
+- **Object storage**: Service backups and cold data are stored in Amazon S3 buckets in your
+  AWS account, reached through a VPC gateway endpoint.
+- **Aiven access**: Aiven assumes an IAM role (Role ARN) created when you deploy the
+  infrastructure template.
+
+See [Create an AWS-integrated custom cloud](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud).
+
+</TabItem>
+<TabItem value="google" label="Google Cloud">
+
+- **Private connectivity**: Access services over
+  [VPC peering](/docs/platform/howto/vpc-peering-gcp).
+- **Object storage**: Service backups and cold data are stored in Google Cloud Storage
+  buckets in your Google Cloud project.
+- **Aiven access**: Aiven impersonates a privilege-bearing service account created when you
+  deploy the infrastructure template.
+
+See [Create a Google-integrated custom cloud](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud).
+
+</TabItem>
+</Tabs>
 
 ## Requirements and limitations
 
 - Compliance deployment models must be enabled for your organization before you can use
   them. Contact your account team to enable them.
-- Compliance deployment models are available for **Amazon Web Services (AWS)** only.
-- Object storage in your AWS account is required. Aiven uses it for service backups and
-  cold data, and you cannot turn it off for these models.
+- Self-service compliance deployment models are available for **Amazon Web Services (AWS)**
+  and **Google Cloud**.
+- Object storage in your own cloud account is required. Aiven uses it for service backups
+  and cold data, and you cannot turn it off for these models.
 - Plan your network connectivity before you create the cloud, because services are reachable
-  only over VPC peering or AWS PrivateLink.
+  only over private connectivity.
 - Meet the [BYOC eligibility requirements](/docs/platform/concepts/byoc#who-is-eligible-for-byoc):
   a commitment deal with Aiven and the
   [Advanced or Premium support tier](/docs/platform/howto/support).
@@ -86,7 +119,7 @@ team.
 
 - [About bring your own cloud](/docs/platform/concepts/byoc)
 - [Create an AWS-integrated custom cloud](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud)
+- [Create a Google-integrated custom cloud](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud)
 - [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
-- [Use AWS PrivateLink with BYOC](/docs/platform/howto/byoc/aws-privatelink-byoc)
 - [Store data in your BYOC object storage](/docs/platform/howto/byoc/store-data)
 - [Aiven-managed enhanced compliance environments (ECE)](/docs/platform/concepts/enhanced-compliance-env)
