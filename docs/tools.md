@@ -8,14 +8,15 @@ import GridContainer from "@site/src/components/GridContainer";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
 import AI from "@site/static/images/logos/star-ai.svg";
 import API from "@site/static/images/icons/home/dataflow-03.svg";
-import tool from "@site/static/images/icons/home/tool.svg";
+import Globe from "@site/static/images/icons/globe-02-1.svg";
 
 Use your preferred tools to manage your infrastructure on the Aiven Platform.
 
 <GridContainer>
     <Card
         to="/docs/tools/aiven-console"
-        iconComponent={tool}
+        iconComponent={Globe}
+        iconColor="var(--aiven-brand-green)"
         title="Aiven Console"
         description="Create and run agents on the Aiven Platform."
     />
