@@ -111,6 +111,7 @@ const sidebars: SidebarsConfig = {
           label: 'Identity providers and domains',
           href: '/docs/platform/howto/list-identity-providers',
         },
+        'platform/concepts/discovered-organizations',
         'platform/howto/unsafe-passwords',
       ],
     },
@@ -1675,6 +1676,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Organization user management',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/manage-org-users',
@@ -1683,7 +1686,6 @@ const sidebars: SidebarsConfig = {
         'platform/concepts/application-users',
         'platform/howto/manage-application-users',
         'platform/concepts/managed-users',
-        'platform/concepts/discovered-organizations',
         'platform/howto/manage-groups',
       ],
     },
@@ -1698,6 +1700,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Permissions',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/concepts/permissions',
@@ -1715,6 +1719,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Authentication',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/list-authentication',
@@ -1740,6 +1746,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Identity providers and domains',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/list-identity-providers',
@@ -1768,6 +1776,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Payment methods',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/manage-payment-card',
@@ -1789,6 +1799,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Billing groups',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/use-billing-groups',
@@ -1806,33 +1818,15 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Organizations and units',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/manage-organizations',
       },
       items: [
+        'platform/howto/view-organization-logs',
         'tools/aiven-console/howto/create-orgs-and-units',
-        'platform/howto/view-organization-logs',
-      ],
-    },
-  ],
-  // Monitoring sidebar
-  monitoring: [
-    {
-      type: 'link',
-      label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
-    },
-    {
-      type: 'category',
-      label: 'Monitoring',
-      link: {
-        type: 'doc',
-        id: 'platform/howto/organization-event-logs',
-      },
-      items: [
-        'platform/concepts/carbon-footprint',
-        'platform/howto/view-organization-logs',
       ],
     },
   ],
@@ -1846,6 +1840,8 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Projects',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/manage-project',
@@ -1853,6 +1849,28 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/howto/technical-emails',
         'platform/howto/view-project-logs',
+      ],
+    },
+  ],
+  // Monitoring sidebar
+  monitoring: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Monitoring',
+      collapsed: false,
+      collapsible: false,
+      link: {
+        type: 'doc',
+        id: 'platform/howto/organization-event-logs',
+      },
+      items: [
+        'platform/concepts/carbon-footprint',
+        'platform/howto/view-organization-logs',
       ],
     },
   ],
