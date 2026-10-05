@@ -215,11 +215,6 @@ Parameters:
 </TabItem>
 </Tabs>
 
-:::note
-You can't change `shard_count` and `replicas` in the same update. Change one, wait for
-the update to finish, then change the other.
-:::
-
 ## Benefits
 
 ### Performance
