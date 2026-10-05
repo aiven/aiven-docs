@@ -10,7 +10,8 @@ import TabItem from '@theme/TabItem';
 
 Connect your deployed application to [Aiven services](/docs/products/services).
 You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®,
-Aiven for OpenSearch®, or Aiven for Valkey™ service.
+Aiven for OpenSearch®, Aiven for Valkey™, Aiven for MySQL,
+or Aiven for ClickHouse® service.
 
 You can also define integrations when you create your application
 by using [Compose files](/docs/products/runtime/manifest-files/compose-files).
