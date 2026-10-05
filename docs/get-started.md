@@ -238,7 +238,7 @@ Start deploying services in your project to stream, store, or analyze your data.
       to="/docs/products/services"
       iconName="book"
       title="View all services"
-      description="Choose a service to learn more about it."
+      description="Follow the get started guide for the managed services to learn more about it."
   />
 </GridContainer>
 
@@ -246,11 +246,11 @@ Start deploying services in your project to stream, store, or analyze your data.
 
 The get started guide for each [service](https://aiven.io/docs/products/services)
 includes examples for creating a service using the
-[Aiven Provider for Terraform](/docs/tools/terraform).
+Aiven Provider for Terraform.
 
 You can try out more service and integration examples using code samples for the
 Aiven Terraform Provider or
-[Aiven Operator for Kubernetes®](/docs/tools/kubernetes).
+Aiven Operator for Kubernetes®.
 
 <GridContainer columns={2}>
      <Card
@@ -281,14 +281,13 @@ Create a service using the Aiven CLI or API.
     />
 </GridContainer>
 
-Create and manage services using AI assistants.
+Create and manage services using AI assistants like Claude and Cursor.
 
 <GridContainer columns={2}>
     <Card
       to="/docs/tools/mcp-server"
       iconComponent={AI}
       title="Aiven MCP"
-      description="Create and manage services using AI assistants like Claude and Cursor."
     />
 </GridContainer>
 
