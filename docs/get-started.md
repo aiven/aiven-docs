@@ -300,11 +300,7 @@ when they sign up and start using services.
 ## Next steps
 
 <GridContainer columns={3}>
-     <Card
-      to="/docs/tools/aiven-console"
-      iconName="book"
-      title="Explore Aiven Console"
-    />
+
     <Card
       to="/docs/platform/concepts/cloud-security"
       iconName="book"
