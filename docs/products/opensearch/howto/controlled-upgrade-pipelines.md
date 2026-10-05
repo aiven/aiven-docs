@@ -1,7 +1,6 @@
 ---
 title: Controlled upgrade pipelines for your Aiven for OpenSearch® service
 sidebar_label: Controlled upgrade pipelines
-limited: true
 ---
 
 import ControlledUpgradesConcepts from "@site/static/includes/controlled-upgrades-concepts.md";
