@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+﻿import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 /**
  * Creating a sidebar enables you to:
@@ -200,6 +200,7 @@ const sidebars: SidebarsConfig = {
   ],
   //Products sidebar
   products: [
+    'products/products',
     {
       type: 'category',
       label: 'Services',
@@ -1180,11 +1181,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for ClickHouse®',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/clickhouse',
@@ -1403,11 +1406,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for DataHub',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/datahub',
@@ -1473,11 +1478,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for Dragonfly',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/dragonfly',
@@ -1525,11 +1532,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for Grafana®',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/grafana',
@@ -1614,11 +1623,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for Metrics',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/metrics',
@@ -1879,11 +1890,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for MySQL®',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/mysql',
@@ -2026,11 +2039,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for OpenSearch®',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/opensearch',
@@ -2249,11 +2264,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for PostgreSQL®',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/postgresql',
@@ -2582,11 +2599,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for Valkey™',
+      collapsed: false,
+      collapsible: false,
       link: {
         id: 'products/valkey',
         type: 'doc',
@@ -2720,11 +2739,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Monitoring and logs',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'platform/howto/list-monitoring',
@@ -2797,11 +2818,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for Apache Kafka®',
+      collapsed: false,
+      collapsible: false,
       link: {
         id: 'products/kafka',
         type: 'doc',
@@ -3496,11 +3519,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
       label: 'Aiven for Apache Flink®',
+      collapsed: false,
+      collapsible: false,
       link: {
         type: 'doc',
         id: 'products/flink',
@@ -3595,7 +3620,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
@@ -3647,7 +3672,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
@@ -3689,7 +3714,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
@@ -3901,7 +3926,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Products',
-      href: '/docs/products/services',
+      href: '/docs/products',
     },
     {
       type: 'category',
