@@ -9,34 +9,36 @@ To use controlled upgrade pipelines, you need the following:
 
 - An [Advanced or Premium support tier](/docs/platform/howto/support)
 - Dev tool of your choice:
-  - [Aiven CLI](/docs/tools/cli)
-
-    Install the latest version of the Aiven CLI to access the `upgrade-pipeline` commands.
-
+  - [Aiven CLI](/docs/tools/cli) version 4.16.0 or later, which includes the
+    `upgrade-pipeline` commands
   - [Aiven API](/docs/tools/api)
-  - [Aiven Provider for Terraform](/docs/tools/terraform)
+  - [Aiven Provider for Terraform](/docs/tools/terraform) version 4.57.0 or later
 
-    - Set `PROVIDER_AIVEN_ENABLE_BETA=true` before running Terraform.
-    - See the
-      [resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/upgrade_step)
-      for full schema, import format, and lifecycle behavior.
+    The `aiven_upgrade_step` resource is a beta resource, so set
+    `PROVIDER_AIVEN_ENABLE_BETA=true` before running Terraform. See the
+    [resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/upgrade_step)
+    for full schema, import format, and lifecycle behavior.
 
   - [Aiven Operator for Kubernetes](/docs/tools/kubernetes)
 
     Install the operator and create an Aiven token secret named `aiven-token`
     that the operator uses to authenticate against the Aiven API.
 
-- Write access to the source and destination projects
+- Write access to the source and destination projects. Read-only access is not enough.
 - At least two services of the same type (for example, two Aiven for PostgreSQL® services)
 - Services can be in different projects in the same organization
 
+:::note
+The Aiven Console does not support upgrade pipelines. Use the Aiven CLI, Aiven API,
+Aiven Provider for Terraform, or Aiven Operator for Kubernetes instead.
+:::
+
 ### Set up an upgrade pipeline
 
-Use the Aiven CLI or API to create upgrade steps between your services.
+Create upgrade steps between your services with your preferred tool.
 
-:::note
-The `upgrade-pipeline` CLI commands require Aiven CLI version 4.x or later.
-:::
+Aiven evaluates whether the feature is enabled on the destination service's project. If
+the feature is not enabled, the request fails with status code `403`.
 
 #### Create an upgrade step
 
@@ -48,9 +50,9 @@ Create a step to link a source service and a destination service:
 ```bash
 avn upgrade-pipeline step create \
   --organization-id ORGANIZATION_ID \
-  [--source-project SOURCE_PROJECT] SOURCE_SERVICE \
-  [--destination-project DESTINATION_PROJECT] DESTINATION_SERVICE \
-  [--auto-validation-delay-days DAYS]
+  --source-project SOURCE_PROJECT SOURCE_SERVICE \
+  --destination-project DESTINATION_PROJECT DESTINATION_SERVICE \
+  --auto-validation-delay-days DAYS
 ```
 
 **Options**
@@ -246,11 +248,15 @@ Validate the current version of your source service:
 ```bash
 avn upgrade-pipeline step validate-for-service \
   --project SOURCE_PROJECT \
-  SERVICE_NAME \
-  [--comment "COMMENT"]
+  SOURCE_SERVICE \
+  --comment "Tested and verified in development"
 ```
 
-`--comment` is optional. Use it to record a note about the validation, for example `"Tested and verified in development"`.
+**Options**
+
+- `--project` is optional. If you omit it, Aiven CLI uses the current default project set
+  with `avn project switch`.
+- `--comment` is optional. Use it to record a note about the validation.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -349,7 +355,7 @@ kubectl apply -f upgrade-step.yaml
 
 The `organizationId`, `sourceProjectName`, `sourceServiceName`,
 `destinationProjectName`, and `destinationServiceName` fields are immutable.
-To change them, delete the resource and create a new one.
+To change them, delete and recreate the resource.
 
 </TabItem>
 </Tabs>
@@ -400,7 +406,9 @@ kubectl delete upgradepipelinestep RESOURCE_NAME
 </TabItem>
 </Tabs>
 
-Deleting a step removes all associated validations.
+Deleting a step removes all associated validations. The destination service becomes
+eligible for any maintenance update it was waiting for, and receives it during its next
+maintenance window.
 
 ### Example: Three-environment pipeline
 

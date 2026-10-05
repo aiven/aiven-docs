@@ -16,4 +16,5 @@ Link Aiven services in an upgrade pipeline to test maintenance updates in a deve
 <RelatedPages/>
 
 - [Service maintenance, updates and upgrades](/docs/platform/concepts/maintenance-window)
+- [Aiven support](/docs/platform/howto/support)
 - [Fork a service](/docs/platform/concepts/service-forking)

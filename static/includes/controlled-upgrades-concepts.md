@@ -2,8 +2,10 @@ Control when your Aiven managed services receive maintenance updates and test ma
 updates in development or staging environments before they reach production.
 
 :::note
-Controlled upgrade pipeline is available to organizations with the
-[Advanced or Premium support tier](/docs/platform/howto/support).
+Controlled upgrade pipelines are included with the
+[Advanced and Premium support tiers](/docs/platform/howto/support). When your
+organization activates one of these tiers, Aiven enables the feature for your projects
+automatically.
 :::
 
 Aiven performs automatic service maintenance for security fixes, minor software updates,
@@ -112,6 +114,10 @@ the protection that upgrade pipelines provide.
 - **No permanent blocking**: You cannot prevent an update indefinitely. Automatic
   validation applies after the configured delay, up to the maximum delay.
 - **No validation rollback**: You cannot undo a validation after it is recorded.
-- **Support tier downgrade**: Creating a new upgrade step requires your organization
-  to have an active Advanced or Premium support tier at that time. If you downgrade
-  your support tier, existing upgrade steps and their validations continue to work.
+- **Already scheduled updates**: Pipelines control whether a new maintenance update is
+  scheduled for the destination service. An update that is already scheduled before you
+  create the upgrade step runs as planned. The pipeline does not hold or reschedule it.
+  Create your upgrade steps before the next maintenance update is scheduled.
+- **Support tier downgrade**: Creating an upgrade step requires an active Advanced or
+  Premium support tier. If you downgrade or cancel your support tier, you cannot create
+  new upgrade steps, but existing steps and their validations continue to work.
