@@ -26,14 +26,14 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/images/icons/home/rocket.svg').default,
     to: '/docs/get-started',
     accent: 'deepBlue',
-    description: <>Your first steps to set up your account, for free.</>,
+    description: <>Guides for getting set up on the Aiven Platform.</>,
   },
   {
     title: 'Managed services',
     Svg: require('@site/static/images/icons/home/database.svg').default,
     to: '/docs/products/services',
     accent: 'lightBlue',
-    description: <>Discover our managed services and how to set them up.</>,
+    description: <>Discover Aiven's data services and how to set them up.</>,
   },
   {
     title: 'Runtime applications',
@@ -51,8 +51,8 @@ const FeatureList: FeatureItem[] = [
     accent: 'yellow',
     description: (
       <>
-        Manage your Aiven infrastructure with the Aiven API, Terraform Provider,
-        Kubernetes Operator, or CLI.
+        Manage your Aiven infrastructure with the Aiven API, MCP, Terraform
+        Provider, Kubernetes Operator, or CLI.
       </>
     ),
   },
@@ -62,25 +62,15 @@ const FeatureList: FeatureItem[] = [
     to: '/docs/platform/concepts/service-integration',
     accent: 'red',
     description: (
-      <>
-        Explore the integrations offered by Aiven to connect your services with
-        other systems and tools. Unlock new possibilities and improve
-        interoperability.
-      </>
+      <>Integrate Aiven services, and connect to external systems and tools.</>
     ),
   },
   {
-    title: 'API documentation',
+    title: 'Managed Agents',
     Svg: require('@site/static/images/icons/home/dataflow-03.svg').default,
-    to: '/docs/tools/api',
+    to: '/docs/tools/agents',
     accent: 'orange',
-    description: (
-      <>
-        Interact programmatically with the Aiven platform. Automate your
-        workflows, integrate with your existing tools, and extend the
-        functionality.
-      </>
-    ),
+    description: <>Create and run AI agents directly on the Aiven Platform.</>,
   },
 ];
 
