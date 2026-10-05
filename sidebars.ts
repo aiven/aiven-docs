@@ -167,7 +167,6 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'tools',
-        'tools/aiven-console',
         {
           type: 'link',
           label: 'Aiven API',
@@ -230,11 +229,6 @@ const sidebars: SidebarsConfig = {
           type: 'link',
           label: 'Aiven for DataHub',
           href: '/docs/products/datahub',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for Dragonfly',
-          href: '/docs/products/dragonfly',
         },
         {
           type: 'link',
@@ -621,60 +615,6 @@ const sidebars: SidebarsConfig = {
           items: ['products/datahub/enable-prometheus-metrics'],
         },
         'products/datahub/fork-datahub-service',
-      ],
-    },
-  ],
-  //Dragonfly dedicated sidebar
-  'services-dragonfly': [
-    {
-      type: 'link',
-      label: '← Back to Products',
-      href: '/docs/products',
-    },
-    {
-      type: 'category',
-      label: 'Aiven for Dragonfly',
-      collapsed: false,
-      collapsible: false,
-      link: {
-        type: 'doc',
-        id: 'products/dragonfly',
-      },
-      items: [
-        'products/dragonfly/get-started',
-        {
-          type: 'category',
-          label: 'Connect to service',
-          link: {
-            type: 'doc',
-            id: 'products/dragonfly/howto/list-code-samples',
-          },
-          items: [
-            'products/dragonfly/howto/connect-redis-cli',
-            'products/dragonfly/howto/connect-go',
-            'products/dragonfly/howto/connect-node',
-            'products/dragonfly/howto/connect-python',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Service management',
-          items: [
-            'products/dragonfly/concepts/ha-dragonfly',
-            'products/dragonfly/howto/eviction-policy-df',
-            'products/dragonfly/howto/compatibility-redisjson',
-            'products/dragonfly/reference/advanced-params',
-            'products/dragonfly/reference/version-lifecycle',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Migrate',
-          items: [
-            'products/dragonfly/howto/migrate-aiven-caching-df-console',
-            'products/dragonfly/howto/migrate-ext-redis-df-console',
-          ],
-        },
       ],
     },
   ],
@@ -1866,7 +1806,6 @@ const sidebars: SidebarsConfig = {
             'products/valkey/howto/migrate-redis-aiven-cli',
             'products/valkey/howto/migrate-redis-aiven-via-console',
             'products/valkey/howto/migrate-caching-valkey-to-aiven-for-valkey',
-            'products/valkey/howto/migrate-dragonfly-to-valkey',
           ],
         },
         {
@@ -3126,4 +3065,3 @@ const sidebars: SidebarsConfig = {
 };
 
 export default sidebars;
-
