@@ -6,7 +6,6 @@ sidebar_label: Get started
 import Button from "@site/src/components/Buttons";
 import {ButtonSecondary} from "@site/src/components/Buttons";
 import Card from "@site/src/components/Card";
-import Marketecture from "@site/static/images/content/platform/Marketecture Master EDIT.svg";
 import GridContainer from "@site/src/components/GridContainer";
 import AI from "@site/static/images/logos/star-ai.svg";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
@@ -21,13 +20,6 @@ The Aiven Platform streamlines your operations by centralizing your cloud infras
 security, and observability in one unified control plane. You can access the platform
 through the Aiven Console, Aiven API, Aiven Provider for Terraform, Aiven CLI, and
 Aiven Operator for Kubernetes®.
-
-<Marketecture
-  className="centered"
-  width="54%"
-  role="img"
-  aria-label="Illustration of the platform"
-/>
 
 ## Try the Aiven Platform for free
 
