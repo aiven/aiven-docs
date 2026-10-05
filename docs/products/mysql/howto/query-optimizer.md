@@ -8,10 +8,9 @@ description: "Get AI-powered query optimization recommendations for an ad-hoc Ai
 import QueryOptimizer from "@site/static/includes/query-optimizer.md"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-<QueryOptimizer service="Aiven for MySQL®" aiInsightsPath="/docs/products/mysql/howto/ai-insights"/>
+<QueryOptimizer service="Aiven for MySQL®"/>
 
 <RelatedPages/>
 
 - [AI database optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
-- [SQL query optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/query-optimizer)
-- [Standalone SQL query optimizer](/docs/tools/query-optimizer)
+- [SQL query optimizer Aiven for PostgreSQL®](/docs/products/postgresql/howto/query-optimizer)
