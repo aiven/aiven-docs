@@ -10,15 +10,14 @@ Full list of commands for `avn service user`.
 
 Creates a new user for the selected service.
 
-| Parameter                | Information                                                                     |
-| ------------------------ | ------------------------------------------------------------------------------- |
-| `service_name`           | The name of the service                                                         |
-| `--username`             | The new username to be created                                                  |
-| `--m3-group`             | The name of the group the user belongs to (for Aiven for Metrics services only) |
-| `--redis-acl-keys`       | The ACL rules for keys (Aiven for Caching services only)                        |
-| `--redis-acl-commands`   | The ACL rules for commands (Aiven for Caching services only)                    |
-| `--redis-acl-categories` | The ACL rules for categories (Aiven for Caching services only)                  |
-| `--redis-acl-channels`   | The ACL rules for channels (Aiven for Caching services only)                    |
+| Parameter                 | Information                                                    |
+| ------------------------- | -------------------------------------------------------------- |
+| `service_name`            | The name of the service                                        |
+| `--username`              | The new username to be created                                 |
+| `--valkey-acl-keys`       | The ACL rules for keys (Aiven for Valkey™ services only)         |
+| `--valkey-acl-commands`   | The ACL rules for commands (Aiven for Valkey services only)    |
+| `--valkey-acl-categories` | The ACL rules for categories (Aiven for Valkey services only)  |
+| `--valkey-acl-channels`   | The ACL rules for channels (Aiven for Valkey services only)    |
 
 **Example:** Create new user named `janedoe` for a service named
 `pg-demo`.
