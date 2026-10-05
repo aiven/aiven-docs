@@ -367,6 +367,7 @@
 /products/valkey/howto/upgrade-aiven-for-caching-to-valkey /docs/platform/reference/end-of-life#aiven-for-caching  301
 /products/valkey/reference                                 /docs/products/valkey/reference/advanced-params  301
 /tools/mcp                                                 /docs/tools/mcp-server  301
+/docs/tools/aiven-console                                   https://console.aiven.io/  301
 /tools/aiven-console/howto/create-accounts                 /docs/platform/howto/manage-org-users  301
 /tools/aiven-console/howto/create-manage-teams             /docs/platform/howto/manage-groups  301
 /tools/cli/account                                         /docs/tools/cli  301

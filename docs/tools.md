@@ -14,13 +14,6 @@ Use your preferred tools to manage your infrastructure on the Aiven Platform.
 
 <GridContainer>
     <Card
-        to="/docs/tools/aiven-console"
-        iconComponent={Globe}
-        iconColor="var(--aiven-brand-green)"
-        title="Aiven Console"
-        description="Create and run agents on the Aiven Platform."
-    />
-    <Card
         to="/docs/tools/api"
         iconComponent={API}
         iconColor="var(--aiven-brand-orange)"
@@ -30,16 +23,21 @@ Use your preferred tools to manage your infrastructure on the Aiven Platform.
     <Card
         to="/docs/tools/cli"
         iconName="console"
-        iconColor="var(--aiven-brand-yellow)"
+        iconColor="var(--aiven-brand-orange)"
         title="Aiven CLI"
         description="Manage your Aiven services through the command-line interface."
     />
     <Card
         to="/docs/tools/mcp-server"
         iconComponent={AI}
+        iconColor="var(--aiven-brand-orange)"
         title="Aiven MCP"
         description="Manage Aiven services and access documentation from AI-powered coding assistants."
     />
+</GridContainer>
+
+**Infrastructure as Code**
+<GridContainer>
     <Card
         to="/docs/tools/terraform"
         iconName="terraform"
