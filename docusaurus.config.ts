@@ -268,7 +268,7 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'AI',
+          label: 'AI tools',
           sidebarId: 'ai',
         },
         {
