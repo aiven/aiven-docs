@@ -180,8 +180,8 @@ level with the source's. For more information, see
    For OAuth 2.0/OIDC authentication:
 
    ```bash
-   export SRC_AUTH="Bearer $SOURCE_ACCESS_TOKEN"
-   export DST_AUTH="Bearer $TARGET_ACCESS_TOKEN"
+   export SRC_AUTH="Bearer SOURCE_ACCESS_TOKEN"
+   export DST_AUTH="Bearer TARGET_ACCESS_TOKEN"
    ```
 
    Replace `SOURCE_ACCESS_TOKEN` and `TARGET_ACCESS_TOKEN` with the access tokens for
@@ -217,7 +217,7 @@ Review the schemas before you change the target:
 If you can't reach the source registry API, create the export file from a dump of the
 source `_schemas` topic.
 
-:::warning
+:::warning[Warning]
 Don't replicate the source `_schemas` topic directly to the target. Create an export
 file and import it instead.
 :::
@@ -358,9 +358,10 @@ In the commands in this section, replace the following:
      SOURCE_REGISTRY_URL/subjects/SUBJECT_NAME/versions/VERSION
    ```
 
-   Keep `id`, `version`, `schema`, and any `schemaType` and `references` fields.
-   Retrieve the versions that your schemas reference too, even if they're in other
-   subjects.
+   The response includes the `id`, `version`, and `schema` fields. It also includes the
+   `schemaType` and `references` fields when the schema has them. You need these fields
+   for the import. Retrieve the versions that your schemas reference as well,
+   even if they're in other subjects.
 
 1. For each subject, record any compatibility setting:
 
@@ -411,8 +412,8 @@ For each subject, do the following:
 1. Import each version of the subject, starting with the versions that other schemas
    reference. For each version:
 
-   1. Create a file named `schema-import.json` that has the source ID, version, schema
-      definition, and any schema type and references:
+   1. Create the `schema-import.json` file with the source values for the ID, version,
+      schema definition, and any schema type and references. For example:
 
       ```json
       {
@@ -423,9 +424,10 @@ For each subject, do the following:
       }
       ```
 
-      Replace the example schema, ID `1001`, and version `5` with the source values. Add
-      `references` if the source response has them. Keep the schema definition as a
-      JSON string.
+      Replace the example `schema`, `id`, and `version` values with the values from the
+      source response. The `schema` value is the schema definition as an escaped JSON
+      string. If the source response includes `references`, copy that field to the
+      file.
 
    1. Register the version:
 
@@ -437,8 +439,8 @@ For each subject, do the following:
         SCHEMA_REGISTRY_URL/subjects/SUBJECT_NAME/versions
       ```
 
-      Include both `id` and `version` to keep the source values. Both must be between 1
-      and 2,147,483,647. Confirm that the ID in the response matches the source ID.
+      Include both `id` and `version` to keep the source values. Both values range from 1
+      to 2,147,483,647. Confirm that the ID in the response matches the source ID.
 
 1. After you import all versions, set the target subject's compatibility level to the
    level that you recorded from the source:
@@ -479,9 +481,9 @@ For each subject, do the following:
 
 ## Import into a non-empty registry
 
-By default, `IMPORT` mode needs a registry or subject with no live schemas.
+By default, `IMPORT` mode requires a registry or subject with no live schemas.
 
-:::warning
+:::warning[Warning]
 Import into an empty registry or subject when you can. Use `force=true` only after you
 confirm that the IDs and versions you import don't conflict with schemas that are
 already on the target.
