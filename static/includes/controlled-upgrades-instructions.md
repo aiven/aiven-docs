@@ -14,8 +14,7 @@ To use controlled upgrade pipelines, you need the following:
   - [Aiven API](/docs/tools/api)
   - [Aiven Provider for Terraform](/docs/tools/terraform) version 4.57.0 or later
 
-    The `aiven_upgrade_step` resource is a beta resource, so set
-    `PROVIDER_AIVEN_ENABLE_BETA=true` before running Terraform. See the
+    See the
     [resource documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/upgrade_step)
     for full schema, import format, and lifecycle behavior.
 
@@ -503,7 +502,6 @@ resource "aiven_upgrade_step" "staging_to_prod" {
 Apply the configuration:
 
 ```bash
-export PROVIDER_AIVEN_ENABLE_BETA=true
 terraform init
 terraform plan
 terraform apply

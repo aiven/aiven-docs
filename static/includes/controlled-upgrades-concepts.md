@@ -2,10 +2,10 @@ Control when your Aiven managed services receive maintenance updates and test ma
 updates in development or staging environments before they reach production.
 
 :::note
-Controlled upgrade pipelines are included with the
-[Advanced and Premium support tiers](/docs/platform/howto/support). When your
-organization activates one of these tiers, Aiven enables the feature for your projects
-automatically.
+Controlled upgrade pipelines are available with the Advanced or Premium support tier.
+When your organization has one of these tiers, you have access to the feature
+automatically. To learn more or upgrade your support tier, see
+[Aiven support tiers](https://aiven.io/support-services) or contact your account team.
 :::
 
 Aiven performs automatic service maintenance for security fixes, minor software updates,
