@@ -568,6 +568,8 @@ curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
      SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME
    ```
 
+   If the subject has no mode setting of its own, the response shows the registry mode.
+
 1. Get each target version and compare its ID, version, schema type, definition, and
    references with the saved source response:
 
@@ -631,7 +633,7 @@ status code. The following table lists common problems:
 
 | Error | What to do |
 | --- | --- |
-| HTTP `401 Unauthorized` or `403 Forbidden` status code | Authentication failed, or the user lacks permission. If you don't use `avnadmin`, confirm that the user has the `schema_registry_write` ACL entries for `Config:` and the subjects that you migrate. If you use OIDC, verify the roles. |
+| HTTP `401 Unauthorized` or `403 Forbidden` status code | Authentication failed, or the user lacks permission. If you don't use `avnadmin`, confirm that the user has the `schema_registry_write` ACL entries for `Config:` and the subjects that you migrate. For more information, see [Schema Registry authorization](/docs/products/kafka/karapace/howto/enable-schema-registry-authorization). If you use OIDC, verify the roles. |
 | Error code `42205` with `not allowed` | The target doesn't allow mode changes. Contact the Aiven support team and include the service name and the full error response. |
 | Error code `42205` during registration | The subject isn't in `IMPORT` mode, for example because the mode changed during the run. Set `IMPORT` mode again and resume. |
 | Error code `40901` with a message that starts with `Cannot import` | The target has live schemas in the scope you chose. Use `--force` only after you confirm that the IDs and versions don't conflict. See [Import into a non-empty registry](#import-into-a-non-empty-registry). |
