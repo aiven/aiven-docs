@@ -25,10 +25,13 @@ Supported formats:
 | JSON Schema | ✓                  | -                 |
 
 Schema references let one schema depend on other registered schemas instead of
-inlining every definition.
+repeating every definition inside it.
 Karapace supports Avro schema references from version 6.1.0 onward.
 For details, see
 [Schema references in Karapace](/docs/products/kafka/karapace/concepts/schema-references).
+
+To move schemas from another registry and keep their IDs and versions, see
+[Migrate schemas to Karapace](/docs/products/kafka/karapace/howto/migrate-schemas-with-import-mode).
 
 ## REST Proxy
 
