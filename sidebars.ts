@@ -3058,7 +3058,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Docs',
-      href: '/docs',
+      href: 'https://aiven.io/docs/',
     },
     'tools/doc-diff-llms',
   ],
