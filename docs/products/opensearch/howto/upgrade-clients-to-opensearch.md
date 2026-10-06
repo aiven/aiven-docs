@@ -3,6 +3,8 @@ title: Upgrade Elasticsearch clients to OpenSearch®
 sidebar_label: Upgrade ES clients to OS
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Elasticsearch has introduced breaking changes into their client libraries as early as **7.13.\***, meaning newer Elasticsearch clients won't work with OpenSearch®.
 
 ## Migration steps
@@ -67,6 +69,12 @@ dependencies and the `require` or `import` statements. See an
 [example migration
 code](https://github.com/aiven/opensearch-migration-examples/tree/main/python-client-migration)
 in our repository.
+
+<RelatedPages/>
+
+- [Migrate Elasticsearch data to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrating_elasticsearch_data_to_aiven)
+- [OpenSearch® vs Elasticsearch](/docs/products/opensearch/concepts/opensearch-vs-elasticsearch)
+- [Elasticsearch to Aiven for OpenSearch Migration Checker](https://aiven.io/tools/elasticsearch-to-aiven-migration-checker)
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 
