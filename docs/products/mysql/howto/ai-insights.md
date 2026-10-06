@@ -13,4 +13,4 @@ import RelatedPages from "@site/src/components/RelatedPages";
 <RelatedPages/>
 
 - [AI DB Optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
-- [Standalone SQL query optimizer](https://aiven.io/tools/sql-query-optimizer)
+- [SQL query optimizer for Aiven for MySQL®](/docs/products/mysql/howto/query-optimizer)

@@ -75,7 +75,7 @@ As output, you get metrics including replication lags at specific points in time
 
 ## Fork and restore a service with BTAR {#fork-and-restore}
 
-You can use the [Aiven Console](/docs/tools/aiven-console), [API](/docs/tools/api), or
+You can use the [Aiven Console](https://console.aiven.io/), [API](/docs/tools/api), or
 [CLI](/docs/tools/cli) to recover your service from a backup in another region. To restore
  your service using BTAR, create a fork of the
 original service in the region where the secondary backup resides.
@@ -188,7 +188,7 @@ ones, do not change.
 Delete an additional service backup created
 in a region different from your primary backup region.
 
-You can delete a cross-region backup using the [Aiven Console](/docs/tools/aiven-console),
+You can delete a cross-region backup using the [Aiven Console](https://console.aiven.io/),
 [API](/docs/tools/api), or [CLI](/docs/tools/cli). When you delete
 the additional cross-region backup, you still have the default backup located in the
 primary, service-hosting region.

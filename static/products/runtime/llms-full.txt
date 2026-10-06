@@ -1,0 +1,1226 @@
+# Aiven for Runtime
+
+> Aiven Runtime lets you deploy and run containerized applications directly within your existing Aiven project infrastructure. This means you can host your applications where your data is. Aiven automatically handles the…
+
+> Links below point to Markdown versions of each page in this section.
+> For the full text of these pages, see [llms-full.txt](https://aiven.io/docs/products/runtime/llms-full.txt).
+> For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+## Overview
+
+- [Aiven Runtime overview](https://aiven.io/docs/products/runtime.md): Aiven Runtime lets you deploy and run containerized applications directly within your existing Aiven project infrastructure. This means you can host your applications where your data is. Aiven automatically handles the…
+- [Deploy an application](https://aiven.io/docs/products/runtime/deploy-apps.md): Build and deploy applications using Aiven Runtime from source code in a GitHub repository.
+- [Connect services to Aiven Runtime](https://aiven.io/docs/products/runtime/connect-services-to-apps.md): Connect your deployed application to Aiven services. You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for OpenSearch®, or Aiven for Valkey™ service.
+
+## Manifest files
+
+- [Manifest files for Aiven Runtime](https://aiven.io/docs/products/runtime/manifest-files/manifests.md): Aiven Runtime uses container manifests to understand how to build and deploy your applications. You can define applications using two types of container manifests that work together to create complete solutions.
+- [Create Compose files for Aiven Runtime](https://aiven.io/docs/products/runtime/manifest-files/compose-files.md): Aiven Runtime scans your repository for Compose files, such as Docker Compose files, to detect applications, identify supported data services, and create integrations. Compose files must be in YAML format and follow…
+- [Create Containerfiles and Dockerfiles for Aiven Runtime](https://aiven.io/docs/products/runtime/manifest-files/containerfiles.md): Aiven Runtime automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure applications.
+
+## App management
+
+- [Manage ports for Aiven Runtime](https://aiven.io/docs/products/runtime/ports.md): To make your application available on public networks, you can configure it to listen on ports for HTTP/S traffic. Public ports allow traffic between your application and clients on the internet such as browsers. You…
+- [Manage secrets and environment variables for Aiven Runtime](https://aiven.io/docs/products/runtime/secrets-and-variables.md): Environment variables and secrets let you configure your application at runtime instead of embedding settings and sensitive information into your code. You can use them to pass information like API keys and database…
+- [Change branch](https://aiven.io/docs/products/runtime/deployment-information.md): You can change your application's branch at any time. Changing the branch triggers a redeployment of the selected branch's latest commit.
+- [Change application plan for Aiven Runtime](https://aiven.io/docs/products/runtime/scale-apps.md): Adjust the plan of your applications at any time to scale them and optimize costs.
+
+---
+
+# Aiven for Runtime (full content)
+
+The following pages are the Markdown content for this section only.
+
+## Aiven Runtime overview
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Aiven Runtime overview<!-- --><!-- --><!-- -->
+
+Aiven Runtime lets you deploy and run containerized applications directly within your existing Aiven project infrastructure. This means you can host your applications where your data is. Aiven automatically handles the underlying networking, and container orchestration, enabling developers to focus on application logic rather than DevOps overhead.
+
+## Key features[​](#key-features "Direct link to Key features")
+
+Aiven Runtime offers the following capabilities to streamline your development lifecycle:
+
+* **Seamless integration of compute and data resources**: Run applications where your Aiven data services are to reduce complexity, latency, and egress costs.
+
+* **Familiar tools**: Deploy applications directly from your Git repositories to decrease time-to-production.
+
+* **Secure networking**: Applications run within your trusted network boundary.
+
+## Use cases[​](#use-cases "Direct link to Use cases")
+
+Aiven Runtime is ideal for filtering data streams in real time, building anomaly detection, creating admin dashboards, running LLMs and AI Agents securely, or shipping other internal tools in a secure and scalable way.
+
+
+---
+
+## Deploy an application
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Deploy an application<!-- --><!-- --><!-- -->
+
+Build and deploy applications using Aiven Runtime from source code in a GitHub repository.
+
+You must be an Aiven [organization admin](/docs/platform/concepts/permissions.md) to connect your GitHub account. On GitHub, you must be an [organization owner](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners). You can also connect a personal GitHub account.
+
+note
+
+When you connect a GitHub account to your Aiven organization, all users in that organization can select that account in Aiven Runtime.
+
+## Deploy an application[​](#deploy-an-application "Direct link to Deploy an application")
+
+1. In your project, click **Runtime**.
+2. Click **Deploy application**.
+3. Select or connect your **GitHub account**.
+4. Select your **Account**, **Repository**, and **Branch**.
+5. Click **Next**.
+6. Select your manifest file and click **Scan**. Aiven Runtime automatically detects what applications and services are needed.
+7. To change the configuration of an application, click . To change the configuration of a service integration, click **Configure**.
+8. To deploy the application and create the services, click **Deploy**.
+
+## Redeploy an application[​](#redeploy-an-application "Direct link to Redeploy an application")
+
+When you redeploy an application, Aiven deploys the latest commit from the selected branch.
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. On the **Overview** page, click **Actions** > **Deploy latest commit**.
+
+
+---
+
+## Manifest files for Aiven Runtime
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manifest files for Aiven Runtime<!-- --><!-- --><!-- -->
+
+Aiven Runtime uses container manifests to understand how to build and deploy your applications. You can define applications using two types of container manifests that work together to create complete solutions.
+
+* **[Compose files](/docs/products/runtime/manifest-files/compose-files.md)** define multi-service solutions that can reference and orchestrate multiple Containerfiles along with data services.
+* **[Containerfiles and Dockerfiles](/docs/products/runtime/manifest-files/containerfiles.md)** define how to build a single application.
+
+Aiven scans your repository for manifest files using standard naming conventions and parses instructions and configuration details like ports and environment variables. For integrating applications with Aiven data services, Aiven uses the information in Compose files to create and connect the services.
+
+
+---
+
+## Create Compose files for Aiven Runtime
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Create Compose files for Aiven Runtime<!-- --><!-- --><!-- -->
+
+Aiven Runtime scans your repository for Compose files, such as [Docker Compose files](https://docs.docker.com/compose/), to detect applications, identify supported data services, and create integrations. Compose files must be in YAML format and follow the [Compose specification](https://compose-spec.io).
+
+Aiven recognizes Compose files with the following file naming conventions:
+
+| File type                               | Supported file naming formats                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Compose files                           | - `docker-compose.yml`<br />- `docker-compose.yaml`<br />- `compose.yml`<br />- `compose.yaml`<br />- `compose.aiven.yaml`<br />- `compose.existing-db.yaml`                                                    |
+| Environment-specific and override files | - `docker-compose.override.yml`<br />- `compose.override.yaml`<br />- `docker-compose.ENVIRONMENT.yml` For example: `docker-compose.prod.yml`<br />- `compose.ENVIRONMENT.yaml` For example: `compose.dev.yaml` |
+
+Aiven automatically analyzes Compose files to detect the applications to build and the Aiven services to create.
+
+note
+
+You cannot use Compose files to deploy applications through the Aiven API or Aiven MCP. Use [Containerfiles or Dockerfiles](/docs/products/runtime/manifest-files/containerfiles.md) instead.
+
+## Create a Compose file[​](#create-a-compose-file "Direct link to Create a Compose file")
+
+Use the following guidelines to create your Compose files for Aiven Runtime. More information on formatting Compose files is available in the [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md) and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file).
+
+### Service integrations[​](#service-integrations "Direct link to Service integrations")
+
+Aiven Runtime automatically detects and creates the following data services based on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™, and Aiven for OpenSearch®.
+
+Aiven integrates the data services listed in the `depends_on` property. You define the service type and tags with the `image` property, for example:
+
+```
+services:
+
+  web-app:
+
+    build: .
+
+    depends_on:               # Services to integrate with
+
+      - postgres-db
+
+      - valkey-cache
+
+    environment:
+
+      - DATABASE_URL=postgresql://DB_USER:DB_PASSWORD@postgres-db:5432/DB_NAME
+
+
+
+  postgres-db:
+
+    image: postgres:15        # PostgreSQL service
+
+
+
+  valkey-cache:
+
+    image: valkey/valkey:7.2  # Valkey service
+```
+
+note
+
+Service names must:
+
+* Consist only of lowercase letters a-z, numbers 0-9, and `-`
+* Begin with a lowercase letter
+* Be between 1 and 64 characters in length
+
+Aiven Runtime only recognizes specific, standard images for each service type. When a data service is recognized as an Aiven service, any specified version number is ignored. The latest stable version is used. You can change the version in the Aiven Console before or after deploying the application.
+
+note
+
+An Aiven Runtime application cannot be integrated with another Runtime application.
+
+#### Kafka[​](#kafka "Direct link to Kafka")
+
+Runtime recognizes the following images for Kafka:
+
+* `apache/kafka`
+* `confluentinc/cp-kafka`
+* `bitnami/kafka`
+
+The following is an example for the official Apache Kafka image:
+
+```
+services:
+
+  message-broker:
+
+    image: apache/kafka:3.9
+```
+
+The following is an example for the Confluent Platform Kafka image:
+
+```
+  kafka-confluent:
+
+    image: confluentinc/cp-kafka:latest
+```
+
+#### PostgreSQL[​](#postgresql "Direct link to PostgreSQL")
+
+Runtime recognizes the following PostgreSQL images:
+
+* `postgres`
+* `postgresql`
+* `bitnami/postgresql`
+
+The following is an example for the official PostgreSQL image:
+
+```
+services:
+
+  database:
+
+    image: postgres:15
+```
+
+#### Valkey[​](#valkey "Direct link to Valkey")
+
+Runtime recognizes the following Valkey images:
+
+* `valkey`
+* `valkey/valkey`
+* `bitnami/valkey`
+* `redis`
+* `bitnami/redis`
+
+The following is an example for the official Valkey image:
+
+```
+services:
+
+  cache:
+
+    image: valkey/valkey:7.2
+```
+
+#### OpenSearch[​](#opensearch "Direct link to OpenSearch")
+
+Aiven Runtime only recognizes the official `opensearchproject/opensearch` image, for example:
+
+```
+services:
+
+  search:
+
+    image: opensearchproject/opensearch:2.11
+```
+
+It can also include registry prefixes such as `docker.io/opensearchproject/opensearch` and `ghcr.io/opensearchproject/opensearch`.
+
+#### Custom builds and unsupported images[​](#custom-builds-and-unsupported-images "Direct link to Custom builds and unsupported images")
+
+Aiven Runtime doesn't support custom builds, non-standard images, and some image distributions.
+
+If you need to use custom images locally, you can use a separate Compose file for Aiven Runtime.
+
+For example, the following Compose file includes a custom PostgreSQL build and a non-standard Redis image:
+
+```
+# compose.yaml
+
+services:
+
+  db:
+
+    build: ./postgres-with-my-extensions  # Custom build
+
+  cache:
+
+    image: my-redis-fork:7.0              # Non-standard image
+
+  api:
+
+    build: ./app
+```
+
+To deploy this setup on Aiven Runtime without editing your main Compose file, create a `compose.aiven.yaml` file with the following:
+
+```
+services:
+
+  db:
+
+    image: postgres:15  # Standard image Aiven recognizes
+
+  cache:
+
+    image: valkey:7.2   # Standard image Aiven recognizes
+
+  api:
+
+    build: ./app
+```
+
+#### Incorrect service detection[​](#incorrect-service-detection "Direct link to Incorrect service detection")
+
+There are cases where Runtime incorrectly identifies a service as an Aiven data service because it contains a string that matches a recognized image name.
+
+For example, a Compose file with an image name that includes `valkey` is recognized as an Aiven for Valkey™ service:
+
+```
+services:
+
+  admin-app:
+
+    image: my-valkey-admin-app
+```
+
+To deploy this setup on Aiven Runtime, create a separate `compose.aiven.yaml` file and a Containerfile or Dockerfile to describe the application. For the Valkey case, the following is an example of the Valkey admin app in a `compose.aiven.yaml` file:
+
+```
+services:
+
+  admin-app:
+
+    build:
+
+      context: my-valkey-admin-app
+
+      dockerfile: Dockerfile
+```
+
+An example Containerfile for this case is:
+
+```
+FROM my-valkey-admin-app
+
+
+
+EXPOSE 3000
+
+
+
+CMD ["my-valkey-admin-app"]
+```
+
+### Environment variables[​](#environment-variables "Direct link to Environment variables")
+
+You can use a list or dictionary format for environment variables.
+
+When you set environment variables in both Containerfiles and Compose files, Aiven merges them with the following priority:
+
+1. Containerfile or Dockerfile environment variables are merged first, preserving their order.
+2. Compose file environment variables override any Containerfile or Dockerfile variables with the same key.
+3. Variables that are only in the Compose file are added at the end.
+
+Keys managed by service integrations are excluded.
+
+#### List format example[​](#list-format-example "Direct link to List format example")
+
+```
+services:
+
+  app:
+
+    environment:
+
+      - DATABASE_URL=postgresql://user:pass@postgres-db:5432/mydb
+
+      - VALKEY_URL=valkey://valkey-cache:6379
+
+      - NODE_ENV=production
+```
+
+#### Dictionary format example[​](#dictionary-format-example "Direct link to Dictionary format example")
+
+```
+services:
+
+  app:
+
+    environment:
+
+      DATABASE_URL: postgresql://user:pass@postgres-db:5432/mydb
+
+      VALKEY_URL: valkey://valkey-cache:6379
+
+      NODE_ENV: production
+```
+
+## Example Compose files[​](#example-compose-files "Direct link to Example Compose files")
+
+### Simple web application with PostgreSQL[​](#simple-web-application-with-postgresql "Direct link to Simple web application with PostgreSQL")
+
+The following example uses a Docker Compose file and a Dockerfile to configure a basic web application that is integrated with a PostgreSQL database.
+
+The `docker-compose.yml` file defines the application and the PostgreSQL service, along with the environment variables for integration:
+
+```
+version: '3.8'
+
+
+
+services:
+
+  # Application service
+
+  web-app:
+
+    build: .
+
+    ports:
+
+      - "3000:3000"
+
+    depends_on:
+
+      - postgres-db
+
+    environment:
+
+      # Aiven will detect this integration and provide credentials
+
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-db:5432/${POSTGRES_DB}
+
+      - NODE_ENV=production
+
+
+
+  # Aiven PostgreSQL service (automatically detected)
+
+  postgres-db:
+
+    image: postgres:15
+
+    environment:
+
+      POSTGRES_DB: ${POSTGRES_DB}
+
+      POSTGRES_USER: ${POSTGRES_USER}
+
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+```
+
+The Dockerfile defines how to build the web application:
+
+```
+FROM node:18-alpine
+
+
+
+WORKDIR /app
+
+
+
+# Copy package files
+
+COPY package*.json ./
+
+
+
+# Install dependencies
+
+RUN npm ci --only=production
+
+
+
+# Copy application code
+
+COPY . .
+
+
+
+# Expose port
+
+EXPOSE 3000
+
+
+
+# Start the application
+
+CMD ["npm", "start"]
+```
+
+### Web application with Kafka[​](#web-application-with-kafka "Direct link to Web application with Kafka")
+
+The following example uses a Compose file to configure a web application and integrate it with a Kafka broker using SASL authentication.
+
+The file defines the application and the Kafka service, along with the environment variables for integration:
+
+```
+version: '3.8'
+
+
+
+services:
+
+  # Application service
+
+  web-app:
+
+    build: .
+
+    ports:
+
+      - "8000:8000"
+
+    depends_on:
+
+      - kafka-broker
+
+    environment:
+
+      # Aiven will detect this integration and provide credentials
+
+      - KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS:-kafka-broker:9092}
+
+      - KAFKA_SECURITY_PROTOCOL=${KAFKA_SECURITY_PROTOCOL:-SASL_PLAINTEXT}
+
+      - KAFKA_SASL_MECHANISM=${KAFKA_SASL_MECHANISM:-PLAIN}
+
+      - KAFKA_SASL_USERNAME=${KAFKA_SASL_USERNAME:-appuser}
+
+      - KAFKA_SASL_PASSWORD=${KAFKA_SASL_PASSWORD:-appsecret}
+
+
+
+  # Aiven Kafka broker service (automatically detected)
+
+  kafka-broker:
+
+    image: apache/kafka:3.9
+
+    hostname: kafka-broker
+
+    ports:
+
+      - "9092:9092"
+
+    environment:
+
+      KAFKA_NODE_ID: 1
+
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,SASL_PLAINTEXT:SASL_PLAINTEXT"
+
+      KAFKA_ADVERTISED_LISTENERS: "SASL_PLAINTEXT://kafka-broker:9092"
+
+      KAFKA_PROCESS_ROLES: "broker,controller"
+
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-broker:29093"
+
+      KAFKA_LISTENERS: "CONTROLLER://:29093,SASL_PLAINTEXT://:9092"
+
+      KAFKA_INTER_BROKER_LISTENER_NAME: "SASL_PLAINTEXT"
+
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+
+      CLUSTER_ID: "4L6g3nShT-eMCtK--X86sw"
+
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+      KAFKA_LOG_DIRS: "/tmp/kraft-combined-logs"
+
+      KAFKA_SASL_ENABLED_MECHANISMS: "PLAIN"
+
+      KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: "PLAIN"
+
+      KAFKA_INTER_BROKER_PROTOCOL_VERSION: "3.5"
+```
+
+### Multi-service application[​](#multi-service-application "Direct link to Multi-service application")
+
+The following example Compose file defines a more complex application with a React frontend, a backend API, a background worker, and integrations with PostgreSQL, Valkey, and OpenSearch services.
+
+```
+services:
+
+  # React frontend
+
+  frontend:
+
+    build:
+
+      context: ./frontend
+
+      dockerfile: Dockerfile
+
+    ports:
+
+      - "3000:3000"
+
+    environment:
+
+      - REACT_APP_API_URL=http://localhost:8000
+
+
+
+  # Backend API
+
+  backend-api:
+
+    build:
+
+      context: ./backend
+
+      dockerfile: Dockerfile
+
+    ports:
+
+      - "8000:8000"
+
+    depends_on:
+
+      - postgres-main
+
+      - valkey-sessions
+
+      - search-engine
+
+    environment:
+
+      # Primary database connection
+
+      - DATABASE_URL=postgresql://app:password@postgres-main:5432/maindb
+
+      # Session storage
+
+      - VALKEY_URL=valkey://valkey-sessions:6379
+
+      # Search functionality
+
+      - OPENSEARCH_URI=https://admin:password@search-engine:9200
+
+      - JWT_SECRET=your-jwt-secret
+
+      - NODE_ENV=production
+
+
+
+  # Background job processor
+
+  worker:
+
+    build:
+
+      context: ./backend
+
+      dockerfile: Dockerfile.worker
+
+    depends_on:
+
+      - postgres-main
+
+      - valkey-sessions
+
+    environment:
+
+      - DATABASE_URL=postgresql://app:password@postgres-main:5432/maindb
+
+      - VALKEY_URL=valkey://valkey-sessions:6379
+
+      - WORKER_MODE=true
+
+
+
+  # Aiven PostgreSQL - Main database
+
+  postgres-main:
+
+    image: postgres:15
+
+    environment:
+
+      POSTGRES_DB: maindb
+
+      POSTGRES_USER: app
+
+      POSTGRES_PASSWORD: password
+
+    volumes:
+
+      - postgres_data:/var/lib/postgresql/data
+
+
+
+  # Aiven for Valkey - Session store and job queue
+
+  valkey-sessions:
+
+    image: valkey/valkey:7.2
+
+
+
+  # Aiven for OpenSearch - Full-text search
+
+  search-engine:
+
+    image: opensearchproject/opensearch:2.11
+
+    environment:
+
+      discovery.type: single-node
+
+      plugins.security.disabled: true
+
+      "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+
+    volumes:
+
+      - opensearch_data:/usr/share/opensearch/data
+
+
+
+volumes:
+
+  postgres_data:
+
+  opensearch_data:
+```
+
+Related pages
+
+* [Docker Compose Quickstart](https://docs.docker.com/compose/gettingstarted)
+* [Manage secrets securely in Docker Compose](https://docs.docker.com/compose/how-tos/use-secrets/)
+* [A Developer's Guide to Aiven Apps](https://aiven.io/blog/developers-guide-to-aiven-apps)
+* [Deploying Apache Kafka® Streams next to your data](https://aiven.io/blog/apache-kafka-streams-next-to-your-data)
+* [A Practical Guide to Deploying LMM-Powered Apps with CLIP and pgvector](https://aiven.io/blog/aiven-apps-deploy-lmm-demo)
+
+
+---
+
+## Create Containerfiles and Dockerfiles for Aiven Runtime
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Create Containerfiles and Dockerfiles for Aiven Runtime<!-- --><!-- --><!-- -->
+
+Aiven Runtime automatically detects and analyzes Containerfiles and Dockerfiles in your repository to configure applications.
+
+It recognizes Containerfiles and Dockerfiles in the following formats:
+
+* `Containerfile`
+* `Dockerfile`
+* `Containerfile.*`
+* `Dockerfile.*`
+* `*.containerfile`
+* `*.dockerfile`
+
+Aiven automatically analyzes these files to parse instructions for things like port detection and environment variables.
+
+## Create a Containerfile or Dockerfile[​](#create-a-containerfile-or-dockerfile "Direct link to Create a Containerfile or Dockerfile")
+
+Containerfiles must start with a `FROM` instruction. This can come after optional parser directives, comments, and global `ARG` instructions.
+
+## Port Detection[​](#port-detection "Direct link to Port Detection")
+
+Port numbers are extracted from the `EXPOSE` instruction. The following are example instructions for exposing ports 8000 and 9090:
+
+```
+EXPOSE 8080
+
+EXPOSE 9090/tcp
+```
+
+## Environment Variables[​](#environment-variables "Direct link to Environment Variables")
+
+You can define environment variables using the `ENV` instruction. For example:
+
+```
+ENV NODE_ENV=production
+
+ENV DEBUG=true
+```
+
+When you set environment variables in both Containerfiles and Compose files, Aiven merges them with the following priority:
+
+1. Containerfile or Dockerfile environment variables are merged first, preserving their order.
+2. Compose file environment variables override any Containerfile or Dockerfile variables with the same key.
+3. Variables that are only in the Compose file are added at the end.
+
+Keys managed by service integrations are excluded.
+
+## Other commands and best practices[​](#other-commands-and-best-practices "Direct link to Other commands and best practices")
+
+Details on commands and recommendations for creating Dockerfiles are available in Docker's documentation for [building best practices](https://docs.docker.com/build/building/best-practices/).
+
+## Examples[​](#examples "Direct link to Examples")
+
+### Single application example[​](#single-application-example "Direct link to Single application example")
+
+The following example defines a simple web application using a Containerfile:
+
+```
+FROM node:18-alpine
+
+
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+
+
+COPY . .
+
+EXPOSE 3000             # Port
+
+ENV NODE_ENV=production # Environment variable
+
+
+
+CMD ["npm", "start"]
+```
+
+### Multi-stage build examples[​](#multi-stage-build-examples "Direct link to Multi-stage build examples")
+
+#### Node.js application with Nginx[​](#nodejs-application-with-nginx "Direct link to Node.js application with Nginx")
+
+The following example demonstrates a multi-stage build that compiles a Node.js application and serves it with Nginx, exposing both HTTP and HTTPS ports:
+
+```
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+
+
+FROM nginx:alpine
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80              # HTTP port
+
+EXPOSE 443             # HTTPS port
+
+ENV NGINX_PORT=80
+```
+
+#### Java application with custom JRE[​](#java-application-with-custom-jre "Direct link to Java application with custom JRE")
+
+The following is from the [anomaly detection example](https://github.com/Aiven-Labs/anomaly-detection-example) and demonstrates a multi-stage build that compiles a Java application and serves it with a custom JRE:
+
+```
+# --- Set ARG values for use in the following build stages
+
+# This value specifies the app to build
+
+ARG APP_NAME="AnomalyDetectorApp"
+
+
+
+# --- First stage: Get the app, work out its dependencies, create a JRE
+
+FROM gradle:9.3.0-jdk25-noble AS builder
+
+
+
+WORKDIR /app
+
+
+
+# ARG values do not persist over FROM boundaries
+
+# Explicitly reference it again to make it available
+
+ARG APP_NAME
+
+
+
+ENV APP_NAME="AnomalyDetectorApp"
+
+
+
+# Copy the gradle build environment over
+
+RUN mkdir app
+
+COPY app ./app/
+
+
+
+RUN mkdir gradle
+
+COPY gradle ./gradle/
+
+
+
+COPY settings.gradle ./
+
+
+
+# Copy the run scripts for stage 2
+
+COPY run.sh ./
+
+COPY setup_auth.sh ./
+
+
+
+# Start by building the app as a fat (uber) JAR
+
+# This gives us a smaller executable in stage 2
+
+RUN gradle clean ${APP_NAME}UberJar --no-daemon
+
+
+
+ENV FAT_JAR_NAME=${APP_NAME}-uber.jar
+
+RUN cp app/build/libs/$FAT_JAR_NAME ./
+
+
+
+# Unpack the contents of the fat JAR
+
+RUN mkdir temp && cd temp && jar xf ../$FAT_JAR_NAME
+
+# Identify the dependencies to get from the external Java environment
+
+RUN jdeps --print-module-deps \
+
+    --ignore-missing-deps \
+
+    --recursive \
+
+    --multi-release 17 \
+
+    --class-path="./temp/BOOT-INF/lib/*" \
+
+    --module-path="./temp/BOOT-INF/lib/*" \
+
+    ./$FAT_JAR_NAME > modules.txt
+
+
+
+# Assemble custom JRE with only those things in it
+
+RUN $JAVA_HOME/bin/jlink \
+
+    --verbose \
+
+    --add-modules $(cat modules.txt) \
+
+    --strip-debug \
+
+    --no-man-pages \
+
+    --no-header-files \
+
+    --compress=zip-6 \
+
+    --output ./custom-jre
+
+
+
+# ----------------------------------------------------------------------------
+
+# --- Second stage: Run the actual image
+
+# Use the smallest base image possible (alpine)
+
+FROM debian:bookworm-slim
+
+
+
+WORKDIR /app
+
+
+
+# Install openssl (for run.sh) and RocksDB library (for Kafka Streams)
+
+RUN apt-get update \
+
+    && apt-get install -y librocksdb7.8
+
+
+
+RUN apt-get autoremove -y \
+
+    && apt-get clean -y \
+
+    && apt-get autoclean -y \
+
+    && rm -rf /var/lib/apt/lists/*
+
+
+
+# Get the ARG value to make it available in this stage
+
+ARG APP_NAME
+
+# Set an ENV value to that value
+
+ENV APP_NAME=$APP_NAME
+
+
+
+# Copy the custom JRE and application artifacts from the builder stage
+
+COPY --from=builder /app/custom-jre /usr/lib/jvm/custom-jre
+
+COPY --from=builder /app/$APP_NAME-uber.jar ./
+
+COPY --from=builder /app/setup_auth.sh ./
+
+COPY --from=builder /app/run.sh ./
+
+
+
+ENV JAVA_HOME="/usr/lib/jvm/custom-jre"
+
+ENV PATH="$JAVA_HOME/bin:$PATH"
+
+
+
+# Copy the entrypoint script and make it executable
+
+COPY run.sh ./
+
+RUN chmod +x ./run.sh
+
+RUN chmod +x ./setup_auth.sh
+
+
+
+# Set the custom entrypoint
+
+CMD [ "./run.sh" ]
+```
+
+
+---
+
+## Connect services to Aiven Runtime
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Connect services to Aiven Runtime<!-- --><!-- --><!-- -->
+
+Connect your deployed application to [Aiven services](/docs/products/services.md). You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for OpenSearch®, or Aiven for Valkey™ service.
+
+You can also define integrations when you create your application by using [Compose files](/docs/products/runtime/manifest-files/compose-files.md).
+
+note
+
+An Aiven Runtime application cannot be integrated with another Runtime application.
+
+## Connect an Aiven service[​](#connect-an-aiven-service "Direct link to Connect an Aiven service")
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. In the **Connected services** section, click **Connect service**.
+4. Select the service to connect.
+5. Click **Connect**.
+
+## Connect a Karapace schema registry[​](#connect-a-karapace-schema-registry "Direct link to Connect a Karapace schema registry")
+
+To connect services that are integrated with your application to a Karapace schema registry:
+
+* Connect the application to the Aiven for Apache Kafka® service.
+* Add the schema registry connection details as environment variables.
+
+### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* An Aiven for Apache Kafka® service with the [Karapace schema registry enabled](/docs/products/kafka/karapace/howto/enable-karapace.md).
+* [The connection details](/docs/products/kafka/howto/use-schema-registry-in-java.md#get-connection-details) for the schema registry.
+
+### Connect a schema registry during application creation[​](#connect-a-schema-registry-during-application-creation "Direct link to Connect a schema registry during application creation")
+
+1. In your project, click **Runtime**.
+2. Click **Deploy application**.
+3. Select or connect your **GitHub account**.
+4. Select your **Account**, **Repository**, and **Branch**.
+5. Click **Next**.
+6. Select your manifest file and click **Scan**. Aiven Runtime automatically detects what applications and services are needed.
+7. On the Kafka service, click **Swap with an existing service**.
+8. Select the Kafka service you created and click **Apply**.
+9. To configure the integration with the schema registry, click **Configure** and add the connection details as environment variables.
+10. To deploy the application, click **Deploy**.
+
+### Connect a schema registry to an existing application[​](#connect-a-schema-registry-to-an-existing-application "Direct link to Connect a schema registry to an existing application")
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. In the **Environment variables** section, click **Edit**.
+4. On the **Variables** tab, add the connection details as environment variables.
+5. Click **Save**.
+
+## Disconnect an Aiven service[​](#disconnect-an-aiven-service "Direct link to Disconnect an Aiven service")
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. In the **Connected services** section, find the service to disconnect.
+4. Click **Actions** > **Disconnect service**.
+5. Click **Disconnect** to confirm.
+
+## Apply database schema changes[​](#apply-database-schema-changes "Direct link to Apply database schema changes")
+
+Aiven Runtime does not automatically support pre-deploy commands or one-off task execution. To run database schema migrations, you can do one of the following:
+
+* **Run migrations at container startup**: You can update the `CMD` or entrypoint of your Containerfile or Dockerfile so that the database schema changes are applied every time the container starts up.
+
+* **Run migrations in CI/CD before deploying**: If you use a CI/CD pipeline, you can run migrations as a pipeline step before [deployment](/docs/products/runtime/deploy-apps.md#redeploy-an-application).
+
+
+---
+
+## Manage ports for Aiven Runtime
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manage ports for Aiven Runtime<!-- --><!-- --><!-- -->
+
+To make your application available on public networks, you can configure it to listen on ports for HTTP/S traffic. Public ports allow traffic between your application and clients on the internet such as browsers. You cannot use the following TCP destination ports for outbound connections from your application:
+
+* 23
+* 25
+* 119
+* 135
+* 137
+* 138
+* 139
+* 179
+* 445
+* 465
+* 631
+
+The domain name for your application is in the **Connection information** section for the application.
+
+## Add ports to an application[​](#add-ports-to-an-application "Direct link to Add ports to an application")
+
+To expose ports for an existing application:
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. In the **Connection information** section, click **Edit ports**.
+4. Click **Add port**.
+5. Enter port number and name.
+6. Click **Save**.
+
+## Change or remove exposed ports[​](#change-or-remove-exposed-ports "Direct link to Change or remove exposed ports")
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. In the **Connection information** section, click **Edit ports**.
+4. Edit the ports. To delete a port, click .
+5. Click **Save**.
+
+
+---
+
+## Manage secrets and environment variables for Aiven Runtime
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manage secrets and environment variables for Aiven Runtime<!-- --><!-- --><!-- -->
+
+Environment variables and secrets let you configure your application at runtime instead of embedding settings and sensitive information into your code. You can use them to pass information like API keys and database connection details to the application. This keeps sensitive data safe and makes it easy to adjust how your application behaves in different setups.
+
+When you edit secrets and environment variables, Aiven redeploys your application with the new configuration. It deploys the same commit from your Git branch that was deployed previously. To deploy the latest commit, you can manually [redeploy your app](/docs/products/runtime/deploy-apps.md#redeploy-an-application).
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. On the **Overview** page, go to **Environment variables**.
+4. Click **Edit**.
+5. To add a secret, on the **Secrets** tab, click **Add secret**. To add an environment variable, on the **Variables** tab, click **Add variable**.
+6. Click **Save**.
+
+
+---
+
+## Change branch
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Change branch<!-- --><!-- --><!-- -->
+
+You can change your application's branch at any time. Changing the branch triggers a redeployment of the selected branch's latest commit.
+
+To change the branch:
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. In the **Deployment configuration** section, click **Edit**.
+4. Edit the branch and click **Save changes**.
+
+
+---
+
+## Change application plan for Aiven Runtime
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/runtime/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Change application plan for Aiven Runtime<!-- --><!-- --><!-- -->
+
+Adjust the plan of your applications at any time to scale them and optimize costs.
+
+When you change an application plan, the currently running commit is redeployed. Service plans for the connected services do not change. You can [change the service plans](/docs/platform/howto/scale-services.md) for each service separately.
+
+To change your application's plan:
+
+1. In your project, click **Runtime**.
+2. Open your application.
+3. In the **Application plan usage** section, click **Change plan**.
+4. Select a tier, cloud, and plan.
+5. Click **Change**.
+
+
+---

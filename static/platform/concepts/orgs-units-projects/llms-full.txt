@@ -1,0 +1,593 @@
+# Organizations, units, and projects
+
+> The Aiven Platform uses organizations, organizational units, and projects to efficiently and securely organize your services and manage access.
+
+> Links below point to Markdown versions of each page in this section.
+> For the full text of these pages, see [llms-full.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms-full.txt).
+> For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+## Overview
+
+- [Organizations, units, and projects](https://aiven.io/docs/platform/concepts/orgs-units-projects.md): The Aiven Platform uses organizations, organizational units, and projects to efficiently and securely organize your services and manage access.
+- [Track your carbon footprint](https://aiven.io/docs/platform/concepts/carbon-footprint.md): The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage in your organization to help you monitor and reduce your emissions.
+
+## Organizations and units
+
+- [Create organizations and organizational units](https://aiven.io/docs/tools/aiven-console/howto/create-orgs-and-units.md): Organizations and organizational units help you group projects and apply common settings like authentication and access.
+- [Manage organizations](https://aiven.io/docs/platform/howto/manage-organizations.md): Learn how to manage your organizations via the Aiven Console.
+- [View event logs for organizations and organizational units](https://aiven.io/docs/platform/howto/view-organization-logs.md): Monitor activity in your Aiven organization with the organization and organizational unit event logs.
+
+## Projects
+
+- [Manage projects](https://aiven.io/docs/platform/howto/manage-project.md): Projects help you organize your Aiven services and centrally configure settings for all services in the project. You can create projects in your organization or its organizational units.
+- [Manage project and service notifications](https://aiven.io/docs/platform/howto/technical-emails.md): To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications. Notifications include information about plan sizes, performance,…
+- [View project logs](https://aiven.io/docs/platform/howto/view-project-logs.md): Monitor activity in your Aiven projects with the project event log.
+- [Manage unassigned projects](https://aiven.io/docs/platform/howto/manage-unassigned-projects.md): An unassigned project is a project that isn't assigned to an organization or organizational unit. Projects that are part of an organization or unit are easier to maintain as common settings, like authentication, are…
+
+---
+
+# Organizations, units, and projects (full content)
+
+The following pages are the Markdown content for this section only.
+
+## Organizations, units, and projects
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Organizations, units, and projects<!-- --><!-- --><!-- -->
+
+The Aiven Platform uses organizations, organizational units, and projects to efficiently and securely organize your services and manage access.
+
+There are three levels in this hierarchy:
+
+* **Organization**: Contains all your projects and services. It's recommended to have one Aiven organization.
+* **Organizational units**: Added to the organization, units give you greater flexibility to organize your infrastructure based on your specific use cases. For example, you can split production and testing workloads into different organizational units.
+* **Projects**: Created in the organization or organizational units to group your services together.
+
+## Organizations[​](#organizations "Direct link to Organizations")
+
+When you sign up to Aiven, an organization is created for you. You can use your organization to create a hierarchical structure that fits your needs.
+
+![Hierarchy showing two organizational units, each with two projects, nested within one organization.](/docs/assets/images/organizations-hierarchy-52524611c731c8b24097d24a17344071.png)
+
+Organizations also let you centrally manage settings like:
+
+* [Billing information](/docs/platform/concepts/billing-and-payment.md): Managed only at the organization level, you can use billing groups across all projects in the organization and its units. You can't share billing information between organizations.
+* [Users](/docs/platform/concepts/user-access-management.md) and [groups](/docs/platform/howto/manage-groups.md): Managed at the organization level.
+* [Permissions and roles](/docs/platform/concepts/permissions.md) Grant users and groups access to resources at the organization, unit, and project level.
+* [Domains](/docs/platform/howto/manage-domains.md) and [identity providers (IdPs)](/docs/platform/howto/saml/add-identity-providers.md): Only available at the organization level, verified domains and IdPs provide greater control and security for your organization's resources.
+* [Authentication policy](/docs/platform/howto/set-authentication-policies.md): Managed at the organization level, letting you control how users access your organization on the Aiven Platform.
+* [Support tiers](/docs/platform/howto/support.md): Specific to a single organization and applied to all units, projects, and services within that organization. They cannot be shared between organizations.
+* Access control lists (ACLs): Available on the organization, organizational unit, and project level.
+  <!-- -->
+  * ACLs for service plans are inherited, meaning all projects within an organization or organizational unit have the same service plan.
+
+## Organizational units[​](#organizational-units "Direct link to Organizational units")
+
+Organizational units are collections of projects. Customers often use these to group projects based on things like:
+
+* Departments in their company like finance, marketing, and engineering.
+* Environments such as development, testing, and production.
+
+You can create as many units as you need in your organization, but you cannot nest units within other units. You can grant access to units and their resources by assigning [roles and permissions](/docs/platform/concepts/permissions.md) at the organizational unit level. You cannot configure things like verified domains or billing at the unit level.
+
+## Projects[​](#projects "Direct link to Projects")
+
+Projects are collections of services. You can [create projects](/docs/platform/howto/manage-project.md) in an organization or in organizational units.
+
+Projects help you group your services based on your organization's structure or processes. You can grant access to projects and their resources using project-level [roles and permissions](/docs/platform/concepts/permissions.md). They also let you apply uniform network security settings across all services within the project. The following are some examples of how customers organize their services:
+
+* Single project: One project containing services that are distinguished by their names. For example, services have names based on the type of environment: `demo_pg_project.postgres-prod` and `demo_pg_project.postgres-staging`.
+* Environment-based projects: Each project represents a deployment environment, for example: `dev`, `qa`, and `production`. This can make it easier to apply uniform user permissions, such as developer access to production infrastructure.
+* Project-based projects: Each project contains all the services for an internal project, with naming that highlights the relevant environment. For example: `customer-success-prod` and `business-analytics-test`.
+
+## Best practices for organizations[​](#best-practices-for-organizations "Direct link to Best practices for organizations")
+
+### Small organizations[​](#small-organizations "Direct link to Small organizations")
+
+For smaller organizations that have a limited number of projects and services, it's recommended to consolidate all your projects within one organization. This makes it easier for your teams to navigate between projects and services.
+
+Good naming conventions also help with finding projects and services. For example, you can include the environment type like `dev` or `prod` at the beginning of project names.
+
+Use project-level permissions to grant access to only those users who need access to those services.
+
+### Medium-sized organizations[​](#medium-sized-organizations "Direct link to Medium-sized organizations")
+
+For more complex cases, take advantage of the organizational units to group related projects.
+
+You can, for example, group projects into units that correspond to your internal departments. Alternatively, you can group them by categories like testing, staging, and production environments.
+
+Create user groups and assign permissions to the groups at the unit or project level.
+
+### Large organizations[​](#large-organizations "Direct link to Large organizations")
+
+Keep all projects in organizational units instead of the organization. Use clear naming conventions for the units and projects.
+
+Add all users to groups that represent similar roles and, therefore, similar access needs. Assign permissions and roles at the project level where possible and the unit level where necessary. Restrict the number of organization admin and users with organization-level roles and permissions. Use the granular billing permissions to give your finance team access to invoices without the ability to make changes to projects or services. Add your domain to your organization and configure other security settings like single sign-on and the authentication policy for your organization.
+
+For complex infrastructure, consider using the [Aiven Provider for Terraform](/docs/tools/terraform.md) to manage your organization and its resources.
+
+
+---
+
+## Create organizations and organizational units
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Create organizations and organizational units<!-- --><!-- --><!-- -->
+
+Organizations and organizational units help you group projects and apply common settings like authentication and access.
+
+When you sign up for Aiven, an organization is automatically created for you. You can add organizational units in your organization to group related projects and create custom [hierarchical organizations](/docs/platform/concepts/orgs-units-projects.md).
+
+## Create an organizational unit[​](#create-an-organizational-unit "Direct link to Create an organizational unit")
+
+You can create an organizational unit within an organization to group your projects by, for example, your departments or environments. Only one level of nesting is supported. This means that you can't create organizational units within other units.
+
+* Console
+* Terraform
+
+1. In the organization, click **Admin**.
+2. Click **Organization**.
+3. In the **Organizational units** section, click **Create organizational unit**.
+4. Enter a name for the unit.
+5. Click **Create organizational unit**.
+
+```
+Loading...
+```
+
+More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organizational_unit).
+
+## Create an organization[​](#create-an-organization "Direct link to Create an organization")
+
+important
+
+You can only verify a domain in one organization, meaning you can't set up SAML authentication, user provisioning with SCIM, or managed users for the same domain in another organization. Additionally, support and commitment contracts cannot be shared across organizations.
+
+When you create another organization you also have to manually configure all settings for the new organization such as:
+
+* billing groups
+* authentication policies
+* users and groups
+* roles and permissions
+
+- Console
+- Terraform
+
+note
+
+You cannot create an organization while logged in with an [identity provider](/docs/platform/howto/list-identity-providers.md). To create an organization, log in to the Aiven Console using another authentication method.
+
+1. Click **User information** > **Organizations**.
+2. Click **Create organization**.
+3. Enter a name for the organization.
+4. Optional: Select projects to assign to this organization.
+5. Click **Create organization**.
+
+note
+
+You cannot create an organization with a token that you created when you were logged in using an [identity provider](/docs/platform/howto/list-identity-providers.md).
+
+```
+Loading...
+```
+
+More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization).
+
+
+---
+
+## Manage organizations
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manage organizations<!-- --><!-- --><!-- -->
+
+Learn how to manage your organizations via the Aiven Console.
+
+## Delete an organization[​](#delete-an-organization "Direct link to Delete an organization")
+
+1. Delete all [projects](/docs/platform/howto/manage-project.md#delete-a-project) in the organization and in the organizational units.
+2. If you use a [marketplace subscription](/docs/platform/howto/list-marketplace-payments.md) to pay for your services, cancel the subscription in the marketplace.
+3. Click **Admin**.
+4. Click **Organization**.
+5. Open each organizational unit by clicking its name then click **Delete** to delete it.
+6. After all the organizational units have been deleted, on the **Organization** page click **Delete**.
+7. To confirm, click **Delete**.
+
+note
+
+Billing groups with trial credits and the organizations they are assigned to cannot be deleted. You can delete them after the trial period ends. To delete the billing group, organization, or your account during the trial period [contact Aiven support](/docs/platform/howto/support.md).
+
+## Rename an organization[​](#rename-an-organization "Direct link to Rename an organization")
+
+1. In the organization, click **Admin**.
+2. Click **Organization**.
+3. Click **Rename**.
+4. Select **Rename**.
+5. Enter the new name.
+6. Click **Rename**.
+
+## Leave an organization[​](#leave-an-organization "Direct link to Leave an organization")
+
+1. Go to **User information** > **Organizations**.
+2. Find the organization and click **Leave**.
+
+
+---
+
+## View event logs for organizations and organizational units
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# View event logs for organizations and organizational units<!-- --><!-- --><!-- -->
+
+Monitor activity in your Aiven organization with the organization and organizational unit event logs.
+
+To view logs at the organization level, you must be an organization admin or have the `organization:event_logs:read` [permission](/docs/platform/concepts/permissions.md).
+
+## View organization logs[​](#view-organization-logs "Direct link to View organization logs")
+
+1. In the organization, click **Admin**.
+2. Click **Organization**.
+3. In the organization details section, click **Events Log**.
+
+## View organizational unit logs[​](#view-organizational-unit-logs "Direct link to View organizational unit logs")
+
+1. In the organization, click **Admin**.
+2. Click **Organization**.
+3. In the **Organizational units** section, click the name of a unit.
+
+Related pages
+
+* [View project logs](/docs/platform/howto/view-project-logs.md)
+
+
+---
+
+## Manage projects
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manage projects<!-- --><!-- --><!-- -->
+
+Projects help you [organize your Aiven services](https://aiven.io/docs/platform/concepts/orgs-units-projects#projects) and centrally configure settings for all services in the project. You can create projects in your organization or its organizational units.
+
+## Create a project[​](#create-a-project "Direct link to Create a project")
+
+* Console
+* Terraform
+
+1. Click **Projects** and select **Create project**.
+2. Enter a name for the project.
+3. Select an organization or organizational unit to add the project to.
+4. Select a [billing group](/docs/platform/howto/use-billing-groups.md). The costs from all services in this project are charged to the payment method for this billing group.
+
+```
+Loading...
+```
+
+More information on this resource and its configuration options are available in the [Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project).
+
+## Tag a project[​](#tag-a-project "Direct link to Tag a project")
+
+* Console
+* Terraform
+
+1. In the project, click **Settings**.
+
+2. In the **Tags** section, click **Project** or **Billing**.
+
+   <!-- -->
+
+   * Billing tags are returned in the invoice API and displayed on PDF invoices for the project.
+   * Project tags are returned for resources in the API and displayed in the list of projects.
+
+3. Click **Add tags**.
+
+4. Enter a key and value for each tag.
+
+5. Click **Save changes**.
+
+To add billing and project tags, use the `tag` attribute in [your `aiven_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project#nestedblock--tag). For billing tags, prefix the `key` with `billing:`. For example: `key = "billing:PO"`.
+
+## Rename a project[​](#rename-a-project "Direct link to Rename a project")
+
+important
+
+The project name in your DNS records will not be updated.
+
+1. Power off all services in the project.
+
+   note
+
+   Except for Aiven for Apache Kafka®, all services have backups that are restored when you power them back on.
+
+2. In the project, click **Settings**.
+
+3. In the **Project settings**, edit the **Project name**.
+
+4. Click **Save changes**.
+
+## Move a project[​](#move-a-project "Direct link to Move a project")
+
+You can move a project to another organization or organizational unit. Users with the organization admin or project admin [role](/docs/platform/concepts/permissions.md#organization-roles-and-permissions) can move projects within an organization.
+
+note
+
+You cannot move a project to an Aiven organization on AWS Marketplace, Azure Marketplace, or Google Cloud Marketplace using the Aiven Console. To move to a marketplace, set up your organization and projects in the marketplace and [contact Aiven for help moving your services](/docs/platform/howto/list-marketplace-payments.md).
+
+To move a project to a different organization, you must be an organization admin of both organizations. All users with permission to access the project lose the permissions when you move it to a different organization unless they are members of the target organization.
+
+Services in the project continue running during the move.
+
+* Console
+* Terraform
+
+1. In the organization with the project, click **Admin**.
+2. Click **Projects** and find the project to move.
+3. Click > **Move project**.
+4. Select the organization or organizational unit to move the project to.
+5. Select a **Billing group**.
+6. Click **Next** and **Finish**.
+
+You can move a project to another organization or organizational unit by [updating your `aiven_project` or `aiven_organization_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/guides/move-projects).
+
+## Delete a project[​](#delete-a-project "Direct link to Delete a project")
+
+1. Delete all the services in the project.
+2. In the project, click **Settings**.
+3. Click **Delete** and **Confirm**.
+
+
+---
+
+## Manage project and service notifications
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manage project and service notifications<!-- --><!-- --><!-- -->
+
+To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications. Notifications include information about plan sizes, performance, outages, and scheduled maintenance.
+
+The default contacts for a project are the project admin and operators. You can also set the contacts to specific email addresses. Project contacts receive notifications about the project. They also receive the notifications for all services in the project, unless you set a separate service contact for a service.
+
+Service contacts by default are the project contacts. However, if you set other email addresses as service contacts for a service, notifications are sent only to the contacts for that specific service.
+
+Project and service contacts cannot unsubscribe from specific project or service notifications.
+
+## Set project contacts[​](#set-project-contacts "Direct link to Set project contacts")
+
+* Console
+* Terraform
+
+1. In the project, click **Settings**.
+2. On the **Notifications** tab, select the project contacts that you want to receive email notifications.
+3. Click **Save changes**.
+
+Use the `technical_emails` attribute in [your `aiven_project` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/project#technical_emails-1).
+
+## Set service contacts[​](#set-service-contacts "Direct link to Set service contacts")
+
+* Console
+* Terraform
+
+1. In the service, click **Service settings**.
+2. In the **Service status** section, open the menu in the top right and select **Change service contacts**.
+3. Select the contacts that should receive email notifications for this service.
+4. Click **Save**.
+
+Use the `tech_emails` attribute in [your service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
+
+## Set up Slack notifications[​](#set-up-slack-notifications "Direct link to Set up Slack notifications")
+
+To get notifications in Slack, you can add a Slack channel's or DM email address to the technical contacts for an Aiven project:
+
+1. In Slack, [create an email address for a channel or DM](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WDZG8RTCTNAMR4KJ7D419V).
+
+   note
+
+   If you don't see the email integrations option, ask the owner or admin of the workspace or organization to [allow incoming emails](https://slack.com/help/articles/360053335433-Manage-incoming-emails-for-your-workspace-or-organization).
+
+2. In the [Aiven Console](https://console.aiven.io/), go to the project or service.
+
+3. Set the Slack email address as a [project contact](/docs/platform/howto/technical-emails.md#set-project-contacts) or [service contact](/docs/platform/howto/technical-emails.md#set-service-contacts).
+
+Alternatively, you can [set up a Slackbot forwarding address](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WE06MBF06BBHQNZ1G0H2K5) and use to automatically forward Aiven's email notifications from your email client.
+
+
+---
+
+## View project logs
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# View project logs<!-- --><!-- --><!-- -->
+
+Monitor activity in your Aiven projects with the project event log.
+
+To view the project logs, you must be a project [Admin, Developer, or Operator](/docs/platform/concepts/permissions.md).
+
+To view the logs for a project:
+
+1. Click **Projects** and choose a project.
+2. Click **Event log**.
+
+Related pages
+
+* [View organization and unit logs](/docs/platform/howto/view-organization-logs.md)
+
+
+---
+
+## Manage unassigned projects
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manage unassigned projects<!-- --><!-- --><!-- -->
+
+An unassigned project is a project that isn't assigned to an organization or organizational unit. Projects that are part of an organization or unit are easier to maintain as common settings, like authentication, are centrally managed at the organization level. These projects also get the latest feature updates.
+
+Learn more about [organizations, organizational units, and projects](/docs/platform/concepts/orgs-units-projects.md).
+
+## Manage unassigned projects in Aiven Console[​](#manage-unassigned-projects-in-aiven-console "Direct link to Manage unassigned projects in Aiven Console")
+
+### Assign projects to an organization or unit[​](#assign-projects-to-an-organization-or-unit "Direct link to Assign projects to an organization or unit")
+
+note
+
+If you don't have an organization, [create one](/docs/platform/howto/manage-unassigned-projects.md#create-org).
+
+To assign standalone projects to an organization or unit in the [Aiven Console](https://console.aiven.io/):
+
+1. Click **Projects**.
+
+2. Click **View unassigned projects** to list all projects unassigned to an organization or organizational unit.
+
+   note
+
+   If you don't see **View unassigned projects** in the dropdown menu, you don't have any unassigned projects.
+
+3. On the **Unassigned projects** page, click **Assign project** for a project to assign.
+
+4. Add any other projects to assign to the same organization or unit.
+
+5. Select the organization or organizational unit.
+
+6. Click **Assign projects**.
+
+### Create an organization[​](#create-org "Direct link to Create an organization")
+
+Projects must be assigned to organizations or units. We recommend using only one organization and creating organizational units to group your projects.
+
+To create an organization:
+
+1. At the top-right side, click **Create organization**.
+
+2. Enter a name for the organization.
+
+3. Select the projects to assign to this organization. You can search for projects by name.
+
+4. To invite admin users to the organization, set the toggle to **Yes** and enter their email addresses. They will receive an email to join the organization.
+
+   important
+
+   When admin users accept the invitation, they have full control over the organization and the projects assigned to it.
+
+5. Click **Create organization**.
+
+The **Admin** page opens, where you can add organizational units, and manage users, groups, and other settings.
+
+## Manage unassigned projects with the API[​](#manage-unassigned-projects-with-the-api "Direct link to Manage unassigned projects with the API")
+
+### List unassigned projects[​](#list-unassigned-projects "Direct link to List unassigned projects")
+
+To list the names of all unassigned projects use the following:
+
+```
+curl -sXGET \
+
+ https://api.aiven.io/v1/project \
+
+ -H "Authorization: Bearer TOKEN" | jq -r '.projects[] | select(.account_id==null) | .project_name'
+```
+
+### Assign standalone projects to an organization or unit programmatically[​](#assign-proj-api "Direct link to Assign standalone projects to an organization or unit programmatically")
+
+note
+
+If you don't have an organization, [create an organization](/docs/platform/howto/manage-unassigned-projects.md#create-org-api) first and assign your projects to it.
+
+To assign a standalone project to an organization or unit use the following call:
+
+```
+curl -sXPUT \
+
+  https://api.aiven.io/v1/project/PROJECT_NAME \
+
+  -H "Authorization: Bearer TOKEN" \
+
+  -H 'content-type: application/json' \
+
+  --data-raw '{"account_id":"ACCOUNT_ID","add_account_owners_admin_access":true}'
+```
+
+Where:
+
+* `ACCOUNT_ID` is the ID of the organization or unit.
+* `PROJECT_NAME` is the name of the project to assign.
+
+### Create an organization programmatically[​](#create-org-api "Direct link to Create an organization programmatically")
+
+To create an organization use the following call:
+
+```
+curl -sXPOST \
+
+ https://api.aiven.io/v1/account \
+
+ -H "Authorization: Bearer TOKEN" \
+
+ -H 'content-type: application/json' \
+
+ --data '{"account_name":"ORG_NAME"}' | jq
+```
+
+Where:
+
+* `ORG_NAME` is the name of your new organization.
+
+
+---
+
+## Track your carbon footprint
+
+> For this section, see [llms.txt](https://aiven.io/docs/platform/concepts/orgs-units-projects/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Track your carbon footprint<!-- --><!-- --><!-- -->
+
+The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage in your organization to help you monitor and reduce your emissions.
+
+The estimates are powered by [OxygenIT](https://www.oxygenit.io), a European climate-tech company that measures and optimizes IT and cloud emissions. OxygenIT works with hyperscalers, cloud providers, and enterprises to improve transparency and efficiency.
+
+Emissions are calculated for services in AWS, Microsoft Azure, and Google Cloud. Services in other cloud providers are not included in the estimates.
+
+Emissions are measured in metric tons of carbon dioxide-equivalent, which includes multiple greenhouse gasses. OxygenIT uses region-specific electricity data from each data center's energy mix and hardware efficiency metrics. The estimates follow recognized methodologies from frameworks like the Cloud Carbon Footprint and the Green Software Foundation.
+
+The estimates are not direct measurements of actual emissions. Use these estimates for internal monitoring to track trends and identify optimization opportunities, not for external assurance or regulatory reporting.
+
+## Data privacy[​](#data-privacy "Direct link to Data privacy")
+
+All computations are done within Aiven’s environment using anonymized usage data such as CPU, storage, network, and memory for each of your active services.
+
+No data is transferred to OxygenIT. Aiven processes all data in compliance with GDPR and contractual data protection terms between Aiven and OxygenIT.
+
+## View carbon emissions data[​](#view-carbon-emissions-data "Direct link to View carbon emissions data")
+
+You have the [`organization:sustainability:read` permission](/docs/platform/concepts/permissions.md#organization-roles-and-permissions) to access this feature.
+
+1. In your organization, click **Admin**.
+2. Click **Carbon footprint**.
+
+In the **Carbon emissions explorer**, you can filter the data by:
+
+* **Time range**: View emissions for a predefined range or choose a custom date range.
+* **Billing groups**: View emissions for all services in the projects assigned to a specific billing group.
+* **Projects**: View emissions for all services in a specific project.
+
+## Reduce your carbon footprint[​](#reduce-your-carbon-footprint "Direct link to Reduce your carbon footprint")
+
+Emissions estimates are based on the actual use of your Aiven services and the energy mix in each cloud region. Compute time, storage, network traffic, and data center efficiency affect energy consumption.
+
+Changes in workloads or cloud regions impact your footprint. Electricity from high-emission sources like coal and extended service use increase your carbon footprint.
+
+To reduce your carbon footprint, you can:
+
+* Optimize resource usage by scaling down unused services.
+* Choose greener regions powered by renewable energy.
+* Use tiered storage and more aggressive caching.
+* Use [disk autoscaler](/docs/platform/howto/disk-autoscaler.md#why-use-disk-autoscaling) to increase storage only when needed.
+
+
+---

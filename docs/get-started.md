@@ -6,7 +6,6 @@ sidebar_label: Get started
 import Button from "@site/src/components/Buttons";
 import {ButtonSecondary} from "@site/src/components/Buttons";
 import Card from "@site/src/components/Card";
-import Marketecture from "@site/static/images/content/platform/Marketecture Master EDIT.svg";
 import GridContainer from "@site/src/components/GridContainer";
 import AI from "@site/static/images/logos/star-ai.svg";
 import K8sIcon from "@site/static/images/logos/kubernetes.svg";
@@ -21,13 +20,6 @@ The Aiven Platform streamlines your operations by centralizing your cloud infras
 security, and observability in one unified control plane. You can access the platform
 through the Aiven Console, Aiven API, Aiven Provider for Terraform, Aiven CLI, and
 Aiven Operator for Kubernetes®.
-
-<Marketecture
-  className="centered"
-  width="54%"
-  role="img"
-  aria-label="Illustration of the platform"
-/>
 
 ## Try the Aiven Platform for free
 
@@ -246,7 +238,7 @@ Start deploying services in your project to stream, store, or analyze your data.
       to="/docs/products/services"
       iconName="book"
       title="View all services"
-      description="Choose a service to learn more about it."
+      description="Follow the get started guide for the managed services to learn more about it."
   />
 </GridContainer>
 
@@ -254,11 +246,11 @@ Start deploying services in your project to stream, store, or analyze your data.
 
 The get started guide for each [service](https://aiven.io/docs/products/services)
 includes examples for creating a service using the
-[Aiven Provider for Terraform](/docs/tools/terraform).
+Aiven Provider for Terraform.
 
 You can try out more service and integration examples using code samples for the
 Aiven Terraform Provider or
-[Aiven Operator for Kubernetes®](/docs/tools/kubernetes).
+Aiven Operator for Kubernetes®.
 
 <GridContainer columns={2}>
      <Card
@@ -289,14 +281,13 @@ Create a service using the Aiven CLI or API.
     />
 </GridContainer>
 
-Create and manage services using AI assistants.
+Create and manage services using AI assistants like Claude and Cursor.
 
 <GridContainer columns={2}>
     <Card
       to="/docs/tools/mcp-server"
       iconComponent={AI}
       title="Aiven MCP"
-      description="Create and manage services using AI assistants like Claude and Cursor."
     />
 </GridContainer>
 
@@ -309,11 +300,7 @@ when they sign up and start using services.
 ## Next steps
 
 <GridContainer columns={3}>
-     <Card
-      to="/docs/tools/aiven-console"
-      iconName="book"
-      title="Explore Aiven Console"
-    />
+
     <Card
       to="/docs/platform/concepts/cloud-security"
       iconName="book"

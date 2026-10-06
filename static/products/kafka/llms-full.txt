@@ -1,0 +1,1262 @@
+# Aiven for Apache Kafka®
+
+> Aiven for Apache Kafka® is a fully managed Apache Kafka service for building event-driven applications, data pipelines, and stream processing systems.
+
+> Links below point to Markdown versions of each page in this section.
+> For the full text of these pages, see [llms-full.txt](https://aiven.io/docs/products/kafka/llms-full.txt).
+> For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+## Overview
+
+- [Aiven for Apache Kafka®](https://aiven.io/docs/products/kafka.md): Aiven for Apache Kafka® is a fully managed Apache Kafka service for building event-driven applications, data pipelines, and stream processing systems.
+- [Pricing for Aiven for Apache Kafka®](https://aiven.io/docs/products/kafka/concepts/kafka-pricing.md): You pay for the Kafka service plan, retained data, and traffic through your topics. Aiven bills these as compute, storage, and network usage.
+
+## Get started
+
+- [Get started with Aiven for Apache Kafka®](https://aiven.io/docs/products/kafka/get-started/get-started-kafka.md): Create a managed Apache Kafka® service on Aiven. Choose the tier and deployment model that fit your workload, then send sample data to verify end-to-end streaming.
+- [Aiven for Apache Kafka® free tier](https://aiven.io/docs/products/kafka/free-tier/kafka-free-tier.md): Get started with Apache Kafka® at no cost. The Aiven for Apache Kafka® free tier is a fully managed service for learning, prototyping, and evaluation. No credit card is required.
+- [Aiven for Apache Kafka® Developer tier](https://aiven.io/docs/products/kafka/dev-tier/kafka-dev-tier.md): Aiven for Apache Kafka® Developer tier is a paid service tier for Classic Kafka that sits between the Free tier and Professional tier. Use it for development, prototyping, testing, or production workloads that need…
+- [Aiven for Apache Kafka® Professional tier](https://aiven.io/docs/products/kafka/get-started/professional-tier.md): The Professional tier is for production and workload-heavy Aiven for Apache Kafka® services. Create the service on Aiven Cloud or in your own cloud account with Bring Your Own Cloud (BYOC).
+
+## Connect to service
+
+- [Connect to Aiven for Apache Kafka® with Python](https://aiven.io/docs/products/kafka/howto/connect-with-python.md): Use **Quick connect** to set up a Python client for Aiven for Apache Kafka®. The guided flow helps you select or create a topic, choose an authentication method, grant permissions, and copy generated producer and…
+- [Connect to Aiven for Apache Kafka® with Java](https://aiven.io/docs/products/kafka/howto/connect-with-java.md): Use **Quick connect** to set up a Java client for Aiven for Apache Kafka®. The guided flow helps you choose or create a topic, choose an authentication method, grant permissions, and copy generated producer and…
+- [Connect to Aiven for Apache Kafka® with Go](https://aiven.io/docs/products/kafka/howto/connect-with-go.md): Use **Quick connect** to set up a Go client for Aiven for Apache Kafka®. The guided flow helps you choose or create a topic, choose an authentication method, grant permissions, and copy generated producer and consumer…
+
+## Topics
+
+- [Create Apache Kafka® topics](https://aiven.io/docs/products/kafka/howto/create-topic.md): Create topics in your Aiven for Apache Kafka® service to organize message streams between producers and consumers.
+- [Change data retention period](https://aiven.io/docs/products/kafka/howto/change-retention-period.md): To avoid running out of disk space, by default, Apache Kafka® drops the oldest messages from the beginning of each log after their retention period expires. **Aiven for Apache Kafka®** allows you to configure the…
+
+## Service management
+
+- [Power on/off and delete your Aiven for Apache Kafka® service](https://aiven.io/docs/products/kafka/howto/power-cycle-service.md): Power off your Aiven for Apache Kafka® service to release resources and save credits, power it back on when you need it, or delete it permanently.
+- [Tag your Aiven for Apache Kafka® service](https://aiven.io/docs/products/kafka/howto/tag-service.md): Add key-value tags to your Aiven for Apache Kafka® service to organize services and track ownership, cost allocation, and governance.
+- [Manage Apache Kafka® parameters](https://aiven.io/docs/products/kafka/howto/set-kafka-parameters.md): Every Aiven for Apache Kafka® service comes with a set of configuration properties that define values like partition count, replication factor, retention time, whether an automatic topic creation is enabled or not and…
+
+---
+
+# Aiven for Apache Kafka® (full content)
+
+The following pages are the Markdown content for this section only.
+
+## Aiven for Apache Kafka®
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Aiven for Apache Kafka®<!-- --><!-- --><!-- -->
+
+Aiven for Apache Kafka® is a fully managed Apache Kafka service for building event-driven applications, data pipelines, and stream processing systems.
+
+tip
+
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server.md) to create Kafka services, manage topics, and view cluster details from clients such as Cursor and Claude Code.
+
+You create Kafka services as **Standard Kafka** or **Classic Kafka**. New customers create Standard Kafka services. Classic Kafka remains available for existing customers. Free and Developer tier services use Classic Kafka.
+
+* [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview.md): diskless topics, object storage, and usage-based sizing on Aiven Cloud
+* [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview.md): fixed plans, local broker storage, optional tiered storage, and BYOC
+
+## Service tiers and deployment models[​](#service-tiers-and-deployment-models "Direct link to Service tiers and deployment models")
+
+* **Free**: Evaluate and experiment with limited throughput and storage.
+* **Developer**: A paid Classic Kafka tier between Free and Professional, with higher limits than Free and optional Kafka Connect billed separately.
+* **Professional**: Production workloads, with Kafka Connect on Standard and Classic Kafka services (plan-dependent).
+
+Kafka services run on **Aiven Cloud** or **Bring Your Own Cloud (BYOC)**. Standard Kafka is available on Aiven Cloud only. On BYOC, Classic Kafka is available, with diskless topics as an optional add-on.
+
+## Replication with MirrorMaker 2[​](#replication-with-mirrormaker-2 "Direct link to Replication with MirrorMaker 2")
+
+Aiven for Apache Kafka® MirrorMaker 2 provides managed replication between Kafka clusters, regions, or cloud providers, including between Standard Kafka and Classic Kafka services. Use it for migration, disaster recovery, and multi-region architectures.
+
+## Data integration with Kafka Connect[​](#data-integration-with-kafka-connect "Direct link to Data integration with Kafka Connect")
+
+Aiven for Apache Kafka® Connect provides managed source and sink connectors. On Classic Kafka, Kafka Connect is optional on the Developer tier (billed separately) and supported on the Professional tier. On Standard Kafka, Kafka Connect is available on the Professional tier.
+
+## Get started[​](#get-started "Direct link to Get started")
+
+* [Get started with Aiven for Apache Kafka®](/docs/products/kafka/get-started/get-started-kafka.md)
+* [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service.md)
+* [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc.md)
+* [Create Kafka topics](/docs/products/kafka/howto/create-topic.md)
+* [Generate sample data](/docs/products/kafka/howto/generate-sample-data.md)
+* [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview.md)
+
+
+---
+
+## Get started with Aiven for Apache Kafka®
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Get started with Aiven for Apache Kafka®<!-- --><!-- --><!-- -->
+
+Create a managed Apache Kafka® service on Aiven. Choose the tier and deployment model that fit your workload, then send sample data to verify end-to-end streaming.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* Create an Aiven account and sign in to the [Aiven Console](https://console.aiven.io).
+* Create or select an Aiven project with permission to create services.
+
+## Choose your path[​](#choose-your-path "Direct link to Choose your path")
+
+Choose a path based on your workload and deployment needs:
+
+* Start with [Free tier](#free-tier) for no-cost, low-throughput Kafka workloads.
+* Use [Developer tier](#developer-tier) for paid development and smaller production workloads.
+* Use [Professional tier](#professional-tier) for production workloads on Aiven Cloud or Bring Your Own Cloud.
+* Use [Skills](#set-up-a-kafka-service-using-skills) for command-line setup and configuration.
+
+## Free tier[​](#free-tier "Direct link to Free tier")
+
+The Free tier provides a fully managed Kafka service with limited resources. For limits, regions, and supported features, see the [Free tier overview](/docs/products/kafka/free-tier/kafka-free-tier.md).
+
+* No payment method is required.
+* Fixed resource limits support low-throughput workloads.
+* Basic Kafka workflows are supported, including service creation and sample data generation.
+
+**Continue with:** [Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service.md).
+
+## Developer tier[​](#developer-tier "Direct link to Developer tier")
+
+The Developer tier is a paid service tier for Classic Kafka. It sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier.md) and Professional tier. Use it for development, prototyping, testing, or production workloads. It provides more capacity and paid-only features than the Free tier.
+
+For limits, pricing, Karapace, Connect, integrations, and upgrades, see [Aiven for Apache Kafka® Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier.md). Manage the service in the console, CLI, API, or with [Skills](/docs/products/kafka/howto/set-up-kafka-with-skills.md).
+
+**Continue with:** [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service.md).
+
+## Professional tier[​](#professional-tier "Direct link to Professional tier")
+
+The Professional tier is for production and workload-heavy environments. Create the service on Aiven Cloud, or in your own cloud account with BYOC.
+
+For deployment options and service types, see [Aiven for Apache Kafka® Professional tier](/docs/products/kafka/get-started/professional-tier.md).
+
+**Continue with:**
+
+* [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service.md)
+* [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc.md)
+
+## Set up a Kafka service using Skills[​](#set-up-a-kafka-service-using-skills "Direct link to Set up a Kafka service using Skills")
+
+Use Skills to create and configure a Kafka service from the command line.
+
+Install the Aiven Skills bundle:
+
+```
+npx skills add Aiven-Open/aiven-skills-bundle
+```
+
+To run this command, make sure you have the following:
+
+* [Aiven CLI](/docs/tools/cli.md) installed and authenticated.
+* Node.js installed so `npm` provides `npx`.
+
+note
+
+Skills operate on **Developer** and **Professional** tier services. Create [Free tier](/docs/products/kafka/free-tier/kafka-free-tier.md) Kafka services in the console.
+
+**Continue with:** [Set up Kafka using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills.md).
+
+## Generate sample data using the console[​](#generate-sample-data-using-the-console "Direct link to Generate sample data using the console")
+
+Use the built-in sample data generator to send events to a Kafka topic and confirm that the service is working.
+
+* Start the generator from the Kafka service overview in the console.
+* Consume messages from the topic to verify connectivity.
+* Validate access control, networking, and client configuration.
+
+**After your service is running, continue with:** [Generate sample data in the console](/docs/products/kafka/howto/generate-sample-data.md).
+
+## Generate data manually (optional)[​](#generate-data-manually-optional "Direct link to Generate data manually (optional)")
+
+Produce data manually to test application integrations or custom workloads.
+
+* Create topics and configure Kafka clients.
+* Produce and consume messages using client libraries, command-line tools, or container-based utilities.
+* Use this approach for development, automation, or advanced testing scenarios.
+
+**After your service is running, continue with:** [Generate sample data manually with Docker](/docs/products/kafka/howto/generate-sample-data-manually.md).
+
+## Create and manage Kafka using AI assistants[​](#create-and-manage-kafka-using-ai-assistants "Direct link to Create and manage Kafka using AI assistants")
+
+Use the [Aiven MCP server](/docs/tools/mcp-server.md) to create Kafka services, manage topics, produce and consume messages, and configure connectors from MCP-compatible clients such as Cursor, Claude Code, VS Code, and Gemini CLI.
+
+* Configure the Aiven MCP server in your AI assistant.
+* Describe the service or operation you want in natural language.
+* The assistant creates and manages Kafka resources through the Aiven API.
+
+**Continue with:** [Set up the Aiven MCP server](/docs/tools/mcp-server.md).
+
+
+---
+
+## Aiven for Apache Kafka® free tier
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Aiven for Apache Kafka® free tier<!-- --><!-- --><!-- -->
+
+Get started with Apache Kafka® at no cost. The Aiven for Apache Kafka® free tier is a fully managed service for learning, prototyping, and evaluation. No credit card is required.
+
+## When to use the free tier[​](#when-to-use-the-free-tier "Direct link to When to use the free tier")
+
+Use the free tier to:
+
+* Explore Apache Kafka concepts with a managed service
+* Build or test small event-driven applications
+* Evaluate Aiven for Apache Kafka before choosing a paid plan
+* Test end-to-end message flow during early development
+* Run small proofs of concept or demonstrations
+
+The free tier supports limited-scale workloads. For production use, longer retention, or features such as Aiven for Apache Kafka® Connect, choose a paid plan.
+
+## What the free tier includes[​](#what-the-free-tier-includes "Direct link to What the free tier includes")
+
+The free tier includes:
+
+* A managed Kafka cluster with a fixed configuration
+* Karapace Schema Registry
+* Streaming throughput up to 250 KiB/s ingress and 250 KiB/s egress
+* Sample data generation for testing message flow
+* Basic monitoring for metrics and logs
+
+Standard Kafka clients can connect the same way as they do to paid Aiven for Apache Kafka plans.
+
+## Limitations[​](#limitations "Direct link to Limitations")
+
+Free tier services have the following restrictions.
+
+### Performance and capacity[​](#performance-and-capacity "Direct link to Performance and capacity")
+
+* Fixed throughput limits for produce and consume traffic
+* Up to 5 topics, each with two partitions
+* Fixed data retention settings
+* Limited number of users and ACLs
+
+### Features not available[​](#features-not-available "Direct link to Features not available")
+
+* Aiven for Apache Kafka® Connect
+* Aiven for Apache Kafka® MirrorMaker 2
+* Tiered storage
+* Service integrations such as logs, metrics, and authentication
+* Custom configuration for certain Kafka settings
+
+### Service restrictions[​](#service-restrictions "Direct link to Service restrictions")
+
+* One free Kafka service per organization
+* Paid services cannot be reverted to the free tier
+* Cloud provider is fixed with a limited set of regions
+* Free tier services are not covered by an SLA
+* Maintenance window is fixed
+* Additional disk storage cannot be added
+* Creation available only through the Aiven Console
+
+## How free tier services operate[​](#how-free-tier-services-operate "Direct link to How free tier services operate")
+
+Free tier Kafka services operate as follows:
+
+* **Idle shutdown:** The service powers off automatically if there is no ongoing Kafka activity, such as producing or consuming messages. You receive a notification before shutdown and can power on the service from the Aiven Console.
+* **First-use shutdown:** A new free tier service with no initial usage can power off within the first few hours after the service is running. You can power the service back on from the Aiven Console.
+* **Leader election:** The service continues operating after a node failure by using a simplified leader election mode. This ensures availability for small, non-production workloads.
+* **Alerts:** Platform alerts are not routed to Aiven operators.
+* **Configuration updates:** Aiven may change the cloud provider, region availability, or configuration of free services.
+
+Related pages
+
+[Create a free tier Aiven for Apache Kafka® service](/docs/products/kafka/free-tier/create-free-tier-kafka-service.md)
+
+
+---
+
+## Aiven for Apache Kafka® Developer tier
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Aiven for Apache Kafka® Developer tier<!-- --><!-- --><!-- -->
+
+Aiven for Apache Kafka® Developer tier is a paid service tier for Classic Kafka that sits between the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier.md) and Professional tier. Use it for development, prototyping, testing, or production workloads that need more throughput, more topics, longer retention, more storage, or [service integrations](/docs/platform/concepts/service-integration.md) than the Free tier provides, without committing to a Professional plan. [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect/get-started.md) is available as a separately billed service.
+
+For capacity, pricing, and service limits, see [Limits and specifications](#limits-and-specifications).
+
+## When to use the Developer tier[​](#when-to-use-the-developer-tier "Direct link to When to use the Developer tier")
+
+Use the Developer tier when:
+
+* You need higher throughput, more topics, longer retention, or more storage than the [Free tier](/docs/products/kafka/free-tier/kafka-free-tier.md) offers.
+* You need a paid Aiven for Apache Kafka® Connect service or [service integrations](/docs/platform/concepts/service-integration.md), neither of which is available on the Free tier.
+* You need a paid environment for development, prototyping, testing, or smaller-scale production workloads without committing to a Professional plan.
+
+## What the Developer tier includes[​](#what-the-developer-tier-includes "Direct link to What the Developer tier includes")
+
+A Developer tier service includes:
+
+* Apache Kafka® on two nodes with fixed compute and storage.
+* Karapace Schema Registry and REST Proxy.
+* A [sample data generator](/docs/products/kafka/howto/generate-sample-data.md) in the console for testing producers, consumers, and Karapace Schema Registry.
+* Quick connect from the Kafka service overview page in the Aiven Console using **Set up your Stream** or **Connection information** to get connection parameters and sample client code. For details, see Connect to Aiven for Apache Kafka®.
+* Supported [service integrations](/docs/platform/concepts/service-integration.md), including Aiven for Apache Kafka® Connect and Prometheus.
+
+### Automate workflows with Skills[​](#automate-workflows-with-skills "Direct link to Automate workflows with Skills")
+
+Skills are ready-to-run workflows that automate common Kafka tasks, such as:
+
+* Creating a Kafka service and configuring it end-to-end.
+* Creating topics, users, and permissions.
+* Generating sample data and validating the deployment.
+* Configuring connectors and integrations.
+
+Skills are available on Developer tier and Professional tier services. Run them with [`npx skills`](/docs/products/kafka/howto/set-up-kafka-with-skills.md) or in another environment that supports Skills, such as an editor or AI assistant. Skills use [Aiven CLI](/docs/tools/cli.md) internally and require an authenticated CLI session. For details, see [Set up Aiven for Apache Kafka® using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills.md).
+
+Manage Developer tier services from the [Aiven Console](https://console.aiven.io), the [Aiven CLI](/docs/tools/cli.md), or the [Aiven API](/docs/tools/api.md).
+
+## Limits and specifications[​](#limits-and-specifications "Direct link to Limits and specifications")
+
+The following specifications apply to Developer tier services.
+
+| Specification          | Developer tier                                                                               |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| Price                  | Starts at $35 per month for 1 day retention; pricing varies by cloud and geographical region |
+| Nodes                  | 2                                                                                            |
+| Throughput             | 1 MB/s ingress, 2 MB/s egress                                                                |
+| Topics                 | Up to 20                                                                                     |
+| Partitions             | Up to 100 per topic and 2000 max across the service                                          |
+| Replication factor     | 1                                                                                            |
+| Metadata mode          | KRaft                                                                                        |
+| Retention              | 1, 2, or 3 days. Pricing varies by option and is shown in the Aiven Console                  |
+| Storage                | Fixed local storage per node                                                                 |
+| Kafka Connect          | Optional service, billed separately                                                          |
+| Cloud                  | Geographical region in the Aiven Console. Pricing varies by cloud                            |
+| Service integrations   | Kafka Connect and Prometheus                                                                 |
+| Upgrade                | To a Professional tier from the Aiven Console                                                |
+| Downgrade to Free tier | Not supported                                                                                |
+
+Developer tier pricing depends on retention, cloud, and geographical region. Review current pricing during service creation in the [Aiven Console](https://console.aiven.io) and on [Aiven for Apache Kafka® pricing](https://aiven.io/pricing?product=kafka).
+
+For higher throughput, storage, retention, or connector limits, upgrade your service to a Professional plan in the [Aiven Console](https://console.aiven.io).
+
+## Compare service tiers[​](#compare-service-tiers "Direct link to Compare service tiers")
+
+| Feature                       | Free                              | Developer                     | Professional                             |
+| ----------------------------- | --------------------------------- | ----------------------------- | ---------------------------------------- |
+| Price                         | $0                                | Starts at $35 per month       | Varies by plan                           |
+| Throughput                    | Up to 250 KB/s ingress and egress | 1 MB/s ingress, 2 MB/s egress | Higher, plan-dependent                   |
+| Topics                        | Up to 5                           | Up to 20                      | Plan-dependent                           |
+| Partitions                    | 1 per topic                       | Up to 100 per topic           | Plan-dependent                           |
+| Nodes                         | 1                                 | 2                             | Plan-dependent                           |
+| Replication factor            | 1                                 | 1                             | Plan-dependent                           |
+| Metadata mode                 | KRaft                             | KRaft                         | KRaft                                    |
+| Retention                     | Fixed                             | 1, 2, or 3 days               | Plan-dependent                           |
+| Storage                       | Fixed                             | Fixed local storage per node  | Plan-dependent                           |
+| SLA                           | None                              | 99%                           | Up to 99.99%, plan-dependent             |
+| Kafka Connect                 | Not supported                     | Optional, billed separately   | Full support, plan-dependent             |
+| Service integrations          | Not supported                     | Kafka Connect, Prometheus     | Yes, plan-dependent                      |
+| Cloud and geographical region | Fixed                             | Geographical region only      | Cloud and geographical region selectable |
+
+For replication factor 3 or similar production redundancy, use a Professional plan. Starting with Apache Kafka 3.9, new services use [KRaft](/docs/products/kafka/concepts/kraft-mode.md) for metadata instead of ZooKeeper.
+
+## Upgrade path[​](#upgrade-path "Direct link to Upgrade path")
+
+Upgrade to the Professional tier when the Developer tier no longer meets your throughput, storage, or scaling needs. Professional tier supports higher throughput, storage, topic limits, and SLA.
+
+### Kafka and Kafka Connect tier compatibility[​](#kafka-and-kafka-connect-tier-compatibility "Direct link to Kafka and Kafka Connect tier compatibility")
+
+Aiven for Apache Kafka® and Aiven for Apache Kafka® Connect services that are integrated with each other must run on the same service tier. Both services must be on the Developer tier or both on the Professional tier.
+
+This requirement affects how you upgrade integrated services.
+
+To upgrade a Developer tier Kafka service with an integrated Kafka Connect service to the Professional tier:
+
+1. Power off the Kafka Connect service. This preserves the service and its configuration.
+2. Upgrade the Kafka service to the Professional tier.
+3. Upgrade the Kafka Connect service to the same tier.
+4. Power on the Kafka Connect service.
+
+For step-by-step instructions, see [Upgrade the service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service.md#upgrade-the-service).
+
+note
+
+Developer tier services cannot be downgraded to the Free tier. Professional tier downgrade options depend on the selected plan. Review supported changes in the [Aiven Console](https://console.aiven.io).
+
+Related pages
+
+* [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service.md)
+* [Manage Apache Kafka® parameters](/docs/products/kafka/howto/set-kafka-parameters.md)
+* [Apache Kafka® upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure.md)
+
+
+---
+
+## Aiven for Apache Kafka® Professional tier
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Aiven for Apache Kafka® Professional tier<!-- --><!-- --><!-- -->
+
+The Professional tier is for production and workload-heavy Aiven for Apache Kafka® services. Create the service on Aiven Cloud or in your own cloud account with Bring Your Own Cloud (BYOC).
+
+## When to use the Professional tier[​](#when-to-use-the-professional-tier "Direct link to When to use the Professional tier")
+
+Use the Professional tier when you need:
+
+* Higher throughput, storage, topic limits, or SLA than the [Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier.md)
+* Aiven Cloud or BYOC deployment
+* [Standard Kafka](/docs/products/kafka/standard-kafka-overview.md) or [Classic Kafka](/docs/products/kafka/classic-kafka-overview.md) on Aiven Cloud
+* Kafka Connect on the same service tier
+
+Free and Developer tier services use Classic Kafka.
+
+## Deployment[​](#deployment "Direct link to Deployment")
+
+* **Aiven Cloud**: Default path. New customers create Standard Kafka. If **Service type** appears, click **Standard** or **Classic**. You cannot change the service type after you create the service.
+* **BYOC**: Classic Kafka with fixed plans. You can optionally enable diskless topics on supported custom clouds.
+
+Standard Kafka is available on Aiven Cloud only.
+
+## Create a service[​](#create-a-service "Direct link to Create a service")
+
+* [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service.md)
+* [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc.md)
+
+For compute, storage, and network billing, see [Pricing for Aiven for Apache Kafka®](/docs/products/kafka/concepts/kafka-pricing.md).
+
+Related pages
+
+* [Get started with Aiven for Apache Kafka®](/docs/products/kafka/get-started/get-started-kafka.md)
+* [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview.md)
+* [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview.md)
+* [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service.md)
+* [Create an Apache Kafka® service with BYOC](/docs/products/kafka/get-started/create-kafka-service-byoc.md)
+
+
+---
+
+## Pricing for Aiven for Apache Kafka®
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Pricing for Aiven for Apache Kafka®<!-- --><!-- --><!-- -->
+
+You pay for the Kafka service plan, retained data, and traffic through your topics. Aiven bills these as compute, storage, and network usage.
+
+## Pricing components[​](#pricing-components "Direct link to Pricing components")
+
+Aiven bills the following components separately:
+
+* **Compute**: The cost of the selected service plan.
+* **Storage**: The cost of retained data, based on the amount stored and how long it is retained.
+* **Network usage**: The cost of data produced to and consumed from Kafka topics.
+
+## Network usage[​](#network-usage "Direct link to Network usage")
+
+Network usage depends on Kafka topic traffic. Aiven measures data that producers write to Kafka topics as ingress and data that consumers read from Kafka topics as egress.
+
+Classic topics and diskless topics can exist in the same service. Aiven measures network usage separately for each topic type. Ingress and egress can have different rates depending on whether the traffic is for classic topics or diskless topics.
+
+Measured ingress and egress are higher than the size of the payload data your application sends and receives. Kafka protocol overhead, including record headers, message framing, and retries, can affect measured traffic, as can client batching behavior. Different client defaults can significantly affect how data is produced and consumed from the cluster.
+
+### Why egress and ingress differ[​](#why-egress-and-ingress-differ "Direct link to Why egress and ingress differ")
+
+Aiven measures the ingress and egress independently. Egress is typically higher, because data is usually read by more than one client, or consumed more than once. Reading the same data with multiple consumer groups, repeated reads, retries, or client reconnects all affect cluster egress.
+
+Your client library and client configuration can also affect traffic. For example, a client that fetches the same data more than once, uses small fetches, or reconnects frequently can generate more consumed data than expected.
+
+## Cost estimates[​](#cost-estimates "Direct link to Cost estimates")
+
+When you create a service, Aiven provides a monthly cost estimate based on your selected configuration. Compute sizing is approximated based on network ingress. This approximation relies on several assumptions, so some workloads can require more compute capacity, such as:
+
+* High egress fan-out patterns
+* A high number of partitions per broker
+* Uneven distribution of throughput among partitions
+* A high number of client connections
+* Enabled integrations, such as Datadog or the consumer lag predictor
+* Other factors that increase demand on compute
+
+For more information about factors that increase broker resource usage, see [Optimizing resource usage](/docs/products/kafka/howto/optimizing-resource-usage.md).
+
+Review the estimated monthly cost in **Service summary**. For the Console steps, see [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service.md).
+
+## View usage[​](#view-usage "Direct link to View usage")
+
+The [Aiven Console](https://console.aiven.io) shows usage information for the current billing period.
+
+To review usage, open the service and go to **Overview** > **Service usage**. You can review:
+
+* Ingress and egress usage
+* Usage split by classic topics and diskless topics
+* Storage usage
+* Predicted usage for the billing period
+
+note
+
+The Aiven Console shows usage values in the unit that best fits the size of the number, for example bytes, KB, MB, GB, or TB. The unit can change as usage grows during the billing period.
+
+Aiven bills storage by the GB-month. One GB-month means 1 GB of data stored for one month. The unit combines size and time. Storing 100 GB for a full month is 100 GB-months, and storing 100 GB for half a month is 50 GB-months.
+
+Storage usage is prorated by the hour, so the Aiven Console can show usage in smaller units. For example, $0.12 per GB-month is equivalent to $0.000164 per GB-hour, and usage can appear in units such as KB-hours or MB-hours.
+
+The Aiven Console shows network usage separately for classic topics and diskless topics. Predicted usage is based on your usage so far in the billing period. Usage information shown during the billing period can change as Aiven processes new usage data.
+
+## Cost drivers[​](#cost-drivers "Direct link to Cost drivers")
+
+The following factors affect your estimated or actual cost:
+
+* **Cloud and region**: Prices vary by region.
+* **Service plan**: Determines the Kafka cluster deployed and the compute rate.
+* **Topic type**: Classic topics and diskless topics have different ingress and egress rates, so the share of traffic that uses each topic type affects network usage costs. For network usage rates, see the [Aiven pricing page](https://aiven.io/pricing).
+* **Data produced and read**: Data produced and consumed is billed.
+* **Retention period**: Longer retention keeps data in storage for longer.
+
+## Manage costs[​](#manage-costs "Direct link to Manage costs")
+
+To manage costs, review the factors that affect your compute, storage, and network usage:
+
+* Review the service plan that matches your workload. Consult an expert for any tuning.
+* Use diskless topics for high-throughput workloads that do not require low latency.
+* Adjust topic retention to control storage usage.
+* Review consumer applications and client configuration if egress is higher than expected.
+* Monitor usage during the billing period to identify unexpected changes.
+
+## Pricing by service type[​](#pricing-by-service-type "Direct link to Pricing by service type")
+
+If **Service type** appears when you create a service, pricing depends on the selected type:
+
+* **Standard**: Aiven bills compute, storage, and network usage separately.
+* **Classic**: Aiven includes network usage in the compute price.
+
+Related pages
+
+* [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service.md)
+* [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview.md)
+* [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview.md)
+* [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview.md)
+* [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic.md)
+
+
+---
+
+## Connect to Aiven for Apache Kafka® with Python
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Connect to Aiven for Apache Kafka® with Python<!-- --><!-- --><!-- -->
+
+Use **Quick connect** to set up a Python client for Aiven for Apache Kafka®. The guided flow helps you select or create a topic, choose an authentication method, grant permissions, and copy generated producer and consumer code.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service.md).
+* A Python development environment.
+* The [`kafka-python`](https://pypi.org/project/kafka-python/) library.
+
+## Open Quick connect[​](#open-quick-connect "Direct link to Open Quick connect")
+
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache Kafka service.
+2. On the service **Overview** page, in the **Set up your stream** section, click **Quick connect**.
+3. At the top of the page, click **Python**.
+
+## Step 1: Set up a topic[​](#step-1-set-up-a-topic "Direct link to Step 1: Set up a topic")
+
+Topics organize and store the events that you stream to Apache Kafka.
+
+1. In **Topic name**, do one of the following:
+
+   * Select an existing topic.
+   * Click **Create new topic**, enter a name, and create the topic. The new topic is selected automatically for the next steps.
+
+   note
+
+   If your service has **Diskless topics** enabled, you can create a **Classic** or **Diskless** topic, or select an existing topic of either type. You can't change the topic type after creation. For more information, see [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic.md).
+
+## Step 2: Set up an authentication method[​](#step-2-set-up-an-authentication-method "Direct link to Step 2: Set up an authentication method")
+
+1. Select an authentication method:
+
+   * **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for username and password authentication.
+
+     SASL is enabled by default for new Aiven for Apache Kafka services. For existing services, check whether SASL is enabled. If **Enable SASL** appears, click **Enable SASL**, then continue.
+
+   * **Client certificate**: Use certificate-based authentication with mTLS instead of a password.
+
+2. Select a service user:
+
+   * Select an existing service user from the list.
+   * To create one, click **Create new service user**, enter a username, and click **Add service user**.
+
+3. Check the permission status shown for the selected user:
+
+   * If the user has all the required permissions, the granted permissions are shown (for example, `read, write`). To change them, click **Manage access in ACLs**.
+   * If the user has some or no permissions, click **Grant permissions**. Select **Produce**, **Consume**, or both, and click **Save**.
+
+   note
+
+   The `avnadmin` user has permissions by default.
+
+   For other service users, you can add permissions from Quick connect. To change or remove permissions, click **Manage access in ACLs**. For more information, see [Manage Apache Kafka® ACLs](/docs/products/kafka/howto/manage-acls.md#delete-acl-entries).
+
+## Step 3: Copy the code snippets[​](#step-3-copy-the-code-snippets "Direct link to Step 3: Copy the code snippets")
+
+tip
+
+**Download template** is an optional shortcut for testing the connection without a local Python environment. The ZIP file includes ready-to-run producer and consumer code, certificates, and dependencies. To run it, follow the included `README.md`. If you already have a Python project, copy the snippet from the **Producer** or **Consumer** tab. For more Python examples, under **Useful resources**, open **Kafka + Python: Getting Started**.
+
+1. Under **Prerequisites**, install the [`kafka-python`](https://pypi.org/project/kafka-python/) library:
+
+   ```
+   python3 -m pip install kafka-python
+   ```
+
+   warning
+
+   For SASL, copied snippets include the service user password in plaintext. Store the code securely, and do not commit it to source control.
+
+2. Under **Downloads**, download the certificate files for your authentication method:
+
+   * For **SASL**, click **Download CA certificate**.
+   * For **Client certificate**, click **Download CA certificate**, **Download service certificate**, and **Download service access key**.
+
+   The generated snippet loads the certificates directly. You don't need to create a truststore.
+
+3. Select the **Producer** or **Consumer** tab to view the generated producer or consumer code.
+
+4. Copy the code.
+
+After you add the code to your project, update the certificate file paths to match where you saved the files, then run your producer or consumer to start streaming events.
+
+
+---
+
+## Connect to Aiven for Apache Kafka® with Java
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Connect to Aiven for Apache Kafka® with Java<!-- --><!-- --><!-- -->
+
+Use **Quick connect** to set up a Java client for Aiven for Apache Kafka®. The guided flow helps you choose or create a topic, choose an authentication method, grant permissions, and copy generated producer and consumer code.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service.md).
+* A Java development environment with [Maven](https://maven.apache.org/install.html).
+
+## Open Quick connect[​](#open-quick-connect "Direct link to Open Quick connect")
+
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache Kafka service.
+2. On the service **Overview** page, in the **Set up your stream** section, click **Quick connect**.
+3. At the top of the page, click **Java**.
+
+## Step 1: Set up a topic[​](#step-1-set-up-a-topic "Direct link to Step 1: Set up a topic")
+
+Topics organize and store the events that you stream to Apache Kafka.
+
+1. In **Topic name**, do one of the following:
+
+   * Choose an existing topic.
+   * Click **Create new topic**, enter a name, and create the topic. The new topic becomes the topic for the next steps.
+
+   note
+
+   If your service has **Diskless topics** enabled, you can create a **Classic** or **Diskless** topic, or choose an existing topic of either type. You can't change the topic type after creation. For more information, see [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic.md).
+
+## Step 2: Set up an authentication method[​](#step-2-set-up-an-authentication-method "Direct link to Step 2: Set up an authentication method")
+
+1. Choose an authentication method:
+
+   * **SASL**: Recommended. Use SASL/SCRAM-SHA-256 for username and password authentication.
+
+     SASL is enabled by default for new Aiven for Apache Kafka services. For existing services, check whether SASL is enabled. If **Enable SASL** appears, click **Enable SASL**, then continue.
+
+   * **Client certificate**: Use certificate-based authentication with mTLS instead of a password.
+
+2. Choose a service user:
+
+   * Choose an existing service user from the list.
+   * To create one, click **Create new service user**, enter a username, and click **Add service user**.
+
+3. Check the permission status shown for the selected user:
+
+   * If the user has all the required permissions, the granted permissions are shown (for example, `read, write`). To change them, click **Manage access in ACLs**.
+   * If the user has some or no permissions, click **Grant permissions**. Choose **Produce**, **Consume**, or both, and click **Save**.
+
+   note
+
+   The `avnadmin` user has permissions by default.
+
+   For other service users, you can add permissions from Quick connect. To change or remove permissions, click **Manage access in ACLs**. For more information, see [Manage Apache Kafka® ACLs](/docs/products/kafka/howto/manage-acls.md#delete-acl-entries).
+
+## Step 3: Copy the code snippets[​](#step-3-copy-the-code-snippets "Direct link to Step 3: Copy the code snippets")
+
+tip
+
+**Download template** is an optional shortcut for when you want no local setup. The ZIP file includes ready-to-run producer and consumer code, certificates, and dependencies, so you can verify the connection using the included `README.md` without a Java project or build tool. If you already have a Java project, copy the snippet from the **Producer** or **Consumer** tab.
+
+1. Under **Prerequisites**, add the [Kafka clients dependency](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients) from your preferred artifact repository.
+
+2. Under **Downloads**, download the certificate files for your authentication method:
+
+   * For **SASL**, click **Download CA certificate**.
+   * For **Client certificate**, click **Download CA certificate** and **Download service certificate and access key**.
+
+   The generated snippet loads the PEM files directly. You don't need to create a truststore.
+
+3. Click the **Producer** or **Consumer** tab to view the generated producer or consumer code.
+
+   warning
+
+   For SASL, code snippets include the service user password in plaintext. Store the code securely, and do not commit it to source control.
+
+4. Copy the code.
+
+After you add the code to your project, update the certificate file paths to match where you saved the files, then run your producer or consumer to start streaming events.
+
+
+---
+
+## Connect to Aiven for Apache Kafka® with Go
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Connect to Aiven for Apache Kafka® with Go<!-- --><!-- --><!-- -->
+
+Use **Quick connect** to set up a Go client for Aiven for Apache Kafka®. The guided flow helps you choose or create a topic, choose an authentication method, grant permissions, and copy generated producer and consumer code.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* A running [Aiven for Apache Kafka® service](/docs/products/kafka/get-started/create-kafka-service.md).
+* A Go development environment.
+* The [`kafka-go`](https://github.com/segmentio/kafka-go) library.
+
+## Open Quick connect[​](#open-quick-connect "Direct link to Open Quick connect")
+
+1. In the [Aiven Console](https://console.aiven.io/), open your Aiven for Apache Kafka service.
+2. On the service **Overview** page, in the **Set up your stream** section, click **Quick connect**.
+3. At the top of the page, click **Go**.
+
+## Step 1: Set up a topic[​](#step-1-set-up-a-topic "Direct link to Step 1: Set up a topic")
+
+Topics organize and store the events that you stream to Apache Kafka.
+
+1. In **Topic name**, do one of the following:
+
+   * Choose an existing topic.
+   * Click **Create new topic**, enter a name, and create the topic. The new topic is selected automatically for the next steps.
+
+   note
+
+   If your service has **Diskless topics** enabled, you can create a **Classic** or **Diskless** topic, or choose an existing topic of either type. You can't change the topic type after creation. For more information, see [Create Apache Kafka® topics](/docs/products/kafka/howto/create-topic.md).
+
+## Step 2: Set up an authentication method[​](#step-2-set-up-an-authentication-method "Direct link to Step 2: Set up an authentication method")
+
+1. Choose an authentication method:
+
+   * **SASL**: Recommended. Use SASL/SCRAM-SHA-512 for username and password authentication.
+
+     Go code snippets use `SCRAM-SHA-512` for SASL authentication.
+
+     SASL is enabled by default for new Aiven for Apache Kafka services. For existing services, check whether SASL is enabled. If **Enable SASL** appears, click **Enable SASL**, then continue.
+
+   * **Client certificate**: Use certificate-based authentication with mTLS instead of a password.
+
+2. Select a service user:
+
+   * Select an existing service user from the list.
+   * To create one, click **Create new service user**, enter a username, and click **Add service user**.
+
+3. Check the permission status shown for the selected user:
+
+   * If the user has all the required permissions, the granted permissions are shown (for example, `read, write`). To change them, click **Manage access in ACLs**.
+   * If the user has some or no permissions, click **Grant permissions**. Select **Produce**, **Consume**, or both, and click **Save**.
+
+   note
+
+   The `avnadmin` user has permissions by default.
+
+   For other service users, you can add permissions from Quick connect. To change or remove permissions, click **Manage access in ACLs**. For more information, see [Manage Apache Kafka® ACLs](/docs/products/kafka/howto/manage-acls.md#delete-acl-entries).
+
+## Step 3: Copy the code snippets[​](#step-3-copy-the-code-snippets "Direct link to Step 3: Copy the code snippets")
+
+tip
+
+**Download template** is an optional shortcut for testing the connection without a local Go environment. The ZIP file includes ready-to-run producer and consumer code, certificates, and dependencies. To run it, follow the included `README.md`. If you already have a Go project, copy the snippet from the **Producer** or **Consumer** tab.
+
+1. Under **Prerequisites**, initialize a Go module and install the required libraries:
+
+   ```
+   go mod init <your-project-name>
+   ```
+
+   ```
+   go get github.com/segmentio/kafka-go
+   ```
+
+   For **SASL**, also install the SCRAM package:
+
+   ```
+   go get github.com/segmentio/kafka-go/sasl/scram@v0.4.51
+   ```
+
+2. Under **Downloads**, download the certificate files for your authentication method:
+
+   * For **SASL**, click **Download CA certificate**.
+   * For **Client certificate**, click **Download CA certificate**, **Download service certificate**, and **Download service access key**.
+
+   The generated snippet loads the certificates directly, so you don't need to create a truststore.
+
+3. Click the **Producer** or **Consumer** tab to view the generated producer or consumer code.
+
+4. Copy the code.
+
+warning
+
+For SASL, copied snippets include the service user password in plaintext. Store the code securely, and do not commit it to source control.
+
+After you add the code to your project, update the certificate file paths to match where you saved the files, then run your producer or consumer to start streaming events.
+
+
+---
+
+## Create Apache Kafka® topics
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Create Apache Kafka® topics<!-- --><!-- --><!-- -->
+
+Create topics in your Aiven for Apache Kafka® service to organize message streams between producers and consumers.
+
+## Understand Kafka topics[​](#understand-kafka-topics "Direct link to Understand Kafka topics")
+
+A topic in Aiven for Apache Kafka is a named stream of messages. Producers write data to topics, and consumers read from them.
+
+Available topic types depend on the Kafka service type.
+
+### Topic types[​](#topic-types "Direct link to Topic types")
+
+* **Classic topics**
+
+  * They are available in **Classic Kafka** and **Standard Kafka** services.
+
+  * Storage behavior varies by service type:
+
+    <!-- -->
+
+    * In **Classic Kafka** services, data is stored on local broker disks unless tiered storage is enabled.
+    * In **Standard Kafka** services, classic topics use remote storage by default. You cannot change the storage mode or local retention settings.
+
+  * Support log compaction.
+
+* **Diskless topics**
+
+  * Available only in **Standard Kafka** services.
+  * Store topic data directly in cloud object storage.
+  * Require a service type and plan that support diskless topics.
+  * Select the topic type when creating the topic.
+  * You cannot change the topic type after creation.
+
+In Standard Kafka services, classic and diskless topics can coexist. To choose between them, see [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic.md#compare-classic-and-diskless-topics).
+
+For diskless topic limitations, see [Limitations of diskless topics](/docs/products/kafka/diskless/concepts/limitations.md).
+
+## Before you begin[​](#before-you-begin "Direct link to Before you begin")
+
+Before you create topics in your Aiven for Apache Kafka service, review the following:
+
+* **Tiered storage** is available in **Classic Kafka** services, where you can enable and configure it per topic. See [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage.md).
+* **Manual topic creation** gives you control over partitions, replication, and retention. This approach is preferred in production to prevent accidental topic creation.
+* **Automatic topic creation** is disabled by default. Enable it only when needed (for example, for development clusters). In production, leave it disabled to govern topic creation and avoid accidental topics. On Standard Kafka, auto-created topics are classic topics. Create diskless topics manually. For more information, see [Create topics automatically](/docs/products/kafka/howto/create-topics-automatically.md).
+
+## Create an Apache Kafka topic[​](#create-an-apache-kafka-topic "Direct link to Create an Apache Kafka topic")
+
+The topic creation options shown in the Aiven Console depend on the Kafka service type. In Classic Kafka services, you create classic topics. Standard Kafka services let you choose between classic and diskless topics.
+
+tip
+
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server.md) to create a topic and test producing and consuming messages. For example:
+
+> Create a topic named `orders` on `my-kafka-service` with three partitions. Produce a test message to the topic, and consume the message.
+
+Kafka CLI and client APIs on Standard Kafka
+
+* When you create a topic with the Kafka CLI (`kafka-topics.sh`), the Kafka Admin API, or other Kafka clients without specifying a topic type, the topic is created as a classic topic with remote storage by default.
+* To create a diskless topic, use the Aiven Console or Aiven CLI and explicitly select the diskless topic type. If you use `kafka-topics.sh` for diskless topics, use the script from the [Inkless repository](https://github.com/aiven/inkless).
+
+- Console
+- CLI
+- Terraform
+
+* Classic Kafka service
+* Standard Kafka service
+
+1. In the [Aiven Console](https://console.aiven.io/), select the Aiven for Apache Kafka service.
+
+2. In the sidebar, click **Manage stream** > **Topics**.
+
+3. Click **Create topic**.
+
+4. Enter a name in the **Topic** field.
+
+5. Optional: Turn on **Enable advanced configurations** to set values such as replication, partitions, retention, and cleanup policy.
+
+6. Optional: Click **Add configuration** to add other Kafka topic parameters.
+
+7. Optional: Under **Tiered storage**, enable tiered storage for the topic.
+
+   note
+
+   You cannot disable tiered storage after you enable it.
+
+8. Click **Create topic**.
+
+1) In the [Aiven Console](https://console.aiven.io/), select the Aiven for Apache Kafka service.
+
+2) In the sidebar, click **Manage stream** > **Topics**.
+
+3) Click **Create topic**.
+
+4) Enter a name in the **Topic** field.
+
+5) In **Topic type**, select one of the following:
+
+   * **Classic topic**
+   * **Diskless topic**
+
+   note
+
+   In **Standard Kafka** services, classic topics use managed remote storage by default. You cannot change storage mode or local retention settings.
+
+6) Optional: Turn on **Keep default settings** to configure advanced topic settings such as retention, cleanup policy, and message size limits.
+
+   note
+
+   Diskless topics do not support compaction. Create a **classic topic** if your workload requires compaction.
+
+7) Click **Create topic**.
+
+After creation, the topic appears on the **Manage stream** > **Topics** page. The **Topic type** column shows **Classic** or **Diskless**.
+
+tip
+
+Analyze your topic data with SQL by sending it to Aiven for ClickHouse®. From the topic's **Actions** menu, click **Query in ClickHouse** to set up a managed integration. See [Query Kafka topic data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/query-kafka-topic-data.md).
+
+When creating topics using the CLI, the required options depend on the topic type.
+
+* Classic topic
+* Diskless topic
+
+To create a classic topic:
+
+```
+avn service topic-create \
+
+  SERVICE_NAME \
+
+  TOPIC_NAME \
+
+  --project PROJECT_NAME \
+
+  --partitions PARTITION_COUNT \
+
+  --replication REPLICATION_FACTOR
+```
+
+To create a diskless topic (Standard Kafka services only):
+
+```
+avn service topic-create \
+
+  SERVICE_NAME \
+
+  TOPIC_NAME \
+
+  --project PROJECT_NAME \
+
+  --partitions PARTITION_COUNT \
+
+  --replication 1 \
+
+  --diskless-enable
+```
+
+For diskless topics, set `--replication 1`.
+
+Use the `--diskless-enable` flag to create a diskless topic. Enable diskless topics on the service before creating them. On Standard Kafka services, omitting the flag creates a classic topic with remote storage.
+
+Common parameters:
+
+* `PROJECT_NAME`: Aiven project that contains the Kafka service.
+* `SERVICE_NAME`: Aiven for Apache Kafka service name.
+* `TOPIC_NAME`: Name of the topic.
+* `PARTITION_COUNT`: Number of partitions to distribute messages.
+* `--replication REPLICATION_FACTOR`: Number of replicas for each partition.
+
+- Classic topic
+- Diskless topic
+
+Define topics using the [`aiven_kafka_topic`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_topic) resource.
+
+Diskless topics are supported only in Standard Kafka services.
+
+Enable diskless in the [`aiven_kafka`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka) resource before defining topics with [`aiven_kafka_topic`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_topic).
+
+Related pages
+
+* [Compare diskless and classic topics](/docs/products/kafka/diskless/concepts/topics-vs-classic.md)
+* [Automatically create topics](/docs/products/kafka/howto/create-topics-automatically.md)
+* [Tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage.md)
+* [Query Kafka topic data in Aiven for ClickHouse®](/docs/products/clickhouse/concepts/query-kafka-topic-data.md)
+
+
+---
+
+## Change data retention period
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Change data retention period<!-- --><!-- --><!-- -->
+
+To avoid running out of disk space, by default, Apache Kafka® drops the oldest messages from the beginning of each log after their retention period expires. **Aiven for Apache Kafka®** allows you to configure the retention period for each topic.
+
+The retention period can be configured at both the service and topic levels. If no retention period is specified for a particular topic, the service-level setting will be applied, with a default value of 168 hours. When modifying the service retention period, it will override the retention period of any previously created topics.
+
+## For a single topic[​](#for-a-single-topic "Direct link to For a single topic")
+
+To change the retention period for a single topic:
+
+1. In the [Aiven Console](https://console.aiven.io/), select your project and choose your Aiven for Apache Kafka® service.
+
+2. Select **Manage stream** > **Topics** from the left sidebar.
+
+3. Select the topic to modify.
+
+4. In the **Topic info** screen, select **Modify**.
+
+5. In the modify topic screen, update the value of **Retention ms** to the desired retention length in milliseconds. If you cannot find **Retention ms**, use the search bar to locate it
+
+   note
+
+   The **Retention ms** option is displayed in the modify topic screen for topics where advanced configuration was enabled during topic creation.
+
+6. Select **Update** to save your changes.
+
+7. In the *Advanced configuration* view find **Retention ms**.
+
+8. Change the value of **Retention ms** value to the desired retention length in milliseconds.
+
+   tip
+
+   You can also change **Retention bytes** setting to limit amount of data retained based on the storage usage.
+
+## At a service level[​](#at-a-service-level "Direct link to At a service level")
+
+1. In the [Aiven Console](https://console.aiven.io/), select your project and choose your Aiven for Apache Kafka® service.
+
+2. Click **Service settings**, scroll to **Advanced configuration**, and click **Configure**.
+
+3. In the **Advanced configuration** dialog, click **Add Advanced Configuration**.
+
+4. Configure the retention period for Apache Kafka® logs:
+
+   <!-- -->
+
+   * Find `kafka.log_retention_hours` or `kafka.log_retention_ms`, and set the retention period.
+   * To limit retention by storage usage, set `kafka.log_retention_bytes`.
+
+5. Click **Save configuration**.
+
+## Unlimited retention[​](#unlimited-retention "Direct link to Unlimited retention")
+
+Aiven does not limit the maximum retention period. To turn off time-based content expiration, set the retention value to `-1`.
+
+warning
+
+Using high retention periods without monitoring the available storage space can cause your service to run out of disk space. These situations are not covered by the Aiven SLA.
+
+
+---
+
+## Power on/off and delete your Aiven for Apache Kafka® service
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Power on/off and delete your Aiven for Apache Kafka® service<!-- --><!-- --><!-- -->
+
+Power off your Aiven for Apache Kafka® service to release resources and save credits, power it back on when you need it, or delete it permanently.
+
+## Power off a service[​](#power-off-a-service "Direct link to Power off a service")
+
+When you power off a service:
+
+* All virtual machines are removed from the public cloud.
+* The service configuration is stored on the Aiven Platform.
+* If there are no backups, all service data is lost.
+* If the service has time-based or point in time recovery backups, the backups remain on the Aiven Platform.
+
+Services powered off for more than 180 days are automatically deleted.
+
+* Console
+* CLI
+
+1. In your project, click **Services**.
+2. Select the service to open the **Overview** page.
+3. Click **Actions** > **Power off service**.
+
+To power off a service, run:
+
+```
+avn service update SERVICE_NAME --power-off
+```
+
+## Power on a service[​](#power-on-a-service "Direct link to Power on a service")
+
+When you power on a service:
+
+* New virtual machines are created on the service's public cloud.
+* The service starts with the stored configuration parameters.
+* The latest time-based backup is restored.
+* Maintenance updates are automatically applied.
+* If a point in time recovery backup is available, the database transaction logs are replayed to recover the service data to a specific point in time.
+
+The restoration takes from a few minutes to a few hours, depending on the network bandwidth, the disk IOPS allocated to the service, and the size of the backup.
+
+* Console
+* CLI
+
+1. In your project, click **Services**.
+2. Select the service to open the **Overview** page.
+3. Click **Actions** > **Power on service**.
+
+To power on a service, run:
+
+```
+avn service update SERVICE_NAME --power-on
+```
+
+To see when the service is running, run:
+
+```
+avn service wait SERVICE_NAME
+```
+
+note
+
+When you power on an Aiven for Apache Kafka service, Aiven restores [configuration backups](/docs/products/kafka/concepts/configuration-backup.md) from the most recent backup. Configuration backups do not include classic topic data, consumer groups, or offsets. [Diskless topic](/docs/products/kafka/diskless/concepts/diskless-topic-overview.md) data remains in object storage and is available after you power the service on.
+
+important
+
+If the service uses [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage.md), powering off the service permanently deletes all remote data.
+
+note
+
+Static IP addresses are not removed when a service is powered off or deleted. They continue to generate the usual costs. To avoid these costs, [remove the static IP addresses](/docs/platform/concepts/static-ips.md).
+
+## Delete a service[​](#delete-a-service "Direct link to Delete a service")
+
+* Console
+* CLI
+
+1. In your project, click **Services**.
+2. Open the service to delete, and click **Actions** > **Delete service**.
+
+To delete a service, run:
+
+```
+avn service terminate SERVICE_NAME
+```
+
+Related pages
+
+* [Configuration backups for Aiven for Apache Kafka®](/docs/products/kafka/concepts/configuration-backup.md)
+* [Trade-offs and limitations](/docs/products/kafka/concepts/tiered-storage-limitations.md)
+
+
+---
+
+## Tag your Aiven for Apache Kafka® service
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Tag your Aiven for Apache Kafka® service<!-- --><!-- --><!-- -->
+
+Add key-value tags to your Aiven for Apache Kafka® service to organize services and track ownership, cost allocation, and governance.
+
+Use tags to add metadata to Aiven services to categorize them or run custom logic on them. Typical uses include:
+
+* Tagging for governance to deploy services with specific tags only.
+* Tagging for internal cost reporting, ownership, allocation, and accountability.
+
+A tag is a key/value pair:
+
+* **Key**: A case-sensitive string that starts with a letter and consists of letters, numbers, dashes, and underscores. The maximum length for a key is 64 characters.
+* **Value**: A string value limited to 64 UTF-8 characters.
+
+Within a service, the tag keys must be unique.
+
+* Console
+* Terraform
+
+1. In the service, click **Service settings**.
+2. In the **Service status** section, click **Actions** > **Add service tags**.
+3. Enter a key and value for each tag.
+4. Click **Save changes**.
+
+Use the `tag` attribute in [your Aiven service resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs).
+
+Related pages
+
+* [Use resource tags](/docs/platform/howto/tag-resources.md)
+* [Power on/off and delete your Aiven for Apache Kafka® service](/docs/products/kafka/howto/power-cycle-service.md)
+
+
+---
+
+## Manage Apache Kafka® parameters
+
+> For this section, see [llms.txt](https://aiven.io/docs/products/kafka/llms.txt). For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+# Manage Apache Kafka® parameters<!-- --><!-- --><!-- -->
+
+Every Aiven for Apache Kafka® service comes with a set of configuration properties that define values like partition count, replication factor, retention time, whether an automatic topic creation is enabled or not and others.
+
+tip
+
+Check a short [video tutorial](https://www.youtube.com/watch?v=pXQZWI0ddLg\&t=25s) for an end-to-end example of how to manage Aiven for Apache Kafka® parameters.
+
+You can read and edit these configuration properties in the Advanced configuration section of the Overview page in the [Aiven Console](https://console.aiven.io/) or using the [Aiven CLI service update command](/docs/tools/cli/service-cli.md#avn-cli-service-update).
+
+warning
+
+Most of the Apache Kafka settings cause the service to restart when changed. Aiven for Apache Kafka restarts nodes one at a time to ensure minimal disruption to service availability. However, it can take a few minutes from the change before the new settings are in use.
+
+## Retrieve the current service parameters with Aiven CLI[​](#retrieve-the-current-service-parameters-with-aiven-cli "Direct link to Retrieve the current service parameters with Aiven CLI")
+
+To retrieve the existing Aiven for Apache Kafka configuration use the following command:
+
+```
+avn service get SERVICE_NAME --json
+```
+
+The output is the JSON representation of the service configuration.
+
+## Retrieve the customizable parameters with Aiven CLI[​](#retrieve-the-customizable-parameters-with-aiven-cli "Direct link to Retrieve the customizable parameters with Aiven CLI")
+
+Not all Aiven for Apache Kafka parameters are customizable. To retrieve the list of parameters you can change, use the following command:
+
+```
+avn service types -v
+```
+
+The output is a set of customizable parameters for all the services, browse to the `kafka` section to check the ones available for Aiven for Apache Kafka.
+
+## Update a service parameter with the Aiven CLI[​](#update-a-service-parameter-with-the-aiven-cli "Direct link to Update a service parameter with the Aiven CLI")
+
+To modify a service parameter, use the [Aiven CLI service update command](/docs/tools/cli/service-cli.md#avn-cli-service-update). For example, to modify the `message.max.bytes` parameter, use the following command:
+
+```
+avn service update SERVICE_NAME -c "kafka.message_max_bytes=newmaximumbytelimit"
+```
+
+note
+
+For some changes, like the `message.max.bytes`, client settings need to be amended as well. Otherwise, you may encounter issues with processing Kafka messages.
+
+
+---

@@ -55,7 +55,7 @@ for read-only queries.
 <RelatedPages/>
 
 - [AI DB Optimizer for Aiven for PostgreSQL®](/docs/products/postgresql/howto/ai-insights)
-- [Standalone query optimizer][optimizer]
+- [SQL query optimizer for Aiven for PostgreSQL®][optimizer]
 - [Identify PostgreSQL® slow queries with `pg_stat_statements](/docs/products/postgresql/howto/identify-pg-slow-queries)
 
-[optimizer]: /docs/tools/query-optimizer
+[optimizer]: /docs/products/postgresql/howto/query-optimizer

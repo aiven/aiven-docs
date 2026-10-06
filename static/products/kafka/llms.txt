@@ -1,0 +1,36 @@
+# Aiven for Apache Kafka®
+
+> Aiven for Apache Kafka® is a fully managed Apache Kafka service for building event-driven applications, data pipelines, and stream processing systems.
+
+> Links below point to Markdown versions of each page in this section.
+> For the full text of these pages, see [llms-full.txt](https://aiven.io/docs/products/kafka/llms-full.txt).
+> For the documentation directory, see [llms.txt](https://aiven.io/docs/llms.txt).
+
+## Overview
+
+- [Aiven for Apache Kafka®](https://aiven.io/docs/products/kafka.md): Aiven for Apache Kafka® is a fully managed Apache Kafka service for building event-driven applications, data pipelines, and stream processing systems.
+- [Pricing for Aiven for Apache Kafka®](https://aiven.io/docs/products/kafka/concepts/kafka-pricing.md): You pay for the Kafka service plan, retained data, and traffic through your topics. Aiven bills these as compute, storage, and network usage.
+
+## Get started
+
+- [Get started with Aiven for Apache Kafka®](https://aiven.io/docs/products/kafka/get-started/get-started-kafka.md): Create a managed Apache Kafka® service on Aiven. Choose the tier and deployment model that fit your workload, then send sample data to verify end-to-end streaming.
+- [Aiven for Apache Kafka® free tier](https://aiven.io/docs/products/kafka/free-tier/kafka-free-tier.md): Get started with Apache Kafka® at no cost. The Aiven for Apache Kafka® free tier is a fully managed service for learning, prototyping, and evaluation. No credit card is required.
+- [Aiven for Apache Kafka® Developer tier](https://aiven.io/docs/products/kafka/dev-tier/kafka-dev-tier.md): Aiven for Apache Kafka® Developer tier is a paid service tier for Classic Kafka that sits between the Free tier and Professional tier. Use it for development, prototyping, testing, or production workloads that need…
+- [Aiven for Apache Kafka® Professional tier](https://aiven.io/docs/products/kafka/get-started/professional-tier.md): The Professional tier is for production and workload-heavy Aiven for Apache Kafka® services. Create the service on Aiven Cloud or in your own cloud account with Bring Your Own Cloud (BYOC).
+
+## Connect to service
+
+- [Connect to Aiven for Apache Kafka® with Python](https://aiven.io/docs/products/kafka/howto/connect-with-python.md): Use **Quick connect** to set up a Python client for Aiven for Apache Kafka®. The guided flow helps you select or create a topic, choose an authentication method, grant permissions, and copy generated producer and…
+- [Connect to Aiven for Apache Kafka® with Java](https://aiven.io/docs/products/kafka/howto/connect-with-java.md): Use **Quick connect** to set up a Java client for Aiven for Apache Kafka®. The guided flow helps you choose or create a topic, choose an authentication method, grant permissions, and copy generated producer and…
+- [Connect to Aiven for Apache Kafka® with Go](https://aiven.io/docs/products/kafka/howto/connect-with-go.md): Use **Quick connect** to set up a Go client for Aiven for Apache Kafka®. The guided flow helps you choose or create a topic, choose an authentication method, grant permissions, and copy generated producer and consumer…
+
+## Topics
+
+- [Create Apache Kafka® topics](https://aiven.io/docs/products/kafka/howto/create-topic.md): Create topics in your Aiven for Apache Kafka® service to organize message streams between producers and consumers.
+- [Change data retention period](https://aiven.io/docs/products/kafka/howto/change-retention-period.md): To avoid running out of disk space, by default, Apache Kafka® drops the oldest messages from the beginning of each log after their retention period expires. **Aiven for Apache Kafka®** allows you to configure the…
+
+## Service management
+
+- [Power on/off and delete your Aiven for Apache Kafka® service](https://aiven.io/docs/products/kafka/howto/power-cycle-service.md): Power off your Aiven for Apache Kafka® service to release resources and save credits, power it back on when you need it, or delete it permanently.
+- [Tag your Aiven for Apache Kafka® service](https://aiven.io/docs/products/kafka/howto/tag-service.md): Add key-value tags to your Aiven for Apache Kafka® service to organize services and track ownership, cost allocation, and governance.
+- [Manage Apache Kafka® parameters](https://aiven.io/docs/products/kafka/howto/set-kafka-parameters.md): Every Aiven for Apache Kafka® service comes with a set of configuration properties that define values like partition count, replication factor, retention time, whether an automatic topic creation is enabled or not and…

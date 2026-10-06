@@ -244,31 +244,31 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Platform',
+          label: 'Get started',
+          sidebarId: 'getstarted',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          label: 'Products',
+          sidebarId: 'products',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          label: 'Admin',
           sidebarId: 'main',
         },
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Services',
-          sidebarId: 'services',
-        },
-        {
-          type: 'docSidebar',
-          position: 'left',
-          label: 'Runtime',
-          sidebarId: 'runtime',
-        },
-        {
-          type: 'docSidebar',
-          position: 'left',
-          label: 'Tools',
+          label: 'Dev tools',
           sidebarId: 'tools',
         },
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'AI',
+          label: 'AI tools',
           sidebarId: 'ai',
         },
         {
