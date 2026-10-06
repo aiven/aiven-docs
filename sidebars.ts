@@ -1927,6 +1927,7 @@ const sidebars: SidebarsConfig = {
                 'products/opensearch/howto/opensearch-search-and-python',
                 'products/opensearch/howto/opensearch-and-nodejs',
                 'products/opensearch/howto/opensearch-aggregations-and-nodejs',
+                'products/opensearch/howto/opensearch-cross-cluster-search-setup',
                 'products/opensearch/howto/custom-dictionary-files',
                 'products/opensearch/howto/enable-slow-query-log',
               ],
