@@ -35,7 +35,8 @@ You can migrate schemas in one of the following ways:
   and [Karapace 6.2.4 or later](/docs/products/kafka/karapace/howto/set-karapace-version).
 - The target Schema Registry URL and credentials from the **Schema Registry** tab of
   **Connect information** on the <ConsoleLabel name="overview"/> page of your
-  service. The default `avnadmin` user can run the migration.
+  service in the [Aiven Console](https://console.aiven.io). The default `avnadmin` user
+  can run the migration.
 - The source registry URL and credentials that can read schemas and configuration.
 - Network access to the source and target registries.
 - `curl`.
@@ -71,7 +72,7 @@ Don't register schemas on the target subjects during the migration.
 An export is a snapshot of the source. If anything changes on the source after you
 export, create another export. Create a separate export for the production run too.
 
-:::important
+:::important[Important]
 The script can't export versions that were permanently deleted on the source.
 :::
 
@@ -175,7 +176,8 @@ level with the source's. For more information, see
 
    - `SOURCE_USER` and `SOURCE_PASSWORD`: credentials for the source registry.
    - `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD`: credentials for the target
-     registry, from the **Schema Registry** tab of **Connect information**.
+     registry, from the **Schema Registry** tab of **Connect information** in the Aiven
+     Console.
 
    For OAuth 2.0/OIDC authentication:
 
@@ -312,16 +314,18 @@ Use this procedure to migrate a small number of schema versions manually. It set
 `IMPORT` mode for one subject at a time, which is subject scope. It has the following
 limits:
 
-- It imports only live versions, so it doesn't recreate soft-deleted versions.
+- It imports only live versions, so it doesn't recreate versions that are soft-deleted
+  on the source.
 - It doesn't reserve the highest schema ID that the source registry issued. Without the
   reservation, the target can issue an ID that the source already used. If the source
   issued IDs higher than the highest ID you import, use the script with
   `--reserve-subject`.
 
 The `curl` examples use HTTP Basic authentication with the `-u` option. For OAuth
-2.0/OIDC, replace `-u USER:PASSWORD` in each request with
-`-H "Authorization: Bearer ACCESS_TOKEN"`. Use the source access token for the source
-registry and the target access token for the target registry.
+2.0/OIDC, replace the `-u` option and its credentials in each request with
+`-H "Authorization: Bearer ACCESS_TOKEN"`. Replace `ACCESS_TOKEN` with the source
+access token for requests to the source registry, and with the target access token for
+requests to the target registry.
 
 In the commands in this section, replace the following:
 
@@ -329,7 +333,8 @@ In the commands in this section, replace the following:
 - `SOURCE_USER` and `SOURCE_PASSWORD`: credentials for the source registry.
 - `SCHEMA_REGISTRY_URL`: Schema Registry URL of your Aiven service, which is the target.
 - `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD`: credentials for the target
-  registry, from the **Schema Registry** tab of **Connect information**.
+  registry, from the **Schema Registry** tab of **Connect information** in the Aiven
+  Console.
 - `SUBJECT_NAME`: name of the subject. URL-encode it when you use it in a request path.
 - `VERSION`: version number of a schema.
 - `SCHEMA_ID`: schema ID from the source.
@@ -378,26 +383,38 @@ In the commands in this section, replace the following:
 Use an empty target subject when possible. Schema IDs are global, so look for ID
 conflicts even if the target subject is empty.
 
-1. For each source ID, look up the ID on the target:
+1. For each source ID that you saved from the source responses, look up the ID on the
+   target:
 
    ```bash
    curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
      SCHEMA_REGISTRY_URL/schemas/ids/SCHEMA_ID
    ```
 
-   A `404 Not Found` status code means the ID isn't used on the target. If the ID exists,
-   confirm that its schema type, definition, and references match the source.
+   A `404 Not Found` status code means the ID isn't used on the target. If the ID exists
+   and its schema type, definition, and references match the source, you can import it
+   again without changes. If they differ, you can't import this schema with its original
+   ID.
 
-1. If the target subject exists, compare its versions with the source versions. Include
-   soft-deleted versions with `?deleted=true`, because they keep their ID and version
-   number. A soft-deleted version conflicts only if its ID or content differs from the
-   version you import. If they're identical, importing the version again restores it.
-1. Resolve any conflicts before you import. If an ID or version is already bound to
-   different content on the target, use a new target.
+1. If the target subject exists, list its versions, including soft-deleted ones, and
+   compare them with the source versions:
+
+   ```bash
+   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
+     "SCHEMA_REGISTRY_URL/subjects/SUBJECT_NAME/versions?deleted=true"
+   ```
+
+   Soft-deleted versions keep their ID and version number. A soft-deleted version
+   conflicts only if its ID or content differs from the version you import. If they're
+   identical, importing the version again restores it on the target.
+
+1. If the target holds the same ID or version with different content, use a new target.
 
 ### Import each subject
 
-For each subject, do the following:
+Import the subjects that other schemas reference first. The registry rejects a schema
+if the versions that it references aren't on the target yet. For each subject, do the
+following:
 
 1. Set `IMPORT` mode for the target subject:
 
@@ -408,6 +425,10 @@ For each subject, do the following:
      -d '{"mode":"IMPORT"}' \
      SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME
    ```
+
+   If the request fails with error code `40901` and a message that starts with
+   `Cannot import`, the subject has live schemas. See
+   [Import into a non-empty registry](#import-into-a-non-empty-registry).
 
 1. Import each version of the subject, starting with the versions that other schemas
    reference. For each version:
@@ -425,9 +446,9 @@ For each subject, do the following:
       ```
 
       Replace the example `schema`, `id`, and `version` values with the values from the
-      source response. The `schema` value is the schema definition as an escaped JSON
-      string. If the source response includes `references`, copy that field to the
-      file.
+      source response. The `schema` value is an escaped JSON string. Copy it from the
+      source response without changing it. If the source response includes
+      `references`, copy that field to the file.
 
    1. Register the version:
 
@@ -439,8 +460,9 @@ For each subject, do the following:
         SCHEMA_REGISTRY_URL/subjects/SUBJECT_NAME/versions
       ```
 
-      Include both `id` and `version` to keep the source values. Both values range from 1
-      to 2,147,483,647. Confirm that the ID in the response matches the source ID.
+      Include both `id` and `version` to keep the source values. The registry accepts
+      values from 1 to 2,147,483,647. Confirm that the ID in the response matches the
+      source ID.
 
 1. After you import all versions, set the target subject's compatibility level to the
    level that you recorded from the source:
@@ -455,27 +477,27 @@ For each subject, do the following:
 
    If the source subject used the source's global level, choose one of the following:
 
-   - Set that level on the target subject, as in this step. The effective level stays
-     the same.
+   - Set that level on the target subject, using the preceding command. The effective level
+     stays the same.
    - Leave the target subject without a setting, so it inherits the target's global
      level. First confirm that the target's global level matches the source's.
 
-1. Set the subject back to `READWRITE` mode:
+1. Delete the subject's mode setting, so that the subject follows the registry mode:
+
+   ```bash
+   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
+     -X DELETE \
+     SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME
+   ```
+
+   The script does the same. To pin the subject to `READWRITE` mode regardless of later
+   changes to the registry mode, set an explicit mode instead:
 
    ```bash
    curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
      -X PUT \
      -H "Content-Type: application/vnd.schemaregistry.v1+json" \
      -d '{"mode":"READWRITE"}' \
-     SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME
-   ```
-
-   This sets an explicit `READWRITE` mode for the subject. To make the subject use the
-   global mode instead, delete its mode setting:
-
-   ```bash
-   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
-     -X DELETE \
      SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME
    ```
 
@@ -502,7 +524,8 @@ curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
 Replace the following:
 
 - `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD`: credentials for the target
-  registry, from the **Schema Registry** tab of **Connect information**.
+  registry, from the **Schema Registry** tab of **Connect information** in the Aiven
+  Console.
 - `SCHEMA_REGISTRY_URL`: Schema Registry URL of your Aiven service, which is the target.
 - `SUBJECT_NAME`: name of the subject. URL-encode it when you use it in a request path.
 
@@ -566,45 +589,8 @@ After either method, do the following:
 1. Configure a test consumer to use the Schema Registry of your Aiven service. Confirm
    that it can deserialize existing messages, including messages that use schemas with
    references.
-
-### Optional: Test the reserved ID
-
-Do this test only if you used `--reserve-subject` and need to confirm that the target
-doesn't reuse IDs that the source issued. The test uses a schema ID, so use a
-throwaway subject that no client reads.
-
-1. Register a test schema in a new subject. Use a schema that doesn't exist in your
-   registry, so the registry assigns a new ID:
-
-   <!-- markdownlint-disable MD013 -->
-
-   ```bash
-   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
-     -X POST \
-     -H "Content-Type: application/vnd.schemaregistry.v1+json" \
-     -d '{"schema":"{\"type\":\"record\",\"name\":\"ReservedIdTest\",\"fields\":[{\"name\":\"f\",\"type\":\"string\"}]}"}' \
-     SCHEMA_REGISTRY_URL/subjects/THROWAWAY_SUBJECT_NAME/versions
-   ```
-
-   <!-- markdownlint-enable MD013 -->
-
-   Replace `THROWAWAY_SUBJECT_NAME` with a subject name that isn't in use.
-
-1. Confirm that the `id` in the response is higher than the highest schema ID that the
-   source registry issued.
-1. Delete the throwaway subject, and delete it permanently with a second request:
-
-   ```bash
-   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
-     -X DELETE \
-     SCHEMA_REGISTRY_URL/subjects/THROWAWAY_SUBJECT_NAME
-
-   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
-     -X DELETE \
-     "SCHEMA_REGISTRY_URL/subjects/THROWAWAY_SUBJECT_NAME?permanent=true"
-   ```
-
-   Deleting the subject doesn't free the ID that the test schema used.
+1. If you used `--reserve-subject`, confirm that the Reserve source max ID step reported
+   the ID that it holds, or that it skipped because the source issued no higher ID.
 
 ## Switch clients to the target
 
