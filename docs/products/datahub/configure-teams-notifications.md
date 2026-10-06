@@ -62,10 +62,12 @@ and setting environment variables on the actions app.
 
 1. On the **Variables** tab, add the following variables:
 
-   | Key | Value |
-   |-----|-------|
-   | `DATAHUB_ACTIONS_TEAMS_ENABLED` | `true` |
-   | `DATAHUB_ACTIONS_TEAMS_DATAHUB_BASE_URL` | The DataHub **Application URL** from the **Connection information**. Adds links in messages. Defaults to `http://localhost:9002`. |
+   |                       Key                        |                                                             Value                                                             |
+   | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+   | `DATAHUB_ACTIONS_TEAMS_ENABLED`                  | `true`                                                                                                                        |
+   | `DATAHUB_ACTIONS_TEAMS_DATAHUB_BASE_URL`         | The DataHub **Application URL** from the **Connection information**. Adds links in messages.                                  |
+   | `DATAHUB_ACTIONS_TEAMS_SUPPRESS_SYSTEM_ACTIVITY` | Optional. To get low-level system activity notifications such as datasets being ingested, set to `false`. Defaults to `true`. |
+   | `DATAHUB_ACTIONS_TEAMS_CONSUMER_GROUP_ID`        | Optional. Overrides the Kafka consumer group ID. Defaults to `datahub_teams_action`.                                          |
 
 1. Click **Save**.
 
