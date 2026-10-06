@@ -2,11 +2,9 @@
 title: PG Studio for Aiven for PostgreSQL®
 sidebar_label: PG Studio
 keywords: ["AI", "Artificial intelligence", "PostgreSQL AI editor", "SQL editor", "studio", "PostgreSQL studio", "Tables", "schema map", "extensions manager"]
-early: true
 ---
 
 import ConsoleIcon from "@site/src/components/ConsoleIcons";
-import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import DocCardList from '@theme/DocCardList';
 import RelatedPages from "@site/src/components/RelatedPages";
 
@@ -24,10 +22,6 @@ Each PG Studio tool is available in the left-hand menu of your service:
 PG Studio and its AI features are on by default. To
 [turn off PG Studio or its AI features](/docs/products/postgresql/howto/pg-studio/security-connections#manage-pg-studio-and-ai-features),
 contact the Aiven support team.
-:::
-
-:::important
-PG Studio release stage: <EarlyBadge/>
 :::
 
 ## What PG Studio offers
