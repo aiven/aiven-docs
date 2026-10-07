@@ -22,7 +22,7 @@ You can migrate schemas in one of the following ways:
 
 | Method | Use it for | Soft-deleted versions | Reserves the source's highest ID |
 | --- | --- | --- | --- |
-| [Script (recommended)](#migrate-with-the-script) | Individual subjects or an entire registry | Reproduced | Yes |
+| [Script](#migrate-with-the-script), recommended | All subjects in a registry or an export | Reproduced | Yes |
 | [Schema Registry API](#migrate-with-the-api) | A few schema versions, manually with `curl` | Not imported | No |
 
 <!-- markdownlint-enable MD013 -->
@@ -128,9 +128,10 @@ prints.
 1. **Reproduce soft deletes:** Soft-deletes the versions that are soft-deleted on the
    source.
 1. **Reserve source max ID:** If the source issued an ID higher than any exported ID,
-   for example for a hard-deleted version, reserves that ID in the
-   `--reserve-subject` subject, so the target doesn't reuse it. The script imports a
-   placeholder schema with that ID and soft-deletes it.
+   the script reserves that ID in the `--reserve-subject` subject. For example, this
+   happens when the source hard-deleted the version with the highest ID. Reserving the
+   ID prevents the target from reusing it. The script imports a placeholder schema with
+   that ID and soft-deletes it.
 1. **Apply compatibility levels:** Applies source compatibility levels that differ from
    the target.
 1. **Verify:** Checks that every imported version has its source schema ID.
@@ -673,8 +674,8 @@ registry back to `READWRITE` mode.
 
 If the import stops partway, the target can stay in `IMPORT` mode. Keep ordinary
 registrations paused until the import is complete. The script summary shows which
-subjects are still in `IMPORT` mode. With the API, check the registry mode with
-`GET SCHEMA_REGISTRY_URL/mode` and each subject with
+subjects are still in `IMPORT` mode. With the API, get the registry mode with
+`GET SCHEMA_REGISTRY_URL/mode` and each subject's mode with
 `GET SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME`.
 
 ### Common migration errors
