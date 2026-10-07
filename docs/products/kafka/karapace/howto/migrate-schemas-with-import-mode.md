@@ -18,15 +18,17 @@ existing consumers can keep reading existing messages after you switch registrie
 
 You can migrate schemas in one of the following ways:
 
-- **The script:** Use
-  [`sr_migrate.py`](https://github.com/Aiven-Open/karapace/blob/main/bin/sr_migrate.py)
-  to migrate many subjects or an entire registry. This is the recommended method. It
-  also reproduces soft-deleted versions and reserves the highest schema ID that the
-  source registry issued. See [Migrate with the script](#migrate-with-the-script).
-- **The Schema Registry API:** Use `curl` to migrate a few schema versions manually.
-  This method imports only live versions. It doesn't reserve the highest schema ID that
-  the source registry issued, so the target can reuse that ID. See
-  [Migrate with the API](#migrate-with-the-api).
+<!-- markdownlint-disable MD013 -->
+
+| Method | Use it for | Soft-deleted versions | Reserves the source's highest ID |
+| --- | --- | --- | --- |
+| [Script (recommended)](#migrate-with-the-script) | Individual subjects or an entire registry | Reproduced | Yes |
+| [Schema Registry API](#migrate-with-the-api) | A few schema versions, manually with `curl` | Not imported | No |
+
+<!-- markdownlint-enable MD013 -->
+
+Reserving the highest ID that the source issued keeps the target from issuing an ID
+that the source already used.
 
 ## Prerequisites
 
@@ -50,30 +52,24 @@ Depending on your setup, you also need the following:
   subjects that you migrate, for example `Subject:*`.
 - If you use
   [role-based authorization with OAuth 2.0/OIDC](/docs/products/kafka/karapace/howto/enable-oauth-oidc-schema-registry#enable-role-based-authorization),
-  make sure that the target roles allow `GET`, `POST`, `PUT`, and `DELETE` requests.
+  define roles in your identity provider that allow `GET`, `POST`, `PUT`, and `DELETE`
+  requests on the target, and make sure the access token includes them.
 
 ## Prepare for the migration
 
 1. Run the full migration on a non-production target first, such as a test Aiven
    service. Then repeat it for production.
 1. Stop schema changes on the source, including registrations, deletions, and
-   compatibility changes. Keep them paused until the migration is complete and your
-   clients use the target registry.
-1. Stop producers that register schemas automatically, or configure them to stop
-   registering schemas.
-1. Optional: Compare the schema IDs that your consumers read with the schema IDs in an
-   export. An ID that isn't in the export can belong to a permanently deleted version.
-   The script also prints a note when the source issued an ID that no exported version
-   uses. To create an export, see
-   [Review an export before importing](#optional-review-an-export-before-importing).
-
-Don't register schemas on the target subjects during the migration.
+   compatibility changes. Stop producers that register schemas automatically, or
+   configure them not to register schemas. Keep schema changes paused until the
+   migration is complete and your clients use the target registry.
+1. Don't register schemas on the target subjects during the migration.
 
 An export is a snapshot of the source. If anything changes on the source after you
 export, create another export. Create a separate export for the production run too.
 
 :::important[Important]
-The script can't export versions that were permanently deleted on the source.
+The script can't export versions that were hard deleted on the source.
 :::
 
 ## How import mode works
@@ -108,8 +104,10 @@ To set `IMPORT` mode on a registry or subject that has live schemas, see
 
 ## Migrate with the script
 
-The `sr_migrate.py` script exports schemas from the source, imports them into your Aiven
-service with their original IDs and versions, and verifies the result.
+The
+[`sr_migrate.py`](https://github.com/Aiven-Open/karapace/blob/main/bin/sr_migrate.py)
+script exports schemas from the source, imports them into your Aiven service with their
+original IDs and versions, and verifies the result.
 
 ### Script workflow
 
@@ -121,15 +119,16 @@ prints.
    the source, including soft-delete status, compatibility levels, and the highest
    schema ID that the source registry issued. With `--file`, loads an existing export.
 1. **Check target:** Checks for conflicting subjects, versions, and IDs. It also reports
-   whether the target has live schemas that block `IMPORT` mode unless you use
-   `--force`. This step doesn't change the target.
+   whether the target has live schemas that block `IMPORT` mode. If the target has live
+   schemas, the script asks whether to continue with `--force`. This step doesn't change
+   the target.
 1. **Enter `IMPORT` mode:** Sets the registry or subjects to `IMPORT` mode.
 1. **Register versions:** Registers each version with its original ID and version number,
    referenced schemas first.
 1. **Reproduce soft deletes:** Soft-deletes the versions that are soft-deleted on the
    source.
 1. **Reserve source max ID:** If the source issued an ID higher than any exported ID,
-   for example for a permanently deleted version, reserves that ID in the
+   for example for a hard-deleted version, reserves that ID in the
    `--reserve-subject` subject, so the target doesn't reuse it. The script imports a
    placeholder schema with that ID and soft-deletes it.
 1. **Apply compatibility levels:** Applies source compatibility levels that differ from
@@ -189,6 +188,11 @@ level with the source's. For more information, see
    Replace `SOURCE_ACCESS_TOKEN` and `TARGET_ACCESS_TOKEN` with the access tokens for
    the source and target registries.
 
+   The registry reads authorization claims from the same token to authorize the requests
+   that set the `IMPORT` mode and register schemas. Define the roles from the
+   [prerequisites](#prerequisites) in your identity provider, and make sure the token
+   includes them.
+
 The registries can use different authentication methods. Leave a variable unset if its
 registry doesn't require authentication. If you import from an export file with
 `--file`, you don't need `SRC_AUTH`.
@@ -212,6 +216,9 @@ Review the schemas before you change the target:
 
 1. Confirm that `export.json` contains the subjects and versions you expect, including
    referenced schemas.
+1. Compare the schema IDs that your consumers read with the schema IDs in the export.
+   An ID that isn't in the export can belong to a hard-deleted version. The script also
+   prints a note when the source issued an ID that no exported version uses.
 1. Continue with [Import the schemas](#import-the-schemas), and import from the file.
 
 ### Optional: Export from a topic dump
@@ -253,7 +260,8 @@ file and import it instead.
 
 ### Import the schemas
 
-1. Run the import. The following example imports into a new, empty target:
+1. Run the import. The following example exports from the source and imports into a
+   new, empty target:
 
    ```bash
    python3 sr_migrate.py import \
@@ -288,10 +296,12 @@ file and import it instead.
 
    The script also supports these options:
 
-   - `--force`: allows `IMPORT` mode on a target that has live schemas. For more
+   - `--force`: allows `IMPORT` mode on a target that has live schemas. If you don't use
+     this option and the target has live schemas, the script shows a summary and asks
+     whether to continue. If you enter `y`, the script applies `--force`. For more
      information, see [Import into a non-empty registry](#import-into-a-non-empty-registry).
-   - `--yes`: answers yes to every confirmation prompt except the one that offers
-     `--force`. The script never assumes `--force`.
+   - `--yes`: answers yes to every confirmation prompt except the `--force` prompt. The
+     script never applies `--force` without your confirmation.
 
 1. Review the plan and confirm each step. If the Check target step reports conflicting
    IDs or versions, including soft-deleted ones, stop. Use a new target, or fix the
@@ -310,9 +320,17 @@ file and import it instead.
 
 ## Migrate with the API
 
-Use this procedure to migrate a small number of schema versions manually. It sets
-`IMPORT` mode for one subject at a time, which is subject scope. It has the following
-limits:
+Use this procedure to migrate a small number of schema versions with `curl`. You
+register each version manually.
+
+You can set `IMPORT` mode with one of the following scopes:
+
+- **Subject scope:** Sets the mode for one subject at a time. This procedure uses this
+  scope.
+- **Global scope:** Sets the mode once for the whole registry. Use it only if the target
+  registry is empty. See the tip in [Import each subject](#import-each-subject).
+
+This method has the following limits:
 
 - It imports only live versions, so it doesn't recreate versions that are soft-deleted
   on the source.
@@ -430,6 +448,23 @@ following:
    `Cannot import`, the subject has live schemas. See
    [Import into a non-empty registry](#import-into-a-non-empty-registry).
 
+   :::tip[Tip]
+   If the target registry is empty, you can avoid setting the mode on each subject by
+   setting `IMPORT` mode for the whole registry:
+
+   ```bash
+   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
+     -X PUT \
+     -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+     -d '{"mode":"IMPORT"}' \
+     SCHEMA_REGISTRY_URL/mode
+   ```
+
+   After you set the registry mode, skip this step for every subject. When you finish
+   importing all subjects, return the registry to `READWRITE` mode, as described in the
+   last step of this procedure.
+   :::
+
 1. Import each version of the subject, starting with the versions that other schemas
    reference. For each version:
 
@@ -482,7 +517,10 @@ following:
    - Leave the target subject without a setting, so it inherits the target's global
      level. First confirm that the target's global level matches the source's.
 
-1. Delete the subject's mode setting, so that the subject follows the registry mode:
+1. Return the target to `READWRITE` mode.
+
+   For subject scope, delete each subject's mode setting, so that the subject follows
+   the registry mode:
 
    ```bash
    curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
@@ -501,38 +539,16 @@ following:
      SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME
    ```
 
-## Import into a non-empty registry
+   For global scope, after you import all subjects, set the registry mode to
+   `READWRITE`:
 
-By default, `IMPORT` mode requires a registry or subject with no live schemas.
-
-:::warning[Warning]
-Import into an empty registry or subject when you can. Use `force=true` only after you
-confirm that the IDs and versions you import don't conflict with schemas that are
-already on the target.
-:::
-
-To set `IMPORT` mode on a subject that already has live schemas, add `force=true`:
-
-```bash
-curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
-  -X PUT \
-  -H "Content-Type: application/vnd.schemaregistry.v1+json" \
-  -d '{"mode":"IMPORT"}' \
-  "SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME?force=true"
-```
-
-Replace the following:
-
-- `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD`: credentials for the target
-  registry, from the **Schema Registry** tab of **Connect information** in the Aiven
-  Console.
-- `SCHEMA_REGISTRY_URL`: Schema Registry URL of your Aiven service, which is the target.
-- `SUBJECT_NAME`: name of the subject. URL-encode it when you use it in a request path.
-
-The `force=true` parameter also works with `PUT /mode`, which sets the mode for the whole
-registry. In the script, use the `--force` option. The parameter and the option skip only
-the requirement for no live schemas. Schema Registry still rejects the request if an ID
-or version is already bound to different content.
+   ```bash
+   curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
+     -X PUT \
+     -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+     -d '{"mode":"READWRITE"}' \
+     SCHEMA_REGISTRY_URL/mode
+   ```
 
 ## Verify the migration
 
@@ -585,9 +601,9 @@ After either method, do the following:
 1. Confirm that the target has every subject that you migrated, for example with
    `GET /subjects`, and that each subject's compatibility setting matches the source,
    for example with `GET /config/SUBJECT_NAME`.
-1. If you migrated by subject, compare the target's global compatibility level with the
-   source's. Send a `GET` request to `/config` on each registry. Subjects without their
-   own setting use the global level.
+1. Unless you used the script with `--scope global`, compare the target's global
+   compatibility level with the source's. Send a `GET` request to `/config` on each
+   registry. Subjects without their own setting use the global level.
 1. Configure a test consumer to use the Schema Registry of your Aiven service. Confirm
    that it can deserialize existing messages, including messages that use schemas with
    references.
@@ -612,19 +628,56 @@ schemas aren't on the source.
 Schema migration doesn't copy Kafka topics or messages. If you migrate Kafka data
 separately, plan the cutover for both migrations together.
 
+## Handle special migration scenarios
+
+### Import into a non-empty registry
+
+By default, `IMPORT` mode requires a registry or subject with no live schemas.
+
+:::warning[Warning]
+Import into an empty registry or subject when you can. Use `force=true` only after you
+confirm that the IDs and versions you import don't conflict with schemas that are
+already on the target.
+:::
+
+To set `IMPORT` mode on a subject that already has live schemas, add `force=true`:
+
+```bash
+curl -u SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD \
+  -X PUT \
+  -H "Content-Type: application/vnd.schemaregistry.v1+json" \
+  -d '{"mode":"IMPORT"}' \
+  "SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME?force=true"
+```
+
+Replace the following:
+
+- `SCHEMA_REGISTRY_USER` and `SCHEMA_REGISTRY_PASSWORD`: credentials for the target
+  registry, from the **Schema Registry** tab of **Connect information** in the Aiven
+  Console.
+- `SCHEMA_REGISTRY_URL`: Schema Registry URL of your Aiven service, which is the target.
+- `SUBJECT_NAME`: name of the subject. URL-encode it when you use it in a request path.
+
+The `force=true` parameter also works with `PUT /mode`, which sets the mode for the whole
+registry. In the script, use the `--force` option. The parameter and the option skip only
+the requirement for no live schemas. Schema Registry still rejects the request if an ID
+or version is already bound to different content.
+
 ## Troubleshoot migration errors
 
 If an import stops, the script marks the remaining steps `not run` and prints a hint.
 Fix the cause and run the same import command again. The script repeats the versions
 that are already imported without changing them. If you use the API, list the versions
-that the registry already imported, register the remaining ones, and set the subject
-back to `READWRITE` mode.
+that the registry already imported, register the remaining ones, and set the subject or
+registry back to `READWRITE` mode.
 
 If the import stops partway, the target can stay in `IMPORT` mode. Keep ordinary
 registrations paused until the import is complete. The script summary shows which
 subjects are still in `IMPORT` mode. With the API, check the registry mode with
 `GET SCHEMA_REGISTRY_URL/mode` and each subject with
 `GET SCHEMA_REGISTRY_URL/mode/SUBJECT_NAME`.
+
+### Common migration errors
 
 The registry returns an `error_code` field in the response body, in addition to the HTTP
 status code. The following table lists common problems:
@@ -634,15 +687,33 @@ status code. The following table lists common problems:
 | Error | What to do |
 | --- | --- |
 | HTTP `401 Unauthorized` or `403 Forbidden` status code | Authentication failed, or the user lacks permission. If you don't use `avnadmin`, confirm that the user has the `schema_registry_write` ACL entries for `Config:` and the subjects that you migrate. For more information, see [Schema Registry authorization](/docs/products/kafka/karapace/howto/enable-schema-registry-authorization). If you use OIDC, verify the roles. |
-| Error code `42205` with `not allowed` | The target doesn't allow mode changes. Contact the Aiven support team and include the service name and the full error response. |
+| Error code `42205` with `not allowed` | The target doesn't allow mode changes because `mode_mutability` is `false`. See [Settings that affect the migration](#settings-that-affect-the-migration). Contact the Aiven support team and include the service name and the full error response. |
 | Error code `42205` during registration | The subject isn't in `IMPORT` mode, for example because the mode changed during the run. Set `IMPORT` mode again and resume. |
 | Error code `40901` with a message that starts with `Cannot import` | The target has live schemas in the scope you chose. Use `--force` only after you confirm that the IDs and versions don't conflict. See [Import into a non-empty registry](#import-into-a-non-empty-registry). |
 | Error code `40901` with any other message | The target already has this ID or version with different content. `--force` doesn't help. Resolve the conflict that the Check target step reports, or use a new target. |
-| Error code `42207` with `already registered` | The target doesn't allow the same schema content under more than one ID. Contact the Aiven support team and include the service name and the full error response. |
+| Error code `42207` with `already registered` | The target doesn't allow the same schema content under more than one ID because `allow_duplicate_schema_ids` is `false`. See [Settings that affect the migration](#settings-that-affect-the-migration). Contact the Aiven support team and include the service name and the full error response. |
 | Error code `42202` or `42207` with any other message | The ID or version is outside the range 1 to 2,147,483,647. You can't import this schema with its original ID. |
 | HTTP `422 Unprocessable Entity` status code | The registry rejected the schema. If it has references, confirm that the referenced schemas are in the export, and import them first. |
 
 <!-- markdownlint-enable MD013 -->
+
+### Settings that affect the migration
+
+Two Karapace settings change how the target handles a migration. If one of them blocks
+your migration, contact the Aiven support team.
+
+- `mode_mutability`: Controls whether the registry accepts mode changes. The default is
+  `true`. If it's `false`, the registry rejects every request that sets or deletes a
+  mode, including setting `IMPORT` mode, with error code `42205`. A subject that's
+  already in `IMPORT` mode can't return to `READWRITE` mode.
+- `allow_duplicate_schema_ids`: Controls whether the registry accepts the same schema
+  content under more than one ID. The default is `true`. If it's `false`, the registry
+  rejects a schema that's already registered under a different ID with error code
+  `42207`. Importing a schema again under the ID it already has still works.
+
+For more information, see
+[Operator flags](https://www.karapace.io/docs/import-mode/#operator-flags) in the
+Karapace documentation.
 
 <RelatedPages/>
 
