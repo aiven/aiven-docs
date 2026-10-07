@@ -1244,7 +1244,6 @@ const sidebars: SidebarsConfig = {
                   },
                   items: [
                     'products/kafka/kafka-mirrormaker/reference/terminology',
-                    'products/kafka/kafka-mirrormaker/reference/known-issues',
                   ],
                 },
                 {
