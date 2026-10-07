@@ -3,6 +3,8 @@ title: Migrate external OpenSearch or Elasticsearch snapshots to Aiven
 sidebar_label: Migrate snapshots to Aiven
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Migrate an existing OpenSearch or Elasticsearch® snapshot to Aiven for OpenSearch® with minimal downtime and data integrity.
 
 The migration process uses
@@ -26,3 +28,9 @@ and consists of the following phases:
    [script](https://github.com/aiven/aiven-examples/blob/main/solutions/migrate-opendistro-security-to-aiven-for-opensearch/avn-migrate-os-security-config.py)
    to migrate user roles, permissions, and access controls to preserve security settings
    and ensure a smooth user experience after migration.
+
+<RelatedPages/>
+
+- [Migrate Elasticsearch data to Aiven for OpenSearch®](/docs/products/opensearch/howto/migrating_elasticsearch_data_to_aiven)
+- [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)
+- [Elasticsearch to Aiven for OpenSearch Migration Checker](https://aiven.io/tools/elasticsearch-to-aiven-migration-checker)
