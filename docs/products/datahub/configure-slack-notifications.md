@@ -65,12 +65,13 @@ and setting environment variables on the actions app.
 
 1. On the **Variables** tab, add the following variables:
 
-   | Key | Value |
-   |-----|-------|
-   | `DATAHUB_ACTIONS_SLACK_ENABLED` | `true` |
-   | `DATAHUB_ACTIONS_SLACK_CHANNEL` | Your Slack channel ID. |
-   | `DATAHUB_ACTIONS_SLACK_DATAHUB_BASE_URL` | The DataHub **Application URL** from the **Connection information**. Adds links in messages. |
+   |                       Key                        |                                                             Value                                                             |
+   | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+   | `DATAHUB_ACTIONS_SLACK_ENABLED`                  | `true`                                                                                                                        |
+   | `DATAHUB_ACTIONS_SLACK_CHANNEL`                  | Your Slack channel ID.                                                                                                        |
+   | `DATAHUB_ACTIONS_SLACK_DATAHUB_BASE_URL`         | The DataHub **Application URL** from the **Connection information**. Adds links in messages.                                  |
    | `DATAHUB_ACTIONS_SLACK_SUPPRESS_SYSTEM_ACTIVITY` | Optional. To get low-level system activity notifications such as datasets being ingested, set to `false`. Defaults to `true`. |
+   | `DATAHUB_ACTIONS_SLACK_CONSUMER_GROUP_ID`        | Optional. Overrides the Kafka consumer group ID. Defaults to `datahub_slack_action`.                                          |
 
 1. Click **Save**.
 
