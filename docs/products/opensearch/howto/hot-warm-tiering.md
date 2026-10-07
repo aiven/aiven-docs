@@ -230,7 +230,7 @@ daily_ingest_rate × warm_retention_days × (1 + number_of_replicas)
 
 Add at least 20% headroom above OpenSearch's high-watermark threshold. By default,
 OpenSearch applies the same watermarks (85% / 90% / 95%) to both tiers. Monitor warm disk
-usage separately from hot. [Dynamic Disk Sizing](/docs/platform/howto/add-storage-space)
+usage separately from hot. Dynamic Disk Sizing
 adds capacity to both tiers at the same time, distributed proportionally to each tier's
 base volume size, so account for that when you size the warm tier.
 
@@ -283,5 +283,4 @@ The following table lists useful API endpoints for managing tiered clusters:
 
 - [Hot/warm data tiering in Aiven for OpenSearch®](/docs/products/opensearch/concepts/hot-warm-tiering)
 - [Index State Management policies](/docs/products/opensearch/howto/migrate-ism-policies)
-- [Dynamic Disk Sizing](/docs/platform/howto/add-storage-space)
 - [Resolve low disk space issues](/docs/products/opensearch/howto/handle-low-disk-space)

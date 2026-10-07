@@ -103,6 +103,36 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Services</b>
         </>
       );
+    case 'agents':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.cpuChip} /> <b>Agents</b>
+        </>
+      );
+    case 'agentoverview':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dashboard} /> <b>Overview</b>
+        </>
+      );
+    case 'agentschedules':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.time} /> <b>Agent schedules</b>
+        </>
+      );
+    case 'newchat':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} /> <b>New chat</b>
+        </>
+      );
+    case 'chathistory':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.chat} /> <b>Chat history</b>
+        </>
+      );
     case 'aiinsights':
       return (
         <>
@@ -110,10 +140,30 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>AI insights</b>
         </>
       );
-    case 'aieditor':
+    case 'sqleditor':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>PG Studio</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>SQL editor</b>
+        </>
+      );
+    case 'pgtables':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.table} /> <b>Tables</b>
+        </>
+      );
+    case 'pgextensions':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.puzzlePiece} />{' '}
+          <b>Extensions</b>
+        </>
+      );
+    case 'openschemamap':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.map} />{' '}
+          <b>Open schema map</b>
         </>
       );
     case 'generativeai':
@@ -224,12 +274,6 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Event log</b>
-        </>
-      );
-    case 'runtime':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Runtime</b>
         </>
       );
     case 'swapruntimeservices':
@@ -372,6 +416,13 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.dataflow02} />{' '}
           <b>Connectors</b>
+        </>
+      );
+    case 'refreshlineage':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.dataflow01} />{' '}
+          <b>Refresh lineage</b>
         </>
       );
     case 'schemas':
@@ -536,6 +587,18 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Delete</b>
+        </>
+      );
+    case 'remove':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Remove</b>
+        </>
+      );
+    case 'deactivateuser':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Deactivate</b>
         </>
       );
     case 'delete':
@@ -764,6 +827,24 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.disasterRecovery} />{' '}
           <b>Disaster recovery</b>
+        </>
+      );
+    case 'resendinvite':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.send} /> <b>Resend invite</b>
+        </>
+      );
+    case 'runtime':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.console} /> <b>Runtime</b>
+        </>
+      );
+    case 'runtimeidp':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.lock} /> <b>Authentication</b>
         </>
       );
 

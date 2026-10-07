@@ -66,9 +66,12 @@ Parameters:
 </TabItem>
 </Tabs>
 
-## Add additional storage space
+## Manage storage usage and settings
 
-For instructions on adding storage space, see [Scale disk storage](/docs/platform/howto/add-storage-space).
+See
+[storage usage and settings](/docs/products/kafka/howto/view-kafka-storage-in-console).
+To add or remove disk on Classic Kafka, see
+[Scale disk storage](/docs/products/kafka/howto/scale-disk-storage).
 
 ## Delete one or more topics
 

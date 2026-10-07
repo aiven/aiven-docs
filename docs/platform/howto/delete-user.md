@@ -13,8 +13,7 @@ This action is irreversible. All data is permanently removed and your cannot be 
 
 To delete your account:
 
-1. [Delete all services](/docs/platform/concepts/service-power-cycle#delete-service)
-   in all projects.
+1. Delete all services in all projects.
 1. [Delete all projects](/docs/platform/howto/manage-project#delete-a-project).
 1. [Delete all organizations](/docs/platform/howto/manage-organizations) that you manage
    and [leave all organizations](/docs/platform/howto/manage-organizations)

@@ -8,7 +8,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 You can power an Aiven Runtime application on or off at any time.
 
 Powering off applications doesn't affect the connected services. You can
-[power off services](/docs/platform/concepts/service-power-cycle) individually.
+power off services individually.
 
 Applications that are powered off for more than 180 days are automatically deleted.
 
@@ -19,6 +19,9 @@ Applications that are powered off for more than 180 days are automatically delet
 1. Click <ConsoleLabel name="actions"/> > **Power off app**.
 
 ## Power on an application
+
+Powering an application on triggers a redeployment of the branch's
+previously deployed commit. It doesn't deploy the latest commit.
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.

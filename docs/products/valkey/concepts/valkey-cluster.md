@@ -22,8 +22,8 @@ appropriate shard.
   maintain service availability.
 - **Minimal downtime**: Designed to handle both expected maintenance and unexpected
   failures with minimal service interruption.
-- **Read replicas**: Each shard includes at least one read replica for redundancy and
-  improved read performance.
+- **Read replicas**: Add up to two replicas per shard for redundancy and improved read
+  performance.
 
 ### Scalability
 
@@ -153,7 +153,8 @@ replacement primary for the affected shard depends on how many shards the cluste
   this case, Aiven promotes the replica that's furthest ahead in replication, meaning the
   one with the least data loss, once it confirms the failed primary is no longer part of
   the service. If the shard has no replica, Aiven provisions a new node instead and
-  restores its data from the most recent backup.
+  restores its data from the most recent backup. The shard loses any writes it accepted
+  after that backup.
 
 Failover isn't instant, so while a shard has uncovered hash slots, commands for keys in
 that shard's slot range fail; other shards keep serving their own keys without
@@ -166,6 +167,18 @@ Aiven for Valkey distributes data across primary nodes using hash slots. When th
 of primary nodes in your cluster changes, Aiven reshards the cluster automatically.
 Resharding redistributes the hash slots, and the keys they hold, across the available
 primary nodes to keep the slots evenly balanced across shards.
+
+Resharding has a few prerequisites:
+
+- The service must run Valkey 9.0 or later.
+- The service must be powered on.
+- All nodes in the service must be in the `Running` state.
+- No change to the instance size or cloud region can be in progress or requested at the
+  same time.
+- The most recent backup must match the service's current shard count. After a reshard,
+  wait for the next backup to complete before you reshard again.
+- You cannot change `shard_count` and `replicas` in the same request. Change one, wait
+  for the update to finish, then change the other.
 
 Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
 manages the entire process:
@@ -195,26 +208,46 @@ more information, see [Memory management](/docs/products/valkey/concepts/memory-
 
 ## Backup and restore
 
-Aiven for Valkey automatically backs up your clustered service. Each primary node backs up
-the data for the hash slots it owns, and Aiven stores these backups in a remote location.
-Backups run independently for each primary and need no coordination from your application.
+Aiven for Valkey automatically backs up your clustered service. If your shards have
+replicas, Aiven backs up the replicas, which keeps the extra backup load off your
+primaries. If your shards have no replicas, Aiven backs up the primaries instead. Aiven
+stores these backups in a remote location. Backups run independently for each shard and
+need no coordination from your application.
+
+If a reshard is still moving slots when a backup is due, Aiven waits for the new layout to
+settle before starting the backup. If the topology changes while a backup is running, for
+example during a reshard or failover, the backup fails and the next scheduled backup takes
+over.
+
+Cluster mode doesn't support delta backups: Every backup is a full backup.
 
 To restore a cluster, Aiven combines the stored backups with the recorded hash slot
 layout, so your data returns to the same slot distribution. The cluster must keep the same
 number of primary nodes for a restore to succeed.
 
 :::note
-Cluster backups are not point-in-time recovery (PITR). Because each primary node is backed
-up independently, backups are not consistent across shards. A restored cluster reflects
-each primary's data as of its own backup, not a single moment in time across the whole
-cluster. Design your application to tolerate this if you rely on a restore.
+Cluster backups are not point-in-time recovery (PITR). Because each shard is backed up
+independently, backups are not consistent across shards. A restored cluster reflects each
+shard's data as of its own backup, not a single moment in time across the whole cluster.
+Design your application to tolerate this if you rely on a restore.
 :::
 
 ## Limitations and considerations
 
 - Valkey clustering is in
   [limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-- Valkey clustering is supported for new services only.
+- Valkey clustering is supported for new services only. You can't convert an existing
+  standalone service to a cluster plan, or a clustered service back to standalone.
+- Migrating data into a cluster from an external Redis or Valkey server isn't supported.
+- Aiven places each shard's primary and replicas in different availability zones when it
+  creates the cluster. When Aiven replaces a node, it puts the replacement in the same
+  zone, which preserves that spread.
+- This placement is best effort. If a zone is unavailable, or doesn't offer the instance
+  type your plan needs, a shard can end up with its primary and replica in one zone. For
+  more information, see [Availability zones](/docs/platform/concepts/availability-zones).
+- Aiven doesn't rebalance existing nodes into different zones afterward, for example after
+  a replica moves or after zone capacity recovers. A shard without a replica has no
+  availability zone redundancy.
 - Performance factors
 
   - Network latency between shards can affect cross-shard operations.

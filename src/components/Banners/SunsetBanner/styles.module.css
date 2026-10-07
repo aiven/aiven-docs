@@ -1,0 +1,40 @@
+.banner {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background-color: var(--aiven-orange-5);
+  border: 1px solid var(--aiven-orange-90);
+  border-radius: 8px;
+  padding: 14px 16px 14px 24px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+/* Left accent bar, inset within the rounded border */
+.banner::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background-color: var(--aiven-orange-90);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 1.4em;
+  height: 1.4em;
+  margin-top: 2px;
+  color: var(--aiven-orange-90);
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--aiven-orange-90);
+}
+
+.text {
+  margin: 4px 0 0;
+  color: var(--aiven-adm-text-color);
+}

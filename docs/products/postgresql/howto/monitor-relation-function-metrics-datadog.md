@@ -33,10 +33,30 @@ Use the `service_integration_id` value from the output as `INTEGRATION_ID` in th
 following commands.
 
 :::note
-If saving `datadog_pg_relations` or `datadog_function_metrics_enabled` fails, your
-service is pending a scheduled maintenance update. Apply the update, or wait for your
-next maintenance window, then try again.
+If saving `datadog_pg_relations`, `datadog_function_metrics_enabled`, or
+`datadog_pg_dbname` fails, your service is pending a scheduled maintenance update. Apply
+the update, or wait for your next maintenance window, then try again.
 :::
+
+## Choose the monitored database
+
+The Datadog PostgreSQL check connects to the service's main database, so relation and
+function metrics come from that database only. To collect these metrics from a different
+database, set `datadog_pg_dbname`:
+
+```bash
+avn service integration-update --project PROJECT_NAME \
+   --user-config-json '{"datadog_pg_dbname": "DATABASE_NAME"}' \
+   INTEGRATION_ID
+```
+
+`datadog_pg_dbname` scopes relation and function metrics only. Database Monitoring
+collects query statistics from every database on the service regardless of this option.
+
+The name must be 1-63 characters, start with a letter, digit, or underscore, and
+otherwise contain only letters, digits, underscores, and hyphens. The database doesn't
+need to exist yet. If it doesn't, the Datadog agent logs a connection error until you
+create it, then reports metrics with no further configuration change needed.
 
 ## Collect relation metrics
 

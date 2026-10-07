@@ -30,4 +30,3 @@ If you need a feature that's only available in a newer upstream Grafana release,
 
 - [End of life for Aiven services](/docs/platform/reference/end-of-life)
 - [Fork your Aiven for Grafana® service](/docs/products/grafana/howto/fork-service)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

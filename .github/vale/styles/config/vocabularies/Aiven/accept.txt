@@ -5,6 +5,7 @@ accessor
 accessors
 Addons
 africa
+[Aa]gentic
 AIInsights
 Aiven
 aiven_cmk
@@ -47,6 +48,7 @@ business
 BYOC
 Cassandra
 Centrify
+chatbots?
 checkpointing
 CIDRs
 CLI's
@@ -148,6 +150,7 @@ filesets
 Fileset
 Filesets
 Flink
+Fluentd
 Followerfetching
 Forecast
 Forecasted
@@ -211,6 +214,7 @@ Java
 java_lang_Memory
 JMX
 JobManager
+Jira
 Jolokia
 jq
 json
@@ -218,6 +222,8 @@ JSONPath
 JumpCloud
 JVM's
 JWT's
+JWTs?
+JWKS
 Kafbat
 Kafdrop
 kafka
@@ -235,6 +241,7 @@ Klaw
 Kpow
 Kubernetes
 kuromoji
+LibreDB
 LLM
 LLMs
 Loggly
@@ -249,6 +256,7 @@ Mezmo
 MirrorMaker
 MongoDB
 multicast
+multimodal
 mydumper
 myhoard
 myloader
@@ -272,6 +280,7 @@ Okta
 Omni
 onboarding
 Opendistro
+OpenAPI
 OpenSearch
 OpenSearch Security
 Opensearch_acl_config
@@ -289,10 +298,12 @@ Papertrail
 parallelization
 Paulo
 Paxos
+PDFs?
 peering
 peerings
 Percona
 performant
+[Pp]retrained
 pg_dump
 pgAdmin
 PGAudit
@@ -316,6 +327,7 @@ PNGs?
 Podman
 pooler
 PostgreSQL
+PostgREST
 Postman
 preformatted
 prepper
@@ -342,6 +354,7 @@ refcard
 reindex
 reindexed
 reindexing
+rerank\w*
 remoteSecure
 renewables
 repo
@@ -471,3 +484,8 @@ zapier
 zdm-proxy
 Zipkin
 ZooKeeper
+nmslib
+faiss
+knn_vector
+hnsw
+IDEs?

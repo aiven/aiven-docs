@@ -52,3 +52,7 @@ cluster:
    With the default replication policy, replicated topic names use the
    `source-cluster-alias.source-topic-name` format. If you use the identity
    replication policy, topic names stay unchanged.
+
+For more information about how MirrorMaker 2 sets topic configurations and the
+replication factor on target topics, see
+[Topic configurations on the target cluster](/docs/products/kafka/kafka-mirrormaker/concepts/configuration-layers#topic-configurations-on-the-target-cluster).

@@ -7,6 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 
 You can change the cloud provider or region of an Aiven Runtime application.
+Changing the cloud triggers a redeployment of the branch's previously deployed commit.
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.

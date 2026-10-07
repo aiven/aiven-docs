@@ -18,5 +18,3 @@ Learn how Aiven manages Aiven for PostgreSQL® version support, end of life (EOL
 <RelatedPages/>
 
 - [Perform a PostgreSQL® major version upgrade](/docs/products/postgresql/howto/upgrade)
-- [Service forking](/docs/platform/concepts/service-forking)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

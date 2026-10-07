@@ -127,6 +127,18 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="shard_count"/><Link to="#shard_count"><strong>shard_count</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>5</code></li></ul></div>
+        <div className="description"><p>Number of shards (primaries) in the Valkey cluster. Required for cluster plans.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="replicas"/><Link to="#replicas"><strong>replicas</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>2</code></li></ul></div>
+        <div className="description"><p>Number of replicas per shard in the Valkey cluster. Only applies to cluster plans.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="valkey_io_threads"/><Link to="#valkey_io_threads"><strong>valkey_io_threads</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>256</code></li></ul></div>
         <div className="description"><p>Set Valkey IO thread count. Changing this will cause a restart of the Valkey service.</p></div>
       </td>
@@ -164,7 +176,7 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         <div className="param"><p className="name"><Link id="valkey_persistence"/><Link to="#valkey_persistence"><strong>valkey_persistence</strong></Link></p><p><code className="type">string</code></p></div>
-        <div className="description"><p>When persistence is 'rdb', Valkey does RDB dumps each 10 minutes if any key is changed. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is 'off', no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can't be forked.</p></div>
+        <p className="title">Valkey persistence</p><div className="description"><p>Controls whether Valkey writes RDB dumps to disk. With `rdb`, RDB dumps are written for backups on the backup schedule and, if `frequent_snapshots` is enabled, every 10 minutes so the service can recover recent data after a restart. With `off`, no RDB dumps are written at all: backups and forking are unavailable, `frequent_snapshots` and `backup_hour`/`backup_minute` have no effect, and all data is lost if the service restarts or is powered off.</p></div>
       </td>
     </tr>
     <tr>
@@ -183,6 +195,18 @@ import Link from '@docusaurus/Link'
       <td>
         <div className="param"><p className="name"><Link id="valkey_activedefrag"/><Link to="#valkey_activedefrag"><strong>valkey_activedefrag</strong></Link></p><p><code className="type">boolean</code></p></div>
         <div className="description"><p>Enable active memory defragmentation. When enabled, Valkey relocates objects off sparsely-used memory pages to reduce fragmentation and return memory to the operating system. Defragmentation runs on the main thread and consumes CPU, so it may increase latency under load.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="valkey_active_defrag_ignore_bytes"/><Link to="#valkey_active_defrag_ignore_bytes"><strong>valkey_active_defrag_ignore_bytes</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1048576</code></li><li>max: <code>1073741824</code></li><li>default: <code>104857600</code></li></ul></div>
+        <p className="title">Active defrag minimum fragmentation waste</p><div className="description"><p>Minimum amount of fragmentation waste, in bytes, before active defragmentation starts. Only takes effect when `valkey_activedefrag` is enabled.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="valkey_active_defrag_threshold_lower"/><Link to="#valkey_active_defrag_threshold_lower"><strong>valkey_active_defrag_threshold_lower</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>100</code></li><li>default: <code>10</code></li></ul></div>
+        <div className="description"><p>Minimum percentage of fragmentation before active defragmentation starts. Only takes effect when `valkey_activedefrag` is enabled.</p></div>
       </td>
     </tr>
     <tr>

@@ -11,8 +11,8 @@ If you are an existing Aiven for OpenSearch user, testing OpenSearch
 Security management before applying it to your running services is
 advisable. To do this, you have two options:
 
-1.  [Create a service](/docs/platform/howto/create_new_service) for testing purposes.
-2.  [Fork](/docs/platform/concepts/service-forking) one of your existing running services to create a test
+1.  Create a service for testing purposes.
+2.  Fork one of your existing running services to create a test
     environment.
 
 ## Enabling OpenSearch® Security management

@@ -28,6 +28,19 @@ Before you begin, ensure that you have the following:
   - Hostname, port, and credentials for the ClickHouse service.
   - A pre-created target database and table.
 
+:::note[ClickHouse version compatibility]
+ClickHouse 25.10 and later enable HTTP response compression by default. The
+ClickHouse sink connector can't decode this compression, so queries that
+return data fail even though the connector reports a successful connection.
+
+To use the sink connector with a ClickHouse service running version 25.10 or
+later, turn off HTTP compression in your connector configuration:
+
+```json
+"jdbcConnectionProperties": "custom_http_params=enable_http_compression=0"
+```
+:::
+
 ## Limitations
 
 <!-- vale off -->
@@ -99,6 +112,7 @@ Create a file named `clickhouse_sink_connector.json` with the following configur
     "username": "avnadmin",
     "password": "mypassword",
     "ssl": "true",
+    "jdbcConnectionProperties": "custom_http_params=enable_http_compression=0",
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",
     "value.converter": "org.apache.kafka.connect.storage.StringConverter"
 }
@@ -114,6 +128,8 @@ Create a file named `clickhouse_sink_connector.json` with the following configur
 - `username`: Username for authentication in the ClickHouse service.
 - `password`: Password for authentication in the ClickHouse service.
 - `ssl`: Set to `true` to enable SSL encryption.
+- `jdbcConnectionProperties`: Turns off HTTP response compression for ClickHouse
+  25.10 or later. Set `custom_http_params=enable_http_compression=0`.
 
 For more configuration options, see the
 [ClickHouse sink connector GitHub repository](https://github.com/ClickHouse/clickhouse-kafka-connect).
@@ -184,7 +200,8 @@ following properties:
     "database": "default",
     "username": "avnadmin",
     "password": "mypassword",
-    "ssl": "true"
+    "ssl": "true",
+    "jdbcConnectionProperties": "custom_http_params=enable_http_compression=0"
 }
 ```
 

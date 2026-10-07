@@ -9,7 +9,7 @@ For a low-cost way to get started with Aiven for Apache Kafka® Connect, you can
 To reduce load on the Kafka nodes and make the cluster more stable, you can
 [create a standalone Kafka Connect service](/docs/products/kafka/kafka-connect/get-started)
 instead. A standalone service offers more CPU time and memory, and allows
-you to scale the service independently.
+you to [scale the service independently](/docs/products/kafka/howto/change-service-plan).
 
 To enable Apache Kafka Connect on Aiven for Apache Kafka nodes:
 

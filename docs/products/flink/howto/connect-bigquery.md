@@ -269,7 +269,7 @@ Console](https://console.aiven.io/):
 1.  Log in to [Aiven Console](https://console.aiven.io/) and choose your
     project.
 1.  From the **Services** page, you can either
-    [create an Aiven for Apache Flink](/docs/platform/howto/create_new_service) service or
+    create an Aiven for Apache Flink service or
     select an existing service.
 1.  Next, configure Google BigQuery service integration endpoint:
     -   Go to the **Projects** page where all the services are

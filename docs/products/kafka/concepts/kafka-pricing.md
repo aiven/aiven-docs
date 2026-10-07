@@ -77,6 +77,9 @@ review:
 - Storage usage
 - Predicted usage for the billing period
 
+To change the compute plan for a Standard Kafka service, see
+[Change the plan for your Standard Kafka service](/docs/products/kafka/howto/change-standard-kafka-plan).
+
 :::note
 The Aiven Console shows usage values in the unit that best fits the size of the
 number, for example bytes, KB, MB, GB, or TB. The unit can change as usage grows
@@ -130,6 +133,7 @@ selected type:
 <RelatedPages />
 
 - [Create an Aiven for Apache Kafka® Professional tier service](/docs/products/kafka/get-started/create-kafka-service)
+- [Change the plan for your Standard Kafka service](/docs/products/kafka/howto/change-standard-kafka-plan)
 - [Standard Kafka overview](/docs/products/kafka/standard-kafka-overview)
 - [Classic Kafka overview](/docs/products/kafka/classic-kafka-overview)
 - [Diskless topics overview](/docs/products/kafka/diskless/concepts/diskless-topic-overview)

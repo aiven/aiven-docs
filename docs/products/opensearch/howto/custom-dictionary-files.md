@@ -1,5 +1,6 @@
 ---
-title: Custom dictionary files
+title: Custom dictionary files for Aiven for OpenSearch®
+sidebar_label: Custom dictionary files
 ---
 
 import Tabs from '@theme/Tabs';
@@ -7,17 +8,26 @@ import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Custom dictionary files are user-defined files that enhance query analysis and improve search relevance in OpenSearch. By adding domain-specific vocabulary and rules, these files refine search results to be more accurate and relevant.
+Upload, list, replace, and download custom dictionary files for your Aiven for OpenSearch® service to enhance query analysis and improve search relevance.
 
-Custom dictionary files are categorized into three types:
+Custom dictionary files are user-defined files that enhance query analysis and improve
+search relevance. By adding domain-specific vocabulary and rules, these files refine
+search results to be more accurate and relevant.
+
+Custom dictionary files are categorized into four types:
 
 - **Stopwords**: Exclude common words like "the" and "is" to refine search results.
 - **Synonyms**: Equate similar terms, such as "car" and "automobile," to improve
   query matching.
-- **WordNet**: Provide semantic relationships between words, such as synonyms and antonyms.
+- **WordNet**: Provide semantic relationships between words, such as synonyms and
+  antonyms.
+- **Hyphenation patterns**: Define XML hyphenation patterns for the
+  `hyphenation_decompounder` token filter, which splits compound words for languages
+  such as German, Dutch, and the Scandinavian languages.
 
 :::note
-Ensure your custom dictionary files are in plain text (UTF-8 encoded) format.
+Stopwords, synonyms, and WordNet files must be in plain text (UTF-8 encoded) format.
+Hyphenation patterns files must be well-formed XML (UTF-8 encoded).
 :::
 
 ## Upload files
@@ -32,7 +42,7 @@ Upload new custom dictionary files to your OpenSearch service.
 1. In the <ConsoleLabel name="data"/> section, click **Indexes**.
 1. Click **Upload file** in the **Custom dictionary files** section.
 1. In the **Upload a custom dictionary file** screen:
-   - Select **File type** (Stopwords, Synonyms, WordNet).
+   - Select **File type** (Stopwords, Synonyms, WordNet, Hyphenation patterns).
    - Enter a **File name**.
    - Choose the file from your system and click **Upload**.
 
@@ -43,7 +53,7 @@ Run:
 
 ```bash
 avn service custom-file upload --project PROJECT_NAME \
---file_type <stopwords|synonyms|wordnet> \
+--file_type <stopwords|synonyms|wordnet|hyphenation_patterns> \
 --file_path <file_path> \
 --file_name <file_name> SERVICE_NAME
 
@@ -52,7 +62,8 @@ avn service custom-file upload --project PROJECT_NAME \
 Parameters:
 
 - `PROJECT_NAME`: Your Aiven project name.
-- `<stopwords|synonyms|wordnet>`: The type of dictionary file to upload.
+- `<stopwords|synonyms|wordnet|hyphenation_patterns>`: The type of dictionary file to
+  upload. Use `hyphenation_patterns` for the **Hyphenation patterns** (XML) file type.
 - `<file_path>`: Path to the local file on your system.
 - `<file_name>`: The name of the file to appear in Aiven for OpenSearch.
 - `SERVICE_NAME`: Name of your OpenSearch service.
@@ -140,7 +151,6 @@ Download a custom dictionary file to your local system.
 1. Click <ConsoleLabel name="actions"/> > <ConsoleLabel name="download"/>.
 1. Choose you location and click **Save**.
 
-
 </TabItem>
 <TabItem value="CLI" label="CLI">
 Run:
@@ -171,6 +181,7 @@ Parameters:
 - For OpenSearch Cross-Cluster Replication (CCR), files must be uploaded to
   both services manually.
 - Use alphanumeric characters and underscores only for file names.
+- Hyphenation patterns files must be well-formed XML, or the upload is rejected.
 
 ## Example: How to use custom dictionary files with indexes
 

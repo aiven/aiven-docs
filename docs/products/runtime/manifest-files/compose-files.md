@@ -34,12 +34,6 @@ Aiven recognizes Compose files with the following file naming conventions:
 Aiven automatically analyzes Compose files to detect the applications to build and
 the Aiven services to create.
 
-:::note
-You cannot use Compose files to deploy applications through the Aiven API or Aiven MCP.
-Use
-[Containerfiles or Dockerfiles](/docs/products/runtime/manifest-files/containerfiles) instead.
-:::
-
 ## Create a Compose file
 
 Use the following guidelines to create your Compose files for Aiven Runtime.
@@ -47,11 +41,45 @@ More information on formatting Compose files is available in the
 [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md)
 and in the [Docker Compose file reference](https://docs.docker.com/reference/compose-file).
 
+### Deploy an application from an existing image
+
+Aiven Runtime does not deploy applications directly from the `image` property
+in your Compose file. Use `build` instead and reference a
+Containerfile or Dockerfile in the repository.
+
+For applications that are available as public container images,
+create a Containerfile or Dockerfile that uses the image in its `FROM` instruction:
+
+```dockerfile
+FROM provider/image
+```
+
+Reference that file using `build` in the Compose file.
+
+For example, the following Dockerfile uses the public NGINX image:
+
+```dockerfile
+FROM docker.io/library/nginx:alpine
+```
+
+Reference this Dockerfile in your Compose file using the `build` property:
+
+```yaml
+services:
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      ...
+```
+
 ### Service integrations
 
 Aiven Runtime automatically detects and creates the following data services based
 on Docker image names: Aiven for Apache Kafka®, Aiven for PostgreSQL®, Aiven for Valkey™,
-and Aiven for OpenSearch®.
+and Aiven for OpenSearch®. Runtime uses variable names in the Compose file that point to
+the data services. If there are no variable names, it uses
+[default environment variable names](/docs/products/runtime/secrets-and-variables#integrated-service-environment-variables).
 
 Aiven integrates the data services listed in the `depends_on` property.
 You define the service type and tags with the `image` property, for example:

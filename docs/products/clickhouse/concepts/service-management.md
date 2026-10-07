@@ -41,7 +41,9 @@ tables, and administrative functions. See
 Choose a ClickHouse version when you create a service and upgrade to a newer
 supported version later. Review
 [advanced parameters](/docs/products/clickhouse/reference/advanced-params) for
-available configuration options.
+available configuration options. Manage
+[maintenance updates](/docs/products/clickhouse/howto/maintenance-updates) and
+the maintenance window for the service.
 
 <RelatedPages/>
 
@@ -49,5 +51,8 @@ available configuration options.
 - [Power on/off and delete](/docs/products/clickhouse/howto/power-cycle-service)
 - [Manage users and roles](/docs/products/clickhouse/howto/manage-users-roles)
 - [Manage versions](/docs/products/clickhouse/howto/manage-clickhouse-versions)
+- [Maintenance and updates](/docs/products/clickhouse/howto/maintenance-updates)
 - [Advanced parameters](/docs/products/clickhouse/reference/advanced-params)
 - [Limits and limitations](/docs/products/clickhouse/reference/limitations)
+- [Scale disk storage](/docs/products/clickhouse/howto/scale-disk-storage)
+- [Change the service plan](/docs/products/clickhouse/howto/change-service-plan)

@@ -24,7 +24,7 @@ export const isForkable = (props) => {
    )}
    :::
 
-1. Optional: Add [tags](/docs/platform/howto/tag-resources).
+1. Optional: Add tags.
 
 1. Select the cloud provider, region, and plan.
 
@@ -33,7 +33,7 @@ export const isForkable = (props) => {
    providers and regions.
    :::
 
-1. Optional: Add [disk storage](/docs/platform/howto/add-storage-space).
+1. Optional: Add disk storage.
 
 1. In the **Service summary**, click **Create service**.
 

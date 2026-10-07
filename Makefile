@@ -2,13 +2,10 @@ SCRIPTS         = ./scripts
 INCLUDESDIR      = ./static/includes
 
 # Generate config listing for a service type
-all-service-type-configs: service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-mysql service-type-config-opensearch service-type-config-pg service-type-config-dragonfly service-type-config-valkey service-type-config-kafka-inkless-saas service-type-config-kafka-topic-inkless-saas service-type-config-kafka-free-tier service-type-config-kafka-topic-free-tier service-type-config-kafka-dev-tier service-type-config-kafka-topic-dev-tier
+all-service-type-configs: service-type-config-clickhouse service-type-config-flink service-type-config-grafana service-type-config-kafka_mirrormaker service-type-config-kafka_connect service-type-config-kafka service-type-config-mysql service-type-config-opensearch service-type-config-pg service-type-config-valkey service-type-config-kafka-inkless-saas service-type-config-kafka-topic-inkless-saas service-type-config-kafka-free-tier service-type-config-kafka-topic-free-tier service-type-config-kafka-dev-tier service-type-config-kafka-topic-dev-tier
 
 service-type-config-clickhouse:
 	node "$(SCRIPTS)/service_type_parser.js" "clickhouse" "$(INCLUDESDIR)/config-clickhouse.md"
-
-service-type-config-dragonfly:
-	node "$(SCRIPTS)/service_type_parser.js" "dragonfly" "$(INCLUDESDIR)/config-dragonfly.md"
 
 service-type-config-flink:
 	node "$(SCRIPTS)/service_type_parser.js" "flink" "$(INCLUDESDIR)/config-flink.md"

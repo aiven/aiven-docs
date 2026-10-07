@@ -20,6 +20,13 @@ use case.
 
 <GridContainer columns={2}>
   <Card
+    to="/docs/tools/agents"
+    iconComponent={AI}
+    titleHighlight="var(--aiven-brand-teal)"
+    title="Managed Agents"
+    description="Create and run agents on the Aiven Platform."
+  />
+  <Card
     to="#connect-ai-agents-and-tools-to-aiven"
     iconComponent={AI}
     titleHighlight="var(--aiven-brand-teal)"
@@ -34,6 +41,15 @@ use case.
     description="Use vector search, query optimization, and SQL generation built into supported Aiven services."
   />
 </GridContainer>
+
+## Run agents on Aiven
+
+Create agents on the Aiven Platform, connect the tools they need, and run them on demand
+or on a schedule.
+
+| Tool | What you can do | Get started |
+| --- | --- | --- |
+| Managed Agents <LimitedBadge/> | Create agents, connect MCP integrations, and run agents on demand or on a schedule | [Managed Agents](/docs/tools/agents) |
 
 ## Connect AI agents and tools to Aiven
 
@@ -60,6 +76,12 @@ already using.
       <Link className="ai-capability-pill" to="/docs/products/clickhouse/howto/vector-similarity-index-cache">ClickHouse</Link>
       <Link className="ai-capability-pill" to="/docs/products/opensearch/reference/plugins">OpenSearch</Link>
       <Link className="ai-capability-pill" to="/docs/products/valkey/reference/valkey-modules#valkey-search">Valkey</Link>
+    </span>
+  </div>
+  <div className="ai-capability-row">
+    <span className="ai-capability-label">Agentic AI</span>
+    <span className="ai-capability-pills">
+      <Link className="ai-capability-pill" to="/docs/products/opensearch/use-cases#agentic-ai">OpenSearch</Link>
     </span>
   </div>
   <div className="ai-capability-row">

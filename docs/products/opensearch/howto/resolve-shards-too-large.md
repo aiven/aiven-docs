@@ -83,10 +83,30 @@ need to recreate them.
     }'
     ```
 
-The split creates an index under a new name. If your application references the index by
-name rather than through an alias, add an alias that points to the new index so existing
-clients keep working without changes. For more information, see
-[Aliases](/docs/products/opensearch/concepts/indices#aliases).
+1. The split creates an index under a new name. If your application references the
+   index by name rather than through an alias, add an alias so existing clients keep
+   working without changes. Verify that INDEX_NAME and NEW_INDEX_NAME have the same
+   document count first, because the `remove_index` action below deletes INDEX_NAME
+   outright rather than only detaching the alias:
+
+    ```bash
+    curl -X POST "https://USER:PASSWORD@HOST:PORT/_aliases" \
+         -H 'Content-Type: application/json' \
+         -d '{
+      "actions": [
+        { "remove_index": { "index": "INDEX_NAME" } },
+        { "add": { "index": "NEW_INDEX_NAME", "alias": "INDEX_NAME" } }
+      ]
+    }'
+    ```
+
+Both actions apply in the same request, so there's no window where INDEX_NAME resolves
+to nothing, and existing clients keep reading and writing through INDEX_NAME unchanged.
+For more information, see [Aliases](/docs/products/opensearch/concepts/indices#aliases).
+
+If the security plugin is enabled, ACL rules matching INDEX_NAME don't automatically
+extend to its alias. For more information, see
+[Access control for aliases](/docs/products/opensearch/concepts/access_control#access-control-for-aliases).
 
 ## Reindex with more shards
 

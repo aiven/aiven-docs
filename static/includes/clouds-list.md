@@ -870,6 +870,11 @@ contact your account team.
   </thead>
   <tbody>
   <tr>
+    <td>Africa</td>
+    <td>af-johannesburg-1</td>
+    <td>South Africa, South Africa Central: Johannesburg</td>
+  </tr>
+  <tr>
     <td>Asia-Pacific</td>
     <td>ap-melbourne-1</td>
     <td>Australia, Australia Southeast: Melbourne</td>
@@ -911,6 +916,11 @@ contact your account team.
   </tr>
   <tr>
     <td>Europe</td>
+    <td>eu-amsterdam-1</td>
+    <td>Netherlands, Netherlands Northwest: Amsterdam</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
     <td>eu-frankfurt-1</td>
     <td>Germany, Germany Central: Frankfurt</td>
   </tr>
@@ -918,6 +928,11 @@ contact your account team.
     <td>Europe</td>
     <td>eu-milan-1</td>
     <td>Italy, Italy Northwest: Milan</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-paris-1</td>
+    <td>France, France Central: Paris</td>
   </tr>
   <tr>
     <td>Europe</td>
@@ -951,13 +966,28 @@ contact your account team.
   </tr>
   <tr>
     <td>North America</td>
+    <td>ca-toronto-1</td>
+    <td>Canada, Canada Southeast: Toronto</td>
+  </tr>
+  <tr>
+    <td>North America</td>
     <td>us-ashburn-1</td>
     <td>US East, Virginia: Ashburn</td>
   </tr>
   <tr>
     <td>North America</td>
+    <td>us-chicago-1</td>
+    <td>US Midwest, Illinois: Chicago</td>
+  </tr>
+  <tr>
+    <td>North America</td>
     <td>us-phoenix-1</td>
     <td>US West, Arizona: Phoenix</td>
+  </tr>
+  <tr>
+    <td>North America</td>
+    <td>us-sanjose-1</td>
+    <td>US West, California: San Jose</td>
   </tr>
   <tr>
     <td>South America</td>

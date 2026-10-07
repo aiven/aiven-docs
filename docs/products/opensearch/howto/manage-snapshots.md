@@ -33,8 +33,7 @@ Create, list, retrieve, or delete snapshots in your Aiven for OpenSearch [custom
 <TabItem value="os-api" label="OpenSearch API">
 
 - Configured [custom repository](/docs/products/opensearch/howto/manage-custom-repo/list-manage-custom-repo)
-- [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
-  applied for your service
+- Maintenance updates applied for your service
 - [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
   for your service
 - [Snapshot permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-permissions)

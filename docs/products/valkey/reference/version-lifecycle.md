@@ -18,5 +18,3 @@ Learn how Aiven manages Aiven for Valkey™ version support, end of life (EOL) d
 <RelatedPages/>
 
 - [Manage Aiven for Valkey™ versions](/docs/products/valkey/howto/valkey-version-upgrade)
-- [Service forking](/docs/platform/concepts/service-forking)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

@@ -5,8 +5,25 @@ sidebar_label: Manage users
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Invite users to your DataHub service, giving them access to read or edit metadata.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'DataHub UI permissions',
+      values: [
+                 <>
+          <code>Manage Users & Groups</code> <br/>
+          View the <a href="https://docs.datahub.com/docs/authorization/policies">
+          DataHub access control policies documentation
+          </a>
+        </>,
+      ],
+    },
+  ]}
+/>
 
 For programmatic access to your DataHub service, use DataHub’s
 [personal access tokens (PATs)](https://docs.datahub.com/docs/authentication/personal-access-tokens).

@@ -18,5 +18,3 @@ Learn how Aiven manages Aiven for MySQL® version support, end of life (EOL) dat
 <RelatedPages/>
 
 - [Manage Aiven for MySQL® versions](/docs/products/mysql/howto/manage-mysql-version)
-- [Service forking](/docs/platform/concepts/service-forking)
-- [Maintenance window](/docs/platform/concepts/maintenance-window)

@@ -238,7 +238,6 @@ perform data analysis.
 
 <RelatedPages/>
 
-- [Service backups](/docs/platform/concepts/service_backups#aiven-for-mysql)
 - [Migrate to Aiven via CLI](/docs/products/mysql/howto/migrate-from-external-mysql)
 - [Migrate to Aiven via console](/docs/products/mysql/howto/migrate-db-to-aiven-via-console)
 - [Perform pre-migration checks on your Aiven for MySQL® database](/docs/products/mysql/howto/do-check-service-migration)

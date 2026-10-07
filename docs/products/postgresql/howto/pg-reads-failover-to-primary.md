@@ -38,7 +38,7 @@ Aiven Provider for Terraform.
 
 - Aiven for PostgreSQL service on a
   [Business or Premium plan](https://aiven.io/pricing?product=pg) (see how to
-  [change your plan](/docs/platform/howto/scale-services))
+  change your plan)
 - Tool for managing the feature:
   - [Aiven Console](https://console.aiven.io/)
   - [Aiven CLI](/docs/tools/cli)

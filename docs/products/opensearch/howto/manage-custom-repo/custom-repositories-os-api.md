@@ -12,8 +12,7 @@ Use the OpenSearch® API for configuring custom repositories in Aiven for OpenSe
 
 ## Prerequisites
 
-- [Maintenance updates](/docs/platform/concepts/maintenance-window#maintenance-updates)
-  applied for your service
+- Maintenance updates applied for your service
 - [Security management enabled](/docs/products/opensearch/howto/enable-opensearch-security)
   for your service
 - [Snapshot permissions](https://docs.opensearch.org/docs/latest/security/access-control/permissions/#snapshot-permissions)

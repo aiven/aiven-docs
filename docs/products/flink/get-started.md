@@ -7,9 +7,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import CreateService from "@site/static/includes/create-service-console.md"
-import Note from "@site/static/includes/flink-service-creation-limitation.md"
-
-<Note/>
 
 Begin your experience with Aiven for Apache Flink® by setting up a service, configuring data integrations, and building streaming applications.
 

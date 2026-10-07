@@ -13,5 +13,4 @@ ownership, cost allocation, and governance.
 
 <RelatedPages/>
 
-- [Use resource tags](/docs/platform/howto/tag-resources)
 - [Fork Aiven for Valkey™](/docs/products/valkey/howto/fork-service)

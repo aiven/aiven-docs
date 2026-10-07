@@ -15,8 +15,8 @@ Create a service in your custom cloud or migrate an existing service to your cus
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 To create a service in the [Aiven Console](https://console.aiven.io/) in your new
-custom cloud, follow the guidelines in
-[Create a service](/docs/platform/howto/create_new_service).
+custom cloud, follow the instructions in
+the create a service guide for the service type.
 
 When creating a service in the [Aiven Console](https://console.aiven.io/), at the
 **Select service region** step, select **Custom clouds** from the available regions.
