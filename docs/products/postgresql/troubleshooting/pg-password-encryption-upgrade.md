@@ -12,11 +12,16 @@ MD5 password hashing is deprecated in PostgreSQL and
 `scram-sha-256` is the recommended replacement. It resists offline attacks better and
 stops a stored hash from being replayed as a password.
 
-:::note
-MD5 still works in all PostgreSQL versions that Aiven currently supports. You can
-migrate at your own pace, but complete the migration before MD5 support is removed
-upstream.
-:::
+MD5 authentication keeps working in every PostgreSQL version that Aiven supports, so
+nothing breaks today. What changes between versions is how loudly PostgreSQL warns you:
+
+- **PostgreSQL 18**: MD5 is marked as deprecated. `CREATE ROLE` and `ALTER ROLE` log a
+  `WARNING` when they set an MD5 password.
+- **PostgreSQL 19**: PostgreSQL also logs a `WARNING` after every successful MD5
+  authentication. Control this with `md5_password_warnings`, which defaults to `on`.
+
+PostgreSQL has not announced which release removes MD5 support. Migrate while it is
+still a warning rather than waiting for it to become an error.
 
 ## How Aiven for PostgreSQL hashes passwords
 
