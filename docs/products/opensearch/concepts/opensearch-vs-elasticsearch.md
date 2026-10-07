@@ -19,10 +19,11 @@ that your platforms can continue to receive upgrades in the future.
 To start exploring Aiven for OpenSearch®, see
 [Get Started with Aiven for OpenSearch®](/docs/products/opensearch/get-started).
 
-To assess an existing Elasticsearch cluster before you move it, run the
+To assess an existing Elasticsearch cluster and see how it maps to Aiven for OpenSearch
+before moving it, run the
 [Elasticsearch to Aiven for OpenSearch Migration Checker](https://aiven.io/tools/elasticsearch-to-aiven-migration-checker).
 The checker reports compatibility findings, a service plan recommendation, and list
-pricing.
+pricing for a comparable cluster on Aiven for OpenSearch.
 
 <RelatedPages/>
 
