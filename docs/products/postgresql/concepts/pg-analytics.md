@@ -73,6 +73,10 @@ on.
   smallest plans don't leave either engine enough memory to work with.
 - Only Amazon S3 buckets are supported as storage. Aiven doesn't provide a managed S3
   bucket for this feature.
+- Use a bucket dedicated to a single PostgreSQL for Analytics service. Sharing one
+  bucket between services, or using a bucket that already holds other data, isn't
+  supported, and Aiven doesn't currently prevent either.
+- Only the owner of a database can create or drop the `pg_lake` extension in it.
 - Forks and read replicas aren't supported for a PostgreSQL for Analytics service.
   You can still power off the service.
 - You can't perform a major version upgrade on a PostgreSQL for Analytics service.

@@ -52,17 +52,27 @@ existing Aiven for PostgreSQL service.
 1. Under **Endpoint integrations**, click **PostgreSQL for Analytics Credentials**,
    and select the Amazon S3 endpoint you created.
 
+If you later rotate the access key on the endpoint, your service picks up the new
+credentials without any further action.
+
+:::important
+Use a bucket dedicated to this one service. Aiven doesn't prevent you from pointing
+two services at the same bucket, or from using a bucket that already holds other
+data, and neither is supported.
+:::
+
 ## Enable the extension
 
-Connect to your service with your primary service user, `avnadmin`, and run:
+Connect to the database where you plan to keep Iceberg tables, as its owner, which is
+your primary service user `avnadmin` by default, and run:
 
 ```sql
 CREATE EXTENSION pg_lake CASCADE;
 ```
 
-This grants your primary service user the `lake_read`, `lake_write`, and
-`lake_read_write` roles, which it can then grant to other database users who need
-to work with Iceberg tables.
+Only the owner of a database can create or drop this extension. Your primary service
+user holds the `lake_read`, `lake_write`, and `lake_read_write` roles with admin
+option, so it can grant them to other database users who work with Iceberg tables.
 
 ## Create an Iceberg table
 
