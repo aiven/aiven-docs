@@ -11,7 +11,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Managed Agents uses two sets of permissions:
 
 - **Your permissions** control what you can do with agents.
-- **The agent's permissions** control what an agent can do in your Aiven project
+- **Agent permissions** control what an agent can do in your Aiven project
   through [Aiven MCP](/docs/tools/mcp-server).
 
 ## Who can manage agents
@@ -36,17 +36,18 @@ These rules stop anyone from using agents to gain more access than they have:
 When you connect an agent to Aiven MCP, the agent gets its own Aiven identity. The
 agent uses this identity, not yours, and can access only the project it belongs to.
 
-Aiven creates and manages the agent's access token. You never see or copy it. The
+Aiven creates and manages the agent's access token. You can't view or copy it. The
 token expires after 90 days. To renew it, reconnect Aiven MCP for the agent.
 
-## MCP roles and tool groups
+## Control agent access
 
-An MCP role and tool groups control what an agent can do through Aiven MCP.
+When you connect Aiven MCP, the MCP role sets the level of access the agent has.
+Tool groups determine which areas of Aiven the agent can access.
 
 ### MCP roles
 
-When you connect Aiven MCP to an agent, you choose an MCP role. MCP roles are
-separate from project roles.
+When you connect Aiven MCP to an agent, you choose an MCP role. This role is
+separate from your project role.
 
 The following MCP roles are available:
 
@@ -60,18 +61,18 @@ Choose the role with the fewest permissions that the agent needs for its task. F
 example, an agent that only reports on Aiven for Apache Kafka® consumer lag needs
 **Read-only**.
 
-Agents act on the content they read, such as Slack messages or web pages. This
-content can lead an agent to take unintended actions. A restrictive MCP role and
-narrow tool groups limit the impact.
-
 ### Tool groups
 
-Tool groups limit which areas of Aiven the agent can use, such as Kafka,
+Tool groups determine which areas of Aiven the agent can access, such as Kafka,
 PostgreSQL, services, integrations, and applications.
 
-The MCP role and tool groups work together. For example, with the PostgreSQL tool
-group and the **Read-only** role, the agent can use only the read-only
-PostgreSQL tools.
+The MCP role and chosen tool groups work together. For example, if you choose the
+PostgreSQL tool group and the **Read-only** role, the agent can use only the
+read-only PostgreSQL tools.
+
+Use the most restrictive MCP role and tool groups that support the agent's task.
+Agents can act on content from connected tools, such as web pages or messages.
+Limiting access reduces the impact of unintended actions.
 
 ## Permissions for other MCP integrations
 
@@ -94,13 +95,13 @@ To reduce risk, follow these practices:
 
 ### You can't see an agent that a colleague created
 
-The agent has more access than your project role allows. Ask a user with equal or
-higher permissions to manage it or to lower its MCP role.
+The agent has more access than your project role allows. Ask a user with
+sufficient permissions to manage the agent or lower its MCP role.
 
-### An MCP role is unavailable
+### You can't choose an MCP role
 
-Your project role doesn't include every permission that role needs. Ask a project
-Administrator to change your project role or to set the MCP role for you.
+Your project permissions don't allow you to grant that level of access. Ask a
+project Administrator to change your project role or to set the MCP role for you.
 
 ### An agent stopped accessing Aiven services
 

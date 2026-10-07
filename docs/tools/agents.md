@@ -44,11 +44,12 @@ Managed Agents uses the following concepts:
 
 ## How Managed Agents works
 
-You use Managed Agents in five stages:
+A typical Managed Agents workflow is:
 
 1. **Enable Managed Agents:** Request access and enable Managed Agents for your
    project. See [Enable Managed Agents](#enable-managed-agents).
-1. **Create an agent:** Describe a task or configure the agent manually. See
+1. **Create an agent:** Start from a template, describe a task, or configure the
+   agent manually. See
    [Create an agent](/docs/tools/agents/create-agent).
 1. **Connect tools and integrations:** Choose the built-in tools and integrations the
    agent can use. See [Manage integrations](/docs/tools/agents/manage-integrations).
@@ -73,7 +74,7 @@ You need access to Managed Agents for each project.
 ## When to use Managed Agents
 
 Use agents for tasks that involve gathering information, analyzing it, and taking
-actions through connected tools. Run these tasks on demand or
+actions through connected tools. You can run these tasks on demand or
 [on a schedule](/docs/tools/agents/schedule-agent).
 
 For example, you can create an agent to:
@@ -93,10 +94,10 @@ tools and integrations.
 You choose which tools each agent can use. Agents can use the following:
 
 - **Built-in tools:** Web Fetch and Web Search.
-- **Aiven MCP:** Connects the agent to services in your Aiven project. For more
-  information, see [Aiven MCP](/docs/tools/mcp-server).
-- **Other MCP integrations:** Connects the agent to other systems, such as Slack,
-  GitHub, and Jira.
+- **Aiven MCP:** Access to services in your Aiven project. For more information,
+  see [Aiven MCP](/docs/tools/mcp-server).
+- **Other MCP integrations:** Access to external systems, such as Slack, GitHub,
+  and Jira.
 
 For more information, see [Manage integrations](/docs/tools/agents/manage-integrations).
 
@@ -107,8 +108,8 @@ project. You assign one of the following MCP roles: **Read-only**, **Read-write*
 or **Full access**.
 
 Aiven creates a dedicated identity and a scoped token for the agent automatically.
-You can grant any role up to your own. For more information, see
-[Agent permissions](/docs/tools/agents/permissions).
+Your project permissions limit the MCP role you can assign. For more
+information, see [Agent permissions](/docs/tools/agents/permissions).
 
 <RelatedPages/>
 
