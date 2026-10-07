@@ -16,7 +16,8 @@ test before you create the agent.
 ## Prerequisites
 
 Managed Agents enabled for the project. If you have not requested access or
-enabled Managed Agents, see [Managed Agents](/docs/tools/agents).
+enabled Managed Agents, see
+[Enable Managed Agents](/docs/tools/agents#enable-managed-agents).
 
 ## Create an agent by describing a task
 
@@ -62,6 +63,10 @@ You can change:
 - Task prompt
 - Built-in tools and integrations
 - MCP role and available tools
+
+Aiven selects an MCP role for the agent. Choose the role with the fewest permissions
+the agent needs. For more information, see
+[Agent permissions](/docs/tools/agents/permissions).
 
 **System instructions** define how the agent behaves. The **Task prompt** defines
 the task the agent performs when it runs.
