@@ -778,6 +778,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/kafka/karapace/concepts/schema-references',
                     'products/kafka/karapace/howto/register-schemas-with-references',
+                    'products/kafka/karapace/howto/migrate-schemas-with-import-mode',
                     'products/kafka/karapace/howto/enable-schema-reader-strict-mode',
                     {
                       type: 'category',
