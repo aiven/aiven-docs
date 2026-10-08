@@ -10,3 +10,4 @@ as such in the following table.
 | 2.19.x LTS | Date not set | Automatic upgrade to a supported version | Date not set                     | 2025-09-15                      |
 | 3.3.x      | 2027-02-01   | Automatic upgrade to a supported version | 2027-02-01                       | 2026-01-20                      |
 | 3.6.x LTS  | Date not set | Automatic upgrade to a supported version | Date not set                     | 2026-06-23                      |
+| 3.8.x      | Date not set | Automatic upgrade to a supported version | Date not set                     | 2026-10-08                      |
