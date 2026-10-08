@@ -22,17 +22,19 @@ Before you begin, make sure you have:
   [Schema Registry enabled](/docs/products/kafka/karapace/howto/enable-karapace)
 - Karapace version 6.2.1 or later
 - Access to an OIDC-compliant identity provider
-- The following OIDC provider settings configured for your Aiven for Apache
-  Kafka service:
-  - `kafka.sasl_oauthbearer_jwks_endpoint_url`
-  - `kafka.sasl_oauthbearer_expected_issuer`
-  - `kafka.sasl_oauthbearer_expected_audience`
+- The `kafka.sasl_oauthbearer_jwks_endpoint_url` OIDC provider setting
+  configured for your Aiven for Apache Kafka service
 
 Schema Registry uses the same OIDC provider settings as Apache Kafka.
 
-The Aiven Console does not require the expected issuer or audience settings
-when you configure Kafka OIDC, but Schema Registry requires both for
-authentication.
+Whether you need to configure `kafka.sasl_oauthbearer_expected_issuer` and
+`kafka.sasl_oauthbearer_expected_audience` depends on your Karapace version:
+
+- **Karapace 6.2.4 and later:** Both settings are optional. If configured,
+  Schema Registry validates the corresponding `iss` and `aud` claims.
+- **Karapace 6.2.1 through 6.2.3:** Both settings are required.
+
+The Aiven Console does not require these settings when you configure Kafka OIDC.
 
 For more information about configuring these settings, see
 [Enable OAuth 2.0/OIDC authentication for Apache Kafka®](/docs/products/kafka/howto/enable-oidc).
@@ -168,7 +170,8 @@ In Karapace, you configure which roles can use each HTTP method.
 
 For each request, Karapace does the following:
 
-1. Validates the JWT signature, expiration, issuer, and audience.
+1. Validates the JWT signature and expiration, and validates the issuer and
+   audience claims if the corresponding settings are configured.
 1. Reads the roles from the configured claim path. The default path is
    `resource_access.karapace.roles`.
 1. Looks up the roles allowed for the requested HTTP method in
@@ -233,8 +236,9 @@ user or client. For example:
 }
 ```
 
-This example omits the issuer, audience, and expiration claims.
-Karapace validates these claims before it reads roles.
+This example shows only the claims relevant to role-based authorization.
+Tokens from your identity provider also contain standard claims, such as
+`exp`, `iss`, and `aud`.
 
 The default claim path, `resource_access.karapace.roles`, matches this example.
 
