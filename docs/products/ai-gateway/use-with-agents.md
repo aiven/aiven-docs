@@ -1,5 +1,6 @@
 ---
 title: Use AI gateway with agents
+early: true
 ---
 
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
@@ -236,4 +237,3 @@ List the models this key can use:
 curl 'https://ai.aiven.io/v1/models' \
 -H 'Authorization: Bearer AI_ACCESS_KEY'
 ```
-

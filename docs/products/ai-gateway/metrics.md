@@ -1,5 +1,6 @@
 ---
 title: Track usage and spend
+early: true
 ---
 
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
