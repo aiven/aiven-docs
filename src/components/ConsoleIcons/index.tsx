@@ -162,8 +162,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'openschemamap':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.map} />{' '}
-          <b>Open schema map</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.map} /> <b>Open schema map</b>
         </>
       );
     case 'generativeai':
@@ -350,6 +349,13 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.bankAccount} /> <b>Billing</b>
+        </>
+      );
+    case 'billingreports':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.timelineAreaChart} />{' '}
+          <b>Reports</b>
         </>
       );
     case 'invoices':
