@@ -92,28 +92,6 @@ and on [Aiven for Apache Kafka® pricing](https://aiven.io/pricing?product=kafka
 For higher throughput, storage, retention, or connector limits, upgrade your service to
 a Professional plan in the [Aiven Console](https://console.aiven.io).
 
-## Compare service tiers
-
-| Feature                         | Free                              | Developer                     | Professional                 |
-|---------------------------------|-----------------------------------|-------------------------------|------------------------------|
-| Price                           | $0                                | Starts at $35 per month       | Varies by plan               |
-| Throughput                      | Up to 250 KB/s ingress and egress | 1 MB/s ingress, 2 MB/s egress | Higher, plan-dependent       |
-| Topics                          | Up to 5                           | Up to 20                      | Plan-dependent               |
-| Partitions                      | 1 per topic                       | Up to 100 per topic           | Plan-dependent               |
-| Nodes                           | 1                                 | 2                             | Plan-dependent               |
-| Replication factor              | 1                                 | 1                             | Plan-dependent               |
-| Metadata mode                   | KRaft                             | KRaft                         | KRaft                        |
-| Retention                       | Fixed                             | 1, 2, or 3 days               | Plan-dependent               |
-| Storage                         | Fixed                             | Fixed local storage per node  | Plan-dependent               |
-| SLA                             | None                              | 99%                           | Up to 99.99%, plan-dependent |
-| Kafka Connect                   | Not supported                     | Optional, billed separately   | Full support, plan-dependent |
-| Service integrations            | Not supported                     | Kafka Connect, Prometheus     | Yes, plan-dependent          |
-| Cloud and geographical region   | Fixed                             | Geographical region only      | Cloud and geographical region selectable |
-
-For replication factor 3 or similar production redundancy, use a Professional plan.
-Starting with Apache Kafka 3.9, new services use [KRaft](/docs/products/kafka/concepts/kraft-mode)
-for metadata instead of ZooKeeper.
-
 ## Upgrade path
 
 Upgrade to the Professional tier when the Developer tier no longer meets your
@@ -147,6 +125,7 @@ downgrade options depend on the selected plan. Review supported changes in the
 
 <RelatedPages/>
 
+- [Aiven for Apache Kafka® service tiers](/docs/products/kafka/get-started/service-tiers)
 - [Create an Aiven for Apache Kafka® Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service)
 - [Manage Apache Kafka® parameters](/docs/products/kafka/howto/set-kafka-parameters)
 - [Apache Kafka® upgrade procedure](/docs/products/kafka/concepts/upgrade-procedure)
