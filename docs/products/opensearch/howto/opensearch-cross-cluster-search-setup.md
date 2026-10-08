@@ -45,6 +45,11 @@ Aiven rejects the integration unless all the following are true:
 1. On the service's <ConsoleLabel name="overview"/>, go to the **Cross-cluster search**
    section.
 1. Click **Connect a cluster**.
+1. Select the search direction, where `SERVICE_NAME` is the service you selected:
+
+   - **Search `SERVICE_NAME`**: this service queries indices on `SERVICE_NAME`.
+   - **Let `SERVICE_NAME` search**: `SERVICE_NAME` queries indices on this service.
+
 1. Select **Existing service**, then select the **Project** and the **Service** to
    connect to.
 
@@ -53,11 +58,6 @@ Aiven rejects the integration unless all the following are true:
 
 1. Optional: In **Cluster alias**, enter the alias to use for the remote cluster in
    queries.
-1. Select the search direction, where `SERVICE_NAME` is the service you selected:
-
-   - **Search `SERVICE_NAME`**: this service queries indices on `SERVICE_NAME`.
-   - **Let `SERVICE_NAME` search**: `SERVICE_NAME` queries indices on this service.
-
 1. Click **Connect**.
 
 The **Cross-cluster search** section is not available while the service is powered off,
