@@ -24,16 +24,57 @@ maintain the underlying infrastructure.
 :::note
 Managed Agents is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-You need access for each project. In the project, click
-<ConsoleLabel name="agents"/> > **Request access**. After you have access,
-click **Enable agents**. To run Managed Agents in a project VPC, click
-**Enable in VPC**.
+You need access for each project. For more information, see
+[Enable Managed Agents](#enable-managed-agents).
 :::
 
-## Example uses
+## Key concepts
+
+Managed Agents uses the following concepts:
+
+| Concept                | Description                                                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| Agent                  | An AI agent that you create and run on the Aiven Platform.                                           |
+| System instructions    | Define what the agent does and how it behaves.                                                       |
+| AI model               | The model that processes the agent's instructions and requests.                                      |
+| Tools and integrations | Give the agent access to information and external systems.                                          |
+| Task prompt            | Defines the task the agent performs when it runs. Aiven sends it to the agent on each scheduled run. |
+| Schedule               | Lets the agent perform recurring tasks automatically.                                                |
+| Chat                   | Lets you give the agent a task or ask follow-up questions.                                           |
+
+## How Managed Agents works
+
+A typical Managed Agents workflow is:
+
+1. **Enable Managed Agents:** Request access and enable Managed Agents for your
+   project. See [Enable Managed Agents](#enable-managed-agents).
+1. **Create an agent:** Start from a template, describe a task, or configure the
+   agent manually. See
+   [Create an agent](/docs/tools/agents/create-agent).
+1. **Connect tools and integrations:** Choose the built-in tools and integrations the
+   agent can use. See [Manage integrations](/docs/tools/agents/manage-integrations).
+1. **Chat or schedule:** Send requests in a chat, or run tasks automatically at a
+   specified time or interval. See [Chat with an agent](/docs/tools/agents/chat-with-agent)
+   and [Schedule an agent](/docs/tools/agents/schedule-agent).
+1. **Manage the agent:** Update its system instructions, AI model, and tools. See
+   [Manage an agent](/docs/tools/agents/manage-agent).
+
+For example, you can use chat to investigate an incident as it happens, or create
+a daily schedule that asks the agent to summarize service health.
+
+### Enable Managed Agents
+
+You need access to Managed Agents for each project.
+
+1. In the Aiven Console, open your project.
+1. Click <ConsoleLabel name="agents"/> > **Request access**.
+1. After you have access, click **Enable agents**.
+1. Optional: To run Managed Agents in a project VPC, click **Enable in VPC**.
+
+## When to use Managed Agents
 
 Use agents for tasks that involve gathering information, analyzing it, and taking
-actions through connected tools. Run these tasks on demand or
+actions through connected tools. You can run these tasks on demand or
 [on a schedule](/docs/tools/agents/schedule-agent).
 
 For example, you can create an agent to:
@@ -48,52 +89,33 @@ For example, you can create an agent to:
 What an agent can do depends on its system instructions, AI model, and available
 tools and integrations.
 
-## How Managed Agents works
-
-You configure an agent with:
-
-- **System instructions** that define what the agent does and how it behaves.
-- **An AI model** that processes the agent's instructions and requests.
-- **Tools and integrations** that give the agent access to information and external
-  systems.
-- **Schedules** that let the agent perform recurring tasks automatically.
-
-You can also start a chat with an agent to give it a task or ask follow-up
-questions.
-
 ## Tools and integrations
 
-Agents can use built-in tools such as Web Fetch and Web Search.
+You choose which tools each agent can use. Agents can use the following:
 
-You can also connect an agent to Aiven through
-[Aiven MCP](/docs/tools/mcp-server) or to other MCP integrations, such as Slack,
-GitHub, and Jira. You choose which tools each agent can use.
+- **Built-in tools:** Web Fetch and Web Search.
+- **Aiven MCP:** Access to services in your Aiven project. For more information,
+  see [Aiven MCP](/docs/tools/mcp-server).
+- **Other MCP integrations:** Access to external systems, such as Slack, GitHub,
+  and Jira.
 
-When you connect Aiven MCP, you grant access to services in the current project
-and assign an MCP role. You can grant any role up to your own. Aiven creates a
-scoped token automatically.
+For more information, see [Manage integrations](/docs/tools/agents/manage-integrations).
 
-## Run agents interactively or on a schedule
+## Permissions
 
-You can use an agent in two ways:
+When you connect Aiven MCP, you grant the agent access to services in the current
+project. You assign one of the following MCP roles: **Read-only**, **Read-write**,
+or **Full access**.
 
-- [Chat with an agent](/docs/tools/agents/chat-with-agent) to send requests
-  when needed.
-- [Schedule an agent](/docs/tools/agents/schedule-agent) to run tasks
-  automatically at a specified time or interval.
-
-For example, you can use chat to investigate an incident as it happens, or create
-a daily schedule that asks the agent to summarize service health.
-
-## Next steps
-
-- [Create an agent](/docs/tools/agents/create-agent)
-- [Chat with an agent](/docs/tools/agents/chat-with-agent)
-- [Schedule an agent](/docs/tools/agents/schedule-agent)
-- [Manage an agent](/docs/tools/agents/manage-agent)
-- [Manage integrations](/docs/tools/agents/manage-integrations)
+Aiven creates a dedicated identity and a scoped token for the agent automatically.
+Your project permissions limit the MCP role you can assign. For more
+information, see [Agent permissions](/docs/tools/agents/permissions).
 
 <RelatedPages/>
 
+- [Create an agent](/docs/tools/agents/create-agent)
+- [Manage an agent](/docs/tools/agents/manage-agent)
+- [Manage integrations](/docs/tools/agents/manage-integrations)
+- [Agent permissions](/docs/tools/agents/permissions)
 - [AI tools on Aiven](/docs/ai-features)
 - [Aiven MCP](/docs/tools/mcp-server)

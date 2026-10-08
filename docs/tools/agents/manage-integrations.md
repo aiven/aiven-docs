@@ -17,7 +17,8 @@ You can also connect other Model Context Protocol (MCP) integrations.
 ## Prerequisites
 
 Managed Agents enabled for the project. If you have not requested access or
-enabled Managed Agents, see [Managed Agents](/docs/tools/agents).
+enabled Managed Agents, see
+[Enable Managed Agents](/docs/tools/agents#enable-managed-agents).
 
 ## Configure tools and integrations
 
@@ -51,25 +52,37 @@ To connect an integration:
 To connect an integration that is not available in the catalog, select
 **Add custom integration**.
 
+### Credentials for other MCP integrations
+
+Other MCP integrations, such as Slack, GitHub, and Jira, use the credentials you
+enter when you connect them, not Aiven permissions. For more information, see
+[Permissions for other MCP integrations](/docs/tools/agents/permissions#permissions-for-other-mcp-integrations).
+
 ## Set the Aiven MCP role and tools
 
 When you enable **Aiven MCP**, Aiven creates a scoped token automatically. You
-can assign an MCP role up to your own project permissions.
-
-The following roles are available:
-
-| Role | Access |
-| --- | --- |
-| **Read-only** | View services, configuration, logs, and metrics. No changes. |
-| **Developer** | Manage databases, topics, connectors, and run queries. Cannot create or delete services. |
-| **Operator** | Full access to all services in the project, including creating and deleting services. |
+can assign an MCP role up to your own project permissions. The available roles are
+**Read-only**, **Read-write**, and **Full access**. For descriptions of each role,
+see [MCP roles](/docs/tools/agents/permissions#mcp-roles).
 
 1. Select an **MCP role**.
 1. Under **Available tools**, select the tool groups the agent can use.
 1. Select **Save changes**.
 
+## Remove Aiven MCP from an agent
+
+To remove an agent's access to Aiven without deleting the agent:
+
+1. In the Aiven Console, open your project.
+1. Click <ConsoleLabel name="agents"/>.
+1. Click the agent.
+1. Click <ConsoleLabel name="integrations"/>.
+1. Clear **Aiven MCP**.
+1. Click **Save changes**.
+
 <RelatedPages/>
 
+- [Agent permissions](/docs/tools/agents/permissions)
 - [Managed Agents](/docs/tools/agents)
 - [Aiven MCP](/docs/tools/mcp-server)
 - [Create an agent](/docs/tools/agents/create-agent)

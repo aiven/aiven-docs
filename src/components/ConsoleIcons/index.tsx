@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
 import {Icon} from '@iconify/react';
 import * as ConsoleIcons from '@aivenio/aquarium/icons/index';
+import agentIcon from './agentIcon';
 
 // See the icons in https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs
 
@@ -106,7 +107,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'agents':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.cpuChip} /> <b>Agents</b>
+          <ConsoleIconWrapper icon={agentIcon} /> <b>Agents</b>
         </>
       );
     case 'agentoverview':
