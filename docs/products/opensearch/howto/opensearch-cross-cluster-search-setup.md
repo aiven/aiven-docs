@@ -16,6 +16,8 @@ destination service exposes its indices to the source service as a remote cluste
 integration covers one direction. To let two services search each other, create one
 integration for each direction.
 
+Cross-cluster search queries remote indices in place. It does not copy or replicate data.
+
 :::note
 Cross-cluster search is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
@@ -38,23 +40,25 @@ Aiven rejects the integration unless all the following are true:
 <Tabs groupId="ccs-setup-method">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and select the Aiven for
-   OpenSearch service that runs the queries.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and select an Aiven for
+   OpenSearch service. This service is one side of the connection.
 1. On the service's <ConsoleLabel name="overview"/>, go to the **Cross-cluster search**
    section.
-1. Click **Add remote cluster**.
+1. Click **Connect a cluster**.
 1. Select **Existing service**, then select the **Project** and the **Service** to
-   search.
+   connect to.
 
    You cannot select a service that runs a different OpenSearch major version or a
    service that is already connected.
 
 1. Optional: In **Cluster alias**, enter the alias to use for the remote cluster in
    queries.
-1. Click **Connect**.
+1. Select the search direction, where `SERVICE_NAME` is the service you selected:
 
-To let another cluster search this service instead, click **Allow remote search** in the
-same section and follow the same steps.
+   - **Search `SERVICE_NAME`**: this service queries indices on `SERVICE_NAME`.
+   - **Let `SERVICE_NAME` search**: `SERVICE_NAME` queries indices on this service.
+
+1. Click **Connect**.
 
 The **Cross-cluster search** section is not available while the service is powered off,
 or when the service is a
