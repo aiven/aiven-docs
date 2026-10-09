@@ -4,13 +4,13 @@ sidebar_label: Add Auth0
 ---
 
 import Permissions from "@site/static/includes/oidc-idp-apps-permissions.md";
-import OpenAuthentication from "@site/static/includes/oidc-idp-apps-aiven-open.md";
-import AddAuthentication from "@site/static/includes/oidc-idp-apps-aiven-add.md";
-import SelectOidc from "@site/static/includes/oidc-idp-apps-aiven-select.md";
-import EnterName from "@site/static/includes/oidc-idp-apps-aiven-name.md";
-import EnterCredentials from "@site/static/includes/oidc-idp-apps-aiven-credentials.md";
-import CopyRedirect from "@site/static/includes/oidc-idp-apps-aiven-redirect.md";
-import SaveAuthentication from "@site/static/includes/oidc-idp-apps-aiven-save.md";
+import OpenAuthentication from "@site/static/includes/oidc-idp-apps-open-app.md";
+import AddAuthentication from "@site/static/includes/oidc-idp-apps-add-auth-method.md";
+import SelectOidc from "@site/static/includes/oidc-idp-apps-select-oidc.md";
+import EnterName from "@site/static/includes/oidc-idp-apps-name-idp.md";
+import EnterCredentials from "@site/static/includes/oidc-idp-apps-enter-credentials.md";
+import CopyRedirect from "@site/static/includes/oidc-idp-apps-redirect-url.md";
+import SaveAuthentication from "@site/static/includes/oidc-idp-apps-add-final-step.md";
 
 Let users access an Aiven Runtime application through the Auth0 identity provider (IdP).
 
@@ -29,7 +29,8 @@ Let users access an Aiven Runtime application through the Auth0 identity provide
 1. <AddAuthentication/>
 1. <SelectOidc/>
 1. <EnterName/>
-1. <EnterCredentials/>
+1. In the **Issuer/Provider URL**, enter the **Domain** you copied from Auth0.
+1. Enter the **Client ID** and **Client Secret** you copied.
 1. <CopyRedirect/>
 1. <SaveAuthentication/>
 

@@ -4,14 +4,13 @@ sidebar_label: Add OpenID Connect identity providers
 ---
 
 import Permissions from "@site/static/includes/oidc-idp-apps-permissions.md";
-import IdPSetup from "@site/static/includes/oidc-idp-apps-idp-instructions.md";
-import OpenAuthentication from "@site/static/includes/oidc-idp-apps-aiven-open.md";
-import AddAuthentication from "@site/static/includes/oidc-idp-apps-aiven-add.md";
-import SelectOidc from "@site/static/includes/oidc-idp-apps-aiven-select.md";
-import EnterName from "@site/static/includes/oidc-idp-apps-aiven-name.md";
-import EnterCredentials from "@site/static/includes/oidc-idp-apps-aiven-credentials.md";
-import CopyRedirect from "@site/static/includes/oidc-idp-apps-aiven-redirect.md";
-import SaveAuthentication from "@site/static/includes/oidc-idp-apps-aiven-save.md";
+import OpenAuthentication from "@site/static/includes/oidc-idp-apps-open-app.md";
+import AddAuthentication from "@site/static/includes/oidc-idp-apps-add-auth-method.md";
+import SelectOidc from "@site/static/includes/oidc-idp-apps-select-oidc.md";
+import EnterName from "@site/static/includes/oidc-idp-apps-name-idp.md";
+import EnterCredentials from "@site/static/includes/oidc-idp-apps-enter-credentials.md";
+import CopyRedirect from "@site/static/includes/oidc-idp-apps-redirect-url.md";
+import SaveAuthentication from "@site/static/includes/oidc-idp-apps-add-final-step.md";
 
 You can give users access to an Aiven Runtime application through identity providers (IdPs) that support OpenID Connect (OIDC).
 
@@ -36,7 +35,9 @@ For provider-specific instructions, see
 Use this procedure if your provider allows registration without a redirect URI.
 If registration requires a redirect URI, follow the provider-specific instructions instead.
 
-<IdPSetup/>
+1. Open the console for your identity provider in another tab.
+1. In your identity provider, register a new app.
+1. Copy the OIDC **issuer URL**, **client ID**, and **client secret**.
 
 ## Step 2: Add your IdP to a Runtime application
 
@@ -52,6 +53,4 @@ Add the identity provider in the Aiven Console:
 
 ## Step 3: Add the redirect URL to your application
 
-In your identity provider, add the redirect URI to the app's allowed redirect or
-callback URLs and save the settings.
-If you added the URI during registration, skip this step.
+In your identity provider, add the **Redirect URL** from the Aiven Console.
