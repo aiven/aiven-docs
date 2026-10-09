@@ -121,6 +121,14 @@ expect with your data and workload. Your organization is also responsible for th
 connectors it creates from them.
 Only use plugins from sources that you trust.
 
+When you upload a plugin or plugin version, you must confirm that:
+
+- You are responsible for the security, compatibility, and runtime behavior of the plugin.
+- You hold all rights and licenses needed to upload, run, and host the plugin on
+  Aiven's infrastructure.
+- You will comply with the plugin's license terms.
+- Aiven may disable or remove the plugin.
+
 ## Next steps
 
 - [Upload and manage Kafka Connect plugins](/docs/products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins)

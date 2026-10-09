@@ -34,8 +34,10 @@ Before you begin, make sure:
   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements).
 
 :::note[Note]
-Your organization is responsible for the plugins you upload. Only upload plugins
-from sources that you trust. For more information, see
+Your organization is responsible for the plugins you upload and must hold all rights
+and licenses needed to run and host them on Aiven's infrastructure. Aiven may
+disable or remove a plugin. Only upload plugins from sources that you trust. For more
+information, see
 [Responsibility for custom plugins](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#responsibility-for-custom-plugins).
 :::
 
@@ -55,8 +57,7 @@ Uploading a plugin makes it available to your organization, but doesn't
      customizations.
 1. Click **Next**.
 1. In **Plugin file**, click **Choose file** and select the plugin file.
-1. Select the checkbox to confirm that you are responsible for the security,
-   compatibility, and runtime behavior of the plugin.
+1. Select the checkbox to confirm the plugin terms.
 1. Click **Upload**.
 
    Aiven validates the file and detects its Kafka Connect source and sink
@@ -103,8 +104,7 @@ interrupts its connectors.
    - **Description**: Optional. Information about the changes in this version.
 1. Click **Next**.
 1. In **Plugin file**, click **Choose file** and select the plugin file.
-1. Select the checkbox to confirm that you are responsible for the security,
-   compatibility, and runtime behavior of the plugin.
+1. Select the checkbox to confirm the plugin terms.
 1. Click **Upload**.
 
    Aiven validates the file and detects its Kafka Connect source and sink
