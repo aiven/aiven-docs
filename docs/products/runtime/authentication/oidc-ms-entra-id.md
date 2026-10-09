@@ -34,7 +34,7 @@ Open the Aiven Console in a new tab:
 1. <AddAuthentication/>
 1. <SelectOidc/>
 1. <EnterName/>
-1. In the **Issuer/Provider URL**, enter the configuration document URI.
+1. In the **Issuer URL**, enter the configuration document URI.
 1. In the **Client ID**, enter the **Application (client) ID** you copied,
 1. In the **Client Secret**, enter the secret **Value** you copied.
 1. <CopyRedirect/>
