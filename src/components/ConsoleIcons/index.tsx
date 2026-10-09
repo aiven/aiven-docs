@@ -271,6 +271,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Bring your own cloud</b>
         </>
       );
+    case 'platformmanagement':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.grid} />{' '}
+          <b>Platform management</b>
+        </>
+      );
     case 'eventlog':
       return (
         <>
