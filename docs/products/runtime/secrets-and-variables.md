@@ -1,11 +1,11 @@
 ---
-title: Manage secrets and environment variables for Aiven Runtime
-sidebar_label: Manage secrets and variables
+title: Manage environment variables for Aiven Runtime
+sidebar_label: Manage environment variables
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Environment variables and secrets let you configure your application at runtime instead of embedding settings and sensitive information into your code.
+Environment variables let you configure your application at runtime instead of embedding settings and sensitive information into your code.
 You can use them to pass information like API keys and database connection details to the
 application. This keeps sensitive data safe and makes it easy to adjust how your
 application behaves in different setups.
@@ -13,9 +13,9 @@ application behaves in different setups.
 Aiven Runtime also automatically exposes connection details as
 environment variables for connected data services.
 
-## Manage secrets and environment variables for an application
+## Edit environment variables for an application
 
-When you edit secrets and environment variables, Aiven
+When you edit environment variables, Aiven
 redeploys your application with the new configuration. It deploys the same commit
 from your Git branch that was deployed previously. To deploy the latest commit,
 you can manually [redeploy your app](/docs/products/runtime/deploy-apps#redeploy-an-application).
@@ -24,8 +24,14 @@ you can manually [redeploy your app](/docs/products/runtime/deploy-apps#redeploy
 1. Open your application.
 1. On the **Overview** page, go to **Environment variables**.
 1. Click **Edit**.
-1. To add a secret, on the **Secrets** tab, click **Add secret**.
-   To add an environment variable, on the **Variables** tab, click **Add variable**.
+1. To add an environment variable, click **Add variable**.
+
+   :::tip[Tip]
+   To add a large number of environment variables at once,
+   use the **Import from file** option or enable the **Code editor**.
+   :::
+
+1. Optional: Click **Secret** to mark sensitive values as secret.
 1. Click **Save**.
 
 ## Integrated service environment variables
@@ -42,7 +48,7 @@ but you can customize the variable names.
 
 ### Default environment variables
 
-The following environment variables are added by default:
+The following service credentials are added by default:
 
 |         Service         |            Key            |               Value                |
 | ----------------------- | ------------------------- | ---------------------------------- |

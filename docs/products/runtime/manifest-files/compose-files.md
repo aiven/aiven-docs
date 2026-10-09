@@ -101,7 +101,7 @@ services:
     image: valkey/valkey:7.2  # Valkey service
 ```
 
-:::note
+:::note[Note]
 Service names must:
 
 - Consist only of lowercase letters a-z, numbers 0-9, and `-`
