@@ -1,0 +1,1 @@
+Copy the **Redirect URL**.

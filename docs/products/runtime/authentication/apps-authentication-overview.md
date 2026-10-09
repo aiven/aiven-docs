@@ -14,6 +14,7 @@ that are
 such as:
 
 - [Auth0](/docs/products/runtime/authentication/oidc-auth0/)
+- [Google Cloud](/docs/products/runtime/authentication/oidc-google-cloud/)
 - [Microsoft Entra ID](/docs/products/runtime/authentication/oidc-ms-entra-id/)
 - [Okta](/docs/products/runtime/authentication/oidc-okta/)
 

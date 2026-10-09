@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+﻿import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 /**
  * Creating a sidebar enables you to:
@@ -490,6 +490,7 @@ const sidebars: SidebarsConfig = {
                 'products/runtime/authentication/apps-authentication-overview',
                 'products/runtime/authentication/add-oidc-identity-providers',
                 'products/runtime/authentication/oidc-auth0',
+                'products/runtime/authentication/oidc-google-cloud',
                 'products/runtime/authentication/oidc-ms-entra-id',
                 'products/runtime/authentication/oidc-okta',
               ],
