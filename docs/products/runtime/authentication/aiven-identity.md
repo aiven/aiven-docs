@@ -26,7 +26,7 @@ read only access.
 1. In the Aiven Console, go to your Runtime application and
    click <ConsoleLabel name="runtimeidp"/>.
 1. Click **Add authentication method**.
-1. Select **Aiven Identity** and click **Next**.
+1. Select **Aiven Identity**.
 1. Click **Add**.
 
 ## Disable Aiven Identity on an application
