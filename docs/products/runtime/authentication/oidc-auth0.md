@@ -29,7 +29,7 @@ Let users access an Aiven Runtime application through the Auth0 identity provide
 1. <AddAuthentication/>
 1. <SelectOidc/>
 1. <EnterName/>
-1. In the **Issuer/Provider URL**, enter the **Domain** you copied from Auth0.
+1. In the **Issuer URL**, enter the **Domain** you copied from Auth0.
 1. Enter the **Client ID** and **Client Secret** you copied.
 1. <CopyRedirect/>
 1. <SaveAuthentication/>
