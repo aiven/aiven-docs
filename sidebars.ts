@@ -233,22 +233,6 @@ const sidebars: SidebarsConfig = {
         'tools/mcp-server',
         {
           type: 'category',
-          label: 'Managed Agents',
-          link: {
-            id: 'tools/agents',
-            type: 'doc',
-          },
-          items: [
-            'tools/agents/create-agent',
-            'tools/agents/manage-agent',
-            'tools/agents/manage-integrations',
-            'tools/agents/permissions',
-            'tools/agents/chat-with-agent',
-            'tools/agents/schedule-agent',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Aiven Provider for Terraform',
           link: {
             id: 'tools/terraform',
@@ -303,62 +287,6 @@ const sidebars: SidebarsConfig = {
         'platform/reference/get-resource-IDs',
         'tools/query-optimizer',
         'tools/doc-diff-llms',
-      ],
-    },
-  ],
-  //Runtime sidebar
-  runtime: [
-    {
-      type: 'category',
-      label: 'Runtime',
-      collapsed: false,
-      collapsible: false,
-      className: 'expandedSection',
-      items: [
-        'products/runtime',
-        'products/runtime/deploy-apps',
-        'products/runtime/connect-github-account',
-        {
-          type: 'category',
-          label: 'Manifest files',
-          items: [
-            'products/runtime/manifest-files/manifests',
-            'products/runtime/manifest-files/compose-files',
-            'products/runtime/manifest-files/containerfiles',
-          ],
-        },
-        'products/runtime/connect-services-to-apps',
-        {
-          type: 'category',
-          label: 'App management',
-          items: [
-            'products/runtime/ports',
-            'products/runtime/secrets-and-variables',
-            'products/runtime/deployment-information',
-            'products/runtime/scale-apps',
-            'products/runtime/change-cloud',
-            'products/runtime/custom-domain',
-            'products/runtime/power-off-apps',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Security and access',
-          items: [
-            {
-              type: 'category',
-              label: 'Authentication',
-              items: [
-                'products/runtime/authentication/apps-authentication-overview',
-                'products/runtime/authentication/add-oidc-identity-providers',
-                'products/runtime/authentication/oidc-auth0',
-                'products/runtime/authentication/oidc-google-cloud',
-                'products/runtime/authentication/oidc-ms-entra-id',
-                'products/runtime/authentication/oidc-okta',
-              ],
-            },
-          ],
-        },
       ],
     },
   ],
@@ -439,6 +367,34 @@ const sidebars: SidebarsConfig = {
         'platform/howto/feature-preview',
         'platform/reference/eol-for-major-versions',
         'platform/reference/end-of-life',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Runtime applications',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        {
+          type: 'link',
+          label: 'Runtime applications',
+          href: '/docs/products/runtime',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Managed agents',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        {
+          type: 'link',
+          label: 'Managed agents',
+          href: '/docs/tools/agents',
+        },
       ],
     },
     {
@@ -2847,18 +2803,89 @@ const sidebars: SidebarsConfig = {
       label: '← Back to Products',
       href: '/docs/products/overview',
     },
+    {
+      type: 'category',
+      label: 'Runtime',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        'products/runtime',
+        'products/runtime/deploy-apps',
+        'products/runtime/connect-github-account',
+        {
+          type: 'category',
+          label: 'Manifest files',
+          items: [
+            'products/runtime/manifest-files/manifests',
+            'products/runtime/manifest-files/compose-files',
+            'products/runtime/manifest-files/containerfiles',
+          ],
+        },
+        'products/runtime/connect-services-to-apps',
+        {
+          type: 'category',
+          label: 'App management',
+          items: [
+            'products/runtime/ports',
+            'products/runtime/secrets-and-variables',
+            'products/runtime/deployment-information',
+            'products/runtime/scale-apps',
+            'products/runtime/change-cloud',
+            'products/runtime/custom-domain',
+            'products/runtime/power-off-apps',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Security and access',
+          items: [
+            {
+              type: 'category',
+              label: 'Authentication',
+              items: [
+                'products/runtime/authentication/apps-authentication-overview',
+                'products/runtime/authentication/add-oidc-identity-providers',
+                'products/runtime/authentication/oidc-auth0',
+                'products/runtime/authentication/oidc-google-cloud',
+                'products/runtime/authentication/oidc-ms-entra-id',
+                'products/runtime/authentication/oidc-okta',
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
 
-  // Managed Agents TODO
+  // Managed Agents
   managedagents: [
     {
       type: 'link',
       label: '← Back to Products',
       href: '/docs/products/overview',
     },
+    {
+      type: 'category',
+      label: 'Managed Agents',
+      collapsed: false,
+      collapsible: false,
+      link: {
+        id: 'tools/agents',
+        type: 'doc',
+      },
+      items: [
+        'tools/agents/create-agent',
+        'tools/agents/manage-agent',
+        'tools/agents/manage-integrations',
+        'tools/agents/permissions',
+        'tools/agents/chat-with-agent',
+        'tools/agents/schedule-agent',
+      ],
+    },
   ],
 
-  // Integrations dedicated sidebar TODO
+  // Integrations monitoring and logs dedicated sidebar
   integrations: [
     {
       type: 'link',
