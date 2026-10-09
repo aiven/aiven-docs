@@ -5,14 +5,22 @@
  - create an ordered group of docs
  - render a sidebar for each doc of that group
  - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
-  main: [
+  getstarted: [
+    {
+      type: 'category',
+      label: 'Get started',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'get-started',
+        'platform/reference/referrals',
+      ],
+    },
+  ],
+  admin: [
     {
       type: 'category',
       label: 'Overview',
@@ -20,10 +28,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       items: [
-        'get-started',
-        'tools/aiven-console',
         'platform/howto/support',
-        'platform/reference/referrals',
       ],
     },
     {
@@ -320,11 +325,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  // AI sidebar
-  ai: [
+  // AI tools sidebar
+  aitools: [
     {
       type: 'category',
-      label: 'AI tools on Aiven',
+      label: 'AI tools',
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,
@@ -349,11 +354,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  // Tools sidebar
-  tools: [
+  // Dev tools sidebar
+  devtools: [
     {
       type: 'category',
-      label: 'Aiven dev tools',
+      label: 'Dev tools',
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,
@@ -501,8 +506,8 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  //Services sidebar
-  services: [
+  //Products sidebar
+  products: [
     {
       type: 'category',
       label: 'Services',
