@@ -8,9 +8,9 @@ import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Aiven Identity is an integrated identity management system on Aiven Platform that you can use to restrict access to your Aiven Runtime applications.
 
-When you enable Aiven Identity on an application, only organization users with the
-`project:services:read` and `project:services:write`
-[permissions](/docs/platform/concepts/permissions) can access the app.
+When you enable Aiven Identity on an application, any organization user with the
+any access to the project can access the application. This includes users with
+read only access.
 
 <RequirementsPanel
   items={[
