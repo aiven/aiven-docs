@@ -179,11 +179,6 @@ const sidebars: SidebarsConfig = {
             'platform/howto/saml/add-onelogin-idp',
           ],
         },
-
-        'platform/concepts/service-and-feature-releases',
-        'platform/howto/feature-preview',
-        'platform/reference/eol-for-major-versions',
-        'platform/reference/end-of-life',
       ],
     },
   ],
@@ -440,6 +435,10 @@ const sidebars: SidebarsConfig = {
           label: 'Networking and security',
           href: '/docs/platform/concepts/cloud-security',
         },
+        'platform/concepts/service-and-feature-releases',
+        'platform/howto/feature-preview',
+        'platform/reference/eol-for-major-versions',
+        'platform/reference/end-of-life',
       ],
     },
     {
