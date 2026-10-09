@@ -22,18 +22,15 @@ If your backend needs to identify the logged-in user,
 read the identity passed in the `X-Forwarded-User` HTTP header.
 :::
 
-Your identity provider must support the `openid`, `profile`, and `email` scopes.
 The setup order depends on when your provider requires the redirect URI.
-For provider-specific instructions, see
-[Okta](/docs/products/runtime/authentication/oidc-okta),
-[Google Cloud](/docs/products/runtime/authentication/oidc-google-cloud),
-[Microsoft Entra ID](/docs/products/runtime/authentication/oidc-ms-entra-id), or
-[Auth0](/docs/products/runtime/authentication/oidc-auth0).
+Provider-specific instructions are available for the following:
+
+- [Okta](/docs/products/runtime/authentication/oidc-okta),
+- [Google Cloud](/docs/products/runtime/authentication/oidc-google-cloud),
+- [Microsoft Entra ID](/docs/products/runtime/authentication/oidc-ms-entra-id), or
+- [Auth0](/docs/products/runtime/authentication/oidc-auth0).
 
 ## Step 1: Register an app in your identity provider
-
-Use this procedure if your provider allows registration without a redirect URI.
-If registration requires a redirect URI, follow the provider-specific instructions instead.
 
 1. Open the console for your identity provider in another tab.
 1. In your identity provider, register a new app.
@@ -41,7 +38,7 @@ If registration requires a redirect URI, follow the provider-specific instructio
 
 ## Step 2: Add your IdP to a Runtime application
 
-Add the identity provider in the Aiven Console:
+In the Aiven Console:
 
 1. <OpenAuthentication/>
 1. <AddAuthentication/>
