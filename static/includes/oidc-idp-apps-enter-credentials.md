@@ -1,1 +1,1 @@
-Enter the **Issuer/Provider URL**, **Client ID**, and **Client secret**.
+Enter the **Issuer URL**, **Client ID**, and **Client secret**.

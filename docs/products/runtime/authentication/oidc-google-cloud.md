@@ -41,6 +41,6 @@ Open the Google Auth Platform in a new tab:
 Return to the Aiven Console tab:
 
 1. <EnterName/>
-1. In the **Issuer/Provider URL**, enter `https://accounts.google.com`.
+1. In the **Issuer URL**, enter `https://accounts.google.com`.
 1. Enter the **Client ID** and **Client Secret** you copied.
 1. <SaveAuthentication/>
