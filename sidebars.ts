@@ -407,73 +407,9 @@ const sidebars: SidebarsConfig = {
         'platform/concepts/service-integration',
         'platform/howto/create-service-integration',
         {
-          type: 'category',
+          type: 'link',
           label: 'Monitoring and logs',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-monitoring',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Amazon CloudWatch',
-              link: {
-                type: 'doc',
-                id: 'integrations/cloudwatch',
-              },
-              items: [
-                'integrations/cloudwatch/cloudwatch-metrics',
-                {
-                  type: 'category',
-                  label: 'CloudWatch logs',
-
-                  items: [
-                    'integrations/cloudwatch/cloudwatch-logs-console',
-                    'integrations/cloudwatch/cloudwatch-logs-cli',
-                  ],
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Datadog',
-              link: {
-                type: 'doc',
-                id: 'integrations/datadog',
-              },
-              items: [
-                'integrations/datadog/datadog-metrics',
-                'platform/howto/integrations/datadog-increase-metrics-limit',
-                'integrations/datadog/datadog-logs',
-                'integrations/datadog/add-custom-tags-to-datadog',
-              ],
-            },
-            'integrations/send-logs-to-elasticsearch',
-            'integrations/cloudlogging',
-            {
-              type: 'category',
-              label: 'Remote Syslog',
-              link: {
-                type: 'doc',
-                id: 'integrations/rsyslog',
-              },
-              items: [
-                'integrations/rsyslog/logtail',
-                'integrations/rsyslog/loggly',
-              ],
-            },
-            'platform/howto/integrations/access-jmx-metrics-jolokia',
-
-            {
-              type: 'category',
-              label: 'Prometheus',
-              link: {
-                id: 'platform/howto/integrations/prometheus-metrics',
-                type: 'doc',
-              },
-              items: ['integrations/prometheus-system-metrics'],
-            },
-          ],
+          href: '/docs/platform/howto/list-monitoring',
         },
       ],
     },
@@ -2891,6 +2827,77 @@ const sidebars: SidebarsConfig = {
       type: 'link',
       label: '← Back to Products',
       href: '/docs/products/overview',
+    },
+    {
+      type: 'category',
+      label: 'Monitoring and logs',
+      collapsed: false,
+      collapsible: false,
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-monitoring',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Amazon CloudWatch',
+          link: {
+            type: 'doc',
+            id: 'integrations/cloudwatch',
+          },
+          items: [
+            'integrations/cloudwatch/cloudwatch-metrics',
+            {
+              type: 'category',
+              label: 'CloudWatch logs',
+
+              items: [
+                'integrations/cloudwatch/cloudwatch-logs-console',
+                'integrations/cloudwatch/cloudwatch-logs-cli',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Datadog',
+          link: {
+            type: 'doc',
+            id: 'integrations/datadog',
+          },
+          items: [
+            'integrations/datadog/datadog-metrics',
+            'platform/howto/integrations/datadog-increase-metrics-limit',
+            'integrations/datadog/datadog-logs',
+            'integrations/datadog/add-custom-tags-to-datadog',
+          ],
+        },
+        'integrations/send-logs-to-elasticsearch',
+        'integrations/cloudlogging',
+        {
+          type: 'category',
+          label: 'Remote Syslog',
+          link: {
+            type: 'doc',
+            id: 'integrations/rsyslog',
+          },
+          items: [
+            'integrations/rsyslog/logtail',
+            'integrations/rsyslog/loggly',
+          ],
+        },
+        'platform/howto/integrations/access-jmx-metrics-jolokia',
+
+        {
+          type: 'category',
+          label: 'Prometheus',
+          link: {
+            id: 'platform/howto/integrations/prometheus-metrics',
+            type: 'doc',
+          },
+          items: ['integrations/prometheus-system-metrics'],
+        },
+      ],
     },
   ],
 };
