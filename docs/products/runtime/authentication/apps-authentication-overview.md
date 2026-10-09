@@ -15,7 +15,7 @@ You can add multiple identity providers to an application.
 
 ## Aiven Identity
 
-[Aiven Identity](/docs/products/runtime/authentication/add-aiven-identity)
+[Aiven Identity](/docs/products/runtime/authentication/aiven-identity)
  is an integrated identity management system on the Aiven Platform
 that controls access based on the permissions granted to users and groups
 in your Aiven organization. It's a good option for granting access to your
