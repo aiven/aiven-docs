@@ -25,20 +25,21 @@ Start LibreDB Studio with Docker:
 docker run -p 3000:3000 -v libredb:/app/data \
   -e STORAGE_PROVIDER=sqlite \
   -e STORAGE_ENCRYPTION_KEY='ENCRYPTION_KEY' \
-  ghcr.io/libredb/libredb-studio:0.17.0
+  ghcr.io/libredb/libredb-studio:0.18.2
 ```
 
-Replace `ENCRYPTION_KEY` with at least 32 characters, for example the output of
-`openssl rand -base64 32`. A shorter value stops the container from starting. Keep the
-quotes. Unquoted, the shell reads a `$` or a backtick in the value, and the container
-starts on a different key.
+Replace `ENCRYPTION_KEY` with at least 32 characters, for example the output of `openssl
+rand -base64 32`. A shorter value stops the container from starting, but that run still
+counts as the first one: it prints the generated password and writes it to the volume, and
+the run after it does not print the password again. Keep the quotes. Unquoted, the shell
+reads a `$` or a backtick in the value, and the container starts on a different key.
 
-Keep the value itself, somewhere other than the volume. Start the container on a
-different value later and every saved password becomes unreadable. The connection then
-fails with an access-denied error from the service, and the container log carries
-`Stored connection secrets could not be decrypted`. Without the variable, LibreDB Studio
-derives the key from a secret it writes into the same volume, so one snapshot of the
-volume carries both.
+Keep the value itself, somewhere other than the volume. Start the container on a different
+value later and every saved password becomes unreadable. The connection then fails because
+the password is gone: PostgreSQL never sees a request, and the driver reports that the
+password is not a string. The container log carries `Stored connection secrets could not
+be decrypted`. Without the variable, LibreDB Studio derives the key from a secret it
+writes into the same volume, so one snapshot of the volume carries both.
 
 `STORAGE_PROVIDER=sqlite` keeps saved connections on the server, so they survive a new
 browser or a different machine. The volume keeps them when you replace the container.
@@ -46,8 +47,13 @@ browser or a different machine. The volume keeps them when you replace the conta
 The command runs in the foreground. On the first run it prints the admin email and a
 generated password, so read them there before you sign in. A later run reads the password
 from `auth-bootstrap.json` on the volume and does not print it again, so keep a copy.
-Deleting that file generates a new password, and without `STORAGE_ENCRYPTION_KEY` it also
-discards the key that protects saved passwords.
+Deleting that file makes the next run print a new password, but with
+`STORAGE_PROVIDER=sqlite` that password does not sign in: the account lives in the server
+store, where the first run seeds it and later runs leave it alone. The log says so. To set
+a new one, start once with `-e ADMIN_PASSWORD=YOUR_PASSWORD -e ADMIN_PASSWORD_RESET=true`,
+then drop `ADMIN_PASSWORD_RESET`, because every start applies it again while it is set.
+Without `STORAGE_ENCRYPTION_KEY`, deleting the file also discards the key that protects
+saved passwords.
 
 Add `-e AUTH_COOKIE_SECURE=false` when the browser reaches LibreDB Studio over plain HTTP
 at an address other than `localhost`, `127.0.0.1`, or `::1`. A network address such as
