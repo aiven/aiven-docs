@@ -1964,7 +1964,7 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  // PostgreSQL dedicated sidebar TODO
+  // PostgreSQL dedicated sidebar
   postgresql: [
     {
       type: 'link',
@@ -2642,7 +2642,7 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  // Runtime TODO
+  // Runtime
   runtime: [
     {
       type: 'link',
