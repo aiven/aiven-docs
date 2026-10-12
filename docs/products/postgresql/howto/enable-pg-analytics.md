@@ -63,16 +63,16 @@ data, and neither is supported.
 
 ## Enable the extension
 
-Connect to the database where you plan to keep Iceberg tables, as its owner, which is
-your primary service user `avnadmin` by default, and run:
+Connect to the database where you plan to keep Iceberg tables as your primary service
+user, `avnadmin`, and run:
 
 ```sql
 CREATE EXTENSION pg_lake CASCADE;
 ```
 
-Only the owner of a database can create or drop this extension. Your primary service
-user holds the `lake_read`, `lake_write`, and `lake_read_write` roles with admin
-option, so it can grant them to other database users who work with Iceberg tables.
+`pg_lake` ships the `lake_read`, `lake_write`, and `lake_read_write` roles, which
+control who can read and write Iceberg tables. Your `avnadmin` user can grant these
+roles to your other database users.
 
 ## Create an Iceberg table
 

@@ -62,10 +62,9 @@ on.
 
 ## Limitations
 
-- PostgreSQL for Analytics is enabled by Aiven on a per-service basis after a request.
-  There's no self-service toggle in the [Aiven Console](https://console.aiven.io/), the
-  Aiven CLI, the [Aiven Provider for Terraform](/docs/tools/terraform), or the Aiven
-  Operator for Kubernetes to turn it on yourself.
+- Creating a PostgreSQL for Analytics service requires a project-level permission that
+  only Aiven grants, so there's no self-service path to turning the feature on in any
+  Aiven tool.
 - PostgreSQL for Analytics is set when the service is created. You can't add it to an
   existing Aiven for PostgreSQL service.
 - Because memory is split evenly between the two engines, only half your plan's memory
@@ -76,7 +75,6 @@ on.
 - Use a bucket dedicated to a single PostgreSQL for Analytics service. Sharing one
   bucket between services, or using a bucket that already holds other data, isn't
   supported, and Aiven doesn't currently prevent either.
-- Only the owner of a database can create or drop the `pg_lake` extension in it.
 - Forks and read replicas aren't supported for a PostgreSQL for Analytics service.
   You can still power off the service.
 - You can't perform a major version upgrade on a PostgreSQL for Analytics service.
