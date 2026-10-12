@@ -29,20 +29,6 @@ read only access.
 1. Select **Aiven Identity**.
 1. Click **Add**.
 
-## Disable Aiven Identity on an application
-
-You can disable Aiven Identity on your Aiven Runtime application at any time
-and enable it again later.
-
-Applications that don't have an authentication method are publicly accessible,
-meaning anyone who knows the application URL can access them.
-
-1. In the Aiven Console, go to your Runtime application and
-   click <ConsoleLabel name="runtimeidp"/>.
-1. Click <ConsoleLabel name="actions"/> > **Disable**.
-1. Select **Aiven Identity** and click **Next**.
-1. Click **Disable**.
-
 ## Remove Aiven Identity from an application
 
 You can remove Aiven Identity from your Aiven Runtime application at any time.

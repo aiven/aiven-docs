@@ -11,7 +11,7 @@ to specific users and groups.
 You can use Aiven's own identity provider (IdP), Aiven Identity, or
 identity providers that are OpenID Connect (OIDC) compliant.
 
-You can add multiple identity providers to an application.
+You can add one authentication method to an application.
 
 ## Aiven Identity
 
