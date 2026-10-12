@@ -20,168 +20,110 @@ const sidebars: SidebarsConfig = {
   admin: [
     {
       type: 'category',
-      label: 'Overview',
+      label: 'Organization',
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,
-      items: ['platform/howto/support'],
+      items: [
+        'platform/concepts/orgs-units-projects',
+        {
+          type: 'link',
+          label: 'Organizations and units',
+          href: '/docs/tools/aiven-console/howto/create-orgs-and-units',
+        },
+        {
+          type: 'link',
+          label: 'Projects',
+          href: '/docs/platform/howto/manage-project',
+        },
+        {
+          type: 'link',
+          label: 'Monitoring',
+          href: '/docs/platform/howto/organization-event-logs',
+        },
+      ],
     },
     {
       type: 'category',
-      label: 'Platform',
+      label: 'User management',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/concepts/user-access-management',
+        {
+          type: 'link',
+          label: 'Organization user management',
+          href: '/docs/platform/howto/manage-org-users',
+        },
+        {
+          type: 'link',
+          label: 'Permissions',
+          href: '/docs/platform/concepts/permissions',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Account settings',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/edit-user-profile',
+        'platform/howto/change-your-email-address',
+        'platform/howto/delete-user',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Billing',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/concepts/billing-and-payment',
+        'platform/concepts/service-pricing',
+        'platform/concepts/tax-information',
+        {
+          type: 'link',
+          label: 'Payment methods',
+          href: '/docs/platform/howto/manage-payment-card',
+        },
+        {
+          type: 'link',
+          label: 'Billing groups',
+          href: '/docs/platform/howto/use-billing-groups',
+        },
+        'platform/howto/download-invoices',
+        'platform/howto/credits',
+        'platform/howto/reactivate-suspended-project',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Security',
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,
       items: [
         {
-          type: 'category',
-          label: 'Organizations, units, and projects',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/orgs-units-projects',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Organizations and units',
-              items: [
-                'tools/aiven-console/howto/create-orgs-and-units',
-                'platform/howto/manage-organizations',
-                'platform/howto/view-organization-logs',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Projects',
-              items: [
-                'platform/howto/manage-project',
-                'platform/howto/technical-emails',
-                'platform/howto/view-project-logs',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Monitoring',
-              items: [
-                'platform/howto/organization-event-logs',
-                'platform/concepts/carbon-footprint',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Billing and payment',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/billing-and-payment',
-          },
-          items: [
-            'platform/concepts/service-pricing',
-            'platform/concepts/tax-information',
-            {
-              type: 'category',
-              label: 'Payment methods',
-              items: [
-                'platform/howto/manage-payment-card',
-                'platform/howto/manage-bank-transfers',
-                'marketplace-setup',
-                'platform/howto/list-marketplace-payments',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Billing groups',
-              items: [
-                'platform/howto/use-billing-groups',
-                'platform/howto/manage-billing-addresses',
-              ],
-            },
-            'platform/howto/download-invoices',
-            'platform/howto/credits',
-            'platform/howto/reactivate-suspended-project',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'User and access management',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/user-access-management',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Organization user management',
-              items: [
-                'platform/howto/manage-org-users',
-                'platform/concepts/application-users',
-                'platform/howto/manage-application-users',
-                'platform/concepts/managed-users',
-                'platform/concepts/discovered-organizations',
-                'platform/howto/manage-groups',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Permissions',
-              items: [
-                'platform/concepts/permissions',
-                'platform/howto/manage-permissions',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'User profiles',
-              items: [
-                'platform/howto/edit-user-profile',
-                'platform/howto/change-your-email-address',
-                'platform/howto/delete-user',
-              ],
-            },
-            'platform/howto/unsafe-passwords',
-          ],
-        },
-        {
-          type: 'category',
+          type: 'link',
           label: 'Authentication',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-authentication',
-          },
-          items: [
-            'platform/howto/add-authentication-method',
-            'platform/reference/password-policy',
-            'platform/reference/change-password',
-            'platform/howto/user-2fa',
-            'platform/howto/set-authentication-policies',
-            'platform/concepts/authentication-tokens',
-            'platform/howto/create_authentication_token',
-          ],
+          href: '/docs/platform/howto/list-authentication',
         },
         {
-          type: 'category',
+          type: 'link',
           label: 'Identity providers and domains',
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-identity-providers',
-          },
-          items: [
-            'platform/howto/manage-domains',
-            'platform/howto/saml/add-identity-providers',
-            'platform/howto/saml/rotate-scim-token',
-            'platform/howto/saml/add-auth0-idp',
-            'platform/howto/saml/add-fusionauth-idp',
-            'platform/howto/saml/add-google-idp',
-            'platform/howto/saml/add-jumpcloud-idp',
-            'platform/howto/saml/add-azure-idp',
-            'platform/howto/saml/add-okta-idp',
-            'platform/howto/saml/add-onelogin-idp',
-          ],
+          href: '/docs/platform/howto/list-identity-providers',
         },
+        'platform/concepts/discovered-organizations',
+        'platform/howto/unsafe-passwords',
       ],
     },
+    'platform/howto/support',
   ],
+
   // AI tools sidebar
   aitools: [
     {
@@ -2897,6 +2839,200 @@ const sidebars: SidebarsConfig = {
           },
           items: ['integrations/prometheus-system-metrics'],
         },
+      ],
+    },
+  ],
+
+  // Admin sidebars
+  // Organizations and units dedicated sidebar
+  orgs: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Organizations and units',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'tools/aiven-console/howto/create-orgs-and-units',
+        'platform/howto/manage-organizations',
+        'platform/howto/view-organization-logs',
+      ],
+    },
+  ],
+
+  // Projects dedicated sidebar
+  projects: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Projects',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/manage-project',
+        'platform/howto/technical-emails',
+        'platform/howto/view-project-logs',
+      ],
+    },
+  ],
+
+  // Organization monitoring dedicated sidebar
+  orgmonitoring: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Monitoring',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/organization-event-logs',
+        'platform/concepts/carbon-footprint',
+      ],
+    },
+  ],
+
+  // Organization user management dedicated sidebar
+  orgusermgmt: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'User management',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/manage-org-users',
+        'platform/concepts/application-users',
+        'platform/howto/manage-application-users',
+        'platform/concepts/managed-users',
+        'platform/howto/manage-groups',
+      ],
+    },
+  ],
+
+  // Permissions dedicated sidebar
+  permissions: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Permissions',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/concepts/permissions',
+        'platform/howto/manage-permissions',
+      ],
+    },
+  ],
+
+  // Payment methods dedicated sidebar
+  paymentmethods: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Payment methods',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/manage-payment-card',
+        'platform/howto/manage-bank-transfers',
+        'marketplace-setup',
+        'platform/howto/list-marketplace-payments',
+      ],
+    },
+  ],
+
+  // Billing groups dedicated sidebar
+  billinggroups: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Billing groups',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/use-billing-groups',
+        'platform/howto/manage-billing-addresses',
+      ],
+    },
+  ],
+
+  // Authentication dedicated sidebar
+  authentication: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'Authentication',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/list-authentication',
+        'platform/howto/add-authentication-method',
+        'platform/reference/password-policy',
+        'platform/reference/change-password',
+        'platform/howto/user-2fa',
+        'platform/howto/set-authentication-policies',
+        'platform/concepts/authentication-tokens',
+        'platform/howto/create_authentication_token',
+      ],
+    },
+  ],
+
+  // IdPs and domains dedicated sidebar
+  idpsanddomains: [
+    {
+      type: 'link',
+      label: '← Back to Admin',
+      href: '/docs/platform/concepts/orgs-units-projects',
+    },
+    {
+      type: 'category',
+      label: 'IdPs and domains',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'platform/howto/list-identity-providers',
+        'platform/howto/manage-domains',
+        'platform/howto/saml/add-identity-providers',
+        'platform/howto/saml/rotate-scim-token',
+        'platform/howto/saml/add-auth0-idp',
+        'platform/howto/saml/add-fusionauth-idp',
+        'platform/howto/saml/add-google-idp',
+        'platform/howto/saml/add-jumpcloud-idp',
+        'platform/howto/saml/add-azure-idp',
+        'platform/howto/saml/add-okta-idp',
+        'platform/howto/saml/add-onelogin-idp',
       ],
     },
   ],
