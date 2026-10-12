@@ -27,8 +27,8 @@ Provider-specific instructions are available for the following:
 
 - [Okta](/docs/products/runtime/authentication/oidc-okta),
 - [Google Cloud](/docs/products/runtime/authentication/oidc-google-cloud),
-- [Microsoft Entra ID](/docs/products/runtime/authentication/oidc-ms-entra-id), or
-- [Auth0](/docs/products/runtime/authentication/oidc-auth0).
+- [Microsoft Entra ID](/docs/products/runtime/authentication/oidc-ms-entra-id)
+- [Auth0](/docs/products/runtime/authentication/oidc-auth0)
 
 ## Step 1: Register an app in your identity provider
 
