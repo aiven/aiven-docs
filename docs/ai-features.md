@@ -89,7 +89,6 @@ already using.
     <span className="ai-capability-pills">
       <Link className="ai-capability-pill" to="/docs/products/postgresql/howto/ai-insights">Postgres</Link>
       <Link className="ai-capability-pill" to="/docs/products/mysql/howto/ai-insights">MySQL</Link>
-      <Link className="ai-capability-pill" to="/docs/tools/query-optimizer">Standalone optimizer</Link>
     </span>
   </div>
   <div className="ai-capability-row">

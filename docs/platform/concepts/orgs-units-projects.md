@@ -1,5 +1,6 @@
 ---
 title: Organizations, units, and projects
+sidebar_label: Overview
 ---
 
 import OrgHierarchy from "@site/static/images/content/figma/organizations-hierarchy.png";
