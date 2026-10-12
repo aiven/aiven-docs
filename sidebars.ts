@@ -124,6 +124,49 @@ const sidebars: SidebarsConfig = {
     'platform/howto/support',
   ],
 
+  // Dev tools sidebar
+  devtools: [
+    {
+      type: 'category',
+      label: 'Dev tools',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'tools',
+        {
+          type: 'link',
+          label: 'Aiven API',
+          href: '/docs/tools/api',
+        },
+        'tools/mcp-server',
+        {
+          type: 'link',
+          label: 'Aiven CLI',
+          href: '/docs/tools/cli',
+        },
+        {
+          type: 'category',
+          label: 'Infrastructure as code',
+          className: 'expandedSection',
+          collapsed: false,
+          collapsible: false,
+          items: [
+            {
+              type: 'link',
+              label: 'Aiven Provider for Terraform',
+              href: '/docs/tools/terraform',
+            },
+            'tools/kubernetes',
+          ],
+        },
+        'platform/reference/get-resource-IDs',
+        'tools/query-optimizer',
+        'tools/doc-diff-llms',
+      ],
+    },
+  ],
+
   // AI tools sidebar
   aitools: [
     {
@@ -139,7 +182,11 @@ const sidebars: SidebarsConfig = {
           label: 'Managed Agents',
           href: '/docs/tools/agents',
         },
-        'tools/mcp-server',
+        {
+          type: 'link',
+          label: 'Aiven MCP',
+          href: '/docs/tools/mcp-server',
+        },
         {
           type: 'link',
           label: 'DataHub MCP server',
@@ -150,85 +197,6 @@ const sidebars: SidebarsConfig = {
           label: 'Kafka Skills',
           href: '/docs/products/kafka/howto/set-up-kafka-with-skills',
         },
-      ],
-    },
-  ],
-  // Dev tools sidebar
-  devtools: [
-    {
-      type: 'category',
-      label: 'Dev tools',
-      className: 'expandedSection',
-      collapsed: false,
-      collapsible: false,
-      items: [
-        'tools',
-        {
-          type: 'category',
-          label: 'Aiven API',
-          link: {
-            id: 'tools/api',
-            type: 'doc',
-          },
-          items: ['tools/api/secret-redaction'],
-        },
-        'tools/mcp-server',
-        {
-          type: 'category',
-          label: 'Aiven Provider for Terraform',
-          link: {
-            id: 'tools/terraform',
-            type: 'doc',
-          },
-          items: ['tools/terraform/howto/use-opentofu'],
-        },
-        'tools/kubernetes',
-        {
-          type: 'category',
-          label: 'Aiven CLI',
-          link: {
-            id: 'tools/cli',
-            type: 'doc',
-          },
-          items: [
-            'tools/cli/byoc',
-            'tools/cli/cloud',
-            'tools/cli/credits',
-            'tools/cli/events',
-            'tools/cli/mirrormaker',
-            {
-              type: 'category',
-              label: 'avn service',
-              link: {
-                id: 'tools/cli/service-cli',
-                type: 'doc',
-              },
-              items: [
-                'tools/cli/service/acl',
-                'tools/cli/service/connection-info',
-                'tools/cli/service/connection-pool',
-                'tools/cli/service/connector',
-                'tools/cli/service/database',
-                'tools/cli/service/es-acl',
-                'tools/cli/service/flink',
-                'tools/cli/service/integration',
-                'tools/cli/service/kafka-acl',
-                'tools/cli/service/privatelink',
-                'tools/cli/service/quota',
-                'tools/cli/service/schema-registry-acl',
-                'tools/cli/service/service-index',
-                'tools/cli/service/tags',
-                'tools/cli/service/topic',
-                'tools/cli/service/user',
-              ],
-            },
-            'tools/cli/user',
-            'tools/cli/vpc',
-          ],
-        },
-        'platform/reference/get-resource-IDs',
-        'tools/query-optimizer',
-        'tools/doc-diff-llms',
       ],
     },
   ],
@@ -3034,6 +3002,90 @@ const sidebars: SidebarsConfig = {
         'platform/howto/saml/add-okta-idp',
         'platform/howto/saml/add-onelogin-idp',
       ],
+    },
+  ],
+
+  // Dev tools sidebars
+  // API dedicated sidebar
+  api: [
+    {
+      type: 'link',
+      label: '← Back to Dev tools',
+      href: '/docs/tools',
+    },
+    {
+      type: 'category',
+      label: 'API',
+      collapsed: false,
+      collapsible: false,
+      items: ['tools/api', 'tools/api/secret-redaction'],
+    },
+  ],
+
+  // CLI dedicated sidebar
+  cli: [
+    {
+      type: 'link',
+      label: '← Back to Dev tools',
+      href: '/docs/tools',
+    },
+    {
+      type: 'category',
+      label: 'CLI',
+      collapsed: false,
+      collapsible: false,
+      items: [
+        'tools/cli',
+        'tools/cli/byoc',
+        'tools/cli/cloud',
+        'tools/cli/credits',
+        'tools/cli/events',
+        'tools/cli/mirrormaker',
+        {
+          type: 'category',
+          label: 'avn service',
+          link: {
+            id: 'tools/cli/service-cli',
+            type: 'doc',
+          },
+          items: [
+            'tools/cli/service/acl',
+            'tools/cli/service/connection-info',
+            'tools/cli/service/connection-pool',
+            'tools/cli/service/connector',
+            'tools/cli/service/database',
+            'tools/cli/service/es-acl',
+            'tools/cli/service/flink',
+            'tools/cli/service/integration',
+            'tools/cli/service/kafka-acl',
+            'tools/cli/service/privatelink',
+            'tools/cli/service/quota',
+            'tools/cli/service/schema-registry-acl',
+            'tools/cli/service/service-index',
+            'tools/cli/service/tags',
+            'tools/cli/service/topic',
+            'tools/cli/service/user',
+          ],
+        },
+        'tools/cli/user',
+        'tools/cli/vpc',
+      ],
+    },
+  ],
+
+  // Terraform dedicated sidebar
+  terraform: [
+    {
+      type: 'link',
+      label: '← Back to Dev tools',
+      href: '/docs/tools',
+    },
+    {
+      type: 'category',
+      label: 'Terraform',
+      collapsed: false,
+      collapsible: false,
+      items: ['tools/terraform', 'tools/terraform/howto/use-opentofu'],
     },
   ],
 };
