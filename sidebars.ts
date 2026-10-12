@@ -161,7 +161,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
         'platform/reference/get-resource-IDs',
-        'tools/doc-diff-llms',
       ],
     },
   ],
@@ -3088,6 +3087,16 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: ['tools/terraform', 'tools/terraform/howto/use-opentofu'],
     },
+  ],
+
+  // Doc change monitor separate sidebar
+  'doc-diff-llms': [
+    {
+      type: 'link',
+      label: '← Back to Docs',
+      href: 'https://aiven.io/docs/',
+    },
+    'tools/doc-diff-llms',
   ],
 };
 

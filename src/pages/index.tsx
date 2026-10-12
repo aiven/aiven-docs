@@ -97,8 +97,8 @@ function HomepageHeader() {
                 accent="teal"
                 description={
                   <>
-                    Explore AI-powered tools and features across Aiven services, from
-                    vector search to AI assistants and agent integrations.
+                    Explore AI-powered tools and features across Aiven services,
+                    from vector search to AI assistants and agent integrations.
                   </>
                 }
               />
@@ -131,6 +131,11 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <div className={styles.postFeaturesCta}>
+          <Link to="/docs/tools/doc-diff-llms" className={styles.heroTextCta}>
+            Track Aiven docs changes
+          </Link>
+        </div>
       </main>
     </Layout>
   );
