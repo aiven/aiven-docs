@@ -380,6 +380,7 @@
 /tools/cli/service/alloydbomni                             /docs/tools/cli/service-cli  301
 /tools/cli/ticket                                          /docs/platform/howto/support  301
 /tools/cli/user/user-access-token                          /docs/tools/cli/user  301
+/tools/query-optimizer                                     /docs/products/postgresql/howto/query-optimizer  301
 /tools/terraform/concepts/data-sources                     /docs/tools/terraform  301
 /tools/terraform/get-started                               /docs/tools/terraform  301
 /tools/terraform/howto/migrate-from-teams-to-groups        /docs/tools/terraform  301
