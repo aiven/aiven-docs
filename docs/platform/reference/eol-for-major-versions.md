@@ -96,8 +96,9 @@ After the EOL date:
     services that haven't reached EOL.
 
     :::note[Exception]
-    Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
-    They are upgraded and start running the new version when powered on.
+    Aiven for OpenSearch® and Aiven for Valkey™ powered-off services are not deleted
+    after their version EOL. They are upgraded and start running the new version when
+    powered on.
     :::
 
 ## Aiven multi-versioned services EOL
