@@ -101,31 +101,12 @@ third-party LLM API:
 
 1.  Add the endpoint of your model provider to
     `ml_commons_trusted_connector_endpoints_regex`, which takes a list of Java regular
-    expression patterns, such as `^https://api\.example\.com/v1.*$`. Changing this
-    setting doesn't restart your service.
+    expression patterns, such as `^https://api\.example\.com/v1.*$`. Enter each pattern
+    without surrounding quotation marks, which otherwise become part of the pattern.
+    Changing this setting doesn't restart your service.
 1.  Create a connector and register a remote model using the
     [OpenSearch connector blueprint](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/blueprints/)
     for your model provider.
-
-### Write a trusted endpoint pattern
-
-ML Commons checks your patterns when you create a connector, register a model, or update
-either one. It resolves the `${parameters.*}` placeholders in each connector action URL,
-then requires one of your patterns to match the resolved URL in full. If no pattern
-matches, the request fails with the message
-`Connector URL is not matching the trusted connector endpoint regex`.
-
-Keep the following in mind when you write a pattern:
-
-- Match the full URL that the action calls, not only the base endpoint. For a connector
-  with `endpoint` set to `https://api.example.com/v1` and an action URL of
-  `${parameters.endpoint}/chat/completions`, the pattern must match
-  `https://api.example.com/v1/chat/completions`.
-- Enter the pattern on its own, without surrounding quotation marks. The quotation marks
-  become part of the pattern, which then matches no URL.
-- Aiven checks that each pattern is a valid regular expression, but not that it matches
-  your connector URLs. A pattern that saves successfully can still fail later, when you
-  create the connector.
 
 ## Restrict access to ML models and connectors
 
