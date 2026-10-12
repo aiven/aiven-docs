@@ -20,7 +20,7 @@ import RequirementsPanel from "@site/src/components/RequirementsPanel";
 ## Prerequisites
 
 - AI gateway enabled for your organization.
-- An [AI access key](/docs/products/ai-gateway/ai-access-keys)
+- An [AI access key](/docs/products/ai-gateway/api-keys)
 
 ## Use Claude Code with AI gateway models
 
