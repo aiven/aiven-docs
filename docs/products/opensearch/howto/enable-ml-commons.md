@@ -100,10 +100,10 @@ To connect to a model hosted outside your Aiven for OpenSearch service, such as 
 third-party LLM API:
 
 1.  Add the endpoint of your model provider to
-    `ml_commons_trusted_connector_endpoints_regex`, which takes a list of Java regular
-    expression patterns, such as `^https://api\.example\.com/v1.*$`. Enter each pattern
-    without surrounding quotation marks, which otherwise become part of the pattern.
-    Changing this setting doesn't restart your service.
+    `ml_commons_trusted_connector_endpoints_regex`. It takes a comma-separated list of
+    Java regular expression patterns, such as `^https://api\.example\.com/v1.*$`. Enter
+    each pattern without surrounding quotation marks, which otherwise become part of the
+    pattern. Changing this setting doesn't restart your service.
 1.  Create a connector and register a remote model using the
     [OpenSearch connector blueprint](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/blueprints/)
     for your model provider.
