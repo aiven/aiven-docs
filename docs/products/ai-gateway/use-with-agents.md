@@ -1,78 +1,77 @@
 ---
-title: Use AI gateway with agents
+title: Use AI gateway with coding agents
+sidebar_label: Use with coding agents
 early: true
 ---
 
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import AIGatewayModelInfo from "@site/src/components/AIGatewayModelInfo";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Point your coding agent like Claude Code or Codex at the AI gateway to send requests using your API key.
 
 <RequirementsPanel
   items={[
     {
       label: 'Permissions',
-      values: ['`project:ai_gateway_keys:write`'],
+      values: ['`project:ai_gateway_keys:write`', '`project:ai_gateway_keys:read`', `role:project:admin`, `role:project:manager`],
     },
   ]}
 />
 
 ## Prerequisites
 
-- AI gateway enabled for your organization.
-- An [AI access key](/docs/products/ai-gateway/api-keys)
+- AI Gateway [enabled for your organization](/docs/products/ai-gateway).
+- An [API key](/docs/products/ai-gateway/api-keys).
 
 ## Use Claude Code with AI gateway models
 
-Claude Code needs the gateway address, your key, and model names the gateway catalogue lists.
+To use Claude Code with the AI Gateway, set the gateway address,
+your API key, and the model names in the terminal or
+in Claude Code's configuration file.
 
+|             Variable             |          Value          |
+| -------------------------------- | ----------------------- |
+| `ANTHROPIC_BASE_URL`             | `https://ai.aiven.io`   |
+| `ANTHROPIC_AUTH_TOKEN`           | Your AI Gateway API key |
+| `ANTHROPIC_MODEL`                | `aiven-model`           |
+| `ANTHROPIC_DEFAULT_OPUS_MODEL`   | `claude-opus-5`         |
+| `ANTHROPIC_DEFAULT_SONNET_MODEL` | `claude-sonnet-5`       |
+| `ANTHROPIC_DEFAULT_HAIKU_MODEL`  | `claude-haiku-4-5`      |
 
+<AIGatewayModelInfo variable="ANTHROPIC_MODEL" />
 
-
-|            Variable            |         Value         |
-| ------------------------------ | --------------------- |
-| ANTHROPIC_BASE_URL             | `https://ai.aiven.io` |
-| ANTHROPIC_AUTH_TOKEN           | Your AI access key    |
-| ANTHROPIC_MODEL                | `aiven-model`         |
-| ANTHROPIC_DEFAULT_OPUS_MODEL   | `claude-opus-5`       |
-| ANTHROPIC_DEFAULT_SONNET_MODEL | `claude-sonnet-5`     |
-| ANTHROPIC_DEFAULT_HAIKU_MODEL  | `claude-haiku-4-5`    |
-
-
-aiven-model is the main model. It is the Aiven router, and usage on it is free.
 Claude Code sends smaller jobs, such as session titles and some subagent work,
-to its Opus, Sonnet, and Haiku aliases. Those aliases default to the model aliases you pin.
-To use a specific catalogue model for the main session, set ANTHROPIC_MODEL to that model's name. Named models are billed at the rates on the Models page.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+to its Opus, Sonnet, and Haiku aliases. Those aliases default to the model you pin.
 
 <Tabs groupId="group1">
 <TabItem value="terminal" label="Terminal" default>
 
-Export the base URL, your AI access key, and model names for the session.
-Exports last for that terminal and for programs you start from it.
+Export the variables for the session. Exports last for that terminal session
+and for programs you start from it.
 
-```
+```bash
 export ANTHROPIC_BASE_URL="https://ai.aiven.io"
-export ANTHROPIC_AUTH_TOKEN="AI_ACCESS_KEY"
+export ANTHROPIC_AUTH_TOKEN="API_KEY"
 export ANTHROPIC_MODEL="aiven-model"
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-4-5"
-claude
 ```
 
 </TabItem>
 <TabItem value="claude config" label="Claude Code configuration">
 
-Put the same values in the env block of ~/.claude/settings.json.
+Put the values in the `env` block of the `~/.claude/settings.json` file.
+To use these settings in only one project, add them to the
+`.claude/settings.local.json ` file in that project.
 
-```
+```json
 {
   "env": {
     "ANTHROPIC_BASE_URL": "https://ai.aiven.io",
-    "ANTHROPIC_AUTH_TOKEN": "AI_ACCESS_KEY",
+    "ANTHROPIC_AUTH_TOKEN": "API_KEY",
     "ANTHROPIC_MODEL": "aiven-model",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5",
@@ -81,159 +80,69 @@ Put the same values in the env block of ~/.claude/settings.json.
 }
 ```
 
-To use in one project only, use .claude/settings.local.json in that project.
-
-More information on pointing Claude Code at an AI gateway is available in
-the [Claude Code docs](https://code.claude.com/docs/en/llm-gateway-connect).
-
 </TabItem>
 </Tabs>
 
+### Test Claude Code with AI Gateway
 
-## Test
+1. To start Claude Code, run `claude`.
 
-Start claude from the terminal where you exported the variables, or restart it after saving settings.json.
-Run /status.
-Anthropic base URL is https://ai.aiven.io.
-Auth token names ANTHROPIC_AUTH_TOKEN.
+  :::note[Note]
+  If you exported the variables, run all commands in the same terminal where
+  you exported the variables.
+  :::
 
-Send a short prompt and confirm you get a reply.
+1. To confirm the gateway is configured, run `/status`.
+   The **Auth token** is the variable `ANTHROPIC_AUTH_TOKEN` and the
+   **Anthropic base URL** is `https://ai.aiven.io`.
 
-In the Console, open AI Gateway > Overview. The request shows up on the key after usage has been collected.
+1. Close the status and send a test prompt.
 
+1. To verify the request was sent to the AI Gateway, go to the Aiven Console.
 
-Troubleshooting
-What you see	What to do
-Claude Code opens the login screen
-The key did not reach the process. Export it in this terminal, or set ANTHROPIC_AUTH_TOKEN in ~/.claude/settings.json, then start claude again.
-/status has no Anthropic base URL line
-ANTHROPIC_BASE_URL did not reach the session. A settings-file env block overrides a shell export.
-401 or the key is rejected
-The key is missing, revoked, or expired. Create a new key and update ANTHROPIC_AUTH_TOKEN. The gateway reads the bearer token from that variable.
-Unknown model
-A pin still names a model the catalogue does not list. Copy the current name from AI Gateway > Models.
-The main session works, and titles or subagents fail
-ANTHROPIC_DEFAULT_HAIKU_MODEL, ANTHROPIC_DEFAULT_SONNET_MODEL, or ANTHROPIC_DEFAULT_OPUS_MODEL is unset or out of date.
-Usage does not appear on Overview
-Confirm /status shows https://ai.aiven.io and that you are looking at the same project as the key. Collection is not instant.
+1. Click **AI Gateway**.
+
+1. To see the request, [view the usage metrics](/docs/products/ai-gateway/metrics)
+   on the page for the API key you used.
+   A new request can take about 15 minutes to appear.
 
 ## Use Codex with AI gateway models
 
-Codex needs a provider in `~/.codex/config.toml` and your AI access key in the environment.
+1. Export the API key.
 
-| Setting          | Value                    |
-| ---------------- | ------------------------ |
-| model            | `aiven-model`            |
-| model_provider   | `aiven`                  |
-| base_url         | `https://ai.aiven.io/v1` |
-| env_key          | `AIVEN_AI_GATEWAY_KEY`   |
-| wire_api         | `responses`              |
+   ```bash
+   export AIVEN_AI_GATEWAY_KEY="API_KEY"
+   ```
 
-`aiven-model` is the Aiven router, and usage on it is free. Codex reads the key from `AIVEN_AI_GATEWAY_KEY`. To use a specific catalogue model, set `model` to that model's name. Named models are billed at the rates on the Models page.
+1. Add a provider to the `~/.codex/config.toml` file.
 
-Add a provider to `~/.codex/config.toml`:
+   ```toml
+   model = "aiven-model"
+   model_provider = "aiven"
 
-```
-model = "aiven-model"
-model_provider = "aiven"
+   [model_providers.aiven]
+   name = "Aiven AI Gateway"
+   base_url = "https://ai.aiven.io/v1"
+   env_key = "AIVEN_AI_GATEWAY_KEY"
+   wire_api = "responses"
+   ```
 
-[model_providers.aiven]
-name = "Aiven AI Gateway"
-base_url = "https://ai.aiven.io/v1"
-env_key = "AIVEN_AI_GATEWAY_KEY"
-wire_api = "responses"
-```
+<AIGatewayModelInfo variable="model" />
 
-Export the key and start Codex. The export lasts for that terminal and for programs you start from it.
+### Test Codex with AI Gateway
 
-```
-export AIVEN_AI_GATEWAY_KEY="AI_ACCESS_KEY"
-codex
-```
+In the same terminal where you exported the API key:
 
-## Use the OpenAI SDK with AI gateway models
+1. To start Codex, run `codex`.
 
-The OpenAI SDK needs the gateway base URL, your AI access key, and a model name.
+1. To confirm the active model is `aiven-model`, run `/status`.
 
-| Setting  | Value                    |
-| -------- | ------------------------ |
-| base_url | `https://ai.aiven.io/v1` |
-| api_key  | Your AI access key       |
-| model    | `aiven-model`            |
+1. Send a test prompt.
 
-`aiven-model` is the Aiven router, and usage on it is free. To use a specific catalogue model, set `model` to that model's name. Named models are billed at the rates on the Models page.
+1. To verify the request was sent to the AI Gateway, go to the Aiven Console.
 
-Install the SDK, then send a request:
+1. Click **AI Gateway**.
 
-```
-uv add openai
-```
-
-```
-from openai import OpenAI
-
-client = OpenAI(base_url="https://ai.aiven.io/v1", api_key="AI_ACCESS_KEY")
-
-response = client.chat.completions.create(
-  model="aiven-model",
-  messages=[{"role": "user", "content": "Say hello"}],
-)
-print(response.choices[0].message.content)
-```
-
-## Use the Anthropic SDK with AI gateway models
-
-The Anthropic SDK needs the gateway base URL, your AI access key, and a model name. The base URL has no `/v1` suffix.
-
-| Setting  | Value                 |
-| -------- | --------------------- |
-| base_url | `https://ai.aiven.io` |
-| api_key  | Your AI access key    |
-| model    | `aiven-model`         |
-
-`aiven-model` is the Aiven router, and usage on it is free. To use a specific catalogue model, set `model` to that model's name. Named models are billed at the rates on the Models page.
-
-Install the SDK, then send a request:
-
-```
-uv add anthropic
-```
-
-```
-from anthropic import Anthropic
-
-client = Anthropic(base_url="https://ai.aiven.io", api_key="AI_ACCESS_KEY")
-
-message = client.messages.create(
-  model="aiven-model",
-  max_tokens=1024,
-  messages=[{"role": "user", "content": "Say hello"}],
-)
-print(message.content[0].text)
-```
-
-## Use cURL with AI gateway models
-
-cURL sends the AI access key as a bearer token. The chat endpoint includes `/v1`.
-
-| Setting       | Value                                     |
-| ------------- | ----------------------------------------- |
-| Endpoint      | `https://ai.aiven.io/v1/chat/completions` |
-| Authorization | `Bearer AI_ACCESS_KEY`                    |
-| model         | `aiven-model`                             |
-
-`aiven-model` is the Aiven router, and usage on it is free. To use a specific catalogue model, set `model` to that model's name. Named models are billed at the rates on the Models page.
-
-```
-curl -X POST 'https://ai.aiven.io/v1/chat/completions' \
--H 'Authorization: Bearer AI_ACCESS_KEY' \
--H 'Content-Type: application/json' \
--d '{ "model": "aiven-model", "messages": [{"role": "user", "content": "Say hello"}] }'
-```
-
-List the models this key can use:
-
-```
-curl 'https://ai.aiven.io/v1/models' \
--H 'Authorization: Bearer AI_ACCESS_KEY'
-```
+1. To see the request, [view the usage metrics](/docs/products/ai-gateway/metrics)
+   on the page for the API key you used.
+   A new request can take about 15 minutes to appear.

@@ -2765,7 +2765,19 @@ const sidebars: SidebarsConfig = {
         'products/ai-gateway',
         'products/ai-gateway/api-keys',
         'products/ai-gateway/model-catalog',
-        'products/ai-gateway/use-with-agents',
+        {
+          type: 'category',
+          label: 'Use AI Gateway',
+          link: {
+            type: 'doc',
+            id: 'products/ai-gateway/use-with-agents',
+          },
+          items: [
+            'products/ai-gateway/rest-api',
+            'products/ai-gateway/use-with-agents',
+            'products/ai-gateway/use-sdks',
+          ],
+        },
         'products/ai-gateway/metrics',
         'products/ai-gateway/permissions',
       ],
