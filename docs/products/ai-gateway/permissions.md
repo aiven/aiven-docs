@@ -1,6 +1,7 @@
 ---
 title: Permissions for AI Gateway
 sidebar_label: Permissions
+early: true
 ---
 
 The following roles and permissions are required for specific AI Gateway features.
