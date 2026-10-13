@@ -8,8 +8,8 @@ The following roles and permissions are required for specific AI Gateway feature
 [View all roles and permissions](/docs/platform/concepts/permissions)
 for Aiven organizations and projects.
 
-|     Action      |                 Required roles and permissions                  |
-| --------------- | --------------------------------------------------------------- |
-| Manage API keys | `project:ai_gateway_keys:write`                                |
-| View model list | `project:ai_gateway_keys:write`, `project:ai_gateway_keys:read` |
-| View metrics    | `project:ai_gateway_keys:write`, `project:ai_gateway_keys:read` |
+|     Action      |                                        Required roles and permissions                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| Manage API keys | `project:ai_gateway_keys:write`, `role:project:admin`, `role:project:manager`                                 |
+| View model list | `project:ai_gateway_keys:read`, `project:ai_gateway_keys:write`, `role:project:admin`, `role:project:manager` |
+| View metrics    | `project:ai_gateway_keys:read`, `project:ai_gateway_keys:write`, `role:project:admin`, `role:project:manager` |
