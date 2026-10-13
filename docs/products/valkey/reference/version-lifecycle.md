@@ -9,7 +9,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how Aiven manages Aiven for Valkey™ version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
 
-<EolPolicyMultiVersioned/>
+<EolPolicyMultiVersioned poweredOffOutcome={<>it's upgraded and starts running the new version when powered on.</>}/>
 
 ## Version EOL dates
 
