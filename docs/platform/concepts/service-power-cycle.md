@@ -12,8 +12,7 @@ Power off an Aiven service to release resources and save credits, power it back 
 <PowerService/>
 
 :::note
-When you power on a service, your data is restored from the latest available backup. An
-automatic backup is also taken before the service is powered off.
+When you power on a service, your data is restored from the latest available backup.
 :::
 
 :::note
