@@ -269,7 +269,7 @@ Where:
 
 Use the `avn service update` command.
 
-:::warning
+:::warning[Warning]
 This replaces the application's environment variables.
 To keep the existing variables, include them in the `environment_variables` list.
 To view a list of the existing environment variables, run
@@ -309,7 +309,7 @@ connection information.
 
 Use the `PUT /v1/project/{project}/service/{service}` endpoint.
 
-:::warning
+:::warning[Warning]
 This replaces the application's environment variables.
 To keep the existing variables, include them in the `environment_variables` list.
 To view a list of the existing environment variables, call

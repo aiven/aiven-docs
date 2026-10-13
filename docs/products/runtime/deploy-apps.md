@@ -163,7 +163,7 @@ To deploy new commits, [redeploy the application](#redeploy-an-application).
      --user-config-json '{"service_type":"pg","exposed_values":{"connection_string":{"environment_variable_key":"DATABASE_URL"}}}'
    ```
 
-:::tip
+:::tip[Tip]
 To check the status of your services or applications, run
 `avn service wait SERVICE_NAME --project PROJECT_NAME`.
 :::
