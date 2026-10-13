@@ -70,9 +70,20 @@ user, `avnadmin`, and run:
 CREATE EXTENSION pg_lake CASCADE;
 ```
 
-`pg_lake` ships the `lake_read`, `lake_write`, and `lake_read_write` roles, which
-control who can read and write Iceberg tables. Your `avnadmin` user can grant these
-roles to your other database users.
+Your service comes with four group roles that control access to analytics data.
+Grant membership in them to the database users who need it, using your `avnadmin`
+user:
+
+| Role | Members can |
+| --- | --- |
+| `lake_read` | Read data in Iceberg tables |
+| `lake_write` | Write data in Iceberg tables |
+| `lake_read_write` | Both read and write data in Iceberg tables |
+| `iceberg_catalog` | Read and modify the Iceberg catalog |
+
+```sql
+GRANT lake_read_write TO analytics_user;
+```
 
 ## Create an Iceberg table
 
@@ -122,7 +133,7 @@ SET pg_lake_iceberg.unsupported_numeric_as_double = off;
 
 :::
 
-Load data into the table from an existing PostgreSQL table:
+Load data into the table from a regular PostgreSQL table in the same service:
 
 ```sql
 INSERT INTO orders_analytics SELECT * FROM orders;
