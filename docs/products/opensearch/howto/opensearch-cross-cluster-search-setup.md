@@ -16,6 +16,8 @@ destination service exposes its indices to the source service as a remote cluste
 integration covers one direction. To let two services search each other, create one
 integration for each direction.
 
+Cross-cluster search queries remote indices in place. It does not copy or replicate data.
+
 :::note
 Cross-cluster search is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
@@ -38,23 +40,27 @@ Aiven rejects the integration unless all the following are true:
 <Tabs groupId="ccs-setup-method">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and select the Aiven for
-   OpenSearch service that runs the queries.
+1. Log in to the [Aiven Console](https://console.aiven.io/), and select an Aiven for
+   OpenSearch service. This service is one side of the connection.
 1. On the service's <ConsoleLabel name="overview"/>, go to the **Cross-cluster search**
    section.
-1. Click **Add remote cluster**.
+1. Click **Connect cluster**.
+1. Select the search direction:
+
+   - **Search another cluster**: this service queries indices on the cluster you pick.
+   - **Let another cluster search**: the cluster you pick queries indices on this
+     service.
+
 1. Select **Existing service**, then select the **Project** and the **Service** to
-   search.
+   connect to.
 
    You cannot select a service that runs a different OpenSearch major version or a
    service that is already connected.
 
-1. Optional: In **Cluster alias**, enter the alias to use for the remote cluster in
-   queries.
+1. Optional: In **Cluster alias**, enter the alias for the cluster that is searched.
+   Queries use this alias to address the indices on that cluster. By default, Aiven uses
+   the name of the searched service.
 1. Click **Connect**.
-
-To let another cluster search this service instead, click **Allow remote search** in the
-same section and follow the same steps.
 
 The **Cross-cluster search** section is not available while the service is powered off,
 or when the service is a
