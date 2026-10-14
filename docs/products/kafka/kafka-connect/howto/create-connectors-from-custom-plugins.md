@@ -82,7 +82,7 @@ The plugin status moves from **Ready for install** to **Installing** to
 until the service is back up, which usually takes a minute or two.
 
 Uploading a newer plugin version doesn't change the version installed on the
-service, unless the service is configured to always use the latest version.
+service, unless the service is set to **Always use latest version**.
 Otherwise, to use the new version,
 [change the plugin version](#change-the-plugin-version).
 
