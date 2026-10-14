@@ -44,11 +44,11 @@ Aiven rejects the integration unless all the following are true:
    OpenSearch service. This service is one side of the connection.
 1. On the service's <ConsoleLabel name="overview"/>, go to the **Cross-cluster search**
    section.
-1. Click **Connect a cluster**.
+1. Click **Connect cluster**.
 1. Select the search direction:
 
-   - **Search another cluster**: this service queries indices on the cluster you select.
-   - **Let another cluster search**: the cluster you select queries indices on this
+   - **Search another cluster**: this service queries indices on the cluster you pick.
+   - **Let another cluster search**: the cluster you pick queries indices on this
      service.
 
 1. Select **Existing service**, then select the **Project** and the **Service** to
@@ -57,8 +57,9 @@ Aiven rejects the integration unless all the following are true:
    You cannot select a service that runs a different OpenSearch major version or a
    service that is already connected.
 
-1. Optional: In **Cluster alias**, enter the alias to use for the remote cluster in
-   queries.
+1. Optional: In **Cluster alias**, enter the alias for the cluster that is searched.
+   Queries use this alias to address the indices on that cluster. By default, Aiven uses
+   the name of the searched service.
 1. Click **Connect**.
 
 The **Cross-cluster search** section is not available while the service is powered off,
