@@ -490,3 +490,4 @@ faiss
 knn_vector
 hnsw
 IDEs?
+decompounder

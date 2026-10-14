@@ -48,7 +48,7 @@ Free tier services have the following restrictions.
 ### Features not available
 
 - Service integrations such as logs, metrics, external authentication (SAML, OIDC, JWT)
-- Custom dictionary files
+- Custom files
 - No security plugin
 - No import from custom repositories
 - Custom domains
