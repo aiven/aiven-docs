@@ -37,7 +37,7 @@
     "docusaurus-plugin-image-zoom": "^2.0.0",
     "dotenv": "^16.3.1",
     "glob": "^12.0.0",
-    "handlebars": "^4.7.9",
+    "handlebars": "^4.7.10",
     "lodash": "^4.18.1",
     "lodash-es": "^4.18.1",
     "posthog-docusaurus": "^2.0.5",
