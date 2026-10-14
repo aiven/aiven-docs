@@ -86,7 +86,7 @@ instructions, see
 
 A plugin can have multiple versions. Uploading a new version doesn't replace
 existing versions. It also doesn't change the version installed on a Kafka Connect
-service, unless the service is configured to always use the latest version.
+service, unless the service is set to **Always use latest version**.
 
 :::warning[Warning]
 Services configured with **Always use latest version** switch to the new version

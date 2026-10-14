@@ -47,7 +47,7 @@ Bring your own connector uses the following concepts:
 
 A Kafka Connect service uses one version of each plugin at a time.
 Uploading a new plugin version doesn't change the version installed on a service,
-unless the service is configured to always use the latest version.
+unless the service is set to **Always use latest version**.
 To use a different version,
 [change the plugin version](/docs/products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins#change-the-plugin-version)
 on the service. The change applies to every connector on that service that uses the plugin.
