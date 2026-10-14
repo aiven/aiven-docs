@@ -35,9 +35,7 @@ the run after it does not print the password again. Keep the quotes. Unquoted, t
 reads a `$` or a backtick in the value, and the container starts on a different key.
 
 Keep the value itself, somewhere other than the volume. Start the container on a different
-value later and every saved password becomes unreadable. The connection then fails because
-the password is gone: PostgreSQL never sees a request, and the driver reports that the
-password is not a string. The container log carries `Stored connection secrets could not
+value later and every saved password becomes unreadable. The connection then fails with `client password must be a string` from the driver, not an access-denied error from the service. The container log carries `Stored connection secrets could not
 be decrypted`. Without the variable, LibreDB Studio derives the key from a secret it
 writes into the same volume, so one snapshot of the volume carries both.
 
