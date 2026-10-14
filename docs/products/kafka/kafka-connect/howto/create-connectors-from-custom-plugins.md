@@ -63,7 +63,7 @@ plugin on the service to make its connector classes available for new connectors
 
 :::warning[Warning]
 Installing a plugin version restarts Kafka Connect and its active connector
-tasks, which causes a brief interruption. No data is lost.
+tasks, which causes a brief interruption.
 :::
 
 In your Kafka Connect service:
@@ -116,6 +116,38 @@ To view your connectors later, click <ConsoleLabel name="Connectors"/> > **Custo
 The tab shows the installed plugin version, and each connector's status, type, and
 tasks.
 
+:::note[Note]
+The **Custom plugins** tab shows only the installed version. To see other uploaded
+versions, see [Change the plugin version](#change-the-plugin-version).
+:::
+
+## Manage a connector
+
+Manage the connectors that you create from a custom plugin.
+
+In your Kafka Connect service:
+
+1. Click <ConsoleLabel name="Connectors"/>.
+1. Click the **Custom plugins** tab.
+1. Click <ConsoleLabel name="actions"/> next to the connector.
+1. Click an action. The available actions depend on the connector status:
+   - **View tasks**: Opens a page that lists the connector's tasks and their statuses.
+   - **Pause connector**: Pauses the connector and its tasks. The connector stays
+     loaded but doesn't process data.
+   - **Stop connector**: Stops the connector and its tasks, and releases their
+     resources. This action isn't available on all services.
+   - **Resume connector**: Starts a paused or stopped connector.
+   - **Restart connector**: Restarts the connector.
+   - **Edit connector configuration**: Updates the connector configuration.
+   - **Delete connector**: Deletes the connector.
+
+:::warning[Warning]
+Deleting a connector removes its configuration and can't be undone.
+:::
+
+To restart a single task of a running connector, click **View tasks**, then click the
+restart icon next to the task.
+
 ## Change the plugin version
 
 Upgrade a plugin to a newer version, or roll back to an earlier one. A newer version
@@ -123,9 +155,14 @@ is available after an organization admin
 [uploads it](/docs/products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins#upload-a-new-plugin-version).
 All connectors on the service that use the plugin switch to the version you choose.
 
+The **Version** list is the only place on the service that shows all uploaded versions
+of the plugin. Organization admins can also see them on the plugin's **Versions** tab.
+For more information, see
+[View plugin versions](/docs/products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins#view-plugin-versions).
+
 :::warning[Warning]
 Changing the plugin version restarts Kafka Connect and its active connector
-tasks, which causes a brief interruption. No data is lost.
+tasks, which causes a brief interruption.
 :::
 
 In your Kafka Connect service:
@@ -150,15 +187,17 @@ see [A connector fails after a plugin version change](#a-connector-fails-after-a
 
 ## Uninstall a plugin
 
-:::warning
+:::warning[Warning]
 Uninstalling a plugin restarts Kafka Connect. After the restart, connectors that
-use the plugin fail because Kafka Connect can't find the plugin classes. It can take
-a short time for the connector status to change to **Failed**.
+use the plugin fail because Kafka Connect can't find the plugin classes. After a short
+delay, the connector status changes to **Failed**.
 
-Aiven keeps these connectors so you can review the Kafka Connect logs and find the
-cause. The Aiven Console lists them under **Unavailable connectors**. To restore
-them, [install the plugin version](#install-a-plugin) again. The connectors then
-recover automatically. To remove them, delete them from the list.
+Aiven keeps these connectors so you can find the cause in the service **Logs**.
+The Aiven Console lists them under **Unavailable connectors**.
+
+To restore the connectors,
+[install the plugin version](#install-a-plugin) again. The connectors then recover
+automatically. To remove them, delete them from the list.
 :::
 
 In your Kafka Connect service:
@@ -187,8 +226,8 @@ admin to perform the task or to grant you access.
 
 ### A connector fails after a plugin version change
 
-On the **Custom plugins** tab, click <ConsoleLabel name="actions"/> next to the
-connector > **View logs**.
+In your Kafka Connect service, click <ConsoleLabel name="logs"/> to find the error that
+caused the failure.
 
 Configuration options can differ between plugin versions. Compare the connector
 configuration with the documentation for the new plugin version.

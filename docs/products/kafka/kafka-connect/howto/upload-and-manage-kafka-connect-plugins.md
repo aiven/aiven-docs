@@ -50,13 +50,16 @@ Uploading a plugin makes it available to your organization, but doesn't
 1. Click **Admin**.
 1. Click <ConsoleLabel name="platform management"/> > **Kafka Connect plugins**.
 1. Click **Upload plugin**.
-1. On **Plugin details**, enter:
+1. On **About plugin**, enter:
    - **Plugin name**: A name for the plugin in your organization.
-   - **Version**: A version identifier, for example `2.15.3`.
+   - **Version**: A version identifier. Use semantic versioning, for example `2.15.3`.
    - **Description**: Optional. Information about what the plugin does and any
      customizations.
 1. Click **Next**.
-1. In **Plugin file**, click **Choose file** and select the plugin file.
+1. In **Plugin file**, click **Choose file** and select the plugin file. The file
+   must meet the
+   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements),
+   including a manifest at `META-INF/MANIFEST.MF`.
 1. Select the checkbox to confirm the plugin terms.
 1. Click **Upload**.
 
@@ -88,6 +91,9 @@ A plugin can have multiple versions. Uploading a new version doesn't replace
 existing versions. It also doesn't change the version installed on a Kafka Connect
 service, unless the service is set to **Always use latest version**.
 
+Each version must be unique within the plugin. If the version already exists, Aiven
+rejects the upload.
+
 :::warning[Warning]
 Services configured with **Always use latest version** switch to the new version
 automatically. The switch isn't immediate and restarts Kafka Connect, which briefly
@@ -100,10 +106,13 @@ interrupts its connectors.
 1. Click the plugin.
 1. Click **Upload new version**.
 1. On **Plugin details**, enter:
-   - **Version**: A version identifier, for example `2.16.0`.
+   - **Version**: A version identifier. Use semantic versioning, for example `2.16.0`.
    - **Description**: Optional. Information about the changes in this version.
 1. Click **Next**.
-1. In **Plugin file**, click **Choose file** and select the plugin file.
+1. In **Plugin file**, click **Choose file** and select the plugin file. The file
+   must meet the
+   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements),
+   including a manifest at `META-INF/MANIFEST.MF`.
 1. Select the checkbox to confirm the plugin terms.
 1. Click **Upload**.
 
@@ -222,7 +231,14 @@ Aiven checks the actual format of the file, so renaming a file doesn't make it
 valid.
 
 Confirm that the file meets the
-[custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements).
+[custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements),
+including a manifest at `META-INF/MANIFEST.MF`.
+
+### The upload is rejected because the version already exists
+
+A plugin with the same name and version already exists in your organization. Enter a
+different **Version**, or delete the existing version first. For more information, see
+[Delete a plugin version](#delete-a-plugin-version).
 
 ### No connector classes are detected
 

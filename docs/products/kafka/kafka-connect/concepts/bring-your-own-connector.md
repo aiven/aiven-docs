@@ -33,8 +33,9 @@ Bring your own connector uses the following concepts:
   Unlike Aiven-managed connectors, which Aiven provides and maintains, you upload
   and install custom plugins yourself.
 - **Plugin version**: A specific version of a plugin, for example `2.15.3`.
-  You can upload multiple versions of the same plugin. Uploading a new version
-  doesn't replace existing versions.
+  You can upload multiple versions of the same plugin. Each version must be unique
+  within the plugin, so you can't upload the same version twice. Uploading a new
+  version doesn't replace existing versions.
 - **Connector class**: The implementation of a connector provided by a plugin
   version, for example `solutions.a2.cdc.oracle.OraCdcLogMinerConnector`.
   A connector class is either a source or a sink. A source connector reads data
@@ -55,6 +56,10 @@ on the service. The change applies to every connector on that service that uses 
 In the Aiven Console, you manage uploaded plugins under **Kafka Connect plugins** in
 your organization. Installed plugins appear on the **Custom plugins** tab of a
 Kafka Connect service's **Connectors** page.
+
+The **Custom plugins** tab shows only the installed version of each plugin. To see other
+uploaded versions, use **Change version** on the service. Organization admins can also
+see all uploaded versions on the plugin's **Versions** tab.
 
 ## Custom plugin workflow
 
@@ -102,6 +107,7 @@ A custom plugin has the following requirements:
 - **File size:** No larger than 150 MB.
 - **Contents:** At least one class that implements a Kafka Connect source or sink
   connector.
+- **Manifest:** A manifest at `META-INF/MANIFEST.MF`.
 
 After you upload a plugin, Aiven detects its source and sink connector classes
 and lists them in the Aiven Console for review.
