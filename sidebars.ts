@@ -1102,6 +1102,7 @@ const sidebars: SidebarsConfig = {
               label: 'Setup and replication',
               items: [
                 'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
+                'products/kafka/kafka-mirrormaker/howto/migrate-cluster',
                 'products/kafka/kafka-mirrormaker/howto/update-integration-configurations',
                 'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                 'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
