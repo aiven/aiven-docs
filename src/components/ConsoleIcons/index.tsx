@@ -521,6 +521,12 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Replace file</b>
         </>
       );
+    case 'downloadfile':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.download} /> <b>Download file</b>
+        </>
+      );
     case 'editaclrules':
       return (
         <>
