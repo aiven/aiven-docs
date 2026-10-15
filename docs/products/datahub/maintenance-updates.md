@@ -9,8 +9,7 @@ import MaintenanceWindow from "@site/static/includes/maintenance-window-concepts
 import SetMaintWindow from "@site/static/includes/maintenance-window-instructions.md";
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
-Manage maintenance updates and set the maintenance window for your
-Aiven for DataHub service.
+Manage maintenance updates and set the maintenance window for your Aiven for DataHub service.
 
 <RequirementsPanel
   items={[

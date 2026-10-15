@@ -78,4 +78,5 @@ and setting environment variables on the actions app.
 After setting the variables, the actions app restarts automatically.
 
 <RelatedPages/>
+
 - [Configure Teams notifications](/docs/products/datahub/configure-teams-notifications)

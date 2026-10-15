@@ -1,7 +1,6 @@
 ---
 title: Reindex Aiven for DataHub search and graph indices
 sidebar_label: Reindex search and graph indices
-limited: true
 ---
 
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
