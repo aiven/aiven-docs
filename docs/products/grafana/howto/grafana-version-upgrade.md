@@ -30,6 +30,18 @@ supported versions in the
 
 ## Before you upgrade
 
+### Changes made since the last backup
+
+:::warning
+Upgrading restores your service from its most recent backup, so any changes made after
+that backup are lost. This includes dashboards, data sources, and alert rules created or
+edited in that window.
+:::
+
+Aiven for Grafana backs up your service every hour. To keep the window as small as
+possible, start the upgrade shortly after a backup, and avoid editing your service
+between the backup and the upgrade.
+
 ### Available or upcoming upgrades
 
 Track upgrades for your service via:
@@ -67,19 +79,24 @@ As a result, Aiven rejects the following:
 - Updating a service to an earlier `grafana_version` than it currently runs.
 - Forking a service to an earlier `grafana_version` than the source service runs.
 
-To move back to a previous version:
+There is no way to return a service to an earlier version after you upgrade it, so test
+the upgrade on a fork before you upgrade a service you depend on:
 
-1. Create a service with the earlier version.
-1. Restore data from a backup taken before the upgrade.
-1. Update your application connection strings.
+1. [Fork your service](/docs/products/grafana/howto/fork-service) to the same version it
+   currently runs.
+1. Upgrade the fork to the target version.
+1. Check your dashboards, data sources, alert rules, and plugins on the fork.
+1. Upgrade your original service once the fork looks correct, and delete the fork.
 
 ### Prerequisites for upgrade
 
 Before upgrading your service:
 
-- **Test in a fork**: Fork your service, upgrade the fork, and verify your dashboards,
-  data sources, and alert rules before you upgrade production.
-- **Back up your data**: Backups are automatic, but verify they exist.
+- **Test in a fork**: The upgrade
+  [cannot be reversed](/docs/products/grafana/howto/grafana-version-upgrade#downgrade-restriction),
+  so verify the target version on a fork first.
+- **Time the upgrade**: Changes made since the last backup are
+  [lost when you upgrade](/docs/products/grafana/howto/grafana-version-upgrade#changes-made-since-the-last-backup).
 
 To upgrade your service version, check that:
 
