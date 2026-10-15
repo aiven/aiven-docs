@@ -293,7 +293,58 @@ displays only the private hostname.
 :::
 
 </TabItem>
-<TabItem value="7" label="Azure BYOC private">
+<TabItem value="7" label="GCP BYOC ECE HIPAA">
+
+<img src={byocGcpEceHipaa} className="centered zoomable" alt="BYOC GCP HIPAA architecture" width="100%" />
+
+The Google Cloud `hipaa` deployment model is for healthcare workloads that handle protected
+health information (PHI) under HIPAA. It builds on the Google Cloud private model and shares
+its network topology: a dedicated **BYOC VPC** with workload nodes in a private subnet and
+a **Bastion node** that proxies traffic for the Aiven management plane. On top of that
+topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic,
+  including traffic to Cloud Storage, and Aiven creates no NAT gateways.
+- Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+  [cold data](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
+  buckets in your own Google Cloud project, with public access prevention and uniform
+  bucket-level access enforced.
+- Aiven tags all resources with the `hipaa` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+
+</TabItem>
+<TabItem value="8" label="GCP BYOC ECE PCI DSS">
+
+<img src={byocGcpEcePciDss} className="centered zoomable" alt="BYOC GCP PCI DSS architecture" width="100%" />
+
+The Google Cloud `pci_dss` deployment model is for payment workloads that require
+cardholder data environment (CDE) isolation under PCI DSS. It builds on the Google Cloud
+private model and shares its network topology: a dedicated **BYOC VPC** with workload nodes
+in a private subnet and a **Bastion node** that proxies traffic for the Aiven management
+plane. On top of that topology, it enforces the following controls:
+
+- Workload nodes have no public IPs, and services are not reachable from the public
+  internet.
+- Workload subnets have no internet egress. The bastion host proxies outbound traffic,
+  including traffic to Cloud Storage, and Aiven creates no NAT gateways.
+- Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
+  [cold data](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
+  buckets in your own Google Cloud project, with public access prevention and uniform
+  bucket-level access enforced.
+- Aiven tags all resources with the `pci_dss` compliance model for governance and audit
+  traceability.
+
+For the full list of controls, requirements, and limitations, see
+[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
+
+</TabItem>
+
+<TabItem value="9" label="Azure BYOC private">
 
 <img src={byocAzurePrivate} className="centered zoomable" alt="BYOC Azure private architecture" width="100%" />
 
@@ -327,7 +378,7 @@ repositories).
 :::
 
 </TabItem>
-<TabItem value="8" label="Azure BYOC public">
+<TabItem value="10" label="Azure BYOC public">
 
 <img src={byocAzurePublic} className="centered zoomable" alt="BYOC Azure public architecture" width="100%" />
 
@@ -351,56 +402,6 @@ The service endpoint has two hostnames. The public hostname is derived from the
 private hostname by adding a `public-` prefix to it. The Service URI shown by the
 Aiven Console displays only the private hostname.
 :::
-
-</TabItem>
-<TabItem value="7" label="GCP BYOC ECE HIPAA">
-
-<img src={byocGcpEceHipaa} className="centered zoomable" alt="BYOC GCP HIPAA architecture" width="100%" />
-
-The Google Cloud `hipaa` deployment model is for healthcare workloads that handle protected
-health information (PHI) under HIPAA. It builds on the Google Cloud private model and shares
-its network topology: a dedicated **BYOC VPC** with workload nodes in a private subnet and
-a **Bastion node** that proxies traffic for the Aiven management plane. On top of that
-topology, it enforces the following controls:
-
-- Workload nodes have no public IPs, and services are not reachable from the public
-  internet.
-- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
-  Aiven creates no NAT gateways.
-- Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-  [tiered storage](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
-  buckets in your own Google Cloud project, with public access prevention and uniform
-  bucket-level access enforced.
-- Aiven tags all resources with the `hipaa` compliance model for governance and audit
-  traceability.
-
-For the full list of controls, requirements, and limitations, see
-[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
-
-</TabItem>
-<TabItem value="8" label="GCP BYOC ECE PCI DSS">
-
-<img src={byocGcpEcePciDss} className="centered zoomable" alt="BYOC GCP PCI DSS architecture" width="100%" />
-
-The Google Cloud `pci_dss` deployment model is for payment workloads that require
-cardholder data environment (CDE) isolation under PCI DSS. It builds on the Google Cloud
-private model and shares its network topology: a dedicated **BYOC VPC** with workload nodes
-in a private subnet and a **Bastion node** that proxies traffic for the Aiven management
-plane. On top of that topology, it enforces the following controls:
-
-- Workload nodes have no public IPs, and services are not reachable from the public
-  internet.
-- Workload subnets have no internet egress. The bastion host proxies outbound traffic, and
-  Aiven creates no NAT gateways.
-- Service [backups](/docs/platform/concepts/byoc#byoc-service-backups) and
-  [tiered storage](/docs/platform/howto/byoc/store-data) are stored in Google Cloud Storage
-  buckets in your own Google Cloud project, with public access prevention and uniform
-  bucket-level access enforced.
-- Aiven tags all resources with the `pci_dss` compliance model for governance and audit
-  traceability.
-
-For the full list of controls, requirements, and limitations, see
-[Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
 </TabItem>
 </Tabs>

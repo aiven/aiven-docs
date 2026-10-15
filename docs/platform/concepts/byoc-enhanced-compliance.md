@@ -16,8 +16,10 @@ requirements.
 :::important
 To enable this feature, contact your account team. After the
 **compliance deployment models** are enabled for your organization, you select a
-compliance deployment model when you
-[create an AWS custom cloud](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud).
+compliance deployment model when you create an
+[AWS](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud) or
+[Google Cloud](/docs/platform/howto/byoc/create-cloud/create-google-custom-cloud)
+custom cloud.
 :::
 
 :::note
@@ -87,7 +89,9 @@ See [Create an AWS-integrated custom cloud](/docs/platform/howto/byoc/create-clo
 - **Private connectivity**: Access services over
   [VPC peering](/docs/platform/howto/vpc-peering-gcp).
 - **Object storage**: Service backups and cold data are stored in Google Cloud Storage
-  buckets in your Google Cloud project.
+  buckets in your Google Cloud project: one bucket for backups and one for cold data.
+  Workload nodes have no direct route to Cloud Storage, so this traffic is proxied through
+  the bastion host.
 - **Aiven access**: Aiven impersonates a privilege-bearing service account created when you
   deploy the infrastructure template.
 
@@ -101,9 +105,13 @@ See [Create a Google-integrated custom cloud](/docs/platform/howto/byoc/create-c
 - Compliance deployment models must be enabled for your organization before you can use
   them. Contact your account team to enable them.
 - Self-service compliance deployment models are available for **Amazon Web Services (AWS)**
-  and **Google Cloud**.
+  and **Google Cloud**. Google Cloud support is a
+  [limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 - Object storage in your own cloud account is required. Aiven uses it for service backups
   and cold data, and you cannot turn it off for these models.
+- Service types available in a compliance cloud are limited to those that support object
+  storage in your own cloud account. Aiven enables them for your organization along with
+  the deployment models, so check with your account team which services you can run.
 - Plan your network connectivity before you create the cloud, because services are reachable
   only over private connectivity.
 - Meet the [BYOC eligibility requirements](/docs/platform/concepts/byoc#who-is-eligible-for-byoc):
