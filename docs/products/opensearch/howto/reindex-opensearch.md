@@ -39,7 +39,8 @@ version. For example:
 To upgrade when reindexing is required:
 
 1. Upgrade your service to an intermediate compatible version if needed.
-1. Reindex all indices created with incompatible earlier versions.
+1. Reindex all indices created with incompatible earlier versions. Aiven reindexes
+   Aiven-managed system indices automatically.
 1. Upgrade to the target version.
 
 ### Mapping transformations
@@ -51,6 +52,45 @@ field to a keyword for exact matching.
 
 Common reasons for reindexing are changing the number of primary shards and updating
 custom analyzers and tokenizers.
+
+## Automatic reindexing of system indices
+
+Aiven reindexes Aiven-managed system indices for you. Services that were upgraded from
+Aiven for OpenSearch version 1.x can still hold system indices created with that version,
+which blocks the upgrade to version 3.x. You cannot reindex or delete these indices
+yourself: when the security plugin is enabled, requests to modify them return an HTTP
+`403 Forbidden` status code.
+
+Aiven reindexes such indices automatically when all of the following conditions are met:
+
+- The service runs Aiven for OpenSearch version `2.19`.
+- The security plugin is enabled.
+- The oldest index in the service was created with version 1.x.
+- The cluster health is green, and no snapshot is in progress.
+- All service nodes run the same generation, which means no node replacement is in
+  progress.
+
+The check for old system indices runs whenever Aiven replaces your service nodes, for
+example, when you apply a
+[maintenance update](/docs/products/opensearch/howto/maintenance-updates). It is not tied
+to one specific maintenance update, and it preserves the data in the reindexed indices.
+
+Automatic reindexing covers Aiven-managed system indices only, such as the security
+configuration index and the indices used by the alerting, index state management, machine
+learning, notifications, observability, reporting, and security analytics plugins. The
+following indices are not covered:
+
+- **Your own indices**: reindex them using the steps in this article.
+- **The `.tasks` index and earlier OpenSearch Dashboards indices**: these are safe to
+  delete, and OpenSearch recreates `.tasks` when needed. Dashboards keeps your dashboards
+  in the index that the alias points to, so earlier indices such as `.kibana_1` are
+  leftovers.
+
+:::note
+To remove indices that you cannot delete yourself, or if system indices created with
+version 1.x remain after your service nodes are replaced, contact
+[Aiven support](https://aiven.io/support).
+:::
 
 ## Prerequisites
 
@@ -78,13 +118,15 @@ In the examples,
 Check which indices were created with an earlier version of Aiven for OpenSearch:
 
 ```bash
-curl "https://USER:PASSWORD@HOST:PORT/_all/_settings?filter_path=*.settings.index.version.created_string,*.settings.index.creation_date_string&human=true"
+curl "https://USER:PASSWORD@HOST:PORT/_all/_settings?filter_path=*.settings.index.version.created_string,*.settings.index.creation_date_string&human=true&expand_wildcards=all"
 ```
 
 Replace `USER`, `PASSWORD`, `HOST`, and `PORT` with your service connection details.
 
 This lists the indices with their creation version and date. Identify indices with
-versions that are incompatible with your target upgrade version.
+versions that are incompatible with your target upgrade version. The
+`expand_wildcards=all` parameter includes hidden and closed indices, which otherwise stay
+out of the results even though they can block an upgrade.
 
 ## Choose your reindexing strategy
 
@@ -475,4 +517,5 @@ the initial state (usually hot).
 
 - [Upgrade Aiven for OpenSearch](/docs/products/opensearch/howto/os-version-upgrade)
 - [Manage large shards in Aiven for OpenSearch](/docs/products/opensearch/howto/resolve-shards-too-large)
+- [Maintenance and updates for Aiven for OpenSearch](/docs/products/opensearch/howto/maintenance-updates)
 - [OpenSearch® reindex API documentation](https://opensearch.org/docs/latest/api-reference/document-apis/reindex/)
