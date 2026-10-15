@@ -26,8 +26,8 @@ deployments differ in how you get access to BYOK and how BYOK is charged:
 
 | Deployment | Access to BYOK | Pricing |
 | ---------- | -------------- | ------- |
-| Aiven-managed infrastructure | Available for all projects. Register a CMK and associate it with your services at any time. | Currently available at no additional cost. |
-| [Custom cloud (BYOC)](/docs/platform/concepts/byoc) | Enterprise feature. [Enable BYOC](/docs/platform/howto/byoc/enable-byoc) for your organization, and then [contact Aiven](https://aiven.io/contact) to request access to BYOK. | Part of your BYOC agreement. |
+| Aiven-managed infrastructure | Available for all projects. Register a CMK and associate it with your services at any time. | Currently available at no additional cost |
+| [Custom cloud (BYOC)](/docs/platform/concepts/byoc) | Enterprise feature. [Enable BYOC](/docs/platform/howto/byoc/enable-byoc) for your organization, and then [contact Aiven](https://aiven.io/contact) to request access to BYOK. | Part of your BYOC agreement |
 
 ## Encryption scope
 
