@@ -8,7 +8,8 @@ import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Use OpenID Connect (OIDC) to configure single sign-on (SSO) to your DataHub service with your identity provider.
 
-You can use any OIDC compliant provider such as Auth0, Okta, Google Identity, or Azure AD. When OIDC is enabled, all users are redirected to SSO login by default.
+You can use any OIDC compliant provider such as Auth0, Okta, Google Identity, or Azure AD.
+When OIDC is enabled, all users are redirected to SSO login by default.
 
 <RequirementsPanel
   items={[
@@ -54,4 +55,5 @@ After adding the secrets, wait for the frontend container to redeploy before usi
 To log in using username and password instead, add `/login` to the end of the DataHub application URL.
 
 <RelatedPages/>
+
 - [DataHub guide on configuring OIDC Authentication](https://docs.datahub.com/docs/authentication/guides/sso/configure-oidc-react)

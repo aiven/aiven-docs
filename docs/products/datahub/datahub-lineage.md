@@ -6,7 +6,8 @@ sidebar_label: View data lineage
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-Data lineage is a map of how each of your data assets moves across your systems. Lineage can help you:
+Data lineage is a map of how each of your data assets moves across your systems.
+Lineage can help you:
 
 - Understand your data flows at a glance, even in complex architectures.
 - See which downstream systems would be affected before you change a dataset.
@@ -17,11 +18,6 @@ When you
 [connect Aiven services to your Aiven for DataHub service](/docs/products/datahub/connect-datahub-to-services),
 DataHub automatically builds this map of your data assets and syncs them
 on a schedule. In DataHub, data assets are called datasets.
-
-:::note[Note]
-External services that you connect to DataHub are not shown in the
-data lineage.
-:::
 
 <RequirementsPanel
   items={[
@@ -38,6 +34,12 @@ data lineage.
     },
   ]}
 />
+
+:::note[Note]
+External services that you connect to DataHub are not shown in the
+data lineage.
+:::
+
 
 ## View lineage for a dataset
 

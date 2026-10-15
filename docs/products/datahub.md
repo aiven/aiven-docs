@@ -26,7 +26,7 @@ Aiven for DataHub is built on DataHub Core and offers the following features:
 - **AI context**: Use DataHub as a context layer for AI through its
   [MCP server](/docs/products/datahub/datahub-mcp-server).
 
-:::note
+:::note[Note]
 DataHub Cloud features aren’t supported by Aiven for DataHub.
 :::
 

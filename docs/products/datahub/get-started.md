@@ -17,7 +17,7 @@ Start using DataHub by creating and configuring your first service.
   ]}
 />
 
-:::important
+:::important[Important]
 To avoid issues, don’t make any changes to the plans or other settings of
 the DataHub resources beyond what is documented.
 :::

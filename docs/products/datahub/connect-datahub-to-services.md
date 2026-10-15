@@ -37,7 +37,7 @@ ingest metadata from them. You can add connectors through the
 [DataHub UI](https://docs.datahub.com/docs/ui-ingestion)
 or the [DataHub CLI](https://docs.datahub.com/docs/metadata-ingestion/cli-ingestion).
 
-:::important
+:::important[Important]
 Store sensitive information like passwords and API keys used for connectors in DataHub
 [Secrets](https://docs.datahub.com/docs/ui-ingestion#managing-sensitive-information-with-secrets).
 :::

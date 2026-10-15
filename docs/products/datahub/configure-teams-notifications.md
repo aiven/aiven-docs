@@ -1,7 +1,6 @@
 ---
 title: Configure Teams notifications for DataHub activity
 sidebar_label: Configure Teams notifications
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -42,7 +41,8 @@ and setting environment variables on the actions app.
    - **Message body expression**: `coalesce(triggerBody()?['text'], string(triggerBody()))`
 
 1. Copy the generated webhook URL.
-   :::important
+
+   :::important[Important]
    Treat the webhook URL as a secret. If the URL is exposed,
    rotate it by deleting and recreating the workflow.
    :::
@@ -74,4 +74,5 @@ and setting environment variables on the actions app.
 After setting the variables, the actions app restarts automatically.
 
 <RelatedPages/>
+
 - [Configure Slack notifications](/docs/products/datahub/configure-slack-notifications)
