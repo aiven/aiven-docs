@@ -307,6 +307,20 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'AI Gateway',
+      collapsed: false,
+      collapsible: false,
+      className: 'expandedSection',
+      items: [
+        {
+          type: 'link',
+          label: 'AI Gateway',
+          href: '/docs/products/ai-gateway',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Integrations',
       className: 'expandedSection',
       collapsed: false,
@@ -2735,6 +2749,45 @@ const sidebars: SidebarsConfig = {
         'tools/agents/permissions',
         'tools/agents/chat-with-agent',
         'tools/agents/schedule-agent',
+      ],
+    },
+  ],
+
+  // AI Gateway dedicated sidebar
+  aigateway: [
+    {
+      type: 'link',
+      label: '← Back to Products',
+      href: '/docs/products/overview',
+    },
+    {
+      type: 'category',
+      label: 'AI Gateway',
+      collapsed: false,
+      collapsible: false,
+      link: {
+        id: 'products/ai-gateway',
+        type: 'doc',
+      },
+      items: [
+        'products/ai-gateway',
+        'products/ai-gateway/api-keys',
+        'products/ai-gateway/model-catalog',
+        {
+          type: 'category',
+          label: 'Use AI Gateway',
+          link: {
+            type: 'doc',
+            id: 'products/ai-gateway/use-with-agents',
+          },
+          items: [
+            'products/ai-gateway/rest-api',
+            'products/ai-gateway/use-with-agents',
+            'products/ai-gateway/use-sdks',
+          ],
+        },
+        'products/ai-gateway/metrics',
+        'products/ai-gateway/permissions',
       ],
     },
   ],

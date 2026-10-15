@@ -353,6 +353,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>Authentication</b>
         </>
       );
+    case 'revokekey':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.banCircle} /> <b>Revoke key</b>
+        </>
+      );
+    case 'editkey':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit key</b>
+        </>
+      );
     case 'groups':
       return (
         <>

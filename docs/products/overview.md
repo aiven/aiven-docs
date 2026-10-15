@@ -8,6 +8,7 @@ import AI from "@site/static/images/logos/star-ai.svg";
 import database from "@site/static/images/icons/home/database.svg";
 import console from "@site/static/images/icons/home/console.svg";
 import integrations from "@site/static/images/icons/home/integrations.svg";
+import aiGateway from "@site/static/images/icons/gateway.svg";
 
 Build and manage your infrastructure on the Aiven Platform.
 
@@ -29,6 +30,12 @@ Build and manage your infrastructure on the Aiven Platform.
         iconComponent={AI}
         title="Managed Agents"
         description="Create and run AI agents on the Aiven Platform."
+    />
+    <Card
+        to="/docs/products/ai-gateway"
+        iconComponent={aiGateway}
+        title="AI Gateway"
+        description="Access models through a single endpoint and monitor usage."
     />
     <Card
         to="/docs/platform/concepts/service-integration"
