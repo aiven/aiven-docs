@@ -2828,7 +2828,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'tools/aiven-console/howto/create-orgs-and-units',
         'platform/howto/manage-organizations',
-        'platform/howto/view-organization-logs',
       ],
     },
   ],

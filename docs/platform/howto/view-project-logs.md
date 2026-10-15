@@ -16,4 +16,4 @@ To view the logs for a project:
 1.  Click **Event log**.
 
 <RelatedPages/>
-- [View organization and unit logs](/docs/platform/howto/view-organization-logs)
+- [View organization and unit logs](/docs/platform/howto/organization-event-logs)
