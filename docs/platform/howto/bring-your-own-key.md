@@ -22,7 +22,7 @@ cloud account with [bring your own cloud (BYOC)](/docs/platform/concepts/byoc). 
 [key setup](#set-up-customer-managed-keys-on-your-cloud-provider), and key management
 operations for [projects](#manage-a-project-cmk) and
 [services](#manage-service-cmk-associations) are the same for both deployments. The
-deployments differ in how you get access to BYOK and how BYOK is charged.
+deployments differ in how you get access to BYOK and how BYOK is charged:
 
 | Deployment | Access to BYOK | Pricing |
 | ---------- | -------------- | ------- |
