@@ -18,9 +18,11 @@ Bring your own key (BYOK) is
 [generally available](/docs/platform/concepts/service-and-feature-releases#general-availability)
 for services running on Aiven-managed infrastructure and for services running in your own
 cloud account with [bring your own cloud (BYOC)](/docs/platform/concepts/byoc). The
-encryption scope, prerequisites, key setup, and key management operations described on
-this page are the same for both deployments. The deployments differ in how you get access
-to BYOK and how BYOK is charged.
+[encryption scope](#encryption-scope), [prerequisites](#prerequisites),
+[key setup](#set-up-customer-managed-keys-on-your-cloud-provider), and key management
+operations for [projects](#manage-a-project-cmk) and
+[services](#manage-service-cmk-associations) are the same for both deployments. The
+deployments differ in how you get access to BYOK and how BYOK is charged.
 
 | Deployment | Access to BYOK | Pricing |
 | ---------- | -------------- | ------- |
