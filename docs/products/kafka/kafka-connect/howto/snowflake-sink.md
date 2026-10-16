@@ -55,7 +55,7 @@ For Avro messages, also collect the following values:
 - `SCHEMA_REGISTRY_USER`: the Schema Registry user
 - `SCHEMA_REGISTRY_PASSWORD`: the Schema Registry password
 
-:::tip
+:::tip[Tip]
 To retrieve the Snowflake account locator and region, run the following in a Snowflake
 worksheet:
 
@@ -169,7 +169,7 @@ GRANT INSERT ON TABLE TESTDATABASE.TESTSCHEMA.TARGET_TABLE
 ```
 
 If you use a user-defined pipe, grant `OPERATE` on the existing pipe. Snowflake also
-recommends granting `CREATE VIEW` on the schema.
+recommends granting `CREATE VIEW` on the schema for error table features.
 
 Grant privileges directly to the connector role. Snowflake doesn't support inheriting them
 through a role hierarchy. The 4.x requirements don't include `CREATE STAGE`.
@@ -267,10 +267,10 @@ required compatibility and offset migration settings first. See
 
 Connector and converter settings:
 
-- `name`: unique connector name
-- `connector.class`: connector implementation for the selected version
-- `topics`: comma-separated topics to load into Snowflake
-- `key.converter` and `value.converter`: converters for Kafka message keys and values. The
+- `name`: Unique connector name
+- `connector.class`: Connector implementation for the selected version
+- `topics`: Comma-separated topics to load into Snowflake
+- `key.converter` and `value.converter`: Converters for Kafka message keys and values. The
   example uses `io.confluent.connect.avro.AvroConverter`.
 
 Schema Registry settings for Avro:
@@ -278,7 +278,7 @@ Schema Registry settings for Avro:
 - `key.converter.schema.registry.url` and `value.converter.schema.registry.url`: Schema
   Registry URL in the form `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`
 - `key.converter.basic.auth.credentials.source` and
-  `value.converter.basic.auth.credentials.source`: credentials source for basic
+  `value.converter.basic.auth.credentials.source`: Credentials source for basic
   authentication, set to `USER_INFO`
 - `key.converter.schema.registry.basic.auth.user.info` and
   `value.converter.schema.registry.basic.auth.user.info`: Schema Registry credentials in
@@ -288,17 +288,18 @@ Snowflake connection settings:
 
 - `snowflake.url.name`: Snowflake account URL
 - `snowflake.user.name`: Snowflake user for ingestion
-- `snowflake.private.key`: private key used to authenticate the user
-- `snowflake.private.key.passphrase`: passphrase protecting the private key
-- `snowflake.database.name`: target database
-- `snowflake.schema.name`: target schema
+- `snowflake.private.key`: Private key used to authenticate the user
+- `snowflake.private.key.passphrase`: Passphrase protecting the private key
+- `snowflake.database.name`: Target database
+- `snowflake.schema.name`: Target schema
 
 Additional 4.x settings shown in the example:
 
-- `snowflake.role.name`: role the connector uses to write data.
-- `snowflake.validation`: validation mode. Use `client_side` to validate against schema
+- `snowflake.role.name`: Role the connector uses to write data. The example uses the
+  role you created in [Configure Snowflake](#configure-snowflake).
+- `snowflake.validation`: Validation mode. Use `client_side` to validate against schema
   types before ingestion. The 4.x default is `server_side`.
-- `snowflake.streaming.validate.compatibility.with.classic`: migration-related
+- `snowflake.streaming.validate.compatibility.with.classic`: Migration-related
   compatibility checks. Set to `false` for new deployments, but not automatically for
   migrations.
 
@@ -310,15 +311,15 @@ For all 4.x settings, see
 <Tabs groupId="setup-method">
 <TabItem value="console" label="Aiven Console" default>
 
-1. Open the [Aiven Console](https://console.aiven.io/).
-1. Click your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. In the [Aiven Console](https://console.aiven.io/), click your Aiven for Apache Kafka
+   or Aiven for Apache Kafka Connect service.
 1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Apache Kafka Connect is already enabled on the service.
    If not, click **Enable connector on this service**.
 
    To enable connectors:
 
-   1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
+   1. In the sidebar, click <ConsoleLabel name="Service settings"/>.
    1. In the **Service management** section, click <ConsoleLabel name="Actions"/> >
       **Enable Kafka Connect**.
 1. In the list of sink connectors, find **Snowflake Sink** for 3.x or
@@ -355,48 +356,60 @@ Replace the following:
 
 ## Migrate from 3.x to 4.x
 
-Snowflake connector 4.x is a rewrite that uses Snowpipe Streaming exclusively. You can't
-upgrade an existing 3.x connector in place by changing its version or connector class.
+Snowflake connector 4.x uses the Snowpipe Streaming high-performance architecture and
+isn't backward compatible with 3.x. Migrating requires creating a new connector
+configuration.
 
-Aiven offers Snowflake Sink and Snowflake v4 Sink as separate connector types. Your
-existing 3.x connector remains unchanged until you migrate.
+Aiven provides Snowflake Sink for 3.x and Snowflake v4 Sink for 4.x as separate
+connectors. Existing 3.x connectors aren't automatically upgraded to 4.x.
 
 To prepare for the migration:
 
-1. Review the
+1. Review the breaking changes in the
    [Snowflake migration guide](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4),
-   including changed defaults, removed settings, and data layout.
-1. Determine whether the 3.x connector uses Snowpipe or Snowpipe Streaming. The offset
+   including changed defaults, removed properties, and differences in data layout.
+1. Check whether your 3.x connector uses Snowpipe or Snowpipe Streaming. The offset
    migration procedure depends on the ingestion method.
-1. Make sure the 3.x connector has `snowflake.metadata.topic`,
-   `snowflake.metadata.offset.and.partition`, and `snowflake.metadata.createtime`
-   enabled. These properties are on by default, and they help you remove duplicates if
-   needed.
+1. Verify that `snowflake.metadata.topic`, `snowflake.metadata.offset.and.partition`,
+   and `snowflake.metadata.createtime` are enabled in your 3.x connector. These
+   properties are on by default and provide the metadata you need to identify
+   duplicate records.
 1. Replace any Snowflake-provided converters with community converters, such as
    `io.confluent.connect.avro.AvroConverter`.
-1. Create a new 4.x configuration that uses the
+1. Prepare a new 4.x configuration that uses the
    `com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector` class and the
-   migration settings for your ingestion method.
+   compatibility and offset migration settings for your ingestion method.
 1. Plan the cutover so the 3.x connector stops gracefully before the 4.x connector
-   starts. If the 3.x connector uses Snowpipe, wait for staged files to finish loading.
+   starts. If you use Snowpipe, wait for all staged data to load into Snowflake.
 
-To preserve offsets, use the same connector name for the 4.x connector as for the 3.x
-connector. Then set the offset migration properties for your ingestion method:
+To preserve offsets, Snowflake's migration procedure requires the same connector name
+for 3.x and 4.x. Apache Kafka Connect doesn't allow two connectors with the same name
+on one service, so delete the 3.x connector before you create the 4.x connector. Set
+the offset migration properties for your ingestion method:
 
-- **Snowpipe**: set `snowflake.streaming.classic.offset.migration` to `skip`.
+- **Snowpipe**: set `snowflake.streaming.classic.offset.migration` to `skip` to use the
+  Kafka consumer group offsets.
 - **Snowpipe Streaming**: set `snowflake.streaming.classic.offset.migration` to
-  `best_effort` or `strict`. Also set
+  `strict` or `best_effort` to migrate offsets from the existing Snowpipe Streaming
+  channels. Also set
   `snowflake.streaming.classic.offset.migration.include.connector.name` to match the
   `snowflake.streaming.channel.name.include.connector.name` value in your 3.x
   configuration.
 
+To keep the same table and column names as in 3.x, set
+`snowflake.compatibility.enable.autogenerated.table.name.sanitization` and
+`snowflake.compatibility.enable.column.identifier.normalization` to `true`. For the
+remaining compatibility settings and the full cutover procedure, follow the Snowflake
+migration guide.
+
 Complete the switchover within `offsets.retention.minutes`, which defaults to 7 days, to
-avoid offset expiration. If you downgrade to 3.x, expect duplicate records.
+avoid offset expiration. This is an Apache Kafka service setting, not a Kafka Connect
+setting. If you downgrade to 3.x, expect duplicate records.
 
 :::important[Important]
-Confirm how to reuse a connector name when replacing one Aiven connector type with
-another before carrying out a production cutover. The exact Aiven workflow and offset
-preservation steps are pending verification.
+Ingestion stops from the time you delete the 3.x connector until the 4.x connector
+starts. Test the migration on a non-production service before you migrate production
+workloads.
 :::
 
 ## Examples
@@ -478,7 +491,7 @@ Another message:
 }
 ```
 
-:::note
+:::note[Note]
 Each JSON record includes a full schema, which adds overhead. To avoid repeating the
 schema, use Avro with Aiven's [Karapace Schema Registry](https://karapace.io/).
 :::
@@ -503,6 +516,6 @@ Create a connector configuration and replace the placeholders with your values:
 
 - `topics`: Kafka topic the connector writes to Snowflake.
 - `value.converter`: Kafka Connect's JSON converter
-- `value.converter.schemas.enable`: reads the inline schema and payload. The example sets
+- `value.converter.schemas.enable`: Reads the inline schema and payload. The example sets
   this explicitly for clarity.
 - The configuration has no key converter because the example messages have no keys.
