@@ -468,6 +468,14 @@ policy, or by disabling or deleting the key. All KMS operations performed by Aiv
 logged in your AWS CloudTrail, giving you a full audit trail.
 :::
 
+:::warning
+Aiven automatically powers off all services associated with a CMK about 15 minutes
+after losing access to the key. Services without backups lose their data when powered
+off. Before you revoke Aiven's access, move the affected services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
+their data.
+:::
+
 ### Azure Key Vault setup
 
 Aiven authenticates to your Azure Key Vault using a multi-tenant application registered
@@ -631,6 +639,14 @@ az keyvault role assignment create \
 You can revoke Aiven's access at any time by removing the role assignment or deleting
 the service principal from your tenant. This immediately prevents any further
 cryptographic operations by Aiven.
+:::
+
+:::warning
+Aiven automatically powers off all services associated with a CMK about 15 minutes
+after losing access to the key. Services without backups lose their data when powered
+off. Before you revoke Aiven's access, move the affected services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
+their data.
 :::
 
 ## Manage a project CMK
