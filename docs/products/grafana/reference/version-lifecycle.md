@@ -3,30 +3,24 @@ title: Aiven for Grafana® version lifecycle
 sidebar_label: Version lifecycle
 ---
 
-import EolPolicySingleVersioned from "@site/static/includes/eol-policy-single-versioned.md";
+import EolPolicyMultiVersioned from "@site/static/includes/eol-policy-multi-versioned.md";
 import EolTableGrafana from "@site/static/includes/eol-table-grafana.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Learn how Aiven manages the Aiven for Grafana® service version, end of life (EOL) dates, and what happens to your service after the version reaches EOL.
+Learn how Aiven manages Aiven for Grafana® version support, end of life (EOL) dates, and what happens to your service after a version reaches EOL.
 
 Aiven for Grafana identifies versions in `major.minor.patch` format, for example
-`11.6.5`.
+`12.4.12`. You select the major version for your service, and Aiven applies minor and
+patch updates during your service's maintenance window.
 
-<EolPolicySingleVersioned/>
+<EolPolicyMultiVersioned/>
 
 ## Version EOL dates
 
 <EolTableGrafana/>
 
-## Newer Grafana versions
-
-Aiven doesn't publish a release schedule for new Aiven for Grafana major versions.
-Aiven for Grafana doesn't offer a beta or preview version.
-
-If you need a feature that's only available in a newer upstream Grafana release,
-[contact Aiven](https://aiven.io/contact) to discuss your options.
-
 <RelatedPages/>
 
+- [Upgrade the Aiven for Grafana® service version](/docs/products/grafana/howto/grafana-version-upgrade)
 - [End of life for Aiven services](/docs/platform/reference/end-of-life)
 - [Fork your Aiven for Grafana® service](/docs/products/grafana/howto/fork-service)
