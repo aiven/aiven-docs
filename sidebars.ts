@@ -1493,6 +1493,7 @@ const sidebars: SidebarsConfig = {
             id: 'products/grafana/maintenance-lifecycle',
           },
           items: [
+            'products/grafana/howto/grafana-version-upgrade',
             'products/grafana/howto/maintenance-updates',
             'products/grafana/howto/controlled-upgrade-pipelines',
             'products/grafana/reference/version-lifecycle',
