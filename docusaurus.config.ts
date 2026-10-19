@@ -154,6 +154,7 @@ const config: Config = {
       async: true,
       'data-website-id': '97dbdbe6-f293-4969-9d76-2204feaf543b', // this is not a secret
       'data-project-name': 'Aiven Kapa AI',
+      'data-webmcp-enabled': 'true',
       'data-user-analytics-cookie-enabled': 'false',
       'data-project-color': '#5FFA74',
       'data-project-logo': 'https://aiven.io/docs/images/crabby_RGB_blk.svg',
