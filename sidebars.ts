@@ -802,6 +802,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/howto/enable-follower-fetching',
                 'products/kafka/concepts/follower-fetching',
                 'products/kafka/howto/configure-preferred-zones',
+                'products/kafka/howto/configure-az-aware-listeners',
                 'products/kafka/concepts/kafka-quotas',
                 'products/kafka/howto/manage-quotas',
               ],
