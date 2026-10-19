@@ -125,12 +125,6 @@ no rows shows no export options.
   command.
 - **JSON**: The export writes objects and arrays as JSON text.
 
-:::note
-You can export results only from the results panel in the
-<ConsoleIcon name="sql editor"/>. When you preview table data in
-<ConsoleIcon name="pgtables"/>, no export option is available.
-:::
-
 ## Query execution limits
 
 The editor applies these limits to query execution:
