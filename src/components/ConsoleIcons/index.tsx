@@ -167,6 +167,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Open schema map</b>
         </>
       );
+    case 'downloadorcopyresults':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.download} />{' '}
+          <b>Download or copy results</b>
+        </>
+      );
     case 'generativeai':
       return (
         <>
