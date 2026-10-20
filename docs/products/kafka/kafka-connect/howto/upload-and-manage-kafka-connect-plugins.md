@@ -19,9 +19,6 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Upload custom Kafka Connect plugins to make their connector classes available to Aiven for Apache Kafka® Connect services in your organization.
 
-To upload, edit, or delete a plugin or plugin version, you need the organization
-admin role (`role:organization:admin`).
-
 For definitions of plugin, plugin version, connector class, and connector, see
 [Key concepts](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#key-concepts).
 
@@ -29,6 +26,8 @@ For definitions of plugin, plugin version, connector class, and connector, see
 
 Before you begin, make sure:
 
+- You have the organization admin role (`role:organization:admin`). This role is
+  required to upload, edit, or delete a plugin or plugin version.
 - Bring your own connector is enabled for your organization.
 - You have a plugin file that meets the
   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements).
