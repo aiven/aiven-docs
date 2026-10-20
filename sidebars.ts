@@ -182,6 +182,11 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'link',
+          label: 'AI Gateway',
+          href: '/docs/products/ai-gateway',
+        },
+        {
+          type: 'link',
           label: 'Aiven MCP',
           href: '/docs/tools/mcp-server',
         },
