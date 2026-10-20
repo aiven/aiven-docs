@@ -280,11 +280,11 @@ availability zone when one is available.
    ```
 
 ::::note
-If you can't modify the Kafka `client.id`, you can use AZ-aware listeners to route
-producers and consumers to brokers in the same availability zone without changing the
-client ID.
+If you can't change the Kafka `client.id`, or changing it would affect client quotas,
+metrics, or logs, use AZ-aware listeners to route producers and consumers to brokers in
+the same availability zone without changing the client ID.
 
-AZ-aware listeners are available on request and aren't supported with PrivateLink
+Aiven enables AZ-aware listeners on request, and they don't support PrivateLink
 connections.
 
 See [Configure AZ-aware listeners for diskless

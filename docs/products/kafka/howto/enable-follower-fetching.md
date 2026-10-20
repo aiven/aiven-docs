@@ -16,7 +16,7 @@ Follower fetching applies to consumers of classic Kafka topics.
 
 For diskless topics, you can use the `diskless_az` client ID configuration or AZ-aware
 listeners to route producers and consumers to brokers in the same availability zone.
-AZ-aware listeners are available on request and aren't supported with PrivateLink
+Aiven enables AZ-aware listeners on request, and they don't support PrivateLink
 connections.
 
 See [Configure AZ-aware listeners for diskless
