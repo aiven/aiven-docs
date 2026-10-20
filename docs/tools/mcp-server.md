@@ -1,13 +1,14 @@
 ---
-title: Aiven MCP
+title: Aiven MCP server for managed services
 sidebar_label: Aiven MCP
-description: Create and manage Aiven services from AI assistants.
-keywords: [MCP, Model Context Protocol, AI assistants, Cursor, Claude Code]
+description: Connect AI assistants such as Claude Code, Cursor, VS Code or Gemini CLI to Aiven for PostgreSQL, Apache Kafka, OpenSearch and more with the hosted Aiven MCP server.
+keywords: [MCP, Model Context Protocol, MCP server, PostgreSQL MCP server, Postgres MCP server, Kafka MCP server, OpenSearch MCP server, AI assistants, Cursor, Claude Code, Claude Desktop, VS Code, Gemini CLI]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
 import {mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
 import MCPConfigSection from "@site/src/components/MCPConfigSection";
 import CursorConfigTab from "@site/src/components/CursorConfigTab";
@@ -20,20 +21,57 @@ import GeminiCliIcon from "@site/static/images/icons/gemini-cli.svg";
 import OtherClientIcon from "@site/static/images/icons/mcp-client-other.svg";
 import LocalInstallIcon from "@site/static/images/icons/local-install.svg";
 
-Create and manage Aiven services from AI assistants such as Cursor and Claude Code, including PostgreSQL®, Apache Kafka®, plans, metrics, logs, and service configuration.
-Use [read-only mode](#read-only-mode) to limit MCP tools to viewing services
+Aiven MCP is a Model Context Protocol (MCP) server that lets AI assistants such
+as Cursor and Claude Code create and manage Aiven services, including
+PostgreSQL®, Apache Kafka®, and OpenSearch®. For PostgreSQL and Kafka, you can
+also work with the data in your services. You can view service status, metrics,
+logs, and configuration, and manage services and plans.
+
+To use Aiven MCP, you need an
+[Aiven account](https://console.aiven.io/signup?campaign=mcp).
+
+Use [read-only mode](#read-only-mode) to restrict MCP tools to viewing services
 and other resources. You can enable it in your client or as an organization
-policy.
-You can also limit tools to specific services to keep the assistant focused.
+policy. You can also [limit tools to specific services](#limit-tool-access) to
+keep the assistant focused.
+
+## What Aiven MCP can do
+
+After you connect an AI assistant to Aiven MCP, you can use natural language
+to work with your Aiven resources.
+
+- **View resources**: List projects, services, and integrations, and check the
+  status, plan, and cloud region of a service.
+- **Manage services**: Create, update, and delete services such as
+  [Aiven for PostgreSQL®](/docs/products/postgresql),
+  [Aiven for Apache Kafka®](/docs/products/kafka), and
+  [Aiven for OpenSearch®](/docs/products/opensearch). Change service plans and
+  compare plans and pricing.
+- **Troubleshoot services**: Review service metrics, logs, and configuration.
+- **Work with PostgreSQL**: Run read-only SQL queries, find slow queries and missing
+  indexes, and manage extensions such as
+  [pgvector](/docs/products/postgresql/concepts/pgvector). For example:
+  `Which queries on my database are slowest, and what index would help?`
+- **Work with Apache Kafka**: List topics and consumer groups, inspect consumer
+  lag, produce and read messages, inspect schemas, and manage Kafka Connect
+  connectors. For example: `Is any consumer group behind on my orders topic?`
+- **Deploy applications**: Deploy applications to [Aiven Runtime](/docs/products/runtime).
+- **Search the Aiven documentation**: Ask questions about Aiven and get answers
+  from the documentation.
+
+[Read-only mode](#read-only-mode) restricts these tools to viewing resources.
 
 ## Prerequisites
 
-- An [Aiven account](https://console.aiven.io/signup?campaign=mcp)
+- An [Aiven account](https://console.aiven.io/signup?campaign=mcp). Aiven MCP is
+  included with your account at no extra cost.
 - An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
-  VS Code, or Gemini CLI
-- MCP access enabled for your organization by an organization admin. In the
-  Aiven Console, click **Admin** >
-  <ConsoleLabel name="authenticationpolicy"/> > **Allow MCP connections**.
+  VS Code, or Gemini CLI.
+- MCP connections enabled for your organization. If you created your Aiven
+  account, you're the organization admin and can enable them in the Aiven
+  Console: click **Admin** > <ConsoleLabel name="authenticationpolicy"/> >
+  **Allow MCP connections**. Otherwise, ask your organization admin to enable
+  them.
 
 Authentication uses OAuth 2.0 with PKCE. When you authenticate a client for the
 first time, your browser opens so you can sign in and authorize MCP access. This
@@ -45,7 +83,7 @@ Aiven owns the `aiven.live` domain and operates the hosted MCP server at
 authorization.
 :::
 
-## Install the Aiven MCP {#configure-aiven-mcp}
+## Install Aiven MCP {#configure-aiven-mcp}
 
 <Tabs>
 <TabItem value="claude-code" label={<McpClientTabLabel icon={ClaudeCodeIcon} label="Claude Code" />} default>
@@ -172,6 +210,9 @@ fails, see your client documentation.
 </TabItem>
 <TabItem value="local" label={<McpClientTabLabel icon={LocalInstallIcon} label="Local installation" />}>
 
+Use a local installation if you cannot use OAuth, for example in headless
+environments. The permissions of your API token apply.
+
 Run the Aiven MCP server locally with `npx` instead of using the hosted server.
 You need an [Aiven API token](/docs/platform/howto/create_authentication_token)
 to authenticate requests to Aiven. Set `AIVEN_READ_ONLY="true"` to enable
@@ -295,27 +336,58 @@ non-production services. For more information, see
 </TabItem>
 </Tabs>
 
-## What Aiven MCP can do
+## Example prompts
 
-After you connect to Aiven MCP, you can work with Aiven resources in natural
-language. For example, you can do the following:
+After you connect your client, try these prompts in your AI assistant.
 
-- **View resources**: List projects, services, and integrations, or check the
-  status, plan, and cloud region of a service.
-- **Manage services**: Create, update, and delete services such as PostgreSQL®
-  and Apache Kafka®. You can also change service plans and configuration.
-  [Read-only mode](#read-only-mode) restricts MCP tools to read-only operations,
-  such as viewing services and other resources.
-- **Inspect and troubleshoot services**: View service metrics, logs, and
-  configuration to investigate issues.
-- **Use Aiven documentation**: Ask questions and get answers based on the Aiven
-  documentation.
+1. List your projects:
+
+   ```text
+   List my Aiven projects.
+   ```
+
+   The assistant lists the projects you have access to. This verifies that the
+   connection works.
+
+1. Ask a question about Aiven:
+
+   ```text
+   How do I find unused Kafka topics with no consumer groups?
+   ```
+
+   The assistant searches the Aiven documentation and answers in the chat. This
+   prompt works in read-only mode and does not need an existing service.
+
+1. Inspect a service:
+
+   ```text
+   Show me the status and configuration of my Aiven service SERVICE_NAME.
+   ```
+
+   Replace `SERVICE_NAME` with the name of an existing service.
+
+1. Create a PostgreSQL service:
+
+   ```text
+   Create a PostgreSQL service in REGION.
+   ```
+
+   Replace `REGION` with your preferred cloud region. This prompt requires write
+   access. If [read-only mode](#read-only-mode) is on, the assistant cannot
+   create services.
+
+For more examples, see [What Aiven MCP can do](#what-aiven-mcp-can-do).
 
 ## Read-only mode
 
 Read-only mode restricts MCP tools to viewing services and other resources. You
 cannot create, modify, or delete resources. Read-only mode applies at the
 organization level and the client level.
+
+To allow only specific write actions, see [Limit tool access](#limit-tool-access).
+An organization-level read-only policy overrides it.
+
+PostgreSQL read queries still work in read-only mode.
 
 ### Organization level
 
@@ -338,6 +410,21 @@ You can enable read-only mode for your client in the
 [installation configuration](#configure-aiven-mcp). The setting applies only
 to that client and does not change the organization policy. It cannot
 override an organization-level restriction.
+
+## Limit tool access
+
+In the [install steps](#configure-aiven-mcp), use the options to limit the tools
+that your assistant loads:
+
+- **Services**: Select **PostgreSQL**, **Kafka**, or **Integrations** to load
+  only the tools for those services. Tools for projects and services are always
+  included. Select **All** to load every tool.
+- **Access**: Select **Read-only** to block write operations. Select
+  **Read-only, plus specific writes** to allow only the write actions you choose,
+  such as creating Kafka topics.
+
+An organization-level [read-only policy](#organization-level) overrides your
+client settings.
 
 ## Security and responsibility
 
@@ -376,3 +463,14 @@ following:
 
 The Aiven MCP server can also connect directly to PostgreSQL services running
 in a private VPC.
+
+<RelatedPages/>
+
+- [Aiven MCP use cases](https://aiven.io/mcp): Examples of what you can do with
+  Aiven MCP
+- [Aiven MCP announcement](https://aiven.io/blog/aiven-mcp): Overview of what
+  Aiven MCP can do
+- [PostgreSQL MCP server blog post](https://aiven.io/blog/postgresql-mcp):
+  Use Aiven MCP with PostgreSQL
+- [Kafka MCP blog post](https://aiven.io/blog/kafka-mcp):
+  Use Aiven MCP with Apache Kafka

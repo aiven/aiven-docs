@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
 
-export const SCOPE_OPTIONS = ['pg', 'kafka', 'integrations'] as const;
+export const SCOPE_OPTIONS = ['pg', 'kafka', 'opensearch', 'integrations'] as const;
 export type Scope = typeof SCOPE_OPTIONS[number];
 type ScopeChoice = Scope | 'all';
 
@@ -9,6 +9,7 @@ const SCOPE_LABELS: Record<ScopeChoice, string> = {
   all: 'All',
   pg: 'PostgreSQL',
   kafka: 'Kafka',
+  opensearch: 'OpenSearch',
   integrations: 'Integrations',
 };
 
@@ -96,6 +97,7 @@ const GROUP_SCOPE: Record<string, Scope | null> = {
   Core: null,
   PostgreSQL: 'pg',
   Kafka: 'kafka',
+  OpenSearch: 'opensearch',
   Integrations: 'integrations',
   Application: null,
 };
