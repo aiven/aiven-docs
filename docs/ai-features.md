@@ -1,7 +1,7 @@
 ---
 title: AI tools on Aiven
 sidebar_label: Overview
-description: Connect AI coding assistants and agents to Aiven services with MCP servers and Skills, and find AI capabilities built into Aiven services.
+description: Connect AI coding assistants and agents to Aiven services with MCP servers and Skills, access AI models through AI Gateway, and find AI capabilities built into Aiven services.
 ---
 
 import Card from "@site/src/components/Card";
@@ -9,12 +9,13 @@ import GridContainer from "@site/src/components/GridContainer";
 import RelatedPages from "@site/src/components/RelatedPages";
 import Link from "@docusaurus/Link";
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import AI from "@site/static/images/logos/star-ai.svg";
 
-Aiven provides tools that connect your AI agents to Aiven services, metadata, and data.
-It also builds AI capabilities directly into its managed services, from vector search to
-AI assistants. Use the following sections to find the right starting point for your
-use case.
+Aiven provides tools that connect your AI agents to Aiven services, metadata, and data,
+and gives you access to AI models through a single endpoint. It also builds AI
+capabilities directly into its managed services, from vector search to AI assistants. Use
+the following sections to find the right starting point for your use case.
 
 ## Choose your path
 
@@ -25,6 +26,13 @@ use case.
     titleHighlight="var(--aiven-brand-teal)"
     title="Managed Agents"
     description="Create and run agents on the Aiven Platform."
+  />
+  <Card
+    to="/docs/products/ai-gateway"
+    iconComponent={AI}
+    titleHighlight="var(--aiven-brand-teal)"
+    title="AI Gateway"
+    description="Access multiple AI models through one endpoint."
   />
   <Card
     to="#connect-ai-agents-and-tools-to-aiven"
@@ -50,6 +58,15 @@ or on a schedule.
 | Tool | What you can do | Get started |
 | --- | --- | --- |
 | Managed Agents <LimitedBadge/> | Create agents, connect MCP integrations, and run agents on demand or on a schedule | [Managed Agents](/docs/tools/agents) |
+
+## Access AI models
+
+Reach multiple AI models through one endpoint, control access with API keys, and track
+usage and estimated costs.
+
+| Tool | What you can do | Get started |
+| --- | --- | --- |
+| AI Gateway <EarlyBadge/> | Browse the model catalog, manage API keys, and monitor usage and estimated spend across models | [AI Gateway](/docs/products/ai-gateway) |
 
 ## Connect AI agents and tools to Aiven
 
