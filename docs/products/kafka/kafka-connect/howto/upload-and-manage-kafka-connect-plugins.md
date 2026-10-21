@@ -256,7 +256,7 @@ Uninstall the plugin from every service that uses it before you delete the plugi
 
 <RelatedPages/>
 
-- [Bring your own connector](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector)
+- [Custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins)
 - [Create connectors from custom Kafka Connect plugins](/docs/products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins)
 - [Roles and permissions for custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins#roles-and-permissions-for-custom-plugins)
 - [Available Apache Kafka® Connect connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins)
