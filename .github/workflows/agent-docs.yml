@@ -17,5 +17,13 @@ jobs:
       - run: npm install
 
       - name: Run agent-friendly docs checks
-        run: npx vitest run agent-docs.test.ts
+        run: npx vitest run tests/agent-docs.test.ts
         timeout-minutes: 5
+
+      - name: Upload AFDocs report and score
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-docs-report
+          path: reports/agent-docs/report.json
+          if-no-files-found: error
