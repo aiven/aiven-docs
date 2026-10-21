@@ -1,5 +1,8 @@
 name: Test agent friendliness of docs
 on:
+  pull_request:
+    branches:
+      - main
   schedule:
     - cron: '0 8 * * 1'
   workflow_dispatch:
