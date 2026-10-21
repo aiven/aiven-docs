@@ -3,7 +3,6 @@ skipChecks:
   - auth-alternative-access
   - auth-gate-detection
   - markdown-content-parity
-  - markdown-link-portability
 options:
   maxLinksToTest: 100
   samplingStrategy: deterministic

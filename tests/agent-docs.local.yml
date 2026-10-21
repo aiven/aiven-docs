@@ -5,7 +5,6 @@ skipChecks:
   - markdown-content-parity
   - auth-alternative-access
   - auth-gate-detection
-  - markdown-link-portability
 options:
   canonicalOrigin: https://aiven.io/docs
   maxLinksToTest: 25
