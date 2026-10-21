@@ -1,10 +1,11 @@
 ---
-title: Bring your own connector for Aiven for Apache Kafka® Connect
-sidebar_label: Bring your own connector
+title: Custom plugins for Aiven for Apache Kafka® Connect
+sidebar_label: Custom plugins
 description: Upload custom Kafka Connect plugins and create connectors from those plugins on Aiven for Apache Kafka Connect.
 limited: true
 keywords:
   [
+    custom plugins,
     bring your own connector,
     custom Kafka Connect plugin,
     custom Kafka connector,
@@ -14,19 +15,19 @@ keywords:
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
-Bring your own connector lets you use custom Kafka Connect connectors with Aiven for Apache Kafka® Connect.
+Custom plugins let you upload your own Kafka Connect plugins and use the connector classes they provide with Aiven for Apache Kafka® Connect.
 Use it when the connector you need isn't available as an Aiven-managed connector or when
 you need a specific plugin or plugin version.
 
 This feature is in <LimitedBadge/>. To try it, contact the
 [sales team](https://aiven.io/contact).
 
-Bring your own connector is available on
-[standalone Kafka Connect services](/docs/products/kafka/kafka-connect/get-started).
+Custom plugins are available on
+[standalone Aiven for Apache Kafka Connect services](/docs/products/kafka/kafka-connect/get-started).
 
 ## Key concepts
 
-Bring your own connector uses the following concepts:
+Custom plugins use the following concepts:
 
 - **Custom plugin**: A JAR or ZIP file that contains one or more connector classes.
   You upload a plugin to Aiven and install it on a Kafka Connect service.

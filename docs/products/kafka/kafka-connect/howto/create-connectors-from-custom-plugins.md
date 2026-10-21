@@ -23,7 +23,7 @@ You then install the plugin on your Kafka Connect service and create a connector
 one of its connector classes.
 
 For definitions of plugin, plugin version, connector class, and connector, see
-[Key concepts for bring your own connector](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#key-concepts).
+[Key concepts for custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins#key-concepts).
 
 ## Required roles and permissions
 
@@ -37,7 +37,7 @@ To install a plugin or create a connector, you need one of the following
 
 If you don't have the required access, ask a project admin to change your role.
 For the full list of roles and permissions for custom plugins, see
-[Roles and permissions for custom plugins](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#roles-and-permissions-for-custom-plugins).
+[Roles and permissions for custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins#roles-and-permissions-for-custom-plugins).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Before you begin, make sure that:
 
 - You have a standalone
   [Aiven for Apache Kafka Connect service](/docs/products/kafka/kafka-connect/get-started).
-- Bring your own connector is enabled for your organization and Kafka Connect
+- Custom plugins are enabled for your organization and Kafka Connect
   service.
 - An organization admin has uploaded the plugin to use.
 - You have the configuration values and credentials required by the connector.
@@ -53,7 +53,7 @@ Before you begin, make sure that:
 :::note[Note]
 Your organization is responsible for the connectors it creates from custom plugins.
 For more information, see
-[Responsibility for custom plugins](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#responsibility-for-custom-plugins).
+[Responsibility for custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins#responsibility-for-custom-plugins).
 :::
 
 ## Install a plugin
@@ -234,7 +234,7 @@ configuration with the documentation for the new plugin version.
 
 <RelatedPages/>
 
-- [Bring your own connector](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector)
+- [Custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins)
 - [Upload and manage Kafka Connect plugins](/docs/products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins)
 - [Available Apache Kafka® Connect connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins)
 - [Troubleshoot connector list unavailable in Apache Kafka® Connect](/docs/products/kafka/kafka-connect/concepts/connect-plugin-list-not-available)

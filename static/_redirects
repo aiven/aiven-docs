@@ -285,6 +285,7 @@
 /products/kafka/inkless-overview                           /docs/products/kafka/standard-kafka-overview  301
 /products/kafka/kafka-connect/concepts                     /docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins  301
 /products/kafka/kafka-connect/howto                        /docs/products/kafka/kafka-connect/howto/best-practices  301
+/products/kafka/kafka-connect/concepts/bring-your-own-connector  /docs/products/kafka/kafka-connect/concepts/custom-plugins  301
 /products/kafka/kafka-connect/howto/gcp-bigquery-sink-prereq  /docs/products/kafka/kafka-connect/howto/gcp-bigquery-sink  301
 /products/kafka/kafka-connect/howto/list-admin             /docs/products/kafka/kafka-connect/howto/best-practices  301
 /products/kafka/kafka-connect/howto/list-sink-connectors   /docs/products/kafka/kafka-connect/howto/enable-connect  301
