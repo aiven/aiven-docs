@@ -20,20 +20,22 @@ cross-AZ replication traffic, but producers and consumers still generate cross-A
 when they connect to brokers in another AZ.
 
 With AZ-aware listeners, each AZ has its own set of listeners, which are Kafka ports that
-accept client connections. You connect clients to an AZ-specific Kafka endpoint. Kafka then
-routes diskless-topic requests to a broker in that AZ, if one is available.
+accept client connections. You connect clients to an AZ-specific Kafka endpoint, without
+changing their `client.id`. Kafka then routes diskless-topic requests to a broker in that
+AZ, if one is available.
 
 ## Choose an AZ-aware routing method
 
-Aiven for Apache Kafka supports two methods for AZ-aware routing of diskless-topic
-traffic.
+Aiven for Apache Kafka supports two methods for routing diskless-topic traffic to brokers
+in the client's AZ. You can choose a method for each client and use both methods in the
+same deployment.
 
 | Method | Use when | How to configure |
 | --- | --- | --- |
-| `diskless_az` in `client.id` | You can change the client ID, or you use PrivateLink. This method needs less setup. | Append `diskless_az` and the AZ to the client ID. |
-| AZ-aware listeners | The client ID is generated, for example by Kafka Connect source connectors, or quotas, metrics, or logs depend on it. | Set `bootstrap.servers` to an AZ-specific endpoint. |
+| `diskless_az` in `client.id` | You can change the client ID, or you use PrivateLink, which AZ-aware listeners don't support. This method needs less setup but can affect quotas, metrics, and logs that depend on the exact client ID. | Append `diskless_az` and the AZ to `client.id`. |
+| AZ-aware listeners | You need to preserve `client.id`, for example, when Kafka Connect source connectors generate it or when quotas, metrics, or logs depend on it. | Set `bootstrap.servers` to an AZ-specific endpoint. |
 
-For example, to use the `client.id` method for the `use1-az1` AZ:
+For example, to specify the `use1-az1` AZ using `client.id`:
 
 ```properties
 client.id=my-producer,diskless_az=use1-az1
@@ -48,11 +50,11 @@ AZ it runs in.
 
 When a client connects through an AZ-specific endpoint:
 
-1. The client sends a metadata request, which asks the cluster which brokers serve each
-   partition. The request can reach a broker in another AZ.
-1. The broker identifies the AZ associated with the listener port.
+1. The client sends a metadata request to find out which brokers to use for each
+   partition. The request can reach a broker in any AZ.
+1. The broker identifies the AZ from the port the client connected to.
 1. For diskless topics, the broker returns metadata directing the client to a broker in
-   the selected AZ, when one is available.
+   that AZ, when one is available.
 1. The client sends subsequent produce and fetch requests to that broker.
 
 <ThemedImage
@@ -80,9 +82,10 @@ configuration, but traffic crosses AZ boundaries.
   enabled.
 - AZ-aware listeners enabled for your project. To request access, contact
   [Aiven support](/docs/platform/howto/support#create-a-support-ticket).
-- Firewall rules and allowlists that let your clients reach the AZ-specific Kafka ports.
-  These ports differ from the regular Kafka ports. After Aiven enables AZ-aware listeners
-  for your project, find them in
+- The [Aiven CLI](/docs/tools/cli) or access to the [Aiven API](/docs/tools/api) to find
+  the AZ-specific endpoints.
+- Firewall rules and allowlists that permit the AZ-specific Kafka ports, which differ from
+  the regular Kafka ports. To find them, see
   [Find the AZ-specific Kafka endpoint](#find-the-az-specific-kafka-endpoint).
 
 :::warning[Warning]
