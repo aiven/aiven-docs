@@ -1,0 +1,21 @@
+name: Test agent friendliness of docs
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+jobs:
+  agent-docs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Run agent-friendly docs checks
+        run: npx vitest run agent-docs.test.ts
+        timeout-minutes: 5
