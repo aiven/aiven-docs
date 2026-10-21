@@ -70,7 +70,7 @@ user, `avnadmin`, and run:
 CREATE EXTENSION pg_lake CASCADE;
 ```
 
-Your service comes with four group roles that control access to analytics data.
+Your service comes with three group roles that control access to analytics data.
 Grant membership in them to the database users who need it, using your `avnadmin`
 user:
 
@@ -79,7 +79,6 @@ user:
 | `lake_read` | Read data in Iceberg tables |
 | `lake_write` | Write data in Iceberg tables |
 | `lake_read_write` | Both read and write data in Iceberg tables |
-| `iceberg_catalog` | Read and modify the Iceberg catalog |
 
 ```sql
 GRANT lake_read_write TO analytics_user;

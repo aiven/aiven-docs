@@ -75,8 +75,9 @@ on.
 - Use a bucket dedicated to a single PostgreSQL for Analytics service. Sharing one
   bucket between services, or using a bucket that already holds other data, isn't
   supported, and Aiven doesn't currently prevent either.
-- Forks and read replicas aren't supported for a PostgreSQL for Analytics service.
-  You can still power off the service.
+- You can't fork a PostgreSQL for Analytics service or create a read replica of one.
+  Aiven rejects both, because the new service would share the original service's S3
+  storage. You can still power off the service.
 - You can't perform a major version upgrade on a PostgreSQL for Analytics service.
   PostgreSQL for Analytics currently supports PostgreSQL 17 only.
 - The `pg_lake_spatial` extension isn't available during LA.
