@@ -15,9 +15,10 @@ keywords:
 
 import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
-Custom plugins let you upload your own Kafka Connect plugins and use the connector classes they provide with Aiven for Apache Kafka® Connect.
-Use it when the connector you need isn't available as an Aiven-managed connector or when
-you need a specific plugin or plugin version.
+Custom plugins let you upload your own Kafka Connect plugins and use the connector
+classes they provide with Aiven for Apache Kafka® Connect.
+Use a custom plugin when the connector you need isn't available as an Aiven-managed
+connector or when you need a specific plugin or plugin version.
 
 This feature is in <LimitedBadge/>. To try it, contact the
 [sales team](https://aiven.io/contact).
@@ -26,8 +27,6 @@ Custom plugins are available on
 [standalone Aiven for Apache Kafka Connect services](/docs/products/kafka/kafka-connect/get-started).
 
 ## Key concepts
-
-Custom plugins use the following concepts:
 
 - **Custom plugin**: A JAR or ZIP file that contains one or more connector classes.
   You upload a plugin to Aiven and install it on a Kafka Connect service.
@@ -54,9 +53,9 @@ To use a different version,
 [change the plugin version](/docs/products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins#change-the-plugin-version)
 on the service. The change applies to every connector on that service that uses the plugin.
 
-In the Aiven Console, you manage uploaded plugins under **Kafka Connect plugins** in
-your organization. Installed plugins appear on the **Custom plugins** tab of a
-Kafka Connect service's **Connectors** page.
+In the Aiven Console, organization admins manage uploaded plugins under
+**Admin** > **Kafka Connect plugins**. Installed plugins appear on the
+**Custom plugins** tab of a Kafka Connect service's **Connectors** page.
 
 The **Custom plugins** tab shows only the installed version of each plugin. To see other
 uploaded versions, use **Change version** on the service. Organization admins can also
