@@ -380,9 +380,8 @@ Cluster mode doesn't support delta backups: Every backup is a full backup.
 
 To restore a cluster, Aiven combines the stored backups with the recorded hash slot
 layout, so your data returns to the same slot distribution. The cluster must keep the same
-number of primary nodes for a restore to succeed. The same requirement applies when you
-fork a clustered service or create a service from a backup. The target plan must use the
-same shard count as the backup you choose.
+number of primary nodes for a restore to succeed. Aiven always creates a fork from a
+backup, so the target plan must use the same shard count as the backup you choose.
 
 :::note
 Cluster backups are not point-in-time recovery (PITR). Because each shard is backed up
