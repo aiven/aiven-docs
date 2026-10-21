@@ -963,10 +963,10 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Bring your own connector',
+              label: 'Custom plugins',
               link: {
                 type: 'doc',
-                id: 'products/kafka/kafka-connect/concepts/bring-your-own-connector',
+                id: 'products/kafka/kafka-connect/concepts/custom-plugins',
               },
               items: [
                 'products/kafka/kafka-connect/howto/upload-and-manage-kafka-connect-plugins',

@@ -9,6 +9,7 @@ keywords:
     custom Kafka Connect plugin,
     Kafka Connect plugin version,
     manage Kafka Connect plugins,
+    custom plugins,
     bring your own connector,
   ]
 ---
@@ -20,7 +21,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Upload custom Kafka Connect plugins to make their connector classes available to Aiven for Apache Kafka® Connect services in your organization.
 
 For definitions of plugin, plugin version, connector class, and connector, see
-[Key concepts](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#key-concepts).
+[Key concepts](/docs/products/kafka/kafka-connect/concepts/custom-plugins#key-concepts).
 
 ## Prerequisites
 
@@ -28,16 +29,16 @@ Before you begin, make sure:
 
 - You have the organization admin role (`role:organization:admin`). This role is
   required to upload, edit, or delete a plugin or plugin version.
-- Bring your own connector is enabled for your organization.
+- Custom plugins are enabled for your organization.
 - You have a plugin file that meets the
-  [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements).
+  [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/custom-plugins#custom-plugin-requirements).
 
 :::note[Note]
 Your organization is responsible for the plugins you upload and must hold all rights
 and licenses needed to run and host them on Aiven's infrastructure. Aiven may
 disable or remove a plugin. Only upload plugins from sources that you trust. For more
 information, see
-[Responsibility for custom plugins](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#responsibility-for-custom-plugins).
+[Responsibility for custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins#responsibility-for-custom-plugins).
 :::
 
 ## Upload a plugin
@@ -57,7 +58,7 @@ Uploading a plugin makes it available to your organization, but doesn't
 1. Click **Next**.
 1. In **Plugin file**, click **Choose file** and select the plugin file. The file
    must meet the
-   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements),
+   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/custom-plugins#custom-plugin-requirements),
    including a manifest at `META-INF/MANIFEST.MF`.
 1. Select the checkbox to confirm the plugin terms.
 1. Click **Upload**.
@@ -110,7 +111,7 @@ interrupts its connectors.
 1. Click **Next**.
 1. In **Plugin file**, click **Choose file** and select the plugin file. The file
    must meet the
-   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements),
+   [custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/custom-plugins#custom-plugin-requirements),
    including a manifest at `META-INF/MANIFEST.MF`.
 1. Select the checkbox to confirm the plugin terms.
 1. Click **Upload**.
@@ -230,7 +231,7 @@ Aiven checks the actual format of the file, so renaming a file doesn't make it
 valid.
 
 Confirm that the file meets the
-[custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#custom-plugin-requirements),
+[custom plugin requirements](/docs/products/kafka/kafka-connect/concepts/custom-plugins#custom-plugin-requirements),
 including a manifest at `META-INF/MANIFEST.MF`.
 
 ### The upload is rejected because the version already exists
@@ -255,7 +256,7 @@ Uninstall the plugin from every service that uses it before you delete the plugi
 
 <RelatedPages/>
 
-- [Bring your own connector](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector)
+- [Custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins)
 - [Create connectors from custom Kafka Connect plugins](/docs/products/kafka/kafka-connect/howto/create-connectors-from-custom-plugins)
-- [Roles and permissions for custom plugins](/docs/products/kafka/kafka-connect/concepts/bring-your-own-connector#roles-and-permissions-for-custom-plugins)
+- [Roles and permissions for custom plugins](/docs/products/kafka/kafka-connect/concepts/custom-plugins#roles-and-permissions-for-custom-plugins)
 - [Available Apache Kafka® Connect connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins)
