@@ -3,12 +3,18 @@ title: Use credits
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Use credits to pay for your Aiven services by adding them to a billing group. All projects assigned to the billing group automatically use its credits for the costs of the projects and the services within the projects.
 
-You must have the `organization:billing:write`
-[permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to add credits to a billing group.
+<RequirementsPanel
+	items={[
+		{
+			label: 'Permissions',
+			values: ['`organization:billing:write`', '`role:organization:admin`'],
+		},
+	]}
+/>
 
 To add credits to a billing group:
 

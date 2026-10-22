@@ -6,10 +6,20 @@ sidebar_label: Okta
 import IdPStep1 from "@site/static/includes/idp-step1.md";
 import IdPStep3 from "@site/static/includes/idp-step3.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 <!-- vale on -->
 
 Use [Okta](https://www.okta.com/) to give your organization users single sign-on (SSO) access to Aiven using SAML. Aiven also supports [user provisioning for Okta](#step-4-optional-configure-user-provisioning) with SCIM.
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
 
 ## Supported features
 
@@ -77,9 +87,10 @@ To configure user provisioning for Okta:
 1. In the **API Token** field, paste the **Access token** from the Aiven Console.
 1. Click **Test API Credentials** to confirm the connection is working
    and save the configuration.
-   :::important
+   :::important[Important]
    Don't enable **Import Groups**. Aiven groups that aren't managed by SCIM cannot
    be imported to Okta.
+   :::
 1. Click **Save**.
 1. Optional: On the **Provisioning** tab, click **Edit** to enable provisioning settings.
    :::tip[Recommended settings]
