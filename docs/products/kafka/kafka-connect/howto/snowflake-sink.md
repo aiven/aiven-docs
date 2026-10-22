@@ -18,7 +18,7 @@ Aiven provides two separate connectors:
   `com.snowflake.kafka.connector.SnowflakeSinkConnector` class. Snowflake refers to
   this version as the
   [classic connector](https://docs.snowflake.com/en/user-guide/kafka-connector/classic).
-  It is stable and supported, but Snowflake plans to deprecate it in the future.
+  It's stable and supported, but Snowflake plans to deprecate it.
 - **Snowflake v4 Sink**: version 4.2.1, which uses the
   `com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector` class and the Snowpipe
   Streaming high-performance architecture.
@@ -166,8 +166,8 @@ GRANT USAGE ON DATABASE TESTDATABASE TO ROLE aiven_snowflake_sink_connector_role
 GRANT USAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
 ```
 
-If the connector creates tables, or creates pipes in the default pipe mode, also grant
-the corresponding privileges:
+If you let the connector create tables, or create pipes in the default pipe mode, also
+grant the corresponding privileges:
 
 ```sql
 GRANT CREATE TABLE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
@@ -194,7 +194,8 @@ GRANT OPERATE ON PIPE TESTDATABASE.TESTSCHEMA.EXISTING_PIPE
   TO ROLE aiven_snowflake_sink_connector_role;
 ```
 
-Snowflake also recommends granting `CREATE VIEW` on the schema for error table features.
+Snowflake also recommends granting `CREATE VIEW` on the schema for its future error
+table features.
 
 Grant privileges directly to the connector role. Snowflake doesn't support inheriting them
 through a role hierarchy. The 4.x requirements don't include `CREATE STAGE`.
@@ -385,24 +386,24 @@ Replace the following:
 
 ## Migrate from 3.x to 4.x
 
-Snowflake connector 4.x isn't backward compatible with 3.x and uses the Snowpipe
-Streaming high-performance architecture.
-
-Aiven provides **Snowflake Sink** (3.x) and **Snowflake v4 Sink** (4.x) as separate
-connectors. Existing 3.x connectors aren't automatically upgraded to 4.x.
+Snowflake connector 4.x isn't backward compatible with 3.x, and Aiven doesn't upgrade
+existing 3.x connectors automatically. To move to 4.x, create a 4.x connector as
+described in this section.
 
 Before you migrate:
 
 1. Review the
    [Snowflake migration guide](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4)
    for breaking changes, configuration requirements, and migration steps.
-1. Check whether your existing 3.x connector uses Snowpipe or Snowpipe Streaming. The
-   offset migration procedure depends on the ingestion method.
+1. Check the `snowflake.ingestion.method` setting of your existing 3.x connector. It is
+   either `SNOWPIPE`, which is the default, or `SNOWPIPE_STREAMING`. The offset migration
+   procedure depends on this setting.
 1. Prepare a new configuration that uses the
    `com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector` class. Set
-   `snowflake.streaming.classic.offset.migration` to `skip` if your 3.x connector uses
-   Snowpipe. If it uses Snowpipe Streaming, the right setting depends on your use case.
-   See the Snowflake migration guide.
+   `snowflake.streaming.classic.offset.migration` to `skip` unless your 3.x connector
+   uses `SNOWPIPE_STREAMING`. Migrating from `SNOWPIPE_STREAMING` can require special
+   attention depending on your use case. See
+   [migrating from Snowpipe Streaming mode](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4#migrating-from-v3-snowpipe-streaming-mode).
 1. Test the migration procedure on a non-production service before you migrate
    production workloads.
 
@@ -444,11 +445,11 @@ the full procedure and a query to remove duplicates, see
 ## Examples
 
 The following examples show how to configure the Snowflake sink connector for Avro and
-JSON messages. The Avro example covers both versions. The JSON schema example shows
-Snowflake Sink 3.x only. Version 4.x uses a different class and can produce a different
-Snowflake table structure by default, so review the
+JSON messages. The Avro example covers both versions. The JSON example covers 3.x only,
+because 4.x uses a different class and can create a different Snowflake table structure
+by default. Review the
 [4.x configuration](#create-a-snowflake-sink-connector-configuration) before you adapt
-the JSON example.
+the JSON example for 4.x.
 
 ### Create a Snowflake sink connector for an Avro topic
 
@@ -541,7 +542,7 @@ Sample message:
 }
 ```
 
-Another message:
+Another sample message:
 
 ```json
 {
