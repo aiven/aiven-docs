@@ -6,6 +6,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can grant [organization users](/docs/platform/howto/manage-org-users), [application users](/docs/platform/concepts/application-users), and [groups](/docs/platform/howto/manage-groups) access at the organization, organizational unit, and project level through [roles and permissions](/docs/platform/concepts/permissions).
 
@@ -13,7 +14,7 @@ If you don't grant any roles or permissions to an organization user, they have t
 [default access level](/docs/platform/concepts/permissions#organization-roles-and-permissions)
 to the organization.
 
-:::important
+:::important[Important]
 When you remove permissions from a user or group, service credentials are not changed.
 Users can still directly access services if they know the service credentials. To prevent
 this type of access, reset all service passwords.
@@ -27,6 +28,15 @@ Grant permissions at the organizational unit level to give users access to
 all projects in that unit.
 
 ### Grant organization or unit permissions to a user or group
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -56,6 +66,15 @@ and set the `resource_type` to `organization` or `organization_unit`.
 
 ### Change organization or unit permissions for a user or group
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
+
 You can change the permissions granted at the organization or organizational unit level
 for a user or group. In the Aiven Console, you cannot change the resource for
 existing permissions. To change the resource, remove the existing permissions and
@@ -71,6 +90,15 @@ grant the permissions for the other resource.
 1. Add or remove permissions and click **Save changes**.
 
 ### Remove all organization or unit-level roles and permissions
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
 
 You can remove all permissions that you granted to a user or group at the
 organization or organizational unit level.
@@ -91,7 +119,7 @@ and all its resources and settings.
 
 You cannot make application users super admin.
 
-:::important
+:::important[Important]
 This role should be limited to as few users as possible for organization setup and
 emergency use. For daily administrative tasks, assign users the
 [organization admin role](/docs/platform/concepts/permissions) instead.
@@ -112,6 +140,15 @@ You can give users access to a specific project by granting them roles and permi
 at the project level.
 
 ### Grant project permissions to a user or group
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:project:admin`', '`role:organization:admin`'],
+      },
+   ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -137,6 +174,15 @@ and set the `resource_type` to `project`.
 
 ### Change permissions for a user or group
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:project:admin`', '`role:organization:admin`'],
+      },
+   ]}
+/>
+
 1. In the project, click <ConsoleLabel name="projectpermissions"/>.
 
 1. For the user or group click <ConsoleLabel name="actions"/> >
@@ -145,6 +191,15 @@ and set the `resource_type` to `project`.
 1. Add or remove permissions and click **Save changes**.
 
 ### Remove all project-level roles and permissions
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:project:admin`', '`role:organization:admin`'],
+      },
+   ]}
+/>
 
 To remove all permissions to a project:
 
