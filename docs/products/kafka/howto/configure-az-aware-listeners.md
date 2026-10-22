@@ -77,8 +77,7 @@ order:
 
 If no broker runs in the selected AZ, Kafka routes requests to a broker in another AZ.
 The client keeps producing and consuming without configuration changes, but traffic
-crosses AZ boundaries. An AZ-specific endpoint exists regardless of whether a broker runs
-in that AZ.
+crosses AZ boundaries. An AZ-specific endpoint can remain after all brokers leave that AZ.
 
 ## Prerequisites
 
@@ -95,6 +94,10 @@ in that AZ.
 :::warning[Warning]
 AZ-aware listeners apply to every Aiven for Apache Kafka service with diskless topics in
 the project. Aiven applies the change with a rolling restart of the brokers.
+
+To check whether a service has AZ-specific endpoints, run the command in
+[Find the AZ-specific Kafka endpoint](#find-the-az-specific-kafka-endpoint). If it
+returns no rows, the change hasn't reached that service.
 :::
 
 ## Limitations
@@ -108,8 +111,9 @@ the project. Aiven applies the change with a rolling restart of the brokers.
   [preferred availability zones](/docs/products/kafka/howto/configure-preferred-zones) to
   influence broker placement. Placement isn't guaranteed.
 
-{/* TODO: Azure is intentionally not documented. Confirm with Product whether to include
-it. Azure details are in the PR description. */}
+{/* TODO: Azure works and passes integration tests in azure-westeurope, but the Identify
+the client's availability zone section has no Azure example. Add an Azure tab after
+confirming how the Azure zone value maps to the endpoint's `az` value. */}
 
 ## Configure AZ-aware listeners
 
@@ -139,8 +143,10 @@ Example output:
 use1-az1
 ```
 
-Use AZ IDs such as `use1-az1`, not AZ names such as `us-east-1a`. For more information,
-see [Zone ID formats](/docs/products/kafka/howto/configure-preferred-zones#zone-id-formats).
+Use AZ IDs such as `use1-az1`, not AZ names such as `us-east-1a`. AWS can map the same
+AZ name to different physical AZs in different accounts. For example, `us-east-1a` can be
+`use1-az1` in your account and `use1-az2` in another account. For more information, see
+[Zone ID formats](/docs/products/kafka/howto/configure-preferred-zones#zone-id-formats).
 
 </TabItem>
 <TabItem value="gcp" label="Google Cloud">
@@ -171,7 +177,7 @@ Retrieve the AZ-specific endpoints with the Aiven CLI or the Aiven API. The exam
 <Tabs groupId="config-methods">
 <TabItem value="cli" label="CLI" default>
 
-Run the following command using the [Aiven CLI](/docs/tools/cli):
+Retrieve the endpoints with the [Aiven CLI](/docs/tools/cli):
 
 ```bash
 avn service get SERVICE_NAME \
@@ -241,8 +247,10 @@ The `route` field shows the network access route:
 The `kafka_ssl_ca` field shows whether the endpoint uses the Aiven project CA (`project_ca`)
 or Let's Encrypt (`letsencrypt`).
 
-Choose the row that matches your client's AZ, route, authentication method, and CA. Its
-hostname is the one your client already uses. Copy the hostname and port from that row.
+Select the row that matches your client's AZ, route, authentication method, and CA. On
+AWS, the `az` value is an AZ ID such as `use1-az1`. Match it to the AZ ID that the
+instance metadata service returns. Use the `host:port` value from that row in
+`bootstrap.servers`.
 
 If no row matches your client's AZ, keep using the default Kafka endpoint.
 
@@ -264,20 +272,21 @@ If no row matches your client's AZ, keep using the default Kafka endpoint.
 
 ### Verify AZ-local routing
 
-Confirm that the partition leader IDs returned through the AZ-specific endpoint belong to
-brokers in the selected AZ. Repeat this check after scaling or broker replacement.
+Ensure that the partition leaders returned through the AZ-specific endpoint belong to
+brokers in the selected AZ. This checks the broker assignments in the metadata Kafka
+returns. It doesn't measure network traffic.
+
+Repeat this check after scaling or broker replacement.
 
 {/* TODO: The rack matches the endpoint's `az` value (confirmed from the code). Before
 publishing, run the commands once against an Aiven service and confirm that:
 - The commands accept `--command-config` with the same SSL or SASL settings as the client.
-- `kafka-broker-api-versions.sh` prints `rack: ...` for each broker, and is the right
-  tool for the documented Kafka version.
+- `kafka-broker-api-versions.sh` prints `rack: ...` for each broker.
 - Confirm which permissions the Kafka user needs for both commands. Test with a service
   user restricted to one topic. If listing brokers fails, add a note about the
   required permission. */}
 
-1. Describe a diskless topic through the AZ-specific endpoint and note the leader of each
-   partition:
+1. Describe a diskless topic through the AZ-specific endpoint:
 
    ```bash
    kafka-topics.sh \
@@ -287,7 +296,9 @@ publishing, run the commands once against an Aiven service and confirm that:
      --topic DISKLESS_TOPIC_NAME
    ```
 
-1. List the brokers and their racks. The rack of a broker is its AZ:
+   Note the `Leader` ID of each partition.
+
+1. List the brokers and their racks:
 
    ```bash
    kafka-broker-api-versions.sh \
@@ -295,8 +306,10 @@ publishing, run the commands once against an Aiven service and confirm that:
      --command-config CLIENT_CONFIG_FILE | grep 'id:'
    ```
 
-1. Ensure that each leader ID from step 1 belongs to a broker whose rack matches the AZ of
-   the endpoint you used.
+   A broker's rack is its AZ.
+
+1. Ensure that each leader ID from the topic description belongs to a broker whose rack
+   matches the AZ of the endpoint you used.
 
 Replace the following:
 
@@ -388,11 +401,14 @@ Replace the following:
 
 ### Client uses an endpoint for a different AZ
 
-Kafka routes a client as if it runs in the AZ of its endpoint, unless `client.id` contains
-a `diskless_az` value. The client gets no error, but traffic can cross AZ boundaries.
+If a client connects through an endpoint for a different AZ, Kafka routes its
+diskless-topic requests to brokers in the endpoint's AZ. Traffic then crosses AZ
+boundaries, and Kafka returns no error.
 
-Set `bootstrap.servers` to the endpoint for the AZ where the client runs, and check
-`client.id` for a conflicting `diskless_az` value.
+Set `bootstrap.servers` to the endpoint for the AZ where the client runs. If `client.id`
+contains a `diskless_az` value, that value takes precedence over the endpoint's AZ. Ensure
+that the value specifies the intended AZ. For more information, see
+[How AZ-aware listeners work](#how-az-aware-listeners-work).
 
 ### Endpoints after scaling or migration
 
