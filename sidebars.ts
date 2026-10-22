@@ -215,36 +215,15 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       items: [
         'products/services',
-        'platform/howto/search-services',
         {
           type: 'link',
-          label: 'Aiven for Flink®',
-          href: '/docs/products/flink',
+          label: 'Aiven for PostgreSQL®',
+          href: '/docs/products/postgresql',
         },
         {
           type: 'link',
           label: 'Aiven for Kafka®',
           href: '/docs/products/kafka',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for ClickHouse®',
-          href: '/docs/products/clickhouse',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for DataHub',
-          href: '/docs/products/datahub',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for Grafana®',
-          href: '/docs/products/grafana',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for Metrics',
-          href: '/docs/products/metrics',
         },
         {
           type: 'link',
@@ -258,28 +237,58 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'link',
-          label: 'Aiven for PostgreSQL®',
-          href: '/docs/products/postgresql',
-        },
-        {
-          type: 'link',
           label: 'Aiven for Valkey™',
           href: '/docs/products/valkey',
         },
         {
           type: 'link',
-          label: 'Service management',
-          href: '/docs/platform/howto/list-service',
+          label: 'Aiven for ClickHouse®',
+          href: '/docs/products/clickhouse',
         },
         {
           type: 'link',
-          label: 'Networking and security',
-          href: '/docs/platform/concepts/cloud-security',
+          label: 'Aiven for Metrics',
+          href: '/docs/products/metrics',
         },
-        'platform/concepts/service-and-feature-releases',
-        'platform/howto/feature-preview',
-        'platform/reference/eol-for-major-versions',
-        'platform/reference/end-of-life',
+        {
+          type: 'link',
+          label: 'Aiven for Grafana®',
+          href: '/docs/products/grafana',
+        },
+        {
+          type: 'link',
+          label: 'Aiven for Flink®',
+          href: '/docs/products/flink',
+        },
+        {
+          type: 'link',
+          label: 'Aiven for DataHub',
+          href: '/docs/products/datahub',
+        },
+        {
+          type: 'category',
+          label: 'Service management',
+          className: 'expandedSection',
+          collapsed: false,
+          collapsible: false,
+          items: [
+            {
+              type: 'link',
+              label: 'Overview',
+              href: '/docs/platform/howto/list-service',
+            },
+            'platform/howto/search-services',
+            {
+              type: 'link',
+              label: 'Networking and security',
+              href: '/docs/platform/concepts/cloud-security',
+            },
+            'platform/concepts/service-and-feature-releases',
+            'platform/howto/feature-preview',
+            'platform/reference/eol-for-major-versions',
+            'platform/reference/end-of-life',
+          ],
+        },
       ],
     },
     {
