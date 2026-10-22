@@ -157,9 +157,11 @@ GRANT CREATE PIPE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink
 Version 4.x is in
 [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-)
 and has different privilege requirements than 3.x. Grant the following privileges on the
-database and schema:
+warehouse, database, and schema. Replace `TESTWAREHOUSE` with the warehouse the
+connector uses:
 
 ```sql
+GRANT USAGE ON WAREHOUSE TESTWAREHOUSE TO ROLE aiven_snowflake_sink_connector_role;
 GRANT USAGE ON DATABASE TESTDATABASE TO ROLE aiven_snowflake_sink_connector_role;
 GRANT USAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
 ```
@@ -397,15 +399,18 @@ Before you migrate:
 1. Check whether your existing 3.x connector uses Snowpipe or Snowpipe Streaming. The
    offset migration procedure depends on the ingestion method.
 1. Prepare a new configuration that uses the
-   `com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector` class and the
-   migration settings for your ingestion method.
+   `com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector` class. Set
+   `snowflake.streaming.classic.offset.migration` to `skip` if your 3.x connector uses
+   Snowpipe. If it uses Snowpipe Streaming, the right setting depends on your use case.
+   See the Snowflake migration guide.
 1. Test the migration procedure on a non-production service before you migrate
    production workloads.
 
 To preserve offsets, Snowflake's migration procedure requires the same connector name
 for 3.x and 4.x. The 4.x connector then inherits the Kafka consumer group offsets and
-resumes where 3.x stopped. Delete the 3.x connector before you create the 4.x connector,
-and follow Snowflake's instructions for your ingestion method, such as
+resumes where 3.x stopped. Aiven doesn't allow two connectors with the same name, so
+delete the 3.x connector before you create the 4.x connector. Follow Snowflake's
+instructions for your ingestion method, such as
 [migrating from Snowpipe mode](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4#migrating-from-v3-snowpipe-mode).
 
 To migrate:
@@ -420,8 +425,8 @@ To migrate:
 
 :::important[Important]
 Ingestion stops from the time you delete the 3.x connector until the 4.x connector
-starts. Start the 4.x connector before the consumer group offsets expire
-(`offsets.retention.minutes`, 7 days by default).
+starts. Start the 4.x connector before the consumer group offsets expire. The
+`offsets.retention.minutes` default is 7 days, and 3 days for free and developer plans.
 :::
 
 ### Downgrade from 4.x to 3.x
