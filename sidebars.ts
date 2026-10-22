@@ -269,74 +269,9 @@ const sidebars: SidebarsConfig = {
           href: '/docs/products/flink',
         },
         {
-          type: 'category',
+          type: 'link',
           label: 'Service management',
-          className: 'expandedSection',
-          collapsed: false,
-          collapsible: false,
-          link: {
-            type: 'doc',
-            id: 'platform/howto/list-service',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Setup and configuration',
-              items: [
-                'platform/howto/create_new_service',
-                'platform/howto/create_new_service_user',
-                'platform/concepts/service-forking',
-                'platform/concepts/rename-services',
-                'platform/howto/tag-resources',
-                'platform/howto/search-services',
-                'platform/concepts/service-power-cycle',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Scaling and performance',
-              items: [
-                'platform/howto/scale-services',
-                'platform/howto/add-storage-space',
-                'platform/howto/disk-autoscaler',
-                'platform/concepts/service-memory-limits',
-                'platform/concepts/out-of-memory-conditions',
-                'platform/howto/prepare-for-high-load',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Backups and recovery',
-              items: [
-                'platform/concepts/service_backups',
-                'platform/howto/restore_progress_updates',
-                'platform/concepts/backup-to-another-region',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Maintenance and upgrades',
-              items: [
-                'platform/concepts/maintenance-window',
-                'platform/howto/controlled-upgrade',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Releases and end of life',
-              items: [
-                'platform/concepts/service-and-feature-releases',
-                'platform/howto/feature-preview',
-                'platform/reference/eol-for-major-versions',
-                'platform/reference/end-of-life',
-              ],
-            },
-            {
-              type: 'link',
-              label: 'Networking and security',
-              href: '/docs/platform/concepts/cloud-security',
-            },
-          ],
+          href: '/docs/platform/howto/list-service',
         },
       ],
     },
@@ -2533,6 +2468,84 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
+  // Service management dedicated sidebar
+  servicemanagement: [
+    {
+      type: 'link',
+      label: '← Back to Products',
+      href: '/docs/products/overview',
+    },
+    {
+      type: 'category',
+      label: 'Service management',
+      className: 'expandedSection',
+      collapsed: false,
+      collapsible: false,
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-service',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Setup and configuration',
+          items: [
+            'platform/howto/create_new_service',
+            'platform/howto/create_new_service_user',
+            'platform/concepts/service-forking',
+            'platform/concepts/rename-services',
+            'platform/howto/tag-resources',
+            'platform/howto/search-services',
+            'platform/concepts/service-power-cycle',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Scaling and performance',
+          items: [
+            'platform/howto/scale-services',
+            'platform/howto/add-storage-space',
+            'platform/howto/disk-autoscaler',
+            'platform/concepts/service-memory-limits',
+            'platform/concepts/out-of-memory-conditions',
+            'platform/howto/prepare-for-high-load',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Backups and recovery',
+          items: [
+            'platform/concepts/service_backups',
+            'platform/howto/restore_progress_updates',
+            'platform/concepts/backup-to-another-region',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Maintenance and upgrades',
+          items: [
+            'platform/concepts/maintenance-window',
+            'platform/howto/controlled-upgrade',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Releases and end of life',
+          items: [
+            'platform/concepts/service-and-feature-releases',
+            'platform/howto/feature-preview',
+            'platform/reference/eol-for-major-versions',
+            'platform/reference/end-of-life',
+          ],
+        },
+        {
+          type: 'link',
+          label: 'Networking and security',
+          href: '/docs/platform/concepts/cloud-security',
+        },
+      ],
+    },
+  ],
   // Networking and security dedicated sidebar
   networking: [
     {
