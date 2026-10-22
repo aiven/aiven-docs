@@ -213,8 +213,11 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
+      link: {
+        type: 'doc',
+        id: 'products/services',
+      },
       items: [
-        'products/services',
         {
           type: 'link',
           label: 'Aiven for PostgreSQL®',
@@ -247,6 +250,11 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'link',
+          label: 'Aiven for DataHub',
+          href: '/docs/products/datahub',
+        },
+        {
+          type: 'link',
           label: 'Aiven for Metrics',
           href: '/docs/products/metrics',
         },
@@ -261,11 +269,6 @@ const sidebars: SidebarsConfig = {
           href: '/docs/products/flink',
         },
         {
-          type: 'link',
-          label: 'Aiven for DataHub',
-          href: '/docs/products/datahub',
-        },
-        {
           type: 'category',
           label: 'Service management',
           className: 'expandedSection',
@@ -276,13 +279,19 @@ const sidebars: SidebarsConfig = {
             id: 'platform/howto/list-service',
           },
           items: [
-            'platform/howto/create_new_service',
-            'platform/howto/create_new_service_user',
-            'platform/howto/search-services',
-            'platform/concepts/service-power-cycle',
-            'platform/concepts/rename-services',
-            'platform/howto/tag-resources',
-            'platform/concepts/service-forking',
+            {
+              type: 'category',
+              label: 'Setup and configuration',
+              items: [
+                'platform/howto/create_new_service',
+                'platform/howto/create_new_service_user',
+                'platform/concepts/service-forking',
+                'platform/concepts/rename-services',
+                'platform/howto/tag-resources',
+                'platform/howto/search-services',
+                'platform/concepts/service-power-cycle',
+              ],
+            },
             {
               type: 'category',
               label: 'Scaling and performance',
@@ -297,15 +306,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: 'Maintenance and lifecycle',
-              items: [
-                'platform/concepts/maintenance-window',
-                'platform/howto/controlled-upgrade',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Backups and migration',
+              label: 'Backups and recovery',
               items: [
                 'platform/concepts/service_backups',
                 'platform/howto/restore_progress_updates',
@@ -313,14 +314,28 @@ const sidebars: SidebarsConfig = {
               ],
             },
             {
+              type: 'category',
+              label: 'Maintenance and upgrades',
+              items: [
+                'platform/concepts/maintenance-window',
+                'platform/howto/controlled-upgrade',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Releases and end of life',
+              items: [
+                'platform/concepts/service-and-feature-releases',
+                'platform/howto/feature-preview',
+                'platform/reference/eol-for-major-versions',
+                'platform/reference/end-of-life',
+              ],
+            },
+            {
               type: 'link',
               label: 'Networking and security',
               href: '/docs/platform/concepts/cloud-security',
             },
-            'platform/concepts/service-and-feature-releases',
-            'platform/howto/feature-preview',
-            'platform/reference/eol-for-major-versions',
-            'platform/reference/end-of-life',
           ],
         },
       ],
