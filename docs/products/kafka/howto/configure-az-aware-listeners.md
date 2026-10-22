@@ -84,8 +84,8 @@ crosses AZ boundaries. An AZ-specific endpoint can remain after all brokers leav
 - An Aiven for Apache Kafka service with
   [diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
   enabled.
-- AZ-aware listeners enabled for your project. To request access, contact
-  [Aiven support](/docs/platform/howto/support#create-a-support-ticket).
+- AZ-aware listeners enabled for your project. To request access, contact your account
+  team.
 - The [Aiven CLI](/docs/tools/cli) or access to the [Aiven API](/docs/tools/api) to find
   the AZ-specific endpoints.
 - Firewall rules and allowlists that permit the AZ-specific Kafka ports. To find them, see
