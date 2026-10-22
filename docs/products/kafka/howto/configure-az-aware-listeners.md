@@ -279,11 +279,13 @@ metrics integration, such as
 
    - For a consumer, graph
      `rate(kafka_server_BrokerTopicMetrics_TotalFetchRequestsPerSec_Count{topic="DISKLESS_TOPIC_NAME"}[5m])`.
-   - For a producer, graph
+   - For a producer, use a test service with no other producer traffic during the
+     query window, and graph only that service's broker hosts. Graph
      `rate(kafka_server_BrokerTopicMetrics_TotalProduceRequestsPerSec_Count[5m])`. This
-     metric is collected for each broker, not for each topic.
+     metric is collected for each broker, not for each topic, so it includes produce
+     requests for every topic on the broker.
 
-1. Check that the brokers receiving the requests run in the AZ of the test client.
+1. Ensure that the brokers receiving the requests run in the AZ of the test client.
 
 If no broker runs in that AZ, the requests go to brokers in other AZs.
 
@@ -377,7 +379,7 @@ Replace the following:
 If a client connects through an endpoint for another AZ, Kafka can route its
 diskless-topic requests across AZ boundaries without returning an error.
 
-Check that `bootstrap.servers` uses the endpoint for the client's AZ. If `client.id`
+Ensure that `bootstrap.servers` uses the endpoint for the client's AZ. If `client.id`
 contains `diskless_az`, ensure that the value specifies the intended AZ. The `diskless_az`
 value takes precedence over the endpoint's AZ. For more information, see
 [How AZ-aware listeners work](#how-az-aware-listeners-work).
