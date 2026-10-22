@@ -271,13 +271,47 @@ const sidebars: SidebarsConfig = {
           className: 'expandedSection',
           collapsed: false,
           collapsible: false,
+          link: {
+            type: 'doc',
+            id: 'platform/howto/list-service',
+          },
           items: [
-            {
-              type: 'link',
-              label: 'Overview',
-              href: '/docs/platform/howto/list-service',
-            },
+            'platform/howto/create_new_service',
+            'platform/howto/create_new_service_user',
             'platform/howto/search-services',
+            'platform/concepts/service-power-cycle',
+            'platform/concepts/rename-services',
+            'platform/howto/tag-resources',
+            'platform/concepts/service-forking',
+            {
+              type: 'category',
+              label: 'Scaling and performance',
+              items: [
+                'platform/howto/scale-services',
+                'platform/howto/add-storage-space',
+                'platform/howto/disk-autoscaler',
+                'platform/concepts/service-memory-limits',
+                'platform/concepts/out-of-memory-conditions',
+                'platform/howto/prepare-for-high-load',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Maintenance and lifecycle',
+              items: [
+                'platform/concepts/maintenance-window',
+                'platform/howto/controlled-upgrade',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Backups and migration',
+              items: [
+                'platform/concepts/service_backups',
+                'platform/howto/restore_progress_updates',
+                'platform/concepts/backup-to-another-region',
+              ],
+            },
             {
               type: 'link',
               label: 'Networking and security',
@@ -2478,60 +2512,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'products/valkey/howto/configure-acl-permissions',
             'products/valkey/howto/manage-ssl-connectivity',
-          ],
-        },
-      ],
-    },
-  ],
-
-  // Service management dedicated sidebar
-  servicemanagement: [
-    {
-      type: 'link',
-      label: '← Back to Products',
-      href: '/docs/products/overview',
-    },
-    {
-      type: 'category',
-      label: 'Service management',
-      className: 'expandedSection',
-      collapsed: false,
-      collapsible: false,
-      items: [
-        'platform/howto/list-service',
-        'platform/howto/create_new_service',
-        'platform/howto/create_new_service_user',
-        'platform/concepts/service-power-cycle',
-        'platform/concepts/rename-services',
-        'platform/howto/tag-resources',
-        'platform/concepts/service-forking',
-        {
-          type: 'category',
-          label: 'Scaling and performance',
-          items: [
-            'platform/howto/scale-services',
-            'platform/howto/add-storage-space',
-            'platform/howto/disk-autoscaler',
-            'platform/concepts/service-memory-limits',
-            'platform/concepts/out-of-memory-conditions',
-            'platform/howto/prepare-for-high-load',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Maintenance and lifecycle',
-          items: [
-            'platform/concepts/maintenance-window',
-            'platform/howto/controlled-upgrade',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Backups and migration',
-          items: [
-            'platform/concepts/service_backups',
-            'platform/howto/restore_progress_updates',
-            'platform/concepts/backup-to-another-region',
           ],
         },
       ],
