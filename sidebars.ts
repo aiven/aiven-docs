@@ -272,6 +272,7 @@ const sidebars: SidebarsConfig = {
           type: 'link',
           label: 'Service management',
           href: '/docs/platform/howto/list-service',
+          className: 'sidebarEmphasis',
         },
       ],
     },

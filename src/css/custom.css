@@ -452,6 +452,11 @@ html[data-theme='dark'] .tabs {
   background-color: transparent;
 }
 
+/* Cross-section sidebar links, such as Service management under Services */
+.sidebarEmphasis > a {
+  font-weight: 600;
+}
+
 .trademark {
   border-top: 1px solid lightgray;
   margin-top: 2em;
