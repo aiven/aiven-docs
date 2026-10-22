@@ -29,16 +29,17 @@ Verify the migration before you decommission the source cluster.
 
 ## Prerequisites
 
-Before you migrate, ensure you have the following:
+Before you begin, you need the following:
 
-- An Aiven project with permission to create services and integration endpoints
-- Connection details for the source cluster: bootstrap servers, security protocol, and
-  credentials or SSL certificates
-- A user for MirrorMaker 2 with the following permissions:
-  - Source cluster: `READ` access to the topics to replicate
-  - Target cluster: `WRITE` access to the replicated topics
-  - Both clusters: `READ`, `WRITE`, `CREATE`, and `DESCRIBE` access to the MirrorMaker 2
-    internal topics
+- An Aiven project
+- Connection details for the source cluster, including bootstrap servers, security
+  protocol, and credentials or SSL certificates
+- A MirrorMaker 2 user with the following permissions:
+  - On the source cluster: `READ` access to the topics to replicate and `DESCRIBE`
+    access to the consumer groups to migrate
+  - On the target cluster: `WRITE` access to the replicated topics
+  - On both clusters: `READ`, `WRITE`, `CREATE`, and `DESCRIBE` access to the
+    MirrorMaker 2 internal topics
 
   For more information, see
   [Permissions and internal topics](/docs/products/kafka/kafka-mirrormaker/concepts/permissions-internal-topics).
@@ -138,7 +139,10 @@ cluster.
      For more patterns, see
      [Include or exclude topics in a replication flow](/docs/products/kafka/kafka-mirrormaker/concepts/replication-flow-topics-regex).
    - **Topic blacklist**: The topics to exclude.
-     To exclude internal topics, click **Internal topics**.
+     Click **Internal topics**, then explicitly exclude `_schemas` and any custom
+     schema registry storage topic.
+     Migrate schemas using the import procedure instead of replicating registry
+     storage topics.
    - **Replication policy class**: The naming of replicated topics:
      - `org.apache.kafka.connect.mirror.DefaultReplicationPolicy` prefixes replicated
        topics with the source cluster alias.
@@ -238,14 +242,19 @@ MirrorMaker 2 replicates topic data but does not migrate Apache Kafka Connect co
 configurations or runtime state.
 If your source environment uses Kafka Connect:
 
-1. Identify the source and sink connectors to migrate.
-1. Check whether the target supports their plugins.
+1. Identify the connectors to migrate from the source environment.
+1. Ensure that your target Aiven for Apache Kafka® Connect service supports the
+   connector plugins.
    For more information, see
    [Available Apache Kafka® Connect connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins).
-1. Create the connectors on the target with compatible plugins, configurations,
+1. Prepare the target connector configurations, including compatible plugins,
    credentials, and connections to external systems.
-1. Plan when to stop the source connectors and start the target connectors, based on
-   their offset and restart behavior, to avoid processing records twice.
+   Don't create the connectors yet. Creating a connector starts its tasks, which can
+   duplicate writes while the source connectors are still running.
+1. Plan how to migrate offsets or runtime state from the source connectors, so that
+   they don't process records twice.
+1. During cutover, stop the source connectors and migrate their offsets or runtime
+   state. Then create the target connectors.
 
 ## Switch applications to Aiven
 
@@ -304,9 +313,9 @@ To switch the applications:
    following:
 
    - Bootstrap servers and authentication details
-   - Topic names, if the replication policy adds a prefix
-     (to keep the original names, see
-     [Remove the topic prefix](/docs/products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix))
+   - Topic names, if the replication policy adds a prefix. To keep the original names,
+     select `org.apache.kafka.connect.mirror.IdentityReplicationPolicy` before you
+     start replication. Do not change the policy during cutover.
    - Schema registry endpoints, if applicable
 
    For connection details and examples, see
