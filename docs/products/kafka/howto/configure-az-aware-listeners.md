@@ -1,7 +1,7 @@
 ---
 title: Configure AZ-aware listeners for diskless topics
 sidebar_label: Configure AZ-aware listeners
-description: Configure availability zone (AZ)-aware Kafka endpoints to reduce cross-AZ traffic for producers and consumers of diskless topics.
+description: Configure availability zone (AZ)-aware listeners to reduce cross-AZ traffic for producers and consumers of diskless topics.
 keywords: [kafka, diskless, availability zones, az-aware listeners]
 ---
 
@@ -36,8 +36,8 @@ same deployment.
 | `diskless_az` in `client.id` | You can change the client ID, or your clients connect through PrivateLink. | Append `diskless_az` and the AZ to `client.id`. |
 | AZ-aware listeners | You need to preserve `client.id`, for example, when Kafka Connect source connectors generate it or when quotas, metrics, or logs depend on it. | Set `bootstrap.servers` to an AZ-specific endpoint. |
 
-The `diskless_az` method needs less setup but can affect quotas, metrics, and logs that
-depend on the exact client ID.
+The `diskless_az` method changes `client.id`, which can affect quotas, metrics, and logs
+that depend on the exact client ID.
 
 For example, to specify the `use1-az1` AZ using `client.id`:
 
@@ -50,7 +50,7 @@ client.id=my-producer,diskless_az=use1-az1
 AZ-specific endpoints use the same hostname as the default Kafka endpoint, but each AZ,
 authentication method, and access route has its own port. Find the default endpoints in
 **Connection information** on the service <ConsoleLabel name="overview"/> page. Every
-Kafka broker exposes the AZ-specific listeners, regardless of which AZ it runs in.
+Kafka broker exposes the AZ-specific endpoints, regardless of which AZ it runs in.
 
 When a client connects through an AZ-specific endpoint:
 
@@ -97,7 +97,7 @@ the project. Aiven applies the change with a rolling restart of the brokers.
 
 To check whether a service has AZ-specific endpoints, run the command in
 [Find the AZ-specific Kafka endpoint](#find-the-az-specific-kafka-endpoint). If it
-returns no rows, the change hasn't reached that service.
+returns no endpoints, the change may not have reached that service yet.
 :::
 
 ## Limitations
@@ -110,10 +110,6 @@ returns no rows, the change hasn't reached that service.
 - **Broker placement:** Routing to an AZ requires a broker in that AZ. Use
   [preferred availability zones](/docs/products/kafka/howto/configure-preferred-zones) to
   influence broker placement. Placement isn't guaranteed.
-
-{/* TODO: Azure works and passes integration tests in azure-westeurope, but the Identify
-the client's availability zone section has no Azure example. Add an Azure tab after
-confirming how the Azure zone value maps to the endpoint's `az` value. */}
 
 ## Configure AZ-aware listeners
 
@@ -143,9 +139,8 @@ Example output:
 use1-az1
 ```
 
-Use AZ IDs such as `use1-az1`, not AZ names such as `us-east-1a`. AWS can map the same
-AZ name to different physical AZs in different accounts. For example, `us-east-1a` can be
-`use1-az1` in your account and `use1-az2` in another account. For more information, see
+Use AZ IDs such as `use1-az1`, not AZ names such as `us-east-1a`, because AWS can map the
+same AZ name to different physical AZs in different accounts. For more information, see
 [Zone ID formats](/docs/products/kafka/howto/configure-preferred-zones#zone-id-formats).
 
 </TabItem>
@@ -238,19 +233,20 @@ europe-west1-c  dynamic  sasl         letsencrypt  kafka.example.com:31109
 
 The `route` field shows the network access route:
 
-- `dynamic`: The default hostname. It resolves to a private IP address when accessed
-  from a VPC, which is the case for VPC peering.
-- `public`: Public access to a service in a VPC.
+- `dynamic`: The default hostname. For services in an Aiven VPC, it resolves to a
+  private IP address and supports VPC peering.
+- `public`: Public internet access to a service in an Aiven VPC.
 - `private`: Private access for BYOC and partner VPCs, where the default hostname
   resolves to a public IP address.
 
 The `kafka_ssl_ca` field shows whether the endpoint uses the Aiven project CA (`project_ca`)
 or Let's Encrypt (`letsencrypt`).
 
-Select the row that matches your client's AZ, route, authentication method, and CA. On
-AWS, the `az` value is an AZ ID such as `use1-az1`. Match it to the AZ ID that the
-instance metadata service returns. Use the `host:port` value from that row in
-`bootstrap.servers`.
+Select an endpoint that matches your client's AZ, network route, authentication method,
+and CA. Use its `host:port` value when configuring your Kafka client.
+
+On AWS, the `az` value is an AZ ID such as `use1-az1`. Match it to the AZ ID that the
+instance metadata service returns.
 
 If no row matches your client's AZ, keep using the default Kafka endpoint.
 
@@ -264,67 +260,44 @@ If no row matches your client's AZ, keep using the default Kafka endpoint.
 
 1. Keep your existing authentication settings and `client.id` unchanged.
 
-   If `client.id` contains a `diskless_az` value, make sure the value matches the intended
-   AZ. This value takes precedence over the AZ of the endpoint.
+   If `client.id` contains `diskless_az`, ensure that it specifies the intended AZ. This
+   value takes precedence over the AZ-specific endpoint and can route traffic to a
+   different AZ.
 
 1. Connect your client and confirm that it can produce or consume records for a diskless
    topic.
 
 ### Verify AZ-local routing
 
-Ensure that the partition leaders returned through the AZ-specific endpoint belong to
-brokers in the selected AZ. This checks the broker assignments in the metadata Kafka
-returns. It doesn't measure network traffic.
+Verify that your client's diskless-topic traffic goes to brokers in its AZ. You need a
+metrics integration, such as
+[Prometheus](/docs/platform/howto/integrations/prometheus-metrics), on your Kafka service.
 
-Repeat this check after scaling or broker replacement.
+1. Run a test client in one AZ. Use the AZ-specific endpoint for that AZ and a diskless
+   topic.
+1. In your monitoring tool, graph the request rate for each broker (`host`):
 
-{/* TODO: The rack matches the endpoint's `az` value (confirmed from the code). Before
-publishing, run the commands once against an Aiven service and confirm that:
-- The commands accept `--command-config` with the same SSL or SASL settings as the client.
-- `kafka-broker-api-versions.sh` prints `rack: ...` for each broker.
-- Confirm which permissions the Kafka user needs for both commands. Test with a service
-  user restricted to one topic. If listing brokers fails, add a note about the
-  required permission. */}
+   - For a consumer, graph
+     `rate(kafka_server_BrokerTopicMetrics_TotalFetchRequestsPerSec_Count{topic="DISKLESS_TOPIC_NAME"}[5m])`.
+   - For a producer, graph
+     `rate(kafka_server_BrokerTopicMetrics_TotalProduceRequestsPerSec_Count[5m])`. This
+     metric is collected for each broker, not for each topic.
 
-1. Describe a diskless topic through the AZ-specific endpoint:
+1. Check that the brokers receiving the requests run in the AZ of the test client.
 
-   ```bash
-   kafka-topics.sh \
-     --bootstrap-server AZ_SPECIFIC_HOST:AZ_SPECIFIC_PORT \
-     --command-config CLIENT_CONFIG_FILE \
-     --describe \
-     --topic DISKLESS_TOPIC_NAME
-   ```
-
-   Note the `Leader` ID of each partition.
-
-1. List the brokers and their racks:
-
-   ```bash
-   kafka-broker-api-versions.sh \
-     --bootstrap-server AZ_SPECIFIC_HOST:AZ_SPECIFIC_PORT \
-     --command-config CLIENT_CONFIG_FILE | grep 'id:'
-   ```
-
-   A broker's rack is its AZ.
-
-1. Ensure that each leader ID from the topic description belongs to a broker whose rack
-   matches the AZ of the endpoint you used.
-
-Replace the following:
-
-- `AZ_SPECIFIC_HOST`: Hostname of the AZ-specific endpoint for your client's AZ.
-- `AZ_SPECIFIC_PORT`: Port of the AZ-specific endpoint for your client's AZ.
-- `DISKLESS_TOPIC_NAME`: Name of a diskless topic.
-- `CLIENT_CONFIG_FILE`: Path to a client configuration file with the same SSL or SASL
-  settings as your client.
-
-This check can't confirm AZ-local routing in the following cases:
-
-- No broker runs in the AZ, so the leaders belong to other AZs.
-- A broker's rack is empty.
+If no broker runs in that AZ, the requests go to brokers in other AZs.
 
 In BYOC deployments, you can also review cross-AZ data transfer costs in your cloud bill.
+
+{/* TODO: Before publishing, confirm that:
+- Diskless produce and fetch requests increment these counters on the broker that serves
+  them.
+- The `host` label appears in the Prometheus integration, and how a customer finds the AZ
+  of each host. Without this, step 3 can't be completed.
+- `TotalProduceRequestsPerSec` is per topic. The monitoring page says it is per host,
+  but the Kafka telegraf config collects it per topic. If the page is wrong, ask the docs
+  team to correct it, and then filter the producer query by topic too.
+- Test both queries on a real service. */}
 
 ## Use AZ-aware listeners with Kafka Connect and MirrorMaker 2
 
@@ -345,10 +318,10 @@ as your Kafka service.
 If AZ-aware listeners aren't enabled for your project, you can set `diskless_az_enabled`
 to `true` on a MirrorMaker 2
 [replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow).
-MirrorMaker 2 then sets the producer and consumer client IDs of that flow to
-`diskless_az` with the node's AZ, for example `diskless_az=use1-az1`. This replaces the
-default client IDs and can affect quotas, metrics, and logs that depend on them. The
-default is `false`.
+MirrorMaker 2 then sets the flow's producer and consumer client IDs to
+`diskless_az=AZ`, where `AZ` is the AZ of the node, for example `diskless_az=use1-az1`.
+This replaces the default client IDs and can affect quotas, metrics, and logs that depend
+on them. The default is `false`.
 
 This option is available to all MirrorMaker 2 customers. If the API returns an error when
 you set it, contact
@@ -375,8 +348,8 @@ Replace the following:
 
 ### Self-managed deployments
 
-For self-managed deployments, run one group of workers in each AZ. Configure each group
-to use the AZ-specific Kafka endpoint for its AZ.
+For self-managed Kafka Connect and MirrorMaker 2 deployments, configure workers in each
+AZ to use the AZ-specific Kafka endpoint for that AZ.
 
 For Kafka Connect, set `bootstrap.servers` in the `connect-distributed.properties` file:
 
@@ -401,25 +374,28 @@ Replace the following:
 
 ### Client uses an endpoint for a different AZ
 
-If a client connects through an endpoint for a different AZ, Kafka routes its
-diskless-topic requests to brokers in the endpoint's AZ. Traffic then crosses AZ
-boundaries, and Kafka returns no error.
+If a client connects through an endpoint for another AZ, Kafka can route its
+diskless-topic requests across AZ boundaries without returning an error.
 
-Set `bootstrap.servers` to the endpoint for the AZ where the client runs. If `client.id`
-contains a `diskless_az` value, that value takes precedence over the endpoint's AZ. Ensure
-that the value specifies the intended AZ. For more information, see
+Check that `bootstrap.servers` uses the endpoint for the client's AZ. If `client.id`
+contains `diskless_az`, ensure that the value specifies the intended AZ. The `diskless_az`
+value takes precedence over the endpoint's AZ. For more information, see
 [How AZ-aware listeners work](#how-az-aware-listeners-work).
 
 ### Endpoints after scaling or migration
 
-AZ-specific ports stay the same during scaling and broker replacement. Ports can change if
-you migrate to another cloud. After a migration, retrieve the endpoints again and update
-`bootstrap.servers`.
+AZ-specific ports stay the same during scaling and broker replacement. If scaling or
+broker replacement changes which AZs have brokers, run the steps in
+[Verify AZ-local routing](#verify-az-local-routing) again.
+
+Ports can change if you migrate to another cloud. After a migration, retrieve the
+endpoints again and update `bootstrap.servers`.
 
 <RelatedPages/>
 
 - [Diskless topics for Apache Kafka](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
 - [Configure preferred availability zones](/docs/products/kafka/howto/configure-preferred-zones)
 - [Enable follower fetching](/docs/products/kafka/howto/enable-follower-fetching)
+- [Observability and monitoring](/docs/products/kafka/reference/kafka-metrics-prometheus)
 - [Aiven for Apache Kafka Connect](/docs/products/kafka/kafka-connect)
 - [Aiven for Apache Kafka MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
