@@ -7,6 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
+import ByocTerraformBeta from "@site/static/includes/byoc-terraform-beta.md";
 
 Delete a [custom cloud](/docs/platform/concepts/byoc) so that it's no longer available in your Aiven organization, units, or projects.
 
@@ -43,6 +44,15 @@ them earlier, you're advised to do that after deleting your cloud.
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
 -   You have the [Aiven CLI client](/docs/tools/cli) installed.
+-   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization.
+</TabItem>
+<TabItem value="3" label="Terraform">
+-   You have at least one
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
+    organization.
+-   You have the [Aiven Provider for Terraform](/docs/tools/terraform) set up, and the
+    custom cloud is managed in your Terraform configuration.
 -   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization.
 </TabItem>
@@ -83,6 +93,28 @@ avn byoc delete                               \
   --organization-id "ORGANIZATION_IDENTIFIER" \
   --byoc-id "CUSTOM_CLOUD_IDENTIFIER"
 ```
+
+</TabItem>
+<TabItem value="3" label="Terraform">
+Remove the `aiven_byoc_permissions`, provision, and entity resources of your custom cloud
+from the configuration, then apply it. If your configuration contains only the custom
+cloud resources, run `terraform destroy` instead.
+
+<ByocTerraformBeta />
+
+```bash
+terraform apply
+```
+
+Terraform deletes the resources in reverse dependency order, so the permissions and the
+provisioning are removed before the custom cloud environment itself.
+
+:::note
+This deletes the custom cloud from the Aiven platform only. The resources created by the
+infrastructure template in your own cloud account are not removed. Delete them as
+described in
+[Delete cloud resources from Terraform](#delete-cloud-resources-from-terraform).
+:::
 
 </TabItem>
 </Tabs>

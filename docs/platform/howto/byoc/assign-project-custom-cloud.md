@@ -7,6 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ByocTerraformBeta from "@site/static/includes/byoc-terraform-beta.md";
 
 Select your organizations, units, or projects that can access and use your [custom cloud](/docs/platform/concepts/byoc).
 
@@ -39,6 +40,14 @@ cloud to be available.
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization
+</TabItem>
+<TabItem value="3" label="Terraform">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
+    organization
+-   [Aiven Provider for Terraform](/docs/tools/terraform) set up
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization
 </TabItem>
@@ -92,6 +101,51 @@ avn byoc cloud permissions add                  \
     --organization-id "ORGANIZATION_IDENTIFIER" \
     --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
     --account "ACCOUNT_IDENTIFIER"
+```
+
+</TabItem>
+<TabItem value="3" label="Terraform">
+Use the
+[`aiven_byoc_permissions`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_permissions)
+resource to enable your custom cloud in organizational units and projects.
+
+<ByocTerraformBeta />
+
+```hcl
+resource "aiven_byoc_permissions" "example_cloud" {
+  organization_id             = var.organization_id
+  custom_cloud_environment_id = var.custom_cloud_environment_id
+  accounts                    = ["a22ba494e096", "a441b467e067"]
+  projects                    = ["project-prod", "project-dev"]
+}
+```
+
+Set the following:
+
+- `organization_id`: ID of your Aiven organization, for example `org123a456b789`.
+- `custom_cloud_environment_id`: identifier of your custom cloud, which you can extract
+  from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command.
+  If you also manage the custom cloud with Terraform, reference the
+  `custom_cloud_environment_id` attribute of your
+  [`aiven_byoc_aws_provision`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_aws_provision)
+  or
+  [`aiven_byoc_azure_provision`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_azure_provision)
+  resource instead.
+- `accounts`: identifiers of your organizational units, which you can extract from the
+  output of the `avn organization list` command.
+- `projects`: names of the projects that can use the custom cloud.
+
+:::note
+The `accounts` and `projects` lists are authoritative: Terraform removes access for any
+unit or project you leave out. This differs from
+[`avn byoc cloud permissions add`](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add),
+which merges into the existing set.
+:::
+
+Apply the configuration:
+
+```bash
+terraform apply
 ```
 
 </TabItem>

@@ -94,6 +94,14 @@ in the Google Cloud documentation.
 
 Create a custom cloud either in the Aiven Console or with the Aiven CLI.
 
+:::note
+The Aiven Provider for Terraform does not support creating Google Cloud custom clouds.
+Terraform resources are available for
+[AWS](/docs/platform/howto/byoc/create-cloud/create-aws-custom-cloud) and
+[Azure](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud) custom clouds
+only.
+:::
+
 <Tabs groupId="group1">
 <TabItem value="1" label="Aiven Console" default>
 

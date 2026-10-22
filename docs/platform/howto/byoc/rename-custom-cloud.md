@@ -7,6 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ByocTerraformBeta from "@site/static/includes/byoc-terraform-beta.md";
 
 Change the name of your [custom cloud](/docs/platform/concepts/byoc).
 
@@ -36,6 +37,14 @@ custom cloud name. You can change this name any time later by following
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization
 </TabItem>
+<TabItem value="3" label="Terraform">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
+    organization
+-   [Aiven Provider for Terraform](/docs/tools/terraform) set up
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization
+</TabItem>
 </Tabs>
 
 ## Rename your cloud
@@ -59,6 +68,35 @@ avn byoc update                                 \
     --organization-id "ORGANIZATION_IDENTIFIER" \
     --byoc-id "CUSTOM_CLOUD_IDENTIFIER"         \
     --display-name "NAME_OF_CUSTOM_CLOUD"
+```
+
+</TabItem>
+<TabItem value="3" label="Terraform">
+Change the `display_name` attribute of the resource that manages your custom cloud, then
+apply the configuration. Renaming the cloud does not replace it.
+
+<ByocTerraformBeta />
+
+The custom cloud environment is managed by the
+[`aiven_byoc_aws_entity`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_aws_entity)
+resource for AWS custom clouds and by the
+[`aiven_byoc_azure_entity`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_azure_entity)
+resource for Azure custom clouds. The following example uses AWS.
+
+```hcl
+resource "aiven_byoc_aws_entity" "example_cloud" {
+  organization_id  = var.organization_id
+  cloud_region     = "eu-west-1"
+  deployment_model = "standard"
+  display_name     = "byoc-cloud-prod-eu-west-1"
+  reserved_cidr    = "10.0.0.0/16"
+}
+```
+
+Apply the configuration:
+
+```bash
+terraform apply
 ```
 
 </TabItem>
