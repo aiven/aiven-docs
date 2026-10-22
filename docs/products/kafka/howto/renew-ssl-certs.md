@@ -14,7 +14,7 @@ certificates. These are separate processes, and both can happen close together:
 | ------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | What changes | The certificate and private key of one service user                               | The CA certificate that signs certificates in the project                                                                                  |
 | When         | About three months before the user certificate expires                            | When the certificate approaches expiration, or for operational or security reasons, even if the expiration date is years away             |
-| What you do  | Download and deploy the renewed certificate and key, then acknowledge the renewal | Update clients to trust the CA certificate bundle. After you apply the first update on every service, reset credentials for client-certificate users. |
+| What you do  | Download and deploy the renewed certificate and key, then acknowledge the renewal | Update clients to trust the CA certificate bundle. Download and deploy the certificates that Aiven renews with the new CA, then acknowledge the renewals. |
 
 ## SSL certificate renewal schedule
 
@@ -23,6 +23,10 @@ approximately two years and three months. This renewal involves regenerating the
 SSL certificate and its private key to enhance security. Renewal notifications are
 sent to project administrators, operators, and technical contacts. The current
 certificate stays valid until expiration to ensure a smooth transition.
+
+During a project CA rotation, Aiven also renews certificates that the previous CA
+signed. For details, see
+[Renewed certificates after a project CA rotation](#renewed-certificates-after-a-project-ca-rotation).
 
 ## Download the new SSL certificates
 
@@ -50,6 +54,12 @@ You can also use the Aiven CLI command [`avn service user-creds-download`](/docs
 Confirm that the new certificate is in use to stop receiving notifications about
 certificate expiration.
 
+:::important
+Acknowledge a renewal only after all your clients use the new certificate. During a
+project CA rotation, acknowledging lets Aiven retire the previous CA, and the previous
+certificate then stops working.
+:::
+
 To acknowledge the new SSL certificate with the [Aiven Console](https://console.aiven.io/):
 
 -   Select `...` next to the certificate.
@@ -69,23 +79,43 @@ curl --request PUT \
 ```
 :::
 
-## Reset credentials after a project CA rotation
+## Renewed certificates after a project CA rotation
 
 When Aiven rotates the project CA certificate, existing service users keep their
-certificates, which the previous CA signed. If your service users authenticate with
-client certificates, reset their credentials after you apply the first maintenance
-update on every service in the project. This makes the new CA sign their certificates.
-
-The new CA becomes active after all services in the project complete the first
+certificates, which the previous CA signed. After the new CA becomes active, Aiven
+renews these certificates with the new CA. The new CA becomes active after all
+services in the project complete the first
 **Scheduled maintenance for TLS certificate update**. For the full sequence, see
 [How a rotation works](/docs/platform/concepts/tls-ssl-certificates#how-a-rotation-works).
 
-Before you reset credentials, update your clients to trust the CA certificate bundle.
-The bundle contains both the current and new CA certificates, so clients can trust
-certificates signed by either CA during the rotation. For steps, see
+If your service users authenticate with client certificates, Aiven sends a renewal
+notification to the project contacts. The notification lists the renewed service
+users and the date when the previous certificates stop working. If the service
+doesn't use client-certificate authentication, Aiven acknowledges the renewals
+automatically and doesn't send a notification.
+
+Before you deploy the renewed certificates, update your clients to trust the CA
+certificate bundle. The bundle contains both the current and new CA certificates, so
+clients can trust certificates signed by either CA during the rotation. For steps, see
 [Download CA certificates](/docs/platform/concepts/tls-ssl-certificates#download-ca-certificates).
 
-To reset the credentials of a service user:
+To switch your clients to the renewed certificates:
+
+1. [Download the renewed certificate and key](#download-the-new-ssl-certificates) of
+   each service user.
+1. Deploy them to every client that uses the service user.
+1. [Acknowledge the renewal](#acknowledge-new-ssl-certificate-usage).
+
+Aiven retires the previous CA after every service presents a certificate signed by the
+new CA and every renewal is acknowledged, or when the previous CA expires. After that,
+certificates that the previous CA signed stop working, even before the date in the
+notification. If you don't acknowledge a renewal, Aiven acknowledges it about a week
+after the date in the notification.
+
+### Reset credentials instead
+
+To switch a service user to the new CA without waiting for the renewal, reset its
+credentials after the new CA becomes active:
 
 1. Open your service in the [Aiven Console](https://console.aiven.io/).
 1. Click **Access & Control** > **Users** in the sidebar.
