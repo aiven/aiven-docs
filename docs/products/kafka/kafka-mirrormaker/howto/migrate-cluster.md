@@ -8,12 +8,12 @@ keywords: [Apache Kafka, migration, MirrorMaker 2, replication, consumer offsets
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Migrate an existing Apache Kafka® cluster to Aiven for Apache Kafka using MirrorMaker 2. The source can be a self-hosted, on-premises, or third-party managed cluster.
+Migrate an existing Apache Kafka® cluster to Aiven for Apache Kafka® using Aiven for Apache Kafka® MirrorMaker 2. The source can be a self-hosted, on-premises, or third-party managed cluster.
 
 MirrorMaker 2 replicates topic data while producers and consumers keep using the source
 cluster.
-After replication catches up, migrate the schemas, ACLs, and connectors that you
-need, then switch your applications to the target Aiven service.
+After replication catches up, migrate the schemas, ACLs, and connectors you need.
+Then switch your applications to the target Aiven service.
 
 The procedures use the Aiven Console.
 You can also manage replication flows using the
@@ -21,9 +21,10 @@ You can also manage replication flows using the
 
 :::important[Important]
 MirrorMaker 2 replicates data asynchronously.
-Plan a cutover period in which you stop writes to the source cluster, synchronize
-consumer group offsets, and verify the migration before you decommission the source
-cluster.
+Plan a cutover period for the final steps.
+During the cutover, stop writes to the source cluster and synchronize consumer group
+offsets.
+Verify the migration before you decommission the source cluster.
 :::
 
 ## Prerequisites
@@ -44,7 +45,7 @@ Before you migrate, ensure you have the following:
 - Network access from MirrorMaker 2 to the source cluster and from your applications to
   the target service, including required firewall rules or private connectivity, with
   enough bandwidth to sync your data
-- Kafka clients that are compatible with the Apache Kafka version of the target service
+- Kafka clients compatible with the Apache Kafka version of the target service
 - A list of the topics, consumer groups, schemas, ACLs, and Kafka Connect connectors to
   migrate
 - A cutover plan that covers which producers, consumers, and connectors to switch, and how
@@ -160,14 +161,14 @@ cluster.
    <ConsoleLabel name="topics"/> and confirm that the topics appear with the expected
    names.
 
-After you enable the flow, MirrorMaker 2 periodically checks the source cluster for new
-topics that match your patterns and replicates them.
+After you enable the flow, MirrorMaker 2 checks the source cluster at regular intervals.
+It replicates new topics that match your patterns.
 For more options, see
 [Set up an Apache Kafka® MirrorMaker 2 replication flow](/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow).
 
 :::note[Note]
-MirrorMaker 2 periodically copies topic configurations from the source topics to the
-target topics, with some exceptions.
+MirrorMaker 2 copies topic configurations from the source topics to the target topics at
+regular intervals.
 By default, it does not copy `min.insync.replicas`, and it never copies
 `unclean.leader.election.enable`.
 It sets the replication factor of a target topic only when it creates the topic.
@@ -210,7 +211,8 @@ place.
 
 :::note[Note]
 MirrorMaker 2 does not offer synchronous replication.
-Consumers need to process out-of-order records and tolerate duplicate records.
+Consumers can receive duplicate or out-of-order records, so make sure your applications
+handle both.
 :::
 
 ## Migrate schemas
@@ -251,8 +253,8 @@ Switch your producers and consumers during a planned cutover period.
 
 To let consumer groups resume from their replicated positions, turn on
 **Sync group offsets** in the replication flow before the cutover.
-MirrorMaker 2 periodically translates committed source offsets and writes them to the
-target while the consumer groups have no active consumers on the target.
+MirrorMaker 2 translates committed source offsets and writes them to the target.
+It does this only while the consumer groups have no active consumers on the target.
 
 Offset synchronization depends on the following:
 
@@ -295,16 +297,16 @@ To switch the applications:
    Offsets on the target can differ from the source because MirrorMaker 2 translates
    them between clusters.
    If a group has no committed offsets on the target, do not start it there.
-   First review its offset synchronization status, as described in
+   First review its synchronization status in
    [Offset sync status analysis](/docs/products/kafka/kafka-mirrormaker/howto/log-analysis-offset-sync-tool).
 
 1. Update your producers and consumers to use the target service, including the
    following:
 
    - Bootstrap servers and authentication details
-   - Topic names, if the replication policy adds a prefix.
-     To keep the original names, see
-     [Remove the topic prefix](/docs/products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix).
+   - Topic names, if the replication policy adds a prefix
+     (to keep the original names, see
+     [Remove the topic prefix](/docs/products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix))
    - Schema registry endpoints, if applicable
 
    For connection details and examples, see
