@@ -250,8 +250,9 @@ client's availability zone to the broker.
 ### How it works
 
 Diskless topics store data in object storage, which is accessible from all
-availability zones. Any broker can serve any partition. By configuring client rack
-awareness, clients can send requests to brokers in their local availability zone.
+availability zones. Any broker can serve any partition. By including the client's AZ
+in `client.id`, producers and consumers can communicate with brokers in the same
+availability zone when one is available.
 
 ### Configuration
 
@@ -267,8 +268,9 @@ awareness, clients can send requests to brokers in their local availability zone
    client.id=my-producer,diskless_az=use1-az2
    ```
 
-   Set `diskless_az` to match the broker's `broker.rack` configuration, which uses
-   the zone IDs in your `preferred_zones` setting.
+   Set `diskless_az` to the AZ where the client runs, using the same AZ identifier
+   format as the Kafka brokers. Configure preferred zones to help ensure that a broker
+   is available in the client's AZ.
 
 1. Apply the same pattern to consumers to route requests consistently:
 
@@ -277,9 +279,22 @@ awareness, clients can send requests to brokers in their local availability zone
    client.id=my-consumer,diskless_az=use1-az1
    ```
 
+::::note
+If you can't change the Kafka `client.id`, or changing it would affect client quotas,
+metrics, or logs, use AZ-aware listeners to route producers and consumers to brokers in
+the same availability zone without changing the client ID.
+
+Aiven enables AZ-aware listeners on request, and they don't support PrivateLink
+connections.
+
+See [Configure AZ-aware listeners for diskless
+topics](/docs/products/kafka/howto/configure-az-aware-listeners).
+::::
+
 ### Benefits
 
-- Eliminates most cross-AZ data transfer costs for diskless topics.
+- Reduces cross-AZ data transfer costs for diskless topics when a broker is available
+  in the client's AZ.
 - Improves cache hit rates by routing clients to consistent brokers per partition.
 - Works with any Kafka client version because it uses the standard `client.id`
   property.
@@ -334,4 +349,6 @@ curl --request PUT \
 - [Aiven for Apache Kafka® Connect](/docs/products/kafka/kafka-connect)
 - [Aiven for Apache Kafka® MirrorMaker 2](/docs/products/kafka/kafka-mirrormaker)
 - [Enable follower fetching](/docs/products/kafka/howto/enable-follower-fetching)
+- [Configure AZ-aware listeners for diskless
+  topics](/docs/products/kafka/howto/configure-az-aware-listeners)
 - [Follower fetching concepts](/docs/products/kafka/concepts/follower-fetching)
