@@ -4,12 +4,15 @@ sidebar_label: Manage ports
 ---
 
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 To make your application available on public networks, you can configure ports where the container listens for HTTP traffic.
 Public ports allow traffic between your application and clients on the internet
 such as browsers. The public endpoint is always HTTPS on port 443. Aiven terminates
 TLS and forwards traffic to your configured container port as HTTP.
+The domain name for your application is in the
+**Connection information** section for the application.
 
 You cannot use the following TCP destination ports for outbound
 connections from your application:
@@ -28,15 +31,19 @@ connections from your application:
 
 Ports configured in Aiven Runtime use the HTTP protocol only. gRPC, HTTP/2, and
 TCP are not supported.
-
-The domain name for your application is in the
-**Connection information** section for the application.
-
 Contact Aiven support if your use case requires a different protocol.
 
 Adding or changing ports triggers a redeployment of the branch's
 previously deployed commit.
 
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`service:configuration:write`', '`role:project:admin`', '`role:project:manager`'],
+    }
+  ]}
+/>
 
 ## Add ports to an application
 

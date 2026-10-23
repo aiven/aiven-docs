@@ -2719,6 +2719,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Security and access',
           items: [
+            'products/runtime/permissions',
             {
               type: 'category',
               label: 'Authentication',
@@ -2731,7 +2732,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/runtime/authentication/add-oidc-identity-providers',
                     'products/runtime/authentication/oidc-auth0',
-                'products/runtime/authentication/oidc-google-cloud',
+                    'products/runtime/authentication/oidc-google-cloud',
                     'products/runtime/authentication/oidc-ms-entra-id',
                     'products/runtime/authentication/oidc-okta',
                   ],
