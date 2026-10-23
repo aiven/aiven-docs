@@ -2646,6 +2646,8 @@ const sidebars: SidebarsConfig = {
             'platform/howto/google-cloud-functions',
             'platform/howto/public-access-in-vpc',
             'platform/howto/attach-vpc-aws-tgw',
+            'platform/howto/attach-vpc-gcp-ncc',
+            'platform/howto/attach-vpc-azure-vwan',
             {
               type: 'category',
               label: 'Private link',
