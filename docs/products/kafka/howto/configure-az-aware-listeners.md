@@ -33,11 +33,11 @@ same deployment.
 
 | Method | Use when | How to configure |
 | --- | --- | --- |
-| `diskless_az` in `client.id` | You can change the client ID, or your clients connect through PrivateLink. | Append `diskless_az` and the AZ to `client.id`. |
-| AZ-aware listeners | You need to preserve `client.id`, for example, when Kafka Connect source connectors generate it or when quotas, metrics, or logs depend on it. | Set `bootstrap.servers` to an AZ-specific endpoint. |
+| `client.id` | You can change the client ID, or your clients connect through PrivateLink. | Append `diskless_az` and the AZ to `client.id`. |
+| AZ-aware listeners | You need to keep the original `client.id` unchanged, for example, generated Kafka Connect client IDs, or IDs that quotas, metrics, or logs depend on. | Set `bootstrap.servers` to an AZ-specific endpoint. |
 
-The `diskless_az` method changes `client.id`, which can affect quotas, metrics, and logs
-that depend on the exact client ID.
+Adding `diskless_az` to `client.id` changes the client ID, which can affect quotas,
+metrics, and logs that depend on its exact value.
 
 For example, to specify the `use1-az1` AZ using `client.id`:
 
@@ -85,7 +85,7 @@ crosses AZ boundaries. An AZ-specific endpoint can remain after all brokers leav
   [diskless topics](/docs/products/kafka/diskless/concepts/diskless-topic-overview)
   enabled.
 - AZ-aware listeners enabled for your project. Contact your Aiven account team to enable
-  AZ-aware listeners for the project.
+  the feature.
 - The [Aiven CLI](/docs/tools/cli) or access to the [Aiven API](/docs/tools/api) to find
   the AZ-specific endpoints.
 - Firewall rules and allowlists that permit the AZ-specific Kafka ports. To find them, see
@@ -269,25 +269,13 @@ instance metadata service returns.
 ### Verify AZ-local routing
 
 To verify AZ-local routing, monitor the Kafka broker-topic metrics for your diskless topic
-and confirm that the client's AZ handles produce or fetch requests. Metrics such as
-`TotalProduceRequestsPerSec` and `TotalFetchRequestsPerSec` can show which broker handles
-requests for the topic. For more information, see
+and confirm that brokers in the client's AZ handle produce or fetch requests. Metrics
+such as `TotalProduceRequestsPerSec` and `TotalFetchRequestsPerSec` can show which broker
+handles requests for the topic. For more information, see
 [Observability and monitoring](/docs/products/kafka/reference/kafka-metrics-prometheus).
 
 In BYOC deployments, you can also monitor cross-AZ data transfer in your cloud provider's
 network metrics or billing data.
-
-{/* TODO: Add a PromQL verification procedure only after confirming that:
-- Diskless produce and fetch requests increment the BrokerTopicMetrics counters on the
-  broker that serves them.
-- The `host` label appears in the customer Prometheus integration, and how a customer maps
-  each host to an AZ.
-- Both queries return the expected data on a real service:
-  rate(kafka_server_BrokerTopicMetrics_TotalProduceRequestsPerSec_Count{topic="..."}[5m])
-  rate(kafka_server_BrokerTopicMetrics_TotalFetchRequestsPerSec_Count{topic="..."}[5m])
-- The metrics reference page says `TotalProduceRequestsPerSec` is collected per host. The
-  `topic` label is confirmed for customer metrics, so ask the docs team to correct the
-  page. */}
 
 ## Use AZ-aware listeners with Kafka Connect and MirrorMaker 2
 
@@ -344,14 +332,11 @@ contains `diskless_az`, ensure that the value specifies the intended AZ. The `di
 value takes precedence over the endpoint's AZ. For more information, see
 [How AZ-aware listeners work](#how-az-aware-listeners-work).
 
-### Endpoints after scaling or migration
+### Endpoints after scaling
 
 AZ-specific ports remain stable during scaling and broker replacement. However, the set
 of AZs that currently contain brokers can change. If this happens, run the checks in
 [Verify AZ-local routing](#verify-az-local-routing) again.
-
-If you migrate to another cloud, the AZ-specific ports can change. After a migration,
-retrieve the endpoints again and update `bootstrap.servers`.
 
 <RelatedPages/>
 
