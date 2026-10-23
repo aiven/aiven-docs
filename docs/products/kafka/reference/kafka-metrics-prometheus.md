@@ -374,6 +374,41 @@ for all topics and only list metrics for individual topics, filter with `topic!=
 | `kafka_server_group_coordinator_metrics_streams_group_rebalance_rate`            | Rate of rebalances specifically for Kafka Streams groups |
 | `kafka_server_group_coordinator_metrics_thread_idle_ratio_avg`                   | Average idle time ratio for the group coordinator background threads |
 
+### Broker version information
+
+The `kafka_server_app_info_info` metric reports the Apache Kafka version that each broker
+runs. Use it to:
+
+- Show the version of your service on a dashboard.
+- Alert when a service isn't running the version you expect.
+- Find which version each broker runs during a rolling upgrade.
+
+The metric is available after you apply a maintenance update to your service. When you
+upgrade a broker, the series with the old labels stops reporting and a series with the
+new labels appears.
+
+On Apache Kafka 4.x, use the `KafkaVersion` label to get the Apache Kafka version of your
+service. On Apache Kafka 3.x, use the `Version` label. On Apache Kafka 4.x, `Version`
+ends in `-inkless`, so use `KafkaVersion` to compare with upstream releases.
+
+The metric has the following labels:
+
+| Label          | Description                                                                                  |
+|----------------|----------------------------------------------------------------------------------------------|
+| `KafkaVersion` | The upstream Apache Kafka version, for example `4.2.2`. Available on Apache Kafka 4.x only.  |
+| `Version`      | The version that the broker reports, for example `4.2.2-inkless` on 4.x or `3.9.1` on 3.x.   |
+| `InklessTag`   | The Git tag of the Inkless build, for example `inkless-4.2.2-0.50`. Available on Apache Kafka 4.x only. |
+| `CommitId`     | The Git commit hash of the build that the broker runs.                                       |
+
+The following output is an example from an Apache Kafka 4.x service:
+
+```text
+kafka_server_app_info_info{CommitId="22b90cc506942530ecd3a670701b00d02a21aa44",InklessTag="inkless-4.2.2-0.50",KafkaVersion="4.2.2",Version="4.2.2-inkless",cloud="CLOUD_NAME",host="HOST_NAME",id="28",project="PROJECT_NAME",service="SERVICE_NAME",service_type="kafka"} 1
+```
+
+The `id` label identifies the broker. The other labels identify your project, service,
+cloud, and host.
+
 ### Tiered storage metrics
 
 Aiven for Apache Kafka includes several metrics to monitor the performance and
@@ -391,23 +426,23 @@ data copying, fetching, deleting, and their associated lags and errors.
 | `kafka_server_BrokerTopicMetrics_RemoteFetchBytesPerSec_Count`   | Number of bytes per second being fetched from remote storage                                                |
 | `kafka_server_BrokerTopicMetrics_RemoteFetchRequestsPerSec_Count`| Number of fetch requests per second from remote storage                                                     |
 | `kafka_server_BrokerTopicMetrics_RemoteFetchErrorsPerSec_Count`  | Number of errors per second encountered during remote fetch                                                 |
-| `kafka_server_BrokerTopicMetrics_RemoteDeleteRequestsPerSec_Count`| Number of delete requests per second to remote storage                                                     |
+| <code>kafka_server_BrokerTopicMetrics_<wbr />RemoteDeleteRequestsPerSec_Count</code>| Number of delete requests per second to remote storage                                                     |
 | `kafka_server_BrokerTopicMetrics_RemoteDeleteErrorsPerSec_Count` | Number of errors per second encountered during remote delete                                                |
 | `kafka_server_BrokerTopicMetrics_RemoteDeleteLagBytes_Value`     | Number of bytes in non-active segments marked for deletion but not yet deleted from remote storage           |
 | `kafka_server_BrokerTopicMetrics_RemoteDeleteLagSegments_Value`  | Number of non-active segments marked for deletion but not yet deleted from remote storage                   |
-| `kafka_server_BrokerTopicMetrics_BuildRemoteLogAuxStateErrorsPerSec_Count` | Rate of errors occurring while building remote log auxiliary state |
-| `kafka_server_BrokerTopicMetrics_BuildRemoteLogAuxStateRequestsPerSec_Count` | Rate of requests to build auxiliary state for remote tiered storage logs |
+| <code>kafka_server_BrokerTopicMetrics_<wbr />BuildRemoteLogAuxStateErrorsPerSec_<wbr />Count</code> | Rate of errors occurring while building remote log auxiliary state |
+| <code>kafka_server_BrokerTopicMetrics_<wbr />BuildRemoteLogAuxStateRequestsPerSec_<wbr />Count</code> | Rate of requests to build auxiliary state for remote tiered storage logs |
 | `kafka_server_BrokerTopicMetrics_RemoteLogMetadataCount_Value`   | Total count of remote log metadata entries |
 | `kafka_server_BrokerTopicMetrics_RemoteLogSizeBytes_Value`       | Total size in bytes of log segments currently stored in remote tiered storage |
-| `kafka_server_BrokerTopicMetrics_RemoteLogSizeComputationTime_Value` | Time taken to compute the aggregate size of the remote logs |
+| <code>kafka_server_BrokerTopicMetrics_<wbr />RemoteLogSizeComputationTime_Value</code> | Time taken to compute the aggregate size of the remote logs |
 | `kafka_server_DelayedRemoteFetchMetrics_ExpiresPerSec_Count`    | Rate at which delayed fetch requests from remote storage expire before being fulfilled |
-| `kafka_log_remote_RemoteLogManager_RemoteLogManagerTasksAvgIdlePercent_Value` | Average idle percentage of tasks within the Remote Log Manager |
-| `kafka_log_remote_RemoteLogManager_RemoteLogReaderFetchRateAndTimeMs_Count` | Total count of fetch operations initiated by the remote log reader |
-| `kafka_log_remote_RemoteLogManager_RemoteLogReaderFetchRateAndTimeMs_Mean` | Mean latency of fetch operations performed by the remote log reader |
-| `kafka_log_remote_RemoteLogManager_RemoteLogReaderFetchRateAndTimeMs_99thPercentile` | 99th percentile latency of fetch operations performed by the remote log reader |
-| `org_apache_kafka_storage_internals_log_RemoteStorageThreadPool_RemoteLogReaderAvgIdlePercent_OneMinuteRate` | One-minute moving average of the idle percentage of the remote log reader thread pool |
-| `org_apache_kafka_storage_internals_log_RemoteStorageThreadPool_RemoteLogReaderTaskQueueSize_Value` | Current number of pending tasks in the remote log reader's execution queue |
-| `kafka_server_RemoteLogManager_remote_copy_throttle_time_remote_copy_throttle_time_avg` | Average time that remote copy operations were artificially throttled |
-| `kafka_server_RemoteLogManager_remote_copy_throttle_time_remote_copy_throttle_time_max` | Maximum time that remote copy operations were artificially throttled |
-| `kafka_server_RemoteLogManager_remote_fetch_throttle_time_remote_fetch_throttle_time_avg` | Average time that remote fetch operations were artificially throttled |
-| `kafka_server_RemoteLogManager_remote_fetch_throttle_time_remote_fetch_throttle_time_max` | Maximum time that remote fetch operations were artificially throttled |
+| <code>kafka_log_remote_RemoteLogManager_<wbr />RemoteLogManagerTasksAvgIdlePercent_<wbr />Value</code> | Average idle percentage of tasks within the Remote Log Manager |
+| <code>kafka_log_remote_RemoteLogManager_<wbr />RemoteLogReaderFetchRateAndTimeMs_<wbr />Count</code> | Total count of fetch operations initiated by the remote log reader |
+| <code>kafka_log_remote_RemoteLogManager_<wbr />RemoteLogReaderFetchRateAndTimeMs_<wbr />Mean</code> | Mean latency of fetch operations performed by the remote log reader |
+| <code>kafka_log_remote_RemoteLogManager_<wbr />RemoteLogReaderFetchRateAndTimeMs_<wbr />99thPercentile</code> | 99th percentile latency of fetch operations performed by the remote log reader |
+| <code>org_apache_kafka_storage_internals_log_<wbr />RemoteStorageThreadPool_<wbr />RemoteLogReaderAvgIdlePercent_<wbr />OneMinuteRate</code> | One-minute moving average of the idle percentage of the remote log reader thread pool |
+| <code>org_apache_kafka_storage_internals_log_<wbr />RemoteStorageThreadPool_<wbr />RemoteLogReaderTaskQueueSize_Value</code> | Current number of pending tasks in the remote log reader's execution queue |
+| <code>kafka_server_RemoteLogManager_<wbr />remote_copy_throttle_time_<wbr />remote_copy_throttle_time_avg</code> | Average time that remote copy operations were artificially throttled |
+| <code>kafka_server_RemoteLogManager_<wbr />remote_copy_throttle_time_<wbr />remote_copy_throttle_time_max</code> | Maximum time that remote copy operations were artificially throttled |
+| <code>kafka_server_RemoteLogManager_<wbr />remote_fetch_throttle_time_<wbr />remote_fetch_throttle_time_avg</code> | Average time that remote fetch operations were artificially throttled |
+| <code>kafka_server_RemoteLogManager_<wbr />remote_fetch_throttle_time_<wbr />remote_fetch_throttle_time_max</code> | Maximum time that remote fetch operations were artificially throttled |

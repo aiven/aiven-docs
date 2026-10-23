@@ -240,6 +240,7 @@ keystores?
 Kibana
 Klaw
 Kpow
+KRaft
 Kubernetes
 kuromoji
 LibreDB
