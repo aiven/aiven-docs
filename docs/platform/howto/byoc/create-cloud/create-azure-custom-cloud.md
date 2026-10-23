@@ -8,6 +8,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
+import ByocTerraformBeta from "@site/static/includes/byoc-terraform-beta.md";
 
 Create a [custom cloud](/docs/platform/concepts/byoc) for BYOC in your Aiven organization to better address your specific business needs or project requirements.
 
@@ -47,6 +48,13 @@ subscription so that Aiven can access it:
   - **Console**: Access to the [Aiven Console](https://console.aiven.io/), or
   - **CLI**:
     - [Aiven CLI client](/docs/tools/cli) installed
+    - Aiven organization ID from the output of the `avn organization list` command or
+      from the [Aiven Console](https://console.aiven.io/) >
+      <ConsoleLabel name="userinformation"/> \> <ConsoleLabel name="organizations"/>.
+  - **Terraform**:
+    - [Aiven Provider for Terraform](/docs/tools/terraform) set up
+    - [Aiven CLI client](/docs/tools/cli) installed or access to the
+      [Aiven Console](https://console.aiven.io/) to download the infrastructure template
     - Aiven organization ID from the output of the `avn organization list` command or
       from the [Aiven Console](https://console.aiven.io/) >
       <ConsoleLabel name="userinformation"/> \> <ConsoleLabel name="organizations"/>.
@@ -132,7 +140,7 @@ Show minimum custom role permissions for the BYOC deployer
 
 ## Create a custom cloud
 
-Create a custom cloud either in the Aiven Console or with the Aiven CLI.
+Create a custom cloud in the Aiven Console, with the Aiven CLI, or with Terraform.
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Aiven Console" default>
@@ -509,6 +517,187 @@ ready to use.
    - `CUSTOM_CLOUD_ID` with the identifier of your custom cloud, which you can extract
      from the output of the [avn byoc list](/docs/tools/cli/byoc#avn-byoc-list) command,
      for example `018b6442-c602-42bc-b63d-438026133f60`.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+The [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+creates the custom cloud environment on the Aiven platform, provisions it, and enables it
+in your projects. It does not generate the infrastructure template: you download the
+template from Aiven and apply it in your Azure subscription with the Azure provider, as a
+separate Terraform configuration.
+
+<ByocTerraformBeta />
+
+1. Create the custom cloud environment with the
+   [`aiven_byoc_azure_entity`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_azure_entity)
+   resource.
+
+   ```hcl
+   resource "aiven_byoc_azure_entity" "example_cloud" {
+     organization_id  = var.organization_id
+     cloud_region     = "westeurope"
+     deployment_model = "standard"
+     display_name     = "byoc-cloud-prod-westeurope"
+     reserved_cidr    = "10.0.0.0/16"
+
+     contact_emails {
+       email     = "admin@example.com"
+       real_name = "John Doe"
+       role      = "Admin"
+     }
+   }
+
+   output "custom_cloud_environment_id" {
+     value = aiven_byoc_azure_entity.example_cloud.custom_cloud_environment_id
+   }
+   ```
+
+   Set the following:
+
+   - `organization_id`: ID of your Aiven organization, for example `org123a456b789`. Get
+     it
+     [from the Aiven Console or CLI](/docs/platform/howto/byoc/create-cloud/create-azure-custom-cloud#prerequisites).
+   - `cloud_region`: Azure region for your custom cloud. Pick a region from the **Cloud**
+     column in the supported
+     [Azure cloud regions](/docs/platform/reference/list_of_clouds#azure) table and drop
+     the `azure-` prefix, for example `azure-westeurope` > `westeurope`.
+   - `deployment_model`: `standard` or `standard_public`. Azure does not support the
+     enhanced compliance models.
+   - `display_name`: name of your custom cloud, which you can set arbitrarily.
+   - `reserved_cidr`: CIDR block defining the IP address range for the virtual networks
+     that Aiven creates in your Azure subscription, for example `10.0.0.0/16`,
+     `172.31.0.0/16`, or `192.168.0.0/20`.
+   - `contact_emails`: contacts Aiven can reach out to in case of technical issues with
+     the cloud. **Admin** is a mandatory role and is always required as a primary support
+     contact.
+
+   :::note
+   Changing `cloud_region`, `deployment_model`, or `reserved_cidr` later replaces the
+   custom cloud environment. Set them correctly the first time.
+   :::
+
+1. Apply the configuration:
+
+   ```bash
+   terraform apply
+   ```
+
+   The custom cloud environment is created in the `draft` state. It becomes `active`
+   after you provision it in step 4.
+
+1. Deploy the infrastructure template in your Azure subscription.
+
+   1. Download the template and the variables file with the Aiven CLI, passing the
+      custom cloud environment ID from the Terraform output:
+
+      ```bash
+      avn byoc template terraform get-template             \
+        --organization-id "ORGANIZATION_ID"                \
+        --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tf"
+      ```
+
+      ```bash
+      avn byoc template terraform get-vars                     \
+        --organization-id "ORGANIZATION_ID"                    \
+        --byoc-id "CUSTOM_CLOUD_ID" >| "tf_dir/tf_file.tfvars"
+      ```
+
+      You can also
+      [download both files in the Aiven Console](/docs/platform/howto/byoc/download-infrastructure-template).
+
+      :::important
+      Keep the template in a directory and state separate from your Aiven provider
+      configuration. The template uses the Azure provider, and Aiven regenerates it from
+      your custom cloud settings.
+      :::
+
+   1. Install the Aiven CCE enterprise application on your Entra tenant:
+
+      ```bash
+      az login --tenant "AZURE_TENANT_ID"
+      az ad sp create --id b40b60e2-10c8-4917-bc74-18a87950e767
+      ```
+
+      Replace `AZURE_TENANT_ID` with your Azure tenant ID. To look it up, run:
+      `az account show --query tenantId -o tsv`. The app ID is also available in the
+      variables file you downloaded as `aiven_cce_client_id`.
+
+      :::note
+      Run these commands **once per tenant**, regardless of how many custom clouds you
+      create on the same tenant. If the Aiven CCE enterprise application is already
+      installed on your tenant, skip this step.
+      :::
+
+   1. Apply the template in your Azure subscription:
+
+      ```bash
+      terraform init
+      terraform apply -var-file=FILE_NAME.tfvars
+      ```
+
+      Replace `FILE_NAME.tfvars` with the name of the variables file you downloaded.
+
+   1. Retrieve the values required for the provisioning step:
+
+      ```bash
+      terraform output -raw azure_subscription_id
+      terraform output -raw azure_tenant_id
+      ```
+
+1. Provision the custom cloud environment with the
+   [`aiven_byoc_azure_provision`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_azure_provision)
+   resource, passing the identifiers from the previous step. This gives Aiven access to
+   your Azure subscription and moves the environment from `draft` to `active`.
+
+   ```hcl
+   resource "aiven_byoc_azure_provision" "example_cloud" {
+     organization_id             = var.organization_id
+     custom_cloud_environment_id = aiven_byoc_azure_entity.example_cloud.custom_cloud_environment_id
+     azure_subscription_id       = var.azure_subscription_id
+     azure_tenant_id             = var.azure_tenant_id
+   }
+   ```
+
+   Both identifiers must be valid UUIDs.
+
+1. Enable your custom cloud in organizational units and projects with the
+   [`aiven_byoc_permissions`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_permissions)
+   resource.
+
+   ```hcl
+   resource "aiven_byoc_permissions" "example_cloud" {
+     organization_id             = var.organization_id
+     custom_cloud_environment_id = aiven_byoc_azure_provision.example_cloud.custom_cloud_environment_id
+     accounts                    = ["a22ba494e096"]
+     projects                    = ["project-prod", "project-dev"]
+   }
+   ```
+
+   Set `accounts` to the identifiers of your organizational units, which you can extract
+   from the output of the `avn organization list` command, and `projects` to the names of
+   the projects that can use the custom cloud.
+
+   :::note
+   The `accounts` and `projects` lists are authoritative: Terraform removes access for
+   any unit or project you leave out. This differs from
+   [`avn byoc cloud permissions add`](/docs/tools/cli/byoc#avn-byoc-cloud-permissions-add),
+   which merges into the existing set.
+   :::
+
+1. Apply the configuration:
+
+   ```bash
+   terraform apply
+   ```
+
+Your custom cloud is ready to use when its
+[status is **Active**](/docs/platform/howto/byoc/view-custom-cloud-status). To check it
+with Terraform, read the `state` attribute:
+
+```bash
+terraform show aiven_byoc_azure_provision.example_cloud
+```
 
 </TabItem>
 </Tabs>
