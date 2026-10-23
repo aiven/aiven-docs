@@ -10,8 +10,12 @@ import RelatedPages from "@site/src/components/RelatedPages";
 AWS BYOC environments use the tiered storage capability for data allocation. Cold data in your AWS custom cloud is stored in your AWS cloud account.
 
 :::note
-This is a
-[limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+- This is a
+  [limited availability feature](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+- This article covers AWS custom clouds. In a Google Cloud custom cloud that uses a
+  compliance deployment model, cold data is stored in Cloud Storage buckets in your own
+  Google Cloud project. See
+  [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 :::
 
 AWS [BYOC](/docs/platform/concepts/byoc) environments allow using tiered storage to store
