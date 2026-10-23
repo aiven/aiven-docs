@@ -1,0 +1,12 @@
+url: http://localhost:3000/docs/
+skipChecks:
+  - content-negotiation
+  - cache-header-hygiene
+  - markdown-content-parity
+  - auth-alternative-access
+  - auth-gate-detection
+  - markdown-link-portability
+options:
+  canonicalOrigin: https://aiven.io/docs
+  maxLinksToTest: 25
+  samplingStrategy: deterministic
