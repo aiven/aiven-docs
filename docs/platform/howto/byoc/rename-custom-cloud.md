@@ -37,7 +37,7 @@ custom cloud name. You can change this name any time later by following
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
@@ -71,7 +71,7 @@ avn byoc update                                 \
 ```
 
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 Change the `display_name` attribute of the resource that manages your custom cloud, then
 apply the configuration. Renaming the cloud does not replace it.
 

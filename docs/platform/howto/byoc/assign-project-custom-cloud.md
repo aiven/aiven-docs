@@ -43,7 +43,7 @@ cloud to be available.
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
@@ -104,7 +104,7 @@ avn byoc cloud permissions add                  \
 ```
 
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 Use the
 [`aiven_byoc_permissions`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_permissions)
 resource to enable your custom cloud in organizational units and projects.

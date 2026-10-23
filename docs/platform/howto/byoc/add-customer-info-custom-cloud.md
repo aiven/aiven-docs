@@ -44,7 +44,7 @@ a mandatory role that is always required as a primary support contact.
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 -   At least one
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
@@ -100,7 +100,7 @@ contact you omit is removed.
 :::
 
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 Edit the `contact_emails` blocks of the resource that manages your custom cloud, then
 apply the configuration.
 

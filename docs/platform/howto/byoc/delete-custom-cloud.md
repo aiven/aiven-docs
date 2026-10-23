@@ -47,7 +47,7 @@ them earlier, you're advised to do that after deleting your cloud.
 -   You have the [organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization.
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 -   You have at least one
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization.
@@ -95,7 +95,7 @@ avn byoc delete                               \
 ```
 
 </TabItem>
-<TabItem value="3" label="Terraform">
+<TabItem value="3" label="Terraform (AWS and Azure only)">
 Remove the `aiven_byoc_permissions`, provision, and entity resources of your custom cloud
 from the configuration, then apply it. If your configuration contains only the custom
 cloud resources, run `terraform destroy` instead.

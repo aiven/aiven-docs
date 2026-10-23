@@ -39,7 +39,8 @@ attribute of the resource that provisioned the cloud:
 terraform show aiven_byoc_aws_provision.example_cloud
 ```
 
-Use `aiven_byoc_azure_provision` for Azure custom clouds. The possible values are
+Use `aiven_byoc_azure_provision` for Azure custom clouds. The Aiven Provider for Terraform
+supports AWS and Azure custom clouds only. The possible values are
 `active`, `creating`, `creation_failed`, `deleted`, `deleting`, `deletion_failed`,
 `disconnected`, `draft`, `reconnecting`, and `validating`.
 
