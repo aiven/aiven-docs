@@ -4,6 +4,21 @@ title: End of life for Aiven services
 
 Learn about the upcoming end of life (EOL) for select Aiven services, including timelines, actions after end of life, recommended migration options, and next steps.
 
+## Aiven for MySQL® free tier
+
+**EOL date**: December 28, 2026
+
+After December 28, 2026, Aiven powers off all free Aiven for MySQL services and deletes
+their data and backups.
+
+Aiven for MySQL remains available on all paid plans. The free tier is the only part of
+the service that is discontinued.
+
+The recommended alternatives are the Aiven for MySQL Developer plan and the
+[Aiven for PostgreSQL® free tier](/docs/products/postgresql/concepts/pg-free-tier). For
+the migration paths and steps, see
+[Migrate off the Aiven for MySQL® free tier](/docs/products/mysql/howto/migrate-off-free-tier).
+
 ## Aiven for M3DB
 
 **EOL date**: April 30, 2025
