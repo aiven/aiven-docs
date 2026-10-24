@@ -7,7 +7,7 @@ import TrialCredits from "@site/static/includes/trial-credits-block-deletion.md"
 
 You can delete your personal user account as long as you are not a managed user of an organization.
 
-:::warning
+:::warning[Warning]
 This action is irreversible. All data is permanently removed and your cannot be recovered.
 :::
 
@@ -21,6 +21,6 @@ To delete your account:
 1.  Go to <ConsoleLabel name="userinformation"/> > <ConsoleLabel name="userprofile"/>.
 1.  Click **Delete account**.
 
-:::note
+:::note[Note]
 <TrialCredits/>
 :::

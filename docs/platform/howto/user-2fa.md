@@ -10,7 +10,7 @@ Two-factor authentication in Aiven provides an extra level of security by requir
 This only applies to logins using email and password. The Aiven platform
 cannot enforce 2FA for logins through third-party providers, including identity providers.
 
-:::warning
+:::warning[Warning]
 Enabling and disabling two-factor authentication revokes personal tokens
 that you
 [created with password authentication](/docs/platform/howto/set-authentication-policies#personal-tokens).
