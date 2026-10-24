@@ -4,10 +4,21 @@ title: Manage organizations
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import TrialCredits from "@site/static/includes/trial-credits-block-deletion.md";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Learn how to manage your organizations via the Aiven Console.
 
 ## Delete an organization
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`'],
+    },
+  ]}
+/>
+
 
 1.  Delete all
     [projects](/docs/platform/howto/manage-project#delete-a-project) in the organization
@@ -22,12 +33,21 @@ Learn how to manage your organizations via the Aiven Console.
     **Organization** page click **Delete**.
 1.  To confirm, click **Delete**.
 
-:::note
+:::note[Note]
 <TrialCredits/>
 :::
 
-
 ## Rename an organization
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`'],
+    },
+  ]}
+/>
+
 
 1.  In the organization, click **Admin**.
 1.  Click **Organization**.

@@ -17,7 +17,7 @@ Logs are retained for 30 days.
   items={[
     {
       label: 'Permissions',
-      values: ['role:organization:admin', 'organization:event_logs:read'],
+      values: ['`organization:event_logs:read`', '`role:organization:admin`'],
     },
   ]}
 />
