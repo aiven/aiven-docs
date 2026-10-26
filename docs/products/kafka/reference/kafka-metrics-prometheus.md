@@ -383,13 +383,12 @@ runs. Use it to:
 - Alert when a service isn't running the version you expect.
 - Find which version each broker runs during a rolling upgrade.
 
-The metric is available after you apply a maintenance update to your service. When you
-upgrade a broker, the series with the old labels stops reporting and a series with the
-new labels appears.
+If the metric isn't available, apply the pending
+[maintenance update](/docs/products/kafka/howto/maintenance-updates) for your service.
 
-On Apache Kafka 4.x, use the `KafkaVersion` label to get the Apache Kafka version of your
-service. On Apache Kafka 3.x, use the `Version` label. On Apache Kafka 4.x, `Version`
-ends in `-inkless`, so use `KafkaVersion` to compare with upstream releases.
+On Apache Kafka 4.x, use the `KafkaVersion` label to identify the upstream Apache Kafka
+version. The `Version` label includes the `-inkless` suffix. On Apache Kafka 3.x, use the
+`Version` label, which reports the upstream Apache Kafka version.
 
 The metric has the following labels:
 
