@@ -50,4 +50,4 @@ In the Aiven Console:
 
 ## Step 3: Add the redirect URL to your application
 
-In your identity provider, add the **Redirect URL** from the Aiven Console.
+In your identity provider, add the **Redirect URLs** from the Aiven Console.

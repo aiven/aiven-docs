@@ -38,6 +38,15 @@ all projects in that unit.
 
 ### Grant organization or unit permissions to a user or group
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
+
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
@@ -66,6 +75,15 @@ and set the `resource_type` to `organization` or `organization_unit`.
 
 ### Change organization or unit permissions for a user or group
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
+
 You can change the permissions granted at the organization or organizational unit level
 for a user or group. In the Aiven Console, you cannot change the resource for
 existing permissions. To change the resource, remove the existing permissions and
@@ -81,6 +99,15 @@ grant the permissions for the other resource.
 1. Add or remove permissions and click **Save changes**.
 
 ### Remove all organization or unit-level roles and permissions
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
 
 You can remove all permissions that you granted to a user or group at the
 organization or organizational unit level.
@@ -141,6 +168,15 @@ at the project level.
 
 ### Grant project permissions to a user or group
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:project:admin`', '`role:organization:admin`'],
+      },
+   ]}
+/>
+
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
@@ -165,6 +201,15 @@ and set the `resource_type` to `project`.
 
 ### Change permissions for a user or group
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:project:admin`', '`role:organization:admin`'],
+      },
+   ]}
+/>
+
 1. In the project, click <ConsoleLabel name="projectpermissions"/>.
 
 1. For the user or group click <ConsoleLabel name="actions"/> >
@@ -173,6 +218,15 @@ and set the `resource_type` to `project`.
 1. Add or remove permissions and click **Save changes**.
 
 ### Remove all project-level roles and permissions
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:project:admin`', '`role:organization:admin`'],
+      },
+   ]}
+/>
 
 To remove all permissions to a project:
 
