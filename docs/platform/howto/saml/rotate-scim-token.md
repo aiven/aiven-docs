@@ -5,11 +5,22 @@ title: Rotate SCIM tokens
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can manually rotate the SCIM token for an identity provider to maintain the security of your user provisioning setup.
 
 To avoid interruptions to your user provisioning,
 update the token in your identity provider configuration when you rotate a SCIM token.
+
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
 
 To generate a SCIM token:
 

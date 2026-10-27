@@ -2,15 +2,26 @@
 title: Support
 ---
 
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+
 All customers using paid services have access to the Basic support tier. Aiven also offers [paid support tiers](https://aiven.io/support-services) with faster response times, phone support, and other services. Custom [service level agreements](https://aiven.io/sla) are available for the Premium support tier.
 
 Customers who use only free services do not have access to support services.
 
 ## Change your support tier
 
-To change your organization's support tier, you must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-and have at least the Basic support tier.
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`'],
+    },
+    {
+      label: 'Support tier',
+      values: ['Basic'],
+    },
+  ]}
+/>
 
 1.  In the organization, click **Admin**.
 
@@ -20,7 +31,7 @@ and have at least the Basic support tier.
 
 1.  Select a **Billing group**.
 
-    :::important
+    :::important[Important]
     The support costs for all current and future services in the
     selected organization and its organizational units will be
     added to the invoice for this billing group.
@@ -62,7 +73,7 @@ your account team.
 
 1.  Enter a detailed **Description** of the issue.
 
-    :::note
+    :::note[Note]
     Include the following information in the description to help the
     support team provide timely assistance:
 
@@ -76,7 +87,7 @@ your account team.
 
 1.  Optional: Upload files such as screenshots, logs, or [HAR files](#create-har-files).
 
-    :::important
+    :::important[Important]
     Aiven support will never ask you to provide sensitive data such as
     passwords or personal information. Remove or replace sensitive data
     in files that you attach to support tickets.
@@ -107,8 +118,16 @@ To add Aiven users to a support ticket:
 
 ## Get notifications for all support tickets
 
-[Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-can get notifications for updates on all tickets in their organization.
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`'],
+    },
+  ]}
+/>
+
+To get notifications for updates on all tickets in the organization:
 
 1.  In the [Aiven Console](https://console.aiven.io/), click **Support**
     to open the Aiven Support Center.

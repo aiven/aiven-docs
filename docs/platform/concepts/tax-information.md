@@ -3,6 +3,7 @@ title: Tax information for Aiven services
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Aiven services are provided by Aiven Ltd, a private limited company incorporated in Finland, but operating in various countries. None of Aiven's marketed prices include value-added or other taxes.
 
@@ -44,9 +45,14 @@ sales taxes, depending on the local tax legislation of the customer.
 
 ## Add a VAT ID to a billing group
 
-You must have the `organization:billing:write`
-[permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to add a VAT ID to a billing group.
+<RequirementsPanel
+	items={[
+		{
+			label: 'Permissions',
+			values: ['`organization:billing:write`'],
+		},
+	]}
+/>
 
 1.  Click **Billing**.
 1.  Click <ConsoleLabel name="billinggroups"/>.

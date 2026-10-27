@@ -27,6 +27,15 @@ organizational units and projects in the organization.
 Grant permissions at the organizational unit level to give users access to
 all projects in that unit.
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:organization:admin`'],
+      },
+   ]}
+/>
+
 ### Grant organization or unit permissions to a user or group
 
 <RequirementsPanel
@@ -119,6 +128,15 @@ and all its resources and settings.
 
 You cannot make application users super admin.
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['Super admin'],
+      },
+   ]}
+/>
+
 :::important[Important]
 This role should be limited to as few users as possible for organization setup and
 emergency use. For daily administrative tasks, assign users the
@@ -138,6 +156,15 @@ select **Revoke super admin**.
 
 You can give users access to a specific project by granting them roles and permissions
 at the project level.
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`role:project:admin`', '`role:organization:admin`'],
+      },
+   ]}
+/>
 
 ### Grant project permissions to a user or group
 
