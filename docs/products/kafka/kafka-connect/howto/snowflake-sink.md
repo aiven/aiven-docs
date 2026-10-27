@@ -250,6 +250,7 @@ This example creates a new 4.2.1 connector. It isn't a migration configuration.
   "name": "my-test-snowflake",
   "connector.class": "com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector",
   "topics": "TOPIC_LIST",
+  "snowflake.topic2table.map": "TOPIC_NAME:TABLE_NAME",
   "key.converter": "io.confluent.connect.avro.AvroConverter",
   "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
   "key.converter.basic.auth.credentials.source": "USER_INFO",
@@ -299,6 +300,10 @@ Connector and converter settings:
 - `name`: Unique connector name
 - `connector.class`: Connector implementation for the selected version
 - `topics`: Comma-separated topics to load into Snowflake
+- `snowflake.topic2table.map`: Maps Kafka topics to Snowflake tables.
+  Specify comma-separated `topic:table` pairs, for example,
+  `book:BOOK,product:PRODUCT`. If omitted, the connector derives
+  table names from Kafka topic names.
 - `key.converter` and `value.converter`: Converters for Kafka message keys and values. The
   example uses `io.confluent.connect.avro.AvroConverter`.
 
@@ -506,6 +511,7 @@ placeholders with your own values.
   "value.converter.basic.auth.credentials.source": "USER_INFO",
   "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
   "topics": "test",
+  "snowflake.topic2table.map": "test:TEST",
   "snowflake.url.name": "myorg-myaccount.snowflakecomputing.com",
   "snowflake.user.name": "aiven",
   "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
