@@ -44,4 +44,4 @@ Open the Aiven Console in a new tab:
 
 In the Microsoft Entra admin center,
 [add a redirect URI](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri)
-and paste the **Redirect URL** from the Aiven Console.
+and paste the **Redirect URLs** from the Aiven Console.
