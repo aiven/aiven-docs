@@ -7,6 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Organizations and organizational units help you group projects and apply common settings like authentication and access.
 
@@ -14,6 +15,15 @@ When you sign up for Aiven, an organization is automatically created for you.
 You can add organizational units in your organization to group related projects
 and create custom
 [hierarchical organizations](/docs/platform/concepts/orgs-units-projects).
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`'],
+    },
+  ]}
+/>
 
 ## Create an organizational unit
 
@@ -49,7 +59,7 @@ are available in the
 You can create only one organization for your user account. To separate and organize your
 projects and services, create organizational units.
 
-:::important
+:::important[Important]
 You can only verify a domain in one organization, meaning you can't set up SAML
 authentication, user provisioning with SCIM, or managed users for the same domain
 in another organization. Additionally, support and commitment contracts cannot
@@ -79,7 +89,7 @@ organization, log in to the Aiven Console using another authentication method.
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-:::note
+:::note[Note]
 You cannot create an organization with a token that you created when you were logged in
 using an [identity provider](/docs/platform/howto/list-identity-providers).
 :::

@@ -6,11 +6,21 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Create groups of users in your organization to make it easier to manage access to your organization's resources.
 
 You can [grant permissions](/docs/platform/howto/manage-permissions) to groups
 for projects, giving them the right level of access to the project and its services.
+
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`organization:groups:write`', '`role:organization:admin`'],
+        },
+    ]}
+/>
 
 ## Create a group
 
@@ -38,6 +48,8 @@ More information on this resource and its configuration options are available in
 
 You can only add users that are
 [part of your organization](/docs/platform/howto/manage-org-users) to your groups.
+The `organization:groups:write` permission only allows adding users to groups
+that have no permissions.
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>

@@ -3,6 +3,7 @@ title: Managed users
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 The managed users feature lets you centrally manage your organization's users and helps you to secure your organization in Aiven.
 
@@ -26,9 +27,27 @@ Users in an organization with a verified domain automatically become managed use
 
 ## View all managed users in an organization
 
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`organization:users:read`', '`role:organization:admin`'],
+    },
+  ]}
+/>
+
 1. Click **Admin** > **Users**.
 
 ## Deactivate a managed user
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`organization:users:write`', '`role:organization:admin`'],
+    },
+  ]}
+/>
 
 1. Click **Admin**.
 1. Select **Users**.
