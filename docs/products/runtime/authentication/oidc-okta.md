@@ -29,7 +29,7 @@ Open the Okta admin console in a new tab:
 
 1. [Create a custom app integration](https://developer.okta.com/docs/guides/create-an-app-integration/openidconnect/main/#create-a-custom-app-integration).
    - Select **OIDC - OpenID Connect** and **Web Application**.
-1. In **Sign-in redirect URIs**, paste the **Redirect URL** from the Aiven Console.
+1. In **Sign-in redirect URIs**, paste the **Redirect URLs** from the Aiven Console.
 1. Select the users or groups that can access the app and click **Save**.
 1. On **General**, in the **Client Credentials**,
    copy the **Client ID** and **Client Secret**.
