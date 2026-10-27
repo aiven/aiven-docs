@@ -219,11 +219,12 @@ const config: Config = {
       {
         siteTitle: 'Aiven docs',
         siteDescription:
-          'Official technical documentation for Aiven, the AI-ready Open Source Data Platform. Comprehensive guides for deploying, scaling, and monitoring managed services including Apache Kafka, PostgreSQL, MySQL, OpenSearch, Redis, ClickHouse, and Flink. Covers platform features like Bring Your Own Cloud (BYOC), VPC peering, and authentication. Includes reference documentation for Aiven Developer Tools: CLI, API, Terraform Provider, and Kubernetes Operator.',
-        depth: 5,
+          'Official technical documentation for Aiven, the AI-ready Open Source Data Platform. Guides cover conceptual and procedural information on managed data services, Runtime applications, Managed Agents, AI Gateway, and more.',
+        depth: 3,
         content: {
           enableLlmsFullTxt: true,
           excludeRoutes: ['**/search', '**/search.md'],
+          relativePaths: false,
         },
       },
     ],
