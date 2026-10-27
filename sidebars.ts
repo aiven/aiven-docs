@@ -1190,6 +1190,22 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Developer tier',
+          items: [
+            {
+              type: 'doc',
+              id: 'products/clickhouse/dev-tier/clickhouse-dev-tier',
+              label: 'Overview',
+            },
+            {
+              type: 'doc',
+              id: 'products/clickhouse/dev-tier/create-dev-tier-clickhouse-service',
+              label: 'Create a Developer tier service',
+            },
+          ],
+        },
+        {
+          type: 'category',
           label: 'Connect to service',
           link: {
             type: 'doc',
