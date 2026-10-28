@@ -151,7 +151,8 @@ available in your project.
 
 ## Use Codex with AI gateway models
 
-1. Add the `aiven` provider to the `~/.codex/config.toml` file:
+1. Add the `aiven` provider to the `~/.codex/config.toml` file (and remove any
+   legacy `[profiles.aiven]` section from `~/.codex/config.toml` if present):
 
    ```toml
    [model_providers.aiven]
@@ -202,12 +203,20 @@ available in your project.
              "id": "claude-sonnet-5-5",
              "name": "claude-sonnet-5-5",
              "api": "anthropic-messages",
-             "baseUrl": "https://ai.aiven.io"
+             "baseUrl": "https://ai.aiven.io",
+             "contextWindow": 1000000,
+             "maxTokens": 64000,
+             "reasoning": true,
+             "input": ["text", "image"]
            },
            {
              "id": "gpt-6.1-sol",
              "name": "gpt-6.1-sol",
-             "api": "openai-responses"
+             "api": "openai-responses",
+             "contextWindow": 272000,
+             "maxTokens": 128000,
+             "reasoning": true,
+             "input": ["text", "image"]
            }
          ]
        }
@@ -246,7 +255,12 @@ available in your project.
            "apiKey": "{env:AIVEN_AI_GATEWAY_KEY}"
          },
          "models": {
-           "claude-sonnet-5-5": {}
+           "claude-sonnet-5-5": {
+             "limit": {
+               "context": 1000000,
+               "output": 64000
+             }
+           }
          }
        }
      }
