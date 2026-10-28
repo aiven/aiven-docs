@@ -7999,8 +7999,8 @@ __metadata:
   linkType: hard
 
 "body-parser@npm:~1.20.3":
-  version: 1.20.6
-  resolution: "body-parser@npm:1.20.6"
+  version: 1.20.9
+  resolution: "body-parser@npm:1.20.9"
   dependencies:
     bytes: "npm:~3.1.2"
     content-type: "npm:~1.0.5"
@@ -8010,11 +8010,11 @@ __metadata:
     http-errors: "npm:~2.0.1"
     iconv-lite: "npm:~0.4.24"
     on-finished: "npm:~2.4.1"
-    qs: "npm:~6.15.1"
+    qs: "npm:~6.16.0"
     raw-body: "npm:~2.5.3"
     type-is: "npm:~1.6.18"
     unpipe: "npm:~1.0.0"
-  checksum: 10c0/ad477209f1e714c41fa892a7d2fe22e10b23262103cc25cc6492dd3e6f7869cd2d8b00928b543a1a14d3c3663432452a192efd00422fad6f3687b0e38f7e3b07
+  checksum: 10c0/685d3208335377a3dfc6d7bc8b2af6d40d38b9a72e25bab4d9f7aff19d059729d5b1b3a9f5561274f460020bb9166c211d5302abe0b45452665420ca5e16013b
   languageName: node
   linkType: hard
 
@@ -9802,14 +9802,14 @@ __metadata:
   linkType: hard
 
 "dompurify@npm:^3.3.3":
-  version: 3.4.16
-  resolution: "dompurify@npm:3.4.16"
+  version: 3.4.17
+  resolution: "dompurify@npm:3.4.17"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10c0/65a901c6b6d489d3e898f67223d81dac66d613cda48f5785f0ed52a4ae320c4b2745490a58c14161e29f0273080fea0a0cb234a9ef892650e1a9b2a7befa07a5
+  checksum: 10c0/6a12251ef5e700fc91b6d96d33e9f8b5fd590c55276f632cf42d182c5808e9f48d5bef435ab26eac235dfcc05ed8fe95e1c8308dcc502bf1050e561f14d0361a
   languageName: node
   linkType: hard
 
@@ -10431,9 +10431,9 @@ __metadata:
   linkType: hard
 
 "fast-uri@npm:^3.0.1":
-  version: 3.1.8
-  resolution: "fast-uri@npm:3.1.8"
-  checksum: 10c0/c9c47860a7f9110176d94bb30a02942182f0bfc8d6780e9702f320336dc2dadb83b1d9879cceaf8d4b439642d1ec6d78c317cb808ab155455551bd5d9d7c22d8
+  version: 3.1.9
+  resolution: "fast-uri@npm:3.1.9"
+  checksum: 10c0/052757540d8c0bbc16bb124a45b8f5cb5d0932f9b89f019221ee41cdb3cafc1db44b2e809d6b888b87922af3e5560a863124454e9d9193e1fc955887357b5add
   languageName: node
   linkType: hard
 
@@ -11732,9 +11732,9 @@ __metadata:
   linkType: hard
 
 "ip-address@npm:^10.0.1":
-  version: 10.7.2
-  resolution: "ip-address@npm:10.7.2"
-  checksum: 10c0/290b9c63289b2a89a442dac19eff88d919e65cd41d1a720fa963be736e126f3b0cf4f88f6056b06abbf4a95300dc9ce5362a773e012ef30e0400074d175b9d31
+  version: 10.7.5
+  resolution: "ip-address@npm:10.7.5"
+  checksum: 10c0/0213462eada955051a4d5927a62f6613b7bf0f4b426347641491ef9c8498ee6e1ef0bcbe1455382de6d61771b0ab4a344919102d4b614d284161ed8df620125f
   languageName: node
   linkType: hard
 
@@ -15068,12 +15068,12 @@ __metadata:
   linkType: hard
 
 "postcss-selector-parser@npm:^6.0.11, postcss-selector-parser@npm:^6.0.16":
-  version: 6.1.4
-  resolution: "postcss-selector-parser@npm:6.1.4"
+  version: 6.1.5
+  resolution: "postcss-selector-parser@npm:6.1.5"
   dependencies:
     cssesc: "npm:^3.0.0"
     util-deprecate: "npm:^1.0.2"
-  checksum: 10c0/996f3290dee08ecb073d5f396d1134e619494cfd83140aec07a29618ee1e76d370769a8959d4c0cfefb24aa96dcffa4e7c4937dd881e03b735d50cba959ceb19
+  checksum: 10c0/1b328959d68b90a680979cfb99501fe3781f2da61e56748a912c9a9c8c20f9644a0bd510ac820d74d94ed0990bce747aea75cc5b17b966ea3a70c7c1932d31fd
   languageName: node
   linkType: hard
 
@@ -15308,13 +15308,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:~6.15.1":
-  version: 6.15.3
-  resolution: "qs@npm:6.15.3"
+"qs@npm:~6.16.0":
+  version: 6.16.1
+  resolution: "qs@npm:6.16.1"
   dependencies:
     es-define-property: "npm:^1.0.1"
     side-channel: "npm:^1.1.1"
-  checksum: 10c0/8f3f6e45ece255347d57696628401cde29e9ec649fff698b53bd3150dea7cefdf33036e1bc1826b9f110bfa7cb0ec4ab9f5297eca628ce216c55af82c304e08e
+  checksum: 10c0/84ee9124b251ab2953132fbea1d70c966aa6e6496cccabedbbb83afa412bf4177bddebc779ca3ddafe23da83b2f593d530b41be6a726e971404fabb20ff22c94
   languageName: node
   linkType: hard
 
@@ -17328,9 +17328,9 @@ __metadata:
   linkType: hard
 
 "undici@npm:^7.19.0":
-  version: 7.30.0
-  resolution: "undici@npm:7.30.0"
-  checksum: 10c0/011a321a9198532b0f0504740faa43b9ab8fcc0e4f60104e5c9cb808a61faeb03e4be4aec4f0c65f47913d7c7d9d91591793a6cb9ab843f98ca2c3d711c4a34c
+  version: 7.30.1
+  resolution: "undici@npm:7.30.1"
+  checksum: 10c0/c838089b010e8e28a9a5358d4bf4621e0c8d7bb70058b23e819667349c4c0b6791a7c8bc9bbe94ff0923db132faae0d9d9592b9743eda4f2b49466fa57482213
   languageName: node
   linkType: hard
 
