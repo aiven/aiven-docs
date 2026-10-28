@@ -28,16 +28,21 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 1. Copy the key and save it somewhere safe.
    You cannot view the token after you close this window.
 
+To configure coding agents and SDKs to use the key, click **Connect with AI**
+on the **AI Gateway** page. For manual setup, see
+[Use with coding agents](/docs/products/ai-gateway/use-with-agents) and
+[Use with SDKs](/docs/products/ai-gateway/use-sdks).
+
 ## Revoke a key
 
-1. In your project click AI Gateway.
+1. In your project click **AI Gateway**.
 1. Click **API keys**.
 1. For the key to revoke, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="revokekey"/>.
 1. Click **Revoke**.
 
 ## Rename a key
 
-1. In your project click AI Gateway.
+1. In your project click **AI Gateway**.
 1. Click **API keys**.
 1. For the key to rename, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="editkey"/>.
 1. Click **Save changes**.
