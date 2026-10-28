@@ -31,6 +31,19 @@ If the status is **Creation failed**, provisioning validation encountered an
 unrecoverable error. Delete the custom cloud and re-create it after resolving the
 issue.
 
+If you manage your custom cloud with the
+[Aiven Provider for Terraform](/docs/tools/terraform), you can also read the `state`
+attribute of the resource that provisioned the cloud:
+
+```bash
+terraform show aiven_byoc_aws_provision.example_cloud
+```
+
+Use `aiven_byoc_azure_provision` for Azure custom clouds. The Aiven Provider for Terraform
+supports AWS and Azure custom clouds only. The possible values are
+`active`, `creating`, `creation_failed`, `deleted`, `deleting`, `deletion_failed`,
+`disconnected`, `draft`, `reconnecting`, and `validating`.
+
 <RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
