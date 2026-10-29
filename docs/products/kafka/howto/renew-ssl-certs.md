@@ -106,9 +106,9 @@ To switch your clients to the renewed certificates:
 1. Deploy them to every client that uses the service user.
 1. [Acknowledge the renewal](#acknowledge-new-ssl-certificate-usage).
 
-Aiven retires the previous CA after every service presents a certificate signed by the
-new CA and every renewal is acknowledged, or when the previous CA expires. After that,
-certificates that the previous CA signed stop working, even before the date in the
+Aiven retires the previous CA after you acknowledge every renewal and every service
+presents a certificate signed by the new CA, or when the previous CA expires. Then
+certificates signed by the previous CA stop working, even before the date in the
 notification. If you don't acknowledge a renewal, Aiven acknowledges it about a week
 after the date in the notification.
 
