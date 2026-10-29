@@ -11,6 +11,7 @@ declare global {
       capture: (event: string, properties?: Record<string, unknown>) => void;
     };
     OnetrustActiveGroups?: string;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
