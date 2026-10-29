@@ -1818,9 +1818,6 @@ const sidebars: SidebarsConfig = {
             'products/opensearch/howto/migrate-knn-nmslib-engine',
             'products/opensearch/howto/set_index_retention_patterns',
             'products/opensearch/concepts/index-replication',
-            'products/opensearch/concepts/cross-cluster-replication-opensearch',
-            'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
-            'products/opensearch/howto/ccr-best-practices-opensearch',
             'products/opensearch/howto/resolve-shards-too-large',
             'products/opensearch/howto/handle-low-disk-space',
             'products/opensearch/reference/low-space-watermarks',
@@ -1869,7 +1866,6 @@ const sidebars: SidebarsConfig = {
             'products/opensearch/howto/fork-service',
             'products/opensearch/howto/change-cloud-region',
             'products/opensearch/reference/advanced-params',
-            'products/opensearch/concepts/dedicated-node-roles',
             'products/opensearch/concepts/hot-warm-tiering',
             'products/opensearch/howto/hot-warm-tiering',
             'products/opensearch/concepts/high-availability-for-opensearch',
@@ -1899,6 +1895,19 @@ const sidebars: SidebarsConfig = {
             'products/opensearch/howto/disk-autoscaler',
             'products/opensearch/howto/prepare-for-high-load',
             'products/opensearch/concepts/service-memory',
+            'products/opensearch/concepts/dedicated-node-roles',
+            {
+              type: 'category',
+              label: 'Cross-cluster replication',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/concepts/cross-cluster-replication-opensearch',
+              },
+              items: [
+                'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                'products/opensearch/howto/ccr-best-practices-opensearch',
+              ],
+            },
           ],
         },
         {
