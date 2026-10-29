@@ -11,7 +11,8 @@ This skill guides agents in writing clear, consistent procedural documentation t
 
 Before writing or reviewing procedures, verify:
 
-- [ ] **Intro sentence**: One sentence, single line, immediately after frontmatter, states goal/benefit
+- [ ] **Steps verified**: All steps are verified against source docs, actual UI, or direct knowledge (never guessed or inferred). Tech writers are alerted when you cannot verify the steps.
+- [ ] **Intro sentence**: One sentence, single line, immediately after frontmatter, **focuses on benefit or outcome** (not mechanics)
 - [ ] **Permissions**: Most procedures require specific roles or permissions, and should include the `RequirementsPanel` (see [documenting-permissions](#related-skills) skill)
 - [ ] **Prerequisites**: List requirements only (no instructions); link if setup steps needed
 - [ ] **Structure**: Group related tasks in section headings using imperative verbs
@@ -24,22 +25,37 @@ Before writing or reviewing procedures, verify:
 - [ ] **No step results**: Don't describe expected outcomes in step text
 - [ ] **Terraform**: Include only for example usage, attributes, or getting started (not deletion)
 - [ ] **Cross-references**: Link to related docs when needed
+- [ ] **Related pages**: Use the `<RelatedPages/>` component only if there are actual related internal docs (never invent or guess)
 
 ## Core rules
+
+### Accuracy and verification
+
+**CRITICAL: Never guess about steps** (@procedure)
+- If you don't know the actual steps, do not write placeholder or inferred steps
+- Adding incorrect steps is worse than not documenting them at all. They cause a loss of trust and additional work.
+- Do not use pattern-matching from similar procedures to fill in steps
+- If steps are missing: say so explicitly in a comment or draft note
+- At most, add a section heading (e.g., "## Enable AI features") but leave it empty or add `[Steps to be confirmed]`
+- Always verify steps against source documentation, actual UI, or direct knowledge
 
 ### Structure
 
 **Intro sentence** (@universal @procedure)
 - One sentence placed immediately after the frontmatter
 - Must be on a single line (ignore linter for this sentence)
-- States the goal or benefit of the procedure
-- Example: "Learn how to manage your organizations via the Aiven Console."
+- **Focuses on the benefit or outcome**, not just the mechanics
+- Lead with what the reader will achieve or gain, not just what they'll do
+- Good: "Enable AI-generated descriptions and classifications for your DataHub ingestion sources."
+- Avoid: "Learn how to manage your organizations via the Aiven Console." (starts with "Learn how to")
 
 **Prerequisites** (@procedure)
+- Always use "Prerequisites" as the section heading (not "Requirements")
 - Optional but recommended for complex procedures
 - List requirements only; do not include instructions
 - If setup steps are needed, include them in the main procedure or link to separate docs
 - Use a bulleted list introduced with a complete sentence
+- Format items in plain language without bold labels (e.g., "An API key for OpenAI" not "**API key:** An API key for OpenAI")
 
 **Section headings** (@procedure)
 - Use imperative verbs for task-based headings
@@ -88,7 +104,17 @@ Before writing or reviewing procedures, verify:
 - Refer to lists as "the following" (not "below")
 - Example: "Prerequisites include the following:" or "To set up the service, follow these steps:"
 
-**Cross-references** (@procedure)
+**Cross-references and related pages** (@procedure)
+
+**Related pages component:**
+- Use `<RelatedPages/>` at the end of a document ONLY if there are actual relevant internal docs
+- Never invent, guess, or assume related pages; only add what genuinely belongs
+- Never add generic external links (e.g., "See the main product docs") unless verified to work and valuable
+- Always check with the writer before adding external links and verify they work
+- Not every document needs a RelatedPages section; skip it if there are no genuine related pages
+- Import at the top if used: `import RelatedPages from "@site/src/components/RelatedPages";`
+
+**Within-document links:**
 - Link to related procedures: "[Delete projects](/docs/platform/howto/manage-project#delete-a-project)"
 - Use link text matching the target page title when possible
 - Try to link text that describes the action ("You can [delete your projects](/docs/platform/howto/manage-project#delete-a-project) later")
