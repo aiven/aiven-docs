@@ -1,6 +1,6 @@
 ---
-title: Migrate off the Aiven for MySQL® free tier
-sidebar_label: Migrate off the free tier
+title: "Aiven for MySQL® free tier: migration options"
+sidebar_label: Free tier migration options
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
@@ -9,9 +9,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Move your data off a free Aiven for MySQL® service before the free tier shuts down by upgrading to a paid plan, switching to Aiven for PostgreSQL®, or exporting your data.
 
 :::warning
-**Shutdown date**: December 28, 2026
+**Shutdown date**: [shutdown date TBC]
 
-After December 28, 2026, Aiven powers off all free Aiven for MySQL services and
+After [shutdown date TBC], Aiven powers off all free Aiven for MySQL services and
 deletes their data and backups. Move your data before this date.
 :::
 
@@ -25,8 +25,8 @@ The following table lists the stages of the free tier shutdown.
 | Stage | What happens |
 | ----- | ------------ |
 | Announcement | You cannot create new free Aiven for MySQL services. Existing free services keep running. |
-| Until December 28, 2026 | Your free service runs as before. Upgrade it, migrate your data, or export it. |
-| December 28, 2026 | Aiven powers off all remaining free services and deletes their data and backups. |
+| Until [shutdown date TBC] | Your free service runs as before. Upgrade it, migrate your data, or export it. |
+| [shutdown date TBC] | Aiven powers off all remaining free services and deletes their data and backups. |
 
 Data deleted after the shutdown date cannot be recovered. Aiven support cannot restore
 a deleted free service or its backups.
@@ -45,8 +45,9 @@ Pick the path that matches what you need:
 
 Upgrading keeps your data, your service name, and your connection details. The
 Developer plan is a paid plan that adds disk storage and
-[Basic tier support](/docs/platform/howto/support). For plan contents and limitations,
-see [Service pricing](/docs/platform/concepts/service-pricing).
+[Basic tier support](/docs/platform/howto/support). For the plans available to your
+service, see
+[Change the plan for your Aiven for MySQL® service](/docs/products/mysql/howto/change-service-plan).
 
 To upgrade your free service:
 

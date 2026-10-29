@@ -104,9 +104,9 @@ Limitations of the Aiven for OpenSearch Developer tier are:
 Aiven reserves the right to change the cloud provider, region, or configuration
 of these Developer tier services at any point in time.
 
-#### Aiven for PostgreSQL and Aiven for MySQL
+#### Aiven for PostgreSQL
 
-The Developer tier is available for Aiven for PostgreSQL® and Aiven for MySQL® services,
+The Developer tier is available for Aiven for PostgreSQL® services,
 letting you scale up your service in a cost-effective way.
 
 The Developer tier includes:
@@ -126,8 +126,8 @@ Limitations of the Developer tier are:
 -   No static IPs
 -   No integrations
 -   No forking
--   For PostgreSQL: No connection pooling
--   For PostgreSQL: `max_connections` limit set to `20`
+-   No connection pooling
+-   `max_connections` limit set to `20`
 
 Aiven reserves the right to change the cloud provider, region, or configuration
 of these Developer tier services at any point in time.

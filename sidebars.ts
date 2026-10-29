@@ -1751,7 +1751,7 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/howto/do-check-service-migration',
                 'products/mysql/howto/migrate-db-to-aiven-via-console',
                 'products/mysql/howto/migrate-from-external-mysql',
-                'products/mysql/howto/migrate-off-free-tier',
+                'products/mysql/howto/free-tier-migration-options',
                 'products/mysql/howto/migrate-to-postgresql',
               ],
             },
