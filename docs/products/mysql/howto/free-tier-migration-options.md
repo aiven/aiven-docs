@@ -82,4 +82,3 @@ is unrecoverable.
 - [Migrate from Aiven for MySQL® to Aiven for PostgreSQL®](/docs/products/mysql/howto/migrate-to-postgresql)
 - [Backup and restore Aiven for MySQL® with mysqldump or mydumper](/docs/products/mysql/howto/migrate-database-mysqldump)
 - [Service pricing](/docs/platform/concepts/service-pricing)
-- [End of life for Aiven services](/docs/platform/reference/end-of-life)
