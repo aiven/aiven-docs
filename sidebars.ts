@@ -1191,12 +1191,11 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Developer tier',
+          link: {
+            type: 'doc',
+            id: 'products/clickhouse/dev-tier/clickhouse-dev-tier',
+          },
           items: [
-            {
-              type: 'doc',
-              id: 'products/clickhouse/dev-tier/clickhouse-dev-tier',
-              label: 'Overview',
-            },
             {
               type: 'doc',
               id: 'products/clickhouse/dev-tier/create-dev-tier-clickhouse-service',
