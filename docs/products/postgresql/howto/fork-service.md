@@ -24,7 +24,7 @@ pools are copied to the new service.
 - Service integrations are not copied to the fork.
 - Cross-project forking is supported only within the same organization.
 
-<ForkInstructions/>
+<ForkInstructions backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 
 <ForkPitr backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 

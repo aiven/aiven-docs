@@ -7,9 +7,10 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-1. In your service, {props.backupsNav ? props.backupsNav : <ConsoleLabel name="backups"/>}.
-1. Click **Fork & restore**.
-1. Choose the point in time to fork from.
+1. In your service, {props.backupsNav || <>click <ConsoleLabel name="backups"/></>}.
+1. Click **Fork service**.
+1. In the **New database fork** window, set **Backup version** to
+   **Point in time**, then choose the time to fork from.
 1. Enter a name, and choose the cloud and plan.
 1. Click **Create fork**.
 

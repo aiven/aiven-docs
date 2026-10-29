@@ -7,7 +7,7 @@ import ForkService from "@site/static/includes/fork-service-console.md";
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
-<ForkService/>
+<ForkService backupsNav={props.backupsNav}/>
 
 </TabItem>
 <TabItem value="cli" label="CLI">
