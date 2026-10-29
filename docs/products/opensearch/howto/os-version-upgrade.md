@@ -109,21 +109,26 @@ curl "$SERVICE_URI/INDEX_NAME/_settings?filter_path=*.settings.index.analysis"
 
 To resolve this, for each affected index:
 
-- **No analyzer uses the filter**: Close the index, remove the filter definition, and
-  reopen the index. Use a wildcard so that every setting of the filter is removed, for
-  example for a filter named `dutch_stemmer`:
+#### No analyzer uses the filter
 
-  ```bash
-  curl -X POST "$SERVICE_URI/INDEX_NAME/_close"
-  curl -X PUT "$SERVICE_URI/INDEX_NAME/_settings" \
-       -H "Content-Type: application/json" \
-       -d '{"index.analysis.filter.dutch_stemmer.*": null}'
-  curl -X POST "$SERVICE_URI/INDEX_NAME/_open"
-  ```
-- **An analyzer uses the filter**: Reindex the index with a supported stemmer, for example
-  `dutch` instead of `dutch_kp`. See
-  [Reindex Aiven for OpenSearch data on a newer version](/docs/products/opensearch/howto/reindex-opensearch).
-  OpenSearch doesn't let you remove a filter that an analyzer references.
+Close the index, remove the filter definition, and reopen the index. Use a wildcard so
+that every setting of the filter is removed, for example for a filter named
+`dutch_stemmer`:
+
+```bash
+curl -X POST "$SERVICE_URI/INDEX_NAME/_close"
+curl -X PUT "$SERVICE_URI/INDEX_NAME/_settings" \
+     -H "Content-Type: application/json" \
+     -d '{"index.analysis.filter.dutch_stemmer.*": null}'
+curl -X POST "$SERVICE_URI/INDEX_NAME/_open"
+```
+
+#### An analyzer uses the filter
+
+Reindex the index with a supported stemmer, for example `dutch` instead of `dutch_kp`.
+See
+[Reindex Aiven for OpenSearch data on a newer version](/docs/products/opensearch/howto/reindex-opensearch).
+OpenSearch doesn't let you remove a filter that an analyzer references.
 
 :::note
 The check doesn't cover index templates. Update templates that define a removed stemmer
