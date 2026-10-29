@@ -1403,6 +1403,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'products/datahub/get-started',
         'products/datahub/connect-datahub-to-services',
+        'products/datahub/enable-ai-description-and-classification',
         'products/datahub/datahub-lineage',
         'products/datahub/datahub-mcp-server',
         {
