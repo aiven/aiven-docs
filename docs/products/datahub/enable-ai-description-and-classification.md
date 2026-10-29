@@ -74,29 +74,29 @@ and currencies are sent unmasked to provide better context.
          describe_tables: true
    ```
 
-  The `max_workers` parameter is required.
-  The available options for the sample collector include:
+    The `max_workers` parameter is required.
+    The available options for the sample collector include:
 
-  | Parameter | Description |
-  |-----------|-------------|
-  | `max_samples` | The maximum number of sample values kept in each column. Default is 10. |
-  | `max_value_characters` | The maximum number of characters in a sample value. Default is 200. |
+    | Parameter | Description |
+    |-----------|-------------|
+    | `max_samples` | The maximum number of sample values kept in each column. Default is 10. |
+    | `max_value_characters` | The maximum number of characters in a sample value. Default is 200. |
 
-  The available options for the describer transformer include:
+    The available options for the describer transformer include:
 
-  | Parameter | Description |
-  |-----------|-------------|
-  | `llm_model` | The model ID of the provider. |
-  | `llm_base_url` | The base URL of an Open-AI compatible endpoint. |
-  | `llm_api_key` | The DataHub secret that stored your API key for the LLM provider. |
-  | `llm_timeout_seconds` | The timeout for the LLM request. Default is 60 seconds. |
-  | `llm_max_retries` | The maximum number of retries for the LLM call. Default is 0. |
-  | `max_columns_per_call` | The maximum number of columns described in one LLM call. Default is 40. |
-  | `max_columns_per_table_description` | The maximum number of columns used to write the table description. Default is 100. |
-  | `describe_tables` | Writes a description for each table. Default is `true`. |
-  | `rewrite_existing_descriptions` | Replace existing descriptions, including ones written by people. Default is `false`. |
-  | `column_prompt` | A custom prompt for the column description.  |
-  | `table_prompt` | A custom prompt for the table description.  |
+    | Parameter | Description |
+    |-----------|-------------|
+    | `llm_model` | The model ID of the provider. |
+    | `llm_base_url` | The base URL of an Open-AI compatible endpoint. |
+    | `llm_api_key` | The DataHub secret that stored your API key for the LLM provider. |
+    | `llm_timeout_seconds` | The timeout for the LLM request. Default is 60 seconds. |
+    | `llm_max_retries` | The maximum number of retries for the LLM call. Default is 0. |
+    | `max_columns_per_call` | The maximum number of columns described in one LLM call. Default is 40. |
+    | `max_columns_per_table_description` | The maximum number of columns used to write the table description. Default is 100. |
+    | `describe_tables` | Writes a description for each table. Default is `true`. |
+    | `rewrite_existing_descriptions` | Replace existing descriptions, including ones written by people. Default is `false`. |
+    | `column_prompt` | A custom prompt for the column description.  |
+    | `table_prompt` | A custom prompt for the table description.  |
 
 1. Click **Next**.
 1. On the last step, click **Advanced**.
