@@ -1,20 +1,33 @@
 ---
 title: Bring your own key (BYOK)
 sidebar_label: Bring your own key
+keywords: [BYOK, bring your own key, customer managed key, CMK, encryption at rest, KMS, AWS KMS, Google Cloud KMS, OCI Vault, Azure Key Vault]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
-:::important
-Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature,
-available for newly created BYOC services only. [Contact Aiven](https://aiven.io/contact)
-to request access.
-:::
+## Availability
+
+Bring your own key (BYOK) is
+[generally available](/docs/platform/concepts/service-and-feature-releases#general-availability)
+for services running on Aiven-managed infrastructure and for services running in your own
+cloud account with [bring your own cloud (BYOC)](/docs/platform/concepts/byoc). The
+[encryption scope](#encryption-scope), [prerequisites](#prerequisites),
+[key setup](#set-up-customer-managed-keys-on-your-cloud-provider), and key management
+operations for [projects](#manage-a-project-cmk) and
+[services](#manage-service-cmk-associations) are the same for both deployments. The
+deployments differ in how you get access to BYOK and how BYOK is charged:
+
+| Deployment | Access to BYOK | Pricing |
+| ---------- | -------------- | ------- |
+| Aiven-managed infrastructure | Available for all projects. Register a CMK and associate it with your services at any time. | Currently available at no additional cost |
+| [Custom cloud (BYOC)](/docs/platform/concepts/byoc) | Enterprise feature. [Enable BYOC](/docs/platform/howto/byoc/enable-byoc) for your organization, and then [contact Aiven](https://aiven.io/contact) to request access to BYOK. | Part of your BYOC agreement |
 
 ## Encryption scope
 
@@ -1875,3 +1888,10 @@ listing services associated with a specific CMK. Use the API endpoint for this o
 
 </TabItem>
 </Tabs>
+
+<RelatedPages/>
+
+- [Cloud security](/docs/platform/concepts/cloud-security)
+- [Bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
+- [Enable bring your own cloud](/docs/platform/howto/byoc/enable-byoc)
+- [Service and feature releases](/docs/platform/concepts/service-and-feature-releases)
