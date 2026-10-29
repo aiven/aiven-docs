@@ -7,9 +7,7 @@ keywords: [clickhouse developer tier, clickhouse dev tier, clickhouse prototype,
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-The Aiven for ClickHouse® Developer tier is a low-cost, always-on, single-node ClickHouse service.
-Use it for learning, development, prototypes, side projects, and small analytics
-workloads.
+The Aiven for ClickHouse® Developer tier is a low-cost, always-on, single-node ClickHouse service. Use it for learning, development, prototypes, side projects, and small analytics workloads.
 
 As your requirements grow, you can upgrade to a higher service tier.
 
@@ -38,7 +36,7 @@ users.
 - Metrics and logs
 - Multiple logical databases
 - Aiven and third-party service integrations
-- Basic support
+- [Basic support](/docs/platform/howto/support)
 - Always-on operation without idle pausing
 
 The Developer tier has no integration restrictions. For example, you can integrate a
@@ -51,7 +49,7 @@ The following specifications apply to Developer tier services.
 | Specification              | Value                       |
 | -------------------------- | --------------------------- |
 | Plan                       | `developer-4`               |
-| Price                      | $43/month (estimated)       |
+| Price                      | $43 per month (estimated)   |
 | Nodes                      | 1                           |
 | CPU                        | 2 shared vCPUs              |
 | RAM                        | 4 GB                        |
@@ -93,10 +91,14 @@ The service stays available when it reaches its disk or memory limits. Inserts m
 rejected temporarily. When this happens, ClickHouse returns an error in the query
 response to your client. This is expected behavior at the plan's limits.
 
-ClickHouse needs free disk space for background merges and other operations. When disk
-space is low, inserts might be rejected while merges complete. Reads aren't affected.
+A rejected insert doesn't affect data that's already stored, and reads continue to work.
 
-Large inserts might exceed available memory. Load data in smaller batches.
+Depending on your workload, about 10 to 15 GB of the 25 GB is comfortable for data.
+ClickHouse needs the rest for background merges and other operations. When disk space is
+low, inserts might be rejected while merges complete.
+
+Large inserts might also exceed available memory, especially while a background merge
+runs. Insert data in several smaller batches instead of one large statement.
 
 If an insert fails:
 
