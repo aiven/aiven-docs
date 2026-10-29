@@ -122,7 +122,7 @@ application's connection details to the Aiven for PostgreSQL service.
 
 <RelatedPages/>
 
-- [Aiven for MySQL® free tier: migration options](/docs/products/mysql/howto/free-tier-migration-options)
+- [Aiven for MySQL® free tier: migration options](/docs/products/mysql/howto/mysql-free-tier-migration-options)
 - [Get started with Aiven for PostgreSQL®](/docs/products/postgresql/get-started)
 - [Aiven for PostgreSQL® free tier](/docs/products/postgresql/concepts/pg-free-tier)
 - [Backup and restore Aiven for MySQL® with mysqldump or mydumper](/docs/products/mysql/howto/migrate-database-mysqldump)
