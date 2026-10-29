@@ -2741,9 +2741,11 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/runtime/authentication/add-oidc-identity-providers',
                     'products/runtime/authentication/oidc-auth0',
-                'products/runtime/authentication/oidc-google-cloud',
+                    'products/runtime/authentication/oidc-google-cloud',
+                    'products/runtime/authentication/oidc-jumpcloud',
                     'products/runtime/authentication/oidc-ms-entra-id',
                     'products/runtime/authentication/oidc-okta',
+                    'products/runtime/authentication/oidc-onelogin',
                   ],
                 },
               ],
