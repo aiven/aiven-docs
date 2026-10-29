@@ -2,10 +2,20 @@
 title: Manage credit cards
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import ConsoleIcon from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import ConsoleIcon from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Add credit cards to your organization and use them across different [billing groups](/docs/platform/howto/use-billing-groups) to pay for your Aiven services.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`organization:billing:write`', '`role:organization:admin`'],
+    },
+  ]}
+/>
 
 ## Add a card
 

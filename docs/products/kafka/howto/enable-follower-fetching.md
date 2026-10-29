@@ -11,6 +11,18 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Enabling follower fetching in Aiven for Apache Kafka® allows your consumers to fetch data from the nearest replica instead of the leader, optimizing data fetching and enhancing performance.
 
+:::note
+Follower fetching applies to consumers of classic Kafka topics.
+
+For diskless topics, you can use the `diskless_az` client ID configuration or AZ-aware
+listeners to route producers and consumers to brokers in the same availability zone.
+Aiven enables AZ-aware listeners on request, and they don't support PrivateLink
+connections.
+
+See [Configure AZ-aware listeners for diskless
+topics](/docs/products/kafka/howto/configure-az-aware-listeners).
+:::
+
 ## Prerequisites
 
 - Aiven for Apache Kafka service version 3.6 or later.
@@ -25,8 +37,11 @@ Follower fetching is supported on AWS (Amazon Web Services) and Google Cloud.
 
 ## Identify availability zone
 
-Before configuring client-side rack awareness, identify the AZs where your Kafka brokers
-run.
+Before configuring follower fetching, identify the AZ where each Kafka consumer runs.
+Set `client.rack` to that AZ using the same identifier format as the Kafka brokers.
+
+For the formats used by each cloud provider, see
+[Zone ID formats](/docs/products/kafka/howto/configure-preferred-zones#zone-id-formats).
 
 - **AWS**: Availability zone (AZ) names can vary across different accounts.
   The same physical location might have different AZ names in different accounts. To
@@ -121,14 +136,19 @@ in your `aiven_kafka` resource.
 
 To enable follower fetching at the client level, configure the `client.rack` setting
 in the Apache Kafka client. Set the `client.rack` value to the corresponding AZ ID for
-AWS or AZ name for Google Cloud for each client. This ensures the client fetches data from the
-nearest replica.
+AWS or AZ name for Google Cloud for each client. This allows the consumer to fetch data
+from a replica in its AZ when an eligible replica is available.
 
-Example configuration for your consumer properties file:
+Example configuration for a consumer on AWS:
 
-```plaintext
-client.rack=use1-az1 # AWS example
-client.rack=europe-west1-b # Google Cloud example
+```properties
+client.rack=use1-az1
+```
+
+Example configuration for a consumer on Google Cloud:
+
+```properties
+client.rack=europe-west1-b
 ```
 
 ### Example scenario: follower fetching in different AZs
@@ -171,17 +191,32 @@ client.rack=europe-west1-d
 
 | Cloud | Consumer location | Fetching behavior                                      | Notes                                       |
 |-------|-------------------|--------------------------------------------------------|------------------------------------------------|
-| AWS   | `use1-az1`        | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
-| AWS   | `use1-az2`        | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
+| AWS   | `use1-az1`        | Can fetch from a local replica                        | Reduced latency and network costs              |
+| AWS   | `use1-az2`        | Can fetch from a local replica                        | Reduced latency and network costs              |
 | AWS   | `use1-az3`        | Fetch from the leader (no matching `broker.rack`)      | No follower fetching possible                  |
-| Google Cloud   | `europe-west1-b`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
-| Google Cloud   | `europe-west1-c`  | Fetch from the nearest replica in their AZ             | Reduced latency and network costs              |
+| Google Cloud   | `europe-west1-b`  | Can fetch from a local replica                        | Reduced latency and network costs              |
+| Google Cloud   | `europe-west1-c`  | Can fetch from a local replica                        | Reduced latency and network costs              |
 | Google Cloud   | `europe-west1-d`  | Fetch from the leader (no matching `broker.rack`)      | No follower fetching possible                  |
+
+### Example scenario: incorrect `client.rack` value
+
+A consumer runs in `use1-az1` but is configured with the following value:
+
+```plaintext
+client.rack=use1-az2
+```
+
+Kafka treats the consumer as running in `use1-az2` and can direct it to a replica there.
+Because the consumer is in `use1-az1`, this increases cross-AZ network traffic instead of
+reducing it. Set `client.rack` to the AZ where the consumer runs.
 
 ## Use follower fetching with Kafka Connect and MirrorMaker 2
 
 Aiven for Apache Kafka® Connect and Aiven for Apache Kafka® MirrorMaker 2 use follower
-fetching when it is enabled on your Aiven for Kafka service.
+fetching when it is enabled on your Aiven for Kafka service. The `client.rack` values
+that these services set apply to classic topics only. For diskless topics, see
+[Configure AZ-aware listeners for diskless
+topics](/docs/products/kafka/howto/configure-az-aware-listeners#use-az-aware-listeners-with-kafka-connect-and-mirrormaker-2).
 
 ### Kafka Connect
 
@@ -212,9 +247,11 @@ see [Configure rack awareness in MirrorMaker 2](/docs/products/kafka/kafka-mirro
 
 ## Verify follower fetching
 
-After configuring follower fetching, monitor for a decrease in cross-availability zone
-network costs to verify its effectiveness.
+After enabling follower fetching, monitor cross-availability-zone network traffic and
+data transfer costs to assess its effectiveness.
 
 <RelatedPages/>
 
 - [Follower fetching in Aiven for Apache Kafka®](/docs/products/kafka/concepts/follower-fetching)
+- [Configure AZ-aware listeners for diskless
+  topics](/docs/products/kafka/howto/configure-az-aware-listeners)
