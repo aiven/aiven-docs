@@ -29,10 +29,6 @@ Default values of the `max_connections` setting vary according to the service pl
 | Startup/Business/Premium-32           | 800             |
 | Startup/Business/Premium-64 and above | 1000            |
 
-:::note
-Aiven can utilize any number of the connections for managing the service.
-:::
-
 Aiven for PostgreSQL doesn't apply a fixed per-GiB connection formula (for example, 100
 connections per GiB of RAM). The plan-based defaults in the preceding table are the only
 default values, and there's no separate `max_connection_limit` setting.
@@ -47,6 +43,23 @@ the configured limit. For example:
 > Show the current connection count on `my-pg-service`, grouped by role and
 > state, and compare the total with `max_connections`.
 :::
+
+## Reserved connections {#reserved-connections}
+
+Your service does not make all `max_connections` connections available to your
+applications. Aiven reserves some of them for database maintenance and monitoring.
+
+Every Aiven for PostgreSQL service reserves three connections for superuser access,
+which Aiven uses to manage the service. Depending on the PostgreSQL version and the
+service, Aiven reserves up to three more connections for monitoring, for a total of up
+to six. Changing `max_connections` does not change the number of reserved connections.
+
+For example, on a plan with the default `max_connections` of 100, at least 94
+connections remain available to your applications.
+
+When you size [connection pools](/docs/products/postgresql/howto/manage-pool), subtract
+six from `max_connections` to make sure that the combined pool size fits within the
+available capacity.
 
 ## Increase or decrease `max_connections`
 
