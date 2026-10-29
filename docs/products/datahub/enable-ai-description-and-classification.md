@@ -24,6 +24,11 @@ These features work with SQL sources such as PostgreSQL, MySQL, and ClickHouse. 
 - Aiven DataHub version 1.7.0.1.4 or later
 - An API key for an OpenAI-compatible endpoint
 
+  :::tip[Tip]
+  Use the Aiven AI gateway by creating an [API key](/docs/products/ai-gateway/api-keys)
+  and choosing a model from the [model list](/docs/products/ai-gateway/model-catalog).
+  :::
+
 ## AI descriptions
 
 The describer feature automatically generates short descriptions for
@@ -35,7 +40,6 @@ and currencies are sent unmasked to provide better context.
 
 ### Enable AI descriptions
 
-1. Add the LLM API key as a DataHub secret:
 1. In the DataHub UI, click **Data Sources**.
 1. On the **Secrets** tab, click **Create secret**.
 1. In **Name**, enter `LLM_API_KEY`.
