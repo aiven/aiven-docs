@@ -45,9 +45,8 @@ Pick the path that matches what you need:
 
 Upgrading keeps your data, your service name, and your connection details. The
 Developer plan is a paid plan that adds disk storage and
-[Basic tier support](/docs/platform/howto/support). For the plans available to your
-service, see
-[Change the plan for your Aiven for MySQL® service](/docs/products/mysql/howto/change-service-plan).
+[Basic tier support](/docs/platform/howto/support). For plan contents and limitations,
+see [Service pricing](/docs/platform/concepts/service-pricing).
 
 To upgrade your free service:
 
