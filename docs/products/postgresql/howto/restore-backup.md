@@ -17,7 +17,7 @@ adding complexity for the user.
 
 To restore a PostgreSQL database:
 
-<ForkService backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
+<ForkService backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>} backupStep={<>set <b>Backup version</b> to <b>Latest transaction</b> or <b>Point in time</b></>}/>
 
 Once the new service is running, you can change your application's
 connection settings to point to it.

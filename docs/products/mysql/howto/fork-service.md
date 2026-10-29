@@ -23,7 +23,7 @@ the new service.
 - Service integrations are not copied to the fork.
 - Cross-project forking is supported only within the same organization.
 
-<ForkInstructions/>
+<ForkInstructions backupStep={<>keep <b>Backup version</b> set to <b>Latest transaction</b></>}/>
 
 <ForkPitr/>
 
