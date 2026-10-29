@@ -46,10 +46,12 @@ Developer tier service with Aiven for PostgreSQL®.
 
 ## Limits and specifications
 
+The following specifications apply to Developer tier services.
+
 | Specification              | Value                       |
 | -------------------------- | --------------------------- |
 | Plan                       | `developer-4`               |
-| Price                      | $43/month                   |
+| Price                      | $43/month (estimated)       |
 | Nodes                      | 1                           |
 | CPU                        | 2 shared vCPUs              |
 | RAM                        | 4 GB                        |
@@ -67,7 +69,9 @@ Developer tier service with Aiven for PostgreSQL®.
 | Support                    | Basic                       |
 
 Aiven bills hourly. The estimated monthly cost of $43 assumes 730 hours. The price
-includes storage, backups, and networking.
+includes storage, backups, and networking. For current pricing, check the **Service
+summary** when you create a service in the [Aiven Console](https://console.aiven.io) or
+see [Aiven for ClickHouse® pricing](https://aiven.io/pricing?product=clickhouse).
 
 ## Limitations
 
