@@ -90,6 +90,40 @@ for OpenSearch checks them during specific upgrades and blocks the upgrade
   `nmslib` engine. To resolve this, see
   [Migrate off the nmslib engine](/docs/products/opensearch/howto/migrate-knn-nmslib-engine).
 
+### Removed stemmers
+
+OpenSearch 3 is built on Lucene 10, which removed the `dutch_kp` (also `kp`) and `lovins`
+stemmers. An OpenSearch 3 node can't create an index that defines one of them, even if no
+analyzer uses it. Aiven for OpenSearch checks for them during **OpenSearch 2.19 to 3.x**
+upgrades and blocks the upgrade (`403 Forbidden`) if any index defines one. The error
+response lists the affected index names.
+
+The check covers `stemmer` and `snowball` token filters and analyzers, in any index,
+including hidden and closed indices.
+
+To resolve this, for each affected index:
+
+- **No analyzer uses the filter**: Close the index, remove the filter definition, and
+  reopen the index. Use a wildcard so that every setting of the filter is removed, for
+  example for a filter named `dutch_stemmer`:
+
+  ```bash
+  curl -X POST "$SERVICE_URI/INDEX_NAME/_close"
+  curl -X PUT "$SERVICE_URI/INDEX_NAME/_settings" \
+       -H "Content-Type: application/json" \
+       -d '{"index.analysis.filter.dutch_stemmer.*": null}'
+  curl -X POST "$SERVICE_URI/INDEX_NAME/_open"
+  ```
+- **An analyzer uses the filter**: Reindex the index with a supported stemmer, for example
+  `dutch` instead of `dutch_kp`. See
+  [Reindex Aiven for OpenSearch data on a newer version](/docs/products/opensearch/howto/reindex-opensearch).
+  OpenSearch doesn't let you remove a filter that an analyzer references.
+
+:::note
+The check doesn't cover index templates. Update templates that define a removed stemmer
+as well, or new indices created from them fail on OpenSearch 3.
+:::
+
 ### Prerequisites for upgrade
 
 To upgrade your service version, check that:
