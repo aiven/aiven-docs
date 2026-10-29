@@ -94,12 +94,18 @@ for OpenSearch checks them during specific upgrades and blocks the upgrade
 
 OpenSearch 3 is built on Lucene 10, which removed the `dutch_kp` (also `kp`) and `lovins`
 stemmers. An OpenSearch 3 node can't create an index that defines one of them, even if no
-analyzer uses it. Aiven for OpenSearch checks for them during **OpenSearch 2.19 to 3.x**
+analyzer uses it. Aiven for OpenSearch checks for them during OpenSearch 2.19 to 3.x
 upgrades and blocks the upgrade (`403 Forbidden`) if any index defines one. The error
 response lists the affected index names.
 
 The check covers `stemmer` and `snowball` token filters and analyzers, in any index,
 including hidden and closed indices.
+
+To find the filter or analyzer that defines a removed stemmer in an affected index:
+
+```bash
+curl "$SERVICE_URI/INDEX_NAME/_settings?filter_path=*.settings.index.analysis"
+```
 
 To resolve this, for each affected index:
 
