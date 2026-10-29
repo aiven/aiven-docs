@@ -4,20 +4,10 @@ sidebar_label: Enable AI description and classification
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Enable AI-generated descriptions and classifications for your DataHub ingestion sources.
 
 These features work with SQL sources such as PostgreSQL, MySQL, and ClickHouse. They are not supported for Kafka or Kafka Connect sources.
-
-<RequirementsPanel
-  items={[
-    {
-      label: 'Permissions',
-      values: ['`project:services:write`', '`role:project:admin`'],
-    },
-  ]}
-/>
 
 ## Prerequisites
 
