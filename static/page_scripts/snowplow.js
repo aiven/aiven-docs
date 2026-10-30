@@ -20,14 +20,14 @@
   'snowplow',
 );
 
-snowplow('newTracker', 'at', 'dc.aiven.io', {
+window.snowplow('newTracker', 'at', 'dc.aiven.io', {
   appId: 'docs',
   platform: 'web',
   forceSecureTracker: true,
   discoverRootDomain: true,
   cookieSameSite: 'Lax',
   anonymousTracking: {withSessionTracking: true, withServerAnonymisation: true},
-  stateStorageStrategy: 'cookieAndLocalStorage',
+  stateStorageStrategy: 'none',
   eventMethod: 'post',
   postPath: '/aiven/dc2',
   contexts: {
@@ -36,15 +36,18 @@ snowplow('newTracker', 'at', 'dc.aiven.io', {
 });
 
 // Must be called before snowplow('trackPageView')
-snowplow('enableActivityTracking', {
+window.snowplow('enableActivityTracking', {
   minimumVisitLength: 10,
   heartbeatDelay: 10,
 });
 
-snowplow(
+window.snowplow(
   'addPlugin',
   'https://cdn.jsdelivr.net/npm/@snowplow/browser-plugin-link-click-tracking@latest/dist/index.umd.min.js',
   ['snowplowLinkClickTracking', 'LinkClickTrackingPlugin'],
 );
 
-snowplow('enableLinkClickTracking', {pseudoClicks: true, trackContent: true});
+window.snowplow('enableLinkClickTracking', {
+  pseudoClicks: true,
+  trackContent: true,
+});

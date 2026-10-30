@@ -22,6 +22,7 @@ const posthogPlugin: PluginConfig = process.env.POSTHOG_PUBLIC_KEY
         capture_heatmaps: false,
         disable_session_recording: true,
         opt_out_capturing_by_default: true,
+        opt_out_persistence_by_default: true,
       },
     ]
   : null;
@@ -111,10 +112,6 @@ const config: Config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
-        gtag: {
-          trackingID: 'G-M6D699CJR0',
-          anonymizeIP: true,
-        },
         theme: {
           customCss: [
             './src/css/colors.css',
@@ -141,14 +138,14 @@ const config: Config = {
       'data-key': 'aKHyPgCOLHo1m4IX2uzglw',
       async: true,
     },
-    {src: '/docs/page_scripts/snowplow.js', async: true},
+    {src: '/docs/page_scripts/snowplow.js', defer: true},
     {
       src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
       'data-document-language': 'true',
       type: 'text/javascript',
       'data-domain-script': '0623fbc6-a463-4822-a7a4-fdb5afcc3afb',
     },
-    {src: '/docs/page_scripts/onetrust.js', async: true},
+    {src: '/docs/page_scripts/onetrust.js', defer: true},
     {
       src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
       async: true,
