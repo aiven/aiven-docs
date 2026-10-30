@@ -4,7 +4,6 @@ sidebar_label: Restore from backups
 ---
 
 import ForkService from "@site/static/includes/fork-service-console.md";
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Aiven for PostgreSQL® databases are automatically backed up and can be restored from a backup at any point in time within the **backup retention period**, which [varies by plan](/docs/products/postgresql/concepts/pg-backups).
 The restore is created by forking: a new PostgreSQL instance is created and content from the original database is restored into it.
@@ -17,7 +16,7 @@ adding complexity for the user.
 
 To restore a PostgreSQL database:
 
-<ForkService backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>} backupStep={<>set <b>Backup version</b> to <b>Latest transaction</b> or <b>Point in time</b></>}/>
+<ForkService backupStep={<>set <b>Backup version</b> to <b>Latest transaction</b> or <b>Point in time</b></>}/>
 
 Once the new service is running, you can change your application's
 connection settings to point to it.

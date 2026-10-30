@@ -5,6 +5,7 @@ sidebar_label: Restore a backup
 
 import ForkService from "@site/static/includes/fork-service-console.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Restore an Aiven for OpenSearch® service from an automatic backup by forking it to a new service.
 
@@ -15,7 +16,7 @@ each plan keeps, see
 
 To restore a backup:
 
-<ForkService/>
+<ForkService backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 
 Once the new service is running, change your application's
 connection settings to point to it and power off the original service.
