@@ -9,20 +9,25 @@ import AIGatewayModelInfo from "@site/src/components/AIGatewayModelInfo";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Point your coding agent like Claude Code, Codex, Pi, or OpenCode at the Aiven AI Gateway to send requests using your API key.
+Connect Claude Code, Codex, Pi, or OpenCode to Aiven AI Gateway with your API key.
 
 <RequirementsPanel
-  items={[
-    {
-      label: 'Permissions',
-      values: ['`project:ai_gateway_keys:write`', '`project:ai_gateway_keys:read`', `role:project:admin`, `role:project:manager`],
-    },
-  ]}
+items={[
+{
+label: 'Permissions',
+values: [
+'`project:ai_gateway_keys:write`',
+'`project:ai_gateway_keys:read`',
+`role:project:admin`,
+`role:project:manager`,
+],
+},
+]}
 />
 
 ## Prerequisites
 
-- AI gateway [enabled for your organization](/docs/products/ai-gateway).
+- AI Gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys).
 
 ## Store the API key
@@ -171,7 +176,7 @@ available in your project.
    model = "gpt-6.1-sol"
 
    [model_providers.aiven]
-   name = "Aiven AI gateway"
+   name = "Aiven AI Gateway"
    base_url = "https://ai.aiven.io/v1"
    env_key = "AIVEN_AI_GATEWAY_KEY"
    wire_api = "responses"
@@ -180,7 +185,7 @@ available in your project.
 
 <AIGatewayModelInfo variable="model" />
 
-### Test Codex with AI gateway
+### Test Codex with AI Gateway
 
 1. To start Codex with the profile, run `codex -p aiven`.
 1. To confirm the active model is `gpt-6.1-sol`, run `/status`.
