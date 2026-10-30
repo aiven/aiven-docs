@@ -111,51 +111,37 @@ When the service status is **Running**, you can:
   service and integrate it with your Kafka service. See the
   [list of available connectors](/docs/products/kafka/kafka-connect/concepts/list-of-connector-plugins).
 
-## Upgrade the service
+## Upgrade your Developer tier service
 
 Upgrade to the Professional tier when the Developer tier no longer meets your
-throughput, storage, or scaling needs. For upgrade considerations, including Kafka
-Connect compatibility, see
+throughput, storage, or scaling needs. For upgrade considerations, see
 [Upgrade path](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-path).
 
-You can upgrade from the service overview or from service settings.
+If you integrated your Kafka service with a Kafka Connect service:
 
-### Before you upgrade
-
-If your Kafka service is integrated with a Kafka Connect service:
-
-- Power off the Kafka Connect service before upgrading Kafka. You cannot upgrade
-  Kafka while an integrated Kafka Connect service is running.
-- After upgrading Kafka, upgrade the Kafka Connect service to the same tier
-  before powering it on again.
-
-Run both services on the same tier.
+- Power off the Kafka Connect service before you upgrade Kafka.
+- After the upgrade, upgrade the Kafka Connect service to the same tier, then power
+  it on.
 
 For details, see
 [Kafka and Kafka Connect tier compatibility](/docs/products/kafka/dev-tier/kafka-dev-tier#kafka-and-kafka-connect-tier-compatibility).
 
-### Upgrade from the service overview
-
-1. Open your service's <ConsoleLabel name="overview" /> page.
+1. In the [Aiven Console](https://console.aiven.io), open your Developer tier service.
+1. Click <ConsoleLabel name="overview" />.
 1. In **Service usage**, click **Upgrade**.
-1. Select **Professional** tier.
-1. In **Cloud**, select a cloud provider, geographical region, and plan.
+1. Click the **Professional** tier.
+1. In **Cloud**, choose a cloud provider, region, and plan.
 1. Click **Upgrade service**.
 
-### Upgrade from service settings
+You can also click **Upgrade** in <ConsoleLabel name="servicesettings" /> >
+**Service summary**.
 
-1. In your service, click <ConsoleLabel name="servicesettings" />.
-1. In **Service summary**, click **Upgrade**.
-1. Select **Professional** tier.
-1. In **Cloud**, select a cloud provider, geographical region, and plan.
-1. Click **Upgrade service**.
-
-### Limitations
-
-- Downgrading from Developer tier to the Free tier is not supported.
-- After upgrading to the Professional tier, available downgrade options depend on
-  the selected plan. Review supported changes in the
-  [Aiven Console](https://console.aiven.io).
+:::note[Note]
+You can't downgrade a Developer tier service to the Free tier. Before you upgrade to the
+Professional tier, review the
+[upgrade path](/docs/products/kafka/dev-tier/kafka-dev-tier#upgrade-path) for
+downgrade limitations.
+:::
 
 <RelatedPages />
 

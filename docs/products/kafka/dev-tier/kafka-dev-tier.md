@@ -137,7 +137,7 @@ the Professional tier:
 4. Power on the Kafka Connect service.
 
 For step-by-step instructions, see
-[Upgrade the service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service#upgrade-the-service).
+[Upgrade your Developer tier service](/docs/products/kafka/dev-tier/create-dev-tier-kafka-service#upgrade-your-developer-tier-service).
 
 :::note
 Developer tier services cannot be downgraded to the Free tier. Professional tier
