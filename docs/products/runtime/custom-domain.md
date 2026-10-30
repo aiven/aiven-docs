@@ -3,7 +3,8 @@ title: Connect a custom domain to an Aiven Runtime application
 sidebar_label: Connect a custom domain
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Connect a custom domain to serve an Aiven Runtime application port from your own hostname instead of an Aiven-generated URL.
 You can add a custom domain in Aiven to the ports you configured for your application.
@@ -22,19 +23,28 @@ Alternatively, you can use Cloudflare to forward traffic to your Aiven Runtime a
 
 ### Add a custom domain to an existing app
 
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`service:configuration:write`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
+
 1. In the Aiven Console, click <ConsoleLabel name="runtime"/>
    and open your application.
 1. In the **Connection information** section, click **Edit**.
 1. In **Custom domain**, enter your domain. To add another domain, click **Add domain**.
 1. Click **Save changes**.
-1. In the **Connection information** section, open the the port you added the
+1. In the **Connection information** section, open the port you added the
    custom domain to.
 1. Click **View DNS instructions**.
 1. Copy the CNAME record details.
 1. In another browser tab or window, log in to your domain hosting provider.
 1. Create a CNAME record and paste the details you copied.
 
-It can take up to 72 hours for your DNS records to update the domain to be verified.
+It can take up to 72 hours for your DNS records to update and the domain to be verified.
 
 ## Custom domains managed by Cloudflare
 
