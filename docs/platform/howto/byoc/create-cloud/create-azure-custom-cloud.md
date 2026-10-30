@@ -137,7 +137,8 @@ Show minimum custom role permissions for the BYOC deployer
 If Terraform runs as a service principal, for example with the `ARM_CLIENT_ID` and
 `ARM_CLIENT_SECRET` environment variables, that service principal needs the
 `Application.Read.All` application permission for Microsoft Graph. Terraform requires
-this permission to look up the Aiven CCE enterprise application in your tenant.
+this permission to look up the Aiven CCE enterprise application that you install in your
+tenant during deployment.
 
 Subscription roles, including **Owner**, apply only to Azure Resource Manager. They do
 not grant permissions in Microsoft Entra ID, so assign this permission separately.
@@ -171,13 +172,13 @@ Show the Microsoft Graph permission as an app manifest fragment
 {
     "requiredResourceAccess": [
         {
-            "resourceAppId": "00000003-0000-0000-c000-000000000000",
             "resourceAccess": [
                 {
                     "id": "9a5db679-6498-4db8-a21a-57bdcaf0001a",
                     "type": "Role"
                 }
-            ]
+            ],
+            "resourceAppId": "00000003-0000-0000-c000-000000000000"
         }
     ]
 }
