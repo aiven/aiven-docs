@@ -15,9 +15,27 @@ function loadGtag() {
   document.head.appendChild(script);
 }
 
+// GA sets _ga* cookies on the root domain, so delete them there and on the host.
+function clearGaCookies() {
+  const rootDomain = window.location.hostname.split('.').slice(-2).join('.');
+  document.cookie
+    .split(';')
+    .map((cookie) => cookie.trim().split('=')[0])
+    .filter((name) => name.startsWith('_ga'))
+    .forEach((name) => {
+      document.cookie = `${name}=; Max-Age=0; path=/`;
+      document.cookie = `${name}=; Max-Age=0; path=/; domain=.${rootDomain}`;
+    });
+}
+
 function OptanonWrapper() {
   if (window.OnetrustActiveGroups.includes(',4,')) {
+    window[`ga-disable-${GA_TRACKING_ID}`] = false;
     loadGtag();
+  } else if (window.gtag) {
+    // Consent revoked: stop GA and remove its cookies
+    window[`ga-disable-${GA_TRACKING_ID}`] = true;
+    clearGaCookies();
   }
   if (
     window.OnetrustActiveGroups.includes(',115,') ||
@@ -33,3 +51,5 @@ function OptanonWrapper() {
   }
   window.dispatchEvent(new Event('OneTrustGroupsUpdated'));
 }
+
+if (window.OnetrustActiveGroups) OptanonWrapper();

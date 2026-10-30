@@ -64,9 +64,28 @@ const module: ClientModule = {
       window.snowplow('trackPageView');
     }
   },
-  onRouteDidUpdate() {
+  onRouteDidUpdate({location, previousLocation}) {
     if (window.snowplow) {
       window.snowplow('refreshLinkClickTracking');
+    }
+    // GA only sends the first page view itself; send one per client-side
+    // navigation, as @docusaurus/plugin-google-gtag did.
+    if (
+      window.gtag &&
+      previousLocation &&
+      (location.pathname !== previousLocation.pathname ||
+        location.search !== previousLocation.search ||
+        location.hash !== previousLocation.hash)
+    ) {
+      // Defer so document.title has been updated for the new page
+      setTimeout(() => {
+        window.gtag?.(
+          'set',
+          'page_path',
+          location.pathname + location.search + location.hash,
+        );
+        window.gtag?.('event', 'page_view');
+      });
     }
   },
 };
