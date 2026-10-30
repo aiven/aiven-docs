@@ -14,7 +14,7 @@ When you fork a service, its configuration and data is copied to the new service
 the latest backup. Support for forking from a specific point in time depends on the
 service type.
 
-<ForkInstructions/>
+<ForkInstructions backupStep={'select the backup or point in time to fork from'}/>
 
 <RelatedPages/>
 

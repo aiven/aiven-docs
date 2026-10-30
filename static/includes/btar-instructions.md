@@ -17,9 +17,9 @@ or migrate to another cloud or region.
 ## Change a backup region
 
 1. Log in to the [Aiven Console](https://console.aiven.io/) and go to your project.
-1. On the <ConsoleLabel name="Services"/> page, select an Aiven service on which you'd
+1. Go to <ConsoleLabel name="Services"/>, then select the Aiven service on which you'd
    like to enable BTAR.
-1. On your service page, {props.backupsNav ? props.backupsNav : <ConsoleLabel name="backups"/>}.
+1. On your service page, {props.backupsNav || <>click <ConsoleLabel name="backups"/></>}.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
    **Edit secondary backup location**.
 1. In the **Edit secondary backup location** window, use the **Backup location**
@@ -81,7 +81,7 @@ You can use the Aiven Console, [API](/docs/tools/api), or
 original service in the region where the secondary backup resides.
 
 :::note
-When you **fork & restore** from the secondary backup, your new fork service is created in
+When you fork and restore from the secondary backup, your new fork service is created in
 the cloud and region where the secondary backup is located. The fork service gets the same
 plan that the primary service uses. Backups of the fork service are located in the region
 where this new service is hosted.
@@ -92,7 +92,7 @@ where this new service is hosted.
 1. Open the [Aiven Console](https://console.aiven.io/) and go to your service
    homepage.
 1. Click <ConsoleLabel name="backups"/>.
-1. On the **Backups** page, select **Fork & restore**.
+1. On the **Backups** page, click **Fork service**.
 1. In the **New database fork** window:
 
    1. Set **Backup location** to either **Primary location** or **Secondary location**.
