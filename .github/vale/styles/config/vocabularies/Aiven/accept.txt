@@ -442,6 +442,7 @@ tokenizer
 tokenizers
 toolchain
 Transport Layer Security
+Trino
 truststore
 truststores
 Uber
@@ -458,9 +459,10 @@ Unmap
 Unschedule
 untrusted
 UpCloud
-upsert
+upserts?
 upstreams
 URIs?
+Url
 UUIDs?
 uv
 Valkey
