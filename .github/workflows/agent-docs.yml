@@ -12,12 +12,12 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 23
 
-      - run: npm install
+      - run: yarn install
 
       - name: Run agent-friendly docs checks
-        run: npx vitest run tests/agent-docs.test.ts
+        run: node scripts/check-agent-docs.mjs
         timeout-minutes: 5
 
       - name: Upload AFDocs report and score
