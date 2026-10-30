@@ -59,6 +59,9 @@ credentials without any further action.
 Use a bucket dedicated to this one service. Aiven doesn't prevent you from pointing
 two services at the same bucket, or from using a bucket that already holds other
 data, and neither is supported.
+
+Don't remove or replace this integration once you have Iceberg tables. Queries expect
+those tables in the bucket the integration points to, so they fail if it changes.
 :::
 
 ## Enable the extension
@@ -132,11 +135,22 @@ SET pg_lake_iceberg.unsupported_numeric_as_double = off;
 
 :::
 
-Load data into the table from a regular PostgreSQL table in the same service:
+You can write into an Iceberg table directly, which keeps a single copy of the data in
+your bucket:
+
+```sql
+INSERT INTO orders_analytics VALUES (1001, 42, 99.9500, now());
+```
+
+You can also copy rows from a regular PostgreSQL table in the same service. This leaves
+you with two copies, and the Iceberg copy is only as current as your last load:
 
 ```sql
 INSERT INTO orders_analytics SELECT * FROM orders;
 ```
+
+Load in batches rather than row by row. Each write creates files in your bucket, so
+many small writes leave many small files and slow your queries down.
 
 Query the Iceberg table with standard SQL:
 

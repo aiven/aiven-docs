@@ -41,6 +41,16 @@ maintaining a pipeline to keep the two in sync.
   columnar, vectorized engine instead of PostgreSQL's row-based executor, which
   speeds up queries that scan or aggregate large datasets.
 
+## When to use PostgreSQL for Analytics
+
+Iceberg tables suit data you append and analyze: events, logs, time-series data,
+and the reports that strain your operational database today. Keep your application on
+regular PostgreSQL tables and use Iceberg tables for history.
+
+They're a poor fit for rows that change constantly, for work that needs indexes or
+upserts, and for results that must be accurate to the second. Data reaches Iceberg
+tables in batches, so it's only as current as your last load.
+
 ## How PostgreSQL for Analytics works
 
 PostgreSQL for Analytics runs a separate analytical query engine alongside PostgreSQL
@@ -48,10 +58,11 @@ in your service. When you run a query against an Iceberg table, PostgreSQL forwa
 analytical parts of that query to this engine, which reads and writes the underlying
 Parquet files in your S3 bucket.
 
-Aiven splits the service's memory evenly between PostgreSQL and the analytical query
-engine, so each gets half of the memory in your plan. Analytical queries work within
-their own half, so they don't consume the memory your transactional workload depends
-on.
+Aiven divides the service's resources between PostgreSQL and the analytical query
+engine. The analytical engine runs under a hard memory limit of 45% of the service's
+memory and can never exceed it, while PostgreSQL is configured with the memory settings
+of a half-size plan. CPU isn't reserved: when the service is busy, the two engines get
+an even share, and when one is idle the other can use the spare capacity.
 
 ## Requirements
 
@@ -67,9 +78,14 @@ on.
   Aiven tool.
 - PostgreSQL for Analytics is set when the service is created. You can't add it to an
   existing Aiven for PostgreSQL service.
-- Because memory is split evenly between the two engines, only half your plan's memory
-  is available to PostgreSQL. Aiven doesn't enforce a minimum plan size, but the
-  smallest plans don't leave either engine enough memory to work with.
+- Iceberg tables don't support `MERGE`, `INSERT ... ON CONFLICT`,
+  `SELECT ... FOR UPDATE`, `SELECT ... FOR SHARE`, or queries that use system columns
+  such as `ctid`. For upsert behavior, stage your changes in a regular PostgreSQL table
+  and apply them as a `DELETE` followed by an `INSERT` in one transaction.
+- Because the service's resources are shared with the analytical query engine,
+  PostgreSQL is configured as if it had half your plan, including a lower connection
+  limit. Aiven doesn't enforce a minimum plan size, but the smallest plans don't leave
+  either engine enough memory to work with.
 - Only Amazon S3 buckets are supported as storage. Aiven doesn't provide a managed S3
   bucket for this feature.
 - Use a bucket dedicated to a single PostgreSQL for Analytics service. Sharing one
