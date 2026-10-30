@@ -9,7 +9,7 @@ import AIGatewayModelInfo from "@site/src/components/AIGatewayModelInfo";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connect Claude Code, Codex, Pi, or OpenCode to Aiven AI Gateway with your API key.
+Connect Claude Code, Codex, Pi, OpenCode, or OMP to Aiven AI Gateway with your API key.
 
 <RequirementsPanel
 items={[
@@ -30,9 +30,93 @@ values: [
 - AI Gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys).
 
+## Set up and launch with `aiven-llm`
+
+The `aiven-llm` launcher supports Claude Code, Codex, Pi, OpenCode, and OMP.
+Install the coding agent you want to use and the launcher:
+
+```bash
+brew install aiven/tap/aiven-llm
+```
+
+Run setup before launching a session:
+
+```bash
+aiven-llm setup claude
+aiven-llm launch claude
+```
+
+`setup` writes persistent configuration under your home directory.
+It checks model access and sends a one-token connectivity request, which can incur usage.
+Enter your API key at the hidden terminal prompt, or use a saved key.
+Keep API keys out of command arguments and agent conversations.
+
+Setup previews configuration changes and creates backups of changed existing files.
+It preserves other providers and settings.
+When asked whether to make Aiven the default, press Enter to keep your native default.
+`--yes` also keeps the native default and approves the displayed setup changes.
+Setup does not start a coding session.
+
+`launch` starts a session using compatible Aiven configuration.
+It does not install persistent provider configuration or change native defaults.
+If configuration is missing or incompatible, run the setup command printed in the error.
+Compatible manual configuration also satisfies the setup requirement.
+
+| Coding agent | Persistent setup           | Launch a session            |
+| ------------ | -------------------------- | --------------------------- |
+| Claude Code  | `aiven-llm setup claude`   | `aiven-llm launch claude`   |
+| Codex        | `aiven-llm setup codex`    | `aiven-llm launch codex`    |
+| Pi           | `aiven-llm setup pi`       | `aiven-llm launch pi`       |
+| OpenCode     | `aiven-llm setup opencode` | `aiven-llm launch opencode` |
+| OMP          | `aiven-llm setup omp`      | `aiven-llm launch omp`      |
+
+In a terminal, `aiven-llm setup` lets you select one or more coding agents.
+`aiven-llm launch` lets you select one installed agent.
+Bare `aiven-llm` prints help.
+Without an interactive terminal, specify the coding agent.
+Pass native arguments after `--`, for example `aiven-llm launch codex -- resume`.
+
+For Claude Code, launcher sessions retain canonical user and project settings.
+Custom fields in `~/.claude/aiven.settings.json` are available through the direct command
+`claude --settings ~/.claude/aiven.settings.json`.
+Launcher sessions do not load arbitrary custom fields from that dedicated file.
+
+### Set up with the npm entry point
+
+With Node.js 20 or later and `aiven-llm` installed on your `PATH`, run:
+
+```bash
+npx @aiven/ai-gateway-connect
+npx @aiven/ai-gateway-connect --tool codex
+```
+
+The npm entry point delegates to `aiven-llm setup`.
+It configures the selected coding agents and does not launch them.
+
+### Initialize an OMP project
+
+OMP uses a dedicated Aiven router profile.
+Install its router plugin in that profile before launching OMP.
+After `aiven-llm setup omp`, initialize the project from its directory:
+
+```bash
+aiven-llm omp init
+```
+
+This command initializes project roles and rules separately from home-directory setup.
+To start the configured session, run `aiven-llm launch omp`.
+
+### Manage credentials and models
+
+`aiven-llm login` saves a key after checking model access.
+It does not configure a coding agent.
+`aiven-llm models` lists models granted to the key.
+`aiven-llm logout` removes the local credential but retains coding-agent configuration.
+It does not revoke the server key or clear environment variables inherited by your shell.
+
 ## Store the API key
 
-Store the API key in a credentials file that only your user can read.
+For manual setup or the Console setup prompt, store the key in a private credentials file.
 The coding agent configurations in the following sections reference the `AIVEN_AI_GATEWAY_KEY`
 environment variable, so the key stays out of tracked dotfiles and agent conversations.
 
