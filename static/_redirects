@@ -433,3 +433,4 @@
 /products/cassandra/*                                      /docs/products/services  301
 /products/alloydbomni/*                                    /docs/products/postgresql  301
 /products/dragonfly/*                                      /docs/products/valkey  301
+/products/mysql/concepts/mysql-free-tier                   /docs/products/mysql/howto/mysql-free-tier-migration-options  301
