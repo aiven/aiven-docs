@@ -51,15 +51,22 @@ applications. Aiven reserves some of them for database maintenance and monitorin
 
 Every Aiven for PostgreSQL service reserves three connections for superuser access,
 which Aiven uses to manage the service. Depending on the PostgreSQL version and the
-service, Aiven reserves up to three more connections for monitoring, for a total of up
-to six. Changing `max_connections` does not change the number of reserved connections.
+service, Aiven reserves three more connections for monitoring, for a total of six.
+Changing `max_connections` does not change the number of reserved connections.
 
-For example, on a plan with the default `max_connections` of 100, at least 94
-connections remain available to your applications.
+For example, on a plan with the default `max_connections` of 100:
+
+- When three connections are reserved, at most 97 remain for your applications.
+- When six connections are reserved, at most 94 remain for your applications.
+
+Reserved connections guarantee that Aiven always has capacity available, but Aiven is
+not limited to them. Monitoring and service management can also use non-reserved
+connections. The remaining capacity is therefore an upper limit, not a guarantee for
+your applications.
 
 When you size [connection pools](/docs/products/postgresql/howto/manage-pool), subtract
-six from `max_connections` to make sure that the combined pool size fits within the
-available capacity.
+six from `max_connections`. This keeps the combined pool size within the limit on any
+service.
 
 ## Increase or decrease `max_connections`
 
