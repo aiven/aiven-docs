@@ -9,10 +9,11 @@ export default function AIGatewayModelInfo({
 }: AIGatewayModelInfoProps): JSX.Element {
   return (
     <p>
-      <code>aiven-model</code> is the Aiven router, and usage on it is free. To
-      use a specific model, set <code>{variable}</code> to that model's name.{' '}
-      Named models are billed at the rates shown in the{' '}
-      <a href="/docs/products/ai-gateway/model-catalog">model list</a>.
+      To use a different model, set <code>{variable}</code> to a model name
+      from the{' '}
+      <a href="/docs/products/ai-gateway/model-catalog">model list</a> in the
+      Aiven Console or from the <code>GET https://ai.aiven.io/v1/models</code>{' '}
+      response. Models are billed at the rates shown in the model list.
     </p>
   );
 }
