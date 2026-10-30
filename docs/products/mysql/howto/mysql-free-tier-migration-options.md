@@ -9,9 +9,9 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Move your data off a free Aiven for MySQL® service before the free tier shuts down by upgrading to a paid plan, switching to Aiven for PostgreSQL®, or exporting your data.
 
 :::warning
-**Shutdown date**: [shutdown date TBC]
+**Shutdown date**: December 21, 2026
 
-After [shutdown date TBC], Aiven powers off all free Aiven for MySQL services and
+After December 21, 2026, Aiven powers off all free Aiven for MySQL services and
 deletes their data and backups. Move your data before this date.
 :::
 
@@ -25,8 +25,8 @@ The following table lists the stages of the free tier shutdown.
 | Stage | What happens |
 | ----- | ------------ |
 | Announcement | You cannot create new free Aiven for MySQL services. Existing free services keep running. |
-| Until [shutdown date TBC] | Your free service runs as before. Upgrade it, migrate your data, or export it. |
-| [shutdown date TBC] | Aiven powers off all remaining free services and deletes their data and backups. |
+| Until December 21, 2026 | Your free service runs as before. Upgrade it, migrate your data, or export it. |
+| December 21, 2026 | Aiven powers off all remaining free services and deletes their data and backups. |
 
 Data deleted after the shutdown date cannot be recovered. Aiven support cannot restore
 a deleted free service or its backups.
