@@ -9,15 +9,20 @@ import AIGatewayModelInfo from "@site/src/components/AIGatewayModelInfo";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Point your coding agent like Claude Code, Codex, Pi, or OpenCode at the Aiven AI Gateway to send requests using your API key.
+Connect Claude Code, Codex, Pi, or OpenCode to Aiven AI Gateway with your API key.
 
 <RequirementsPanel
-  items={[
-    {
-      label: 'Permissions',
-      values: ['`project:ai_gateway_keys:write`', '`project:ai_gateway_keys:read`', `role:project:admin`, `role:project:manager`],
-    },
-  ]}
+items={[
+{
+label: 'Permissions',
+values: [
+'`project:ai_gateway_keys:write`',
+'`project:ai_gateway_keys:read`',
+`role:project:admin`,
+`role:project:manager`,
+],
+},
+]}
 />
 
 ## Prerequisites
