@@ -1,25 +1,73 @@
 ---
-title: Connect a custom domain to an Aiven Runtime
+title: Connect a custom domain to an Aiven Runtime application
 sidebar_label: Connect a custom domain
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
-Connect a custom domain to an Aiven Runtime application using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated application hostname.
+Connect a custom domain to serve an Aiven Runtime application port from your own hostname instead of an Aiven-generated URL.
+You can add a custom domain in Aiven to the ports you configured for your application.
+Alternatively, you can use Cloudflare to forward traffic to your Aiven Runtime application.
+
+## Configure a custom domain for a port
+
+### Limitations and security considerations
+
+- **Custom domains must be subdomains**:
+  You cannot set a root domain such as `example.com` as a custom domain.
+
+- **Adding a custom domain does not restrict access to the application**:
+   The Aiven-generated URL can still be reached by anyone with access. To restrict access,
+   add an [authentication method](/docs/products/runtime/authentication/apps-authentication-overview).
+
+- **Custom domains cannot be added to more than one port**.
+
+### Add a custom domain to an existing app
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`service:configuration:write`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
+
+1. In the Aiven Console, click <ConsoleLabel name="runtime"/>
+   and open your application.
+1. In the **Connection information** section, click **Edit**.
+1. In **Custom domain**, enter your domain. To add another domain, click **Add domain**.
+1. Click **Save changes**.
+1. In the **Connection information** section, open the port you added the
+   custom domain to.
+1. Click **View DNS instructions**.
+1. Copy the CNAME record details.
+1. In another browser tab or window, log in to your domain hosting provider.
+1. Create a CNAME record and paste the details you copied.
+
+It can take a few minutes for your DNS records to update and the domain to be verified.
+If you click **Verify** before your DNS provider has finished propagating the CNAME record,
+the verification fails. The system periodically checks for the CNAME record
+and automatically updates the status to **Verified** when it's available.
+
+## Custom domains managed by Cloudflare
+
+Cloudflare receives traffic for your custom domain at its edge,
+and a Cloudflare Worker forwards each request to the Aiven-generated application hostname.
 
 This approach adds an extra network hop and a Worker subrequest
 before traffic reaches Aiven. This can increase latency slightly.
 Worker usage and pricing depend on your Cloudflare plan.
 
-## Limitations and security considerations
+### Limitations and security considerations
 
 This approach fronts your app's existing public URL. It doesn't replace the URL,
 and you cannot rely on the Worker as a security boundary.
 
-- **The application URL stays publicly reachable**: Traffic reaches your container with
-   the public `*.aiven.app` host. Anyone who knows that URL can bypass your custom domain
-   and any Cloudflare-layer protections you configure on it.
+- **The application URL is still public**: Traffic reaches your container with
+   the public `*.aiven.app` host. To restrict access to your app, add an
+   [authentication method](/docs/products/runtime/authentication/apps-authentication-overview).
 - **The app must be host-aware**: Requests reach your app with the `Host` set to the
   Aiven hostname. To avoid leaking that hostname in redirects, links, and cookies,
   configure your app to trust `X-Forwarded-Host` and `X-Forwarded-Proto`.
@@ -28,7 +76,7 @@ and you cannot rely on the Worker as a security boundary.
   proxy pattern. WebSockets need explicit upgrade handling in the Worker.
   Test both paths before production use.
 
-## Prerequisites
+### Prerequisites
 
 - An Aiven Runtime application with a publicly accessible URL.
 - A domain that is managed by Cloudflare and uses Cloudflare nameservers.
@@ -36,7 +84,7 @@ and you cannot rely on the Worker as a security boundary.
 - Universal SSL covers your root domain and first-level subdomains.
   Use Advanced Certificate Manager for deeper subdomains.
 
-## Connect a custom domain managed by Cloudflare
+### Connect your Cloudflare-managed custom domain
 
 <RequirementsPanel
   items={[
