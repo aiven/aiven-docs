@@ -396,6 +396,7 @@ SLA/S
 Slackbot
 SLAs?
 Snowflake
+Snowpipe
 softirqs
 Sphinx
 Splunk
