@@ -35,3 +35,6 @@ yarn-error.log*
 # logs
 check_links.log
 linkchecker-out*
+
+# AFDocs reports
+/reports/agent-docs/
