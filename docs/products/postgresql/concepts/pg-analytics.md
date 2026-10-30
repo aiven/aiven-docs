@@ -6,7 +6,7 @@ sidebar_label: PostgreSQL for Analytics
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
-Run analytical SQL queries directly against an Aiven for PostgreSQL® service by adding Iceberg tables backed by your own Amazon S3 bucket, without a separate data warehouse or an ETL pipeline.
+Run analytical SQL queries directly against an Aiven for PostgreSQL® service by adding Iceberg tables backed by your own Amazon S3 bucket, without copying your data out to a separate warehouse.
 
 :::note
 PostgreSQL for Analytics is in
@@ -33,8 +33,8 @@ maintaining a pipeline to keep the two in sync.
 
 - **No separate warehouse**: Query Iceberg tables from the same PostgreSQL connection
   you use for your operational workload.
-- **No ETL pipeline**: Load data into Iceberg tables from your existing PostgreSQL
-  tables directly.
+- **No separate pipeline to run**: Move data into Iceberg tables with SQL inside
+  PostgreSQL, with no connectors, streaming tools, or external scheduler to maintain.
 - **Open storage format**: Data is stored as standard Apache Iceberg tables in an S3
   bucket you own, not in a proprietary format inside the database.
 - **Faster analytical queries**: Queries against Iceberg tables run through a
