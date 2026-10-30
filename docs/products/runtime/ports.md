@@ -37,22 +37,23 @@ Contact Aiven support if your use case requires a different protocol.
 Adding or changing ports triggers a redeployment of the branch's
 previously deployed commit.
 
-
 ## Add ports to an application
 
 To expose ports for an existing application:
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.
-1. In the **Connection information** section, click **Edit ports**.
-1. Click **Add port**.
+1. In the **Connection information** section, click **Edit**.
+1. Click **Add port and custom domain**.
 1. Enter port number and name.
-1. Click **Save**.
+1. Optional: Enter a [custom domain](/docs/products/runtime/custom-domain).
+1. Click **Save changes**.
 
-## Change or remove exposed ports
+## Change or remove ports
 
 1. In your project, click <ConsoleLabel name="runtime"/>.
 1. Open your application.
-1. In the **Connection information** section, click **Edit ports**.
-1. Edit the ports. To delete a port, click <ConsoleIcon name="delete"/>.
-1. Click **Save**.
+1. In the **Connection information** section, click **Edit**.
+1. Edit the ports. To delete a port and its custom domain,
+   click <ConsoleIcon name="delete"/>.
+1. Click **Save changes**.
