@@ -81,6 +81,16 @@ and you cannot rely on the Worker as a security boundary.
 
 ### Connect your Cloudflare-managed custom domain
 
+<RequirementsPanel
+  items={[
+    {
+      label: 'Aiven permissions',
+      icon: 'people',
+      values: ['`project:services:read`', '`role:project:read`', '`role:services:recover`', '`role:project:admin`', '`role:project:manager`'],
+    }
+  ]}
+/>
+
 1. To get the Aiven Runtime application URL, in the Aiven Console, click <ConsoleLabel name="runtime"/>
    and open your application.
 1. In the **Connection information** section, copy the **Application URL**.
