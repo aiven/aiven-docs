@@ -74,8 +74,14 @@ an even share, and when one is idle the other can use the spare capacity.
 ## Limitations
 
 - Creating a PostgreSQL for Analytics service requires a project-level permission that
-  only Aiven grants, so there's no self-service path to turning the feature on in any
-  Aiven tool.
+  only Aiven grants, so there's no self-service path to turning the feature on. The
+  Aiven API, the Aiven Provider for Terraform, and the Aiven Operator for Kubernetes
+  expose the service variant that enables the feature, but setting it has no effect
+  without that permission.
+- The Aiven Operator for Kubernetes can't create the PostgreSQL for Analytics
+  Credentials integration that connects your Amazon S3 bucket. Use the Aiven Console,
+  the Aiven API, the Aiven CLI, or Terraform instead. See
+  [Connect your Amazon S3 bucket](/docs/products/postgresql/howto/enable-pg-analytics#connect-your-amazon-s3-bucket).
 - PostgreSQL for Analytics is set when the service is created. You can't add it to an
   existing Aiven for PostgreSQL service.
 - Iceberg tables don't support `MERGE`, `INSERT ... ON CONFLICT`,
@@ -110,6 +116,9 @@ an even share, and when one is idle the other can use the spare capacity.
 - PostgreSQL for Analytics owns the Iceberg tables it creates. Writing to the same
   Iceberg table from outside your PostgreSQL service, for example directly from
   another engine, isn't supported.
+- Reading your Iceberg tables from external query engines, such as Trino or Apache
+  Spark™, isn't part of this LA stage. Those engines use your PostgreSQL database as
+  the Iceberg catalog, and Aiven doesn't grant the catalog access they need.
 - The analytical query engine runs as a single process shared by all analytical
   queries on the service. If it fails, currently running analytical queries fail
   along with it, and Aiven restarts it automatically. Your PostgreSQL workload

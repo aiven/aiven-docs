@@ -3,6 +3,8 @@ title: Enable PostgreSQL for Analytics on Aiven for PostgreSQL®
 sidebar_label: Enable PostgreSQL for Analytics
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
@@ -23,6 +25,11 @@ a request.
   project where that service runs.
 - An Amazon S3 bucket that you own, in the same region as your service, and an AWS
   access key with permission to read from and write to that bucket.
+- Optionally, to connect the bucket programmatically:
+  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+    4.64.0 or later
+  - [Aiven API](https://api.aiven.io/doc/)
+  - [Aiven CLI](/docs/tools/cli)
 
 ## Request access
 
@@ -40,6 +47,114 @@ existing Aiven for PostgreSQL service.
 
 ## Connect your Amazon S3 bucket
 
+Create an Amazon S3 integration endpoint in your project, then connect that endpoint to
+your service with a PostgreSQL for Analytics Credentials integration. The endpoint holds
+the bucket URL and the AWS credentials, and the integration passes them to the analytical
+query engine. The integration's source is your PostgreSQL for Analytics service, and its
+destination is the Amazon S3 endpoint.
+
+<Tabs groupId="group1">
+<TabItem value="tf" label="Terraform" default>
+
+Requires
+[Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+4.64.0 or later.
+
+```hcl
+resource "aiven_service_integration_endpoint" "analytics_storage" {
+  project       = var.project_name
+  endpoint_name = "analytics-storage"
+  endpoint_type = "external_aws_s3"
+
+  external_aws_s3_user_config {
+    url               = "https://BUCKET_NAME.s3.REGION.amazonaws.com"
+    access_key_id     = var.aws_access_key_id
+    secret_access_key = var.aws_secret_access_key
+  }
+}
+
+resource "aiven_service_integration" "analytics_credentials" {
+  project                 = var.project_name
+  integration_type        = "pg_for_analytics_credentials"
+  source_service_name     = aiven_pg.analytics.service_name
+  destination_endpoint_id = aiven_service_integration_endpoint.analytics_storage.id
+}
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+1. Create the endpoint with
+   [ServiceIntegrationEndpointCreate](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationEndpointCreate):
+
+   ```bash
+   curl --request POST                                                  \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/integration_endpoint \
+     --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+     --header 'content-type: application/json'                          \
+     --data '{
+       "endpoint_name": "analytics-storage",
+       "endpoint_type": "external_aws_s3",
+       "user_config": {
+         "url": "https://BUCKET_NAME.s3.REGION.amazonaws.com",
+         "access_key_id": "AWS_ACCESS_KEY_ID",
+         "secret_access_key": "AWS_SECRET_ACCESS_KEY"
+       }
+     }'
+   ```
+
+   The response contains the `endpoint_id` you need in the next step.
+
+1. Connect the endpoint to your service with
+   [ServiceIntegrationCreate](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationCreate):
+
+   ```bash
+   curl --request POST                                                  \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/integration     \
+     --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+     --header 'content-type: application/json'                          \
+     --data '{
+       "integration_type": "pg_for_analytics_credentials",
+       "source_service": "SERVICE_NAME",
+       "dest_endpoint_id": "ENDPOINT_ID"
+     }'
+   ```
+
+Replace the placeholders with your project name, bearer token, bucket URL and region,
+AWS credentials, service name, and endpoint ID.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+1. Create the endpoint:
+
+   ```bash
+   avn service integration-endpoint-create --project PROJECT_NAME \
+     --endpoint-name analytics-storage                            \
+     --endpoint-type external_aws_s3                              \
+     -c url="https://BUCKET_NAME.s3.REGION.amazonaws.com"         \
+     -c access_key_id=AWS_ACCESS_KEY_ID                           \
+     -c secret_access_key=AWS_SECRET_ACCESS_KEY
+   ```
+
+1. Find the endpoint's ID:
+
+   ```bash
+   avn service integration-endpoint-list --project PROJECT_NAME
+   ```
+
+1. Connect the endpoint to your service:
+
+   ```bash
+   avn service integration-create --project PROJECT_NAME \
+     --integration-type pg_for_analytics_credentials     \
+     --source-service SERVICE_NAME                       \
+     --dest-endpoint-id ENDPOINT_ID
+   ```
+
+</TabItem>
+<TabItem value="gui" label="Console">
+
 1. In the Aiven Console, go to your project.
 1. Click **Integration endpoints**.
 1. Click **Amazon S3**, then click **Add new endpoint**.
@@ -51,6 +166,9 @@ existing Aiven for PostgreSQL service.
 1. Open your PostgreSQL for Analytics service page and click **Integrations**.
 1. Under **Endpoint integrations**, click **PostgreSQL for Analytics Credentials**,
    and select the Amazon S3 endpoint you created.
+
+</TabItem>
+</Tabs>
 
 If you later rotate the access key on the endpoint, your service picks up the new
 credentials without any further action.

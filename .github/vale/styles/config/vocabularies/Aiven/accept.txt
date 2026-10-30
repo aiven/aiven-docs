@@ -442,6 +442,7 @@ tokenizer
 tokenizers
 toolchain
 Transport Layer Security
+Trino
 truststore
 truststores
 Uber
