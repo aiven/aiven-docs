@@ -2729,6 +2729,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Security and access',
           items: [
+            'products/runtime/permissions',
             {
               type: 'category',
               label: 'Authentication',
