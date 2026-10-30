@@ -47,6 +47,9 @@ Alternatively, you can use Cloudflare to forward traffic to your Aiven Runtime a
 1. Create a CNAME record and paste the details you copied.
 
 It can take a few minutes for your DNS records to update and the domain to be verified.
+If you click **Verify** before your DNS provider has finished propagating the CNAME record,
+the verification fails. The system periodically checks for the CNAME record
+and automatically updates the status to **Verified** when it's available.
 
 ## Custom domains managed by Cloudflare
 
