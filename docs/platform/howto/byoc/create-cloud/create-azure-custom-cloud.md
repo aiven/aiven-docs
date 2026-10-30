@@ -56,8 +56,10 @@ subscription so that Aiven can access it:
 
 ## Azure permissions
 
-To deploy the Aiven BYOC Terraform template, your Azure identity needs the following
-subscription permissions. Assign them before running `terraform apply`.
+To deploy the Aiven BYOC Terraform template, your Azure identity needs permissions on
+two separate Azure management planes: Azure Resource Manager for the subscription
+resources, and Microsoft Entra ID for directory lookups. Assign all of them before
+running `terraform apply`.
 
 ### Azure subscription permissions
 
@@ -125,6 +127,59 @@ Show minimum custom role permissions for the BYOC deployer
     "Name": "Aiven BYOC Terraform Operator",
     "NotActions": [],
     "NotDataActions": []
+}
+```
+
+</details>
+
+### Microsoft Entra ID permissions
+
+If Terraform runs as a service principal, for example with the `ARM_CLIENT_ID` and
+`ARM_CLIENT_SECRET` environment variables, that service principal needs the
+`Application.Read.All` application permission for Microsoft Graph. Terraform requires
+this permission to look up the Aiven CCE enterprise application in your tenant.
+
+Subscription roles, including **Owner**, apply only to Azure Resource Manager. They do
+not grant permissions in Microsoft Entra ID, so assign this permission separately.
+
+To add the permission and grant admin consent:
+
+```bash
+az ad app permission add \
+  --id DEPLOYER_APP_ID \
+  --api 00000003-0000-0000-c000-000000000000 \
+  --api-permissions 9a5db679-6498-4db8-a21a-57bdcaf0001a=Role
+az ad app permission admin-consent --id DEPLOYER_APP_ID
+```
+
+Replace `DEPLOYER_APP_ID` with the application ID of the service principal that runs
+Terraform. `00000003-0000-0000-c000-000000000000` is the Microsoft Graph application ID,
+and `9a5db679-6498-4db8-a21a-57bdcaf0001a` is the ID of the `Application.Read.All`
+application permission.
+
+:::note
+Granting admin consent requires an administrator role in your Entra tenant. For details,
+see
+[Grant tenant-wide admin consent to an application](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent).
+:::
+
+<details><summary>
+Show the Microsoft Graph permission as an app manifest fragment
+</summary>
+
+```json
+{
+    "requiredResourceAccess": [
+        {
+            "resourceAppId": "00000003-0000-0000-c000-000000000000",
+            "resourceAccess": [
+                {
+                    "id": "9a5db679-6498-4db8-a21a-57bdcaf0001a",
+                    "type": "Role"
+                }
+            ]
+        }
+    ]
 }
 ```
 
