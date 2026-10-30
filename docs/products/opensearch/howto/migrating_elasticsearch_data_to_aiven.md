@@ -5,6 +5,7 @@ sidebar_label: Migrate ES data to Aiven
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To migrate Elasticsearch data to Aiven for OpenSearch®, reindex from a remote Elasticsearch cluster.
 This method can also be used to migrate data from Aiven for OpenSearch to a self-hosted Elasticsearch service.
@@ -28,6 +29,98 @@ following OpenSearch resources:
 - [OpenSearch Dashboards release notes](https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/release-notes/opensearch-dashboards.release-notes-1.0.0.md)
 - [Frequently asked questions about OpenSearch](https://opensearch.org/faq/)
 :::
+
+## Check migration compatibility
+
+Before you migrate, assess your source cluster with the
+[Elasticsearch to Aiven for OpenSearch Migration Checker](https://aiven.io/tools/elasticsearch-to-aiven-migration-checker).
+The checker reads cluster metadata over a read-only API key and returns an assessment
+in the browser. It requires no Aiven account and never writes to the source cluster.
+
+The report covers:
+
+- A verdict and a score out of 100 that reflect how much work the migration takes.
+- Findings grouped by severity, with an explanation of what each one means for the
+  migration.
+- A service plan and sizing recommendation for Aiven for OpenSearch, with list pricing
+  for the cloud region you select.
+- Detection of hot, warm, and frozen tiered topologies.
+- The checks that the tool skips when the cluster data they rely on is unavailable.
+
+Cluster metadata is processed in memory and is not stored, and the API key is not
+logged or saved.
+
+:::note
+Sizing is a directional estimate based on the cluster the checker reads, not a quote.
+:::
+
+### Create a read-only API key
+
+The checker needs an Elasticsearch API key with the `monitor` cluster privilege and the
+`view_index_metadata` and `monitor` index privileges. Such a key reads metadata only and
+has no write access to the cluster.
+
+To create the key in Kibana, click **Stack Management** > **API Keys** >
+**Create API key**, turn on **Restrict privileges**, and paste these role descriptors:
+
+```json
+{
+  "name": "aiven-migration-check",
+  "role_descriptors": {
+    "readonly_monitor": {
+      "cluster": ["monitor"],
+      "indices": [
+        { "names": ["*"], "privileges": ["view_index_metadata", "monitor"] }
+      ]
+    }
+  }
+}
+```
+
+If your Elasticsearch version has no restrict-privileges field on that screen, send the
+same payload to `POST /_security/api_key` from the Kibana **Dev Tools** console, or with
+`curl`:
+
+```bash
+curl -X POST "ELASTICSEARCH_ENDPOINT/_security/api_key" \
+  -u "ELASTICSEARCH_USERNAME" \
+  -H "Content-Type: application/json" \
+  -d @descriptors.json
+```
+
+Replace the following:
+
+- `ELASTICSEARCH_ENDPOINT`: the endpoint of your source Elasticsearch cluster.
+- `ELASTICSEARCH_USERNAME`: a user with permission to create API keys.
+- `descriptors.json`: a file holding the role descriptors shown earlier.
+
+The `encoded` field in the response holds the API key. Elasticsearch returns the key
+once, so copy it before you leave the page.
+
+### Run the checker
+
+The checker reads your cluster over the public internet. Before you run it, confirm
+that your endpoint:
+
+- Uses HTTPS.
+- Is a publicly resolvable hostname, not an IP address or an internal host name.
+- Carries no username or password. Supply the credentials as the API key instead.
+
+To run the checker:
+
+1. Open the
+   [migration checker](https://aiven.io/tools/elasticsearch-to-aiven-migration-checker).
+
+1. Enter your cluster endpoint and the read-only API key.
+
+1. Select a target cloud region, or keep **Same region as my cluster** to price the
+   plan in the region your cluster runs in.
+
+1. Click **Analyze cluster**.
+
+To have an Aiven solutions architect confirm the sizing and plan the migration with
+you, submit your email address with the assessment. The cluster endpoint and API key
+are not included.
 
 ## Migrate data
 
@@ -124,3 +217,10 @@ following OpenSearch resources:
        write operations, then resume any paused write activity.
 
     1. Delete the source index if necessary.
+
+<RelatedPages/>
+
+- [OpenSearch® vs Elasticsearch](/docs/products/opensearch/concepts/opensearch-vs-elasticsearch)
+- [Upgrade Elasticsearch clients to OpenSearch®](/docs/products/opensearch/howto/upgrade-clients-to-opensearch)
+- [Migrate external OpenSearch or Elasticsearch snapshots to Aiven](/docs/products/opensearch/howto/migrate-external-snapshots-aiven-opensearch)
+- [Reapply ISM policies after snapshot restore](/docs/products/opensearch/howto/migrate-ism-policies)

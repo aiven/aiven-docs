@@ -2,11 +2,19 @@
 title: Change your email address
 ---
 
-You can't change your login email address directly. Instead, you can create a user with the new email address and remove the user with the old email address.
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to do this. Aiven support cannot change your email address.
+You can't change your login email address directly. Instead, you can create a user with the new email address and remove the user with the old email address.
+Aiven support cannot change your email address.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization-admin`'],
+    },
+  ]}
+/>
 
 1.  In the organization, click **Admin**.
 1.  Click **Users**.

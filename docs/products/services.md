@@ -66,13 +66,6 @@ Deploy fully managed and scalable open source data technologies as individual se
     description="The relational database with all the integrations you need."
   />
   <Card
-    to="/docs/products/dragonfly"
-    hideIcon
-    titleHighlight="#8A8AFF"
-    title="Aiven for Dragonfly"
-    description="A scalable in-memory data store for high-performance."
-  />
-  <Card
     to="/docs/products/metrics"
     hideIcon
     titleHighlight="#9CA5FF"

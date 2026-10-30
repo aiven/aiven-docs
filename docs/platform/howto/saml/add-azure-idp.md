@@ -6,10 +6,20 @@ sidebar_label: Microsoft Azure Active Directory
 import IdPStep1 from "@site/static/includes/idp-step1.md";
 import IdPStep3 from "@site/static/includes/idp-step3.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 <!-- vale on -->
 
 Use [Microsoft Azure Active Directory (AD)](https://azure.microsoft.com/en-us/products/active-directory/) to give your organization users single sign-on (SSO) access to Aiven.
+
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`role:organization:admin`'],
+        },
+    ]}
+/>
 
 <IdPStep1/>
 
@@ -25,7 +35,7 @@ Use [Microsoft Azure Active Directory (AD)](https://azure.microsoft.com/en-us/pr
 1. Click **Add**.
 1. Go back to the **Enterprise applications** list.
 
-    :::note
+    :::note[Note]
     The newly created application might not be visible. You can use
     the **All applications** filter to see the new application.
     :::

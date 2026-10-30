@@ -10,11 +10,10 @@ import EolTableKafka from "@site/static/includes/eol-table-kafka.md";
 import EolTableClickhouse from "@site/static/includes/eol-table-clickhouse.md";
 import EolTableFlink from "@site/static/includes/eol-table-flink.md";
 import EolTableValkey from "@site/static/includes/eol-table-valkey.md";
-import EolTableDragonfly from "@site/static/includes/eol-table-dragonfly.md";
 import EolTableGrafana from "@site/static/includes/eol-table-grafana.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven services and tools, including both multi-versioned services and single-versioned services.
+Learn about version lifecycle policies, end of life (EOL) schedules, upgrade procedures, and best practices for Aiven service and tool versions.
 
 :::note
 EOL is the date after which Aiven services and tools are no longer supported
@@ -40,29 +39,11 @@ digit (for example, PostgreSQL® 14) or in the format `major.minor` (for
 example, Kafka® 3.2). The exact version of the service is visible in the
 [Aiven Console](https://console.aiven.io/) when the service is running.
 
-## Multi-versioned vs single-versioned services
-
-There are two types of Aiven services with respect to versions:
-
--   [Multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol)
-
-    - Multiple service versions supported at a time
-    - Service versions managed by the users: You select a version for your service from
-      the available supported versions.
-
--   [Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol)
-
-    - Only one default service version available at a time
-    - Service versions managed by Aiven
-
 ## Service version EOL policy
 
-The Aiven service version EOL policy applies only to
-[multi-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-multi-versioned-services-eol),
-where you select a version.
-[Single-versioned services](/docs/platform/reference/eol-for-major-versions#aiven-single-versioned-services-eol),
-which run a single version managed by Aiven, are not included. This policy covers both
-running and powered-off services on affected versions.
+Aiven sets an EOL date for each major version of a service. You select a version for your
+service from the available supported versions. This policy covers both running and
+powered-off services on affected versions.
 
 ## EOL notifications
 
@@ -97,11 +78,12 @@ After the EOL date:
     services that haven't reached EOL.
 
     :::note[Exception]
-    Aiven for OpenSearch® powered-off services are not deleted after their version EOL.
-    They are upgraded and start running the new version when powered on.
+    Aiven for OpenSearch® and Aiven for Valkey™ powered-off services are not deleted
+    after their version EOL. They are upgraded and start running the new version when
+    powered on.
     :::
 
-## Aiven multi-versioned services EOL
+## Aiven service version EOL dates {#aiven-multi-versioned-services-eol}
 
 ### Aiven for MySQL®
 
@@ -138,12 +120,6 @@ available during the sunset period.
 ### Aiven for Valkey™
 
 <EolTableValkey/>
-
-## Aiven single-versioned services EOL
-
-### Aiven for Dragonfly®
-
-<EolTableDragonfly/>
 
 ### Aiven for Grafana®
 

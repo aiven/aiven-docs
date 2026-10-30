@@ -3,10 +3,20 @@ title: Manage users in an organization
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Adding users to your organization lets you give them access to specific projects and services within that organization.
 
-:::important
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`organization:users:write`', '`role:organization:admin`'],
+        },
+    ]}
+/>
+
+:::important[Important]
 If you're using an identity provider (IdP), always add or remove users directly
 through the IdP. This ensures the IdP is the authoritative source for user management,
 preventing conflicts and simplifying administration.

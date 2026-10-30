@@ -36,12 +36,6 @@
     "body": ["Aiven for ClickHouse®"],
     "description": "Inserts the Aiven for ClickHouse® brand name",
   },
-  "Aiven for Dragonfly": {
-    "scope": "markdown",
-    "prefix": ["aiven for dragonfly", "dragonfly"],
-    "body": ["Aiven for Dragonfly"],
-    "description": "Inserts the Aiven for Dragonfly brand name",
-  },
   "Aiven for Grafana": {
     "scope": "markdown",
     "prefix": ["aiven for grafana", "grafana"],

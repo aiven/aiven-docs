@@ -6,6 +6,8 @@ limited: true
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import MyImg from "@site/static/images/content/figma/valkey-cluster.png";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Aiven for Valkey™ clustering provides a managed, scalable solution for distributed in-memory data storage with built-in high availability and automatic failover capabilities.
 
@@ -22,8 +24,8 @@ appropriate shard.
   maintain service availability.
 - **Minimal downtime**: Designed to handle both expected maintenance and unexpected
   failures with minimal service interruption.
-- **Read replicas**: Each shard includes at least one read replica for redundancy and
-  improved read performance.
+- **Read replicas**: Add up to two replicas per shard for redundancy and improved read
+  performance.
 
 ### Scalability
 
@@ -59,6 +61,159 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 - **Initial configuration**: Starts with one primary node and 0 - 2 read replicas
 - **Use case**: Ideal for smaller datasets or applications with moderate traffic
 - **High availability**: Automatic failover to replicas if the primary fails
+
+## Cluster plans
+
+Cluster-enabled Valkey services use `cluster-N` plans, where `N` is the per-node memory
+in GiB, for example `cluster-4` (4 GiB RAM per node) and `cluster-8` (8 GiB RAM per
+node). You set the shard count and the replica count independently, using advanced
+configuration options.
+
+### Configure a cluster-N plan
+
+When you create or update a service on a `cluster-N` plan, set the following advanced
+configuration options:
+
+- **`shard_count`**: Number of primary shards in the cluster. Required, from `1` to
+  `5`.
+- **`replicas`**: Number of replicas per shard. Optional, from `0` to `2`. Defaults to
+  `0`.
+
+The total node count for the cluster is `shard_count` multiplied by `1 + replicas`. For
+example, 3 shards with 1 replica each results in 6 nodes. Aiven bills `cluster-N` plans
+per node, so your invoice reflects the total node count at the time of billing.
+
+<Tabs groupId="method">
+<TabItem value="console" label="Console" default>
+
+In the [Aiven Console](https://console.aiven.io), when you create a service or update
+the topology of a `cluster-N` service, use the shard count and replica steppers. The
+estimated monthly price updates to reflect the total node count as you change either
+value.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+Set `shard_count` and `replicas` with the
+[avn service create](/docs/tools/cli/service-cli#avn-cli-service-create) or
+[avn service update](/docs/tools/cli/service-cli#avn-cli-service-update) command:
+
+```bash
+avn service create SERVICE_NAME \
+  --service-type valkey \
+  --plan cluster-4 \
+  --cloud CLOUD_AND_REGION \
+  --project PROJECT_NAME \
+  -c shard_count=3 \
+  -c replicas=1
+```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your service.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+- `PROJECT_NAME`: Name of your project.
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Call the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+or [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint and set `shard_count` and `replicas` in `user_config`:
+
+```bash
+curl --request POST \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service \
+  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "service_name": "SERVICE_NAME",
+    "service_type": "valkey",
+    "plan": "cluster-4",
+    "cloud": "CLOUD_AND_REGION",
+    "user_config": {
+      "shard_count": 3,
+      "replicas": 1
+    }
+  }'
+```
+
+Parameters:
+
+- `PROJECT_NAME`: Name of your project.
+- `SERVICE_NAME`: Name of your service.
+- `BEARER_TOKEN`: Your API authentication token.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Use the
+[`aiven_valkey`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/valkey)
+resource to set `shard_count` and `replicas` in `valkey_user_config`:
+
+```hcl
+resource "aiven_valkey" "example" {
+  project      = var.PROJECT_NAME
+  cloud_name   = "CLOUD_AND_REGION"
+  plan         = "cluster-4"
+  service_name = "SERVICE_NAME"
+
+  valkey_user_config {
+    shard_count = 3
+    replicas    = 1
+  }
+}
+```
+
+Parameters:
+
+- `PROJECT_NAME`: Name of your project.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+- `SERVICE_NAME`: Name of your service.
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Use the [Valkey](https://aiven.github.io/aiven-operator/resources/valkey.html) resource
+to set `shard_count` and `replicas` in `userConfig`:
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: Valkey
+metadata:
+  name: SERVICE_NAME
+spec:
+  authSecretRef:
+    name: aiven-token
+    key: token
+
+  connInfoSecretTarget:
+    name: valkey-connection
+
+  project: PROJECT_NAME
+  cloudName: CLOUD_AND_REGION
+  plan: cluster-4
+
+  userConfig:
+    shard_count: 3
+    replicas: 1
+```
+
+Apply the updated configuration:
+
+```bash
+kubectl apply -f valkey-service.yaml
+```
+
+Parameters:
+
+- `SERVICE_NAME`: Name of your service.
+- `PROJECT_NAME`: Name of your project.
+- `CLOUD_AND_REGION`: Cloud provider and region, for example `aws-eu-west-1`.
+
+</TabItem>
+</Tabs>
 
 ## Benefits
 
@@ -113,8 +268,9 @@ equivalent to a standalone Valkey instance and is not the primary use case for c
 
 ### Create a clustered service
 
-To enable clustering in Aiven for Valkey, choose a multi-node cluster plan when creating
-your service.
+To enable clustering in Aiven for Valkey, choose a `cluster-N` plan when creating your
+service. See [Cluster plans](#cluster-plans) for how to set the shard count and replica
+count.
 
 :::tip
 For high availability and improved read scalability, **add replicas** to each service
@@ -153,7 +309,8 @@ replacement primary for the affected shard depends on how many shards the cluste
   this case, Aiven promotes the replica that's furthest ahead in replication, meaning the
   one with the least data loss, once it confirms the failed primary is no longer part of
   the service. If the shard has no replica, Aiven provisions a new node instead and
-  restores its data from the most recent backup.
+  restores its data from the most recent backup. The shard loses any writes it accepted
+  after that backup.
 
 Failover isn't instant, so while a shard has uncovered hash slots, commands for keys in
 that shard's slot range fail; other shards keep serving their own keys without
@@ -167,8 +324,22 @@ of primary nodes in your cluster changes, Aiven reshards the cluster automatical
 Resharding redistributes the hash slots, and the keys they hold, across the available
 primary nodes to keep the slots evenly balanced across shards.
 
-Resharding runs as part of a service plan change that adds or removes primary nodes. Aiven
-manages the entire process:
+Resharding has a few prerequisites:
+
+- The service must run Valkey 9.0 or later.
+- The service must be powered on.
+- All nodes in the service must be in the `Running` state.
+- No change to the instance size or cloud region can be in progress or requested at the
+  same time.
+- The most recent backup must match the service's current shard count. After a reshard,
+  wait for the next backup to complete before you reshard again.
+- You cannot change `shard_count` and `replicas` in the same request. Change one, wait
+  for the update to finish, then change the other.
+
+The number of primary nodes changes when you update `shard_count` on a `cluster-N`
+plan. See [Configure a cluster-N plan](#configure-a-cluster-n-plan).
+
+Aiven manages the entire process:
 
 - **Slot redistribution**: Aiven divides the ranges of hash slots owned by each primary
   node and reassigns them across the updated set of primary nodes.
@@ -195,26 +366,46 @@ more information, see [Memory management](/docs/products/valkey/concepts/memory-
 
 ## Backup and restore
 
-Aiven for Valkey automatically backs up your clustered service. Each primary node backs up
-the data for the hash slots it owns, and Aiven stores these backups in a remote location.
-Backups run independently for each primary and need no coordination from your application.
+Aiven for Valkey automatically backs up your clustered service. If your shards have
+replicas, Aiven backs up the replicas, which keeps the extra backup load off your
+primaries. If your shards have no replicas, Aiven backs up the primaries instead. Aiven
+stores these backups in a remote location. Backups run independently for each shard and
+need no coordination from your application.
+
+If a reshard is still moving slots when a backup is due, Aiven waits for the new layout to
+settle before starting the backup. If the topology changes while a backup is running, for
+example during a reshard or failover, the backup fails and the next scheduled backup takes
+over.
+
+Cluster mode doesn't support delta backups: Every backup is a full backup.
 
 To restore a cluster, Aiven combines the stored backups with the recorded hash slot
 layout, so your data returns to the same slot distribution. The cluster must keep the same
 number of primary nodes for a restore to succeed.
 
 :::note
-Cluster backups are not point-in-time recovery (PITR). Because each primary node is backed
-up independently, backups are not consistent across shards. A restored cluster reflects
-each primary's data as of its own backup, not a single moment in time across the whole
-cluster. Design your application to tolerate this if you rely on a restore.
+Cluster backups are not point-in-time recovery (PITR). Because each shard is backed up
+independently, backups are not consistent across shards. A restored cluster reflects each
+shard's data as of its own backup, not a single moment in time across the whole cluster.
+Design your application to tolerate this if you rely on a restore.
 :::
 
 ## Limitations and considerations
 
 - Valkey clustering is in
   [limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-- Valkey clustering is supported for new services only.
+- Valkey clustering is supported for new services only. You can't convert an existing
+  standalone service to a cluster plan, or a clustered service back to standalone.
+- Migrating data into a cluster from an external Redis or Valkey server isn't supported.
+- Aiven places each shard's primary and replicas in different availability zones when it
+  creates the cluster. When Aiven replaces a node, it puts the replacement in the same
+  zone, which preserves that spread.
+- This placement is best effort. If a zone is unavailable, or doesn't offer the instance
+  type your plan needs, a shard can end up with its primary and replica in one zone. For
+  more information, see [Availability zones](/docs/platform/concepts/availability-zones).
+- Aiven doesn't rebalance existing nodes into different zones afterward, for example after
+  a replica moves or after zone capacity recovers. A shard without a replica has no
+  availability zone redundancy.
 - Performance factors
 
   - Network latency between shards can affect cross-shard operations.

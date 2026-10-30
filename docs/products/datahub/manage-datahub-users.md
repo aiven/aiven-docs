@@ -70,4 +70,5 @@ You can also create groups of users to more easily manage user access:
 1. Select the users to add to the group and click **Add**.
 
 <RelatedPages/>
+
 - [Resetting user passwords](https://docs.datahub.com/docs/authentication/guides/add-users#resetting-user-passwords)

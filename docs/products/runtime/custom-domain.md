@@ -51,7 +51,7 @@ and you cannot rely on the Worker as a security boundary.
 1. Click **Create application** > **Worker**. You can also use an existing
    Worker or deploy with [Wrangler](https://developers.cloudflare.com/workers/wrangler/).
 
-   :::note
+   :::note[Note]
    Each exposed port has its own Aiven hostname. Front each one with its own Worker/route,
    or map hostnames to upstreams within a single Worker.
    :::

@@ -72,6 +72,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="custom_plugins"/><Link to="#custom_plugins"><strong>custom_plugins</strong></Link></p><p><code className="type">array</code></p></div>
+        <p className="title">Custom Kafka Connect plugins</p><div className="description"><p>Install custom plugins uploaded via the custom file service.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="sasl_oauthbearer_allowed_urls"/><Link to="#sasl_oauthbearer_allowed_urls"><strong>sasl_oauthbearer_allowed_urls</strong></Link></p><p><code className="type">array</code></p></div>
         <div className="description"><p>List of allowed URLs for SASL OAUTHBEARER authentication. Only HTTPS URLs are allowed for security reasons.</p></div>
       </td>

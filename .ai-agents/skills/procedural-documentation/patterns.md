@@ -2,22 +2,58 @@
 
 This document describes recurring structural patterns used in Aiven procedural documentation.
 
+## Document scope and limitations
+
+State scope and any limitations early in the document (after the intro sentence but before detailed sections). This helps readers understand what the document covers and avoids repeating constraints in multiple sections.
+
+**Good practice:**
+- Limitations, source type restrictions, and applicability constraints belong in the opening
+- Once stated, don't repeat them in feature sections or subsections
+
+**Example:**
+```markdown
+Enable AI features for your DataHub sources.
+
+These features work with SQL sources such as PostgreSQL, MySQL, and ClickHouse. They are not supported for Kafka or Kafka Connect.
+
+## AI descriptions
+...
+```
+
 ## Intro sentence
 
-The intro sentence is the first line after frontmatter. It must:
+The intro sentence is the first line after the frontmatter. It must:
+
 - Be a single, complete sentence
 - Be on one line (even if it exceeds line-length limits; ignore linter)
-- State the goal, benefit, or context of the procedure
+- **Focus on the benefit or outcome**, not just the mechanics
 - Immediately orient the reader to what they'll accomplish
+- Never explain what the document is for using language like "This guide shows you" or "This page explains"
 
-**Examples:**
+**Guidelines:**
+- Lead with the **customer benefit** or **what the feature enables**
+- Avoid starting with imperative verbs like "Learn how to" or "Use this to"
+- Prefer: "Get X, Enable Y, Set up X" over "Learn how to configure X"
+- Be direct and concise; eliminate filler words
+
+**Good examples (benefit-focused):**
+
+```markdown
+Enable AI-generated descriptions and classifications for your DataHub ingestion sources.
+
+Get activity notifications for your DataHub service in a Slack channel, including new datasets, ownership changes, tags, and glossary updates.
+
+To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications.
+
+
+Set service and project contacts to receive email notifications about the latest information.
+```
+
+**Avoid (mechanics-focused or wordy):**
 
 ```markdown
 Learn how to manage your organizations via the Aiven Console.
 
-To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications.
-
-Get activity notifications for your DataHub service in a Slack channel, including new datasets, ownership changes, tags, and glossary updates.
 ```
 
 ## Prerequisites section
@@ -25,9 +61,10 @@ Get activity notifications for your DataHub service in a Slack channel, includin
 Prerequisites list what the reader needs before starting, not how to obtain them.
 
 **Structure:**
-- Heading: "Prerequisites"
+- Heading: "Prerequisites" (not "Requirements")
 - Bulleted list introduced with a complete sentence
 - List items only (no instructions or steps)
+- Plain language without bold labels on each item
 - If setup is complex, link to a separate doc or include steps in the main procedure
 
 **Good example:**
@@ -36,6 +73,14 @@ Prerequisites list what the reader needs before starting, not how to obtain them
 
 - A Slack workspace where you can create and install apps
 - The ID of the Slack channel to send notifications to
+```
+
+**Avoid (bold labels on each item):**
+```markdown
+## Prerequisites
+
+- **Slack workspace:** A Slack workspace where you can create and install apps
+- **Channel ID:** The ID of the Slack channel to send notifications to
 ```
 
 **Anti-pattern (instructions in prerequisites):**

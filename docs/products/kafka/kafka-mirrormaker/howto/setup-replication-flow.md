@@ -52,3 +52,42 @@ cluster:
    With the default replication policy, replicated topic names use the
    `source-cluster-alias.source-topic-name` format. If you use the identity
    replication policy, topic names stay unchanged.
+
+For more information about how MirrorMaker 2 sets topic configurations and the
+replication factor on target topics, see
+[Topic configurations on the target cluster](/docs/products/kafka/kafka-mirrormaker/concepts/configuration-layers#topic-configurations-on-the-target-cluster).
+
+## Route diskless topic traffic within an availability zone
+
+If you replicate diskless topics, you can reduce cross-AZ traffic by setting
+`diskless_az_enabled` to `true` on the replication flow. MirrorMaker 2 then sets the
+flow's producer and consumer client IDs to `diskless_az=AZ`, where `AZ` is the
+availability zone (AZ) of the node, for example `diskless_az=use1-az1`. This replaces the
+default client IDs and can affect quotas, metrics, and logs that depend on them. The
+default is `false`.
+
+All MirrorMaker 2 customers can use this option. If the API returns an error when you set
+it, contact [Aiven support](/docs/platform/howto/support#create-a-support-ticket).
+
+If AZ-aware listeners are enabled for your project, you don't need this option. For more
+information, see
+[Configure AZ-aware listeners](/docs/products/kafka/howto/configure-az-aware-listeners).
+
+Update the replication flow with the Aiven API. The request changes only the fields you
+send:
+
+```bash
+curl --request PUT \
+  --url "https://api.aiven.io/v1/project/PROJECT_NAME/service/MIRRORMAKER_SERVICE_NAME/mirrormaker/replication-flows/SOURCE_CLUSTER/TARGET_CLUSTER" \
+  --header "Authorization: Bearer API_TOKEN" \
+  --header "content-type: application/json" \
+  --data '{"diskless_az_enabled": true}'
+```
+
+Replace the following:
+
+- `PROJECT_NAME`: Name of your Aiven project.
+- `MIRRORMAKER_SERVICE_NAME`: Name of your Aiven for Apache Kafka MirrorMaker 2 service.
+- `SOURCE_CLUSTER`: Alias of the source cluster in the replication flow.
+- `TARGET_CLUSTER`: Alias of the target cluster in the replication flow.
+- `API_TOKEN`: Your Aiven API token.

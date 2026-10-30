@@ -50,9 +50,9 @@ To create a user and configure ACLs using the Aiven CLI:
      --project myproject \
      --service myservicename \
      --username mynewuser \
-     --redis-acl-keys 'mykeys.*' \
-     --redis-acl-commands '+get' \
-     --redis-acl-categories ''
+     --valkey-acl-keys 'mykeys.*' \
+     --valkey-acl-commands '+get' \
+     --valkey-acl-categories ''
    ```
 
 1. Test the ACL settings by connecting to the service using the new username:

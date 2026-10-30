@@ -3,10 +3,19 @@ title: Manage domains
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Adding a verified domain in Aiven adds an extra layer of security to managing your organization's users. When you verify a domain, your organization users automatically become
 [managed users](/docs/platform/concepts/managed-users).
 
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`organization:domains:write`', '`role:organization:admin`'],
+      },
+   ]}
+/>
 
 There are two ways you can verify a domain:
 
@@ -71,7 +80,7 @@ can retry it by repeating the last step.
 
 ## Remove a domain
 
-:::important
+:::important[Important]
 Removing a domain is an irreversible action.
 :::
 

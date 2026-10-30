@@ -12,12 +12,6 @@ jobs:
     with:
       service-name: clickhouse
 
-  update-adv-params-dragonfly:
-    name: Update parameters - Dragonfly
-    uses: ./.github/workflows/update-adv-params.yaml
-    with:
-      service-name: dragonfly
-
   update-adv-params-flink:
     name: Update parameters - Flink
     uses: ./.github/workflows/update-adv-params.yaml

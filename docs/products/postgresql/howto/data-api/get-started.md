@@ -2,10 +2,10 @@
 title: Enable Aiven for PostgreSQL® Data API
 sidebar_label: Enable Data API
 description: Expose an Aiven for PostgreSQL database as REST endpoints.
-limited: true
+early: true
 ---
 
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Enable Data API to expose a database in your Aiven for PostgreSQL® service as REST endpoints.
@@ -14,8 +14,6 @@ Enable Data API to expose a database in your Aiven for PostgreSQL® service as R
 
 To enable Data API, you need the following:
 
-- <LimitedBadge/> access to Data API. To request access,
-  [contact Aiven](https://aiven.io/contact).
 - The [`project:services:write`](/docs/platform/concepts/permissions)
   permission. If you don't have it, ask an admin to grant it. See
   [Manage permissions](/docs/platform/howto/manage-permissions).

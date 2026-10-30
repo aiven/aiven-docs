@@ -154,6 +154,7 @@ const config: Config = {
       async: true,
       'data-website-id': '97dbdbe6-f293-4969-9d76-2204feaf543b', // this is not a secret
       'data-project-name': 'Aiven Kapa AI',
+      'data-webmcp-enabled': 'true',
       'data-user-analytics-cookie-enabled': 'false',
       'data-project-color': '#5FFA74',
       'data-project-logo': 'https://aiven.io/docs/images/crabby_RGB_blk.svg',
@@ -218,11 +219,12 @@ const config: Config = {
       {
         siteTitle: 'Aiven docs',
         siteDescription:
-          'Official technical documentation for Aiven, the AI-ready Open Source Data Platform. Comprehensive guides for deploying, scaling, and monitoring managed services including Apache Kafka, PostgreSQL, MySQL, OpenSearch, Redis, ClickHouse, and Flink. Covers platform features like Bring Your Own Cloud (BYOC), VPC peering, and authentication. Includes reference documentation for Aiven Developer Tools: CLI, API, Terraform Provider, and Kubernetes Operator.',
-        depth: 5,
+          'Official technical documentation for Aiven, the AI-ready Open Source Data Platform. Guides cover conceptual and procedural information on managed data services, Runtime applications, Managed Agents, AI Gateway, and more.',
+        depth: 3,
         content: {
           enableLlmsFullTxt: true,
           excludeRoutes: ['**/search', '**/search.md'],
+          relativePaths: false,
         },
       },
     ],
@@ -244,32 +246,32 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Platform',
-          sidebarId: 'main',
+          label: 'Get started',
+          sidebarId: 'getstarted',
         },
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Services',
-          sidebarId: 'services',
+          label: 'Products',
+          sidebarId: 'products',
         },
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Runtime',
-          sidebarId: 'runtime',
+          label: 'Admin',
+          sidebarId: 'admin',
         },
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'Tools',
-          sidebarId: 'tools',
+          label: 'Dev tools',
+          sidebarId: 'devtools',
         },
         {
           type: 'docSidebar',
           position: 'left',
-          label: 'AI',
-          sidebarId: 'ai',
+          label: 'AI tools',
+          sidebarId: 'aitools',
         },
         {
           label: 'Aiven Console',
@@ -380,7 +382,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © Aiven 2016-${new Date().getFullYear()}. Apache, Apache Kafka, Kafka, Apache Flink, and Flink, are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. OpenSearch, PostgreSQL, MySQL, Grafana, Dragonfly, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
+      copyright: `Copyright © Aiven 2016-${new Date().getFullYear()}. Apache, Apache Kafka, Kafka, Apache Flink, and Flink, are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. ClickHouse is a registered trademark of ClickHouse, Inc. OpenSearch, PostgreSQL, MySQL, Grafana, Valkey, Thanos, Terraform, and Kubernetes are trademarks and property of their respective owners. All product and service names used in this website are for identification purposes only and do not imply endorsement.`,
     },
     prism: {
       theme: prismThemes.nightOwl,
@@ -390,7 +392,9 @@ const config: Config = {
     },
     mermaid: {
       options: {
-        maxTextSize: 1000,
+        // Mermaid's own default. Lower values make larger diagrams fail to
+        // render with "Maximum text size in diagram exceeded".
+        maxTextSize: 50000,
       },
     },
     markdown: {

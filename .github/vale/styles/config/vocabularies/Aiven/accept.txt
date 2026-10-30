@@ -44,6 +44,7 @@ booleans?
 boot
 BTAR
 Bucardo
+bundler
 business
 BYOC
 Cassandra
@@ -239,6 +240,7 @@ keystores?
 Kibana
 Klaw
 Kpow
+KRaft
 Kubernetes
 kuromoji
 LibreDB
@@ -403,6 +405,7 @@ SSD/S
 SSDs
 Stackdriver
 Statusmap
+stemmers?
 storages
 Stunnel
 subnet
@@ -489,3 +492,5 @@ nmslib
 faiss
 knn_vector
 hnsw
+IDEs?
+decompounder

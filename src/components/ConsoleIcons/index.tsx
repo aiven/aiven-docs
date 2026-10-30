@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
 import {Icon} from '@iconify/react';
 import * as ConsoleIcons from '@aivenio/aquarium/icons/index';
+import agentIcon from './agentIcon';
 
 // See the icons in https://aquarium-library.aiven.io/?path=/docs/data-display-icons--docs
 
@@ -106,7 +107,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'agents':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.cpuChip} /> <b>Agents</b>
+          <ConsoleIconWrapper icon={agentIcon} /> <b>Agents</b>
         </>
       );
     case 'agentoverview':
@@ -164,6 +165,13 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.map} />{' '}
           <b>Open schema map</b>
+        </>
+      );
+    case 'downloadorcopyresults':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.download} />{' '}
+          <b>Download or copy results</b>
         </>
       );
     case 'generativeai':
@@ -244,6 +252,18 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Logs</b>
         </>
       );
+    case 'runtimelogs':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Runtime logs</b>
+        </>
+      );
+    case 'buildlogs':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.jobsAndData} /> <b>Build logs</b>
+        </>
+      );
     case 'integrationendpoints':
       return (
         <>
@@ -268,6 +288,13 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.cloud} />{' '}
           <b>Bring your own cloud</b>
+        </>
+      );
+    case 'platformmanagement':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.grid} />{' '}
+          <b>Platform management</b>
         </>
       );
     case 'eventlog':
@@ -338,6 +365,18 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.key} /> <b>Authentication</b>
+        </>
+      );
+    case 'revokekey':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.banCircle} /> <b>Revoke key</b>
+        </>
+      );
+    case 'editkey':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.edit} /> <b>Edit key</b>
         </>
       );
     case 'groups':
@@ -506,6 +545,12 @@ export default function ConsoleLabel({name}): ReactElement {
       return (
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.refresh} /> <b>Replace file</b>
+        </>
+      );
+    case 'downloadfile':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.download} /> <b>Download file</b>
         </>
       );
     case 'editaclrules':

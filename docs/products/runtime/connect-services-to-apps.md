@@ -10,7 +10,8 @@ import TabItem from '@theme/TabItem';
 
 Connect your deployed application to [Aiven services](/docs/products/services).
 You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®,
-Aiven for OpenSearch®, or Aiven for Valkey™ service.
+Aiven for OpenSearch®, Aiven for Valkey™, Aiven for MySQL,
+or Aiven for ClickHouse® service.
 
 You can also define integrations when you create your application
 by using [Compose files](/docs/products/runtime/manifest-files/compose-files).
@@ -268,7 +269,7 @@ Where:
 
 Use the `avn service update` command.
 
-:::warning
+:::warning[Warning]
 This replaces the application's environment variables.
 To keep the existing variables, include them in the `environment_variables` list.
 To view a list of the existing environment variables, run
@@ -308,7 +309,7 @@ connection information.
 
 Use the `PUT /v1/project/{project}/service/{service}` endpoint.
 
-:::warning
+:::warning[Warning]
 This replaces the application's environment variables.
 To keep the existing variables, include them in the `environment_variables` list.
 To view a list of the existing environment variables, call
@@ -352,6 +353,44 @@ connection information.
 
 </TabItem>
 </Tabs>
+
+### Connect from Node.js
+
+Aiven Runtime provides the PostgreSQL connection URL in the configured
+[environment variable](/docs/products/runtime/secrets-and-variables#default-environment-variables).
+
+With `node-postgres`, enable libpq-compatible TLS behavior before using the generated URL:
+
+```javascript
+const { Client } = require("pg");
+
+const databaseUrl = new URL(process.env.DATABASE_URL);
+databaseUrl.searchParams.set("uselibpqcompat", "true");
+
+const client = new Client({
+  connectionString: databaseUrl.toString(),
+});
+
+await client.connect();
+```
+
+This produces a connection string equivalent to:
+
+```
+postgresql://USER:PASSWORD@HOST:PORT/DATABASE?sslmode=require&uselibpqcompat=true
+```
+
+:::note
+`sslmode=require` encrypts the connection but does not verify the server certificate.
+:::
+
+Once Runtime generates `uselibpqcompat=true` itself, simplify the example to:
+
+```javascript
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+});
+```
 
 ## Disconnect an Aiven service
 

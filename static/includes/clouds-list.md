@@ -876,6 +876,21 @@ contact your account team.
   </tr>
   <tr>
     <td>Asia-Pacific</td>
+    <td>ap-batam-1</td>
+    <td>Indonesia, Indonesia North: Batam</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-hyderabad-1</td>
+    <td>India, India South: Hyderabad</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
+    <td>ap-kulai-2</td>
+    <td>Malaysia, Malaysia West 2: Kulai</td>
+  </tr>
+  <tr>
+    <td>Asia-Pacific</td>
     <td>ap-melbourne-1</td>
     <td>Australia, Australia Southeast: Melbourne</td>
   </tr>
@@ -926,6 +941,21 @@ contact your account team.
   </tr>
   <tr>
     <td>Europe</td>
+    <td>eu-madrid-1</td>
+    <td>Spain, Spain Central: Madrid</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-madrid-3</td>
+    <td>Spain, Spain Central: Madrid 3</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-marseille-1</td>
+    <td>France, France South: Marseille</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
     <td>eu-milan-1</td>
     <td>Italy, Italy Northwest: Milan</td>
   </tr>
@@ -936,8 +966,23 @@ contact your account team.
   </tr>
   <tr>
     <td>Europe</td>
+    <td>eu-stockholm-1</td>
+    <td>Sweden, Sweden Central: Stockholm</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
     <td>eu-turin-1</td>
     <td>Italy, Italy Northwest: Turin</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>eu-zurich-1</td>
+    <td>Switzerland, Switzerland North: Zurich</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+    <td>uk-cardiff-1</td>
+    <td>United Kingdom, UK West: Cardiff</td>
   </tr>
   <tr>
     <td>Europe</td>

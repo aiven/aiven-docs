@@ -611,7 +611,7 @@ Updates the settings for an Aiven service.
 | `--plan`                           | Aiven subscription plan name. See [`avn_service_plan`](/docs/tools/cli/service-cli#avn-service-plan).                                                            |
 | `--power-on`                       | Power on the service                                                                                                                                           |
 | `--power-off`                      | Power off the service                                                                                                                                          |
-| `--maintenance-dow`                | Set the automatic maintenance window's day of the week (possible values `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `never`) |
+| `--maintenance-dow`                | Set the automatic maintenance window's day of the week (possible values `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`)          |
 | `--maintenance-time`               | Set the automatic maintenance window's start time (`HH:MM:SS`)                                                                                                 |
 | `--enable-termination-protection`  | Enable termination protection                                                                                                                                  |
 | `--disable-termination-protection` | Disable termination protection                                                                                                                                 |

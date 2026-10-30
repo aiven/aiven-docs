@@ -8,12 +8,20 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import IdPStep1 from "@site/static/includes/idp-step1.md";
 import IdPStep3 from "@site/static/includes/idp-step3.md"
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 <!-- vale on -->
 
 You can give your organization users access to Aiven through identity providers (IdPs) that support SAML.
 
-You must be an [organization admin](/docs/platform/concepts/permissions) to manage IdPs.
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`role:organization:admin`'],
+        },
+    ]}
+/>
 
 The following are general steps for setting up single sign-on with an IdP. Setup
 instructions are also available for these specific providers:
@@ -50,7 +58,7 @@ draft, you can open the settings by clicking the name of the IdP.
 
 You can manually link Aiven organization user accounts using the following URLs.
 
-:::note
+:::note[Note]
 You don't need to manually link organization users who have an email address that matches
 a verified domain linked to one of your identity providers.
 :::

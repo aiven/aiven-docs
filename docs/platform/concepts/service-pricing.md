@@ -39,7 +39,7 @@ Learn more about and compare the different plans on the
 To ensure consistent performance and allow for seamless migration, all Aiven service plans
 have standardized resources regardless of the underlying cloud provider.
 
-:::note
+:::note[Note]
 Since available virtual machine (VM) sizes differ between clouds, services can be
 provisioned on a VM with more resources (CPU, RAM, or disk storage) than advertised.
 These additional resources are not guaranteed. Aiven reserves the right to switch

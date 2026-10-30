@@ -6,6 +6,7 @@ sidebar_label: Use marketplace subscriptions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can change the payment method for a billing group to a marketplace subscription.
 This lets you pay for your Aiven services through the AWS, Azure, or
@@ -14,6 +15,15 @@ Google Cloud marketplaces.
 To change to a marketplace payment method, contact the support team with your
 subscription details. Changing from direct billing to a marketplace subscription
 does not disrupt your services.
+
+<RequirementsPanel
+   items={[
+      {
+         label: 'Permissions',
+         values: ['`organization:billing:read`'],
+      },
+   ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="aws" label="AWS Marketplace" default>
