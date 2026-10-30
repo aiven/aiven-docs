@@ -3,7 +3,8 @@ title: Connect a custom domain to an Aiven Runtime
 sidebar_label: Connect a custom domain
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Connect a custom domain to an Aiven Runtime application using Cloudflare. Cloudflare receives traffic for your custom domain at its edge, and a Cloudflare Worker forwards each request to the Aiven-generated application hostname.
 
@@ -36,6 +37,16 @@ and you cannot rely on the Worker as a security boundary.
   Use Advanced Certificate Manager for deeper subdomains.
 
 ## Connect a custom domain managed by Cloudflare
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Aiven permissions',
+      icon: 'people',
+      values: ['`project:services:read`', '`role:project:read`', '`role:services:recover`', '`role:project:admin`', '`role:project:manager`'],
+    }
+  ]}
+/>
 
 1. To get the Aiven Runtime application URL, in the Aiven Console, click <ConsoleLabel name="runtime"/>
    and open your application.
