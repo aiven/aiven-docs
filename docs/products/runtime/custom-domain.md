@@ -21,6 +21,8 @@ Alternatively, you can use Cloudflare to forward traffic to your Aiven Runtime a
    The Aiven-generated URL can still be reached by anyone with access. To restrict access,
    add an [authentication method](/docs/products/runtime/authentication/apps-authentication-overview).
 
+- **Custom domains cannot be added to more than one port**.
+
 ### Add a custom domain to an existing app
 
 <RequirementsPanel
@@ -44,7 +46,7 @@ Alternatively, you can use Cloudflare to forward traffic to your Aiven Runtime a
 1. In another browser tab or window, log in to your domain hosting provider.
 1. Create a CNAME record and paste the details you copied.
 
-It can take up to 72 hours for your DNS records to update and the domain to be verified.
+It can take a few minutes for your DNS records to update and the domain to be verified.
 
 ## Custom domains managed by Cloudflare
 
