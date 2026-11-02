@@ -107,7 +107,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       items: [
-        '/docs/platform/reference/security-best-practices',
+        'platform/reference/security-best-practices',
         {
           type: 'link',
           label: 'Authentication',

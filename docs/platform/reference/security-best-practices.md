@@ -1,8 +1,9 @@
 ---
-title: Security checklist
+title: Security best practices
 ---
+import PasswordPolicy from "@site/static/includes/password-policy.md";
 
-The Aiven Platform offers security features to help you protect your data and resources. Security needs vary based on organization, but the following are best practices you can use to make the best use of these features and increase your security posture.
+The Aiven Platform offers security features to help you protect your data and resources. Security needs vary based on organization, but the following are best practices you can use to make use of these features and improve your security posture.
 
 - [Verify a domain](#verify-a-domain)
 - [Add an identity provider](#add-an-identity-provider)
@@ -19,6 +20,7 @@ The Aiven Platform offers security features to help you protect your data and re
   - [Restrict access to trusted networks](#restrict-access-to-trusted-networks)
   - [Keep tokens secure and rotate them regularly](#keep-tokens-secure-and-rotate-them-regularly)
   - [Delete unused users and tokens](#delete-unused-users-and-tokens)
+- [Give AI agents read only access](#give-ai-agents-read-only-access)
 - [Create virtual private clouds](#create-virtual-private-clouds)
 - [Employ a multi-cloud, geographically distributed strategy](#employ-a-multi-cloud-geographically-distributed-strategy)
 - [Keep services up-to-date](#keep-services-up-to-date)
@@ -27,8 +29,8 @@ The Aiven Platform offers security features to help you protect your data and re
 ## Verify a domain
 
 To make your organization users managed users and to set up single sign-on through
-an identity provider, verify your organization's domain. Even if you
-don't use an identity provider for logins, verifying your domain helps to
+an identity provider (IdP), verify your organization's domain. Even if you
+don't use an IdP for logins, verifying your domain helps to
 secure you organization on the Aiven Platform.
 
 - [Verify your domain](/docs/platform/howto/manage-domains)
@@ -36,11 +38,9 @@ secure you organization on the Aiven Platform.
 
 ## Add an identity provider
 
-Use SAML federation for regular access to the Aiven Platform through an
-identity provider (IdP). IdPs let you centralize identity management for multiple
+Use SAML federation for regular access to the Aiven Platform through an IdP. IdPs let you centralize identity management for multiple
 platforms, give your organization users access through single sign-on (SSO), and
-help to reduce the risk of credential exposure. This can reduce administrative
-overhead and improve the user experience. Many IdPs also have additional
+help to reduce the risk of credential exposure. Many IdPs also have additional
 security features like multi-factor authentication and auditing.
 
 All users with an email address from a verified domain
@@ -55,17 +55,17 @@ When configuring an IdP it's best to enable the following SAML security settings
 - **Sign authorization request sent to IdP**: Ensures authenticity and integrity with a
   digital signature.
 
-The [authentication policy](#configure-your-authentication-policy) for the
+The [authentication policy](#configure-your-authentication-policy) for your
 organization is also an important component in securing access through an IdP.
 
 - [Add an identity provider](/docs/platform/howto/saml/add-identity-providers)
 
 ## Configure your authentication policy
 
-Set a policy that allows your organization users to access your organization on
+Set a policy that allows organization users to access your organization on
 the Aiven Platform only through approved methods.
 
-For a greater level of security, only allow users to log in with your identity provider
+For a greater level of security, only allow users to log in with your Idp
 and select the **require log in with an identity provider** option. If you do allow
 password authentication, enforce two-factor authentication for all users.
 
@@ -85,26 +85,15 @@ A more secure way to centrally manage access through tokens is to create
 
 ### Password requirements
 
-Aiven enforces the following rules for password strength:
-
--   Minimum length is 8 characters
--   Cannot contain single repeating characters such as `aaaaaaaa`
--   Cannot contain your name or email address
--   Cannot contain common words, phrases, or strings such as password,
-    security, or common names
--   Cannot contain words that are very similar to common words such as
-    `password1`
-
-These rules are also used for service integration passwords. For remote
-external integrations these rules are not enforced, but they are recommended.
+<PasswordPolicy/>
 
 ### Create secure password
 
 If you use password authentication, follow these guidelines to create secure passwords:
 
-- Use a password manager to create a randomly generated strong passwords
-- Use passphrases as these are harder to guess
-- Always use a unique password for every service and app
+- Use a password manager to create a randomly generated strong passwords.
+- Use passphrases as these are harder to guess.
+- Always use a unique password for every service and app.
 
 ## Use units and projects to separate concerns
 
@@ -130,16 +119,18 @@ At the service level, don't use the `avnadmin` service user for normal operation
 This user is intended for provisioning and recovery. Instead, create lower-privileged
 service users within the service that have only the necessary permissions.
 Additionally, users who only need to access services may not need to have
-Aiven user accounts. For example ,a database administrator (DBA) who is configuring
-a PostgreSQL service for an application might not need access to the Aiven Console.
+Aiven user accounts. For example, a database administrator (DBA) who is configuring
+a PostgreSQL service for an application might not need access to the Aiven Platform.
 You can create service users for these types of users and give them the connection string
 and credentials for only that specific service.
+
+For Runtime applications, you can restrict access to the app by adding an [authentication method](/docs/products/runtime/authentication/apps-authentication-overview) to it.
 
 ### Limit the number of admin
 
 Limit the number of organization admin and project admin. Grant the organization admin
 to a limited number of users in the organization. Instead, assign specific permissions
-at the organization level such as the **manage groups** or **manage projects** permissions.
+at the organization level such as the `organization:billing:write` permission to manage billing and payments.
 
 Most importantly, minimize the number of
 [super admin](/docs/platform/howto/manage-permissions#make-users-super-admin)
@@ -162,7 +153,7 @@ For user accounts with super admin access follow these best practices to secure 
 Use groups to streamline and increase the visibility of the process of granting access
 to users. If you choose to automatically add users to a group when they sign up,
 make sure the group has minimal permissions. Only grant users permissions to projects
-that have a business need to access them.
+that they have a business need for.
 
 ### Examples
 The following are examples of typical user types along with the roles and permissions they
@@ -171,8 +162,8 @@ need.
 **Finance team members**
 
 Users on this team often only need to view and download invoices. Grant these users
-the **view billing** permission. If they need to edit billing details, grant them
-the **manage billing** permission.
+the `organization:billing:read` permission. If they need to edit billing details, grant them
+the `organization:billing:write` permission.
 
 **Auditors**
 
@@ -182,13 +173,12 @@ Grant these users the **read only** role in the projects relevant for their work
 
 For users like database administrators, who use the Aiven Console or API to
 configure services, but don't need to create them or power them off, grant them
-the **developer** role in the relevant projects.
+the `developer` role in the relevant projects.
 
 **DevOps**
 
-For users who maintain services to keep them updated and set the maintenance window to
-avoid downtime, grant the **maintain services** permission. If they also need to be
-able to help restore a service after an incident, grant them the **recover services**
+For users who maintain service updates and maintenance windows, grant the `role:services:maintenance` role. If they also need to be
+able to help restore a service after an incident, grant them the `role:services:recover`
 permission.
 
 - [Roles and permissions](/docs/platform/concepts/permissions)
@@ -196,13 +186,14 @@ permission.
 
 ## Create application users for automated access
 
-Because application users can have the same level of access to projects and services it's
+Application users are non-human users intended for programmatic and automated access to the platform.
+Because application users are granted access to projects and services, it's
 important to secure these accounts and their tokens to avoid abuse.
 
 ### Create dedicated application users for each tool
 
 Create a different application user for each tool and generate
-application tokens for each. For example, if you have a tool that needs to connect to services in one of your projects and you're using Aiven Terraform Provider
+application tokens for each. For example, if you have a tool that needs to connect to services in one of your projects and you're also using Aiven Terraform Provider
  in the same project, create two application users. Use the description field for
  each user to clearly indicate what it's used for.
 
@@ -215,8 +206,7 @@ Specify allowed IP address ranges for each token. This prevents tokens from bein
 outside of your trusted networks, reducing the risk of breaches. You can also specify
 these ranges in your organization's
 [authentication policy](#configure-your-authentication-policy), limiting
-all access to the Aiven Platform to these IP addresses, including
-through application tokens.
+all access to the Aiven Platform to these IP addresses.
 
 ### Keep tokens secure and rotate them regularly
 
@@ -232,6 +222,14 @@ view all application users, get details about when their tokens were last used,
 and delete unused users in the Aiven Console and API.
 
 - [Manage application users and tokens](/docs/platform/howto/manage-application-users)
+
+## Give AI agents read only access
+
+When using the Aiven MCP, restrict access to viewing resources using the
+read-only mode. For greater security, enable this as an organization
+policy. You can also limit tools to specific services.
+
+- [Learn how to configure the Aien MCP](/docs/tools/mcp-server)
 
 ## Create virtual private clouds
 
@@ -251,7 +249,7 @@ feature to configure your infrastructure to meet your specific business requirem
 
 ## Employ a multi-cloud, geographically distributed strategy
 
-For mission-critical services, deploy read-only replicas or standbys in different cloud
+For critical services, deploy read-only replicas or standbys in different cloud
 providers and regions. For example, for a primary service hosted on AWS in the
 `us-west-2` region, create a standby on Azure in `eastus2`.
 
