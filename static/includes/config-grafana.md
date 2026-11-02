@@ -254,6 +254,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="metrics_disable_total_stats"/><Link to="#metrics_disable_total_stats"><strong>metrics_disable_total_stats</strong></Link></p><p><code className="type">boolean</code></p></div>
+        <p className="title">Disable total stats metrics</p><div className="description"><p>Do not collect the grafana_stat_total_* and grafana_stat_totals_* metrics, which require periodic database queries. Defaults to true, unless metrics_enabled is set</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="cookie_samesite"/><Link to="#cookie_samesite"><strong>cookie_samesite</strong></Link></p><p><code className="type">string</code></p></div>
         <div className="description"><p>Cookie SameSite attribute: 'strict' prevents sending cookie for cross-site requests, effectively disabling direct linking from other sites to Grafana. 'lax' is the default value.</p></div>
       </td>
