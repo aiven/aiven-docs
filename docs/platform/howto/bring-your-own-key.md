@@ -30,8 +30,7 @@ BYOK encrypts the following using your CMKs:
 ## Key and service association statuses
 
 A CMK has a status of its own, and each service that uses the key has a separate
-association status. Both appear in the API and CLI responses, and the key status appears
-in the Aiven Console.
+association status. Both appear in the API and CLI responses.
 
 Key statuses:
 
@@ -2107,11 +2106,11 @@ their data, before you revoke Aiven's access.
 
 ### Validation fails when you register a key
 
-If **Cannot verify encrypt/decrypt access** appears when you register a key, Aiven
-cannot perform a test encryption and decryption with your key. Check the following:
+Registration fails when Aiven cannot perform a test encryption and decryption with
+your key. Check the following:
 
-- The access group, principal, or service principal shown in the **Grant access** step
-  is the one you granted on the key.
+- The accessor value Aiven returned for your cloud, such as an access group, principal,
+  or application ID, is the one you granted on the key.
 - The granted role allows encrypt and decrypt operations, and no other policy denies
   them.
 - The key resource path matches the key exactly, including the region.
@@ -2122,10 +2121,9 @@ Then register the key again.
 
 ### A key cannot be deleted
 
-**Cannot remove a key in use** means the key still has service associations in
-`activating`, `active`, or `deactivating` status. Move each of those services to another
-CMK or to Aiven-managed keys, wait until the associations are removed, then delete the
-key. See
+Deletion fails while the key still has service associations in `activating`, `active`,
+or `deactivating` status. Move each of those services to another CMK or to Aiven-managed
+keys, wait until the associations are removed, then delete the key. See
 [Key and service association statuses](#key-and-service-association-statuses).
 
 <RelatedPages/>
