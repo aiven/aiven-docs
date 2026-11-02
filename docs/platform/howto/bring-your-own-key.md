@@ -27,9 +27,35 @@ BYOK encrypts the following using your CMKs:
 - **Data in transit between the service and backups**: Encryption occurs on the service
   node before data leaves the cluster, so backup transfers use your CMK.
 
+## Key and service association statuses
+
+A CMK has a status of its own, and each service that uses the key has a separate
+association status. Both appear in the API and CLI responses, and the key status appears
+in the Aiven Console.
+
+Key statuses:
+
+| Status | Description |
+|--------|-------------|
+| `current` | The key is registered and available for new and existing service associations. |
+| `old` | The key is superseded and is no longer offered for new associations. |
+| `deleted` | The key configuration is deleted from the Aiven project. |
+
+Service association statuses:
+
+| Status | Description |
+|--------|-------------|
+| `activating` | Aiven is re-encrypting the service's data encryption keys with this CMK. The association is not complete yet. |
+| `active` | The service's data encryption keys are encrypted with this CMK. |
+| `deactivating` | The service is moving to another CMK or to Aiven-managed keys. The association is removed when the move completes. |
+| `deleted` | The association is removed. The CMK no longer protects this service. |
+
+You can delete a CMK only when it has no service associations in `activating`, `active`,
+or `deactivating` status.
+
 ## Prerequisites
 
-- **Key management service** (KMS) that supports customer-managed keys in one of the
+- **Key management service** (KMS) that supports customer managed keys in one of the
   supported cloud providers:
   - **Google Cloud KMS**: asymmetric RSA 2048 or RSA 4096 keys
   - **Oracle Cloud Infrastructure (OCI) Vault**: AES keys
@@ -238,7 +264,7 @@ Use the accessor values returned by this operation when granting Aiven access to
 
 :::
 
-## Set up customer-managed keys on your cloud provider
+## Set up customer managed keys on your cloud provider
 
 Before registering a CMK with Aiven, set up the key and grant Aiven access on your cloud
 provider.
@@ -293,6 +319,20 @@ gcloud kms keys add-iam-policy-binding <key-name> \
   --member "group:<aiven-cmk-group>@aiven.io" \
   --role "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 ```
+
+:::note
+You can revoke Aiven's access at any time by removing the IAM policy binding, or by
+disabling or scheduling the destruction of the key.
+:::
+
+:::warning
+Aiven automatically powers off all services associated with a CMK about 15 minutes
+after losing access to the key. Services without backups lose their data when powered
+off. Before you revoke Aiven's access, move the affected services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
+their data. To recover from an unplanned loss of access, see
+[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+:::
 
 ### Oracle Cloud Infrastructure (OCI) Vault setup
 
@@ -369,6 +409,20 @@ Record the key OCID:
 ```txt
 ocid1.key.oc1.<region>.<hash>
 ```
+
+:::note
+You can revoke Aiven's access at any time by removing the cross-tenancy IAM policies, or
+by disabling or scheduling the deletion of the key.
+:::
+
+:::warning
+Aiven automatically powers off all services associated with a CMK about 15 minutes
+after losing access to the key. Services without backups lose their data when powered
+off. Before you revoke Aiven's access, move the affected services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
+their data. To recover from an unplanned loss of access, see
+[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+:::
 
 ### AWS KMS setup
 
@@ -478,7 +532,8 @@ Aiven automatically powers off all services associated with a CMK about 15 minut
 after losing access to the key. Services without backups lose their data when powered
 off. Before you revoke Aiven's access, move the affected services to another CMK or to
 [Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data.
+their data. To recover from an unplanned loss of access, see
+[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
 ### Azure Key Vault setup
@@ -651,7 +706,8 @@ Aiven automatically powers off all services associated with a CMK about 15 minut
 after losing access to the key. Services without backups lose their data when powered
 off. Before you revoke Aiven's access, move the affected services to another CMK or to
 [Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data.
+their data. To recover from an unplanned loss of access, see
+[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
 ## Manage a project CMK
@@ -669,25 +725,33 @@ Register a customer managed key resource identifier for an Aiven project.
 <Tabs groupId="interface">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open your project and click
-   **BYOK** in the left sidebar.
+You register CMKs for your whole organization and then allocate them to the projects
+that are allowed to use them.
+
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
 1. Click **Register key**.
-1. Select your cloud provider: **AWS**, **Google Cloud**, or **Oracle**.
-1. In the **Grant access** section, copy the **Access group** value and grant
-   Aiven access to your key in your cloud provider's KMS. The dialog also shows
-   a ready-to-use CLI command that you can copy and run.
-1. Under **Key details**, enter a **Key name** and the **Key resource path**.
-1. Optional: Select **Set as project default** to encrypt all new services with
-   this key automatically.
+1. In **Cloud**, select the cloud that hosts your key: **AWS**, **Google Cloud**,
+   **Azure**, or **Oracle**.
+1. In **Grant access**, copy the **Access group** value and grant Aiven access to your
+   key in your cloud provider's KMS. The dialog also shows a ready-to-run CLI command
+   for the selected cloud. Replace `<region>` with your cloud region before you run the
+   command.
+1. In **Key details**, enter the following:
+   - **Key name**: a name that identifies the key in the Aiven Console.
+   - **Key resource path**: the resource identifier of the key in your KMS.
+   - **Project allocation**: the projects that can use this key.
+1. Optional: Select **Set as project default** to encrypt all new services in the
+   selected projects with this key.
+1. In **Billing**, select the **Billing group** to charge for the services that use
+   this key.
 1. Click **Validate and register**.
 
-When validation succeeds, a confirmation dialog appears. If the key is set as
-the project default, the dialog confirms it and suggests going to
-**Service encryption** to assign the key to existing services. Click **Done**.
+Aiven checks that it can encrypt and decrypt with your key. When the check succeeds,
+**Key registered successfully** appears. Click **Done**.
 
-If Aiven cannot verify access, a **Cannot verify encrypt/decrypt access** error
-appears. Check the access group permissions in your cloud provider and
-click **Validate and register** again.
+If the check fails, **Cannot verify encrypt/decrypt access** appears. Fix the access
+group permissions in your cloud provider, then click **Validate and register** again.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -902,13 +966,18 @@ Update attributes or parameters on an existing customer managed key configuratio
 <Tabs groupId="interface">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open your project and click
-   **BYOK** in the left sidebar.
-1. Find the key to set as default.
-1. Click <ConsoleLabel name="actions"/> and select **Set as default**.
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Find the key to update, click <ConsoleLabel name="actions"/>, and select
+   **Edit key**.
+1. Update the key name, key resource path, project allocation, default-key setting, or
+   billing group.
+1. Click **Save changes**.
 
-The key is marked **Default** in the key list. All new services in the project
-use this key unless you choose a different key at creation time.
+You can also open the key and use the **Default key** toggle to turn the default on or
+off without opening the edit dialog. New services in the allocated projects use the
+default key unless you select a different key when you create the service. Services
+that use Aiven-managed keys are not affected.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -1055,14 +1124,14 @@ Get the details of a customer managed key configuration.
 <Tabs groupId="interface">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open your project and click
-   **BYOK** in the left sidebar.
-1. Click the key name to open its details page.
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Click the key name.
 
-The details page shows the cloud provider, key ID, key resource path, last
-updated date, and whether the key is the project default. You can toggle the
-**Default key** setting and view all services using the key under
-**Associated services**.
+The **Overview** tab shows the key ID, cloud and region, key resource path, the access
+group granted on the key, the command used to grant access, the creation or last-updated
+time, the billing group, and whether the key is the default for its allocated projects.
+The **Assigned projects** tab lists the projects and services that use the key.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -1246,13 +1315,14 @@ List all customer managed key configurations for a project.
 <Tabs groupId="interface">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open your project and click
-   **BYOK** in the left sidebar.
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
 
-The **Bring your own key (BYOK)** page lists all registered keys with their
-cloud provider, status, number of associated services, and creation date.
+The **Bring your own key (BYOK)** page lists every key registered for the organization
+with its cloud and region, status, allocated projects, and creation time. Keys that are
+the default for their projects are marked **Default**.
 
-If no keys have been registered yet, the page shows a prompt to **Register key**.
+If no keys are registered yet, the page shows **Register key** instead of the list.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -1376,16 +1446,16 @@ association before deletion.
 <Tabs groupId="interface">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open your project and click
-   **BYOK** in the left sidebar.
-1. Click <ConsoleLabel name="actions"/> next to the key to remove and
-   select **Remove**.
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Click <ConsoleLabel name="actions"/> next to the key to delete and select
+   **Delete**.
 
-If the key is in use by active services, a **Cannot remove a key in use** dialog
-appears. Remove the CMK from all connected services first, then try again.
+If services still use the key, **Cannot remove a key in use** appears. Move those
+services to another CMK or to Aiven-managed keys first, then delete the key.
 
-You can also remove a key from its details page: click the key name, then click
-**Remove** in the top-right corner.
+You can also delete a key from its page: click the key name, click the actions menu next
+to **Edit key**, and select **Delete**.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -1526,8 +1596,9 @@ Set `cloud` to control the cloud region for the new service.
 1. In the [Aiven Console](https://console.aiven.io), open your project.
 1. Click **Create service**.
 1. Select a service type, cloud provider, and plan.
-1. In the **Service details** section, select a key from the
-   **Encryption key (BYOK)** dropdown.
+1. In **Service details**, select a key in **Encryption key (BYOK)**.
+   The list contains the keys allocated to this project. The project default key, if
+   there is one, is preselected.
 1. Click **Create service**.
 
 </TabItem>
@@ -1650,6 +1721,24 @@ resource "aiven_pg" "example" {
 ### Change or remove the CMK for an existing service
 
 Update a service to use a different CMK or remove its CMK association.
+
+#### What happens when you change a service's CMK
+
+When you assign a different CMK to a service, or move the service back to Aiven-managed
+keys, Aiven re-encrypts the service's data encryption keys with the new key. The service
+data and the backups themselves are not re-encrypted or re-uploaded.
+
+1. The new association enters `activating` status and the previous one enters
+   `deactivating` status.
+1. Aiven decrypts each data encryption key with the previous CMK and encrypts it again
+   with the new CMK.
+1. The new association moves to `active` status, and the previous association is
+   removed.
+
+Existing backups stay usable after the change, because Aiven re-encrypts the keys that
+protect them instead of the backup contents. Keep the previous key available until the
+new association reaches `active` status. If you revoke access to the previous key while
+the change is still in progress, Aiven cannot complete it.
 
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
@@ -1797,8 +1886,9 @@ encryption key usage and track which services are using which CMKs.
 1. In the [Aiven Console](https://console.aiven.io), open your service.
 1. On the <ConsoleLabel name="overview"/> page, go to **Connection information**.
 
-The **Encryption key (BYOK)** row shows the key name and resource path. If the
-key is the project default, it is labeled **Default**.
+The **Encryption key (BYOK)** row shows the key name and its resource path. If the key
+is the project default, it is marked **Default**. Services that use Aiven-managed keys
+do not show this row.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -1899,13 +1989,14 @@ useful for auditing, capacity planning, or managing CMK usage across your infras
 <Tabs groupId="interface">
 <TabItem value="console" label="Console" default>
 
-1. In the [Aiven Console](https://console.aiven.io), open your project and click
-   **BYOK** in the left sidebar.
-1. Click the key name to open its details page.
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Click the key name, then open the **Assigned projects** tab.
 
-The **Associated services** section lists all services using the key, with their
-status and cloud region. To assign more services to this key,
-click **Add service**.
+The tab lists the projects allocated to the key and the services in each project that
+use it. Use the search box to find a project or service by name. To allocate more
+projects to the key, click **Assign projects**. To stop a project or service from using
+the key, click <ConsoleLabel name="actions"/> and select **Remove**.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -1953,11 +2044,11 @@ services associated with the CMK:
 | Field | Description |
 |-------|-------------|
 | `service_name` | Name of the service using this CMK |
-| `status` | Association status: `active` (service is actively using the CMK), or `activating` (service is in the process of transitioning to use this CMK) |
+| `status` | Association status: `activating`, `active`, `deactivating`, or `deleted`. See [Key and service association statuses](#key-and-service-association-statuses). |
 
-The response includes services currently associated with the CMK, including services in
-transition (`activating`) and services already using the CMK (`active`). Services not
-associated with the specified CMK are not included.
+The response includes services currently associated with the CMK, including services
+still transitioning onto or off the key. Services not associated with the specified CMK
+are not included.
 
 :::note
 If a CMK has no associated services, the `service_associations` array is empty.
@@ -1981,6 +2072,61 @@ listing services associated with a specific CMK. Use the API endpoint for this o
 
 </TabItem>
 </Tabs>
+
+## Troubleshooting
+
+### Services are powered off after a key becomes unavailable
+
+Aiven checks access to each registered CMK periodically. If Aiven cannot encrypt and
+decrypt with the key for about 15 minutes, it powers off every service associated with
+that key. This happens when you remove Aiven's access in your KMS, or when you disable,
+schedule the deletion of, or delete the key.
+
+:::warning
+Services without backups lose their data when they are powered off.
+:::
+
+To bring the services back:
+
+1. In your cloud provider's KMS, restore Aiven's access to the key:
+   - **Google Cloud KMS**: re-add the Aiven access group to the key's IAM policy with
+     the `roles/cloudkms.cryptoKeyEncrypterDecrypter` role.
+   - **AWS KMS**: re-add the Aiven principal to the key policy, and re-enable the key or
+     cancel its scheduled deletion.
+   - **Azure Key Vault**: re-create the Aiven service principal or re-assign the
+     **Key Vault Crypto User** role, and re-enable the key.
+   - **OCI Vault**: restore the cross-tenancy IAM policies for the Aiven group.
+1. Confirm the key is enabled and reachable from the public internet. Key vaults that
+   block public internet access aren't supported.
+1. Power on each affected service. For more information, see
+   [Power on/off a service](/docs/platform/concepts/service-power-cycle).
+
+To avoid the power-off in the first place, move the affected services to another CMK or
+to [Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
+their data, before you revoke Aiven's access.
+
+### Validation fails when you register a key
+
+If **Cannot verify encrypt/decrypt access** appears when you register a key, Aiven
+cannot perform a test encryption and decryption with your key. Check the following:
+
+- The access group, principal, or service principal shown in the **Grant access** step
+  is the one you granted on the key.
+- The granted role allows encrypt and decrypt operations, and no other policy denies
+  them.
+- The key resource path matches the key exactly, including the region.
+- The key is enabled and its key management service is reachable from the public
+  internet.
+
+Then register the key again.
+
+### A key cannot be deleted
+
+**Cannot remove a key in use** means the key still has service associations in
+`activating`, `active`, or `deactivating` status. Move each of those services to another
+CMK or to Aiven-managed keys, wait until the associations are removed, then delete the
+key. See
+[Key and service association statuses](#key-and-service-association-statuses).
 
 <RelatedPages/>
 
