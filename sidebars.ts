@@ -1655,7 +1655,6 @@ const sidebars: SidebarsConfig = {
             'products/mysql/howto/connect-from-mysql-workbench',
             'products/mysql/howto/connect-with-dbeaver',
             'products/mysql/howto/connect-with-datagrip',
-            'products/mysql/howto/connect-libredb-studio',
             'products/mysql/concepts/max-number-of-connections',
           ],
         },
@@ -2062,7 +2061,6 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/connect-zapier',
                 'products/postgresql/howto/connect-datagrip',
                 'products/postgresql/howto/connect-dbeaver',
-                'products/postgresql/howto/connect-libredb-studio',
               ],
             },
             {

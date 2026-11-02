@@ -243,7 +243,6 @@ Kpow
 KRaft
 Kubernetes
 kuromoji
-LibreDB
 LLM
 LLMs
 Loggly
