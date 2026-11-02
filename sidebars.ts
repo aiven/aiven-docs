@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       items: [
+        '/docs/platform/reference/security-best-practices',
         {
           type: 'link',
           label: 'Authentication',
@@ -2967,7 +2968,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -2989,7 +2990,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -3008,7 +3009,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3029,7 +3030,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3048,7 +3049,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',
@@ -3073,7 +3074,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',

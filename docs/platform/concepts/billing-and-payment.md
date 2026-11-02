@@ -1,5 +1,6 @@
 ---
 title: Billing and payment
+sidebar_label: Overview
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
