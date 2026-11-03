@@ -317,10 +317,10 @@ gcloud kms keys add-iam-policy-binding <key-name> \
 :::warning
 To revoke Aiven's access, remove the IAM policy binding, or disable or schedule the
 destruction of the key.
-Revoking access powers off every service that uses the key, and services without
-backups lose their data. Move those services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
-recovery steps, see
+Revoking access powers off every service that uses the key. To keep those services
+running, move them to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
+access, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -403,10 +403,10 @@ ocid1.key.oc1.<region>.<hash>
 :::warning
 To revoke Aiven's access, remove the cross-tenancy IAM policies, or disable or schedule
 the deletion of the key.
-Revoking access powers off every service that uses the key, and services without
-backups lose their data. Move those services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
-recovery steps, see
+Revoking access powers off every service that uses the key. To keep those services
+running, move them to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
+access, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -515,10 +515,10 @@ full audit trail.
 :::warning
 To revoke Aiven's access, remove the Aiven principal from the key policy, or disable or
 delete the key.
-Revoking access powers off every service that uses the key, and services without
-backups lose their data. Move those services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
-recovery steps, see
+Revoking access powers off every service that uses the key. To keep those services
+running, move them to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
+access, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -684,10 +684,10 @@ az keyvault role assignment create \
 :::warning
 To revoke Aiven's access, remove the role assignment or delete the service principal from
 your tenant. This immediately stops all cryptographic operations by Aiven.
-Revoking access powers off every service that uses the key, and services without
-backups lose their data. Move those services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
-recovery steps, see
+Revoking access powers off every service that uses the key. To keep those services
+running, move them to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
+access, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -1965,32 +1965,23 @@ Each service that uses a CMK has its own association status, separate from the
 
 Aiven checks access to each registered CMK periodically. After repeated failures to
 encrypt and decrypt with the key over about 15 minutes, Aiven powers off every service
-associated with that key. A single failed check does not power off your services. Access
-is lost when you remove Aiven's access in your KMS, or when you disable, schedule the
-deletion of, or delete the key.
+associated with that key to protect your data. A single failed check does not power off
+your services.
 
-:::warning
-Services without backups lose their data when they are powered off.
-:::
+If you revoked Aiven's access deliberately, no further action is needed.
 
-To bring the services back:
+If the loss of access was not intentional, check the following in your cloud provider:
 
-1. In your cloud provider's KMS, restore Aiven's access to the key:
-   - **Google Cloud KMS**: re-add the Aiven access group to the key's IAM policy with
-     the `roles/cloudkms.cryptoKeyEncrypterDecrypter` role.
-   - **AWS KMS**: re-add the Aiven principal to the key policy, and re-enable the key or
-     cancel its scheduled deletion.
-   - **Azure Key Vault**: re-create the Aiven service principal or re-assign the
-     **Key Vault Crypto User** role, and re-enable the key.
-   - **OCI Vault**: restore the cross-tenancy IAM policies for the Aiven group.
-1. Confirm the key is enabled and reachable from the public internet. Key vaults that
-   block public internet access aren't supported.
-1. Power on each affected service. For more information, see
-   [Power on/off a service](/docs/platform/concepts/service-power-cycle).
+- The key is not disabled, scheduled for deletion, or destroyed.
+- The permissions or access policy that grants Aiven access to the key has not been
+  modified or removed. For the access each provider requires, see
+  [Set up customer managed keys](#set-up-customer-managed-keys-on-your-cloud-provider).
+- No network restriction, such as a firewall rule or a service control, blocks access to
+  your key management service. It must be reachable from the public internet.
 
-To avoid the power-off in the first place, move the affected services to another CMK or
-to [Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data, before you revoke Aiven's access.
+After you restore access, power on each affected service. Services do not power on
+automatically. See [Power on/off a service](/docs/platform/concepts/service-power-cycle)
+for what powering a service off and on involves.
 
 ### Validation fails when you register a key
 
