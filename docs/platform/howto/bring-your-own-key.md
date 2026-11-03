@@ -1,6 +1,7 @@
 ---
 title: Bring your own key (BYOK)
 sidebar_label: Bring your own key
+keywords: [byok, bring your own key, cmk, customer managed key, kms, key management service, encryption at rest, envelope encryption, AWS KMS, Google Cloud KMS, Azure Key Vault, OCI Vault, key rotation, key revocation]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,6 +17,28 @@ Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise f
 available for newly created BYOC services only. [Contact Aiven](https://aiven.io/contact)
 to request access.
 :::
+
+## How BYOK works
+
+Aiven encrypts all service data at rest. By default, Aiven creates and manages the
+encryption keys for you. With bring your own key (BYOK), you supply a customer managed
+key (CMK) from your own key management service (KMS) instead, and Aiven uses your CMK to
+encrypt the keys that protect your service data and backups.
+
+Aiven never holds a copy of your CMK. It calls your KMS to wrap and unwrap the data
+encryption keys, so the key stays under your control: you decide which projects can use
+it, and you can revoke Aiven's access to it at any time.
+
+1. **Set up the key in your KMS** and grant Aiven access to it. See
+   [Set up customer managed keys](#set-up-customer-managed-keys-on-your-cloud-provider).
+1. **Register the key with Aiven** and allocate it to the projects allowed to use it. See
+   [Register CMK resource identifier](#register-cmk-resource-identifier).
+1. **Assign the key to services** when you create them, or set it as the default key for
+   the allocated projects. See
+   [Manage service CMK associations](#manage-service-cmk-associations).
+1. **Keep Aiven's access in place.** Aiven checks access to each registered key
+   periodically. If access is lost, Aiven powers off every service that uses the key. See
+   [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 
 ## Encryption scope
 
@@ -291,17 +314,13 @@ gcloud kms keys add-iam-policy-binding <key-name> \
   --role "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 ```
 
-:::note
-You can revoke Aiven's access at any time by removing the IAM policy binding, or by
-disabling or scheduling the destruction of the key.
-:::
-
 :::warning
-Aiven automatically powers off all services associated with a CMK about 15 minutes
-after losing access to the key. Services without backups lose their data when powered
-off. Before you revoke Aiven's access, move the affected services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data. To recover from an unplanned loss of access, see
+To revoke Aiven's access, remove the IAM policy binding, or disable or schedule the
+destruction of the key.
+Revoking access powers off every service that uses the key, and services without
+backups lose their data. Move those services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
+recovery steps, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -381,17 +400,13 @@ Record the key OCID:
 ocid1.key.oc1.<region>.<hash>
 ```
 
-:::note
-You can revoke Aiven's access at any time by removing the cross-tenancy IAM policies, or
-by disabling or scheduling the deletion of the key.
-:::
-
 :::warning
-Aiven automatically powers off all services associated with a CMK about 15 minutes
-after losing access to the key. Services without backups lose their data when powered
-off. Before you revoke Aiven's access, move the affected services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data. To recover from an unplanned loss of access, see
+To revoke Aiven's access, remove the cross-tenancy IAM policies, or disable or schedule
+the deletion of the key.
+Revoking access powers off every service that uses the key, and services without
+backups lose their data. Move those services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
+recovery steps, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -493,17 +508,17 @@ aws kms put-key-policy \
 ```
 
 :::note
-You can revoke Aiven's access at any time by removing the Aiven principal from the key
-policy, or by disabling or deleting the key. All KMS operations performed by Aiven are
-logged in your AWS CloudTrail, giving you a full audit trail.
+All KMS operations performed by Aiven are logged in your AWS CloudTrail, giving you a
+full audit trail.
 :::
 
 :::warning
-Aiven automatically powers off all services associated with a CMK about 15 minutes
-after losing access to the key. Services without backups lose their data when powered
-off. Before you revoke Aiven's access, move the affected services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data. To recover from an unplanned loss of access, see
+To revoke Aiven's access, remove the Aiven principal from the key policy, or disable or
+delete the key.
+Revoking access powers off every service that uses the key, and services without
+backups lose their data. Move those services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
+recovery steps, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -666,18 +681,13 @@ az keyvault role assignment create \
   --scope /keys
 ```
 
-:::note
-You can revoke Aiven's access at any time by removing the role assignment or deleting
-the service principal from your tenant. This immediately prevents any further
-cryptographic operations by Aiven.
-:::
-
 :::warning
-Aiven automatically powers off all services associated with a CMK about 15 minutes
-after losing access to the key. Services without backups lose their data when powered
-off. Before you revoke Aiven's access, move the affected services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data. To recover from an unplanned loss of access, see
+To revoke Aiven's access, remove the role assignment or delete the service principal from
+your tenant. This immediately stops all cryptographic operations by Aiven.
+Revoking access powers off every service that uses the key, and services without
+backups lose their data. Move those services to another CMK or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. For
+recovery steps, see
 [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
 :::
 
@@ -1953,10 +1963,11 @@ Each service that uses a CMK has its own association status, separate from the
 
 ### Services are powered off after a key becomes unavailable
 
-Aiven checks access to each registered CMK periodically. If Aiven cannot encrypt and
-decrypt with the key for about 15 minutes, it powers off every service associated with
-that key. This happens when you remove Aiven's access in your KMS, or when you disable,
-schedule the deletion of, or delete the key.
+Aiven checks access to each registered CMK periodically. After repeated failures to
+encrypt and decrypt with the key over about 15 minutes, Aiven powers off every service
+associated with that key. A single failed check does not power off your services. Access
+is lost when you remove Aiven's access in your KMS, or when you disable, schedule the
+deletion of, or delete the key.
 
 :::warning
 Services without backups lose their data when they are powered off.
