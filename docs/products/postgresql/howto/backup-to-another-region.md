@@ -17,3 +17,4 @@ Copy your Aiven for PostgreSQL® service backups to a secondary region for disas
 
 - [Backups](/docs/products/postgresql/concepts/pg-backups)
 - [Track restore progress](/docs/products/postgresql/howto/track-restore-progress)
+- [Backup to another region](/docs/platform/concepts/backup-to-another-region)

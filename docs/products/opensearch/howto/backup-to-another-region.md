@@ -18,3 +18,4 @@ Copy your Aiven for OpenSearch® service backups to a secondary region for disas
 
 - [Backups](/docs/products/opensearch/howto/restore_opensearch_backup)
 - [Track restore progress](/docs/products/opensearch/howto/track-restore-progress)
+- [Backup to another region](/docs/platform/concepts/backup-to-another-region)

@@ -2,10 +2,10 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-For a service that has the backup to another region (BTAR) feature enabled,
-you can check the service backup status, change the backup region,
-monitor the replication lag, fork and restore using the cross-region backup,
-or migrate to another cloud or region.
+For a project that has the backup to another region (BTAR) feature enabled, you can add or
+change a secondary backup location, check the service backup status, monitor the
+replication lag, fork and restore using the cross-region backup, or migrate to another
+cloud or region.
 
 ## Prerequisites
 
@@ -13,6 +13,23 @@ or migrate to another cloud or region.
 - Access to the [Aiven Console](https://console.aiven.io/)
 - [Aiven API](/docs/tools/api)
 - [Aiven CLI](/docs/tools/cli)
+
+## Add a secondary backup location
+
+1. Log in to the [Aiven Console](https://console.aiven.io/) and go to your project.
+1. Go to <ConsoleLabel name="Services"/>, then select the Aiven service on which you'd
+   like to enable BTAR.
+1. On your service page, {props.backupsNav || <>click <ConsoleLabel name="backups"/></>}.
+1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
+   **Add secondary backup location**.
+1. In the **Add secondary backup location** window, turn on
+   **Secondary backup location enabled**.
+1. Use the **Backup location** menu to select a region for your secondary backup.
+1. Click **Save**.
+
+Aiven provisions storage in the region you selected and starts replicating backup files
+to it. Until the first backup finishes replicating, you cannot fork your service from the
+secondary backup.
 
 ## Change a backup region
 
@@ -27,7 +44,8 @@ or migrate to another cloud or region.
    selecting **Save**.
 
 :::important
-You can change the backup region once in 24 hours.
+Changing the secondary backup region starts a new base backup. You can fork your service
+from the new region only after that backup finishes.
 :::
 
 ## Monitor a service with BTAR
@@ -198,8 +216,11 @@ primary, service-hosting region.
 1. Log in to the [Aiven Console](https://console.aiven.io/).
 1. From the **Services** view, select an Aiven service on which you'd like to disable BTAR.
 1. On your service's page, click <ConsoleLabel name="backups"/>.
-1. On the **Backups** page, click <ConsoleLabel name="actions"/> > **Secondary backup location**.
-1. In the **Edit secondary backup location** window, select **Disable**.
+1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
+   **Edit secondary backup location**.
+1. In the **Edit secondary backup location** window, turn off
+   **Secondary backup location enabled**.
+1. Click **Save**.
 
 Your additional service backup is no longer visible on your service's **Backups** page in
 the **Secondary backup location** column.

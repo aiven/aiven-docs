@@ -17,3 +17,4 @@ Copy your Aiven for MySQL® service backups to a secondary region for disaster r
 
 - [Backups](/docs/products/mysql/concepts/mysql-backups)
 - [Track restore progress](/docs/products/mysql/howto/track-restore-progress)
+- [Backup to another region](/docs/platform/concepts/backup-to-another-region)
