@@ -21,35 +21,11 @@ to request access.
 
 BYOK encrypts the following using your CMKs:
 
-- **Backups**: All backups created by Aiven services are encrypted with your CMK.
+- **Backups**: Your CMK encrypts the keys that encrypt the backups Aiven creates for
+  your services. Aiven can read those backups only while it can use your CMK.
 - **Service data at rest**: CMKs protect all data stored by the service.
 - **Data in transit between the service and backups**: Encryption occurs on the service
   node before data leaves the cluster, so backup transfers use your CMK.
-
-## Key and service association statuses
-
-A CMK has a status of its own, and each service that uses the key has a separate
-association status. Both appear in the API and CLI responses.
-
-Key statuses:
-
-| Status | Description |
-|--------|-------------|
-| `current` | The key is registered and available for new and existing service associations. |
-| `old` | The key is superseded and is no longer offered for new associations. |
-| `deleted` | The key configuration is deleted from the Aiven project. |
-
-Service association statuses:
-
-| Status | Description |
-|--------|-------------|
-| `activating` | Aiven is re-encrypting the service's data encryption keys with this CMK. The association is not complete yet. |
-| `active` | The service's data encryption keys are encrypted with this CMK. |
-| `deactivating` | The service is moving to another CMK or to Aiven-managed keys. The association is removed when the move completes. |
-| `deleted` | The association is removed. The CMK no longer protects this service. |
-
-You can delete a CMK only when it has no service associations in `activating`, `active`,
-or `deactivating` status.
 
 ## Prerequisites
 
@@ -1244,6 +1220,17 @@ terraform import aiven_cmk.example PROJECT_NAME/CMK_ID
 </TabItem>
 </Tabs>
 
+#### Key statuses
+
+A CMK has a status of its own, separate from the association status of each service that
+uses it. The key status appears in the API, CLI, and Terraform responses.
+
+| Status | Description |
+|--------|-------------|
+| `current` | The key is registered and available for new and existing service associations. |
+| `old` | The key is superseded and is no longer offered for new associations. |
+| `deleted` | The key configuration is deleted from the Aiven project. |
+
 ### List CMKs
 
 List all customer managed key configurations for a project.
@@ -1921,7 +1908,7 @@ services associated with the CMK:
 | Field | Description |
 |-------|-------------|
 | `service_name` | Name of the service using this CMK |
-| `status` | Association status: `activating`, `active`, `deactivating`, or `deleted`. See [Key and service association statuses](#key-and-service-association-statuses). |
+| `status` | Association status: `activating`, `active`, `deactivating`, or `deleted`. See [Service association statuses](#service-association-statuses). |
 
 The response includes services currently associated with the CMK, including services
 still transitioning onto or off the key. Services not associated with the specified CMK
@@ -1949,6 +1936,18 @@ listing services associated with a specific CMK. Use the API endpoint for this o
 
 </TabItem>
 </Tabs>
+
+#### Service association statuses
+
+Each service that uses a CMK has its own association status, separate from the
+[status of the key](#key-statuses) itself.
+
+| Status | Description |
+|--------|-------------|
+| `activating` | Aiven is re-encrypting the service's data encryption keys with this CMK. The association is not complete yet. |
+| `active` | The service's data encryption keys are encrypted with this CMK. |
+| `deactivating` | The service is moving to another CMK or to Aiven-managed keys. The association is removed when the move completes. |
+| `deleted` | The association is removed. The CMK no longer protects this service. |
 
 ## Troubleshooting
 
@@ -2002,7 +2001,7 @@ Then register the key again.
 Deletion fails while the key still has service associations in `activating`, `active`,
 or `deactivating` status. Move each of those services to another CMK or to Aiven-managed
 keys, wait until the associations are removed, then delete the key. See
-[Key and service association statuses](#key-and-service-association-statuses).
+[Service association statuses](#service-association-statuses).
 
 <RelatedPages/>
 
