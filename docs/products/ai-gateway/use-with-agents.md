@@ -30,24 +30,26 @@ values: [
 - AI gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys).
 
-## Set up and launch with `aiven-llm`
+## Set up and launch with `aiven-ai-gateway`
 
-The `aiven-llm` launcher supports Claude Code, Codex, Pi, OpenCode, and OMP.
-Install the coding agent you want to use and the launcher:
+The `aiven-ai-gateway` launcher supports Claude Code, Codex, Pi, OpenCode, and OMP.
+Install the coding agent you want to use and the launcher.
+On macOS, install the launcher with Homebrew:
 
 ```bash
-brew install aiven/tap/aiven-llm
+brew install aiven/tap/aiven-ai-gateway
 ```
 
 Run setup before launching a session:
 
 ```bash
-aiven-llm setup claude
-aiven-llm launch claude
+aiven-ai-gateway setup claude
+aiven-ai-gateway launch claude
 ```
 
 `setup` writes persistent configuration under your home directory.
-It checks model access and sends a one-token connectivity request, which can incur usage.
+It checks model access and sends one minimal request for each API protocol the coding
+agent uses, limited to one output token. These requests can incur usage.
 Enter your API key at the hidden terminal prompt, or use a saved key.
 Keep API keys out of command arguments and agent conversations.
 
@@ -62,56 +64,49 @@ It does not install persistent provider configuration or change native defaults.
 If configuration is missing or incompatible, run the setup command printed in the error.
 Compatible manual configuration also satisfies the setup requirement.
 
-| Coding agent | Persistent setup           | Launch a session            |
-| ------------ | -------------------------- | --------------------------- |
-| Claude Code  | `aiven-llm setup claude`   | `aiven-llm launch claude`   |
-| Codex        | `aiven-llm setup codex`    | `aiven-llm launch codex`    |
-| Pi           | `aiven-llm setup pi`       | `aiven-llm launch pi`       |
-| OpenCode     | `aiven-llm setup opencode` | `aiven-llm launch opencode` |
-| OMP          | `aiven-llm setup omp`      | `aiven-llm launch omp`      |
+| Coding agent | Persistent setup                  | Launch a session                   |
+| ------------ | --------------------------------- | ---------------------------------- |
+| Claude Code  | `aiven-ai-gateway setup claude`   | `aiven-ai-gateway launch claude`   |
+| Codex        | `aiven-ai-gateway setup codex`    | `aiven-ai-gateway launch codex`    |
+| Pi           | `aiven-ai-gateway setup pi`       | `aiven-ai-gateway launch pi`       |
+| OpenCode     | `aiven-ai-gateway setup opencode` | `aiven-ai-gateway launch opencode` |
+| OMP          | `aiven-ai-gateway setup omp`      | `aiven-ai-gateway launch omp`      |
 
-In a terminal, `aiven-llm setup` lets you select one or more coding agents.
-`aiven-llm launch` lets you select one installed agent.
-Bare `aiven-llm` prints help.
+In a terminal, `aiven-ai-gateway setup` lets you select one or more coding agents.
+`aiven-ai-gateway launch` lets you select one installed agent.
+Bare `aiven-ai-gateway` prints help.
 Without an interactive terminal, specify the coding agent.
-Pass native arguments after `--`, for example `aiven-llm launch codex -- resume`.
+Pass native arguments after `--`, for example `aiven-ai-gateway launch codex -- resume`.
 
 For Claude Code, launcher sessions retain canonical user and project settings.
 Custom fields in `~/.claude/aiven.settings.json` are available through the direct command
 `claude --settings ~/.claude/aiven.settings.json`.
 Launcher sessions do not load arbitrary custom fields from that dedicated file.
 
-### Set up with the npm entry point
+### Install with npm
 
-With Node.js 20 or later and `aiven-llm` installed on your `PATH`, run:
-
-```bash
-npx @aiven/ai-gateway-connect
-npx @aiven/ai-gateway-connect --tool codex
-```
-
-The npm entry point delegates to `aiven-llm setup`.
-It configures the selected coding agents and does not launch them.
-
-### Initialize an OMP project
-
-OMP uses a dedicated Aiven router profile.
-Install its router plugin in that profile before launching OMP.
-After `aiven-llm setup omp`, initialize the project from its directory:
+With Node.js 20 or later, install the launcher from npm instead of Homebrew:
 
 ```bash
-aiven-llm omp init
+npm install -g @aiven/ai-gateway
 ```
 
-This command initializes project roles and rules separately from home-directory setup.
-To start the configured session, run `aiven-llm launch omp`.
+To run the launcher without installing it, use `npx @aiven/ai-gateway` followed by a
+command, for example `npx @aiven/ai-gateway setup claude`.
+The package installs a native binary for Linux, macOS, or Windows on x64 or ARM64, or
+for Linux on ARMv7.
+The binary is an optional dependency, so the launcher does not run after an install with
+`--omit=optional`.
+On Windows, add `--plain` to `setup` and `launch` to use numbered prompts instead of
+selection lists.
 
 ### Manage credentials and models
 
-`aiven-llm login` saves a key after checking model access.
+`aiven-ai-gateway login` saves a key after checking model access.
 It does not configure a coding agent.
-`aiven-llm models` lists models granted to the key.
-`aiven-llm logout` removes the local credential but retains coding-agent configuration.
+`aiven-ai-gateway models` lists models granted to the key.
+`aiven-ai-gateway logout` removes the local credential but retains coding-agent
+configuration.
 It does not revoke the server key or clear environment variables inherited by your shell.
 
 ## Store the API key
@@ -258,6 +253,7 @@ available in your project.
    ```toml
    model_provider = "aiven"
    model = "gpt-6.1-sol"
+   web_search = "disabled"
 
    [model_providers.aiven]
    name = "Aiven AI gateway"
@@ -266,6 +262,9 @@ available in your project.
    wire_api = "responses"
    requires_openai_auth = false
    ```
+
+   `web_search = "disabled"` stops Codex from offering its hosted web search tool,
+   which AI gateway refuses on some models, such as Gemini.
 
 <AIGatewayModelInfo variable="model" />
 
@@ -316,7 +315,8 @@ available in your project.
    - Pi resolves `$AIVEN_AI_GATEWAY_KEY` from the environment.
      Without the `$` prefix, Pi sends the variable name as a literal key.
    - `claude-*` models use `"anthropic-messages"` on `https://ai.aiven.io`.
-     `gpt-*` models use `"openai-responses"` on `https://ai.aiven.io/v1`.
+     `gpt-*` models other than `gpt-oss` and `gpt-oss-*` use
+     `"openai-responses"` on `https://ai.aiven.io/v1`.
      Other models in the [model list](/docs/products/ai-gateway/model-catalog)
      use the provider default `"openai-completions"` on `https://ai.aiven.io/v1`.
 
