@@ -6,30 +6,30 @@ sidebar_label: Free tier migration options
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Move your data off a free Aiven for MySQL® service before the free tier shuts down by upgrading to a paid plan, switching to Aiven for PostgreSQL®, or exporting your data.
+Migrate your data from your free Aiven for MySQL® service before the free tier is retired, by upgrading to a paid plan, switching to Aiven for PostgreSQL®, or exporting your data.
 
 :::warning
-**Shutdown date**: December 21, 2026
+**Retirement date**: December 21, 2026
 
-After December 21, 2026, Aiven powers off all free Aiven for MySQL services and
-deletes their data and backups. Move your data before this date.
+On December 21, 2026, remaining free Aiven for MySQL services will be powered off, and
+their data and backups will be deleted. Move your data before this date.
 :::
 
-Aiven for MySQL remains available on all paid plans. The free tier is the only part
-of the service that is discontinued.
+Aiven for MySQL remains fully available across all paid plans, and only the free tier
+is being discontinued.
 
 ## What happens to your free service
 
-The following table lists the stages of the free tier shutdown.
+The following table lists the stages of the free tier retirement.
 
 | Stage | What happens |
 | ----- | ------------ |
-| Announcement | You cannot create new free Aiven for MySQL services. Existing free services keep running. |
+| Announcement | Users cannot create new free Aiven for MySQL services. Existing free services keep running. |
 | Until December 21, 2026 | Your free service runs as before. Upgrade it, migrate your data, or export it. |
 | December 21, 2026 | Aiven powers off all remaining free services and deletes their data and backups. |
 
-Data deleted after the shutdown date cannot be recovered. Aiven support cannot restore
-a deleted free service or its backups.
+Self-serve data retrieval will not be available after services are terminated on the
+retirement date.
 
 ## Choose a migration path
 
@@ -39,9 +39,9 @@ Pick the path that matches what you need:
   data stays in place and you keep the same connection details.
 - **Keep using a free database on Aiven**: create an Aiven for PostgreSQL free service
   and migrate your data to it. This changes your database engine.
-- **Move off Aiven**: export your data to a file before the shutdown date.
+- **Take your data with you**: export your data to a file before the retirement date.
 
-## Upgrade to the Developer plan
+## Upgrade to the Aiven for MySQL Developer plan
 
 Upgrading keeps your data, your service name, and your connection details. The
 Developer plan is a paid plan that adds disk storage and
@@ -74,8 +74,8 @@ To keep a copy of your data outside Aiven, export it to a file with `mysqldump` 
 `mydumper`. For the commands and connection details, see
 [Backup and restore Aiven for MySQL® with mysqldump or mydumper](/docs/products/mysql/howto/migrate-database-mysqldump).
 
-Verify the export before the shutdown date. After Aiven deletes the service, the data
-is unrecoverable.
+Verify your export before the retirement date, as you will not be able to recover your
+data after this deadline.
 
 <RelatedPages/>
 
