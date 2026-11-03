@@ -1,5 +1,5 @@
 ---
-title: Replicate PostgreSQL® data to Aiven for ClickHouse® using CDC
+title: Replicate PostgreSQL® tables to Aiven for ClickHouse® using CDC
 limited: true
 sidebar_label: Replicate from PostgreSQL (CDC)
 ---
@@ -7,19 +7,17 @@ sidebar_label: Replicate from PostgreSQL (CDC)
 import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
-Use change data capture (CDC) to replicate data from Aiven for PostgreSQL® to Aiven for ClickHouse® for analytics without running your own replication pipeline.
+Use change data capture (CDC) to replicate data from Aiven for PostgreSQL® to Aiven for ClickHouse® for analytics without managing your own replication tool.
 
-The CDC integration copies the selected PostgreSQL tables to ClickHouse and continuously
-replicates inserts, updates, and deletes. You can run analytical queries on replicated
-data in ClickHouse instead of on the source PostgreSQL tables.
+The CDC integration copies selected PostgreSQL tables to ClickHouse and keeps them up to
+date by replicating inserts, updates, and deletes. You can run analytical queries on the
+replicated data in ClickHouse without querying the source PostgreSQL tables.
 
-:::note
+:::note[Note]
 The CDC integration is in
 [limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-Contact your Aiven account team or [Aiven sales](https://aiven.io/contact) to request
-access.
-
 :::
 
 ## Choose between CDC replication and the PostgreSQL integration
@@ -29,23 +27,24 @@ Aiven for ClickHouse offers two ways to work with PostgreSQL data: CDC replicati
 
 | Aspect | CDC replication | PostgreSQL integration |
 | --- | --- | --- |
-| Data location | Copies PostgreSQL data into ClickHouse tables. | Keeps data in PostgreSQL. |
+| Data location | Copies PostgreSQL data into ClickHouse tables. Queries run on the copied data. | Keeps data in PostgreSQL. Queries fetch data from PostgreSQL. |
 | PostgreSQL load | Reads each table during the initial copy, then reads changes from the write-ahead log (WAL). | Reads data from PostgreSQL for each query. |
-| Query execution | Runs queries on data stored in ClickHouse. | Fetches data from PostgreSQL when running queries. |
+| Data freshness | Changes appear in ClickHouse after a short delay. See [Data freshness](#data-freshness). | Queries retrieve data directly from PostgreSQL. |
 | Best for | Dashboards and analytics on large or frequently updated tables. | Occasional queries and joins involving smaller PostgreSQL tables. |
 
 ## Prerequisites
 
-Before you set up replication, make sure you have:
+Before you set up replication, you need:
 
-- An Aiven project with CDC enabled. [Contact Aiven](https://aiven.io/contact) to
-  request access. **TODO: Give the concrete way to request this
-  limited availability feature, such as a support email, a Console path for a support
-  ticket, or a form. Use the same method in the note at the top of this page.**
-- An Aiven for PostgreSQL service with at least one table that has a primary key.
-- An Aiven for ClickHouse service on a Startup plan or higher.
-- Both services in the same Aiven project.
-- Access to the [Aiven Console](https://console.aiven.io/).
+- An Aiven project with CDC access. To request access, contact your Aiven account team
+  or [Aiven sales](https://aiven.io/contact).
+- An Aiven for PostgreSQL service with a primary key defined on each table you want to
+  replicate.
+- A running Aiven for ClickHouse service on a Startup plan or higher, in the same project
+  as the PostgreSQL service.
+- Access to the [Aiven Console](https://console.aiven.io/), or to the
+  [Aiven API](/docs/tools/api) with an
+  [authentication token](/docs/platform/howto/create_authentication_token).
 
 ## Limitations
 
@@ -56,58 +55,73 @@ CDC replication has the following limitations:
 - **Number of tables:** You can replicate 1 to 400 tables per integration. Each table must
   have a primary key.
 - **Integration configuration:** Each integration has one replication pipeline between one
-  PostgreSQL database and one ClickHouse database. A service pair can have only one CDC
-  integration.
+  PostgreSQL database and one ClickHouse database. You can create only one CDC
+  integration between the same PostgreSQL and ClickHouse services.
+- **Database names:** The destination ClickHouse database name can have up to 40
+  characters.
 - **Database changes:** You can't change the source or destination database of an existing
   integration. To use a different database, delete the integration and create a new one.
   The new integration starts a new initial copy.
 - **Table name conflicts:** Several PostgreSQL services can replicate into the same
   ClickHouse database. Aiven doesn't detect name conflicts across integrations, so make
-  sure that generated ClickHouse table names don't overlap.
+  sure that generated ClickHouse table names don't overlap. For example, two integrations
+  that replicate `public.orders` into the same database write to the same `public_orders`
+  table.
 - **Resource usage:** The replication process shares CPU and memory with the Aiven for
-  ClickHouse service. Consider this load when you choose a plan.
+  ClickHouse service. Choose a plan with enough CPU and memory for both workloads.
 - **Table configuration:** You can't select individual columns or change the sorting key
   or partitioning of the replicated ClickHouse tables.
-- **Schema changes:** Some PostgreSQL schema changes require you to resynchronize the
-  affected tables.
 - **Pausing replication:** You can't pause replication. It stops when you delete the
   integration or power off either service.
-- **WAL retention:** While replication is stopped or delayed, PostgreSQL retains WAL data
-  that replication hasn't confirmed. This can increase disk usage on your PostgreSQL
-  service.
+- **WAL retention:** Stopped or delayed replication increases disk usage on your
+  PostgreSQL service. For more information, see
+  [PostgreSQL disk usage increases](#postgresql-disk-usage-increases).
 
 ## Set up CDC replication
 
-You can create a CDC integration from either your Aiven for PostgreSQL service or your
+You can set up CDC replication from either your Aiven for PostgreSQL service or your
 Aiven for ClickHouse service.
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
+<Tabs groupId="cdc-entry-point">
+<TabItem value="postgresql" label="From PostgreSQL" default>
+
 1. In the [Aiven Console](https://console.aiven.io/), open your project and select the
    Aiven for PostgreSQL service.
 1. In the sidebar, click **Integrations**.
-1. Select **Replicate to ClickHouse (CDC)**.
-1. Select the destination Aiven for ClickHouse service.
-1. Select the destination ClickHouse database and click **Next**.
+1. Click **Replicate to ClickHouse (CDC)**.
+1. Select the destination ClickHouse service.
+1. Select the destination ClickHouse database.
+1. Click **Next**.
 1. Select the source PostgreSQL database.
-1. Select the tables to replicate. Expand schemas or use the search to find tables.
-
-   Tables without a primary key aren't eligible for replication. Add a primary key to the
-   source table before selecting it.
-
+1. Select the tables to replicate. Expand a schema to view its tables.
 1. Click **Start replication**.
 
-Aiven creates the integration and starts copying the selected tables to ClickHouse. After
-the initial copy, replication continuously applies changes from PostgreSQL.
+</TabItem>
+<TabItem value="clickhouse" label="From ClickHouse">
 
-The integration overview shows the replication progress.
+1. In the [Aiven Console](https://console.aiven.io/), open your project and select the
+   Aiven for ClickHouse service.
+1. In the sidebar, click **Integrations**.
+1. Click **Replicate from PostgreSQL (CDC)**.
+1. Select the destination ClickHouse database.
+1. Click **Next**.
+1. Select the source PostgreSQL service.
+1. Select the source PostgreSQL database.
+1. Select the tables to replicate. Expand a schema to view its tables.
+1. Click **Start replication**.
 
-:::tip
-You can also start from your Aiven for ClickHouse service. Go to **Integrations**, select
-**Replicate from PostgreSQL (CDC)**, and choose the source PostgreSQL service, database,
-and tables.
-:::
+</TabItem>
+</Tabs>
+
+After you click **Start replication**, the Aiven Console opens the replication page and
+Aiven starts copying the selected tables to ClickHouse. As each table finishes copying,
+Aiven applies ongoing changes to it.
+
+You can query a table once it shows **Streaming** on the **Tables** tab. For more
+information about tracking progress, see [Monitor replication](#monitor-replication).
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -142,7 +156,7 @@ curl --request POST \
   }'
 ```
 
-Replace the following placeholders:
+Replace the following:
 
 - `PROJECT_NAME`: Name of your Aiven project.
 - `API_TOKEN`: Your [Aiven API token](/docs/platform/howto/create_authentication_token).
@@ -153,9 +167,16 @@ Replace the following placeholders:
 
 Include exactly one entry in the `pipelines` array.
 
-The default PostgreSQL schema is `public`. Schema and table names can contain letters,
-digits, underscores (`_`), and dollar signs (`$`), but can't begin or end with an
-underscore.
+The default PostgreSQL schema is `public`. Schema and table names must meet the
+following rules:
+
+- Contain letters, digits, underscores, and dollar signs.
+- Start with a letter or digit.
+- Don't end with an underscore.
+- Have up to 63 characters.
+
+After you create the integration, [open the replication page](#monitor-replication) in
+the Aiven Console to monitor the initial copy and replication status.
 
 </TabItem>
 </Tabs>
@@ -165,21 +186,28 @@ underscore.
 For each PostgreSQL table, replication creates a table and a view in the destination
 ClickHouse database.
 
+The ClickHouse table name combines the PostgreSQL schema and table names with an
+underscore (`_`). Aiven doubles any underscores inside the schema and table names, so
+different source tables never map to the same ClickHouse name. The view name adds the
+`__current` suffix to the table name.
+
+For example:
+
 | PostgreSQL table | ClickHouse table | ClickHouse view |
 | --- | --- | --- |
 | `public.orders` | `public_orders` | `public_orders__current` |
 | `public.order_items` | `public_order__items` | `public_order__items__current` |
-
-The ClickHouse table name combines the PostgreSQL schema and table names with an
-underscore (`_`). Existing underscores are doubled to distinguish different source table
-names.
 
 ### Query current data
 
 Query the generated `__current` view to get the latest replicated state of a PostgreSQL
 table. The view returns one row per primary key and excludes deleted rows.
 
-For example, to count orders by status:
+Querying the underlying table can return older versions of updated or deleted rows.
+
+For example, to count orders by status, run the following query in the
+[query editor](/docs/products/clickhouse/howto/query-databases#use-query-editor) or with a
+ClickHouse client:
 
 ```sql
 SELECT status, count()
@@ -189,12 +217,17 @@ GROUP BY status;
 
 ### Understand replicated tables
 
-Replication stores data in tables that use the `ReplicatedReplacingMergeTree` engine,
-sorted by the primary key.
+Replication stores data in tables that use the
+[`ReplicatedReplacingMergeTree`](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replacingmergetree)
+engine, sorted by the primary key.
 
-When a row is updated or deleted in PostgreSQL, replication writes a new version of the
-row to ClickHouse. Older versions can remain in the underlying table until ClickHouse
-merges them in the background.
+When a row is updated or deleted in PostgreSQL, Aiven writes a new version of the row to
+ClickHouse. Older versions can remain in the underlying table until ClickHouse merges
+them in the background.
+
+Aiven stores replication progress in PostgreSQL so that replication resumes from the last
+confirmed position after a restart. After a restart, Aiven can write some changes to
+ClickHouse again. The `__current` view still returns one row per primary key.
 
 Each replicated table has two additional columns:
 
@@ -203,16 +236,13 @@ Each replicated table has two additional columns:
 | `_etl_version` | Position of the change in the replication stream. |
 | `_etl_deleted` | Indicates whether the row was deleted. A value of `1` represents a deleted row. |
 
-The `__current` views use `FINAL` to return the current version of each row and exclude
-deleted rows.
-
 During the initial copy or resynchronization, Aiven creates temporary tables with the
 `_tmpetl_` prefix. Don't query, modify, or delete these tables.
 
-:::warning
+:::warning[Warning]
 Don't modify the replicated tables directly. A resynchronization replaces a table with a
-newly created one, so rows you insert and changes made using `ALTER TABLE`, such as added
-indexes or projections, are lost.
+newly created one. It removes any rows you insert and any changes you make using
+`ALTER TABLE`, such as added indexes or projections.
 
 To add custom data or transformations, create separate tables or materialized views based
 on the replicated tables.
@@ -242,9 +272,11 @@ Replication maps PostgreSQL data types to ClickHouse data types as follows:
 | Arrays of supported types | `Array` of the mapped type |
 | Other types | `String` |
 
-Replication stores PostgreSQL `numeric` values as `String` to preserve precision.
+Replication stores PostgreSQL `numeric` values as `String` to preserve precision. To use
+`numeric` or `money` values in calculations, cast them to a ClickHouse decimal type.
 
-To use these values in calculations, cast them to a ClickHouse decimal type. For example:
+The following query casts the `amount` column to a decimal with two digits after the
+decimal point:
 
 ```sql
 SELECT toDecimal128(amount, 2)
@@ -257,35 +289,50 @@ Use the Aiven Console to monitor replication status, progress, and performance.
 
 1. Open your Aiven for PostgreSQL or Aiven for ClickHouse service.
 1. Click **Integrations**.
-1. Click the CDC integration.
+1. In the **Replications** section, find the CDC integration and click
+   <ConsoleLabel name="actions"/> > **View**.
 
-The integration overview shows the overall replication status and the status of individual
-tables.
+The **Replications** section shows the number of replicated tables and whether the
+integration is connected. It doesn't show replication progress.
+
+The replication page shows progress and has the following tabs:
+
+- **Metrics**: Replication performance charts.
+- **Tables**: Replication status for each database and each replicated table. From this
+  tab you can also add or remove tables and resynchronize them.
 
 ### Replication status
 
-The integration can report the following statuses:
+The **Tables** tab shows a status for the database and for each replicated table.
+
+The database status can be:
 
 | Status | Description |
 | --- | --- |
-| `healthy` | Replication is running and all tables are replicating ongoing changes. |
-| `progressing` | Replication is starting, or at least one table is still being copied. |
-| `degraded` | One or more tables have an error. Replication continues for the other tables. |
-| `failed` | The replication process failed, or every table has an error. |
-| `unknown` | The current replication status isn't available. |
+| **Healthy** | Replication is running and every table is streaming. |
+| **In progress** | Replication is starting, or at least one table isn't streaming, for example while Aiven copies or resynchronizes it. |
 
-Individual tables have their own replication statuses:
+The database status also reports problems:
+
+- If one or more tables have an error, replication continues for the other tables.
+- If the replication process fails, or every table has an error, the database reports a
+  failure.
+- If Aiven can't determine the replication status, the database status isn't available.
+
+Each table status can be:
 
 | Status | Description |
 | --- | --- |
-| `pending` | Replication hasn't started for the table. |
-| `snapshotting` | The initial copy is in progress. |
-| `streaming` | Replication is processing ongoing changes. |
-| `resyncing` | Aiven is copying the table again. |
-| `error` | Replication stopped for the table because of an error. |
-| `unknown` | The current status isn't available. |
+| **Pending** | Aiven hasn't started copying the table. |
+| **Initial copy** | Aiven is copying the table. |
+| **Streaming** | Aiven is applying ongoing changes to the table. |
 
-If a table encounters an error, the integration overview displays the error details.
+A table can also show these states:
+
+- Aiven is copying the table again during a resynchronization.
+- Replication stopped for the table because of an error. The replication page displays
+  the error details.
+- The table status isn't available.
 
 ### Replication metrics
 
@@ -294,24 +341,21 @@ replication performance.
 
 | Metric | Description |
 | --- | --- |
-| Replication lag | Indicates how far replication is behind PostgreSQL. |
-| Events processed | Number of change events processed per second. |
-| Data processed | Amount of data processed per second. |
-| WAL retained | Amount of PostgreSQL WAL data retained for replication. |
-
-Use these metrics to identify replication delays and monitor the amount of WAL retained by
-PostgreSQL.
+| **Replication lag** | How far replication is behind PostgreSQL, in seconds. |
+| **Events processed** | Number of change events processed per second. |
+| **Data processed** | Amount of data processed per second, in bytes. |
+| **Write-ahead log held for the pipeline** | Amount of PostgreSQL WAL data retained for replication, in bytes. |
 
 ### Data freshness
 
-Replication collects changes in batches and writes them to ClickHouse periodically.
+Replication collects changes in batches. It writes a batch to ClickHouse when the batch is
+full or every 10 seconds, whichever comes first.
 
-Under normal load, changes typically appear in ClickHouse within approximately 10 seconds.
-Actual delay depends on the workload and replication progress.
+Under normal load, changes appear in ClickHouse within about 10 seconds. The actual delay
+depends on the workload and replication progress.
 
-When the PostgreSQL source is idle, there might be no new changes to replicate. Consider
-source activity together with replication lag and events processed when assessing data
-freshness.
+When the PostgreSQL source is idle, there are no changes to replicate. Check source
+activity together with replication lag and events processed when assessing data freshness.
 
 ## Manage replicated tables
 
@@ -320,9 +364,14 @@ integration.
 
 ### Add or remove tables
 
-1. Open the CDC integration in the Aiven Console.
-1. In the **Tables** section, click **Edit**.
-1. Choose the tables to add or remove.
+1. Open your Aiven for PostgreSQL or Aiven for ClickHouse service.
+1. Click **Integrations**.
+1. In the **Replications** section, find the CDC integration and click
+   <ConsoleLabel name="actions"/> > **View**.
+1. Click the **Tables** tab.
+1. Click **Edit**.
+1. On the **Edit replication tables** page, select the tables to add and clear the tables
+   to remove.
 1. Click **Save**.
 1. In the confirmation dialog, review the changes and confirm.
 
@@ -337,50 +386,47 @@ existing data remain available, but the data stops updating.
 
 If you no longer need the data, delete the ClickHouse table and view manually.
 
-To replicate a renamed PostgreSQL table, update the integration's table selection.
-
 ### Handle schema changes
 
 Replication applies some PostgreSQL schema changes automatically. Other changes stop
 replication for the affected table until you resynchronize it.
 
-| PostgreSQL change | Result in ClickHouse |
+| PostgreSQL change | Result or required action |
 | --- | --- |
 | Add a column | Aiven adds the column after the next row change in the source table. |
-| Drop a column | **TODO: Confirm whether ClickHouse retains the column or removes it automatically.** |
-| Rename a column | Replication stops for the affected table. Resynchronize it to apply the change. |
-| Change a column type | Replication stops for the affected table. Resynchronize it to apply the change. |
-| Other unsupported schema changes | Replication stops for the affected table. Resolve the issue and resynchronize it. |
-
-An unsupported schema change affects only the corresponding table. Other tables continue
-replicating.
+| Drop a column | Aiven removes the column after the next row change in the source table. |
+| Rename a table | Update the integration's table selection to replicate the renamed table. |
+| Rename a column, change a column type, or make any other schema change | Replication stops for the affected table until you resynchronize it. |
 
 ### Resynchronize tables
 
 Resynchronization copies a source PostgreSQL table again and replaces its replicated data
 in ClickHouse.
 
-You might need to resynchronize when:
-
-- A schema change interrupts replication.
-- A table encounters an error that requires a new initial copy.
-- The PostgreSQL replication slot is lost.
-- The replicated data needs a rebuild.
+Resynchronize a table when a schema change or an error stops replication for it, or to
+rebuild the replicated data. For more information, see
+[Handle schema changes](#handle-schema-changes) and
+[Troubleshoot replication](#troubleshoot-replication).
 
 To resynchronize tables:
 
-1. Open the CDC integration in the Aiven Console.
-1. Click **Resynchronize**.
-1. Choose the tables to resynchronize.
-1. Confirm the resynchronization.
+1. Open your Aiven for PostgreSQL or Aiven for ClickHouse service.
+1. Click **Integrations**.
+1. In the **Replications** section, find the CDC integration and click
+   <ConsoleLabel name="actions"/> > **View**.
+1. Click the **Tables** tab.
+1. Do one of the following:
+   - Click **Resync** in the row of the table to resynchronize.
+   - Click **Resync all tables** to resynchronize every replicated table in the database.
+1. In the confirmation dialog, click **Resync**.
 
-Aiven creates a new copy of the selected tables while the existing ClickHouse data remains
-available for queries. When the copy finishes, Aiven replaces the existing replicated
-data.
+Aiven copies the selected tables again while the existing ClickHouse data remains
+available for queries. The database status is **In progress** during the
+resynchronization. When the copy finishes, Aiven replaces the existing replicated data.
 
-:::warning
-The replacement isn't atomic. Queries running during the replacement can fail or return
-incomplete data.
+:::warning[Warning]
+Aiven replaces the table in more than one step. Queries running during the replacement
+can fail or return incomplete data.
 
 Plan resynchronization around applications and dashboards that depend on the affected
 tables.
@@ -388,57 +434,59 @@ tables.
 
 ## Troubleshoot replication
 
-### Replication stops after a schema change
+### A table shows an error
 
-An unsupported schema change can stop replication for an affected table.
+Aiven automatically retries temporary failures, such as connection interruptions and
+service restarts. You don't need to take any action. For more information about what
+happens after a restart, see
+[Understand replicated tables](#understand-replicated-tables).
+
+An unsupported schema change or another error stops replication only for the affected
+table. Other tables continue replicating.
 
 To recover:
 
-1. Open the CDC integration in the Aiven Console.
-1. Find the table with the `error` status.
-1. Review the error message and resolve the underlying issue.
-1. Resynchronize the affected table.
+1. Open your Aiven for PostgreSQL or Aiven for ClickHouse service.
+1. Click **Integrations**.
+1. In the **Replications** section, find the CDC integration and click <ConsoleLabel name="actions"/> > **View**.
+1. Click the **Tables** tab.
+1. Find the table that shows an error and review the error message.
+1. Resolve the cause of the error if you know it. For schema changes, see
+   [Handle schema changes](#handle-schema-changes).
+1. Click **Resync** in the row of the affected table.
+   For more information, see [Resynchronize tables](#resynchronize-tables).
 
-Other tables continue replicating.
+If the error remains after the resynchronization, contact
+[Aiven Support](https://aiven.io/support).
 
-### Replication stops after a service interruption
-
-Aiven automatically retries temporary failures, such as connection interruptions and
-service restarts.
-
-Aiven stores replication progress in PostgreSQL so that replication can resume from the
-last confirmed position after a restart.
-
-If replication doesn't recover, review the integration status and error details in the
-Aiven Console.
-
-### Replication loses its WAL position
+### Replication can't resume from its previous position
 
 Replication uses a PostgreSQL replication slot to track changes.
 
-If the slot is lost, for example after a failover that doesn't preserve it, replication
-can't resume from its previous position. Aiven reports an error rather than skipping
-changes.
+If the slot no longer exists, for example after a failover that doesn't preserve it,
+replication can't resume from its previous position. Aiven reports an error rather than
+skipping changes.
 
-Resynchronize all affected tables to restore replication.
+Resynchronize all tables in the integration to restore replication.
 
 ### PostgreSQL disk usage increases
 
-Replication reads changes from the PostgreSQL write-ahead log (WAL).
+Replication reads changes from the PostgreSQL WAL. PostgreSQL retains WAL data until
+replication confirms that it has processed the changes.
 
-PostgreSQL retains WAL data until replication confirms that it has processed the changes.
-WAL usage can increase when:
+WAL usage can increase in the following cases:
 
-- The ClickHouse service is powered off.
 - Replication can't write data to ClickHouse.
 - Replication falls behind a high volume of PostgreSQL writes.
 
-Monitor replication lag and the disk usage of your PostgreSQL service.
+Monitor the **Write-ahead log held for the pipeline** metric and the disk usage of your
+PostgreSQL service. Use the **Replication lag** metric to find delays. For more
+information, see [Replication metrics](#replication-metrics).
 
 If you no longer need the integration, delete it to release the WAL retained for the
 replication pipeline.
 
-:::warning
+:::warning[Warning]
 Powering off the ClickHouse service stops replication but doesn't remove the PostgreSQL
 replication slot. PostgreSQL can continue retaining WAL data until replication resumes or
 you delete the integration.
@@ -449,27 +497,31 @@ you delete the integration.
 Delete a CDC integration when you no longer need to replicate changes from PostgreSQL to
 ClickHouse.
 
-1. In the Aiven Console, open your Aiven for PostgreSQL or Aiven for ClickHouse service.
+When you delete an integration:
+
+- Replication stops.
+- The existing ClickHouse tables, views, and data remain available but stop updating.
+- Aiven starts removing the
+  [PostgreSQL objects created by replication](#postgresql-objects-created-by-replication)
+  in the background. The delete request doesn't wait for the cleanup to finish.
+
+:::note[Note]
+If you also plan to delete the Aiven for ClickHouse service, delete the integration first.
+:::
+
+1. Open your Aiven for PostgreSQL or Aiven for ClickHouse service.
 1. Click **Integrations**.
-1. Find the CDC integration and delete it.
+1. In the **Replications** section, find the CDC integration and click
+   <ConsoleLabel name="actions"/> > **Disconnect**.
 
 You can also delete an integration using the
 [ServiceIntegrationDelete](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationDelete)
 endpoint.
 
-When you delete an integration:
-
-- Replication stops.
-- The existing ClickHouse tables, views, and data remain available but stop updating.
-- Aiven starts removing the PostgreSQL objects associated with the integration.
-
-Deletion is asynchronous. The request doesn't wait for all PostgreSQL cleanup operations
-to finish.
-
 If you no longer need the replicated data, delete the ClickHouse tables and views
 manually.
 
-### PostgreSQL objects created by replication
+## PostgreSQL objects created by replication
 
 For each replication pipeline, Aiven creates and manages the following objects in the
 source PostgreSQL database.
@@ -485,13 +537,47 @@ source PostgreSQL database.
 
 Don't modify or delete these objects while the integration is active.
 
-Aiven attempts to remove these objects when you delete the integration.
+After you delete the integration, Aiven tries to remove these objects. Automatic cleanup
+fails in the following cases:
 
-If automatic cleanup fails, for example because you deleted the ClickHouse service before
-the integration, some objects might remain in PostgreSQL.
+- You delete the Aiven for ClickHouse service before the integration.
+- The PostgreSQL service is unreachable for about 30 minutes after you delete the
+  integration.
 
-Contact [Aiven Support](https://aiven.io/support) for help removing leftover replication
-objects.
+Leftover replication slots can make PostgreSQL retain WAL data and increase disk usage.
+To remove leftover objects,
+[remove the PostgreSQL objects manually](#remove-the-postgresql-objects-manually) or
+contact [Aiven Support](https://aiven.io/support).
+
+### Remove the PostgreSQL objects manually
+
+:::warning[Warning]
+These commands permanently remove replication slots, a publication, and a schema. Run
+them only for a pipeline whose integration no longer exists.
+:::
+
+1. [Connect to the PostgreSQL database](/docs/products/postgresql/howto/connect-psql) as
+   the `avnadmin` user.
+1. Find the leftover replication pipelines:
+
+   ```sql
+   SELECT pubname FROM pg_publication WHERE pubname LIKE 'aiven\_cdc\_%';
+   ```
+
+1. For each pipeline that no longer has an integration, drop its replication slots,
+   publication, and schema:
+
+   ```sql
+   SELECT pg_drop_replication_slot(slot_name)
+   FROM pg_replication_slots
+   WHERE NOT active
+     AND (slot_name = 'supabase_etl_apply_PIPELINE_ID'
+       OR slot_name LIKE 'supabase\_etl\_table\_sync\_PIPELINE_ID\_%');
+   DROP PUBLICATION IF EXISTS aiven_cdc_PIPELINE_ID;
+   DROP SCHEMA IF EXISTS aiven_cdc_PIPELINE_ID CASCADE;
+   ```
+
+   Replace `PIPELINE_ID` with the number from the publication name.
 
 <RelatedPages/>
 
