@@ -26,9 +26,12 @@ BYOK encrypts the following using your CMKs:
 - **Data in transit between the service and backups**: Encryption occurs on the service
   node before data leaves the cluster, so backup transfers use your CMK.
 
+Services that don't use a CMK are encrypted with Aiven-managed keys instead. Assigning a
+CMK to a service replaces those keys with yours for the data listed above.
+
 ## Prerequisites
 
-- **Key management service** (KMS) that supports customer-managed keys in one of the
+- **Key management service** (KMS) that supports customer managed keys in one of the
   supported cloud providers:
   - **Google Cloud KMS**: asymmetric RSA 2048 or RSA 4096 keys
   - **Oracle Cloud Infrastructure (OCI) Vault**: AES keys
@@ -237,7 +240,7 @@ Use the accessor values returned by this operation when granting Aiven access to
 
 :::
 
-## Set up customer-managed keys on your cloud provider
+## Set up customer managed keys on your cloud provider
 
 Before registering a CMK with Aiven, set up the key and grant Aiven access on your cloud
 provider.
@@ -683,9 +686,9 @@ that are allowed to use them.
 1. In **Key details**, enter the following:
    - **Key name**: a name that identifies the key in the Aiven Console.
    - **Key resource path**: the resource identifier of the key in your KMS.
-   - **Project allocation**: the projects that can use this key.
-1. Optional: Select **Set as project default** to encrypt all new services in the
-   selected projects with this key.
+   - **Projects**: the projects that can use this key.
+1. Optional: Select **Set as default for the selected projects** to encrypt new
+   services in those projects with this key.
 1. In **Billing**, select the **Billing group** to charge for the services that use
    this key.
 1. Click **Validate and register**.
@@ -693,7 +696,7 @@ that are allowed to use them.
 Aiven checks that it can encrypt and decrypt with your key. When the check succeeds,
 **Key registered successfully** appears. Click **Done**.
 
-If the check fails, **Cannot verify encrypt/decrypt access** appears. Fix the access
+If the check fails, **Cannot verify encrypt and decrypt access** appears. Fix the access
 group permissions in your cloud provider, then click **Validate and register** again.
 
 </TabItem>
@@ -913,14 +916,14 @@ Update attributes or parameters on an existing customer managed key configuratio
 1. Under **Platform management**, click **Bring your own key**.
 1. Find the key to update, click <ConsoleLabel name="actions"/>, and select
    **Edit key**.
-1. Update the key name, key resource path, project allocation, default-key setting, or
-   billing group.
+1. Update the key name, key resource path, projects, or default-key setting.
+   You cannot change the cloud that hosts the key.
 1. Click **Save changes**.
 
-You can also open the key and use the **Default key** toggle to turn the default on or
-off without opening the edit dialog. New services in the allocated projects use the
-default key unless you select a different key when you create the service. Services
-that use Aiven-managed keys are not affected.
+You can also open the key and use the **Default key for the selected projects** toggle
+to turn the default on or off without opening the edit dialog. New services in those
+projects use the default key unless you select a different key when you create the
+service. Services that use Aiven-managed keys are not affected.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -1071,9 +1074,8 @@ Get the details of a customer managed key configuration.
 1. Under **Platform management**, click **Bring your own key**.
 1. Click the key name.
 
-The **Overview** tab shows the key ID, cloud and region, key resource path, the access
-group granted on the key, the command used to grant access, the creation or last-updated
-time, the billing group, and whether the key is the default for its allocated projects.
+The **Overview** tab shows the key ID, cloud and region, key resource path, creation
+time, and whether the key is the default for the projects it is assigned to.
 The **Assigned projects** tab lists the projects and services that use the key.
 
 </TabItem>
@@ -1262,7 +1264,7 @@ List all customer managed key configurations for a project.
 1. Under **Platform management**, click **Bring your own key**.
 
 The **Bring your own key (BYOK)** page lists every key registered for the organization
-with its cloud and region, status, allocated projects, and creation time. Keys that are
+with its key ID, cloud and region, status, projects, and creation time. Keys that are
 the default for their projects are marked **Default**.
 
 If no keys are registered yet, the page shows **Register key** instead of the list.
@@ -1394,7 +1396,7 @@ association before deletion.
 1. Click <ConsoleLabel name="actions"/> next to the key to delete and select
    **Delete**.
 
-If services still use the key, **Cannot remove a key in use** appears. Move those
+If services still use the key, **Cannot delete a key in use** appears. Move those
 services to another CMK or to Aiven-managed keys first, then delete the key.
 
 You can also delete a key from its page: click the key name, click the actions menu next
@@ -1539,9 +1541,9 @@ Set `cloud` to control the cloud region for the new service.
 1. In the [Aiven Console](https://console.aiven.io), open your project.
 1. Click **Create service**.
 1. Select a service type, cloud provider, and plan.
-1. In **Service details**, select a key in **Encryption key (BYOK)**.
-   The list contains the keys allocated to this project. The project default key, if
-   there is one, is preselected.
+1. In **Service details**, open **Encryption key** and select the key to encrypt the
+   service with. You can select an Aiven-managed key or any CMK registered on this
+   project. The project default key, if there is one, is preselected.
 1. Click **Create service**.
 
 </TabItem>
