@@ -12,7 +12,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
-:::important
+:::note
 Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature,
 available for newly created BYOC services only. [Contact Aiven](https://aiven.io/contact)
 to request access.
@@ -37,8 +37,24 @@ it, and you can revoke Aiven's access to it at any time.
    the allocated projects. See
    [Manage service CMK associations](#manage-service-cmk-associations).
 1. **Keep Aiven's access in place.** Aiven checks access to each registered key
-   periodically. If access is lost, Aiven powers off every service that uses the key. See
+   periodically. If access is lost, see
    [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+
+:::warning
+**Losing access to your key can cause data loss.** If Aiven can't use your key for about
+15 to 20 minutes, for example because the key is disabled or scheduled for deletion, or a
+policy change or network restriction blocks access, Aiven powers off every service that
+uses it. This ensures Aiven has no way to access your data without your key.
+
+Services don't power on automatically. After you restore access and power them on, they
+restore from the latest backup, and data written since that backup is lost. Aiven for
+Apache Kafka® topic data, including tiered storage, isn't backed up, so Kafka services
+lose all topic messages. If the key is destroyed, access can't be restored and backups
+can't be read.
+
+To revoke access without data loss, move services to another key or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first.
+:::
 
 ## Encryption scope
 
@@ -317,11 +333,8 @@ gcloud kms keys add-iam-policy-binding <key-name> \
 :::warning
 To revoke Aiven's access, remove the IAM policy binding, or disable or schedule the
 destruction of the key.
-Revoking access powers off every service that uses the key. To keep those services
-running, move them to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
-access, see
-[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
 :::
 
 ### Oracle Cloud Infrastructure (OCI) Vault setup
@@ -403,11 +416,8 @@ ocid1.key.oc1.<region>.<hash>
 :::warning
 To revoke Aiven's access, remove the cross-tenancy IAM policies, or disable or schedule
 the deletion of the key.
-Revoking access powers off every service that uses the key. To keep those services
-running, move them to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
-access, see
-[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
 :::
 
 ### AWS KMS setup
@@ -515,11 +525,8 @@ full audit trail.
 :::warning
 To revoke Aiven's access, remove the Aiven principal from the key policy, or disable or
 delete the key.
-Revoking access powers off every service that uses the key. To keep those services
-running, move them to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
-access, see
-[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
 :::
 
 ### Azure Key Vault setup
@@ -684,11 +691,8 @@ az keyvault role assignment create \
 :::warning
 To revoke Aiven's access, remove the role assignment or delete the service principal from
 your tenant. This immediately stops all cryptographic operations by Aiven.
-Revoking access powers off every service that uses the key. To keep those services
-running, move them to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first. To restore
-access, see
-[Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
 :::
 
 ## Manage a project CMK
@@ -1964,9 +1968,9 @@ Each service that uses a CMK has its own association status, separate from the
 ### Services are powered off after a key becomes unavailable
 
 Aiven checks access to each registered CMK periodically. After repeated failures to
-encrypt and decrypt with the key over about 15 minutes, Aiven powers off every service
-associated with that key to protect your data. A single failed check does not power off
-your services.
+encrypt and decrypt with the key over about 15 to 20 minutes, Aiven powers off every
+service associated with that key to protect your data. A single failed check does not
+power off your services.
 
 If you revoked Aiven's access deliberately, no further action is needed.
 
