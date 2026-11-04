@@ -269,8 +269,16 @@ Replication maps PostgreSQL data types to ClickHouse data types as follows:
 | `uuid` | `UUID` |
 | `json`, `jsonb` | `String` |
 | `bytea` | `String` |
-| Arrays of supported types | `Array` of the mapped type |
+| `oid` | `UInt32` |
+| Arrays | `Array(Nullable(T))`, where `T` is the mapped element type |
 | Other types | `String` |
+
+If a PostgreSQL column allows `NULL`, the ClickHouse column uses the `Nullable` type so
+it can also store `NULL`. For example, a nullable `integer` column becomes
+`Nullable(Int32)`.
+
+Columns that you add to a source table after replication starts are always `Nullable`,
+even if they're `NOT NULL` in PostgreSQL.
 
 Replication stores PostgreSQL `numeric` values as `String` to preserve precision. To use
 `numeric` or `money` values in calculations, cast them to a ClickHouse decimal type.
@@ -311,13 +319,9 @@ The database status can be:
 | --- | --- |
 | **Healthy** | Replication is running and every table is streaming. |
 | **In progress** | Replication is starting, or at least one table isn't streaming, for example while Aiven copies or resynchronizes it. |
-
-The database status also reports problems:
-
-- If one or more tables have an error, replication continues for the other tables.
-- If the replication process fails, or every table has an error, the database reports a
-  failure.
-- If Aiven can't determine the replication status, the database status isn't available.
+| **Degraded** | At least one table has an error. Replication continues for the other tables. |
+| **Failed** | The replication process failed, or every table has an error. |
+| **Unknown** | Aiven can't determine the replication status. |
 
 Each table status can be:
 
@@ -326,13 +330,9 @@ Each table status can be:
 | **Pending** | Aiven hasn't started copying the table. |
 | **Initial copy** | Aiven is copying the table. |
 | **Streaming** | Aiven is applying ongoing changes to the table. |
-
-A table can also show these states:
-
-- Aiven is copying the table again during a resynchronization.
-- Replication stopped for the table because of an error. The replication page displays
-  the error details.
-- The table status isn't available.
+| **Resyncing** | Aiven is copying the table again during a resynchronization. |
+| **Error** | Replication stopped for the table because of an error. See [A table shows an error](#a-table-shows-an-error). |
+| **Unknown** | Aiven can't determine the table status. |
 
 ### Replication metrics
 
@@ -450,7 +450,7 @@ To recover:
 1. Click **Integrations**.
 1. In the **Replications** section, find the CDC integration and click <ConsoleLabel name="actions"/> > **View**.
 1. Click the **Tables** tab.
-1. Find the table that shows an error and review the error message.
+1. Find the table that shows the **Error** status.
 1. Resolve the cause of the error if you know it. For schema changes, see
    [Handle schema changes](#handle-schema-changes).
 1. Click **Resync** in the row of the affected table.
@@ -541,8 +541,8 @@ After you delete the integration, Aiven tries to remove these objects. Automatic
 fails in the following cases:
 
 - You delete the Aiven for ClickHouse service before the integration.
-- The PostgreSQL service is unreachable for about 30 minutes after you delete the
-  integration.
+- The PostgreSQL service is unreachable for more than 5 minutes after you delete
+  the integration.
 
 Leftover replication slots can make PostgreSQL retain WAL data and increase disk usage.
 To remove leftover objects,
