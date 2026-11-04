@@ -118,8 +118,9 @@ backup, go to your service page > <ConsoleLabel name="backups"/> >
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-Run [avn service get](/docs/tools/cli/service-cli) and read the
-`additional_backup_regions` field.
+Run [avn service get](/docs/tools/cli/service-cli) and read
+`user_config.additional_backup_regions`. The field lists the region holding the secondary
+backup, and is empty when the service has no secondary backup.
 
 ```bash
 avn service get SERVICE_NAME --project PROJECT_NAME --json
@@ -129,7 +130,9 @@ avn service get SERVICE_NAME --project PROJECT_NAME --json
 <TabItem value="api" label="Aiven API">
 
 Call the [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint
-and read the `additional_backup_regions` field in the response.
+and read `user_config.additional_backup_regions` in the response. The field lists the
+region holding the secondary backup, and is empty when the service has no secondary
+backup.
 
 ```bash
 curl --request GET                                                              \

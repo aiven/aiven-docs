@@ -78,8 +78,9 @@ from the new region only after that backup finishes.
 
 ## Check BTAR status
 
-To see whether your service has a secondary backup and which region holds it, read the
-`additional_backup_regions` field for the service.
+To see whether your service has a secondary backup and which region holds it, read
+`user_config.additional_backup_regions` for the service. The field is empty when the
+service has no secondary backup.
 
 <Tabs groupId="btar-tools">
 <TabItem value="cli" label="Aiven CLI" default>
