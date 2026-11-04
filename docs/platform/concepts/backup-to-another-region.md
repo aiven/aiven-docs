@@ -23,12 +23,6 @@ BTAR is available for the following services, at the release stage shown:
 | [Aiven for Valkey™](/docs/products/valkey/howto/backup-to-another-region) | [Limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-) | API, CLI, Terraform, Kubernetes Operator |
 | [Aiven for Grafana®](/docs/products/grafana/howto/backup-to-another-region) | [Limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-) | API, CLI, Terraform, Kubernetes Operator |
 
-Other service types do not support BTAR. Some of them still accept the
-`additional_backup_regions` setting in the
-[Aiven Provider for Terraform](/docs/tools/terraform) and the
-[Aiven Operator for Kubernetes®](/docs/tools/kubernetes), where the setting is deprecated
-and has no effect.
-
 <BtarInstructions/>
 
 <RelatedPages/>
