@@ -1,10 +1,9 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-For a project that has the backup to another region (BTAR) feature enabled, you can add or
-change a secondary backup location, check the secondary backup status, monitor the
-replication lag, fork and restore using the cross-region backup, or migrate to another
-cloud or region.
+With backup to another region (BTAR), you can add or change a secondary backup location,
+check the secondary backup status, monitor the replication lag, fork and restore using the
+cross-region backup, or migrate to another cloud or region.
 
 :::note
 The Aiven Console does not support BTAR for this service. Manage the secondary backup
@@ -16,7 +15,7 @@ location with the [Aiven CLI](/docs/tools/cli), the [Aiven API](/docs/tools/api)
 
 ## Prerequisites
 
-- At least one Aiven service in a project with BTAR enabled
+- At least one Aiven service that supports BTAR
 - One of the following: the [Aiven CLI](/docs/tools/cli), the
   [Aiven API](/docs/tools/api), the
   [Aiven Provider for Terraform](/docs/tools/terraform), or the
