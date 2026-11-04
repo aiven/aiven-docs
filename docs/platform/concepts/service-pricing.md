@@ -77,6 +77,32 @@ Aiven for Apache Kafka® has a separate [Developer tier](/docs/products/kafka/de
 paid plan for development and testing, with its own throughput, storage, retention, and
 pricing.
 
+#### Aiven for ClickHouse®
+
+The [Aiven for ClickHouse® Developer tier](/docs/products/clickhouse/dev-tier/clickhouse-dev-tier)
+provides always-on, single-node ClickHouse for learning, prototypes, side projects, and
+small analytics workloads.
+
+The Aiven for ClickHouse Developer tier includes:
+
+-   Single node
+-   2 shared vCPUs
+-   4 GB RAM
+-   25 GB fixed storage
+-   Daily backups, with one backup retained
+-   Aiven and third-party service integrations
+-   [Basic tier support](/docs/platform/howto/support)
+
+Limitations of the Aiven for ClickHouse Developer tier are:
+
+-   DigitalOcean only
+-   No VPC peering
+-   No static IPs
+-   No storage expansion or tiered storage
+-   No high availability or SLA
+-   No forking
+-   No downgrading to the Developer tier from higher plans
+
 #### Aiven for OpenSearch
 
 The Aiven for OpenSearch Developer tier provides you with always-on OpenSearch for
