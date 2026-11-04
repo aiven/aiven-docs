@@ -78,8 +78,9 @@ Replace the following:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Set `additional_backup_regions` in the service's user configuration block. The example uses Aiven for PostgreSQL®; for other services, use that
-service's resource and user configuration block.
+Set `additional_backup_regions` in the service's user configuration block. The example
+uses Aiven for PostgreSQL®; for other services, use that service's resource and user
+configuration block.
 
 ```hcl
 resource "aiven_pg" "example" {
@@ -97,8 +98,8 @@ resource "aiven_pg" "example" {
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes">
 
-Set `additional_backup_regions` under `spec.userConfig`. The example uses the `PostgreSQL` kind; for other services, use
-that service's kind.
+Set `additional_backup_regions` under `spec.userConfig`. The example uses the `PostgreSQL`
+kind; for other services, use that service's kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
@@ -159,7 +160,7 @@ backup, go to your service page > <ConsoleLabel name="backups"/> >
 
 Run [avn service get](/docs/tools/cli/service-cli) and read
 `user_config.additional_backup_regions`. The field lists the region holding the secondary
-backup, and is empty when the service has no secondary backup.
+backup. If the service has no secondary backup, the field is not set.
 
 ```bash
 avn service get SERVICE_NAME --project PROJECT_NAME --json
@@ -170,8 +171,8 @@ avn service get SERVICE_NAME --project PROJECT_NAME --json
 
 Call the [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint
 and read `user_config.additional_backup_regions` in the response. The field lists the
-region holding the secondary backup, and is empty when the service has no secondary
-backup.
+region holding the secondary backup. If the service has no secondary backup, the field is
+not set.
 
 ```bash
 curl --request GET                                                              \
@@ -326,8 +327,9 @@ Replace the following with meaningful data:
 
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set in its user configuration block. Set `recovery_target_time` to
-no earlier than the time of taking the oldest replicated base backup. The example uses Aiven for PostgreSQL®; for other services, use that
-service's resource and user configuration block.
+no earlier than the time of taking the oldest replicated base backup. The example uses
+Aiven for PostgreSQL®; for other services, use that service's resource and user
+configuration block.
 
 ```hcl
 resource "aiven_pg" "fork" {
@@ -348,8 +350,8 @@ resource "aiven_pg" "fork" {
 
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set under `spec.userConfig`. Set `recovery_target_time` to no
-earlier than the time of taking the oldest replicated base backup. The example uses the `PostgreSQL` kind; for other services, use that
-service's kind.
+earlier than the time of taking the oldest replicated base backup. The example uses the
+`PostgreSQL` kind; for other services, use that service's kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1

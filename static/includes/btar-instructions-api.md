@@ -70,8 +70,9 @@ Replace the following:
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-Set `additional_backup_regions` in the service's user configuration block. The example uses Aiven for Valkey™; for Aiven for Grafana®, use
-`aiven_grafana` and `grafana_user_config`.
+Set `additional_backup_regions` in the service's user configuration block. The example
+uses Aiven for Valkey™; for Aiven for Grafana®, use `aiven_grafana` and
+`grafana_user_config`.
 
 ```hcl
 resource "aiven_valkey" "example" {
@@ -89,8 +90,8 @@ resource "aiven_valkey" "example" {
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes">
 
-Set `additional_backup_regions` under `spec.userConfig`. The example uses the `Valkey` kind; for Aiven for Grafana®, use
-the `Grafana` kind.
+Set `additional_backup_regions` under `spec.userConfig`. The example uses the `Valkey`
+kind; for Aiven for Grafana®, use the `Grafana` kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
@@ -121,8 +122,8 @@ from the new region only after that backup finishes.
 ## Check BTAR status
 
 To see whether your service has a secondary backup and which region holds it, read
-`user_config.additional_backup_regions` for the service. The field is empty when the
-service has no secondary backup.
+`user_config.additional_backup_regions` for the service. If the service has no secondary
+backup, the field is not set.
 
 <Tabs groupId="btar-tools">
 <TabItem value="cli" label="Aiven CLI" default>
@@ -134,7 +135,8 @@ avn service get SERVICE_NAME --project PROJECT_NAME --json
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Call the [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint.
+Call the
+[ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint.
 
 ```bash
 curl --request GET                                                              \
@@ -270,8 +272,8 @@ Replace the following with meaningful data:
 
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set in its user configuration block. Set `recovery_target_time` to
-no earlier than the time of taking the oldest replicated base backup. The example uses Aiven for Valkey™; for Aiven for Grafana®, use
-`aiven_grafana` and `grafana_user_config`.
+no earlier than the time of taking the oldest replicated base backup. The example uses
+Aiven for Valkey™; for Aiven for Grafana®, use `aiven_grafana` and `grafana_user_config`.
 
 ```hcl
 resource "aiven_valkey" "fork" {
@@ -292,8 +294,8 @@ resource "aiven_valkey" "fork" {
 
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set under `spec.userConfig`. Set `recovery_target_time` to no
-earlier than the time of taking the oldest replicated base backup. The example uses the `Valkey` kind; for Aiven for Grafana®, use the
-`Grafana` kind.
+earlier than the time of taking the oldest replicated base backup. The example uses the
+`Valkey` kind; for Aiven for Grafana®, use the `Grafana` kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
