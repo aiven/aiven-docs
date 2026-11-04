@@ -2792,6 +2792,7 @@ const sidebars: SidebarsConfig = {
         'tools/agents/create-agent',
         'tools/agents/manage-agent',
         'tools/agents/manage-integrations',
+        'tools/agents/connect-slack-to-agents',
         'tools/agents/permissions',
         'tools/agents/chat-with-agent',
         'tools/agents/schedule-agent',
