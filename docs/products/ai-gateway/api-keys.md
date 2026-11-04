@@ -19,7 +19,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 ## Create a key
 
-1. In your project click **AI Gateway**.
+1. In your project click **AI gateway**.
 1. Click **API keys**.
 1. Click **Create key**.
 1. Enter a name.
@@ -30,14 +30,14 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
 ## Revoke a key
 
-1. In your project click AI Gateway.
+1. In your project click AI gateway.
 1. Click **API keys**.
 1. For the key to revoke, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="revokekey"/>.
 1. Click **Revoke**.
 
 ## Rename a key
 
-1. In your project click AI Gateway.
+1. In your project click AI gateway.
 1. Click **API keys**.
 1. For the key to rename, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="editkey"/>.
 1. Click **Save changes**.

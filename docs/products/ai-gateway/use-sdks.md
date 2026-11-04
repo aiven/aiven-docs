@@ -6,11 +6,11 @@ early: true
 
 import AIGatewayModelInfo from "@site/src/components/AIGatewayModelInfo";
 
-Use the OpenAI and Anthropic SDKs with the Aiven AI Gateway.
+Use the OpenAI and Anthropic SDKs with the Aiven AI gateway.
 
 ## Prerequisites
 
-- AI Gateway [enabled for your organization](/docs/products/ai-gateway).
+- AI gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys).
 
 ## Use the OpenAI SDK
@@ -58,6 +58,6 @@ Use the OpenAI and Anthropic SDKs with the Aiven AI Gateway.
    print(message.content[0].text)
    ```
 
-   Where `API_KEY` is your AI Gateway API key.
+   Where `API_KEY` is your AI gateway API key.
 
 <AIGatewayModelInfo variable="model" />

@@ -6,11 +6,11 @@ early: true
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Use cURL to interact with the Aiven AI Gateway REST API.
+Use cURL to interact with the Aiven AI gateway REST API.
 
 ## Prerequisites
 
-- AI Gateway [enabled for your organization](/docs/products/ai-gateway).
+- AI gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys).
 
 ## Use cURL

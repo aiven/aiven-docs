@@ -182,7 +182,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'link',
-          label: 'AI Gateway',
+          label: 'AI gateway',
           href: '/docs/products/ai-gateway',
         },
         {
@@ -305,14 +305,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'AI Gateway',
+      label: 'AI gateway',
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
       items: [
         {
           type: 'link',
-          label: 'AI Gateway',
+          label: 'AI gateway',
           href: '/docs/products/ai-gateway',
         },
       ],
@@ -2799,7 +2799,7 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  // AI Gateway dedicated sidebar
+  // AI gateway dedicated sidebar
   aigateway: [
     {
       type: 'link',
@@ -2808,7 +2808,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'AI Gateway',
+      label: 'AI gateway',
       collapsed: false,
       collapsible: false,
       link: {
@@ -2821,7 +2821,7 @@ const sidebars: SidebarsConfig = {
         'products/ai-gateway/model-catalog',
         {
           type: 'category',
-          label: 'Use AI Gateway',
+          label: 'Use AI gateway',
           link: {
             type: 'doc',
             id: 'products/ai-gateway/use-with-agents',

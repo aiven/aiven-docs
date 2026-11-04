@@ -22,19 +22,19 @@ Point your coding agent like Claude Code or Codex at the AI gateway to send requ
 
 ## Prerequisites
 
-- AI Gateway [enabled for your organization](/docs/products/ai-gateway).
+- AI gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys).
 
 ## Use Claude Code with AI gateway models
 
-To use Claude Code with the AI Gateway, set the gateway address,
+To use Claude Code with the AI gateway, set the gateway address,
 your API key, and the model names in the terminal or
 in Claude Code's configuration file.
 
 |             Variable             |          Value          |
 | -------------------------------- | ----------------------- |
 | `ANTHROPIC_BASE_URL`             | `https://ai.aiven.io`   |
-| `ANTHROPIC_AUTH_TOKEN`           | Your AI Gateway API key |
+| `ANTHROPIC_AUTH_TOKEN`           | Your AI gateway API key |
 | `ANTHROPIC_MODEL`                | `aiven-model`           |
 | `ANTHROPIC_DEFAULT_OPUS_MODEL`   | `claude-opus-5`         |
 | `ANTHROPIC_DEFAULT_SONNET_MODEL` | `claude-sonnet-5`       |
@@ -83,7 +83,7 @@ To use these settings in only one project, add them to the
 </TabItem>
 </Tabs>
 
-### Test Claude Code with AI Gateway
+### Test Claude Code with AI gateway
 
 1. To start Claude Code, run `claude`.
 
@@ -98,9 +98,9 @@ To use these settings in only one project, add them to the
 
 1. Close the status and send a test prompt.
 
-1. To verify the request was sent to the AI Gateway, go to the Aiven Console.
+1. To verify the request was sent to the AI gateway, go to the Aiven Console.
 
-1. Click **AI Gateway**.
+1. Click **AI gateway**.
 
 1. To see the request, [view the usage metrics](/docs/products/ai-gateway/metrics)
    on the page for the API key you used.
@@ -121,7 +121,7 @@ To use these settings in only one project, add them to the
    model_provider = "aiven"
 
    [model_providers.aiven]
-   name = "Aiven AI Gateway"
+   name = "Aiven AI gateway"
    base_url = "https://ai.aiven.io/v1"
    env_key = "AIVEN_AI_GATEWAY_KEY"
    wire_api = "responses"
@@ -129,7 +129,7 @@ To use these settings in only one project, add them to the
 
 <AIGatewayModelInfo variable="model" />
 
-### Test Codex with AI Gateway
+### Test Codex with AI gateway
 
 In the same terminal where you exported the API key:
 
@@ -139,9 +139,9 @@ In the same terminal where you exported the API key:
 
 1. Send a test prompt.
 
-1. To verify the request was sent to the AI Gateway, go to the Aiven Console.
+1. To verify the request was sent to the AI gateway, go to the Aiven Console.
 
-1. Click **AI Gateway**.
+1. Click **AI gateway**.
 
 1. To see the request, [view the usage metrics](/docs/products/ai-gateway/metrics)
    on the page for the API key you used.
