@@ -24,7 +24,7 @@ The following table lists the stages of the free tier retirement.
 
 | Stage | What happens |
 | ----- | ------------ |
-| Announcement | You cannot create new free Aiven for MySQL services. Existing free services keep running. |
+| November 6, 2026 | You cannot create new free Aiven for MySQL services. Existing free services keep running. |
 | Until December 21, 2026 | Your free service runs as before. Upgrade it, migrate your data, or export it. |
 | December 21, 2026 | Aiven powers off all remaining free services and deletes their data and backups. |
 
