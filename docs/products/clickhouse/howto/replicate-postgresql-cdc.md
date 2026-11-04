@@ -60,7 +60,7 @@ CDC replication has the following limitations:
 - **Database names:** The destination ClickHouse database name can have up to 40
   characters.
 - **Database changes:** You can't change the source or destination database of an existing
-  integration. To use a different database, delete the integration and create a new one.
+  integration. To use a different database, remove the integration and create a new one.
   The new integration starts a new initial copy.
 - **Table name conflicts:** Several PostgreSQL services can replicate into the same
   ClickHouse database. Aiven doesn't detect name conflicts across integrations, so make
@@ -71,7 +71,7 @@ CDC replication has the following limitations:
   ClickHouse service. Choose a plan with enough CPU and memory for both workloads.
 - **Table configuration:** You can't select individual columns or change the sorting key
   or partitioning of the replicated ClickHouse tables.
-- **Pausing replication:** You can't pause replication. It stops when you delete the
+- **Pausing replication:** You can't pause replication. It stops when you remove the
   integration or power off either service.
 - **WAL retention:** Stopped or delayed replication increases disk usage on your
   PostgreSQL service. For more information, see
@@ -483,38 +483,39 @@ Monitor the **Write-ahead log held for the pipeline** metric and the disk usage 
 PostgreSQL service. Use the **Replication lag** metric to find delays. For more
 information, see [Replication metrics](#replication-metrics).
 
-If you no longer need the integration, delete it to release the WAL retained for the
+If you no longer need the integration, remove it to release the WAL retained for the
 replication pipeline.
 
 :::warning[Warning]
 Powering off the ClickHouse service stops replication but doesn't remove the PostgreSQL
 replication slot. PostgreSQL can continue retaining WAL data until replication resumes or
-you delete the integration.
+you remove the integration.
 :::
 
-## Delete a CDC integration
+## Remove a CDC integration
 
-Delete a CDC integration when you no longer need to replicate changes from PostgreSQL to
+Remove a CDC integration when you no longer need to replicate changes from PostgreSQL to
 ClickHouse.
 
-When you delete an integration:
+When you remove an integration:
 
 - Replication stops.
 - The existing ClickHouse tables, views, and data remain available but stop updating.
 - Aiven starts removing the
   [PostgreSQL objects created by replication](#postgresql-objects-created-by-replication)
-  in the background. The delete request doesn't wait for the cleanup to finish.
+  in the background. The remove request doesn't wait for the cleanup to finish.
 
 :::note[Note]
-If you also plan to delete the Aiven for ClickHouse service, delete the integration first.
+If you also plan to delete the Aiven for ClickHouse service, remove the integration first.
 :::
 
 1. Open your Aiven for PostgreSQL or Aiven for ClickHouse service.
 1. Click **Integrations**.
 1. In the **Replications** section, find the CDC integration and click
-   <ConsoleLabel name="actions"/> > **Disconnect**.
+   <ConsoleLabel name="actions"/> > **Remove integration**.
+1. In the **Remove CDC integration?** dialog, click **Remove**.
 
-You can also delete an integration using the
+You can also remove an integration using the
 [ServiceIntegrationDelete](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationDelete)
 endpoint.
 
@@ -537,11 +538,11 @@ source PostgreSQL database.
 
 Don't modify or delete these objects while the integration is active.
 
-After you delete the integration, Aiven tries to remove these objects. Automatic cleanup
+After you remove the integration, Aiven tries to delete these objects. Automatic cleanup
 fails in the following cases:
 
-- You delete the Aiven for ClickHouse service before the integration.
-- The PostgreSQL service is unreachable for more than 5 minutes after you delete
+- You delete the Aiven for ClickHouse service before you remove the integration.
+- The PostgreSQL service is unreachable for more than 5 minutes after you remove
   the integration.
 
 Leftover replication slots can make PostgreSQL retain WAL data and increase disk usage.
