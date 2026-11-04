@@ -1,6 +1,7 @@
 ---
 title: Back up your Aiven for PostgreSQL® service to another region
 sidebar_label: Backup to another region
+limited: true
 ---
 
 import BtarConcepts from "@site/static/includes/btar-concepts.md";
