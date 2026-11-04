@@ -17,7 +17,10 @@ location with the [Aiven CLI](/docs/tools/cli), the [Aiven API](/docs/tools/api)
 ## Prerequisites
 
 - At least one Aiven service in a project with BTAR enabled
-- The [Aiven CLI](/docs/tools/cli) or the [Aiven API](/docs/tools/api)
+- One of the following: the [Aiven CLI](/docs/tools/cli), the
+  [Aiven API](/docs/tools/api), the
+  [Aiven Provider for Terraform](/docs/tools/terraform), or the
+  [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 
 ## Add or change a secondary backup location
 
@@ -65,6 +68,45 @@ Replace the following:
   `aws-us-east-2`
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Set `additional_backup_regions` in the service's user configuration block. The example uses Aiven for Valkey™; for Aiven for Grafana®, use
+`aiven_grafana` and `grafana_user_config`.
+
+```hcl
+resource "aiven_valkey" "example" {
+  project      = var.project_name
+  service_name = "example-service"
+  cloud_name   = "google-europe-west1"
+  plan         = "business-4"
+
+  valkey_user_config {
+    additional_backup_regions = ["google-europe-north1"]
+  }
+}
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Set `additional_backup_regions` under `spec.userConfig`. The example uses the `Valkey` kind; for Aiven for Grafana®, use
+the `Grafana` kind.
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: Valkey
+metadata:
+  name: example-service
+spec:
+  project: PROJECT_NAME
+  cloudName: google-europe-west1
+  plan: business-4
+  userConfig:
+    additional_backup_regions:
+      - google-europe-north1
+```
+
+</TabItem>
 </Tabs>
 
 Aiven provisions storage in the region you selected and starts replicating backup files
@@ -98,6 +140,25 @@ Call the [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet
 curl --request GET                                                              \
     --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME     \
     --header 'Authorization: Bearer BEARER_TOKEN'
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Read the attribute from the Terraform state.
+
+```bash
+terraform state show aiven_valkey.example
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Read the field from the service manifest.
+
+```bash
+kubectl get valkey example-service \
+    -o jsonpath='{.spec.userConfig.additional_backup_regions}'
 ```
 
 </TabItem>
@@ -205,6 +266,50 @@ Replace the following with meaningful data:
 - `YYYY-MM-DDTHH:MM:SS+00:00`
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Create a new service in the secondary backup region, with `service_to_fork_from` and
+`recovery_target_time` set in its user configuration block. Set `recovery_target_time` to
+no earlier than the time of taking the oldest replicated base backup. The example uses Aiven for Valkey™; for Aiven for Grafana®, use
+`aiven_grafana` and `grafana_user_config`.
+
+```hcl
+resource "aiven_valkey" "fork" {
+  project      = var.project_name
+  service_name = "example-fork"
+  cloud_name   = "google-europe-north1"
+  plan         = "business-4"
+
+  valkey_user_config {
+    service_to_fork_from = "example-service"
+    recovery_target_time = "2026-11-04T10:00:00+00:00"
+  }
+}
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Create a new service in the secondary backup region, with `service_to_fork_from` and
+`recovery_target_time` set under `spec.userConfig`. Set `recovery_target_time` to no
+earlier than the time of taking the oldest replicated base backup. The example uses the `Valkey` kind; for Aiven for Grafana®, use the
+`Grafana` kind.
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: Valkey
+metadata:
+  name: example-fork
+spec:
+  project: PROJECT_NAME
+  cloudName: google-europe-north1
+  plan: business-4
+  userConfig:
+    service_to_fork_from: example-service
+    recovery_target_time: "2026-11-04T10:00:00+00:00"
+```
+
+</TabItem>
 </Tabs>
 
 ## Migrate a service with BTAR
@@ -247,6 +352,28 @@ curl --request PUT                                                              
     --header 'Authorization: Bearer BEARER_TOKEN'                               \
     --header 'content-type: application/json'                                   \
     --data '{"user_config": {"additional_backup_regions": []}}'
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Set `additional_backup_regions` to an empty list, then apply the change.
+
+```hcl
+  valkey_user_config {
+    additional_backup_regions = []
+  }
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Set `additional_backup_regions` to an empty list, then apply the manifest.
+
+```yaml
+spec:
+  userConfig:
+    additional_backup_regions: []
 ```
 
 </TabItem>

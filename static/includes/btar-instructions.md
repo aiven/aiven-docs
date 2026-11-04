@@ -8,15 +8,15 @@ replication lag, fork and restore using the cross-region backup, or migrate to a
 cloud or region.
 
 BTAR is configured with the `additional_backup_regions` option in your service
-configuration. You can also set this option with the
-[Aiven Provider for Terraform](/docs/tools/terraform) or the
-[Aiven Operator for Kubernetes®](/docs/tools/kubernetes).
+configuration.
 
 ## Prerequisites
 
 - At least one Aiven service in a project with BTAR enabled
-- Access to the [Aiven Console](https://console.aiven.io/), the
-  [Aiven CLI](/docs/tools/cli), or the [Aiven API](/docs/tools/api)
+- One of the following: the [Aiven Console](https://console.aiven.io/), the
+  [Aiven CLI](/docs/tools/cli), the [Aiven API](/docs/tools/api), the
+  [Aiven Provider for Terraform](/docs/tools/terraform), or the
+  [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 
 ## Add a secondary backup location
 
@@ -74,6 +74,45 @@ Replace the following:
 - `BEARER_TOKEN`: your authentication token
 - `SECONDARY_REGION`: the cloud and region to hold the secondary backup, for example
   `aws-us-east-2`
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Set `additional_backup_regions` in the service's user configuration block. The example uses Aiven for PostgreSQL®; for other services, use that
+service's resource and user configuration block.
+
+```hcl
+resource "aiven_pg" "example" {
+  project      = var.project_name
+  service_name = "example-service"
+  cloud_name   = "google-europe-west1"
+  plan         = "business-4"
+
+  pg_user_config {
+    additional_backup_regions = ["google-europe-north1"]
+  }
+}
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Set `additional_backup_regions` under `spec.userConfig`. The example uses the `PostgreSQL` kind; for other services, use
+that service's kind.
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: PostgreSQL
+metadata:
+  name: example-service
+spec:
+  project: PROJECT_NAME
+  cloudName: google-europe-west1
+  plan: business-4
+  userConfig:
+    additional_backup_regions:
+      - google-europe-north1
+```
 
 </TabItem>
 </Tabs>
@@ -138,6 +177,25 @@ backup.
 curl --request GET                                                              \
     --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME     \
     --header 'Authorization: Bearer BEARER_TOKEN'
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Read the attribute from the Terraform state.
+
+```bash
+terraform state show aiven_pg.example
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Read the field from the service manifest.
+
+```bash
+kubectl get postgresql example-service \
+    -o jsonpath='{.spec.userConfig.additional_backup_regions}'
 ```
 
 </TabItem>
@@ -264,6 +322,50 @@ Replace the following with meaningful data:
 - `YYYY-MM-DDTHH:MM:SS+00:00`
 
 </TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Create a new service in the secondary backup region, with `service_to_fork_from` and
+`recovery_target_time` set in its user configuration block. Set `recovery_target_time` to
+no earlier than the time of taking the oldest replicated base backup. The example uses Aiven for PostgreSQL®; for other services, use that
+service's resource and user configuration block.
+
+```hcl
+resource "aiven_pg" "fork" {
+  project      = var.project_name
+  service_name = "example-fork"
+  cloud_name   = "google-europe-north1"
+  plan         = "business-4"
+
+  pg_user_config {
+    service_to_fork_from = "example-service"
+    recovery_target_time = "2026-11-04T10:00:00+00:00"
+  }
+}
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Create a new service in the secondary backup region, with `service_to_fork_from` and
+`recovery_target_time` set under `spec.userConfig`. Set `recovery_target_time` to no
+earlier than the time of taking the oldest replicated base backup. The example uses the `PostgreSQL` kind; for other services, use that
+service's kind.
+
+```yaml
+apiVersion: aiven.io/v1alpha1
+kind: PostgreSQL
+metadata:
+  name: example-fork
+spec:
+  project: PROJECT_NAME
+  cloudName: google-europe-north1
+  plan: business-4
+  userConfig:
+    service_to_fork_from: example-service
+    recovery_target_time: "2026-11-04T10:00:00+00:00"
+```
+
+</TabItem>
 </Tabs>
 
 ## Migrate a service with BTAR
@@ -323,6 +425,28 @@ curl --request PUT                                                              
     --header 'Authorization: Bearer BEARER_TOKEN'                               \
     --header 'content-type: application/json'                                   \
     --data '{"user_config": {"additional_backup_regions": []}}'
+```
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Set `additional_backup_regions` to an empty list, then apply the change.
+
+```hcl
+  pg_user_config {
+    additional_backup_regions = []
+  }
+```
+
+</TabItem>
+<TabItem value="kubernetes" label="Kubernetes">
+
+Set `additional_backup_regions` to an empty list, then apply the manifest.
+
+```yaml
+spec:
+  userConfig:
+    additional_backup_regions: []
 ```
 
 </TabItem>
