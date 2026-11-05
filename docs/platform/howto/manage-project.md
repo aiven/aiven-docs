@@ -8,6 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Projects help you
 [organize your Aiven services](https://aiven.io/docs/platform/concepts/orgs-units-projects#projects)
@@ -170,3 +171,7 @@ You can move a project to another organization or organizational unit by
 1. Delete all the services in the project.
 1. In the project, click <ConsoleLabel name="projectsettings"/>.
 1. Click **Delete** and **Confirm**.
+
+<RelatedPages/>
+
+- [View and export project event logs](/docs/platform/howto/view-project-logs)

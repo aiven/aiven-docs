@@ -2953,7 +2953,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/howto/manage-project',
         'platform/howto/technical-emails',
-        'platform/howto/view-project-logs',
       ],
     },
   ],
@@ -2972,6 +2971,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'platform/howto/organization-event-logs',
+        'platform/howto/view-project-logs',
         'platform/concepts/carbon-footprint',
       ],
     },
