@@ -22,7 +22,15 @@ Logs are retained for 30 days.
   ]}
 />
 
-To view your organization's event logs in the Aiven Console:
+## View organization event logs
 
 1. Click **Admin**.
 1. Click **Event logs**.
+
+## Download organization event logs
+
+To download a CSV file of your organization's event logs:
+
+1. Click **Admin**.
+1. Click **Event logs**.
+1. Click **Export logs**.
