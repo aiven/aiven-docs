@@ -249,7 +249,7 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'logs':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Logs</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.properties} /> <b>Event logs</b>
         </>
       );
     case 'runtimelogs':
