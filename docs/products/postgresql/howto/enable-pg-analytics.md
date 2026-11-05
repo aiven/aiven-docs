@@ -41,12 +41,6 @@ destination is the Amazon S3 endpoint.
 <Tabs groupId="group1">
 <TabItem value="gui" label="Console" default>
 
-:::note
-Console support is limited during LA. The integration might not appear under
-**Endpoint integrations** for your service. If it doesn't, connect the bucket with
-Terraform, the API, or the CLI.
-:::
-
 1. In the Aiven Console, go to your project.
 1. Click **Integration endpoints**.
 1. Click **Amazon S3**, then click **Add new endpoint**.
@@ -60,32 +54,33 @@ Terraform, the API, or the CLI.
    and select the Amazon S3 endpoint you created.
 
 </TabItem>
-<TabItem value="tf" label="Terraform">
+<TabItem value="cli" label="CLI">
 
-Requires
-[Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-4.64.0 or later.
+1. Create the endpoint:
 
-```hcl
-resource "aiven_service_integration_endpoint" "analytics_storage" {
-  project       = var.project_name
-  endpoint_name = "analytics-storage"
-  endpoint_type = "external_aws_s3"
+   ```bash
+   avn service integration-endpoint-create --project PROJECT_NAME \
+     --endpoint-name analytics-storage                            \
+     --endpoint-type external_aws_s3                              \
+     -c url="https://BUCKET_NAME.s3.REGION.amazonaws.com"         \
+     -c access_key_id=AWS_ACCESS_KEY_ID                           \
+     -c secret_access_key=AWS_SECRET_ACCESS_KEY
+   ```
 
-  external_aws_s3_user_config {
-    url               = "https://BUCKET_NAME.s3.REGION.amazonaws.com"
-    access_key_id     = var.aws_access_key_id
-    secret_access_key = var.aws_secret_access_key
-  }
-}
+1. Find the endpoint's ID:
 
-resource "aiven_service_integration" "analytics_credentials" {
-  project                 = var.project_name
-  integration_type        = "pg_for_analytics_credentials"
-  source_service_name     = aiven_pg.analytics.service_name
-  destination_endpoint_id = aiven_service_integration_endpoint.analytics_storage.id
-}
-```
+   ```bash
+   avn service integration-endpoint-list --project PROJECT_NAME
+   ```
+
+1. Connect the endpoint to your service:
+
+   ```bash
+   avn service integration-create --project PROJECT_NAME \
+     --integration-type pg_for_analytics_credentials     \
+     --source-service SERVICE_NAME                       \
+     --dest-endpoint-id ENDPOINT_ID
+   ```
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -130,33 +125,32 @@ Replace the placeholders with your project name, bearer token, bucket URL and re
 AWS credentials, service name, and endpoint ID.
 
 </TabItem>
-<TabItem value="cli" label="CLI">
+<TabItem value="tf" label="Terraform">
 
-1. Create the endpoint:
+Requires
+[Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+4.64.0 or later.
 
-   ```bash
-   avn service integration-endpoint-create --project PROJECT_NAME \
-     --endpoint-name analytics-storage                            \
-     --endpoint-type external_aws_s3                              \
-     -c url="https://BUCKET_NAME.s3.REGION.amazonaws.com"         \
-     -c access_key_id=AWS_ACCESS_KEY_ID                           \
-     -c secret_access_key=AWS_SECRET_ACCESS_KEY
-   ```
+```hcl
+resource "aiven_service_integration_endpoint" "analytics_storage" {
+  project       = var.project_name
+  endpoint_name = "analytics-storage"
+  endpoint_type = "external_aws_s3"
 
-1. Find the endpoint's ID:
+  external_aws_s3_user_config {
+    url               = "https://BUCKET_NAME.s3.REGION.amazonaws.com"
+    access_key_id     = var.aws_access_key_id
+    secret_access_key = var.aws_secret_access_key
+  }
+}
 
-   ```bash
-   avn service integration-endpoint-list --project PROJECT_NAME
-   ```
-
-1. Connect the endpoint to your service:
-
-   ```bash
-   avn service integration-create --project PROJECT_NAME \
-     --integration-type pg_for_analytics_credentials     \
-     --source-service SERVICE_NAME                       \
-     --dest-endpoint-id ENDPOINT_ID
-   ```
+resource "aiven_service_integration" "analytics_credentials" {
+  project                 = var.project_name
+  integration_type        = "pg_for_analytics_credentials"
+  source_service_name     = aiven_pg.analytics.service_name
+  destination_endpoint_id = aiven_service_integration_endpoint.analytics_storage.id
+}
+```
 
 </TabItem>
 </Tabs>
