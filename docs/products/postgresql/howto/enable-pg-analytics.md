@@ -40,11 +40,6 @@ a request.
    enabled and schedules an onboarding call to walk through the feature and set
    expectations for this LA stage.
 
-:::important
-PostgreSQL for Analytics is set when the service is created. You can't add it to an
-existing Aiven for PostgreSQL service.
-:::
-
 ## Connect your Amazon S3 bucket
 
 Create an Amazon S3 integration endpoint in your project, then connect that endpoint to
@@ -180,10 +175,6 @@ If you later rotate the access key on the endpoint, your service picks up the ne
 credentials without any further action.
 
 :::important
-Aiven scopes the credentials to the bucket and path in the endpoint's **Url**. Every
-Iceberg table's `location` must sit inside that path, or queries against the table fail
-with an access error.
-
 Use a bucket dedicated to this one service. Aiven doesn't prevent you from pointing
 two services at the same bucket, or from using a bucket that already holds other
 data, and neither is supported.
@@ -203,8 +194,7 @@ ERROR:  HTTP Error: HTTP GET error reading 's3://BUCKET_NAME/orders_analytics' i
 AccessDenied: Access Denied
 ```
 
-Verify the endpoint's **Url**, **Access Key Id**, and **Secret Access Key**, and confirm
-the table's `location` is inside the path in the URL.
+Verify the endpoint's **Url**, **Access Key Id**, and **Secret Access Key**.
 :::
 
 ## Enable the extension
@@ -249,11 +239,12 @@ CREATE TABLE orders_analytics (
 ) USING iceberg WITH (location = 's3://BUCKET_NAME/orders_analytics');
 ```
 
-:::note
-Set `location` on every Iceberg table you create. The
-`pg_lake_iceberg.default_location_prefix` setting, which would let you set one default
-prefix instead, can only be changed by a superuser, and Aiven doesn't grant superuser
-access.
+:::important
+Set `location` on every Iceberg table, and keep it inside the bucket and path of the
+Amazon S3 endpoint you connected. Aiven scopes the storage credentials to that path, so
+a table outside it fails with an access error. You can't set a default prefix instead:
+`pg_lake_iceberg.default_location_prefix` is superuser-only, and Aiven doesn't grant
+superuser access.
 :::
 
 :::important[Always declare precision and scale on numeric columns]
