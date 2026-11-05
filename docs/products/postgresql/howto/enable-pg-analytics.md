@@ -155,6 +155,12 @@ AWS credentials, service name, and endpoint ID.
 </TabItem>
 <TabItem value="gui" label="Console">
 
+:::note
+Console support is limited during LA. The integration might not appear under
+**Endpoint integrations** for your service. If it doesn't, connect the bucket with
+Terraform, the API, or the CLI.
+:::
+
 1. In the Aiven Console, go to your project.
 1. Click **Integration endpoints**.
 1. Click **Amazon S3**, then click **Add new endpoint**.
@@ -174,12 +180,31 @@ If you later rotate the access key on the endpoint, your service picks up the ne
 credentials without any further action.
 
 :::important
+Aiven scopes the credentials to the bucket and path in the endpoint's **Url**. Every
+Iceberg table's `location` must sit inside that path, or queries against the table fail
+with an access error.
+
 Use a bucket dedicated to this one service. Aiven doesn't prevent you from pointing
 two services at the same bucket, or from using a bucket that already holds other
 data, and neither is supported.
 
 Don't remove or replace this integration once you have Iceberg tables. Queries expect
 those tables in the bucket the integration points to, so they fail if it changes.
+:::
+
+:::note
+Aiven doesn't validate the URL or the credentials when you create the integration. If
+either is wrong, the service still starts and PostgreSQL works normally, but any statement
+against an Iceberg table fails later:
+
+```text
+ERROR:  HTTP Error: HTTP GET error reading 's3://BUCKET_NAME/orders_analytics' in region
+'REGION' (HTTP 403 Forbidden)
+AccessDenied: Access Denied
+```
+
+Verify the endpoint's **Url**, **Access Key Id**, and **Secret Access Key**, and confirm
+the table's `location` is inside the path in the URL.
 :::
 
 ## Enable the extension
@@ -199,7 +224,12 @@ user:
 | --- | --- |
 | `lake_read` | Read data in Iceberg tables |
 | `lake_write` | Write data in Iceberg tables |
-| `lake_read_write` | Both read and write data in Iceberg tables |
+| `lake_read_write` | Read and write data in Iceberg tables, and create them |
+
+`lake_read_write` isn't only the combination of the other two roles. It's the only role
+with access to the `pg_lake_iceberg` foreign server, so creating an Iceberg table requires
+it. Granting `lake_read` and `lake_write` together doesn't allow it. Grant
+`lake_read_write` to the users who create Iceberg tables:
 
 ```sql
 GRANT lake_read_write TO analytics_user;
@@ -218,6 +248,13 @@ CREATE TABLE orders_analytics (
     created_at timestamptz
 ) USING iceberg WITH (location = 's3://BUCKET_NAME/orders_analytics');
 ```
+
+:::note
+Set `location` on every Iceberg table you create. The
+`pg_lake_iceberg.default_location_prefix` setting, which would let you set one default
+prefix instead, can only be changed by a superuser, and Aiven doesn't grant superuser
+access.
+:::
 
 :::important[Always declare precision and scale on numeric columns]
 Iceberg can't represent a `numeric` column with no declared precision and scale as an
@@ -269,6 +306,11 @@ INSERT INTO orders_analytics SELECT * FROM orders;
 
 Load in batches rather than row by row. Each write creates files in your bucket, so
 many small writes leave many small files and slow your queries down.
+
+To load new data on a schedule, run your `INSERT ... SELECT` from
+[pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension). PostgreSQL for Analytics
+has no built-in scheduling or change data capture for Iceberg tables, so define what
+counts as new for your data, such as a timestamp or an ID watermark, and select on that.
 
 Query the Iceberg table with standard SQL:
 

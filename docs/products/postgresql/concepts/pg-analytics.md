@@ -94,6 +94,17 @@ an even share, and when one is idle the other can use the spare capacity.
   either engine enough memory to work with.
 - Only Amazon S3 buckets are supported as storage. Aiven doesn't provide a managed S3
   bucket for this feature.
+- You must set `location` on every Iceberg table you create. Setting one default location
+  prefix for the service instead requires superuser access, which Aiven doesn't grant. See
+  [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
+- Each table's `location` must sit inside the bucket and path of the Amazon S3 endpoint
+  the service is integrated with, because Aiven scopes the storage credentials to that
+  path. Tables stored elsewhere fail with an access error.
+- Aiven doesn't validate the Amazon S3 URL or credentials when you create the integration.
+  A wrong value surfaces only when you run a statement against an Iceberg table.
+- There's no built-in scheduling or change data capture for loading data into Iceberg
+  tables. Schedule your own loads with
+  [pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension).
 - Use a bucket dedicated to a single PostgreSQL for Analytics service. Sharing one
   bucket between services, or using a bucket that already holds other data, isn't
   supported, and Aiven doesn't currently prevent either.
