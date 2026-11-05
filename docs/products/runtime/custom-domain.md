@@ -37,7 +37,7 @@ Alternatively, you can use Cloudflare to forward traffic to your Aiven Runtime a
 1. In the Aiven Console, click <ConsoleLabel name="runtime"/>
    and open your application.
 1. In the **Connection information** section, click **Edit**.
-1. In **Custom domain**, enter your domain. To add another domain, click **Add domain**.
+1. Click **Add domain** and enter your domain.
 1. Click **Save changes**.
 1. In the **Connection information** section, open the port you added the
    custom domain to.
