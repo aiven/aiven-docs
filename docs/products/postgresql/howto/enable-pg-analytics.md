@@ -8,19 +8,18 @@ import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
-Request access to [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics), connect your service to your Amazon S3 bucket, and create your first Iceberg table.
+Connect your [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics) service to your Amazon S3 bucket, create Iceberg tables, and query them with standard SQL.
 
 :::note
 PostgreSQL for Analytics is in
 [limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-There's no self-service toggle: Aiven enables it for you on a per-service basis after
-a request.
+[Request access](https://aiven.io/contact) to use it.
 :::
 
 ## Prerequisites
 
 - An Aiven for PostgreSQL 17 service with PostgreSQL for Analytics enabled, created
-  by Aiven during onboarding.
+  by Aiven.
 - An [organization or project admin](/docs/platform/concepts/permissions) role in the
   project where that service runs.
 - An Amazon S3 bucket that you own, in the same region as your service, and an AWS
@@ -31,15 +30,6 @@ a request.
   - [Aiven API](https://api.aiven.io/doc/)
   - [Aiven CLI](/docs/tools/cli)
 
-## Request access
-
-1. [Contact Aiven](https://aiven.io/contact) or your account team, and describe your
-   analytical use case and the data volume you plan to work with.
-1. Aiven reviews your request against the eligibility criteria for this LA stage.
-1. After approval, Aiven creates a PostgreSQL service with PostgreSQL for Analytics
-   enabled and schedules an onboarding call to walk through the feature and set
-   expectations for this LA stage.
-
 ## Connect your Amazon S3 bucket
 
 Create an Amazon S3 integration endpoint in your project, then connect that endpoint to
@@ -49,7 +39,28 @@ query engine. The integration's source is your PostgreSQL for Analytics service,
 destination is the Amazon S3 endpoint.
 
 <Tabs groupId="group1">
-<TabItem value="tf" label="Terraform" default>
+<TabItem value="gui" label="Console" default>
+
+:::note
+Console support is limited during LA. The integration might not appear under
+**Endpoint integrations** for your service. If it doesn't, connect the bucket with
+Terraform, the API, or the CLI.
+:::
+
+1. In the Aiven Console, go to your project.
+1. Click **Integration endpoints**.
+1. Click **Amazon S3**, then click **Add new endpoint**.
+1. Enter an endpoint name.
+1. In **Url**, enter your bucket's virtual-hosted-style URL:
+   `https://BUCKET_NAME.s3.REGION.amazonaws.com`.
+1. Enter the **Access Key Id** and **Secret Access Key** for an AWS user with read
+   and write access to the bucket, and click **Create**.
+1. Open your PostgreSQL for Analytics service page and click **Integrations**.
+1. Under **Endpoint integrations**, click **PostgreSQL for Analytics Credentials**,
+   and select the Amazon S3 endpoint you created.
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
 
 Requires
 [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
@@ -146,27 +157,6 @@ AWS credentials, service name, and endpoint ID.
      --source-service SERVICE_NAME                       \
      --dest-endpoint-id ENDPOINT_ID
    ```
-
-</TabItem>
-<TabItem value="gui" label="Console">
-
-:::note
-Console support is limited during LA. The integration might not appear under
-**Endpoint integrations** for your service. If it doesn't, connect the bucket with
-Terraform, the API, or the CLI.
-:::
-
-1. In the Aiven Console, go to your project.
-1. Click **Integration endpoints**.
-1. Click **Amazon S3**, then click **Add new endpoint**.
-1. Enter an endpoint name.
-1. In **Url**, enter your bucket's virtual-hosted-style URL:
-   `https://BUCKET_NAME.s3.REGION.amazonaws.com`.
-1. Enter the **Access Key Id** and **Secret Access Key** for an AWS user with read
-   and write access to the bucket, and click **Create**.
-1. Open your PostgreSQL for Analytics service page and click **Integrations**.
-1. Under **Endpoint integrations**, click **PostgreSQL for Analytics Credentials**,
-   and select the Amazon S3 endpoint you created.
 
 </TabItem>
 </Tabs>
