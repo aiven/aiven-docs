@@ -106,8 +106,11 @@ cloud resources, run `terraform destroy` instead.
 terraform apply
 ```
 
-Terraform deletes the resources in reverse dependency order, so the permissions and the
-provisioning are removed before the custom cloud environment itself.
+:::important
+Remove all three resources in the same change. Destroying either the entity resource or
+the provision resource deletes the entire custom cloud environment, not only the
+provisioning.
+:::
 
 :::note
 This deletes the custom cloud from the Aiven platform only. The resources created by the
