@@ -357,6 +357,8 @@ reindex
 reindexed
 reindexing
 rerank\w*
+Resync
+Resyncing
 remoteSecure
 renewables
 repo

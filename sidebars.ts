@@ -1385,6 +1385,7 @@ const sidebars: SidebarsConfig = {
             'products/clickhouse/howto/integrate-kafka',
             'products/clickhouse/reference/supported-input-output-formats',
             'products/clickhouse/howto/integrate-postgresql',
+            'products/clickhouse/howto/replicate-postgresql-cdc',
             'products/clickhouse/howto/connect-with-jdbc',
           ],
         },
