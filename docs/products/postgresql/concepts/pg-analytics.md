@@ -63,9 +63,10 @@ an even share, and when one is idle the other can use the spare capacity.
 
 ## Requirements
 
-- A PostgreSQL 17 service with PostgreSQL for Analytics enabled, created by Aiven.
-- An Amazon S3 bucket that you own and manage, used to store Iceberg table data. The
-  bucket must be in the same region as your service.
+- PostgreSQL for Analytics enabled for your project. Aiven enables it for you after you
+  request access, and you then create the service yourself.
+- A storage bucket that you own and manage, used to store Iceberg table data. The bucket
+  must be in the same region as your service.
 
 ## Limitations
 
@@ -73,6 +74,9 @@ an even share, and when one is idle the other can use the spare capacity.
 
 - PostgreSQL for Analytics is set when the service is created. You can't add it to an
   existing Aiven for PostgreSQL service.
+- During LA you can't create a PostgreSQL for Analytics service in the Aiven Console. Use
+  the Aiven API or the Aiven CLI. See
+  [Create your service](/docs/products/postgresql/howto/enable-pg-analytics#create-your-service).
 - PostgreSQL shares the service with the analytical query engine, so it's configured as
   if it had half your plan, including a lower connection limit. The smallest plans don't
   leave either engine enough memory to work with.
@@ -83,8 +87,8 @@ an even share, and when one is idle the other can use the spare capacity.
 
 ### Storage
 
-- Connect your own Amazon S3 bucket. Aiven doesn't provide one, and other storage types
-  aren't supported during LA.
+- Amazon S3 and Google Cloud Storage are the supported storage during LA. Aiven doesn't
+  provide the bucket, and you connect it through an Amazon S3 integration endpoint.
 - Each service needs its own bucket. See
   [Connect your Amazon S3 bucket](/docs/products/postgresql/howto/enable-pg-analytics#connect-your-amazon-s3-bucket).
 - Every Iceberg table needs an explicit `location` inside the bucket and path you

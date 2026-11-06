@@ -18,17 +18,63 @@ PostgreSQL for Analytics is in
 
 ## Prerequisites
 
-- An Aiven for PostgreSQL 17 service with PostgreSQL for Analytics enabled, created
-  by Aiven.
-- An [organization or project admin](/docs/platform/concepts/permissions) role in the
-  project where that service runs.
-- An Amazon S3 bucket that you own, in the same region as your service, and an AWS
-  access key with permission to read from and write to that bucket.
-- Optionally, to connect the bucket programmatically:
-  - [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-    4.64.0 or later
-  - [Aiven API](https://api.aiven.io/doc/)
-  - [Aiven CLI](/docs/tools/cli)
+- PostgreSQL for Analytics enabled for your project. [Request access](https://aiven.io/contact),
+  and Aiven enables it for you.
+- An [organization or project admin](/docs/platform/concepts/permissions) role in that
+  project.
+- Access to the [Aiven API](https://api.aiven.io/doc/) or the
+  [Aiven CLI](/docs/tools/cli), which you need to create the service.
+- A storage bucket that you own, in the same region as your service, and an access key
+  with permission to read from and write to it.
+- Optionally, to connect the bucket with Terraform,
+  [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+  4.64.0 or later.
+
+## Create your service
+
+During limited availability, you create a PostgreSQL for Analytics service with the API
+or the CLI. You can't create one in the Aiven Console.
+
+<Tabs groupId="group2">
+<TabItem value="cli" label="CLI" default>
+
+```bash
+avn service create SERVICE_NAME --project PROJECT_NAME \
+  --service-type pg                                    \
+  --plan PLAN                                          \
+  --cloud CLOUD_REGION                                 \
+  -c pg_version=17                                     \
+  -c variant=pg_lake
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+endpoint with `variant` set to `pg_lake`:
+
+```bash
+curl --request POST                                                  \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service         \
+  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+  --header 'content-type: application/json'                          \
+  --data '{
+    "service_name": "SERVICE_NAME",
+    "service_type": "pg",
+    "plan": "PLAN",
+    "cloud": "CLOUD_REGION",
+    "user_config": {
+      "pg_version": "17",
+      "variant": "pg_lake"
+    }
+  }'
+```
+
+</TabItem>
+</Tabs>
+
+If PostgreSQL for Analytics isn't enabled for your project, the request fails with
+`Setting variant is not allowed`.
 
 ## Connect your Amazon S3 bucket
 
