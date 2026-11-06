@@ -1,33 +1,74 @@
 ---
 title: Bring your own key (BYOK)
 sidebar_label: Bring your own key
+keywords: [byok, bring your own key, cmk, customer managed key, kms, key management service, encryption at rest, envelope encryption, AWS KMS, Google Cloud KMS, Azure Key Vault, OCI Vault, key rotation, key revocation]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
-:::important
+:::note
 Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature,
 available for newly created BYOC services only. [Contact Aiven](https://aiven.io/contact)
 to request access.
+:::
+
+## How BYOK works
+
+Aiven encrypts all service data at rest. By default, Aiven creates and manages the
+encryption keys for you. With bring your own key (BYOK), you supply a customer managed
+key (CMK) from your own key management service (KMS) instead, and Aiven uses your CMK to
+encrypt the keys that protect your service data and backups.
+
+Aiven never holds a copy of your CMK. It calls your KMS to wrap and unwrap the data
+encryption keys, so the key stays under your control: you decide which projects can use
+it, and you can revoke Aiven's access to it at any time.
+
+1. **Set up the key in your KMS** and grant Aiven access to it. See
+   [Set up customer managed keys](#set-up-customer-managed-keys-on-your-cloud-provider).
+1. **Register the key with Aiven** and allocate it to the projects allowed to use it. See
+   [Register CMK resource identifier](#register-cmk-resource-identifier).
+1. **Assign the key to services** when you create them, or set it as the default key for
+   the allocated projects. See
+   [Manage service CMK associations](#manage-service-cmk-associations).
+1. **Keep Aiven's access in place.** Aiven checks access to each registered key
+   periodically. If access is lost, see
+   [Troubleshooting](#services-are-powered-off-after-a-key-becomes-unavailable).
+
+:::warning
+**Losing access to your key can cause data loss.** If Aiven can't use your key for about
+15 to 20 minutes, for example because the key is disabled or scheduled for deletion, or a
+policy change or network restriction blocks access, Aiven powers off every service that
+uses it. This ensures Aiven has no way to access your data without your key.
+
+Services don't power on automatically. After you restore access and power them on, they
+restore from the latest backup, and data written since that backup is lost. Aiven for
+Apache Kafka® topic data, including tiered storage, isn't backed up, so Kafka services
+lose all topic messages. If the key is destroyed, access can't be restored and backups
+can't be read.
+
+To revoke access without data loss, move services to another key or to
+[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service) first.
 :::
 
 ## Encryption scope
 
 BYOK encrypts the following using your CMKs:
 
-- **Backups**: All backups created by Aiven services are encrypted with your CMK.
+- **Backups**: Your CMK encrypts the keys that encrypt the backups Aiven creates for
+  your services. Aiven can read those backups only while it can use your CMK.
 - **Service data at rest**: CMKs protect all data stored by the service.
 - **Data in transit between the service and backups**: Encryption occurs on the service
   node before data leaves the cluster, so backup transfers use your CMK.
 
 ## Prerequisites
 
-- **Key management service** (KMS) that supports customer-managed keys in one of the
+- **Key management service** (KMS) that supports customer managed keys in one of the
   supported cloud providers:
   - **Google Cloud KMS**: asymmetric RSA 2048 or RSA 4096 keys
   - **Oracle Cloud Infrastructure (OCI) Vault**: AES keys
@@ -233,7 +274,7 @@ Use the accessor values returned by this operation when granting Aiven access to
 
 :::
 
-## Set up customer-managed keys on your cloud provider
+## Set up customer managed keys on your cloud provider
 
 Before registering a CMK with Aiven, set up the key and grant Aiven access on your cloud
 provider.
@@ -288,6 +329,13 @@ gcloud kms keys add-iam-policy-binding <key-name> \
   --member "group:<aiven-cmk-group>@aiven.io" \
   --role "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 ```
+
+:::warning
+To revoke Aiven's access, remove the IAM policy binding, or disable or schedule the
+destruction of the key.
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
+:::
 
 ### Oracle Cloud Infrastructure (OCI) Vault setup
 
@@ -364,6 +412,13 @@ Record the key OCID:
 ```txt
 ocid1.key.oc1.<region>.<hash>
 ```
+
+:::warning
+To revoke Aiven's access, remove the cross-tenancy IAM policies, or disable or schedule
+the deletion of the key.
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
+:::
 
 ### AWS KMS setup
 
@@ -463,17 +518,15 @@ aws kms put-key-policy \
 ```
 
 :::note
-You can revoke Aiven's access at any time by removing the Aiven principal from the key
-policy, or by disabling or deleting the key. All KMS operations performed by Aiven are
-logged in your AWS CloudTrail, giving you a full audit trail.
+All KMS operations performed by Aiven are logged in your AWS CloudTrail, giving you a
+full audit trail.
 :::
 
 :::warning
-Aiven automatically powers off all services associated with a CMK about 15 minutes
-after losing access to the key. Services without backups lose their data when powered
-off. Before you revoke Aiven's access, move the affected services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data.
+To revoke Aiven's access, remove the Aiven principal from the key policy, or disable or
+delete the key.
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
 :::
 
 ### Azure Key Vault setup
@@ -635,18 +688,11 @@ az keyvault role assignment create \
   --scope /keys
 ```
 
-:::note
-You can revoke Aiven's access at any time by removing the role assignment or deleting
-the service principal from your tenant. This immediately prevents any further
-cryptographic operations by Aiven.
-:::
-
 :::warning
-Aiven automatically powers off all services associated with a CMK about 15 minutes
-after losing access to the key. Services without backups lose their data when powered
-off. Before you revoke Aiven's access, move the affected services to another CMK or to
-[Aiven-managed keys](#change-or-remove-the-cmk-for-an-existing-service), or back up
-their data.
+To revoke Aiven's access, remove the role assignment or delete the service principal from
+your tenant. This immediately stops all cryptographic operations by Aiven.
+Revoking access powers off every service that uses the key, which can cause data loss.
+See [How BYOK works](#how-byok-works).
 :::
 
 ## Manage a project CMK
@@ -1188,6 +1234,17 @@ terraform import aiven_cmk.example PROJECT_NAME/CMK_ID
 </TabItem>
 </Tabs>
 
+#### Key statuses
+
+A CMK has a status of its own, separate from the association status of each service that
+uses it. The key status appears in the API, CLI, and Terraform responses.
+
+| Status | Description |
+|--------|-------------|
+| `current` | The key is registered and available for new and existing service associations. |
+| `old` | The key is superseded and is no longer offered for new associations. |
+| `deleted` | The key configuration is deleted from the Aiven project. |
+
 ### List CMKs
 
 List all customer managed key configurations for a project.
@@ -1565,6 +1622,24 @@ resource "aiven_pg" "example" {
 
 Update a service to use a different CMK or remove its CMK association.
 
+#### What happens when you change a service's CMK
+
+When you assign a different CMK to a service, or move the service back to Aiven-managed
+keys, Aiven re-encrypts the service's data encryption keys with the new key. The service
+data and the backups themselves are not re-encrypted or re-uploaded.
+
+1. The new association enters `activating` status and the previous one enters
+   `deactivating` status.
+1. Aiven decrypts each data encryption key with the previous CMK and encrypts it again
+   with the new CMK.
+1. The new association moves to `active` status, and the previous association is
+   removed.
+
+Existing backups stay usable after the change, because Aiven re-encrypts the keys that
+protect them instead of the backup contents. Keep the previous key available until the
+new association reaches `active` status. If you revoke access to the previous key while
+the change is still in progress, Aiven cannot complete it.
+
 <Tabs groupId="interface">
 <TabItem value="api" label="API" default>
 
@@ -1847,11 +1922,11 @@ services associated with the CMK:
 | Field | Description |
 |-------|-------------|
 | `service_name` | Name of the service using this CMK |
-| `status` | Association status: `active` (service is actively using the CMK), or `activating` (service is in the process of transitioning to use this CMK) |
+| `status` | Association status: `activating`, `active`, `deactivating`, or `deleted`. See [Service association statuses](#service-association-statuses). |
 
-The response includes services currently associated with the CMK, including services in
-transition (`activating`) and services already using the CMK (`active`). Services not
-associated with the specified CMK are not included.
+The response includes services currently associated with the CMK, including services
+still transitioning onto or off the key. Services not associated with the specified CMK
+are not included.
 
 :::note
 If a CMK has no associated services, the `service_associations` array is empty.
@@ -1875,3 +1950,70 @@ listing services associated with a specific CMK. Use the API endpoint for this o
 
 </TabItem>
 </Tabs>
+
+#### Service association statuses
+
+Each service that uses a CMK has its own association status, separate from the
+[status of the key](#key-statuses) itself.
+
+| Status | Description |
+|--------|-------------|
+| `activating` | Aiven is re-encrypting the service's data encryption keys with this CMK. The association is not complete yet. |
+| `active` | The service's data encryption keys are encrypted with this CMK. |
+| `deactivating` | The service is moving to another CMK or to Aiven-managed keys. The association is removed when the move completes. |
+| `deleted` | The association is removed. The CMK no longer protects this service. |
+
+## Troubleshooting
+
+### Services are powered off after a key becomes unavailable
+
+Aiven checks access to each registered CMK periodically. After repeated failures to
+encrypt and decrypt with the key over about 15 to 20 minutes, Aiven powers off every
+service associated with that key to protect your data. A single failed check does not
+power off your services.
+
+If you revoked Aiven's access deliberately, no further action is needed.
+
+If the loss of access was not intentional, check the following in your cloud provider:
+
+- The key is not disabled, scheduled for deletion, or destroyed.
+- The permissions or access policy that grants Aiven access to the key has not been
+  modified or removed. For the access each provider requires, see
+  [Set up customer managed keys](#set-up-customer-managed-keys-on-your-cloud-provider).
+- No network restriction, such as a firewall rule or a service control, blocks access to
+  your key management service. It must be reachable from the public internet.
+
+After you restore access, power on each affected service. Services do not power on
+automatically. See [Power on/off a service](/docs/platform/concepts/service-power-cycle)
+for what powering a service off and on involves.
+
+### Validation fails when you register a key
+
+Registration fails when Aiven cannot perform a test encryption and decryption with
+your key. Check the following:
+
+- The accessor value Aiven returned for your cloud, such as an access group, principal,
+  or application ID, is the one you granted on the key.
+- The granted role allows encrypt and decrypt operations, and no other policy denies
+  them.
+- The key resource path matches the key exactly, including the region.
+- The key is enabled and its key management service is reachable from the public
+  internet.
+
+Then register the key again.
+
+### A key cannot be deleted
+
+Deletion fails while the key still has service associations in `activating`, `active`,
+or `deactivating` status. Move each of those services to another CMK or to Aiven-managed
+keys, wait until the associations are removed, then delete the key. See
+[Service association statuses](#service-association-statuses).
+
+<RelatedPages/>
+
+- [Bring your own cloud (BYOC)](/docs/platform/concepts/byoc): BYOK is an enterprise
+  feature that requires BYOC.
+- [Create an authentication token](/docs/platform/howto/create_authentication_token)
+- [Aiven Provider for Terraform](/docs/tools/terraform): Manage CMKs as infrastructure
+  as code using the `aiven_cmk` resource.
+- [Aiven CLI](/docs/tools/cli): Manage CMKs from the command line.
