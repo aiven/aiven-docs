@@ -32,8 +32,7 @@ PostgreSQL for Analytics is in
 
 ## Create your service
 
-During limited availability, you create a PostgreSQL for Analytics service with the API
-or the CLI. You can't create one in the Aiven Console.
+You create a PostgreSQL for Analytics service with the API or the CLI.
 
 <Tabs groupId="group2">
 <TabItem value="cli" label="CLI" default>
