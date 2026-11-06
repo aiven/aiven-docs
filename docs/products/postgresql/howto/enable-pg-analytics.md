@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
-Connect your [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics) service to your Amazon S3 bucket, create Iceberg tables, and query them with standard SQL.
+Connect your [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics) service to your storage bucket, create Iceberg tables, and query them with standard SQL.
 
 :::note
 PostgreSQL for Analytics is in
@@ -75,13 +75,24 @@ curl --request POST                                                  \
 If PostgreSQL for Analytics isn't enabled for your project, the request fails with
 `Setting variant is not allowed`.
 
-## Connect your Amazon S3 bucket
+## Connect your storage bucket
 
 Create an Amazon S3 integration endpoint in your project, then connect that endpoint to
-your service with a PostgreSQL for Analytics Credentials integration. The endpoint holds
-the bucket URL and the AWS credentials, and the integration passes them to the analytical
-query engine. The integration's source is your PostgreSQL for Analytics service, and its
-destination is the Amazon S3 endpoint.
+your service with a PostgreSQL for Analytics Credentials integration. This endpoint type
+holds the bucket URL and the access credentials for both Amazon S3 and Google Cloud
+Storage, and the integration passes them to the analytical query engine. The integration's
+source is your PostgreSQL for Analytics service, and its destination is the endpoint.
+
+Set the endpoint's URL to your bucket:
+
+| Storage | URL |
+| --- | --- |
+| Amazon S3 | `https://BUCKET_NAME.s3.REGION.amazonaws.com` |
+| Google Cloud Storage | `https://storage.googleapis.com/BUCKET_NAME` |
+
+Add a path after the bucket to scope the credentials to a prefix, such as
+`https://storage.googleapis.com/BUCKET_NAME/analytics`. For Google Cloud Storage, use an
+HMAC key as the access key and secret.
 
 <Tabs groupId="group1">
 <TabItem value="gui" label="Console" default>
@@ -90,13 +101,12 @@ destination is the Amazon S3 endpoint.
 1. Click **Integration endpoints**.
 1. Click **Amazon S3**, then click **Add new endpoint**.
 1. Enter an endpoint name.
-1. In **Url**, enter your bucket's virtual-hosted-style URL:
-   `https://BUCKET_NAME.s3.REGION.amazonaws.com`.
-1. Enter the **Access Key Id** and **Secret Access Key** for an AWS user with read
-   and write access to the bucket, and click **Create**.
+1. In **Url**, enter your bucket's URL.
+1. Enter the **Access Key Id** and **Secret Access Key** for a user with read and write
+   access to the bucket, and click **Create**.
 1. Open your PostgreSQL for Analytics service page and click **Integrations**.
 1. Under **Endpoint integrations**, click **PostgreSQL for Analytics Credentials**,
-   and select the Amazon S3 endpoint you created.
+   and select the endpoint you created.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -256,7 +266,7 @@ GRANT lake_read_write TO analytics_user;
 
 ## Create an Iceberg table
 
-Create a table that stores its data as Iceberg files in your S3 bucket. Set `location`
+Create a table that stores its data as Iceberg files in your bucket. Set `location`
 to a path in your bucket:
 
 ```sql
@@ -270,7 +280,7 @@ CREATE TABLE orders_analytics (
 
 :::important
 Set `location` on every Iceberg table, and keep it inside the bucket and path of the
-Amazon S3 endpoint you connected. Aiven scopes the storage credentials to that path, so
+endpoint you connected. Aiven scopes the storage credentials to that path, so
 a table outside it fails with an access error. You can't set a default prefix instead:
 `pg_lake_iceberg.default_location_prefix` is superuser-only, and Aiven doesn't grant
 superuser access.
@@ -357,7 +367,7 @@ VACUUM orders_analytics;
 ```
 
 Without regular maintenance, frequent small writes can leave many small files in
-your S3 bucket, which slows down queries. Schedule maintenance with
+your bucket, which slows down queries. Schedule maintenance with
 [pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension) or run it manually
 after loading data in batches.
 
