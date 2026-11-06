@@ -11,9 +11,9 @@ The Aiven Platform offers security features to help you protect your data and re
   - [Password requirements](#password-requirements)
   - [Create secure password](#create-secure-password)
 - [Use units and projects to separate concerns](#use-units-and-projects-to-separate-concerns)
+- [Use groups](#use-groups)
 - [Grant least-privilege access to users](#grant-least-privilege-access-to-users)
   - [Limit the number of admin](#limit-the-number-of-admin)
-  - [Use groups](#use-groups)
   - [Examples](#examples)
 - [Create application users for automated access](#create-application-users-for-automated-access)
   - [Create dedicated application users for each tool](#create-dedicated-application-users-for-each-tool)
@@ -48,12 +48,9 @@ linked to your IdP can sign up and log in to the Aiven Platform without the need
 for your admin to create individual user accounts. Use the strongest
 cryptographic signature method supported by the provider.
 
-When configuring an IdP it's best to enable the following SAML security settings:
-
-- **Require assertion to be signed**: Verifies assertions were issued by a trusted party
-  and have not been tampered with.
-- **Sign authorization request sent to IdP**: Ensures authenticity and integrity with a
-  digital signature.
+When configuring an IdP it's best to enable the
+**Sign authorization request sent to IdP** security setting. This ensures
+authenticity and integrity with a digital signature.
 
 The [authentication policy](#configure-your-authentication-policy) for your
 organization is also an important component in securing access through an IdP.
@@ -106,6 +103,13 @@ for website analytics in separate projects.
 
 - [Learn about units and projects](/docs/platform/concepts/orgs-units-projects)
 
+## Use groups
+
+Use groups to streamline and increase the visibility of the process of granting access
+to users. If you choose to automatically add users to a group when they sign up,
+make sure the group has minimal permissions. Only grant users permissions to projects
+that they have a business need for.
+
 ## Grant least-privilege access to users
 
 Use granular permissions and roles to grant the lowest level of access needed to
@@ -126,11 +130,18 @@ and credentials for only that specific service.
 
 For Runtime applications, you can restrict access to the app by adding an [authentication method](/docs/products/runtime/authentication/apps-authentication-overview) to it.
 
+- [Manage Aiven for PostgreSQL® service users](/docs/products/postgresql/howto/manage-service-users)
+-[Access control lists in Aiven for Apache Kafka®](/docs/products/kafka/concepts/acl)
+- [Manage service users in Aiven for Apache Kafka®](/docs/products/kafka/howto/add-manage-service-users)
+- [Manage Aiven for MySQL® service users](/docs/products/mysql/howto/manage-service-users)
+- [Access control in Aiven for OpenSearch®](/docs/products/opensearch/concepts/access_control)
+- [Manage Aiven for ClickHouse® users and roles](/docs/products/clickhouse/howto/manage-users-roles)
+- [Manage DataHub users](/docs/products/datahub/manage-datahub-users)
+
 ### Limit the number of admin
 
-Limit the number of organization admin and project admin. Grant the organization admin
-to a limited number of users in the organization. Instead, assign specific permissions
-at the organization level such as the `organization:billing:write` permission to manage billing and payments.
+Grant the organization admin roleto a limited number of users in the organization.
+Instead, assign specific permissions at the organization level such as the `organization:billing:write` permission to manage billing and payments.
 
 Most importantly, minimize the number of
 [super admin](/docs/platform/howto/manage-permissions#make-users-super-admin)
@@ -138,22 +149,13 @@ in your organization. Reserve super admin for emergency access when no other use
 enough permissions. Don't use super admin for normal operational tasks.
 For user accounts with super admin access follow these best practices to secure them:
 
-- **Store passwords offline**: Store printed passwords in a secure location that requires
-   two-party control for access.
-- **Enable two-factor authentication** and store the credentials offline.
-- **Re-generate credentials after use**: If a super admin account is used, change its
+- Enable two-factor authentication and require it as part of your organization's
+  authenticaiton policy.
+- Re-generate credentials after use. If a super admin account is used, change its
    password.
-- **Restrict access to the email associated with a super admin user**: A user with
-  access to this email address can reset its password.
-- **Use different emails for notifications**: Configure an email address not associated
-  with a super admin account for billing, project, service, and other system notifications.
-
-### Use groups
-
-Use groups to streamline and increase the visibility of the process of granting access
-to users. If you choose to automatically add users to a group when they sign up,
-make sure the group has minimal permissions. Only grant users permissions to projects
-that they have a business need for.
+- Restrict access to the email associated with a super admin user.
+- Configure an email address not associated with a super admin account
+   for billing, project, service, and other system notifications.
 
 ### Examples
 The following are examples of typical user types along with the roles and permissions they
@@ -173,7 +175,7 @@ Grant these users the **read only** role in the projects relevant for their work
 
 For users like database administrators, who use the Aiven Console or API to
 configure services, but don't need to create them or power them off, grant them
-the `developer` role in the relevant projects.
+the `service:configuration:write` role in the relevant projects.
 
 **DevOps**
 
