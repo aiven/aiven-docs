@@ -5,27 +5,6 @@ import PasswordPolicy from "@site/static/includes/password-policy.md";
 
 The Aiven Platform offers security features to help you protect your data and resources. Security needs vary based on organization, but the following are best practices you can use to make use of these features and improve your security posture.
 
-- [Verify a domain](#verify-a-domain)
-- [Add an identity provider](#add-an-identity-provider)
-- [Configure your authentication policy](#configure-your-authentication-policy)
-  - [Password requirements](#password-requirements)
-  - [Create secure password](#create-secure-password)
-- [Use units and projects to separate concerns](#use-units-and-projects-to-separate-concerns)
-- [Use groups](#use-groups)
-- [Grant least-privilege access to users](#grant-least-privilege-access-to-users)
-  - [Limit the number of admin](#limit-the-number-of-admin)
-  - [Examples](#examples)
-- [Create application users for automated access](#create-application-users-for-automated-access)
-  - [Create dedicated application users for each tool](#create-dedicated-application-users-for-each-tool)
-  - [Restrict access to trusted networks](#restrict-access-to-trusted-networks)
-  - [Keep tokens secure and rotate them regularly](#keep-tokens-secure-and-rotate-them-regularly)
-  - [Delete unused users and tokens](#delete-unused-users-and-tokens)
-- [Give AI agents read only access](#give-ai-agents-read-only-access)
-- [Create virtual private clouds](#create-virtual-private-clouds)
-- [Employ a multi-cloud, geographically distributed strategy](#employ-a-multi-cloud-geographically-distributed-strategy)
-- [Keep services up-to-date](#keep-services-up-to-date)
-- [Use enhanced compliance environments](#use-enhanced-compliance-environments)
-
 ## Verify a domain
 
 To make your organization users managed users and to set up single sign-on through
