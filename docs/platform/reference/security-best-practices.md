@@ -12,6 +12,7 @@ an identity provider (IdP), verify your organization's domain. Even if you
 don't use an IdP for logins, verifying your domain helps to
 secure you organization on the Aiven Platform.
 
+Related pages:
 - [Verify your domain](/docs/platform/howto/manage-domains)
 - [Learn about managed users](/docs/platform/concepts/managed-users)
 
@@ -34,6 +35,7 @@ authenticity and integrity with a digital signature.
 The [authentication policy](#configure-your-authentication-policy) for your
 organization is also an important component in securing access through an IdP.
 
+Related pages:
 - [Add an identity provider](/docs/platform/howto/saml/add-identity-providers)
 
 ## Configure your authentication policy
@@ -57,6 +59,7 @@ with the new policy cannot be used.
 A more secure way to centrally manage access through tokens is to create
 [application users and application tokens](#create-application-users-for-automated-access).
 
+Related pages:
 - [Set an organization authentication policy](/docs/platform/howto/set-authentication-policies)
 
 ### Password requirements
@@ -80,6 +83,7 @@ baselines, create unrelated services in different projects.
 For example, put an OLTP database for order tracking and a time-series database
 for website analytics in separate projects.
 
+Related pages:
 - [Learn about units and projects](/docs/platform/concepts/orgs-units-projects)
 
 ## Use groups
@@ -109,6 +113,7 @@ and credentials for only that specific service.
 
 For Runtime applications, you can restrict access to the app by adding an [authentication method](/docs/products/runtime/authentication/apps-authentication-overview) to it.
 
+Related pages:
 - [Manage Aiven for PostgreSQL® service users](/docs/products/postgresql/howto/manage-service-users)
 -[Access control lists in Aiven for Apache Kafka®](/docs/products/kafka/concepts/acl)
 - [Manage service users in Aiven for Apache Kafka®](/docs/products/kafka/howto/add-manage-service-users)
@@ -162,6 +167,7 @@ For users who maintain service updates and maintenance windows, grant the `role:
 able to help restore a service after an incident, grant them the `role:services:recover`
 permission.
 
+Related pages:
 - [Roles and permissions](/docs/platform/concepts/permissions)
 - [Manage permissions for users and groups](/docs/platform/howto/manage-permissions)
 
@@ -202,6 +208,7 @@ Regularly audit your list of application users to identify unused users. You can
 view all application users, get details about when their tokens were last used,
 and delete unused users in the Aiven Console and API.
 
+Related pages:
 - [Manage application users and tokens](/docs/platform/howto/manage-application-users)
 
 ## Give AI agents read only access
@@ -210,7 +217,8 @@ When using the Aiven MCP, restrict access to viewing resources using the
 read-only mode. For greater security, enable this as an organization
 policy. You can also limit tools to specific services.
 
-- [Learn how to configure the Aien MCP](/docs/tools/mcp-server)
+Related pages:
+- [Learn how to configure the Aiven MCP](/docs/tools/mcp-server)
 
 ## Create virtual private clouds
 
@@ -223,6 +231,7 @@ Route non-cloud resources through the provider.
 Alternatively, you can create custom clouds using Aiven's bring your own cloud (BYOC)
 feature to configure your infrastructure to meet your specific business requirements.
 
+Related pages:
 - Get detailed information about
   [cloud security at Aiven](/docs/platform/concepts/cloud-security)
 - [Learn more about VPCs](/docs/platform/concepts/vpcs)
@@ -243,6 +252,7 @@ Don't avoid or delay maintenance and updates. Set maintenance windows during per
 low activity or low business criticality. Stagger the maintenance windows for
 redundant services.
 
+Related pages:
 - [Learn about maintenance, updates, and upgrades](/docs/platform/concepts/maintenance-window)
 
 ## Use enhanced compliance environments
@@ -251,4 +261,5 @@ If your environment is subject to a security compliance standards like PCI DSS o
 Aiven can help you set up projects as enhanced compliance environments (ECE) so that
 they meet these standards.
 
+Related pages:
 - [Learn about ECEs](/docs/platform/concepts/enhanced-compliance-env)
