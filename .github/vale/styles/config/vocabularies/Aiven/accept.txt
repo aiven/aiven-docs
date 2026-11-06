@@ -312,6 +312,7 @@ PgBouncer
 pg_cron
 pg_dump
 PGHoard
+pgloader
 pglookout
 pgoutput
 pg_repack

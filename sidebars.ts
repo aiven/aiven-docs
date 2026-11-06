@@ -1643,7 +1643,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/mysql/get-started',
           },
           items: [
-            'products/mysql/concepts/mysql-free-tier',
             'products/mysql/reference/resource-capability',
           ],
         },
@@ -1760,6 +1759,8 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/howto/do-check-service-migration',
                 'products/mysql/howto/migrate-db-to-aiven-via-console',
                 'products/mysql/howto/migrate-from-external-mysql',
+                'products/mysql/howto/mysql-free-tier-migration-options',
+                'products/mysql/howto/migrate-to-postgresql',
               ],
             },
           ],

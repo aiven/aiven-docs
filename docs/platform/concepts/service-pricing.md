@@ -51,7 +51,6 @@ to a more appropriately sized VM if one becomes available from the cloud provide
 The Free tier is available for the following service types:
 
 - [Aiven for Apache Kafka®](/docs/products/kafka/free-tier/kafka-free-tier)
-- [Aiven for MySQL®](/docs/products/mysql/concepts/mysql-free-tier)
 - [Aiven for OpenSearch®](/docs/products/opensearch/concepts/opensearch-free-tier)
 - [Aiven for PostgreSQL®](/docs/products/postgresql/concepts/pg-free-tier)
 - [Aiven for Valkey™](/docs/products/valkey/concepts/valkey-free-tier)
