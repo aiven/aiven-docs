@@ -1,0 +1,379 @@
+---
+title: Enable PostgreSQL for Analytics on Aiven for PostgreSQL®
+sidebar_label: Enable PostgreSQL for Analytics
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/RelatedPages";
+
+<!-- markdownlint-disable-next-line MD013 -->
+Connect your [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics) service to your storage bucket, create Iceberg tables, and query them with standard SQL.
+
+:::note
+PostgreSQL for Analytics is in
+[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
+[Request access](https://aiven.io/contact) to use it.
+:::
+
+## Prerequisites
+
+- PostgreSQL for Analytics enabled for your project. [Request access](https://aiven.io/contact),
+  and Aiven enables it for you.
+- An [organization or project admin](/docs/platform/concepts/permissions) role in that
+  project.
+- Access to the [Aiven API](https://api.aiven.io/doc/) or the
+  [Aiven CLI](/docs/tools/cli), which you need to create the service.
+- A storage bucket that you own, in the same region as your service, and an access key
+  with permission to read from and write to it.
+- Optionally, to connect the bucket with Terraform,
+  [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+  4.64.0 or later.
+
+## Create your service
+
+You create a PostgreSQL for Analytics service with the API or the CLI.
+
+<Tabs groupId="group2">
+<TabItem value="cli" label="CLI" default>
+
+```bash
+avn service create SERVICE_NAME --project PROJECT_NAME \
+  --service-type pg                                    \
+  --plan PLAN                                          \
+  --cloud CLOUD_REGION                                 \
+  -c pg_version=17                                     \
+  -c variant=pg_lake
+```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
+endpoint with `variant` set to `pg_lake`:
+
+```bash
+curl --request POST                                                  \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service         \
+  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+  --header 'content-type: application/json'                          \
+  --data '{
+    "service_name": "SERVICE_NAME",
+    "service_type": "pg",
+    "plan": "PLAN",
+    "cloud": "CLOUD_REGION",
+    "user_config": {
+      "pg_version": "17",
+      "variant": "pg_lake"
+    }
+  }'
+```
+
+</TabItem>
+</Tabs>
+
+If PostgreSQL for Analytics isn't enabled for your project, the request fails with
+`Setting variant is not allowed`.
+
+## Connect your storage bucket
+
+Create an Amazon S3 integration endpoint in your project, then connect that endpoint to
+your service with a PostgreSQL for Analytics Credentials integration. This endpoint type
+holds the bucket URL and the access credentials for both Amazon S3 and Google Cloud
+Storage, and the integration passes them to the analytical query engine. The integration's
+source is your PostgreSQL for Analytics service, and its destination is the endpoint.
+
+Set the endpoint's URL to your bucket:
+
+| Storage | URL |
+| --- | --- |
+| Amazon S3 | `https://BUCKET_NAME.s3.REGION.amazonaws.com` |
+| Google Cloud Storage | `https://storage.googleapis.com/BUCKET_NAME` |
+
+Add a path after the bucket to scope the credentials to a prefix, such as
+`https://storage.googleapis.com/BUCKET_NAME/analytics`. For Google Cloud Storage, use an
+HMAC key as the access key and secret.
+
+<Tabs groupId="group1">
+<TabItem value="gui" label="Console" default>
+
+1. In the Aiven Console, go to your project.
+1. Click **Integration endpoints**.
+1. Click **Amazon S3**, then click **Add new endpoint**.
+1. Enter an endpoint name.
+1. In **Url**, enter your bucket's URL.
+1. Enter the **Access Key Id** and **Secret Access Key** for a user with read and write
+   access to the bucket, and click **Create**.
+1. Open your PostgreSQL for Analytics service page and click **Integrations**.
+1. Under **Endpoint integrations**, click **PostgreSQL for Analytics Credentials**,
+   and select the endpoint you created.
+
+</TabItem>
+<TabItem value="cli" label="CLI">
+
+1. Create the endpoint:
+
+   ```bash
+   avn service integration-endpoint-create --project PROJECT_NAME \
+     --endpoint-name analytics-storage                            \
+     --endpoint-type external_aws_s3                              \
+     -c url="https://BUCKET_NAME.s3.REGION.amazonaws.com"         \
+     -c access_key_id=AWS_ACCESS_KEY_ID                           \
+     -c secret_access_key=AWS_SECRET_ACCESS_KEY
+   ```
+
+1. Find the endpoint's ID:
+
+   ```bash
+   avn service integration-endpoint-list --project PROJECT_NAME
+   ```
+
+1. Connect the endpoint to your service:
+
+   ```bash
+   avn service integration-create --project PROJECT_NAME \
+     --integration-type pg_for_analytics_credentials     \
+     --source-service SERVICE_NAME                       \
+     --dest-endpoint-id ENDPOINT_ID
+   ```
+
+</TabItem>
+<TabItem value="api" label="API">
+
+1. Create the endpoint with
+   [ServiceIntegrationEndpointCreate](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationEndpointCreate):
+
+   ```bash
+   curl --request POST                                                  \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/integration_endpoint \
+     --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+     --header 'content-type: application/json'                          \
+     --data '{
+       "endpoint_name": "analytics-storage",
+       "endpoint_type": "external_aws_s3",
+       "user_config": {
+         "url": "https://BUCKET_NAME.s3.REGION.amazonaws.com",
+         "access_key_id": "AWS_ACCESS_KEY_ID",
+         "secret_access_key": "AWS_SECRET_ACCESS_KEY"
+       }
+     }'
+   ```
+
+   The response contains the `endpoint_id` you need in the next step.
+
+1. Connect the endpoint to your service with
+   [ServiceIntegrationCreate](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationCreate):
+
+   ```bash
+   curl --request POST                                                  \
+     --url https://api.aiven.io/v1/project/PROJECT_NAME/integration     \
+     --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+     --header 'content-type: application/json'                          \
+     --data '{
+       "integration_type": "pg_for_analytics_credentials",
+       "source_service": "SERVICE_NAME",
+       "dest_endpoint_id": "ENDPOINT_ID"
+     }'
+   ```
+
+Replace the placeholders with your project name, bearer token, bucket URL and region,
+AWS credentials, service name, and endpoint ID.
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+Requires
+[Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+4.64.0 or later.
+
+```hcl
+resource "aiven_service_integration_endpoint" "analytics_storage" {
+  project       = var.project_name
+  endpoint_name = "analytics-storage"
+  endpoint_type = "external_aws_s3"
+
+  external_aws_s3_user_config {
+    url               = "https://BUCKET_NAME.s3.REGION.amazonaws.com"
+    access_key_id     = var.aws_access_key_id
+    secret_access_key = var.aws_secret_access_key
+  }
+}
+
+resource "aiven_service_integration" "analytics_credentials" {
+  project                 = var.project_name
+  integration_type        = "pg_for_analytics_credentials"
+  source_service_name     = aiven_pg.analytics.service_name
+  destination_endpoint_id = aiven_service_integration_endpoint.analytics_storage.id
+}
+```
+
+</TabItem>
+</Tabs>
+
+If you later rotate the access key on the endpoint, your service picks up the new
+credentials without any further action.
+
+:::important
+Use a bucket dedicated to this one service. Aiven doesn't prevent you from pointing
+two services at the same bucket, or from using a bucket that already holds other
+data, and neither is supported.
+
+Don't remove or replace this integration once you have Iceberg tables. Queries expect
+those tables in the bucket the integration points to, so they fail if it changes.
+:::
+
+:::note
+Aiven doesn't validate the URL or the credentials when you create the integration. If
+either is wrong, the service still starts and PostgreSQL works normally, but any statement
+against an Iceberg table fails later:
+
+```text
+ERROR:  HTTP Error: HTTP GET error reading 's3://BUCKET_NAME/orders_analytics' in region
+'REGION' (HTTP 403 Forbidden)
+AccessDenied: Access Denied
+```
+
+Verify the endpoint's **Url**, **Access Key Id**, and **Secret Access Key**.
+:::
+
+## Enable the extension
+
+Connect to the database where you plan to keep Iceberg tables as your primary service
+user, `avnadmin`, and run:
+
+```sql
+CREATE EXTENSION pg_lake CASCADE;
+```
+
+Your service comes with three group roles that control access to analytics data.
+Grant membership in them to the database users who need it, using your `avnadmin`
+user:
+
+| Role | Members can |
+| --- | --- |
+| `lake_read` | Read data in Iceberg tables |
+| `lake_write` | Write data in Iceberg tables |
+| `lake_read_write` | Read and write data in Iceberg tables, and create them |
+
+`lake_read_write` isn't only the combination of the other two roles. It's the only role
+with access to the `pg_lake_iceberg` foreign server, so creating an Iceberg table requires
+it. Granting `lake_read` and `lake_write` together doesn't allow it. Grant
+`lake_read_write` to the users who create Iceberg tables:
+
+```sql
+GRANT lake_read_write TO analytics_user;
+```
+
+## Create an Iceberg table
+
+Create a table that stores its data as Iceberg files in your bucket. Set `location`
+to a path in your bucket:
+
+```sql
+CREATE TABLE orders_analytics (
+    order_id bigint,
+    customer_id bigint,
+    order_total numeric(18,4),
+    created_at timestamptz
+) USING iceberg WITH (location = 's3://BUCKET_NAME/orders_analytics');
+```
+
+:::important
+Set `location` on every Iceberg table, and keep it inside the bucket and path of the
+endpoint you connected. Aiven scopes the storage credentials to that path, so
+a table outside it fails with an access error. You can't set a default prefix instead:
+`pg_lake_iceberg.default_location_prefix` is superuser-only, and Aiven doesn't grant
+superuser access.
+:::
+
+:::important[Always declare precision and scale on numeric columns]
+Iceberg can't represent a `numeric` column with no declared precision and scale as an
+exact decimal. If you create an Iceberg table from a `numeric` column without one,
+PostgreSQL for Analytics converts it to `double precision`, an inexact binary
+floating-point type, and only reports this with a low-severity `NOTICE`, which many
+clients don't show by default:
+
+```text
+NOTICE:  column "order_total" has type that cannot be stored as an Iceberg
+decimal, converting to double precision
+HINT:  Use numeric(P,S) with precision <= 38 to preserve exact decimal
+semantics.
+```
+
+A single converted value usually looks correct, but summing many of them, as most
+analytical queries do, accumulates rounding error. Totals computed through
+PostgreSQL for Analytics can silently stop matching the source data. This is
+particularly risky for financial, billing, or audit workloads.
+
+PostgreSQL for Analytics makes this conversion by default. To keep exact decimal
+semantics, declare an explicit `numeric(P,S)` with a precision of 38 or less on every
+numeric column you migrate. If you can't change the source table, cast the column in
+your `SELECT`, for example `total::numeric(18,4)`.
+
+To catch these columns instead of converting them, turn the conversion off for your
+session. Creating a table with an unbounded numeric column then fails with an error
+instead of a notice:
+
+```sql
+SET pg_lake_iceberg.unsupported_numeric_as_double = off;
+```
+
+:::
+
+You can write into an Iceberg table directly, which keeps a single copy of the data in
+your bucket:
+
+```sql
+INSERT INTO orders_analytics VALUES (1001, 42, 99.9500, now());
+```
+
+You can also copy rows from a regular PostgreSQL table in the same service. This leaves
+you with two copies, and the Iceberg copy is only as current as your last load:
+
+```sql
+INSERT INTO orders_analytics SELECT * FROM orders;
+```
+
+Load in batches rather than row by row. Each write creates files in your bucket, so
+many small writes leave many small files and slow your queries down.
+
+To load new data on a schedule, run your `INSERT ... SELECT` from
+[pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension). PostgreSQL for Analytics
+has no built-in scheduling or change data capture for Iceberg tables, so define what
+counts as new for your data, such as a timestamp or an ID watermark, and select on that.
+
+Query the Iceberg table with standard SQL:
+
+```sql
+SELECT customer_id, sum(order_total)
+FROM orders_analytics
+GROUP BY customer_id
+ORDER BY sum(order_total) DESC
+LIMIT 10;
+```
+
+For more on managing extensions, see
+[Manage Aiven for PostgreSQL® extensions](/docs/products/postgresql/howto/manage-extensions).
+
+## Maintain Iceberg tables
+
+Iceberg tables accumulate data files, snapshots, and metadata over time,
+particularly if you insert data frequently in small batches. Run vacuum
+maintenance regularly to compact data files, expire old snapshots, and remove
+orphan files:
+
+```sql
+VACUUM orders_analytics;
+```
+
+Without regular maintenance, frequent small writes can leave many small files in
+your bucket, which slows down queries. Schedule maintenance with
+[pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension) or run it manually
+after loading data in batches.
+
+<RelatedPages/>
+
+- [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics)
+- [Manage Aiven for PostgreSQL® extensions](/docs/products/postgresql/howto/manage-extensions)
+- [Use the pg_cron extension](/docs/products/postgresql/howto/use-pg-cron-extension)
+- [Limited availability and early access features](/docs/platform/concepts/service-and-feature-releases)
