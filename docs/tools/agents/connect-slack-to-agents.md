@@ -9,15 +9,13 @@ keywords: [Managed Agents, Slack, MCP, integration]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Connect Slack to Managed Agents to let your agents read Slack channels, search messages, and look up users. You can also allow agents to send messages.
+Connect Slack to Managed Agents to let your agents read Slack messages, search public channels, and look up users. You can also allow agents to send messages and add reactions.
 
-By default, agents can't send messages. To allow that, turn off read-only access
-when you connect the integration. Search covers public channels only,
-but agents can also read private channels, direct messages, and canvases that
-the Slack app can access.
+Agents can access only the channels and direct messages that the Slack bot is a
+member of.
 
-To connect Slack, configure a Slack app with the required permissions and use
-its bot token to connect the integration in the Aiven Console.
+To get started, create or configure a Slack app and use its bot token to connect
+the integration in the Aiven Console.
 
 ## Prerequisites
 
@@ -36,7 +34,7 @@ its bot token to connect the integration in the Aiven Console.
    | Scope | Purpose |
    |---|---|
    | `channels:read`, `channels:history` | List public channels and read their messages. |
-   | `groups:read`, `groups:history` | List private channels and read messages in channels the app can access. |
+   | `groups:read`, `groups:history` | List private channels and read their messages. |
    | `im:read`, `im:history` | Access direct message conversations and read their messages. |
    | `mpim:read`, `mpim:history` | Access group direct message conversations and read their messages. |
    | `search:read.public` | Search public channel content. |
@@ -46,7 +44,7 @@ its bot token to connect the integration in the Aiven Console.
    For more information, see
    [Slack OAuth scopes](https://docs.slack.dev/reference/scopes/).
 
-1. Optional: To allow your agent to send messages or add reactions, also add
+1. Optional: To allow your agent to send messages and add reactions, also add
    the following scopes:
 
    | Scope | Purpose |
@@ -85,31 +83,25 @@ Before you start, have the bot token from your Slack app ready.
    1. In **Integration name**, enter a name for the integration, such as
       `slack`.
    1. In **Slack Bot / User Token**, enter the bot token from your Slack app.
-   1. Optional: To allow the agent to send messages, turn off
+   1. Optional: To allow the agent to send messages and add reactions, turn off
       **Read-only access**. This setting is on by default. The Slack app must
-      also have the `chat:write` scope.
+      also have the `chat:write` and `reactions:write` scopes, respectively.
 1. Select **Connect**.
 1. Close the **Manage agent integrations** dialog.
 1. On the agent's **Integrations** page, enable the Slack integration and select
    the tools the agent can use.
 1. Select **Save changes**.
 
-The agent can use the enabled Slack tools within the permissions of your Slack
-app.
-
-**Read-only access** prevents the agent from sending messages. Other tools, such
-as joining channels or changing user groups, depend on the scopes of your Slack
-app. To limit what the agent can do, clear the tools you don't need on the
-**Integrations** page.
+The agent can now use the selected Slack tools, subject to the permissions
+granted to your Slack app.
 
 ## Manage the Slack integration
 
 To view or manage your Slack integration, open the agent's **Integrations** page
 and select **Advanced integration settings**.
 
-If the integration shows **Reconnect required**, its access might have expired
-or been revoked, and its tools fail until you reconnect it. Select
-**reconnect** and enter a valid token to restore access.
+If the integration shows **Reconnect required**, select **reconnect** and enter
+a valid Slack token to restore access.
 
 To change which Slack tools an agent can use, update the tool selection on the
 **Integrations** page and select **Save changes**.
