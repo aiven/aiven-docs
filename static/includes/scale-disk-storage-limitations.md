@@ -9,7 +9,9 @@
   maintenance updates. If you reach the limit, run a maintenance update
   to optimize performance.
 - You cannot add storage during a maintenance update.
-- Dynamic disk sizing (DDS) is not supported on custom service plans.
+- Dynamic disk sizing (DDS) support depends on your service plan and cloud provider.
+  If your service doesn't show the option to add storage, including on a custom plan,
+  [contact Aiven](https://aiven.io/contact).
 
 :::note[Pricing]
 If you add storage when you create a service, **Additional disk storage**
