@@ -8,6 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ByocTerraformBeta from "@site/static/includes/byoc-terraform-beta.md";
 
 Update the list of customer contacts for your [custom cloud](/docs/platform/concepts/byoc).
 
@@ -40,6 +41,14 @@ a mandatory role that is always required as a primary support contact.
     [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
     organization
 -   [Aiven CLI client](/docs/tools/cli) installed
+-   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
+    role in your Aiven organization
+</TabItem>
+<TabItem value="3" label="Terraform (AWS and Azure only)">
+-   At least one
+    [custom cloud created](/docs/platform/howto/byoc/create-cloud/create-custom-cloud) in your Aiven
+    organization
+-   [Aiven Provider for Terraform](/docs/tools/terraform) set up
 -   [Organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
     role in your Aiven organization
 </TabItem>
@@ -89,6 +98,56 @@ The `--contact-email` option replaces the entire list of customer contacts. List
 contact, including the mandatory **Admin** contact, each time you run the command. Any
 contact you omit is removed.
 :::
+
+</TabItem>
+<TabItem value="3" label="Terraform (AWS and Azure only)">
+Edit the `contact_emails` blocks of the resource that manages your custom cloud, then
+apply the configuration.
+
+<ByocTerraformBeta />
+
+The custom cloud environment is managed by the
+[`aiven_byoc_aws_entity`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_aws_entity)
+resource for AWS custom clouds and by the
+[`aiven_byoc_azure_entity`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/byoc_azure_entity)
+resource for Azure custom clouds. The following example uses AWS.
+
+```hcl
+resource "aiven_byoc_aws_entity" "example_cloud" {
+  organization_id  = var.organization_id
+  cloud_region     = "eu-west-1"
+  deployment_model = "standard"
+  display_name     = "byoc-cloud-prod-eu-west-1"
+  reserved_cidr    = "10.0.0.0/16"
+
+  contact_emails {
+    email     = "admin@example.com"
+    real_name = "John Doe"
+    role      = "Admin"
+  }
+
+  contact_emails {
+    email     = "ops@example.com"
+    real_name = "Jane Smith"
+    role      = "Operator"
+  }
+}
+```
+
+Each `contact_emails` block takes a required `email` field and the optional `real_name`
+and `role` fields. You can define up to 10 blocks.
+
+:::note
+Terraform manages the complete list of contacts. List every contact, including the
+mandatory **Admin** contact, each time you change the configuration. Any contact you
+remove from the configuration is removed from the custom cloud.
+:::
+
+Apply the configuration:
+
+```bash
+terraform apply
+```
 
 </TabItem>
 </Tabs>
