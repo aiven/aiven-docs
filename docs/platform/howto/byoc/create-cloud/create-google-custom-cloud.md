@@ -78,6 +78,9 @@ Google project
   service account to use your project)
 - `roles/compute.instanceAdmin.v1` (manages networks and instances)
 - `roles/compute.securityAdmin` (creates firewall rules)
+- `roles/storage.admin` (creates the Cloud Storage buckets for your custom cloud and sets
+  their IAM policy). Required for the compliance deployment models, which always store
+  service backups and cold data in your Google Cloud project.
 - Enable [Identity and Access Management (IAM) API](https://cloud.google.com/iam/docs/reference/rest)
   to create the privilege-bearing service account
 - Enable
@@ -85,6 +88,9 @@ Google project
   to set IAM policies to the privilege-bearing service account
 - Enable
   [Compute Engine API](https://console.cloud.google.com/marketplace/product/google/compute.googleapis.com).
+- Enable
+  [Cloud Storage API](https://console.cloud.google.com/marketplace/product/google/storage.googleapis.com)
+  to create the buckets for service backups and cold data.
 </details>
 For more information on Google Cloud roles, see
 [IAM basic and predefined roles reference](https://cloud.google.com/iam/docs/understanding-roles)
@@ -126,11 +132,21 @@ In the **Create custom cloud** wizard:
 
     -   [Deployment model](/docs/platform/concepts/byoc#byoc-architecture)
 
-        Choose between:
-        - Private model, which routes traffic through a proxy for additional security
-          utilizing a bastion host logically separated from the Aiven services.
-        - Public model, which allows the Aiven control plane to connect to the service
-          nodes via the public internet.
+        Choose a deployment model:
+        - **Private**: Routes traffic through a proxy for additional security utilizing a
+          bastion host logically separated from the Aiven services.
+        - **Public**: Allows the Aiven control plane to connect to the service nodes via
+          the public internet.
+        - **HIPAA**: Builds on the private model for healthcare workloads that handle
+          protected health information (PHI).
+        - **PCI DSS**: Builds on the private model for payment workloads that require
+          cardholder data environment (CDE) isolation.
+
+        If **HIPAA** or **PCI DSS** options are not visible in the console, these
+        compliance deployment models have not been enabled for your organization.
+        Contact your account team to request access. They require object storage in
+        your Google Cloud project and restrict outbound traffic and public access. See
+        [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
 
         :::note
         The service endpoint has two hostnames. The public hostname is derived from the
@@ -172,6 +188,21 @@ In the **Create custom cloud** wizard:
             blocks of VPCs you plan to peer your BYOC VPC with. You
             cannot change the BYOC VPC CIDR block after your custom
             cloud is created.
+
+    -   Object storage
+
+        With the compliance deployment models, the following data is stored in object
+        storage in your own Google Cloud project:
+
+        -   [Cold data managed by the service](/docs/platform/howto/byoc/store-data)
+        -   [Backups of the service](/docs/platform/concepts/byoc#byoc-service-backups)
+
+        :::note
+        - Data is stored in two Cloud Storage buckets per custom cloud: one for backups
+          and one for cold data.
+        - Permissions for bucket management are included in the Terraform infrastructure
+          template to be generated upon completing this step.
+        :::
 
 1.  Click **Generate template**.
 
@@ -341,6 +372,15 @@ Your new custom cloud is ready to use only after its status changes to
        and are by default not accessible from outside. Traffic is routed through a proxy
        for additional security utilizing a bastion host logically separated from the
        Aiven services.
+     - `hipaa` or `pci_dss` (compliance) models: Build on the `standard` model to run
+       services under HIPAA or PCI DSS requirements. Use `hipaa` for healthcare workloads
+       that handle protected health information (PHI), or `pci_dss` for payment workloads
+       that require cardholder data environment (CDE) isolation. If the command fails
+       because the deployment model is not supported, these compliance deployment models
+       have not been enabled for your organization. Contact your account team to request
+       access. They require object storage in your Google Cloud project and restrict
+       outbound traffic and public access. See
+       [Enhanced compliance BYOC clouds](/docs/platform/concepts/byoc-enhanced-compliance).
    - `CLOUD_REGION_NAME` with the name of a Google region where to create your custom cloud,
      for example `europe-north1`. See all available options in
      [Google Cloud regions](/docs/platform/reference/list_of_clouds#google-cloud).

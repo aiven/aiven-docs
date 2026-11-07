@@ -1,7 +1,7 @@
 ---
 title: AI tools on Aiven
 sidebar_label: Overview
-description: Connect AI coding assistants and agents to Aiven services with MCP servers and Skills, access AI models through AI Gateway, and find AI capabilities built into Aiven services.
+description: Connect AI coding assistants and agents to Aiven services with MCP servers and Skills, access AI models through AI gateway, and find AI capabilities built into Aiven services.
 ---
 
 import Card from "@site/src/components/Card";
@@ -31,7 +31,7 @@ the following sections to find the right starting point for your use case.
     to="/docs/products/ai-gateway"
     iconComponent={AI}
     titleHighlight="var(--aiven-brand-teal)"
-    title="AI Gateway"
+    title="AI gateway"
     description="Access multiple AI models through one endpoint."
   />
   <Card
@@ -66,7 +66,7 @@ usage and estimated costs.
 
 | Tool | What you can do | Get started |
 | --- | --- | --- |
-| AI Gateway <EarlyBadge/> | Browse the model catalog, manage API keys, and monitor usage and estimated spend across models | [AI Gateway](/docs/products/ai-gateway) |
+| AI gateway <EarlyBadge/> | Browse the model catalog, manage API keys, and monitor usage and estimated spend across models | [AI gateway](/docs/products/ai-gateway) |
 
 ## Connect AI agents and tools to Aiven
 

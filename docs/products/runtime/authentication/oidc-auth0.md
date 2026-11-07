@@ -37,5 +37,5 @@ Let users access an Aiven Runtime application through the Auth0 identity provide
 ## Step 3: Add the callback URL in Auth0
 
 1. In the Auth0 dashboard, open the application's **Settings**.
-1. In **Allowed Callback URLs**, paste the redirect URI from the Aiven Console.
+1. In **Allowed Callback URLs**, paste the redirect URLs from the Aiven Console.
 1. Click **Save Changes**.

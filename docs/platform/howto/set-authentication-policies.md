@@ -3,6 +3,7 @@ title: Set authentication policies for organization users
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 The authentication policy for your organization specifies the ways that users in your organization can access the organization on the Aiven Platform.
 
@@ -23,7 +24,7 @@ When 2FA is required, users can't access any resources in your organization unti
 set up 2FA. This only applies to logins using email and password. The Aiven Platform
 cannot enforce 2FA for logins through third-party providers, including identity providers.
 
-:::note
+:::note[Note]
 Personal tokens are not affected and continue to work when you make 2FA required.
 However, when users [enable 2FA](/docs/platform/howto/user-2fa) their existing tokens
 might stop working.
@@ -102,6 +103,15 @@ For more information, see
 [Read-only mode](/docs/tools/mcp-server#read-only-mode).
 
 ## Set an authentication policy
+
+<RequirementsPanel
+	items={[
+		{
+			label: 'Permissions',
+			values: ['`role:organization:admin`'],
+		},
+	]}
+/>
 
 1.  In the organization, click **Admin**.
 1.  Click <ConsoleLabel name="authenticationpolicy"/>.

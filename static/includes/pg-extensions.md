@@ -44,7 +44,7 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 
 ## PostgreSQL 18 extensions
 
@@ -108,8 +108,8 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
-| vectorscale | 0.9.0 | 0.9.0 |
+| vector | 0.8.7 | 0.8.7 |
+| vectorscale | 0.9.1 | 0.9.1 |
 
 ## PostgreSQL 17 extensions
 
@@ -173,8 +173,8 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
-| vectorscale | 0.9.0 | 0.6.0, 0.9.0 |
+| vector | 0.8.7 | 0.8.7 |
+| vectorscale | 0.9.1 | 0.9.1 |
 
 ## PostgreSQL 16 extensions
 
@@ -238,8 +238,8 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
-| vectorscale | 0.6.0 | 0.6.0 |
+| vector | 0.8.7 | 0.8.7 |
+| vectorscale | 0.9.1 | 0.9.1 |
 
 ## PostgreSQL 15 extensions
 
@@ -304,7 +304,7 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 
 ## PostgreSQL 14 extensions
 
@@ -368,7 +368,7 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 
 ## PostgreSQL 13 extensions
 
@@ -430,5 +430,5 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 

@@ -4,6 +4,7 @@ title: Manage connection pooling
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import RelatedPages from "@site/src/components/RelatedPages";
 
 [Connection pooling](/docs/products/postgresql/concepts/pg-connection-pooling) lets you maintain very large numbers of connections to a database while minimizing the consumption of server resources.
 
@@ -65,6 +66,15 @@ To manage the connection pools:
     :::
 
     :::important
+    The combined **Pool Size** of all pools on a service cannot exceed
+    `max_connections` minus the connections that Aiven
+    [reserves](/docs/products/postgresql/reference/pg-connection-limits#reserved-connections)
+    for database maintenance and monitoring. If the combined pool size is too high, the
+    request fails with a `409 Conflict` status code and a message stating how many
+    connections the service can handle and how many are reserved.
+    :::
+
+    :::important
     The **Pool Size** parameter is NOT the maximum number of client
     connections of this pool.
 
@@ -104,3 +114,9 @@ The replica connection pool URI is as follows:
 ```txt
 postgres://avnadmin:password@replica-pg-prod-myproject.aivencloud.com:20986/mypool?params
 ```
+
+<RelatedPages />
+
+- [Aiven for PostgreSQL® connection pooling with PgBouncer](/docs/products/postgresql/concepts/pg-connection-pooling)
+- [Connection limits per plan for Aiven for PostgreSQL](/docs/products/postgresql/reference/pg-connection-limits)
+- [Troubleshoot connection pooling issues in Aiven for PostgreSQL](/docs/products/postgresql/troubleshooting/troubleshooting-connection-pooling)

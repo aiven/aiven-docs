@@ -7,8 +7,18 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import {ConsoleIcon} from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Runtime produces build and runtime logs for your applications to help you monitor them and troubleshoot issues throughout their lifecycle.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`service:logs:read`', '`role:project:read`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
 
 ## Build logs
 

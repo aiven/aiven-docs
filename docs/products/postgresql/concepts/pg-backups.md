@@ -5,7 +5,6 @@ sidebar_label: Backups
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import EditBackupSchedule from "@site/static/includes/service-backups-instructions.md";
-import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Aiven for PostgreSQL® databases are automatically backed up, with **full backups** made daily, and **write-ahead logs (WAL)** copied at 5 minute intervals, or for every new file generated.
 All backups are encrypted using
@@ -75,7 +74,7 @@ restoration in PostgreSQL is single-threaded and, therefore, slow).
 
 Set the time of day when the daily backup is taken.
 
-<EditBackupSchedule backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
+<EditBackupSchedule/>
 
 <RelatedPages/>
 

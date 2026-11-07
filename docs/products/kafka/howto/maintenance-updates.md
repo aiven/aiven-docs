@@ -47,14 +47,15 @@ To avoid connection errors:
 
 1. Before the second update, download the CA certificate bundle and configure your
    clients to trust it.
-1. If your service users authenticate with client certificates, reset their credentials
-   after the first update is applied on every service in the project. This makes the
-   new CA sign their certificates.
+1. If your service users authenticate with client certificates, download and deploy
+   the certificates that Aiven renews with the new CA, then acknowledge the renewals.
+   Aiven renews them after the first update is applied on every service in the
+   project and sends a renewal notification.
 
 For details, see
 [Certificate rotation](/docs/platform/concepts/tls-ssl-certificates#certificate-rotation)
 and
-[Reset credentials after a project CA rotation](/docs/products/kafka/howto/renew-ssl-certs#reset-credentials-after-a-project-ca-rotation).
+[Renewed certificates after a project CA rotation](/docs/products/kafka/howto/renew-ssl-certs#renewed-certificates-after-a-project-ca-rotation).
 
 <RelatedPages/>
 

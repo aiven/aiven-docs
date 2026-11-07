@@ -3,14 +3,20 @@ title: Manage billing and shipping addresses
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Create addresses in the billing section of the Aiven Platform and use them as billing and shipping addresses in your billing groups.
 
-You must have the `organization:billing:write`
-[permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to create and manage billing addresses.
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`organization:billing:write`', '`role:organization:admin`'],
+        },
+    ]}
+/>
 
-:::note
+:::note[Note]
 If you pay for your services using a marketplace subscription,
 you manage your billing address in your marketplace account.
 The billing address you add in the Aiven Console is not used for billing
@@ -27,7 +33,7 @@ details up to date.
 1.  Enter the address details and click **Create address**.
 1.  Optional: Select the billing groups to assign the address to
     and click **Assign address**.
-    :::note
+    :::note[Note]
     The address is added as both the billing and shipping address for the billing groups.
     You can [change the billing or shipping address](/docs/platform/howto/use-billing-groups#update-a-billing-group)
     in the billing groups.

@@ -15,7 +15,7 @@
     -   **Enable group syncing**: This syncs the group membership from your IdP to the
         Aiven Platform.
 
-        :::note
+        :::note[Note]
         - The Aiven Platform doesn't create groups with this feature. It only syncs the
         group membership between the groups in your IdP and the
         [groups you create in Aiven](/docs/platform/howto/manage-groups).
@@ -30,7 +30,7 @@
 6. Optional: Select a user group to add all users who sign up with this IdP to.
 7. Click **Finish** to complete the setup.
 
-:::note
+:::note[Note]
 If you set up a SAML authentication method before and are now switching
 to a new IdP, existing users need to log in with the new account link
 URL to finish the setup.

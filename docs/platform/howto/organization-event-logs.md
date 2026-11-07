@@ -1,8 +1,9 @@
 ---
-title: Event logs
+title: Organization event logs
 ---
 
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven consolidates all event logs for an organization into centralized event logs.
 This lets you view all events across your organization's units and projects in one place.
@@ -17,12 +18,27 @@ Logs are retained for 30 days.
   items={[
     {
       label: 'Permissions',
-      values: ['role:organization:admin', 'organization:event_logs:read'],
+      values: ['`organization:event_logs:read`', '`role:organization:admin`'],
     },
   ]}
 />
 
-To view your organization's event logs in the Aiven Console:
+## View organization event logs
 
 1. Click **Admin**.
 1. Click **Event logs**.
+
+## Export organization event logs
+
+You can download a CSV file of the last 30 days of your organization's event logs.
+The filters you apply to the event logs are also applied to the downloaded file.
+
+To export logs:
+
+1. Click **Admin**.
+1. Click **Event logs**.
+1. Click **Export logs**.
+
+<RelatedPages/>
+
+- [View and export project event logs](/docs/platform/howto/view-project-logs)

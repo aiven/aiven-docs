@@ -240,9 +240,9 @@ keystores?
 Kibana
 Klaw
 Kpow
+KRaft
 Kubernetes
 kuromoji
-LibreDB
 LLM
 LLMs
 Loggly
@@ -312,6 +312,7 @@ PgBouncer
 pg_cron
 pg_dump
 PGHoard
+pgloader
 pglookout
 pgoutput
 pg_repack
@@ -395,6 +396,7 @@ SLA/S
 Slackbot
 SLAs?
 Snowflake
+Snowpipe
 softirqs
 Sphinx
 Splunk
@@ -404,6 +406,7 @@ SSD/S
 SSDs
 Stackdriver
 Statusmap
+stemmers?
 storages
 Stunnel
 subnet

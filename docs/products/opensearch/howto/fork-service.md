@@ -6,6 +6,7 @@ sidebar_label: Fork a service
 import ForkConcepts from "@site/static/includes/fork-service-concepts.md";
 import ForkInstructions from "@site/static/includes/fork-service-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
 
 Fork your Aiven for OpenSearch® service to create an independent copy for testing,
 debugging, or development without affecting the original service.
@@ -25,7 +26,7 @@ new service.
   to specific URLs and endpoints that change during forking. If you don't reconfigure the
   SSO methods for the forked service, user access can be disrupted.
 
-<ForkInstructions/>
+<ForkInstructions backupsNav={<>in the <ConsoleLabel name="backups"/> section, click <b>Backup management</b></>}/>
 
 <RelatedPages/>
 

@@ -7,14 +7,20 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Application users give non-human users programmatic access to Aiven. You grant them access to organization resources using [roles and permissions](/docs/platform/concepts/permissions).
 
-You must be an
-[organization admin](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature.
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`organization:app_users:write`', '`role:organization:admin`'],
+        },
+    ]}
+/>
 
-:::important
+:::important[Important]
  Application users can be a security risk if not carefully managed and monitored. Follow
  [best practices](/docs/platform/concepts/application-users#security-best-practices) for
  mitigating these risks.
@@ -41,7 +47,7 @@ More information on this resource and its configuration options are available in
 </TabItem>
 </Tabs>
 
-:::note
+:::note[Note]
 If you reach the limit of application users, you can request an increase by
 [contacting Aiven support](/docs/platform/howto/support#create-a-support-ticket).
 :::
@@ -60,13 +66,13 @@ If you reach the limit of application users, you can request an increase by
 1.  Click **Generate token**.
 1.  Click the **Copy** icon and save your token somewhere safe.
 
-    :::important
+    :::important[Important]
     You cannot view the token after you close this window.
     :::
 
 1.  Click **Close**.
 
-:::note
+:::note[Note]
 You cannot change the token's session duration or allowlist after creating it.
 :::
 

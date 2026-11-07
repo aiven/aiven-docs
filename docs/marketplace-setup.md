@@ -4,6 +4,16 @@ title: Set up marketplace subscriptions
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`'],
+    },
+  ]}
+/>
 
 Create an AWS, Azure, or Google Cloud marketplace subscription to use as a payment method for Aiven services.
 
@@ -21,7 +31,7 @@ your Aiven organization. If you already have Aiven services, you can also
 
 1. Click **Subscribe**.
 
-  :::note
+  :::note[Note]
   You won't be charged. This only sets up a billing subscription between AWS and Aiven.
   You are charged after creating Aiven services.
   :::
@@ -37,7 +47,7 @@ If you have any issues linking Aiven to your AWS subscription,
 in the AWS web console find the Aiven subscription and click
 **Set up your account**.
 
-:::note
+:::note[Note]
 The URL to log into your AWS subscription is [https://console.aws.aiven.io](https://console.aws.aiven.io).
 :::
 
@@ -54,7 +64,7 @@ The URL to log into your AWS subscription is [https://console.aws.aiven.io](http
 1. Enter the other details to
    [complete the purchase](https://learn.microsoft.com/en-us/marketplace/purchase-software-appsource).
 
-   :::note
+   :::note[Note]
    You won't be charged. This only
    sets up a billing subscription between Azure and Aiven.
 
@@ -70,7 +80,7 @@ If you have any issues linking Aiven to your Azure subscription,
 in the Azure web console find the Aiven subscription and
 click **Open SaaS Account on publisher's site** to complete the subscription process.
 
-:::note
+:::note[Note]
 The URL to log into your Azure subscription is [https://console.azure.aiven.io](https://console.azure.aiven.io).
 :::
 
@@ -84,7 +94,7 @@ The URL to log into your Azure subscription is [https://console.azure.aiven.io](
 
 1.  Select your billing account and click **Subscribe**.
 
-   :::note
+   :::note[Note]
    You won't be charged. This only
    sets up a billing subscription between Google Cloud and Aiven.
 
@@ -97,9 +107,7 @@ The URL to log into your Azure subscription is [https://console.azure.aiven.io](
 
 1.  Log in or register for Aiven.
 
-
-
-:::note
+:::note[Note]
 The URL to log into your Google Cloud subscription is
 [console.gcp.aiven.io](https://console.gcp.aiven.io).
 :::

@@ -2,10 +2,20 @@
 title: Change branch
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can change your application's branch at any time.
 Changing the branch triggers a redeployment of the selected branch's latest commit.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`service:configuration:write`', '`role:project:admin`', '`role:project:manager`'],
+    }
+  ]}
+/>
 
 To change the branch:
 

@@ -7,6 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import AppIntegrationLimitation from "@site/static/includes/runtime-app-integration-limitation.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Connect your deployed application to [Aiven services](/docs/products/services).
 You can connect an existing Aiven for Apache Kafka®, Aiven for PostgreSQL®,
@@ -19,6 +20,15 @@ by using [Compose files](/docs/products/runtime/manifest-files/compose-files).
 <AppIntegrationLimitation/>
 
 ## Connect an Aiven service
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:integrations:write`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -114,6 +124,21 @@ to a Karapace schema registry:
     for the schema registry.
 
 ### Connect a schema registry during application creation
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions for the Kafka service',
+      icon: 'people',
+      values: ['`service:secrets:read`','`role:project:admin`', '`role:project:manager`'],
+    },
+    {
+      label: 'Permissions for the Runtime application',
+      icon: 'people',
+      values: ['`project:services:write`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -255,6 +280,21 @@ Where:
 
 ### Connect a schema registry to an existing application
 
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions for the Kafka service',
+      icon: 'people',
+      values: ['`service:secrets:read`', '`role:project:admin`', '`role:project:manager`'],
+    },
+    {
+      label: 'Permissions for the Runtime application',
+      icon: 'people',
+      values: ['`project:services:write`', '`service:configuration:write`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
+
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
@@ -380,7 +420,7 @@ This produces a connection string equivalent to:
 postgresql://USER:PASSWORD@HOST:PORT/DATABASE?sslmode=require&uselibpqcompat=true
 ```
 
-:::note
+:::note[Note]
 `sslmode=require` encrypts the connection but does not verify the server certificate.
 :::
 
@@ -393,6 +433,15 @@ const client = new Client({
 ```
 
 ## Disconnect an Aiven service
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:integrations:write`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console">

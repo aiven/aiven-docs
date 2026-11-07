@@ -4,14 +4,20 @@ title: Manage project and service notifications
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications.
-Notifications include information about plan sizes, performance, outages, and scheduled maintenance.
 
-The default contacts for a project are the project admin and operators. You can also
-set the contacts to specific email addresses. Project contacts receive notifications
-about the project. They also receive the notifications for all services in the project,
-unless you set a separate service contact for a service.
+Project contacts get email notifications about the project.
+They also get notifications for all services in the project,
+unless you set a separate service contact for a service. Notifications include information
+ about plan sizes, performance, outages, and scheduled maintenance.
+
+The default contacts for a project are the project admin, project managers, and operators.
+That means users with the roles `admin`, `role:project:admin`, `role:project:manager`,
+and `operator` automatically get email notifications for the project.
+You can change this and set the contacts to specific email addresses instead.
 
 Service contacts by default are the project contacts. However, if you
 set other email addresses as service contacts for a service,
@@ -21,6 +27,15 @@ Project and service contacts cannot unsubscribe from specific
 project or service notifications.
 
 ## Set project contacts
+
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`role:project:admin`','`role:organization:admin`'],
+        },
+    ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -40,6 +55,15 @@ Use the `technical_emails` attribute in
 </Tabs>
 
 ## Set service contacts
+
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`service:configuration:write`', '`role:project:admin`', '`role:project:manager`','`role:organization:admin`'],
+        },
+    ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -68,7 +92,7 @@ email address to the technical contacts for an Aiven project:
 1.  In Slack, [create an email address for a channel or
     DM](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WDZG8RTCTNAMR4KJ7D419V).
 
-    :::note
+    :::note[Note]
     If you don't see the email integrations option, ask the owner or
     admin of the workspace or organization to [allow incoming
     emails](https://slack.com/help/articles/360053335433-Manage-incoming-emails-for-your-workspace-or-organization).
@@ -84,3 +108,7 @@ Alternatively, you can [set up a Slackbot forwarding
 address](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WE06MBF06BBHQNZ1G0H2K5)
 and use to automatically forward Aiven's email notifications from
 your email client.
+
+<RelatedPages/>
+
+- [View and export project event logs](/docs/platform/howto/view-project-logs)
