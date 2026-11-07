@@ -36,7 +36,7 @@ If you manage your custom cloud with the
 attribute of the resource that provisioned the cloud:
 
 ```bash
-terraform show aiven_byoc_aws_provision.example_cloud
+terraform state show aiven_byoc_aws_provision.example_cloud
 ```
 
 Use `aiven_byoc_azure_provision` for Azure custom clouds. The Aiven Provider for Terraform

@@ -696,7 +696,7 @@ Your custom cloud is ready to use when its
 with Terraform, read the `state` attribute:
 
 ```bash
-terraform show aiven_byoc_azure_provision.example_cloud
+terraform state show aiven_byoc_azure_provision.example_cloud
 ```
 
 </TabItem>
