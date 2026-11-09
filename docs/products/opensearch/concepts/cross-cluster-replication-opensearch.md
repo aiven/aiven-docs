@@ -1,6 +1,5 @@
 ---
 title: OpenSearch® cross-cluster replication
-limited: true
 sidebar_label: Cross-cluster replication
 ---
 
@@ -19,6 +18,13 @@ the leader. Follower services can run in different regions and on different clou
 providers. Aiven only supports automated backups on the primary leader cluster, which
 means that follower clusters are not backed up independently.
 
+## Cross-cluster replication and disaster recovery
+
+CCR copies index data between services. It does not monitor cluster health, reroute client
+traffic, or fail over automatically. If you use CCR as part of a disaster recovery plan,
+your application owns the failover decision, the traffic switch, and the recovery
+objectives. Promoting a follower to a standalone service is a manual action.
+
 ## Benefits
 
 -   **Data locality/proximity:** Replicating data to a cluster closer to
@@ -27,14 +33,24 @@ means that follower clusters are not backed up independently.
 -   **Horizontal scalability:** Splits a query-heavy workload across
     multiple replica clusters to improve application availability.
 
+## Charges
+
+Cross-cluster replication is charged based on your usage, with no flat fee. Aiven charges
+for the replication traffic sent from the leader to the follower, for each GB transferred.
+Charges apply only while replication is running.
+
+The follower service is charged on its own service plan, in the same way as any other
+Aiven for OpenSearch service. Adding a follower does not change what you pay for the
+leader service plan.
+
 ## Limitations {#ccr-limitatons}
 
--   Cross cluster replication is not available for Free and Startup
-    plans.
--   During creation, the follower cluster service must have the same
-    service plan as the leader cluster service, or higher. This ensures
-    that the follower cluster service has at least as much memory as the
-    leader cluster. Service plans can be changed later as needed.
+-   Cross-cluster replication is not available for Free, Hobbyist, Developer, or
+    Startup plans.
+-   When you create the pairing, the follower must be large enough for the leader: a
+    single-node follower cannot follow a multi-node leader, and the follower's total
+    memory must be at least 80% of the leader's total memory. You can change the service
+    plan later.
 -   To delete the cross-cluster replication integration,
     **delete** the follower cluster service.
 -   Maintenance upgrade and major version upgrades must be performed manually
