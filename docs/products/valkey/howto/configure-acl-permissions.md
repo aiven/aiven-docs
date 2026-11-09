@@ -121,16 +121,15 @@ The following rules apply:
 
 ### Connect as a restricted user
 
-Database restrictions determine which logical databases a user can access. Users must
-also have the required command and key permissions to perform operations in those
-databases.
+Users also need the required command and key permissions to perform operations in their
+allowed databases.
 
 For example, for a user with access to databases 0 and 3:
 
 - `SELECT 3` succeeds if the user has permission to execute the `SELECT` command.
 - `SELECT 1` fails because database 1 isn't allowed.
 - `FLUSHALL` fails even if the user has permission to execute the command, because it
-  affects all databases.
+  requires access to all databases.
 - With `resetdbs`, the user can't select any database.
 
 New connections start in database 0, even if the user doesn't have access to it. If a
