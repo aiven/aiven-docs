@@ -150,8 +150,7 @@ After upgrading:
 1. Click <ConsoleLabel name="overview"/>.
 1. In the **Maintenance** section, verify the **Version**.
 1. Ensure that your replication flows are running.
-1. Monitor replication metrics to verify that replication is operating as expected. For
-   guidance, see
+1. Monitor replication metrics. For more information, see
    [Monitor replication execution](/docs/products/kafka/kafka-mirrormaker/howto/monitor-replication-execution).
 
 ## Version compatibility
