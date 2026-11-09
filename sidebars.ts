@@ -1886,6 +1886,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/opensearch/concepts/ml-commons',
                 'products/opensearch/howto/enable-ml-commons',
+                'products/opensearch/howto/conversational-search-rag',
               ],
             },
             'products/opensearch/reference/list-of-plugins-for-each-version',
