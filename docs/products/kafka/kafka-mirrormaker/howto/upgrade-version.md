@@ -12,7 +12,8 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Upgrade your Aiven for Apache Kafka® MirrorMaker 2 service to a later supported version without recreating it.
 You can go directly to any later supported version, for example from 3.9 to 4.3.
 
-Your service stays on its current version until you upgrade it.
+Your service stays on its current version until you upgrade it or Aiven upgrades it under
+its [version lifecycle policy](#version-lifecycle).
 
 ## Prerequisites
 
@@ -97,7 +98,7 @@ Send a `PUT` request to the service update endpoint:
 ```bash
 curl --request PUT \
   --url "https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME" \
-  --header "Authorization: Bearer API_TOKEN" \
+  --header "Authorization: aivenv1 API_TOKEN" \
   --header "Content-Type: application/json" \
   --data '{
     "user_config": {
