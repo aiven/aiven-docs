@@ -118,7 +118,7 @@ The following rules apply:
   `valkey_number_of_databases`. The API rejects higher IDs.
 - `alldbs` and `resetdbs` must each be the only value in the list. You can't combine
   either value with database IDs.
-- When updating a user, omit `valkey_acl_databases` or set it to `null` to keep the
+- When updating a user, omit `valkey_acl_databases` to keep the
   current database permissions. Send `[]` to remove the restriction.
 
 ### Connect as a restricted user
