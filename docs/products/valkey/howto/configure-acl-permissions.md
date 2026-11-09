@@ -12,7 +12,9 @@ ensure the reliability of replication, configuration management, and disaster re
 backups for the default user. However, you can create custom ACLs using either the
 [Aiven Console](https://console.aiven.io/) or [Aiven CLI](/docs/tools/cli).
 
-Aiven for Valkey™ 9.1 and later supports [database-level access control](#restrict-access-to-databases), allowing you to restrict service users to specific logical databases.
+Aiven for Valkey 9.1 and later supports
+[database-level access control](#restrict-access-to-databases), allowing you to restrict
+service users to specific logical databases.
 
 ## Create user and configure ACLs
 
@@ -38,7 +40,7 @@ To create a user and configure ACLs using the Aiven Console:
      like `user:123` or `product:456`, or `order:789` to grant the user access to
      interact with these specific keys in Aiven for Valkey.
    - **Databases** (Valkey 9.1 and later): Enter database IDs separated by spaces,
-     for example, `0 3`. Leave the field empty or enter `alldbs` to allow access to all
+     for example, `0 3`. Leave **Databases** empty or enter `alldbs` to allow access to all
      databases. Enter `resetdbs` to deny access to all databases.
 1. Once you have defined the ACL permissions for the user, click **Save**.
 
