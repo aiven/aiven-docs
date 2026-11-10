@@ -34,7 +34,7 @@ To create a user account for your service:
 
 1.  On the **Users** page, click **Add user**.
 
-1.  In the **Create a service user** window, enter a name for the
+1.  In the **Create a new service user** window, enter a name for the
     new user and click a role.
 
     The role that you select defines the access grants that are assigned

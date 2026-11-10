@@ -36,7 +36,7 @@ and select your Aiven for MySQL service from the **Services** page. In
 your service's page, in the <ConsoleLabel name="connect"/> section, click **Users**. In the
 **Users** view, click **Add service user**.
 
-In the **Create a service user** window, you can choose the
+In the **Add service user** window, you can choose the
 authentication method to use. By default, the web console uses the
 `caching_sha2_password` authentication mechanism. To successfully
 connect, your client libraries need to be new enough. If for any reason
@@ -53,6 +53,5 @@ Console](https://console.aiven.io/)).
 Changing the authentication method for a user resets the password.
 :::
 
-on top of the authentication method, one more input item required from
-you in the **Create a service user** window is a name for the user.
-Enter it into the **Username** field and select **Add service user**.
+In addition to the authentication method, enter a name for the user in
+**Username**, and then click **Add service user**.
