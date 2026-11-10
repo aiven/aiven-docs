@@ -23,6 +23,11 @@ BTAR is charged based on your usage, with no flat fee. Charges cover the followi
   primary region to the secondary region, for each GB. The rate depends on whether the
   two regions are on the same continent.
 
+Secondary backup storage is charged for as long as the backups are retained in the
+secondary region, including while your service is powered off. Powering off a service
+stops backup transfer charges, because the service creates no new backups, but storage
+charges continue.
+
 Restoring from a secondary backup adds no transfer charge, because the restore runs in
 the region where the backup is stored.
 
