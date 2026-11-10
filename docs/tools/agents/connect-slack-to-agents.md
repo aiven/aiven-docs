@@ -76,7 +76,7 @@ Before you start, have the bot token from your Slack app ready.
 
 1. In the [Aiven Console](https://console.aiven.io), open your project.
 1. Select <ConsoleLabel name="agents"/>, then select your agent.
-1. Select <ConsoleLabel name="integrations"/> > **Advanced integration settings**.
+1. Select <ConsoleLabel name="integrations"/> > **Manage integrations**.
 1. Under **Integrations catalog**, find **Slack** and select **Connect** to open the
    **Connect Slack** dialog.
 1. In the dialog:
@@ -98,7 +98,7 @@ granted to your Slack app.
 ## Manage the Slack integration
 
 To view or manage your Slack integration, open the agent's **Integrations** page
-and select **Advanced integration settings**.
+and select **Manage integrations**.
 
 If the integration shows **Reconnect required**, select **reconnect** and enter
 a valid Slack token to restore access.
