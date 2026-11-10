@@ -9,6 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import {mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
 import MCPConfigSection from "@site/src/components/MCPConfigSection";
 import CursorConfigTab from "@site/src/components/CursorConfigTab";
@@ -53,6 +54,9 @@ to work with your Aiven resources.
 - **Deploy applications**: Deploy applications to [Aiven Runtime](/docs/products/runtime).
 - **Search the Aiven documentation**: Ask questions about Aiven and get answers
   from the documentation.
+- **Search and update cataloged context**: Search data assets such as tables,
+  topics, and schemas, explore data lineage, and update asset descriptions and
+  tags using Aiven Context.
 
 ## Prerequisites
 
@@ -363,6 +367,14 @@ in my Aiven for Apache Kafka service SERVICE_NAME.
 Replace `SERVICE_NAME` with your Kafka service name and `TOPIC_NAME` with an
 existing topic name. Requires the `kafka` or `all` scope.
 
+#### Find data assets and lineage
+
+```text
+Search for data assets related to orders in my Aiven organization and show their lineage.
+```
+
+Requires the `context` scope and access to Aiven Context.
+
 ### Manage Aiven services
 
 #### Create a PostgreSQL service
@@ -479,7 +491,15 @@ select which groups of tools are available to your AI assistant.
 | `application`  | Applications     | Tools for deploying and redeploying applications and managing version control integrations                         |
 | `integrations` | Integrations     | Tools for managing service integrations and listing available integration and endpoint types                       |
 | `opensearch`   | OpenSearch       | Includes only the `core` tools; no OpenSearch-specific tools are currently available                               |
+| `context`      | Context <EarlyBadge/> | Tools for searching data assets, viewing lineage, and updating asset descriptions and tags                        |
 | `all`          | All              | All available tools (default)                                                                                      |
+
+:::note[Note]
+Aiven Context is in
+[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
+To use the `context` scope, your organization must have Aiven Context enabled.
+Contact your Aiven account team to request access.
+:::
 
 When configuring service scopes:
 
