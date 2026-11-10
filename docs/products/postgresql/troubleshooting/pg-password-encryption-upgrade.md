@@ -13,8 +13,12 @@ MD5 password hashing is deprecated in PostgreSQL and
 stops a stored hash from being replayed as a password.
 
 MD5 authentication keeps working on every PostgreSQL version you can run on Aiven, so
-nothing breaks today. On PostgreSQL 18, MD5 is marked as deprecated, and `CREATE ROLE`
-and `ALTER ROLE` log a `WARNING` when they set an MD5 password.
+nothing breaks today:
+
+- On PostgreSQL 18, MD5 is marked as deprecated, and `CREATE ROLE` and `ALTER ROLE` log a
+  `WARNING` when they set an MD5 password.
+- On PostgreSQL 19, successful authentication with an MD5 password logs a `WARNING` too.
+  The `md5_password_warnings` parameter controls this and is enabled by default.
 
 PostgreSQL has not announced which release removes MD5 support. Migrate while it is
 still a warning rather than waiting for it to become an error.
@@ -28,7 +32,9 @@ sets the algorithm used to hash passwords. It accepts `md5` or `scram-sha-256`.
 - New services use `scram-sha-256` by default. Services in accounts that still allow
   legacy pinned PgBouncer pools default to `md5`.
 - Changing `pg.password_encryption` applies to passwords that are set after the change.
-  Existing database users keep their current hash until their password is set again.
+  When you switch to `scram-sha-256`, Aiven also
+  [re-hashes the passwords it stores for you](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#automatic-re-hashing-of-aiven-managed-passwords)
+  on eligible services.
 - Aiven's internal system roles always use `scram-sha-256`, whatever this option is set
   to. This does not cover `avnadmin` or any other service user you connect with, so
   check and migrate those yourself.
@@ -139,11 +145,29 @@ Set the password encryption value in your service configuration:
 New passwords are hashed with `scram-sha-256` from this point on. Existing MD5 hashes
 keep working, so your current connections are not interrupted.
 
-:::important
-This step alone does not migrate anyone. Users that already have an MD5 hash keep it
-until you
-[re-hash their passwords](/docs/products/postgresql/troubleshooting/pg-password-encryption-upgrade#re-hash-existing-user-passwords).
-:::
+### Automatic re-hashing of Aiven-managed passwords
+
+When you change `pg.password_encryption` from `md5` to `scram-sha-256`, Aiven re-hashes
+the users whose password it still stores. The password itself stays the same, so your
+connection strings remain valid and you don't need to distribute new credentials.
+
+Aiven re-hashes a service automatically only when these conditions are met:
+
+- The service has fewer than five database users, counting `avnadmin`.
+- The service is powered on and is not a read-only replica.
+- The service has all maintenance updates applied. Apply any pending updates before you
+  change the option.
+
+On a service that qualifies, Aiven skips an individual user in any of these cases:
+
+- You set the password yourself with SQL, for example `ALTER ROLE`, so Aiven no longer
+  holds the current password.
+- The password contains characters outside printable ASCII.
+- The role cannot log in.
+
+After re-hashing a user, Aiven closes that user's open connections so that applications
+reconnect and authenticate with `scram-sha-256`. Any user that Aiven does not re-hash
+stays on MD5, and the configuration change still applies.
 
 ### Re-hash existing user passwords
 
