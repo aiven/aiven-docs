@@ -1,12 +1,14 @@
 ---
 title: PostgreSQL for Analytics on Aiven for PostgreSQL®
 sidebar_label: PostgreSQL for Analytics
+limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
-Run analytical SQL queries directly against an Aiven for PostgreSQL® service by adding Iceberg tables backed by object storage you own, without copying your data out to a separate warehouse.
+Run analytical SQL queries directly against an Aiven for PostgreSQL® service by adding Iceberg tables backed by object storage you own.
+Your data stays where it is, with no separate warehouse to copy it to.
 
 :::note
 PostgreSQL for Analytics is in
@@ -87,7 +89,7 @@ an even share, and when one is idle the other can use the spare capacity.
   connected. See [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
 - Aiven backups cover your PostgreSQL data but not the contents of your bucket. Back up
   and retain that data with your cloud provider's tools.
-- The Aiven Operator for Kubernetes can't create the integration that connects your
+- The Aiven Operator for Kubernetes® can't create the integration that connects your
   bucket. Use the Aiven Console, the Aiven API, the Aiven CLI, or Terraform instead. See
   [Connect your storage bucket](/docs/products/postgresql/howto/enable-pg-analytics#connect-your-storage-bucket).
 

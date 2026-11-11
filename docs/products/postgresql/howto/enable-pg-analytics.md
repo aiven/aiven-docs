@@ -1,14 +1,25 @@
 ---
 title: Enable PostgreSQL for Analytics on Aiven for PostgreSQL®
 sidebar_label: Enable PostgreSQL for Analytics
+limited: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import RelatedPages from "@site/src/components/RelatedPages";
 
 <!-- markdownlint-disable-next-line MD013 -->
 Connect your [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics) service to your storage bucket, create Iceberg tables, and query them with standard SQL.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`', '`role:project:admin`'],
+    },
+  ]}
+/>
 
 :::note
 PostgreSQL for Analytics is in
@@ -20,8 +31,6 @@ PostgreSQL for Analytics is in
 
 - PostgreSQL for Analytics enabled for your project. [Request access](https://aiven.io/contact),
   and Aiven enables it for you.
-- An [organization or project admin](/docs/platform/concepts/permissions) role in that
-  project.
 - Access to the [Aiven API](https://api.aiven.io/doc/), the [Aiven CLI](/docs/tools/cli),
   or [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
   4.64.0 or later, which you need to create the service.
