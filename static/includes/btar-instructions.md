@@ -2,7 +2,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With backup to another region (BTAR), you can add or change a secondary backup location,
+With backup to another region (BTAR), you can add or change a secondary backup region,
 check the secondary backup status, monitor the replication lag, fork and restore using the
 cross-region backup, or migrate to another cloud or region.
 
@@ -17,7 +17,7 @@ configuration.
   [Aiven Provider for Terraform](/docs/tools/terraform), or the
   [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 
-## Add a secondary backup location
+## Add a secondary backup region
 
 <Tabs groupId="btar-tools">
 <TabItem value="gui" label="Aiven Console" default>
@@ -121,9 +121,9 @@ Aiven provisions storage in the region you selected and starts replicating backu
 to it. Until the first backup finishes replicating, you cannot fork your service from the
 secondary backup.
 
-## Change a backup region
+## Change a secondary backup region
 
-Repeat [Add a secondary backup location](#add-a-secondary-backup-location) and select a
+Repeat [Add a secondary backup region](#add-a-secondary-backup-region) and select a
 different region. In the Aiven Console, the action is called **Edit secondary backup
 location** once the service already has a secondary location.
 
