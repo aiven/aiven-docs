@@ -7,7 +7,6 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import HostMetrics from "@site/static/includes/host-metrics.md";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Monitor and optimize your Aiven for OpenSearch service with metrics available via Prometheus.
 These metrics help track cluster health, replication status, and overall performance.
@@ -72,7 +71,7 @@ with `level=index` to view index-specific health status.
 For more information, see
 the [cluster health API](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/).
 
-### Cross-cluster replication (CCR) stats <LimitedBadge/>
+### Cross-cluster replication (CCR) stats
 
 - **Leader stats:** Monitor replication metrics from the leader cluster, including
   replication lag and synchronization status. For more information, see

@@ -36,7 +36,7 @@ services on the same version, and plan upgrades for both around the same time.
 
 Aiven checks the following resource requirements when you create or update a CCR pairing:
 
-- The follower can't have fewer nodes than the leader.
+- A single-node follower can't follow a multi-node leader.
 - The follower's total memory must be at least 80% of the leader's total memory.
 
 If the follower doesn't meet these requirements, the integration request fails. For
@@ -69,6 +69,15 @@ matching current and future leader index is replicated automatically. See
 
 You can't delete or power off a leader service while it still has a follower. Delete the
 follower service, or promote it to standalone, before deleting or powering off the leader.
+
+## Plan for replication charges
+
+Replication traffic is charged for each GB sent from the leader to the follower, so the
+cost follows your write volume rather than the size of the indices you replicate. Before
+you add a follower in another region, estimate the volume you expect to replicate each
+month. See
+[Charges](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch#charges)
+in the cross-cluster replication overview.
 
 ## Monitor replication status
 
