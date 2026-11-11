@@ -43,8 +43,8 @@ and the reports that strain your operational database today. Keep your applicati
 regular PostgreSQL tables and use Iceberg tables for history.
 
 They're a poor fit for rows that change constantly, for work that needs indexes or
-upserts, and for results that must be accurate to the second. Data reaches Iceberg
-tables in batches, so it's only as current as your last load.
+upserts, and for results that must be accurate to the second. If you copy data in from
+regular PostgreSQL tables, the Iceberg copy is only as current as your last load.
 
 ## How PostgreSQL for Analytics works
 
