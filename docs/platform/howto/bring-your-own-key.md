@@ -1,7 +1,7 @@
 ---
 title: Bring your own key (BYOK)
 sidebar_label: Bring your own key
-keywords: [BYOK, bring your own key, customer managed key, CMK, encryption at rest, KMS, AWS KMS, Google Cloud KMS, OCI Vault, Azure Key Vault]
+keywords: [BYOK, bring your own key, customer managed key, CMK, encryption at rest, envelope encryption, KMS, key management service, AWS KMS, Google Cloud KMS, OCI Vault, Azure Key Vault, key rotation, key revocation]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -18,7 +18,8 @@ Bring your own key (BYOK) is
 [generally available](/docs/platform/concepts/service-and-feature-releases#general-availability)
 for services running on Aiven-managed infrastructure and for services running in your own
 cloud account with [bring your own cloud (BYOC)](/docs/platform/concepts/byoc). The
-[encryption scope](#encryption-scope), [prerequisites](#prerequisites),
+[way BYOK works](#how-byok-works), [encryption scope](#encryption-scope),
+[prerequisites](#prerequisites),
 [key setup](#set-up-customer-managed-keys-on-your-cloud-provider), and key management
 operations for [projects](#manage-a-project-cmk) and
 [services](#manage-service-cmk-associations) are the same for both deployments. The
@@ -32,8 +33,8 @@ deployments differ in how you get access to BYOK and how BYOK is charged:
 ## How BYOK works
 
 Aiven encrypts all service data at rest. By default, Aiven creates and manages the
-encryption keys for you. With bring your own key (BYOK), you supply a customer managed
-key (CMK) from your own key management service (KMS) instead, and Aiven uses your CMK to
+encryption keys for you. With BYOK, you supply a customer managed key (CMK) from your own
+key management service (KMS) instead, and Aiven uses your CMK to
 encrypt the keys that protect your service data and backups.
 
 Aiven never holds a copy of your CMK. It calls your KMS to wrap and unwrap the data
