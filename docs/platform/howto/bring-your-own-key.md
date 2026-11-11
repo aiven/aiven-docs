@@ -1,7 +1,7 @@
 ---
 title: Bring your own key (BYOK)
 sidebar_label: Bring your own key
-keywords: [byok, bring your own key, cmk, customer managed key, kms, key management service, encryption at rest, envelope encryption, AWS KMS, Google Cloud KMS, Azure Key Vault, OCI Vault, key rotation, key revocation]
+keywords: [BYOK, bring your own key, customer managed key, CMK, encryption at rest, envelope encryption, KMS, key management service, AWS KMS, Google Cloud KMS, OCI Vault, Azure Key Vault, key rotation, key revocation]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,17 +12,29 @@ import RelatedPages from "@site/src/components/RelatedPages";
 
 Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
-:::note
-Bring your own key (BYOK) is a [BYOC](/docs/platform/concepts/byoc) enterprise feature,
-available for newly created BYOC services only. [Contact Aiven](https://aiven.io/contact)
-to request access.
-:::
+## Availability
+
+Bring your own key (BYOK) is
+[generally available](/docs/platform/concepts/service-and-feature-releases#general-availability)
+for services running on Aiven-managed infrastructure and for services running in your own
+cloud account with [bring your own cloud (BYOC)](/docs/platform/concepts/byoc). The
+[way BYOK works](#how-byok-works), [encryption scope](#encryption-scope),
+[prerequisites](#prerequisites),
+[key setup](#set-up-customer-managed-keys-on-your-cloud-provider), and key management
+operations for [projects](#manage-a-project-cmk) and
+[services](#manage-service-cmk-associations) are the same for both deployments. The
+deployments differ in how you get access to BYOK and how BYOK is charged:
+
+| Deployment | Access to BYOK | Pricing |
+| ---------- | -------------- | ------- |
+| Aiven-managed infrastructure | Available for all projects. Register a CMK and associate it with your services at any time. | Currently available at no additional cost |
+| [Custom cloud (BYOC)](/docs/platform/concepts/byoc) | Enterprise feature. [Enable BYOC](/docs/platform/howto/byoc/enable-byoc) for your organization, and then [contact Aiven](https://aiven.io/contact) to request access to BYOK. | Part of your BYOC agreement |
 
 ## How BYOK works
 
 Aiven encrypts all service data at rest. By default, Aiven creates and manages the
-encryption keys for you. With bring your own key (BYOK), you supply a customer managed
-key (CMK) from your own key management service (KMS) instead, and Aiven uses your CMK to
+encryption keys for you. With BYOK, you supply a customer managed key (CMK) from your own
+key management service (KMS) instead, and Aiven uses your CMK to
 encrypt the keys that protect your service data and backups.
 
 Aiven never holds a copy of your CMK. It calls your KMS to wrap and unwrap the data
@@ -2011,9 +2023,7 @@ keys, wait until the associations are removed, then delete the key. See
 
 <RelatedPages/>
 
-- [Bring your own cloud (BYOC)](/docs/platform/concepts/byoc): BYOK is an enterprise
-  feature that requires BYOC.
-- [Create an authentication token](/docs/platform/howto/create_authentication_token)
-- [Aiven Provider for Terraform](/docs/tools/terraform): Manage CMKs as infrastructure
-  as code using the `aiven_cmk` resource.
-- [Aiven CLI](/docs/tools/cli): Manage CMKs from the command line.
+- [Cloud security](/docs/platform/concepts/cloud-security)
+- [Bring your own cloud (BYOC)](/docs/platform/concepts/byoc)
+- [Enable bring your own cloud](/docs/platform/howto/byoc/enable-byoc)
+- [Service and feature releases](/docs/platform/concepts/service-and-feature-releases)

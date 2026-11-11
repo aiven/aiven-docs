@@ -315,13 +315,13 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         <div className="param"><p className="name"><Link id="dashboard_previews_enabled"/><Link to="#dashboard_previews_enabled"><strong>dashboard_previews_enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
-        <div className="description"><p>Enable browsing of dashboards in grid (pictures) mode. This feature is new in Grafana 9 and is quite resource intensive. It may cause low-end plans to work more slowly while the dashboard previews are rendering.</p></div>
+        <p className="title">(DEPRECATED) Enable dashboard previews</p><div className="description"><p>DEPRECATED: dashboard previews were removed from Grafana upstream, so this setting no longer enables browsing of dashboards in grid (pictures) mode. On Grafana 11 and 12 it only enables the bundled image renderer plugin, which is not shipped with Grafana 13 and onward.</p></div>
       </td>
     </tr>
     <tr>
       <td>
         <div className="param"><p className="name"><Link id="dashboard_scenes_enabled"/><Link to="#dashboard_scenes_enabled"><strong>dashboard_scenes_enabled</strong></Link></p><p><code className="type">boolean</code></p></div>
-        <p className="title">Enable scenes renderer for dashboards</p><div className="description"><p>Enable use of the Grafana Scenes Library as the dashboard engine. i.e. the `dashboardScene` feature flag. Upstream blog post at https://grafana.com/blog/2024/10/31/grafana-dashboards-are-now-powered-by-scenes-big-changes-same-ui/</p></div>
+        <p className="title">(DEPRECATED) Enable scenes renderer for dashboards</p><div className="description"><p>DEPRECATED: setting has no effect with Grafana 11 and onward. Grafana renders dashboards with the Scenes Library by default.</p></div>
       </td>
     </tr>
     <tr>

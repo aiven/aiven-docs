@@ -1,10 +1,10 @@
 ---
-title: Permissions for AI Gateway
+title: Permissions for AI gateway
 sidebar_label: Permissions
 early: true
 ---
 
-The following roles and permissions are required for specific AI Gateway features.
+The following roles and permissions are required for specific AI gateway features.
 
 [View all roles and permissions](/docs/platform/concepts/permissions)
 for Aiven organizations and projects.

@@ -4,7 +4,7 @@ sidebar_label: Overview
 early: true
 ---
 
-AI Gateway lets you access multiple AI models through one endpoint.
+AI gateway lets you access multiple AI models through one endpoint.
 
 ## Key features
 
@@ -12,13 +12,13 @@ AI Gateway lets you access multiple AI models through one endpoint.
 
 - **Access keys**: Manage API keys to control access and track usage.
 
-- **Metrics**: Monitor AI Gateway usage and spend with detailed metrics on which models are used and estimated costs.
+- **Metrics**: Monitor AI gateway usage and spend with detailed metrics on which models are used and estimated costs.
 
 ## Get started
 
-1. In the Aiven Console, go to your project and click **AI Gateway**.
+1. In the Aiven Console, go to your project and click **AI gateway**.
 1. Click **Request access**.
 
 After you get access,
 [create an API key](/docs/products/ai-gateway/api-keys)
-to start using AI Gateway models.
+to start using AI gateway models.

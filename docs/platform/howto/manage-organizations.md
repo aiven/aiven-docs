@@ -5,6 +5,7 @@ title: Manage organizations
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import TrialCredits from "@site/static/includes/trial-credits-block-deletion.md";
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Learn how to manage your organizations via the Aiven Console.
 
@@ -60,3 +61,7 @@ Learn how to manage your organizations via the Aiven Console.
 
 1.  Go to <ConsoleLabel name="userinformation"/> > <ConsoleLabel name="Organizations"/>.
 1.  Find the organization and click **Leave**.
+
+<RelatedPages/>
+
+- [View and export organization event logs](/docs/platform/howto/organization-event-logs)

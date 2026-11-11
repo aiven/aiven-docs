@@ -216,7 +216,7 @@ const config: Config = {
       {
         siteTitle: 'Aiven docs',
         siteDescription:
-          'Official technical documentation for Aiven, the AI-ready Open Source Data Platform. Guides cover conceptual and procedural information on managed data services, Runtime applications, Managed Agents, AI Gateway, and more.',
+          'Official technical documentation for Aiven, the AI-ready Open Source Data Platform. Guides cover conceptual and procedural information on managed data services, Runtime applications, Managed Agents, AI gateway, and more.',
         depth: 3,
         content: {
           enableLlmsFullTxt: true,

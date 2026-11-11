@@ -22,13 +22,13 @@ and total spent.
 
 Aggregated metrics are available for all usage on the AI gateway overview page:
 
-1. In your project click **AI Gateway**.
+1. In your project click **AI gateway**.
 1. Click **Overview**.
 1. Optional: Choose a time range for the metrics.
 
 ## View metrics for keys
 
-1. In your project click **AI Gateway**.
+1. In your project click **AI gateway**.
 1. Click **API keys**.
 1. To view metrics for a key, click the name of the key.
 1. Optional: Choose a time range for the metrics.

@@ -276,6 +276,38 @@ These metrics apply only to services running in ZooKeeper mode.
 | `kafka.session.zookeeper.readonly.rate` | Rate of ZooKeeper read-only connections |
 | `kafka.session.zookeeper.sync.rate` | Rate of ZooKeeper sync connections |
 
+### Broker version information
+
+The `kafka.server.app_info.start_time_ms` metric reports when each Apache Kafka broker
+started, in milliseconds since the Unix epoch. Its tags identify the version and build
+running on each broker.
+
+Use this metric to:
+
+- Show the Apache Kafka version of each broker on a dashboard.
+- Alert when a broker isn't running the expected version.
+- Identify the version running on each broker during a rolling upgrade.
+- Detect broker restarts by monitoring changes in the metric value.
+
+If the metric isn't available, apply the pending
+[maintenance update](/docs/products/kafka/howto/maintenance-updates) for your service.
+
+Use the `kafka_version` tag to identify the upstream Apache Kafka version.
+
+The metric has the following tags:
+
+| Tag               | Description                                                                                              |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+| `kafka_version`   | Upstream Apache Kafka version, for example `4.2.2` on Apache Kafka 4.x or `3.9.1` on Apache Kafka 3.x.   |
+| `inkless_version` | Version reported by the broker, for example `4.2.2-inkless`. Available on Apache Kafka 4.x only.         |
+| `inkless_tag`     | Git tag of the Inkless build, for example `inkless-4.2.2-0.50`. Available on Apache Kafka 4.x only.      |
+| `kafka_commit_id` | Git commit hash of the build running on the broker.                                                      |
+
+The `id` tag identifies the broker.
+
+To identify the version running on each broker, view the metric in Datadog and group it
+by `id` and `kafka_version`.
+
 ### Tiered storage metrics
 
 For services with [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage)

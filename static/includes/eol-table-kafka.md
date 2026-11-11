@@ -1,6 +1,10 @@
 Aiven for Apache Kafka versions reach EOL one year after they become available on the
 Aiven Platform.
 
+Aiven for Apache Kafka® MirrorMaker 2 versions have the same dates as the matching
+Aiven for Apache Kafka versions. For more information, see
+[Upgrade the MirrorMaker 2 version](/docs/products/kafka/kafka-mirrormaker/howto/upgrade-version).
+
 | Version | Aiven EOL  | Service creation supported until | Service creation supported from |
 | ------- | ---------- | -------------------------------- | ------------------------------- |
 | 3.8.x   | 2026-09-30 | 2026-06-30                       | 2024-09-06                      |
