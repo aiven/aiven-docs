@@ -95,7 +95,7 @@ fetch requests, share acknowledgment requests, request failures, and record
 acknowledgments.
 
 For the available metrics, see
-[Aiven for Apache Kafka metrics available via Prometheus](/docs/products/kafka/reference/kafka-metrics-prometheus).
+[Aiven for Apache Kafka metrics available via Prometheus](/docs/products/kafka/reference/kafka-metrics-prometheus#share-group-metrics).
 
 <RelatedPages/>
 
