@@ -22,19 +22,17 @@ PostgreSQL for Analytics is in
   and Aiven enables it for you.
 - An [organization or project admin](/docs/platform/concepts/permissions) role in that
   project.
-- Access to the [Aiven API](https://api.aiven.io/doc/) or the
-  [Aiven CLI](/docs/tools/cli), which you need to create the service.
+- Access to the [Aiven API](https://api.aiven.io/doc/), the [Aiven CLI](/docs/tools/cli),
+  or [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+  4.64.0 or later, which you need to create the service.
 - A storage bucket that you own, in the same region as your service, and an access key
   with permission to read from and write to it.
-- Optionally, to connect the bucket with Terraform,
-  [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-  4.64.0 or later.
 
 ## Create your service
 
-You create a PostgreSQL for Analytics service with the API or the CLI. Choose a plan with
-room for both engines: PostgreSQL runs with the memory settings of a half-size plan, and
-the analytical query engine caches data on the service's disk.
+Create a PostgreSQL for Analytics service with the API, the CLI, or Terraform. Choose a
+plan with room for both engines: PostgreSQL runs with the memory settings of a half-size
+plan, and the analytical query engine caches data on the service's disk.
 
 <Tabs groupId="group2">
 <TabItem value="cli" label="CLI" default>
@@ -69,6 +67,23 @@ curl --request POST                                                  \
       "variant": "pg_lake"
     }
   }'
+```
+
+</TabItem>
+<TabItem value="tf" label="Terraform">
+
+```hcl
+resource "aiven_pg" "analytics" {
+  project      = "PROJECT_NAME"
+  service_name = "SERVICE_NAME"
+  plan         = "PLAN"
+  cloud_name   = "CLOUD_REGION"
+
+  pg_user_config {
+    pg_version = "17"
+    variant    = "pg_lake"
+  }
+}
 ```
 
 </TabItem>
@@ -190,19 +205,19 @@ Requires
 
 ```hcl
 resource "aiven_service_integration_endpoint" "analytics_storage" {
-  project       = var.project_name
+  project       = "PROJECT_NAME"
   endpoint_name = "analytics-storage"
   endpoint_type = "external_aws_s3"
 
   external_aws_s3_user_config {
     url               = "https://BUCKET_NAME.s3.REGION.amazonaws.com"
-    access_key_id     = var.aws_access_key_id
-    secret_access_key = var.aws_secret_access_key
+    access_key_id     = var.access_key_id
+    secret_access_key = var.secret_access_key
   }
 }
 
 resource "aiven_service_integration" "analytics_credentials" {
-  project                 = var.project_name
+  project                 = "PROJECT_NAME"
   integration_type        = "pg_for_analytics_credentials"
   source_service_name     = aiven_pg.analytics.service_name
   destination_endpoint_id = aiven_service_integration_endpoint.analytics_storage.id

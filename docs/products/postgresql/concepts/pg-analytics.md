@@ -65,7 +65,7 @@ an even share, and when one is idle the other can use the spare capacity.
   existing Aiven for PostgreSQL service.
 - You can
   [create a PostgreSQL for Analytics service](/docs/products/postgresql/howto/enable-pg-analytics#create-your-service)
-  using the Aiven API or the Aiven CLI, not in the Aiven Console.
+  using the Aiven API, the Aiven CLI, or Terraform, not in the Aiven Console.
 - PostgreSQL shares the service with the analytical query engine, so it's configured as
   if it had half your plan, including a lower connection limit. The smallest plans don't
   leave either engine enough memory to work with.
