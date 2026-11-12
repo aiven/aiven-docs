@@ -186,6 +186,22 @@ To list the service users on your service, run
 users are listed in [Aiven Console](https://console.aiven.io), where you
 [add a service user](#add-a-service-user).
 
+To view another user's privileges, run `SHOW GRANTS FOR 'USERNAME'@'%';`. This requires
+`SELECT` on the service's system databases, which a service user has when its
+`mysql_grants` include `SELECT`. Connect as `avnadmin`, or as a user that has `SELECT`,
+to read another user's privileges.
+
+## Use SQL GRANT statements
+
+Aiven sets a service user's privileges when it creates the user, and leaves them unchanged
+after that. To refine privileges further, connect as `avnadmin` with a SQL client and use
+MySQL's [GRANT](https://dev.mysql.com/doc/refman/8.4/en/grant.html) and
+[REVOKE](https://dev.mysql.com/doc/refman/8.4/en/revoke.html) statements.
+
+Privileges you set this way exist only in MySQL. They are not part of the user's
+`mysql_grants` value, so keep a record of them alongside the rest of your service
+configuration, and reapply them if you replace the user.
+
 ## Example: separate application and migration users
 
 A common setup is one user for everyday application traffic and a second, broader user
@@ -218,7 +234,31 @@ curl --request POST                                                            \
   }'
 ```
 
+In Terraform, declare the two users as separate resources:
+
+```hcl
+resource "aiven_mysql_user" "app_user" {
+  project      = "PROJECT_NAME"
+  service_name = "SERVICE_NAME"
+  username     = "app_user"
+  mysql_grants = ["SELECT", "INSERT", "UPDATE", "DELETE"]
+}
+
+resource "aiven_mysql_user" "migration_user" {
+  project      = "PROJECT_NAME"
+  service_name = "SERVICE_NAME"
+  username     = "migration_user"
+  mysql_grants = [
+    "SELECT", "INSERT", "UPDATE", "DELETE", "CREATE", "ALTER", "INDEX", "DROP",
+    "CREATE TEMPORARY TABLES", "LOCK TABLES",
+  ]
+}
+```
+
 Delete the migration user once the migration is complete.
+
+The Aiven CLI creates service users with the default privileges. To set `mysql_grants`,
+use the Aiven API or Terraform.
 
 <RelatedPages/>
 
