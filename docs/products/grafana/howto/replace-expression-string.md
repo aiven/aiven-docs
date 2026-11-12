@@ -10,6 +10,10 @@ Do it with the `aiven-string-replacer-for-grafana` tool available on
 The approach described will work with your own Grafana cluster or with
 an Aiven for Grafana cluster.
 
+:::note
+The tool is tested with Grafana 11 and 12. It is not tested with Grafana 13.
+:::
+
 ## Prerequisites
 
 Building the tool requires a Go environment. Follow the [Go installation
@@ -27,31 +31,27 @@ go install github.com/aiven/aiven-string-replacer-for-grafana
 
 |        Variable         |                  Description                  |
 |-------------------------|-----------------------------------------------|
-| `GRAFANA_API_KEY`       | The API key for accessing Grafana             |
+| `GRAFANA_TOKEN`         | The service account token for Grafana         |
 | `GRAFANA_DASHBOARD_URL` | The URL for the Grafana dashboard             |
 | `GRAFANA_DASHBOARD_UID` | The UID that identifies the Grafana dashboard |
 | `OLD_STRING`            | The old string to replace                     |
 | `NEW_STRING`            | The new string to use instead                 |
 
-### Get the Grafana API key
+### Get a Grafana service account token
 
-The key needs the Grafana API key to be able to edit the Grafana
-dashboards.
+The tool needs a Grafana service account token with permissions to edit
+dashboards. Grafana API keys are deprecated and replaced by service account tokens.
 
-To get your API key (`GRAFANA_API_KEY`):
+To get your token (`GRAFANA_TOKEN`):
 
--   Go to your Grafana UI. Select the **Configuration** icon and
-    select the **API keys** tab
-
--   If you already have an appropriate API key available, save a copy of
-    it.
-
--   Otherwise, select **Add API key** and fill in the *Key name*, *Role*
-    and *Time to live*. Click **Add** and save the new API key.
-
-    :::tip
-    *Role* must be either *Editor* or *Admin*.
-    :::
+1. In the Grafana UI, go to **Administration** > **Users and access** >
+   **Service accounts**.
+1. If you already have a service account with the **Editor** or **Admin** role, open it.
+   Otherwise, click **Add service account**, enter a name, set the role to **Editor**,
+   and click **Create**.
+1. In the service account page, click **Add service account token**.
+1. Optional: Enter a token name and set an expiration date.
+1. Click **Generate token**, and save the token. Grafana shows it only once.
 
 ### To get the Grafana dashboard URL and UID
 
@@ -72,7 +72,7 @@ the placeholder variable names to the values you collected above:
 
 ```bash
 aiven-string-replacer-for-grafana \
-    -apikey GRAFANA_API_KEY \
+    -apikey GRAFANA_TOKEN \
     -url GRAFANA_DASHBOARD_URL \
     -from OLD_STRING \
     -to NEW_STRING \
@@ -86,7 +86,7 @@ that start with `elasticsearch_` to instead start with `opensearch_`:
 
 ```bash
 aiven-string-replacer-for-grafana \
-    -apikey GRAFANA_API_KEY \
+    -apikey GRAFANA_TOKEN \
     -url YOUR_DASHBOARD_URL \
     -from elasticsearch_ \
     -to opensearch_ \

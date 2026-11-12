@@ -1547,7 +1547,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Manage dashboards',
           items: [
-            'products/grafana/howto/dashboard-previews',
             'products/grafana/howto/replace-expression-string',
           ],
         },
