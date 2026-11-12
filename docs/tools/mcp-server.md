@@ -9,6 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 import {mcpUrl} from '@site/src/components/mcpAivenLiveConstants';
 import MCPConfigSection from "@site/src/components/MCPConfigSection";
 import CursorConfigTab from "@site/src/components/CursorConfigTab";
@@ -53,6 +54,9 @@ to work with your Aiven resources.
 - **Deploy applications**: Deploy applications to [Aiven Runtime](/docs/products/runtime).
 - **Search the Aiven documentation**: Ask questions about Aiven and get answers
   from the documentation.
+- **Search and update cataloged context**: Search data assets such as tables,
+  topics, and schemas, explore data lineage, and update asset descriptions and
+  tags using Aiven Context.
 
 ## Prerequisites
 
@@ -363,6 +367,14 @@ in my Aiven for Apache Kafka service SERVICE_NAME.
 Replace `SERVICE_NAME` with your Kafka service name and `TOPIC_NAME` with an
 existing topic name. Requires the `kafka` or `all` scope.
 
+#### Find data assets and lineage
+
+```text
+Search for data assets related to orders in my Aiven organization and show their lineage.
+```
+
+Requires the `context` or `all` scope and access to Aiven Context.
+
 ### Manage Aiven services
 
 #### Create a PostgreSQL service
@@ -415,8 +427,9 @@ Read-only mode restricts MCP tools to viewing services and other resources. You
 cannot create, modify, or delete resources. Read-only mode applies at the
 organization level and the client level.
 
-PostgreSQL read queries still work in read-only mode. To allow selected write
-operations at the client level, see
+PostgreSQL read queries and the Aiven Context search and lineage tools still
+work in read-only mode. To allow selected write operations at the client level,
+see
 [Allow specific write operations](#restrict-write-operations).
 
 ### Organization level
@@ -471,15 +484,23 @@ perform only the actions that your authenticated user is authorized to perform.
 Use the **Services** options in [Install Aiven MCP](#configure-aiven-mcp) to
 select which groups of tools are available to your AI assistant.
 
-| Scope          | Selector option  | Description                                                                                                        |
-| -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `core`         | Always included  | Tools for managing Aiven projects, services, plans, metrics, and logs                                              |
-| `pg`           | PostgreSQL       | Tools for querying PostgreSQL databases, analyzing query performance, and managing extensions and connection pools |
-| `kafka`        | Kafka            | Tools for managing Apache Kafka topics, messages, connectors, and schemas                                          |
-| `application`  | Applications     | Tools for deploying and redeploying applications and managing version control integrations                         |
-| `integrations` | Integrations     | Tools for managing service integrations and listing available integration and endpoint types                       |
-| `opensearch`   | OpenSearch       | Includes only the `core` tools; no OpenSearch-specific tools are currently available                               |
-| `all`          | All              | All available tools (default)                                                                                      |
+| Scope          | Selector option       | Description                                                                                                        |
+| -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `core`         | Always included       | Tools for managing Aiven projects, services, plans, metrics, and logs                                              |
+| `pg`           | PostgreSQL            | Tools for querying PostgreSQL databases, analyzing query performance, and managing extensions and connection pools |
+| `kafka`        | Kafka                 | Tools for managing Apache Kafka topics, messages, connectors, and schemas                                          |
+| `application`  | Applications          | Tools for deploying and redeploying applications and managing version control integrations                         |
+| `integrations` | Integrations          | Tools for managing service integrations and listing available integration and endpoint types                       |
+| `opensearch`   | OpenSearch            | Includes only the `core` tools; no OpenSearch-specific tools are currently available                               |
+| `context`      | Context <EarlyBadge/> | Tools for searching data assets, viewing lineage, and updating asset descriptions and tags                         |
+| `all`          | All                   | All available tools (default)                                                                                      |
+
+:::note[Note]
+Aiven Context is in
+[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
+To use the `context` scope, your organization must have Aiven Context enabled.
+Contact your Aiven account team to request access.
+:::
 
 When configuring service scopes:
 
