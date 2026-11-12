@@ -15,6 +15,17 @@ To migrate your database using the Aiven Console, see
 [Migrate MySQL® databases to Aiven via console](/docs/products/mysql/howto/migrate-db-to-aiven-via-console).
 :::
 
+## Supported migration sources
+
+The migration source must run MySQL 5.7 or later. The migration pre-check reads the
+source server version and stops the migration before any data is transferred if the
+version is lower.
+
+MariaDB is a separate database engine rather than a MySQL version, and it is not a
+supported migration source. To move data from MariaDB,
+[contact Aiven support](mailto:support@aiven.io) to confirm the options for your version
+and dataset.
+
 ## How it works
 
 The Aiven for MySQL migration process begins with an **initial data transfer** and can be
