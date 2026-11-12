@@ -3,8 +3,7 @@ title: Connect to Aiven for ClickHouse® with Python
 sidebar_label: Python
 ---
 
-To connect to your Aiven for ClickHouse® service with Python, you can
-use either the native protocol or the HTTPS protocol.
+To connect to your Aiven for ClickHouse® service with Python, you can use either the native protocol or the HTTPS protocol.
 
 ## Connect with the native protocol
 

@@ -6,6 +6,8 @@ sidebar_label: Overview
 import DocCardList from '@theme/DocCardList';
 import RelatedPages from "@site/src/components/RelatedPages";
 
+Manage Aiven services across their lifecycle: service memory limits, backups, maintenance windows, and creating and configuring a service.
+
 ## Overview
 
 Aiven manages a number of [services](/docs/products/services). These services share

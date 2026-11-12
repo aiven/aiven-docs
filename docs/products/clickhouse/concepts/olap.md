@@ -2,9 +2,7 @@
 title: Online analytical processing
 ---
 
-Online analytical processing (OLAP) is an approach to producing
-real-time reports and insights, usually based on large amounts of source
-data.
+Online analytical processing (OLAP) is an approach to producing real-time reports and insights, usually based on large amounts of source data.
 
 A major function of OLAP tools is to provide data-based intelligence to
 inform and support business decisions. The target data usually includes

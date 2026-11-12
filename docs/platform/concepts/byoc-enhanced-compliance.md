@@ -8,10 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Enhanced compliance clouds are
-[bring your own cloud (BYOC)](/docs/platform/concepts/byoc) custom clouds that you create
-in your own AWS or Google Cloud account to run Aiven services under specific compliance
-requirements.
+Enhanced compliance clouds are [bring your own cloud (BYOC)](/docs/platform/concepts/byoc) custom clouds that you create in your own AWS or Google Cloud account to run Aiven services under specific compliance requirements.
 
 :::important
 To enable this feature, contact your account team. After the
