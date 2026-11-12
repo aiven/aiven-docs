@@ -31,17 +31,21 @@ PostgreSQL for Analytics is in
 
 - PostgreSQL for Analytics enabled for your project. [Request access](https://aiven.io/contact),
   and Aiven enables it for you.
-- Access to the [Aiven API](https://api.aiven.io/doc/), the [Aiven CLI](/docs/tools/cli),
-  or [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-  4.64.0 or later, which you need to create the service.
+- Access to the [Aiven API](https://api.aiven.io/doc/) or the
+  [Aiven CLI](/docs/tools/cli), which you need to create the service.
+- Optionally, to connect the bucket with Terraform,
+  [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
+  4.64.0 or later.
 - A storage bucket that you own, in the same region as your service, and an access key
   with permission to read from and write to it.
 
 ## Create your service
 
-Create a PostgreSQL for Analytics service with the API, the CLI, or Terraform. Choose a
-plan with room for both engines: PostgreSQL runs with the memory settings of a half-size
-plan, and the analytical query engine caches data on the service's disk.
+Create a PostgreSQL for Analytics service with the API or the CLI. Choose a plan with
+room for both engines: PostgreSQL runs with the memory settings of a half-size plan, and
+the analytical query engine needs memory and disk of its own.
+
+Set both `variant` and `service_architecture` on every service you create.
 
 <Tabs groupId="group2">
 <TabItem value="cli" label="CLI" default>
@@ -52,14 +56,15 @@ avn service create SERVICE_NAME --project PROJECT_NAME \
   --plan PLAN                                          \
   --cloud CLOUD_REGION                                 \
   -c pg_version=17                                     \
-  -c variant=pg_lake
+  -c variant=pg_lake                                   \
+  -c service_architecture=granite
 ```
 
 </TabItem>
 <TabItem value="api" label="API">
 
 Use the [ServiceCreate](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate)
-endpoint with `variant` set to `pg_lake`:
+endpoint:
 
 ```bash
 curl --request POST                                                  \
@@ -73,26 +78,10 @@ curl --request POST                                                  \
     "cloud": "CLOUD_REGION",
     "user_config": {
       "pg_version": "17",
-      "variant": "pg_lake"
+      "variant": "pg_lake",
+      "service_architecture": "granite"
     }
   }'
-```
-
-</TabItem>
-<TabItem value="tf" label="Terraform">
-
-```hcl
-resource "aiven_pg" "analytics" {
-  project      = "PROJECT_NAME"
-  service_name = "SERVICE_NAME"
-  plan         = "PLAN"
-  cloud_name   = "CLOUD_REGION"
-
-  pg_user_config {
-    pg_version = "17"
-    variant    = "pg_lake"
-  }
-}
 ```
 
 </TabItem>
@@ -210,7 +199,8 @@ credentials, service name, and endpoint ID.
 
 Requires
 [Aiven Provider for Terraform](https://registry.terraform.io/providers/aiven/aiven/latest/docs)
-4.64.0 or later.
+4.64.0 or later. Terraform connects the bucket to a service you created with the API or
+the CLI, so reference that service by name.
 
 ```hcl
 resource "aiven_service_integration_endpoint" "analytics_storage" {
@@ -228,7 +218,7 @@ resource "aiven_service_integration_endpoint" "analytics_storage" {
 resource "aiven_service_integration" "analytics_credentials" {
   project                 = "PROJECT_NAME"
   integration_type        = "pg_for_analytics_credentials"
-  source_service_name     = aiven_pg.analytics.service_name
+  source_service_name     = "SERVICE_NAME"
   destination_endpoint_id = aiven_service_integration_endpoint.analytics_storage.id
 }
 ```
@@ -240,12 +230,9 @@ If you later rotate the access key on the endpoint, your service picks up the ne
 credentials without any further action.
 
 :::important
-Use a bucket dedicated to this one service. Aiven doesn't prevent you from pointing
-two services at the same bucket, or from using a bucket that already holds other
-data, and neither is supported.
-
-Don't remove or replace this integration once you have Iceberg tables. Queries expect
-those tables in the bucket the integration points to, so they fail if it changes.
+Use a bucket dedicated to this one service, and keep the integration in place once you
+have Iceberg tables. Queries expect those tables in the bucket the integration points to,
+so they fail if it changes.
 :::
 
 :::note
@@ -308,10 +295,8 @@ CREATE TABLE orders_analytics (
 
 :::important
 Set `location` on every Iceberg table, and keep it inside the bucket and path of the
-endpoint you connected. Aiven scopes the storage credentials to that path, so
-a table outside it fails with an access error. You can't set a default prefix instead:
-`pg_lake_iceberg.default_location_prefix` is superuser-only, and Aiven doesn't grant
-superuser access.
+endpoint you connected. Aiven scopes the storage credentials to that path, so a table
+outside it fails with an access error.
 :::
 
 :::important[Always declare precision and scale on numeric columns]
@@ -364,9 +349,8 @@ Load in batches rather than row by row. Each write creates files in your bucket,
 many small writes leave many small files and slow your queries down.
 
 To load new data on a schedule, run your `INSERT ... SELECT` from
-[pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension). PostgreSQL for Analytics
-has no built-in scheduling or change data capture for Iceberg tables, so define what
-counts as new for your data, such as a timestamp or an ID watermark, and select on that.
+[pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension). Define what counts as new
+for your data, such as a timestamp or an ID watermark, and select on that.
 
 ## Query Iceberg tables
 
