@@ -23,9 +23,10 @@ its [version lifecycle policy](#version-lifecycle).
 - Optional: A non-production MirrorMaker 2 service to test the upgrade on before you
   upgrade a production service
 
-:::warning[Warning]
-You can't downgrade to an earlier version after you upgrade. To use an earlier version,
-create a new MirrorMaker 2 service and configure its replication flows.
+:::warning[You can't downgrade]
+You can't downgrade a service to a previous version after you upgrade it. To use a
+previous version, create a new MirrorMaker 2 service and configure its replication
+flows again.
 :::
 
 ## Check the current version
@@ -93,7 +94,11 @@ The `kafka_mirrormaker_version` parameter specifies the version to use.
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-Send a `PUT` request to the service update endpoint:
+To list the available versions and the default version, send a `GET` request to the
+`/v1/project/PROJECT_NAME/service_types` endpoint and check the `kafka_mirrormaker`
+entry in the response.
+
+To upgrade the service, send a `PUT` request to the service update endpoint:
 
 ```bash
 curl --request PUT \
@@ -113,6 +118,31 @@ Replace the following:
 - `SERVICE_NAME`: The name of your MirrorMaker 2 service.
 - `API_TOKEN`: Your Aiven API token.
 - `TARGET_VERSION`: A later supported version.
+
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+To upgrade the service, set `kafka_mirrormaker_version` to a later supported version.
+Add it to the `kafka_mirrormaker_user_config` block of your
+[`aiven_kafka_mirrormaker`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/kafka_mirrormaker)
+resource.
+
+You need [Aiven Terraform Provider](/docs/tools/terraform) version 4.66.0 or later.
+
+For example, to upgrade to version 4.3:
+
+```hcl
+resource "aiven_kafka_mirrormaker" "example" {
+  # Existing configuration
+
+  kafka_mirrormaker_user_config {
+    kafka_mirrormaker_version = "4.3"
+  }
+}
+```
+
+Run `terraform plan` to review the change, then `terraform apply` to upgrade the
+service.
 
 </TabItem>
 </Tabs>
