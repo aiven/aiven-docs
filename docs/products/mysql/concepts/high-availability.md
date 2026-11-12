@@ -3,14 +3,17 @@ title: High availability of Aiven for MySQL®
 sidebar_label: High availability
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Aiven for MySQL® is available on a variety of plans, offering different levels of service availability. The selected plan defines the features available.
 
-| Plan         | Service availability features                                              | Backup history |
-| ------------ | -------------------------------------------------------------------------- | -------------- |
-| **Hobbyist** | Single node (limited availability)                                         | 2 days         |
-| **Startup**  | Single node (limited availability)                                         | 2 days         |
-| **Business** | 1 primary node and 1 standby node (higher availability)                    | 14 days        |
-| **Premium**  | 1 primary node and 2 standby nodes (top high availability characteristics) | 30 days        |
+| Plan          | Service availability features                                              | Backup history |
+| ------------- | -------------------------------------------------------------------------- | -------------- |
+| **Developer** | Single node (limited availability)                                         | 2 days         |
+| **Hobbyist**  | Single node (limited availability)                                         | 2 days         |
+| **Startup**   | Single node (limited availability)                                         | 2 days         |
+| **Business**  | 1 primary node and 1 standby node (higher availability)                    | 14 days        |
+| **Premium**   | 1 primary node and 2 standby nodes (top high availability characteristics) | 30 days        |
 
 ## Primary and standby nodes
 
@@ -93,9 +96,9 @@ determines which of the standby nodes is the furthest along in replication
 For backups and restoration, Aiven uses [MyHoard](https://aiven.io/blog/introducing-myhoard-your-single-solution-to-mysql-backups-and-restoration).
 :::
 
-## Single-node Hobbyist and Startup service plans
+## Single-node Developer, Hobbyist, and Startup service plans
 
-Hobbyist and Startup plans provide a single node. When it's lost, Aiven
+Developer, Hobbyist, and Startup plans provide a single node. When it's lost, Aiven
 immediately starts the automatic process of creating a new replacement
 node. The new node starts up, restores its state from the latest
 available backup, and resumes serving clients.
@@ -104,3 +107,10 @@ Since there is just a single node providing the service, the service is
 unavailable for the duration of the restoration. In addition, any write
 operations made since the backup of the latest binary log file are lost.
 Typically, this time window is limited to either five minutes or one binary log file.
+
+<RelatedPages/>
+
+- [Understand Aiven for MySQL® backups](/docs/products/mysql/concepts/mysql-backups)
+- [Use incremental backups](/docs/products/mysql/howto/use-incremental-backups)
+- [Back up to another region](/docs/products/mysql/howto/backup-to-another-region)
+- [Change your service plan](/docs/products/mysql/howto/change-service-plan)
