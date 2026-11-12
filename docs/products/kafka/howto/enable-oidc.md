@@ -83,8 +83,8 @@ Configure OAuth 2.0/OIDC authentication using one of the following methods.
    This enables the `OAUTHBEARER` mechanism. `PLAIN`, `SCRAM-SHA-256`, and
    `SCRAM-SHA-512` remain enabled by default.
 
-1. Optional: Configure other OIDC parameters, such as expected issuer,
-   expected audience, and subject claim. See
+1. Configure other OIDC parameters, such as expected issuer,
+   expected audience, and optional subject claim. See
    [OIDC parameters](#oidc-parameters) for details.
 1. Optional: To use only OAuth 2.0/OIDC authentication, set
    `kafka_sasl_mechanisms.plain`, `kafka_sasl_mechanisms.scram_sha_256`, and
@@ -125,7 +125,7 @@ when applying multiple changes.
    This enables the `OAUTHBEARER` mechanism. `PLAIN`, `SCRAM-SHA-256`, and
    `SCRAM-SHA-512` remain enabled by default.
 
-   **Optional:** Add issuer, audience, and subject claim verification. To use only
+   Add issuer, audience, and optional subject claim verification. To use only
    OAuth 2.0/OIDC authentication, set `kafka_sasl_mechanisms.plain`,
    `kafka_sasl_mechanisms.scram_sha_256`, and `kafka_sasl_mechanisms.scram_sha_512` to
    `false`. Example with issuer, audience, subject claim verification, and OAuth-only
@@ -189,14 +189,12 @@ Configure the following OIDC parameters:
     :::
 
 - `kafka.sasl_oauthbearer_expected_issuer`
-  - **Optional**
   - **Description**: Specifies the JWT's issuer for the broker to
     verify. Corresponds to the Apache Kafka parameter
     `sasl.oauthbearer.expected.issuer`.
   - **Value**: Enter the issuer URL or identifier provided by your
     OIDC provider.
 - `kafka.sasl_oauthbearer_expected_audience`
-  - **Optional**
   - **Description**: Validates the intended JWT audience for the
     broker. Corresponds to the Apache Kafka parameter
     `sasl.oauthbearer.expected.audience`. Use this parameter when your OIDC provider
@@ -204,6 +202,20 @@ Configure the following OIDC parameters:
   - **Value**: Enter the audience identifiers given by your OIDC
     provider. If there are multiple audiences, separate them
     with commas.
+- `kafka.sasl_oauthbearer_allow_unverified_issuer`
+  - **Optional**
+  - **Description**: Until 4.4, enabling it will skip the Aiven
+  validation of `kafka.sasl_oauthbearer_expected_issuer` requirement,
+  but expose the broker to [CVE-2026-110952](https://www.cve.org/CVERecord?id=CVE-2026-110952).
+  As of 4.4, the CVE is fixed and Kafka takes care of validation.
+  - **Value**: Set it to `True` to enable it.
+- `kafka.sasl_oauthbearer_allow_unverified_audience`
+  - **Optional**
+  - **Description**: Until 4.4, enabling it will skip the Aiven
+  validation of `kafka.sasl_oauthbearer_expected_audience` requirement,
+  but expose the broker to [CVE-2026-110952](https://www.cve.org/CVERecord?id=CVE-2026-110952).
+  As of 4.4, the CVE is fixed and Kafka takes care of validation.
+  - **Value**: Set it to `True` to enable it.
 
 For more information about each corresponding Apache Kafka parameter,
 see [Apache Kafka documentation](https://kafka.apache.org/documentation/) on
