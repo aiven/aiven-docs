@@ -7,10 +7,9 @@ import EditBackupSchedule from "@site/static/includes/service-backups-instructio
 import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven for MySQL databases are automatically backed-up, with full backups daily, and binary logs recorded continuously.
-The number of stored
-backups and backup retention time depends on your [Aiven service
-plan](https://aiven.io/pricing?product=mysql&tab=plan-comparison). Full
-backups are version-specific binary backups, which when combined with
+The number of stored backups and the retention time depend on your service plan. For the
+exact figures, see [Backup retention](#backup-retention). Full backups are
+version-specific binary backups, which when combined with
 [binlog](https://dev.mysql.com/doc/internals/en/binary-log-overview.html)
 allow for consistent recovery to a specific point in time (PITR).
 

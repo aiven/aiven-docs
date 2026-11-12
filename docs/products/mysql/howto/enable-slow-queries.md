@@ -93,6 +93,18 @@ Truncating the table removes every stored slow query entry. Back up the data you
 need before you turn the setting off.
 :::
 
+### Slow query data and the AI database optimizer
+
+The [AI database optimizer](/docs/products/mysql/howto/ai-insights) reads your slow query
+log to produce optimization suggestions. It works from schema structure and database
+statistics, without credentials or access to the data in your databases.
+
+Data masking replaces sensitive parameters in your queries with question marks (`?`)
+before the queries are analyzed. Data masking is enabled by default.
+
+To stop collecting new slow query data for your service, set `mysql.slow_query_log` to
+`Off`.
+
 <RelatedPages/>
 
 - [AI database optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
