@@ -10,8 +10,9 @@ Apache Kafka® share groups let multiple consumers process different records fro
 Use share groups for workloads that need concurrent record processing, such as
 background jobs, task processing, and event-driven applications.
 
-Share groups are useful when records take different amounts of time to process. While one
-consumer works on a slow record, other consumers can continue processing available records.
+Share groups are useful when records take different amounts of time to process. While
+one consumer works on a slow record, other consumers can continue processing available
+records.
 
 ## How share groups differ from traditional consumer groups
 
@@ -27,9 +28,10 @@ The following table compares traditional consumer groups with share groups.
 
 Share groups track acknowledgments for individual records. When a consumer receives a
 record, Kafka places a time-limited lock on it. While the lock is active, other
-consumers in the same share group can't receive that record. If the record isn't
-acknowledged before the lock expires, Kafka can deliver it again, up to the configured
-delivery attempt limit.
+consumers in the same share group can't receive that record.
+
+If a consumer fails or doesn't acknowledge a record before the lock expires, Kafka can
+deliver the record to another consumer, up to the configured delivery attempt limit.
 
 Because records can be delivered more than once, design your application to handle
 duplicate processing.
@@ -107,8 +109,8 @@ Replace the following:
 - `SERVICE_HOST:SERVICE_PORT`: Host and port of your Aiven for Apache Kafka service.
 - `GROUP_ID`: ID of your share group.
 
-The `configuration.properties` file contains your connection and authentication settings. For
-more information, see
+The `configuration.properties` file contains your connection and authentication
+settings. For more information, see
 [Configure properties for Apache Kafka toolbox](/docs/products/kafka/howto/kafka-tools-config-file).
 
 This setting controls only where a new group starts reading. It doesn't reset the
@@ -141,8 +143,13 @@ acknowledgments.
 For the available metrics, see
 [Aiven for Apache Kafka metrics available via Prometheus](/docs/products/kafka/reference/kafka-metrics-prometheus#share-group-metrics).
 
-To view share group members, state, and lag, use the Apache Kafka
-`kafka-share-groups.sh` tool. For more information, see
+## Manage share groups
+
+Use the Apache Kafka `kafka-share-groups.sh` tool to list share groups, view their
+members, state, and lag, reset offsets, or delete them. Before you delete a share group,
+stop all active consumers in the group.
+
+For more information, see
 [Managing share groups](https://kafka.apache.org/43/operations/basic-kafka-operations/#managing-share-groups).
 
 <RelatedPages/>
