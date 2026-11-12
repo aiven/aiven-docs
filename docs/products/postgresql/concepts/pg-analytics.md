@@ -63,69 +63,61 @@ an even share, and when one is idle the other can use the spare capacity.
 
 ### Service and plan
 
-- PostgreSQL for Analytics is set when the service is created. You can't add it to an
-  existing Aiven for PostgreSQL service.
-- You can
-  [create a PostgreSQL for Analytics service](/docs/products/postgresql/howto/enable-pg-analytics#create-your-service)
-  using the Aiven API, the Aiven CLI, or Terraform, not in the Aiven Console.
-- PostgreSQL shares the service with the analytical query engine, so it's configured as
-  if it had half your plan, including a lower connection limit. The smallest plans don't
-  leave either engine enough memory to work with.
-- The analytical query engine caches Iceberg data on the service's disk, so analytical
-  workloads need disk space on top of your PostgreSQL data.
-- PostgreSQL 17 is the only supported version, and you can't run a major version upgrade.
-- You can't fork the service or create a read replica of it. You can still power it off.
-- The service can't use
-  [backup to another region](/docs/products/postgresql/howto/backup-to-another-region).
+- PostgreSQL for Analytics is set when the service is created, so you enable it on a new
+  service. See
+  [Create your service](/docs/products/postgresql/howto/enable-pg-analytics#create-your-service).
+- PostgreSQL runs with the memory settings of a half-size plan, including a lower
+  connection limit, because it shares the service with the analytical query engine.
+- The analytical query engine caches Iceberg data on the service's disk, so choose a plan
+  with room for both engines.
+- PostgreSQL for Analytics runs on PostgreSQL 17. Major version upgrades aren't available
+  yet.
+- Forks, read replicas, and
+  [backup to another region](/docs/products/postgresql/howto/backup-to-another-region)
+  aren't available for these services. You can power the service off.
 
 ### Storage
 
 - Amazon S3 and Google Cloud Storage are the supported storage.
-- You connect your own bucket; Aiven doesn't provide one. Keep it in the same region as
-  your service.
-- Each service needs its own bucket. See
+- You connect your own bucket, in the same region as your service, and each service needs
+  its own. See
   [Connect your storage bucket](/docs/products/postgresql/howto/enable-pg-analytics#connect-your-storage-bucket).
 - Every Iceberg table needs an explicit `location` inside the bucket and path you
   connected. See [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
 - Aiven backups cover your PostgreSQL data but not the contents of your bucket. Back up
   and retain that data with your cloud provider's tools.
-- The Aiven Operator for Kubernetes® can't create the integration that connects your
-  bucket. Use the Aiven Console, the Aiven API, the Aiven CLI, or Terraform instead. See
-  [Connect your storage bucket](/docs/products/postgresql/howto/enable-pg-analytics#connect-your-storage-bucket).
 
 ### SQL and data types
 
-- Iceberg tables don't support `MERGE`, `INSERT ... ON CONFLICT`,
-  `SELECT ... FOR UPDATE`, `SELECT ... FOR SHARE`, or queries that use system columns
-  such as `ctid`. For upsert behavior, stage your changes in a regular PostgreSQL table
-  and apply them as a `DELETE` followed by an `INSERT` in one transaction.
+- Iceberg tables support `INSERT`, `DELETE`, and `SELECT`, but not `MERGE`,
+  `INSERT ... ON CONFLICT`, `SELECT ... FOR UPDATE`, `SELECT ... FOR SHARE`, or queries
+  that use system columns such as `ctid`. For upsert behavior, stage your changes in a
+  regular PostgreSQL table and apply them as a `DELETE` followed by an `INSERT` in one
+  transaction.
 - Numeric columns without a declared precision and scale are stored as
   `double precision`, which loses exact decimal semantics. See
   [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
 
 ### Loading and maintenance
 
-- There's no built-in scheduling or change data capture for loading data into Iceberg
-  tables. See [Load data into Iceberg tables](/docs/products/postgresql/howto/enable-pg-analytics#load-data-into-iceberg-tables).
+- You load data into Iceberg tables with SQL, and schedule loads yourself with
+  [pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension). See
+  [Load data into Iceberg tables](/docs/products/postgresql/howto/enable-pg-analytics#load-data-into-iceberg-tables).
 - Iceberg tables accumulate data files and metadata and need regular maintenance,
   especially if you write to them in small batches. See
   [Maintain Iceberg tables](/docs/products/postgresql/howto/enable-pg-analytics#maintain-iceberg-tables).
 
 ### Performance
 
-- PostgreSQL for Analytics runs on a single node. Query performance scales with the size
-  of that node, not by adding more nodes.
+- PostgreSQL for Analytics runs on a single node, so query performance scales with the
+  plan you choose.
 - Iceberg table data is read from and written to object storage, so analytical queries
   have higher latency than queries against local PostgreSQL tables.
-
-### Extensions and external engines
-
-- The `pg_lake_spatial` extension isn't available.
 - After Aiven upgrades the `pg_lake` extension, you might need to update dependent
   extensions manually.
 - PostgreSQL for Analytics owns the Iceberg tables it creates. Reading or writing them
-  from outside your PostgreSQL service, for example from Trino or Apache Spark™, isn't
-  supported.
+  from engines outside your PostgreSQL service, such as Trino or Apache Spark™, isn't
+  available yet.
 
 <RelatedPages/>
 
