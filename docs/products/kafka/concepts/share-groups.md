@@ -91,8 +91,11 @@ By default, a new share group starts consuming newly produced records
 (`share.auto.offset.reset=latest`). To consume records already in the topic, set
 `share.auto.offset.reset` to `earliest` before the group starts consuming.
 
-This is a group-level configuration, not an Aiven service setting. Use
-`kafka-configs.sh` to set it:
+This is a group-level configuration, not an Aiven service setting. With Kafka-native
+ACLs, the user running the command needs `ALTER_CONFIGS` permission on the group, in
+addition to the permissions needed to consume records.
+
+Use `kafka-configs.sh` to set it:
 
 ```bash
 bin/kafka-configs.sh \
