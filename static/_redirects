@@ -254,6 +254,7 @@
 /products/grafana/reference                                /docs/products/grafana/reference/advanced-params  301
 /products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing  301
 /products/grafana/user-access                              /docs/products/grafana/get-started  301
+/products/grafana/howto/backup-to-another-region           /docs/platform/concepts/backup-to-another-region  301
 /products/influxdb                                         /docs/products/metrics  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
 /products/kafka/concepts/schema-registry-authorization     /docs/products/kafka/karapace/concepts/schema-registry-authorization  301
@@ -328,6 +329,7 @@
 /products/mysql/overview                                   /docs/products/mysql  301
 /products/mysql/reference                                  /docs/products/mysql/reference/advanced-params  301
 /products/mysql/reference/list-of-advanced-params          /docs/products/mysql/reference/advanced-params  301
+/products/mysql/howto/backup-to-another-region             /docs/platform/concepts/backup-to-another-region  301
 /products/opensearch/concepts                              /docs/products/opensearch/concepts/access_control  301
 /products/opensearch/concepts/backups                      /docs/platform/concepts/service_backups  301
 /products/opensearch/concepts/service-overview             /docs/products/opensearch  301
@@ -371,6 +373,7 @@
 /products/redis/howto/migrate-redis-db                     /docs/products/valkey/howto/migrate-redis-aiven-cli  301
 /products/valkey/howto/upgrade-aiven-for-caching-to-valkey /docs/platform/reference/end-of-life#aiven-for-caching  301
 /products/valkey/reference                                 /docs/products/valkey/reference/advanced-params  301
+/products/valkey/howto/backup-to-another-region            /docs/platform/concepts/backup-to-another-region  301
 /tools/mcp                                                 /docs/tools/mcp-server  301
 /tools/aiven-console                                       https://console.aiven.io/  301
 /tools/aiven-console/howto/create-accounts                 /docs/platform/howto/manage-org-users  301

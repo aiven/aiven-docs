@@ -78,8 +78,8 @@ Replace the following:
 <TabItem value="terraform" label="Terraform">
 
 Set `additional_backup_regions` in the service's user configuration block. The example
-uses Aiven for PostgreSQL®; for other services, use that service's resource and user
-configuration block.
+uses Aiven for PostgreSQL®; for Aiven for OpenSearch®, use `aiven_opensearch` and
+`opensearch_user_config`.
 
 ```hcl
 resource "aiven_pg" "example" {
@@ -98,7 +98,7 @@ resource "aiven_pg" "example" {
 <TabItem value="kubernetes" label="Kubernetes">
 
 Set `additional_backup_regions` under `spec.userConfig`. The example uses the `PostgreSQL`
-kind; for other services, use that service's kind.
+kind; for Aiven for OpenSearch®, use the `OpenSearch` kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
@@ -327,8 +327,8 @@ Replace the following with meaningful data:
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set in its user configuration block. Set `recovery_target_time` to
 no earlier than the time of taking the oldest replicated base backup. The example uses
-Aiven for PostgreSQL®; for other services, use that service's resource and user
-configuration block.
+Aiven for PostgreSQL®; for Aiven for OpenSearch®, use `aiven_opensearch` and
+`opensearch_user_config`.
 
 ```hcl
 resource "aiven_pg" "fork" {
@@ -350,7 +350,7 @@ resource "aiven_pg" "fork" {
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set under `spec.userConfig`. Set `recovery_target_time` to no
 earlier than the time of taking the oldest replicated base backup. The example uses the
-`PostgreSQL` kind; for other services, use that service's kind.
+`PostgreSQL` kind; for Aiven for OpenSearch®, use the `OpenSearch` kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
