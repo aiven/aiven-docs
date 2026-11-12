@@ -432,6 +432,7 @@ Telegraf
 Tenant
 Terraform
 Terraforming
+tfvars
 Thanos
 tiered
 tiering
