@@ -5,9 +5,7 @@ sidebar_label: Node.js
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Learn how to connect to your Aiven for ClickHouse® service with Node.js
-using the official Node.js client for connecting to ClickHouse and the
-HTTPS port.
+Learn how to connect to your Aiven for ClickHouse® service with Node.js using the official Node.js client for connecting to ClickHouse and the HTTPS port.
 
 ## Prerequisites
 

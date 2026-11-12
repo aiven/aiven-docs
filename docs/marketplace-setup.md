@@ -6,6 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
+Create an AWS, Azure, or Google Cloud marketplace subscription to use as a payment method for Aiven services.
+
 <RequirementsPanel
   items={[
     {
@@ -14,8 +16,6 @@ import RequirementsPanel from "@site/src/components/RequirementsPanel";
     },
   ]}
 />
-
-Create an AWS, Azure, or Google Cloud marketplace subscription to use as a payment method for Aiven services.
 
 To set up your marketplace subscription as a payment method, first subscribe
 to Aiven on the cloud provider's marketplace, then link your subscription to

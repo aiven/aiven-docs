@@ -1,7 +1,6 @@
 ---
 title: Aiven for Valkey™ clustering
 sidebar_label: Clustering
-limited: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -326,7 +325,7 @@ primary nodes to keep the slots evenly balanced across shards.
 
 Resharding has a few prerequisites:
 
-- The service must run Valkey 9.0 or later.
+- The service must run Valkey 9.x or later.
 - The service must be powered on.
 - All nodes in the service must be in the `Running` state.
 - No change to the instance size or cloud region can be in progress or requested at the
@@ -381,7 +380,8 @@ Cluster mode doesn't support delta backups: Every backup is a full backup.
 
 To restore a cluster, Aiven combines the stored backups with the recorded hash slot
 layout, so your data returns to the same slot distribution. The cluster must keep the same
-number of primary nodes for a restore to succeed.
+number of primary nodes for a restore to succeed. Aiven for Valkey forks always come from
+a backup, so the target plan must use the same shard count as the backup you choose.
 
 :::note
 Cluster backups are not point-in-time recovery (PITR). Because each shard is backed up
@@ -392,8 +392,6 @@ Design your application to tolerate this if you rely on a restore.
 
 ## Limitations and considerations
 
-- Valkey clustering is in
-  [limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
 - Valkey clustering is supported for new services only. You can't convert an existing
   standalone service to a cluster plan, or a clustered service back to standalone.
 - Migrating data into a cluster from an external Redis or Valkey server isn't supported.

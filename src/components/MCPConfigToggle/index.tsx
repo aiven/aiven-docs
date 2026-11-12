@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import EarlyBadge from '../Badges/EarlyBadge';
 import styles from './styles.module.css';
 
-export const SCOPE_OPTIONS = ['pg', 'kafka', 'opensearch', 'integrations'] as const;
+export const SCOPE_OPTIONS = ['pg', 'kafka', 'opensearch', 'integrations', 'context'] as const;
 export type Scope = typeof SCOPE_OPTIONS[number];
 type ScopeChoice = Scope | 'all';
 
@@ -11,6 +12,7 @@ const SCOPE_LABELS: Record<ScopeChoice, string> = {
   kafka: 'Kafka',
   opensearch: 'OpenSearch',
   integrations: 'Integrations',
+  context: 'Context',
 };
 
 const ALL_CHOICES: ScopeChoice[] = ['all', ...SCOPE_OPTIONS];
@@ -61,6 +63,13 @@ export const WRITE_TOOL_GROUPS: WriteToolGroup[] = [
     ],
   },
   {
+    label: 'Context',
+    tools: [
+      { name: 'aiven_context_update_tags', label: 'Update asset tags' },
+      { name: 'aiven_context_update_description', label: 'Update asset description' },
+    ],
+  },
+  {
     label: 'Application',
     tools: [
       { name: 'aiven_application_deploy', label: 'Deploy application' },
@@ -99,6 +108,7 @@ const GROUP_SCOPE: Record<string, Scope | null> = {
   Kafka: 'kafka',
   OpenSearch: 'opensearch',
   Integrations: 'integrations',
+  Context: 'context',
   Application: null,
 };
 
@@ -196,6 +206,7 @@ export default function MCPConfigToggle({ onChange }: MCPConfigToggleProps): JSX
                 className={styles.checkbox}
               />
               <span>{SCOPE_LABELS[choice]}</span>
+              {choice === 'context' && <EarlyBadge />}
             </label>
           ))}
         </div>

@@ -34,7 +34,7 @@ Build and manage your infrastructure on the Aiven Platform.
     <Card
         to="/docs/products/ai-gateway"
         iconComponent={aiGateway}
-        title="AI Gateway"
+        title="AI gateway"
         description="Access models through a single endpoint and monitor usage."
     />
     <Card

@@ -5,6 +5,7 @@ title: Manage project and service notifications
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications.
 
@@ -107,3 +108,7 @@ Alternatively, you can [set up a Slackbot forwarding
 address](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WE06MBF06BBHQNZ1G0H2K5)
 and use to automatically forward Aiven's email notifications from
 your email client.
+
+<RelatedPages/>
+
+- [View and export project event logs](/docs/platform/howto/view-project-logs)

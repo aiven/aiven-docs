@@ -18,5 +18,5 @@ The model list shows all models available through the Aiven AI gateway.
 
 To view the model list:
 
-1. In your project click **AI Gateway**.
+1. In your project click **AI gateway**.
 1. Click **Models**.

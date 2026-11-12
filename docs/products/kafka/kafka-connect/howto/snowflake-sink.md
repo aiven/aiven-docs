@@ -2,56 +2,81 @@
 title: Create and configure a Snowflake sink connector for Apache Kafka®
 sidebar_label: Snowflake sink connector
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import EarlyBadge from "@site/src/components/Badges/EarlyBadge";
 
-The Apache Kafka Connect® Snowflake sink connector moves data from Aiven for Apache Kafka® topics to a Snowflake database. It requires configuration in both Snowflake and Aiven for Apache Kafka.
+<!-- markdownlint-disable-next-line MD013 -->
+The Apache Kafka Connect® Snowflake sink connector moves data from Aiven for Apache Kafka® topics to a Snowflake database.
+Configure access in Snowflake before creating the connector in Aiven.
+
+Aiven provides two separate connectors:
+
+- **Snowflake Sink**: version 3.x, which uses the
+  `com.snowflake.kafka.connector.SnowflakeSinkConnector` class. Snowflake refers to
+  this version as the
+  [classic connector](https://docs.snowflake.com/en/user-guide/kafka-connector/classic).
+  It's stable and supported, but Snowflake plans to deprecate it.
+- **Snowflake v4 Sink**: version 4.2.1, which uses the
+  `com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector` class and the Snowpipe
+  Streaming high-performance architecture.
+
+:::note[Note]
+Snowflake v4 Sink is in
+[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
+:::
+
+Aiven doesn't automatically upgrade existing Snowflake Sink connectors to Snowflake v4
+Sink. Version 4.x isn't backward compatible with 3.x. To move an existing connector to
+4.x, review [Migrate from 3.x to 4.x](#migrate-from-3x-to-4x) before creating the
+replacement.
 
 ## Prerequisites
 
 - An Aiven for Apache Kafka service with
   [Apache Kafka Connect enabled](/docs/products/kafka/kafka-connect/howto/enable-connect),
-  or a [dedicated Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster)
-- Access to the target Snowflake account with privileges to create users, roles, and
-  schemas
-- OpenSSL installed locally to generate key pairs
-- Collect the following connection details:
+  or a
+  [dedicated Kafka Connect cluster](/docs/products/kafka/kafka-connect/get-started#apache_kafka_connect_dedicated_cluster).
+- Access to a Snowflake account with permissions to create users and roles and grant
+  access to the target database and schema.
+- OpenSSL installed locally to generate a key pair.
+- The connection details listed in the following section.
 
-  - `SNOWFLAKE_URL`: In the format `ACCOUNT_LOCATOR.REGION_ID.snowflakecomputing.com`
+### Connection details
 
-    :::tip
-    To retrieve your account locator and region ID, run the following in the Snowflake
-    worksheet:
+Collect the following values:
 
-    ```sql
-    SELECT CURRENT_ACCOUNT(), CURRENT_REGION();
-    ```
+- `SNOWFLAKE_URL`: your Snowflake account URL, for example,
+  `myorg-myaccount.snowflakecomputing.com`. For details, see
+  [Snowflake account identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name).
+- `SNOWFLAKE_PRIVATE_KEY`: the private key for the user
+- `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`: Optional: the private key passphrase. Required
+  only for encrypted private keys.
+- `SNOWFLAKE_DATABASE`: the target database
+- `SNOWFLAKE_SCHEMA`: the target schema
+- `TOPIC_LIST`: a comma-separated list of Kafka topics
 
-    :::
+For Avro messages, also collect the following values:
 
-  - `SNOWFLAKE_USERNAME`: The user created for the connector
-  - `SNOWFLAKE_PRIVATE_KEY`: The private key for the user
-  - `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`: The key passphrase
-  - `SNOWFLAKE_DATABASE`: The target database
-  - `SNOWFLAKE_SCHEMA`: The target schema
-  - `TOPIC_LIST`: Comma-separated list of Kafka topics to sink
+- `APACHE_KAFKA_HOST`: the Aiven for Apache Kafka service host
+- `SCHEMA_REGISTRY_PORT`: the Schema Registry port
+- `SCHEMA_REGISTRY_USER`: the Schema Registry user
+- `SCHEMA_REGISTRY_PASSWORD`: the Schema Registry password
 
-  If using Avro format:
-
-  - `APACHE_KAFKA_HOST`
-  - `SCHEMA_REGISTRY_PORT`
-  - `SCHEMA_REGISTRY_USER`
-  - `SCHEMA_REGISTRY_PASSWORD`
-
-:::note
-For a full list of configuration options, see
-the [Snowflake Kafka Connector documentation](https://docs.snowflake.com/en/user-guide/kafka-connector).
+:::tip[Tip]
+To find your account URL in Snowsight, open the account selector, select
+**View account details**, and copy **Account/Server URL**.
 :::
+
+For more information about configuration options, see the
+[Snowflake Kafka Connector documentation](https://docs.snowflake.com/en/user-guide/kafka-connector).
 
 ## Configure Snowflake
 
-Set up Snowflake to authenticate the connector using key pair authentication.
+Set up key-pair authentication, create a Snowflake user and role, and grant access to the
+target database and schema.
 
 ### Generate a key pair
 
@@ -62,31 +87,27 @@ openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out rsa_key.p8
 openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub
 ```
 
-- `rsa_key.p8` contains the private key, secured with a passphrase.
+- `rsa_key.p8` contains the passphrase-protected private key.
 - `rsa_key.pub` contains the public key.
+
+Use the private key as the `SNOWFLAKE_PRIVATE_KEY` value in the connector configuration.
+For the key format the connector accepts, see
+[Snowflake key-pair authentication](https://docs.snowflake.com/en/user-guide/key-pair-auth).
+You only need the passphrase for an encrypted private key.
 
 ### Create a user
 
-1. Open the Snowflake UI and go to the **Worksheets** tab.
-
-1. Use a role with `SECURITYADMIN` or `ACCOUNTADMIN` privileges.
-
-1. Create a Snowflake user for the Aiven connector. Run the following SQL command:
+1. Open **Worksheets** in Snowflake.
+1. Use a role with privileges to create users, such as `SECURITYADMIN` or `ACCOUNTADMIN`.
+1. Create a user for the connector:
 
    ```sql
    CREATE USER aiven;
    ```
 
-1. Copy the contents of `rsa_key.pub`, excluding the `-----BEGIN` and `-----END` lines.
-   Remove any line breaks.
-
-   :::note
-   When copying the public key, exclude the `-----BEGIN PUBLIC KEY-----` and
-   `-----END PUBLIC KEY-----` lines. Remove all line breaks so the key is on a single
-   line.
-   :::
-
-1. Set the public key for the user:
+1. Copy the contents of `rsa_key.pub`, excluding the `-----BEGIN PUBLIC KEY-----` and
+   `-----END PUBLIC KEY-----` lines. Remove line breaks.
+1. Set the user's public key:
 
    ```sql
    ALTER USER aiven SET RSA_PUBLIC_KEY='PASTE_PUBLIC_KEY_HERE';
@@ -94,19 +115,19 @@ openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub
 
 ### Create a role and assign it to the user
 
-1. Create a role for the connector:
+1. Create a role:
 
    ```sql
    CREATE ROLE aiven_snowflake_sink_connector_role;
    ```
 
-1. Grant the role to the `aiven` user:
+1. Grant the role to the connector user:
 
    ```sql
    GRANT ROLE aiven_snowflake_sink_connector_role TO USER aiven;
    ```
 
-1. Set the role as the user's default:
+1. Set the user's default role:
 
    ```sql
    ALTER USER aiven SET DEFAULT_ROLE = aiven_snowflake_sink_connector_role;
@@ -114,32 +135,86 @@ openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub
 
 ### Grant privileges on the target database and schema
 
-The connector writes data to tables in a specific schema within a Snowflake database.
-Grant the necessary privileges to the role you created.
+Replace `TESTDATABASE` and `TESTSCHEMA` with your Snowflake database and schema names. Use
+a role authorized to grant the privileges.
 
-1. In the Snowflake UI, open the **Worksheets** tab.
+<Tabs groupId="snowflake-version">
+<TabItem value="3x" label="Version 3.x" default>
 
-1. Use a role with `SECURITYADMIN` or `ACCOUNTADMIN` privileges.
+Version 3.x requires privileges for tables, stages, and pipes:
 
-1. Replace `TESTDATABASE` and `TESTSCHEMA` with your database and schema names, then run
-   the following SQL commands:
+```sql
+GRANT USAGE ON DATABASE TESTDATABASE TO ROLE aiven_snowflake_sink_connector_role;
+GRANT USAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+GRANT CREATE TABLE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+GRANT CREATE STAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+GRANT CREATE PIPE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+```
 
-   ```sql
-   GRANT USAGE ON DATABASE TESTDATABASE TO ROLE aiven_snowflake_sink_connector_role;
-   GRANT USAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
-   GRANT CREATE TABLE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
-   GRANT CREATE STAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
-   GRANT CREATE PIPE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
-   ```
+</TabItem>
+<TabItem value="4x" label="Version 4.x">
 
-These privileges allow the connector to access the database, write to the schema, and
-manage tables, stages, and pipes.
+Version 4.x is in
+[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-)
+and has different privilege requirements than 3.x. Grant the following privileges on the
+warehouse, database, and schema. Replace `TESTWAREHOUSE` with the warehouse the
+connector uses:
+
+```sql
+GRANT USAGE ON WAREHOUSE TESTWAREHOUSE TO ROLE aiven_snowflake_sink_connector_role;
+GRANT USAGE ON DATABASE TESTDATABASE TO ROLE aiven_snowflake_sink_connector_role;
+GRANT USAGE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+```
+
+If you let the connector create tables, or create pipes in the default pipe mode, also
+grant the corresponding privileges:
+
+```sql
+GRANT CREATE TABLE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+GRANT CREATE PIPE ON SCHEMA TESTDATABASE.TESTSCHEMA TO ROLE aiven_snowflake_sink_connector_role;
+```
+
+The connector always requires `INSERT` on destination tables. For an existing table,
+grant it explicitly:
+
+```sql
+GRANT INSERT ON TABLE TESTDATABASE.TESTSCHEMA.TARGET_TABLE
+  TO ROLE aiven_snowflake_sink_connector_role;
+```
+
+If an existing table doesn't have a `RECORD_METADATA` column, the connector tries to add
+it, which requires privileges to alter the table. To avoid this, add the
+`RECORD_METADATA VARIANT` column to the table before you start the connector.
+
+If you use a user-defined pipe, grant `OPERATE` on the existing pipe instead of
+`CREATE PIPE`:
+
+```sql
+GRANT OPERATE ON PIPE TESTDATABASE.TESTSCHEMA.EXISTING_PIPE
+  TO ROLE aiven_snowflake_sink_connector_role;
+```
+
+Snowflake also recommends granting `CREATE VIEW` on the schema for its future error
+table features.
+
+Grant privileges directly to the connector role. Snowflake doesn't support inheriting them
+through a role hierarchy. The 4.x requirements don't include `CREATE STAGE`.
+
+For conditional grants and privilege details, see
+[Configure Snowflake for connector 4.x](https://docs.snowflake.com/en/user-guide/kafka-connector/setup-snowflake).
+
+</TabItem>
+</Tabs>
 
 ## Create a Snowflake sink connector configuration
 
-To configure the Snowflake sink connector, define a JSON file (for example,
-`snowflake_sink.json`) with the required connection and converter settings. This helps
-organize your configuration and makes it easier to use in the Aiven Console or CLI.
+Create a JSON file such as `snowflake_sink.json`. Choose the example for the connector
+you're creating, then replace the placeholders with your connection details.
+
+The following examples read Avro messages using Aiven's Karapace Schema Registry.
+
+<Tabs groupId="snowflake-version">
+<TabItem value="3x" label="Version 3.x" default>
 
 ```json
 {
@@ -155,7 +230,7 @@ organize your configuration and makes it easier to use in the Aiven Console or C
   "value.converter.basic.auth.credentials.source": "USER_INFO",
   "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
   "snowflake.url.name": "SNOWFLAKE_URL",
-  "snowflake.user.name": "SNOWFLAKE_USERNAME",
+  "snowflake.user.name": "aiven",
   "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
   "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
   "snowflake.database.name": "SNOWFLAKE_DATABASE",
@@ -163,136 +238,301 @@ organize your configuration and makes it easier to use in the Aiven Console or C
 }
 ```
 
-The configuration file includes the following parameters:
+</TabItem>
+<TabItem value="4x" label="Version 4.x">
 
-- `name`: Specifies the connector name.
-- `topics`: Lists the Apache Kafka topics to write to the Snowflake database.
-- `key.converter` and `value.converter`: Specify the format of messages in the Kafka
-   topic. To use Avro, set these to `io.confluent.connect.avro.AvroConverter`.
+Version 4.x is in
+[early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
+This example creates a new 4.2.1 connector. It isn't a migration configuration.
 
-To retrieve the message schema, use Aiven's
-[Karapace schema registry](https://github.com/aiven/karapace). Set the following
-parameters when using Avro as the message format:
+```json
+{
+  "name": "my-test-snowflake",
+  "connector.class": "com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector",
+  "topics": "TOPIC_LIST",
+  "snowflake.topic2table.map": "TOPIC_NAME:TABLE_NAME",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "snowflake.url.name": "SNOWFLAKE_URL",
+  "snowflake.user.name": "aiven",
+  "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
+  "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
+  "snowflake.database.name": "SNOWFLAKE_DATABASE",
+  "snowflake.schema.name": "SNOWFLAKE_SCHEMA",
+  "snowflake.role.name": "aiven_snowflake_sink_connector_role",
+  "snowflake.validation": "client_side",
+  "snowflake.streaming.validate.compatibility.with.classic": "false"
+}
+```
 
-- `key.converter.schema.registry.url` and `value.converter.schema.registry.url`: Specify
-  the schema registry URL in the format `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`.
-  Replace `APACHE_KAFKA_HOST` and `SCHEMA_REGISTRY_PORT` with the values retrieved
-  in the [prerequisites section](#prerequisites).
+For new 4.x connectors, set `snowflake.streaming.validate.compatibility.with.classic`
+to `false` to disable migration validation. By default, the connector validates the
+migration-related properties at startup and fails to start unless you set them
+explicitly.
+
+The example uses `client_side` validation to determine column types from the Avro
+schema.
+
+Version 4.x enables schematization by default, which maps record fields to individual
+Snowflake columns. To retain the 3.x layout with `RECORD_CONTENT` and `RECORD_METADATA`
+columns, set `snowflake.enable.schematization` to `false`.
+
+:::important[Important]
+Don't use this configuration unchanged if you're migrating from 3.x. Review the
+required compatibility and offset migration settings in the
+[Snowflake migration guide](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4)
+first.
+:::
+
+</TabItem>
+</Tabs>
+
+### Configuration parameters
+
+Connector and converter settings:
+
+- `name`: Unique connector name
+- `connector.class`: Connector implementation for the selected version
+- `topics`: Comma-separated topics to load into Snowflake
+- `snowflake.topic2table.map`: Maps Kafka topics to Snowflake tables.
+  Specify comma-separated `topic:table` pairs, for example,
+  `book:BOOK,product:PRODUCT`. If omitted, the connector derives
+  table names from Kafka topic names.
+- `key.converter` and `value.converter`: Converters for Kafka message keys and values. The
+  example uses `io.confluent.connect.avro.AvroConverter`.
+
+Schema Registry settings for Avro:
+
+- `key.converter.schema.registry.url` and `value.converter.schema.registry.url`: Schema
+  Registry URL in the form `https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT`
 - `key.converter.basic.auth.credentials.source` and
-  `value.converter.basic.auth.credentials.source`: Set to `USER_INFO` to enable basic
-  authentication using a username and password.
+  `value.converter.basic.auth.credentials.source`: Credentials source for basic
+  authentication, set to `USER_INFO`
 - `key.converter.schema.registry.basic.auth.user.info` and
- `value.converter.schema.registry.basic.auth.user.info`: Specify the schema registry
- credentials in the format `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`. Replace
- these values with the credentials retrieved in the [prerequisites section](#prerequisites).
+  `value.converter.schema.registry.basic.auth.user.info`: Schema Registry credentials in
+  the form `SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD`
 
-These converter parameters are required for parsing Avro messages from the Kafka topics.
+Snowflake connection settings:
 
-Snowflake connection parameters:
+- `snowflake.url.name`: Snowflake account URL
+- `snowflake.user.name`: Snowflake user for ingestion
+- `snowflake.private.key`: Private key used to authenticate the user
+- `snowflake.private.key.passphrase`: Optional: Passphrase protecting the private key.
+  Required only for encrypted private keys.
+- `snowflake.database.name`: Target database
+- `snowflake.schema.name`: Target schema
 
-- `snowflake.url.name`: Specifies the URL of the Snowflake service.
-- `snowflake.user.name`: Specifies the Snowflake username.
-- `snowflake.private.key`: Specifies the private key used to authenticate the Snowflake user.
-- `snowflake.private.key.passphrase`: Specifies the passphrase for the private key.
-- `snowflake.database.name`: Specifies the target Snowflake database.
-- `snowflake.schema.name`: Specifies the target schema within the database.
+Additional 4.x settings shown in the example:
+
+- `snowflake.role.name`: Role the connector uses to write data. The example uses the
+  role you created in [Configure Snowflake](#configure-snowflake).
+- `snowflake.validation`: Validation mode. Use `client_side` to validate against schema
+  types before ingestion. The 4.x default is `server_side`.
+- `snowflake.streaming.validate.compatibility.with.classic`: Migration-related
+  compatibility checks. Set to `false` for new deployments, but not automatically for
+  migrations.
+
+For all 4.x settings, see
+[Snowflake connector configuration](https://docs.snowflake.com/en/user-guide/kafka-connector/setup-kafka).
 
 ## Create a Snowflake sink connector
 
 <Tabs groupId="setup-method">
-  <TabItem value="console" label="Aiven Console" default>
+<TabItem value="console" label="Aiven Console" default>
 
-1. Access the [Aiven Console](https://console.aiven.io/).
-1. Select your Aiven for Apache Kafka or Aiven for Apache Kafka Connect service.
+1. In the [Aiven Console](https://console.aiven.io/), click your Aiven for Apache Kafka
+   or Aiven for Apache Kafka Connect service.
 1. Click <ConsoleLabel name="manage stream" /> > **Connectors**.
 1. Click **Create connector** if Apache Kafka Connect is already enabled on the service.
    If not, click **Enable connector on this service**.
 
    To enable connectors:
 
-   1. Click <ConsoleLabel name="Service settings"/> in the sidebar.
-   1. In the Service management section, click <ConsoleLabel name="Actions"/> >
+   1. In the sidebar, click <ConsoleLabel name="Service settings"/>.
+   1. In the **Service management** section, click <ConsoleLabel name="Actions"/> >
       **Enable Kafka Connect**.
-1. In the list of sink connectors, click **Get started** under **Snowflake Sink**.
-1. On the **Snowflake Sink** connector page, go to the **Common** tab.
-1. Locate the **Connector configuration** text box and click <ConsoleLabel name="edit"/>.
-1. Paste the configuration from your `snowflake_sink.json` file into the text box.
+1. In the list of sink connectors, find **Snowflake Sink** for 3.x or
+   **Snowflake v4 Sink** for 4.x, then click **Get started**.
+1. On the connector page, go to the **Common** tab.
+1. Locate **Connector configuration** and click <ConsoleLabel name="edit"/>.
+1. Paste the configuration for the selected version from your `snowflake_sink.json` file.
    Replace all placeholders with actual values.
 1. Click **Apply**.
 1. Click **Create connector**.
-1. Verify the connector status on the <ConsoleLabel name="manage stream" /> > **Connectors** page.
-1. Confirm that data from the Apache Kafka topics appears in the target Snowflake database.
+1. Verify the connector status on the <ConsoleLabel name="manage stream" /> >
+   **Connectors** page.
+1. Confirm that data from the Apache Kafka topics appears in the target Snowflake
+   database.
 
 </TabItem>
-
 <TabItem value="cli" label="Aiven CLI">
 
-To create a Snowflake sink connector using the [Aiven CLI](/docs/tools/cli/service-cli),
-run:
+Create the connector using the [Aiven CLI](/docs/tools/cli/service-cli):
 
 ```bash
 avn service connector create SERVICE_NAME @snowflake_sink.json
 ```
 
-Parameters:
+Replace the following:
 
-- `SERVICE_NAME`: The name of your Aiven for Apache Kafka service.
-- `@snowflake_sink.json`: The path to your connector configuration file.
+- `SERVICE_NAME`: name of your Aiven for Apache Kafka or Aiven for Apache Kafka
+  Connect service
+- `@snowflake_sink.json`: path to the JSON configuration for the selected connector
+  version
 
 </TabItem>
 </Tabs>
 
+## Migrate from 3.x to 4.x
+
+Snowflake connector 4.x isn't backward compatible with 3.x, and Aiven doesn't upgrade
+existing 3.x connectors automatically. To move to 4.x, create a 4.x connector as
+described in this section.
+
+Before you migrate:
+
+1. Review the
+   [Snowflake migration guide](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4)
+   for breaking changes, configuration requirements, and migration steps.
+1. Check the `snowflake.ingestion.method` setting of your existing 3.x connector. It is
+   either `SNOWPIPE`, which is the default, or `SNOWPIPE_STREAMING`. The offset migration
+   procedure depends on this setting.
+1. Prepare a new configuration that uses the
+   `com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector` class. Set
+   `snowflake.streaming.classic.offset.migration` to `skip` unless your 3.x connector
+   uses `SNOWPIPE_STREAMING`. Migrating from `SNOWPIPE_STREAMING` can require special
+   attention depending on your use case. See
+   [migrating from Snowpipe Streaming mode](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4#migrating-from-v3-snowpipe-streaming-mode).
+1. Test the migration procedure on a non-production service before you migrate
+   production workloads.
+
+To preserve offsets, Snowflake's migration procedure requires the same connector name
+for 3.x and 4.x. The 4.x connector then inherits the Kafka consumer group offsets and
+resumes where 3.x stopped. Aiven doesn't allow two connectors with the same name, so
+delete the 3.x connector before you create the 4.x connector. Follow Snowflake's
+instructions for your ingestion method, such as
+[migrating from Snowpipe mode](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4#migrating-from-v3-snowpipe-mode).
+
+To migrate:
+
+1. Shut down the 3.x connector gracefully, then delete it. A forceful shutdown might
+   prevent the offsets from advancing and cause duplicate records.
+1. For Snowpipe mode, wait until Snowflake finishes loading all staged data. Otherwise,
+   data might arrive out of order.
+1. Deploy the 4.x connector with the same name on the same Aiven for Apache Kafka
+   service as the 3.x connector. That service holds the consumer group offsets, so a
+   connector on a different service doesn't resume from the 3.x offsets.
+
+:::important[Important]
+Ingestion stops from the time you delete the 3.x connector until the 4.x connector
+starts. Start the 4.x connector before the consumer group offsets expire. The
+`offsets.retention.minutes` default is 7 days, and 3 days for free and developer plans.
+:::
+
+### Downgrade from 4.x to 3.x
+
+To go back to 3.x:
+
+1. Stop the 4.x connector.
+1. Create the 3.x connector again with the same name and configuration.
+1. Use the `RECORD_METADATA` column to find and remove duplicate records.
+
+Expect duplicates after a downgrade, because 3.x and 4.x track offsets differently. For
+the full procedure and a query to remove duplicates, see
+[Downgrading from v4 to v3](https://docs.snowflake.com/en/user-guide/kafka-connector/migrate-v3-to-v4#downgrading-from-v4-to-v3).
+
 ## Examples
+
+The following examples show how to configure the Snowflake sink connector for Avro and
+JSON messages. The Avro example covers both versions. The JSON example covers 3.x only,
+because 4.x uses a different class and can create a different Snowflake table structure
+by default. Review the
+[4.x configuration](#create-a-snowflake-sink-connector-configuration) before you adapt
+the JSON example for 4.x.
 
 ### Create a Snowflake sink connector for an Avro topic
 
-This example creates a Snowflake sink connector with the following settings:
+This example uses:
 
 - Connector name: `my_snowflake_sink`
-- Source topic: `test`
+- Kafka topic: `test`
 - Snowflake database: `testdb`
 - Snowflake schema: `testschema`
-- Snowflake URL: `XX0000.eu-central-1.snowflakecomputing.com`
-- Snowflake user: `testuser`
-- Private key:
+- Snowflake URL: `myorg-myaccount.snowflakecomputing.com`
+- Snowflake user: `aiven`
 
-  ```text
-  XXXXXXXYYY
-  ZZZZZZZZZZ
-  KKKKKKKKKK
-  YY
-  ```
+Replace the Snowflake URL, private key, passphrase, and Schema Registry
+placeholders with your own values.
 
-- Private key passphrase: `password123`
+<Tabs groupId="snowflake-version">
+<TabItem value="3x" label="Version 3.x" default>
 
 ```json
 {
-"name": "my_snowflake_sink",
-"connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
-"key.converter": "io.confluent.connect.avro.AvroConverter",
-"key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-"key.converter.basic.auth.credentials.source": "USER_INFO",
-"key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-"value.converter": "io.confluent.connect.avro.AvroConverter",
-"value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
-"value.converter.basic.auth.credentials.source": "USER_INFO",
-"value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
-"topics": "test",
-"snowflake.url.name": "XX0000.eu-central-1.snowflakecomputing.com",
-"snowflake.user.name": "testkafka",
-"snowflake.private.key": "XXXXXXXYYYZZZZZZZZZZKKKKKKKKKKYY",
-"snowflake.private.key.passphrase": "password123",
-"snowflake.database.name": "testdb",
-"snowflake.schema.name": "testschema"
+  "name": "my_snowflake_sink",
+  "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "topics": "test",
+  "snowflake.url.name": "myorg-myaccount.snowflakecomputing.com",
+  "snowflake.user.name": "aiven",
+  "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
+  "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
+  "snowflake.database.name": "testdb",
+  "snowflake.schema.name": "testschema"
 }
 ```
 
-### Create a Snowflake sink connector for a topic with a JSON schema
+</TabItem>
+<TabItem value="4x" label="Version 4.x">
 
-This example sinks data from a Kafka topic named `iot_measurements` to Snowflake. The
-topic contains messages in JSON format, each with an inline schema.
+```json
+{
+  "name": "my_snowflake_sink",
+  "connector.class": "com.snowflake.kafka.connector.SnowflakeStreamingSinkConnector",
+  "key.converter": "io.confluent.connect.avro.AvroConverter",
+  "key.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "key.converter.basic.auth.credentials.source": "USER_INFO",
+  "key.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "value.converter": "io.confluent.connect.avro.AvroConverter",
+  "value.converter.schema.registry.url": "https://APACHE_KAFKA_HOST:SCHEMA_REGISTRY_PORT",
+  "value.converter.basic.auth.credentials.source": "USER_INFO",
+  "value.converter.schema.registry.basic.auth.user.info": "SCHEMA_REGISTRY_USER:SCHEMA_REGISTRY_PASSWORD",
+  "topics": "test",
+  "snowflake.topic2table.map": "test:TEST",
+  "snowflake.url.name": "myorg-myaccount.snowflakecomputing.com",
+  "snowflake.user.name": "aiven",
+  "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
+  "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
+  "snowflake.database.name": "testdb",
+  "snowflake.schema.name": "testschema",
+  "snowflake.role.name": "aiven_snowflake_sink_connector_role",
+  "snowflake.validation": "client_side",
+  "snowflake.streaming.validate.compatibility.with.classic": "false"
+}
+```
 
-Sample messages:
+</TabItem>
+</Tabs>
+
+### Create a Snowflake sink connector 3.x for a topic with a JSON schema
+
+This example reads JSON messages from the `iot_measurements` topic. Each message includes
+an inline schema.
+
+Sample message:
 
 ```json
 {
@@ -306,6 +546,11 @@ Sample messages:
   },
   "payload": { "iot_id": 1, "metric": "Temperature", "measurement": 14 }
 }
+```
+
+Another sample message:
+
+```json
 {
   "schema": {
     "type": "struct",
@@ -319,23 +564,22 @@ Sample messages:
 }
 ```
 
-:::note
-JSON messages must include the full schema in each record. This results in additional
-overhead. For better performance, use the Avro format with
-the [Karapace schema registry](https://karapace.io/) provided by Aiven.
+:::note[Note]
+Each JSON record includes a full schema, which adds overhead. To avoid repeating the
+schema, use Avro with Aiven's [Karapace Schema Registry](https://karapace.io/).
 :::
 
-You can configure the Snowflake sink connector using the following JSON configuration.
-Replace the placeholders with your actual values.
+Create a connector configuration and replace the placeholders with your values:
 
 ```json
 {
   "name": "my-test-snowflake-1",
   "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
   "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "true",
   "topics": "iot_measurements",
   "snowflake.url.name": "SNOWFLAKE_URL",
-  "snowflake.user.name": "SNOWFLAKE_USERNAME",
+  "snowflake.user.name": "aiven",
   "snowflake.private.key": "SNOWFLAKE_PRIVATE_KEY",
   "snowflake.private.key.passphrase": "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
   "snowflake.database.name": "SNOWFLAKE_DATABASE",
@@ -343,9 +587,10 @@ Replace the placeholders with your actual values.
 }
 ```
 
-Details about the configuration:
+- `topics`: Kafka topic the connector reads from and writes to Snowflake.
+- `value.converter`: Converter for message values. The example uses the Kafka Connect
+  JSON converter.
+- `value.converter.schemas.enable`: Set to `true` when each message contains a `schema`
+  and a `payload` field. The example sets this explicitly for clarity.
 
-- `"topics": "iot_measurements"`: Specifies the Kafka topic to write to Snowflake.
-- `"value.converter": "org.apache.kafka.connect.json.JsonConverter"`: Parses message
-  values from JSON with an inline schema.
-- No key converter is defined because the message key is empty.
+The configuration has no key converter because the example messages have no keys.

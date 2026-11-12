@@ -5,9 +5,9 @@ sidebar_label: Databases, tables, and views
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Databases, tables, and views organize data in Aiven for ClickHouse®. A database
-groups related tables and other database objects. Tables store data using table
-engines that define how data is stored, replicated, and queried. Views and
+Databases, tables, and views organize data in Aiven for ClickHouse®.
+A database groups related tables and other database objects. Tables store data using
+table engines that define how data is stored, replicated, and queried. Views and
 materialized views help query, transform, or precompute data.
 
 You can create and manage databases and tables in the

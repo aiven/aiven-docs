@@ -3,7 +3,8 @@ title: Manage environment variables for Aiven Runtime
 sidebar_label: Manage environment variables
 ---
 
-import ConsoleLabel from "@site/src/components/ConsoleIcons"
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 Environment variables let you configure your application at runtime instead of embedding settings and sensitive information into your code.
 You can use them to pass information like API keys and database connection details to the
@@ -14,6 +15,15 @@ Aiven Runtime also automatically exposes connection details as
 environment variables for connected data services.
 
 ## Edit environment variables for an application
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`service:configuration:write`', '`role:project:admin`', '`role:project:manager`'],
+    }
+  ]}
+/>
 
 When you edit environment variables, Aiven
 redeploys your application with the new configuration. It deploys the same commit

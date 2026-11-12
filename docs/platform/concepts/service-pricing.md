@@ -51,7 +51,6 @@ to a more appropriately sized VM if one becomes available from the cloud provide
 The Free tier is available for the following service types:
 
 - [Aiven for Apache Kafka®](/docs/products/kafka/free-tier/kafka-free-tier)
-- [Aiven for MySQL®](/docs/products/mysql/concepts/mysql-free-tier)
 - [Aiven for OpenSearch®](/docs/products/opensearch/concepts/opensearch-free-tier)
 - [Aiven for PostgreSQL®](/docs/products/postgresql/concepts/pg-free-tier)
 - [Aiven for Valkey™](/docs/products/valkey/concepts/valkey-free-tier)
@@ -76,6 +75,32 @@ not automatically powered off when inactive.
 Aiven for Apache Kafka® has a separate [Developer tier](/docs/products/kafka/dev-tier/kafka-dev-tier)
 paid plan for development and testing, with its own throughput, storage, retention, and
 pricing.
+
+#### Aiven for ClickHouse®
+
+The [Aiven for ClickHouse® Developer tier](/docs/products/clickhouse/dev-tier/clickhouse-dev-tier)
+provides always-on, single-node ClickHouse for learning, prototypes, side projects, and
+small analytics workloads.
+
+The Aiven for ClickHouse Developer tier includes:
+
+-   Single node
+-   2 shared vCPUs
+-   4 GB RAM
+-   25 GB fixed storage
+-   Daily backups, with one backup retained
+-   Aiven and third-party service integrations
+-   [Basic tier support](/docs/platform/howto/support)
+
+Limitations of the Aiven for ClickHouse Developer tier are:
+
+-   DigitalOcean only
+-   No VPC peering
+-   No static IPs
+-   No storage expansion or tiered storage
+-   No high availability or SLA
+-   No forking
+-   No downgrading to the Developer tier from higher plans
 
 #### Aiven for OpenSearch
 

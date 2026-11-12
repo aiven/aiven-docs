@@ -129,6 +129,7 @@ DZone
 ECEs?
 Elasticsearch
 enablement
+enqueued
 Entra
 Epicurious
 etcd
@@ -243,7 +244,6 @@ Kpow
 KRaft
 Kubernetes
 kuromoji
-LibreDB
 LLM
 LLMs
 Loggly
@@ -313,6 +313,7 @@ PgBouncer
 pg_cron
 pg_dump
 PGHoard
+pgloader
 pglookout
 pgoutput
 pg_repack
@@ -357,6 +358,8 @@ reindex
 reindexed
 reindexing
 rerank\w*
+Resync
+Resyncing
 remoteSecure
 renewables
 repo
@@ -396,6 +399,7 @@ SLA/S
 Slackbot
 SLAs?
 Snowflake
+Snowpipe
 softirqs
 Sphinx
 Splunk
@@ -428,6 +432,7 @@ Telegraf
 Tenant
 Terraform
 Terraforming
+tfvars
 Thanos
 tiered
 tiering

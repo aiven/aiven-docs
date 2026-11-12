@@ -4,6 +4,7 @@ sidebar_label: Power off applications
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can power an Aiven Runtime application on or off at any time.
 
@@ -11,6 +12,15 @@ Powering off applications doesn't affect the connected services. You can
 power off services individually.
 
 Applications that are powered off for more than 180 days are automatically deleted.
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`project:services:write`', '`role:project:admin`', '`role:project:manager`'],
+    },
+  ]}
+/>
 
 ## Power off an application
 

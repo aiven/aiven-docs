@@ -2,10 +2,8 @@
 title: Handle resolution errors of private IP addresses
 ---
 
-When an Aiven service is placed in a VPC (Virtual Private Cloud), the
-DNS hostname of the service will resolve to a private IP address within
-the VPC's network address range. Any application connecting to the
-service needs to be on the same VPC.
+When an Aiven service is placed in a VPC (Virtual Private Cloud), the DNS hostname of the service resolves to a private IP address within the VPC's network address range.
+Any application connecting to the service needs to be on the same VPC.
 
 Some DNS resolvers used in office and home networks block the resolution
 of external hostnames to private IP addresses, known as [DNS-rebinding
