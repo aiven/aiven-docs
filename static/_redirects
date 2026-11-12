@@ -255,6 +255,8 @@
 /products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing  301
 /products/grafana/user-access                              /docs/products/grafana/get-started  301
 /products/influxdb                                         /docs/products/metrics  301
+/products/kafka/concepts/list-kafka-tiered-storage         /docs/products/kafka/concepts/kafka-tiered-storage  301
+/products/kafka/concepts/list-kafka-tiered-storage/        /docs/products/kafka/concepts/kafka-tiered-storage  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
 /products/kafka/concepts/schema-registry-authorization     /docs/products/kafka/karapace/concepts/schema-registry-authorization  301
 /products/kafka/concepts                                   /docs/products/kafka/terminology  301
