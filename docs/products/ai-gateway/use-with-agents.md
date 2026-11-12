@@ -34,7 +34,7 @@ values: [
 
 The `aiven-ai-gateway` launcher supports Claude Code, Codex, Pi, OpenCode, and OMP.
 Install the coding agent you want to use and the launcher.
-On macOS, install the launcher with Homebrew:
+On macOS or Linux, install the launcher with Homebrew:
 
 ```bash
 brew install aiven/tap/aiven-ai-gateway
@@ -99,6 +99,20 @@ The binary is an optional dependency, so the launcher does not run after an inst
 `--omit=optional`.
 On Windows, add `--plain` to `setup` and `launch` to use numbered prompts instead of
 selection lists.
+
+### Install with Go
+
+With Go 1.27.3 or later, install the launcher with `go install`:
+
+```bash
+go install github.com/aiven-open/ai-gateway-cli/cmd/aiven-ai-gateway@latest
+```
+
+The module path `github.com/aiven-open/ai-gateway-cli` is lowercase.
+Ensure `$(go env GOPATH)/bin`, or `GOBIN` if set, is in your `PATH`.
+To run the launcher without adding the Go binary directory to `PATH`, use
+`go run github.com/aiven-open/ai-gateway-cli/cmd/aiven-ai-gateway@latest` followed by a
+command, such as `setup`.
 
 ### Manage credentials and models
 
