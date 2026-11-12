@@ -124,7 +124,7 @@ To manage costs, review the factors that affect your compute, storage, and netwo
 
 ## Pricing by service type
 
-If **Service type** appears when you create a service, pricing depends on the
+If **Select plan type** appears when you create a service, pricing depends on the
 selected type:
 
 - **Standard**: Aiven bills compute, storage, and network usage separately.
