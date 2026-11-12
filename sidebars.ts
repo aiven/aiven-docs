@@ -612,6 +612,17 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Consumers',
+          items: [
+            'products/kafka/concepts/share-groups',
+            'products/kafka/concepts/monitor-consumer-group',
+            'products/kafka/concepts/consumer-lag-predictor',
+            'products/kafka/howto/viewing-resetting-offset',
+            'products/kafka/howto/enabled-consumer-lag-predictor',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Schema registry and REST proxy',
           items: [
             'products/kafka/karapace',
@@ -834,16 +845,6 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/howto/kafka-prometheus-privatelink',
                 'products/kafka/howto/datadog-customised-metrics',
                 'products/kafka/howto/add-missing-producer-consumer-metrics',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Consumer groups',
-              items: [
-                'products/kafka/concepts/monitor-consumer-group',
-                'products/kafka/howto/viewing-resetting-offset',
-                'products/kafka/concepts/consumer-lag-predictor',
-                'products/kafka/howto/enabled-consumer-lag-predictor',
               ],
             },
             {
