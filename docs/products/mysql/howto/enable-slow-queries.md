@@ -1,6 +1,9 @@
 ---
-title: Enable slow query logging
+title: Enable slow query logging for Aiven for MySQL®
+sidebar_label: Slow query logging
 ---
+
+import RelatedPages from "@site/src/components/RelatedPages";
 
 You can identify inefficient or time-consuming queries by enabling [slow query log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) in your Aiven for MySQL® service.
 
@@ -76,8 +79,35 @@ You can expect to receive an output similar to the following:
 1 row in set, 1 warning (0.03 sec)
 ```
 
+## Retention and cleanup
+
+Slow query entries are stored in the `mysql.slow_log` table, which is part of your
+service's own data. Entries stay in that table until they are removed, so you control how
+much slow query history your service holds.
+
+To clear the stored entries, set `mysql.slow_query_log` to `Off`, which truncates the
+`mysql.slow_log` table.
+
 :::warning
-Disabling the `mysql.slow_query_log` setting truncates the
-`mysql.slow_query_log` table. Make sure to back up the data from the
-`mysql.slow_query_log` table in case you need it for further analysis.
+Truncating the table removes every stored slow query entry. Back up the data you still
+need before you turn the setting off.
 :::
+
+### Slow query data and the AI database optimizer
+
+The [AI database optimizer](/docs/products/mysql/howto/ai-insights) reads your slow query
+log to produce optimization suggestions. It works from schema structure and database
+statistics, without credentials or access to the data in your databases.
+
+Data masking replaces sensitive parameters in your queries with question marks (`?`)
+before the queries are analyzed. Data masking is enabled by default.
+
+To stop collecting new slow query data for your service, set `mysql.slow_query_log` to
+`Off`.
+
+<RelatedPages/>
+
+- [AI database optimizer for Aiven for MySQL®](/docs/products/mysql/howto/ai-insights)
+- [SQL query optimizer for Aiven for MySQL®](/docs/products/mysql/howto/query-optimizer)
+- [Identify and fix long-running queries](/docs/products/mysql/howto/mysql-long-running-queries)
+- [Understand Aiven for MySQL® backups](/docs/products/mysql/concepts/mysql-backups)
