@@ -11,7 +11,7 @@ for Aiven organizations and projects.
 |                 Action                  |                                             Required roles and permissions                                             |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Connect or configure a GitHub account   | `role:organization:admin`                                                                                              |
-| Deploy applications                     | `project:services:write`, `role:project:manager`, or `role:project:admin`                                              |
+| Deploy or redeploy applications         | `project:services:write`, `role:project:manager`, or `role:project:admin`                                              |
 | Connect or disconnect an Aiven service  | `project:integrations:write`, `role:project:admin`, or `role:project:manager`                                          |
 | Connect a Schema Registry               | `project:services:write`, `role:project:admin`, or `role:project:manager`                                              |
 | Edit application environment variables  | `project:services:write`, `service:configuration:write`, `role:project:admin`, or `role:project:manager`               |
