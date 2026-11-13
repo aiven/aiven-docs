@@ -1639,9 +1639,7 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
             id: 'products/mysql/get-started',
           },
-          items: [
-            'products/mysql/reference/resource-capability',
-          ],
+          items: ['products/mysql/reference/resource-capability'],
         },
         {
           type: 'category',
@@ -2712,8 +2710,15 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       items: [
         'products/runtime',
-        'products/runtime/deploy-apps',
-        'products/runtime/connect-github-account',
+        {
+          type: 'category',
+          label: 'Deploy apps',
+          items: [
+            'products/runtime/deploy-apps',
+            'products/runtime/release-management',
+            'products/runtime/connect-github-account',
+          ],
+        },
         {
           type: 'category',
           label: 'Manifest files',

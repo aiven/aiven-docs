@@ -6,7 +6,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can change your application's branch at any time.
-Changing the branch triggers a redeployment of the selected branch's latest commit.
+Changing the branch triggers a redeployment of the selected branch's latest commit and clears the [pinned commit](/docs/products/runtime/release-management).
 
 <RequirementsPanel
   items={[
