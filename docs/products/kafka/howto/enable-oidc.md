@@ -28,17 +28,17 @@ Before you begin, make sure you have:
 - Configuration details from your OIDC provider:
   - **JWKS endpoint URL:** Required. HTTPS URL to retrieve the JSON Web Key Set, or
     JWKS.
-  - **Issuer URL or identifier:** Required by most OIDC providers. Identifies and
-    verifies the JWT issuer.
-  - **Audience identifiers:** Required by most OIDC providers. Validates the JWT's
-    intended recipients. For multiple audiences, note each value.
+  - **Issuer URL or identifier:** Required. The expected issuer of the JWT. Your OIDC
+    provider usually publishes this value.
+  - **Audience identifiers:** Required. The expected audience of the JWT. For multiple
+    audiences, note each value.
   - **Subject claim name:** Optional. Typically `sub`, but this can vary depending on
     your OIDC provider.
 
 Configuration steps vary by identity provider. See your provider's documentation
 for JWKS URL, issuer, and audience values.
 
-:::note
+:::note[Note]
 OAuth 2.0/OIDC authentication works independently of Aiven service users. If you
 use **Aiven ACLs** instead of Kafka-native ACLs to control access, create
 a [matching Aiven service user](/docs/products/kafka/howto/add-manage-service-users)
@@ -51,13 +51,24 @@ For more information, see
 
 ## Configure OAuth 2.0/OIDC settings
 
-Set `kafka.sasl_oauthbearer_jwks_endpoint_url` to enable `OAUTHBEARER`.
+Set `kafka.sasl_oauthbearer_jwks_endpoint_url` to enable `OAUTHBEARER`. You must also
+set `kafka.sasl_oauthbearer_expected_issuer` and
+`kafka.sasl_oauthbearer_expected_audience`. Without them, the broker accepts any
+validly signed token from the JWKS endpoint, whatever its issuer or audience.
+
+:::important[Important]
+If your service already uses OAuth 2.0/OIDC authentication without an expected issuer
+or audience, you must set both values the next time you change any of its user
+configuration, including settings unrelated to OIDC. Otherwise, the update fails. If
+your identity provider can't supply one of the values, see the
+[unverified options](#oidc-parameters).
+:::
 
 To use only OAuth 2.0/OIDC authentication, enable SASL authentication, set
-`kafka.sasl_oauthbearer_jwks_endpoint_url`, and
+`kafka.sasl_oauthbearer_jwks_endpoint_url`, the expected issuer and audience, and
 [disable PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512](/docs/products/kafka/howto/kafka-sasl-auth#configure-sasl-mechanisms).
 
-:::note
+:::note[Note]
 When SASL authentication is enabled, at least one SASL mechanism must be available.
 `OAUTHBEARER` satisfies this requirement when
 `kafka.sasl_oauthbearer_jwks_endpoint_url` is set.
@@ -83,8 +94,9 @@ Configure OAuth 2.0/OIDC authentication using one of the following methods.
    This enables the `OAUTHBEARER` mechanism. `PLAIN`, `SCRAM-SHA-256`, and
    `SCRAM-SHA-512` remain enabled by default.
 
-1. Configure other OIDC parameters, such as expected issuer,
-   expected audience, and optional subject claim. See
+1. Set the required `kafka.sasl_oauthbearer_expected_issuer` and
+   `kafka.sasl_oauthbearer_expected_audience` to the values from your OIDC provider.
+1. Optional: Set `kafka.sasl_oauthbearer_sub_claim_name`. See
    [OIDC parameters](#oidc-parameters) for details.
 1. Optional: To use only OAuth 2.0/OIDC authentication, set
    `kafka_sasl_mechanisms.plain`, `kafka_sasl_mechanisms.scram_sha_256`, and
@@ -109,42 +121,30 @@ when applying multiple changes.
 
    Note the `SERVICE_NAME` corresponding to your Aiven for Apache Kafka service.
 
-1. Enable SASL authentication and configure the JWKS endpoint:
-
-   Run a single `avn service update` command. Include the required flags below, and add
-   any optional flags to the same command.
-
-   **Required:**
-
-   ```bash
-   avn service update SERVICE_NAME \
-       -c kafka_authentication_methods.sasl=true \
-       -c kafka.sasl_oauthbearer_jwks_endpoint_url="https://my-jwks-endpoint.example.com/jwks"
-   ```
-
-   This enables the `OAUTHBEARER` mechanism. `PLAIN`, `SCRAM-SHA-256`, and
-   `SCRAM-SHA-512` remain enabled by default.
-
-   Add issuer, audience, and optional subject claim verification. To use only
-   OAuth 2.0/OIDC authentication, set `kafka_sasl_mechanisms.plain`,
-   `kafka_sasl_mechanisms.scram_sha_256`, and `kafka_sasl_mechanisms.scram_sha_512` to
-   `false`. Example with issuer, audience, subject claim verification, and OAuth-only
-   SASL configuration:
+1. Enable SASL authentication and configure the JWKS endpoint, expected issuer, and
+   expected audience in a single command:
 
    ```bash
    avn service update SERVICE_NAME \
        -c kafka_authentication_methods.sasl=true \
        -c kafka.sasl_oauthbearer_jwks_endpoint_url="https://my-jwks-endpoint.example.com/jwks" \
        -c kafka.sasl_oauthbearer_expected_issuer="https://my-issuer.example.com" \
-       -c kafka.sasl_oauthbearer_expected_audience="my-audience" \
-       -c kafka.sasl_oauthbearer_sub_claim_name="sub" \
-       -c kafka_sasl_mechanisms.plain=false \
-       -c kafka_sasl_mechanisms.scram_sha_256=false \
-       -c kafka_sasl_mechanisms.scram_sha_512=false
+       -c kafka.sasl_oauthbearer_expected_audience="my-audience"
    ```
 
-   Omit optional flags you do not need. Do not run the required and optional examples
-   as separate commands.
+   This enables the `OAUTHBEARER` mechanism. `PLAIN`, `SCRAM-SHA-256`, and
+   `SCRAM-SHA-512` remain enabled by default.
+
+1. Optional: Add the following flags to the same command:
+
+   - To set the subject claim name, add
+     `-c kafka.sasl_oauthbearer_sub_claim_name="sub"`.
+   - To use only OAuth 2.0/OIDC authentication, add
+     `-c kafka_sasl_mechanisms.plain=false`,
+     `-c kafka_sasl_mechanisms.scram_sha_256=false`, and
+     `-c kafka_sasl_mechanisms.scram_sha_512=false`.
+
+   Do not run these flags as a separate command.
 
    Replace the following:
 
@@ -189,33 +189,52 @@ Configure the following OIDC parameters:
     :::
 
 - `kafka.sasl_oauthbearer_expected_issuer`
-  - **Description**: Specifies the JWT's issuer for the broker to
-    verify. Corresponds to the Apache Kafka parameter
-    `sasl.oauthbearer.expected.issuer`.
+  - **Required**, unless `kafka.sasl_oauthbearer_allow_unverified_issuer` is set to
+    `true`
+  - **Description**: JWT issuer that the broker verifies. Corresponds to the
+    Apache Kafka parameter `sasl.oauthbearer.expected.issuer`.
   - **Value**: Enter the issuer URL or identifier provided by your
     OIDC provider.
 - `kafka.sasl_oauthbearer_expected_audience`
-  - **Description**: Validates the intended JWT audience for the
-    broker. Corresponds to the Apache Kafka parameter
-    `sasl.oauthbearer.expected.audience`. Use this parameter when your OIDC provider
-    specifies an audience.
+  - **Required**, unless `kafka.sasl_oauthbearer_allow_unverified_audience` is set to
+    `true`
+  - **Description**: JWT audience that the broker verifies. Corresponds to the
+    Apache Kafka parameter `sasl.oauthbearer.expected.audience`.
   - **Value**: Enter the audience identifiers given by your OIDC
     provider. If there are multiple audiences, separate them
     with commas.
 - `kafka.sasl_oauthbearer_allow_unverified_issuer`
   - **Optional**
-  - **Description**: Until 4.4, enabling it will skip the Aiven
-  validation of `kafka.sasl_oauthbearer_expected_issuer` requirement,
-  but expose the broker to [CVE-2026-110952](https://www.cve.org/CVERecord?id=CVE-2026-110952).
-  As of 4.4, the CVE is fixed and Kafka takes care of validation.
-  - **Value**: Set it to `True` to enable it.
+  - **Description**: Allows OAuth 2.0/OIDC authentication without setting
+    `kafka.sasl_oauthbearer_expected_issuer`. Use this setting only if your identity
+    provider can't supply an issuer. Until Apache Kafka 4.4, the brokers then accept
+    any validly signed token from the JWKS endpoint, whatever its issuer. This
+    exposes the brokers to
+    [CVE-2026-110952](https://www.cve.org/CVERecord?id=CVE-2026-110952).
+  - **Value**: Set to `true` to skip issuer verification.
 - `kafka.sasl_oauthbearer_allow_unverified_audience`
   - **Optional**
-  - **Description**: Until 4.4, enabling it will skip the Aiven
-  validation of `kafka.sasl_oauthbearer_expected_audience` requirement,
-  but expose the broker to [CVE-2026-110952](https://www.cve.org/CVERecord?id=CVE-2026-110952).
-  As of 4.4, the CVE is fixed and Kafka takes care of validation.
-  - **Value**: Set it to `True` to enable it.
+  - **Description**: Allows OAuth 2.0/OIDC authentication without setting
+    `kafka.sasl_oauthbearer_expected_audience`. Use this setting only if your identity
+    provider can't supply an audience. Until Apache Kafka 4.4, the brokers then accept
+    any validly signed token from the JWKS endpoint, whatever its audience. This
+    exposes the brokers to
+    [CVE-2026-110952](https://www.cve.org/CVERecord?id=CVE-2026-110952).
+  - **Value**: Set to `true` to skip audience verification.
+
+:::warning[Warning]
+In Apache Kafka 3.1.0 to 4.3.x, a broker that uses a JWKS endpoint checks the token
+signature but not the issuer or audience, unless you set the expected values. The
+broker accepts any validly signed token from that JWKS endpoint, whatever its issuer
+or audience. Apache Kafka 4.4.0 fixes this. It refuses to start a broker that uses a
+JWKS endpoint unless you set both values or explicitly allow unverified ones.
+
+To protect your brokers, set both `kafka.sasl_oauthbearer_expected_issuer` and
+`kafka.sasl_oauthbearer_expected_audience`. Until Apache Kafka 4.4, setting
+`kafka.sasl_oauthbearer_allow_unverified_issuer` or
+`kafka.sasl_oauthbearer_allow_unverified_audience` to `true` keeps the brokers exposed
+to [CVE-2026-110952](https://www.cve.org/CVERecord?id=CVE-2026-110952).
+:::
 
 For more information about each corresponding Apache Kafka parameter,
 see [Apache Kafka documentation](https://kafka.apache.org/documentation/) on

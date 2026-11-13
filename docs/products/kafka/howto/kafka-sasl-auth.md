@@ -118,9 +118,10 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
   To allow only OAuth 2.0/OIDC authentication, disable `kafka_sasl_mechanisms.plain`,
   `kafka_sasl_mechanisms.scram_sha_256`, and `kafka_sasl_mechanisms.scram_sha_512`.
 
-  Optional OIDC parameters include `kafka.sasl_oauthbearer_expected_issuer`,
-  `kafka.sasl_oauthbearer_expected_audience`, and
-  `kafka.sasl_oauthbearer_sub_claim_name`.
+  You must also set `kafka.sasl_oauthbearer_expected_issuer` and
+  `kafka.sasl_oauthbearer_expected_audience`. You can optionally set
+  `kafka.sasl_oauthbearer_sub_claim_name`. For details, see
+  [OAuth 2.0/OIDC authentication](/docs/products/kafka/howto/enable-oidc#oidc-parameters).
 
 :::note
 For **SCRAM-SHA-256** and **SCRAM-SHA-512** with Apache Kafka® 4.x, use
