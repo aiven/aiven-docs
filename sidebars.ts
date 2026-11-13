@@ -1639,9 +1639,7 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
             id: 'products/mysql/get-started',
           },
-          items: [
-            'products/mysql/reference/resource-capability',
-          ],
+          items: ['products/mysql/reference/resource-capability'],
         },
         {
           type: 'category',
@@ -2713,6 +2711,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'products/runtime',
         'products/runtime/deploy-apps',
+        'products/runtime/templates',
         'products/runtime/connect-github-account',
         {
           type: 'category',
