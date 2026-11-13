@@ -1545,14 +1545,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Manage dashboards',
-          items: [
-            'products/grafana/howto/dashboard-previews',
-            'products/grafana/howto/replace-expression-string',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Security and access',
           items: [
             'products/grafana/howto/rotating-grafana-service-credentials',
