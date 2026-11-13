@@ -57,6 +57,7 @@
     "@docusaurus/tsconfig": "^3.10.2",
     "@docusaurus/types": "^3.10.2",
     "@types/lodash": "^4",
+    "afdocs": "^0.22.2",
     "typescript": "^5.7.3"
   },
   "browserslist": {
