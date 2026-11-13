@@ -22,6 +22,11 @@ configurations include:
 - **Read scaling:** Offload read-heavy or geographically distributed query traffic to one
   or more follower services while all writes continue to go to the leader.
 
+The leader, the follower, or both can run in a
+[custom cloud](/docs/platform/concepts/byoc), so you can pair two custom clouds, or a
+custom cloud with any other Aiven cloud region. The same version, sizing, and plan
+requirements apply.
+
 A follower can't itself act as a leader for another CCR pairing, and it can't be forked or
 used as the source of a read replica while it remains a follower. To use a follower as a
 source for another purpose, [promote it to a standalone service](/docs/products/opensearch/howto/setup-cross-cluster-replication-opensearch#promote-a-follower-service-to-a-standalone-service)
