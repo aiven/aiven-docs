@@ -69,7 +69,7 @@ endpoint:
 ```bash
 curl --request POST                                                  \
   --url https://api.aiven.io/v1/project/PROJECT_NAME/service         \
-  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+  --header 'Authorization: Bearer BEARER_TOKEN'                 \
   --header 'content-type: application/json'                          \
   --data '{
     "service_name": "SERVICE_NAME",
@@ -161,7 +161,7 @@ HMAC key as the access key and secret.
    ```bash
    curl --request POST                                                  \
      --url https://api.aiven.io/v1/project/PROJECT_NAME/integration_endpoint \
-     --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+     --header 'Authorization: Bearer BEARER_TOKEN'                 \
      --header 'content-type: application/json'                          \
      --data '{
        "endpoint_name": "analytics-storage",
@@ -182,7 +182,7 @@ HMAC key as the access key and secret.
    ```bash
    curl --request POST                                                  \
      --url https://api.aiven.io/v1/project/PROJECT_NAME/integration     \
-     --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                 \
+     --header 'Authorization: Bearer BEARER_TOKEN'                 \
      --header 'content-type: application/json'                          \
      --data '{
        "integration_type": "pg_for_analytics_credentials",
@@ -369,19 +369,16 @@ You can also join an Iceberg table with a regular PostgreSQL table in the same q
 
 ## Maintain Iceberg tables
 
-Iceberg tables accumulate data files, snapshots, and metadata over time,
-particularly if you insert data frequently in small batches. Run vacuum
-maintenance regularly to compact data files, expire old snapshots, and remove
-orphan files:
+An autovacuum worker maintains Iceberg tables for you. It compacts data files, expires old
+snapshots, and removes files that no snapshot references any more, much as autovacuum does
+for regular PostgreSQL tables.
+
+To compact a table immediately, for example after a large batch load, run `VACUUM`
+yourself:
 
 ```sql
 VACUUM orders_analytics;
 ```
-
-Without regular maintenance, frequent small writes can leave many small files in
-your bucket, which slows down queries. Schedule maintenance with
-[pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension) or run it manually
-after loading data in batches.
 
 <RelatedPages/>
 
