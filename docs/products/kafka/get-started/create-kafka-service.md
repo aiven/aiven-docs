@@ -35,16 +35,17 @@ To run Kafka in your own cloud account, see
 1. Click **Apache Kafka®**.
 1. In **Service tier**, click **Professional**.
 1. In **Deployment mode**, click **Aiven cloud**.
-1. If **Service type** appears, click **Standard** or **Classic**:
+1. If **Select plan type** appears, click **Standard** or **Classic**:
 
-   - **Standard**: Usage-based pricing, with classic and diskless topics.
+   - **Standard**: A compute size with usage-based storage and network pricing,
+     and classic and diskless topics.
    - **Classic**: A predefined service plan and classic topics.
 
    You cannot change the service type after you create the service.
 
-   :::note
+   :::note[Note]
    Accounts created after August 2026 create Standard Kafka services.
-   **Service type** appears only for accounts created before August 2026.
+   **Select plan type** appears only for accounts created before August 2026.
    :::
 
 1. In **Cloud**, click a cloud provider and region.
@@ -52,26 +53,29 @@ To run Kafka in your own cloud account, see
 <Tabs groupId="kafka-service-type">
 <TabItem value="standard" label="Standard" default>
 
-8. In **Average ingress**, click your expected average ingress rate.
+8. In **Select compute size**, click a plan in the table.
 
-   Aiven uses this value to estimate compute demand and assumes egress is 3x ingress.
-   If you click **Custom**, enter your expected average ingress rate.
+   The table shows the number of VMs, the compute resources per VM, and the
+   approximate monthly cost for the selected region.
 
-1. If **Cost optimization** appears, set the estimated share of traffic in
-   diskless topics.
+   If you're not sure which plan to choose, click **Get recommendation** and answer
+   the questions about your workload. Select the recommended plan, or click
+   **Talk to an expert** if no plan fits.
 
-   This section appears when you click **10 MB/s** or **Custom**. The slider previews
-   the estimated network cost for different shares of diskless topic traffic. It does
-   not change the service configuration.
+1. In **Estimate storage and network costs**, click your expected **Average ingress**.
 
-1. In **Retention**, click a default topic retention period.
+   If you click **Custom**, enter a rate between 11 and 300 MB/s.
 
-   Aiven uses this value for the storage estimate. If you click **Custom**, enter a
-   period between 1 and 30 days.
+   If you click **10 MB/s** or **Custom**, use the slider in **Cost optimization** to
+   preview the network cost for different shares of diskless topic traffic. The slider
+   doesn't change the service configuration.
 
-1. In **Service basics**, enter a **Name**. You cannot change the name after you create
-   the service.
-1. Optional: Click **Add tag to this service** to add
+1. In **Data retention**, click a default topic retention period. If you click
+   **Custom**, enter a period between 1 and 30 days.
+
+1. In **Service details**, enter a **Service name**. You cannot change the name after
+   you create the service.
+1. Optional: Click **Tag service** to add
    [resource tags](/docs/products/kafka/howto/tag-service).
 1. In **Service summary**, review the estimated monthly cost.
 1. Click **Create service**.
@@ -82,8 +86,8 @@ To run Kafka in your own cloud account, see
 The estimate includes compute, storage, and network usage. It is based on the selected
 cloud, region, expected traffic, and retention.
 
-The estimated monthly cost is based on your selected configuration. Your invoice
-reflects actual usage during the billing period.
+Plan prices and the estimated monthly cost are approximate. Your invoice reflects
+actual usage during the billing period.
 
 After the service is **Running**, open **Overview** > **Service usage** to view
 ingress, egress, and storage usage.
@@ -98,7 +102,7 @@ For more information, see
 1. Optional: If **Additional disk storage** is available, adjust the disk size.
 1. Optional: If **Enable tiered storage** is available, click it to enable
    [tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
-1. In **Service basics**, enter:
+1. In **Service details**, enter:
 
    - **Name**: Enter a name for the service. You cannot change the name after you
      create the service.

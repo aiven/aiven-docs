@@ -11,24 +11,19 @@ Change the service plan for your Standard Kafka service to scale resources up or
 1. In the [Aiven Console](https://console.aiven.io), open your Standard Kafka service.
 1. On the <ConsoleLabel name="overview" /> page, in **Service usage**, click
    **Change plan**.
-1. In **Average ingress**, click a rate.
+1. In **Select compute size**, click a plan in the table.
 
-   Aiven uses the rate to estimate compute demand. Aiven assumes egress is three
-   times ingress. Optional: Click **Custom** and enter a rate.
-1. If **Cost optimization** is shown, set the estimated share of traffic in
-   diskless topics.
+   If you're not sure which plan to choose, click **Get recommendation**.
+1. In **Estimate storage and network costs**, click your expected **Average ingress**.
 
-   **Cost optimization** is shown when you click **10 MB/s** or **Custom**. The
-   slider previews estimated network cost for diskless topic traffic. The slider
+   If you click **Custom**, enter a rate between 11 and 300 MB/s.
+
+   If you click **10 MB/s** or **Custom**, use the slider in **Cost optimization** to
+   preview the network cost for different shares of diskless topic traffic. The slider
    does not change the service configuration.
-1. In **Retention**, click a retention period.
-
-   Aiven uses the period for the storage estimate. Optional: Click **Custom** and
-   enter a period of 1 to 30 days.
+1. In **Data retention**, click a retention period. If you click **Custom**, enter a period
+   of 1 to 30 days.
 1. In **Service summary**, review the estimated monthly cost.
-
-   The estimate is based on the selected configuration. The invoice reflects
-   actual usage in the billing period.
 1. Click **Upgrade service**.
 1. Wait until the service status is **Running**.
 
