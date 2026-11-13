@@ -3,14 +3,16 @@ title: Plugins for Aiven for Grafana®
 sidebar_label: Plugins
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Aiven for Grafana includes several pre-installed plugins, updated regularly to ensure optimal performance.
-For additional plugin requests, contact [Aiven support](mailto:support@aiven.io).
 The available plugins depend on the Grafana version of the service.
+For additional plugin requests, contact [Aiven support](mailto:support@aiven.io).
 
 ## Panel plugins
 
 | Plugin name | Description | Grafana versions | Links |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Alert list | Allows you to display alerts on a dashboard. The list can be configured to show either the current state of your alerts or recent alert state changes | All | [Grafana](https://grafana.com/grafana/plugins/alertlist/), [Grafana Docs](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/) |
 | Annotation list | Shows user annotations in Grafana database | All | [Grafana](https://grafana.com/grafana/plugins/ryantxu-annolist-panel/), [GitHub](https://github.com/grafana/grafana/tree/main/public/app/plugins/panel/annolist) |
 | Bar chart | Graphs categorical data | All | [Grafana Docs](https://grafana.com/docs/grafana/latest/visualizations/bar-chart/) |
@@ -41,13 +43,12 @@ The available plugins depend on the Grafana version of the service.
 | Time series | Displays time series data | All | [Grafana Docs](https://grafana.com/docs/grafana/latest/visualizations/time-series/) |
 | Traces | Visualizes distributed traces | All | [Grafana Docs](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/traces/) |
 | Trend | Displays trends for data with numeric X values | All | [Grafana Docs](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/trend/) |
-| Worldmap Panel | Dashboards that use the Worldmap panel are automatically converted to Geomap | All | [Grafana Docs](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/geomap/) |
 | XY Chart | Visualizes X vs Y graphing for arbitrary data points | All | [Grafana](https://grafana.com/grafana/plugins/xychart/) |
 
 ## Data source plugins
 
 | Plugin name | Description | Grafana versions | Links |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Alertmanager | Integrates the built-in Alertmanager data source | All | [Grafana Docs](https://grafana.com/docs/grafana/latest/datasources/alertmanager/) |
 | Altinity plugin for ClickHouse® | Integrates ClickHouse as a backend database. This is the community plugin `vertamedia-clickhouse-datasource` | All | [Grafana](https://grafana.com/grafana/plugins/vertamedia-clickhouse-datasource/), [GitHub](https://github.com/Altinity/clickhouse-grafana) |
 | Azure Monitor | Monitors Azure resources | All | [Grafana](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource/), [GitHub](https://github.com/grafana/azure-monitor-datasource) |
@@ -80,7 +81,7 @@ The available plugins depend on the Grafana version of the service.
 ## Other plugins
 
 | Plugin name | Description | Grafana versions | Links |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Grafana Image Renderer | Renders panels and dashboards to PNG images using a headless browser | 11, 12 | [Grafana](https://grafana.com/grafana/plugins/grafana-image-renderer/), [GitHub](https://github.com/grafana/grafana-image-renderer) |
 | Logs Drilldown | Explores Loki logs without writing queries | 12, 13 | [Grafana](https://grafana.com/grafana/plugins/grafana-lokiexplore-app/) |
 | Metrics Drilldown | Explores Prometheus-compatible metrics without writing queries | 12, 13 | [Grafana](https://grafana.com/grafana/plugins/grafana-metricsdrilldown-app/) |
@@ -88,6 +89,12 @@ The available plugins depend on the Grafana version of the service.
 | Synthetic Monitoring | Monitors availability and performance with synthetic checks | 11, 12 | [Grafana](https://grafana.com/grafana/plugins/grafana-synthetic-monitoring-app/) |
 | Traces Drilldown | Explores Tempo traces without writing queries | 12, 13 | [Grafana](https://grafana.com/grafana/plugins/grafana-exploretraces-app/) |
 | Zabbix | Provides a data source and a triggers panel for Zabbix metrics | All | [Grafana](https://grafana.com/grafana/plugins/alexanderzobnin-zabbix-app/), [GitHub](https://github.com/alexanderzobnin/grafana-zabbix) |
+
+<RelatedPages/>
+
+- [Advanced parameters for Aiven for Grafana®](/docs/products/grafana/reference/advanced-params)
+- [Upgrade the Aiven for Grafana® service version](/docs/products/grafana/howto/grafana-version-upgrade)
+- [Aiven for Grafana® version lifecycle](/docs/products/grafana/reference/version-lifecycle)
 
 import ElasticSearch from "@site/static/includes/trademark-elasticsearch.md"
 

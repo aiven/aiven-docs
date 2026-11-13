@@ -3,6 +3,8 @@ title: Replace strings in Grafana® dashboard metric expressions
 sidebar_label: Replace strings
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Sometimes, it is useful to replace all occurrences of a string in Grafana metric expressions.
 Do it with the `aiven-string-replacer-for-grafana` tool available on
 [GitHub](https://github.com/aiven/aiven-string-replacer-for-grafana).
@@ -49,7 +51,7 @@ To get your token (`GRAFANA_TOKEN`):
 1. If you already have a service account with the **Editor** or **Admin** role, open it.
    Otherwise, click **Add service account**, enter a name, set the role to **Editor**,
    and click **Create**.
-1. In the service account page, click **Add service account token**.
+1. On the service account page, click **Add service account token**.
 1. Optional: Enter a token name and set an expiration date.
 1. Click **Generate token**, and save the token. Grafana shows it only once.
 
@@ -114,3 +116,9 @@ change to a specific version.
     revert to an earlier version of the dashboard.
 
 ![A screenshot of the Grafana Dashboard version changelog after conversion](/images/content/products/grafana/grafana-version-changelog.png)
+
+<RelatedPages/>
+
+- [Plugins for Aiven for Grafana®](/docs/products/grafana/reference/plugins)
+- [Upgrade the Aiven for Grafana® service version](/docs/products/grafana/howto/grafana-version-upgrade)
+- [Get started with Aiven for Grafana®](/docs/products/grafana/get-started)

@@ -66,7 +66,8 @@ review on the changes that affect your own content, for example:
   only letters, numbers, and dashes. Non-compliant data sources are rejected, and
   dashboards and alert rules that reference them must be repointed to a replacement data
   source.
-- Integrations that call the data source numeric ID API. Grafana 13 removes this API.
+- Integrations that call data source APIs by numeric ID. Grafana 13 disables these APIs
+  by default.
 - Configuration options that the target version removes.
 
 ### Downgrade restriction
