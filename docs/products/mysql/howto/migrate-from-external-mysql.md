@@ -15,6 +15,26 @@ To migrate your database using the Aiven Console, see
 [Migrate MySQL® databases to Aiven via console](/docs/products/mysql/howto/migrate-db-to-aiven-via-console).
 :::
 
+## Supported migration sources
+
+The migration source must run MySQL 5.7 or later. The migration pre-check reads the
+source server version and stops the migration before any data is transferred if the
+version is lower.
+
+To see your source version, run the following on the source server:
+
+```sql
+SELECT @@GLOBAL.VERSION;
+```
+
+If the version is lower than 5.7, the migration reports
+`Unsupported MySQL version for migration, must be >= 5.7.0`.
+
+MariaDB is a separate database engine rather than a MySQL version, and it is not a
+supported migration source. To move data from MariaDB,
+[contact Aiven support](mailto:support@aiven.io) to confirm the options for your version
+and dataset.
+
 ## How it works
 
 The Aiven for MySQL migration process begins with an **initial data transfer** and can be
@@ -53,6 +73,10 @@ replication feature.
 - You have a running Aiven for MySQL service with a destination database. If missing,
   create it in the [Aiven Console](/docs/products/mysql/get-started) or the
   [Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create).
+
+- The target service has free disk space of at least 1.3 times the size of the source
+  data. The migration pre-check compares the source data size against the free space on
+  the target and stops the migration if there is not enough.
 
 - If you use `mydumper/myloader` for the
   [initial data transfer](/docs/products/mysql/howto/migrate-from-external-mysql#initial-data-transfer),
