@@ -1,13 +1,13 @@
 ---
 title: Manage organization virtual private clouds (VPCs) in Aiven
 sidebar_label: Manage organization VPCs
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Set up or delete an organization-wide VPC on the Aiven Platform.
 
@@ -37,10 +37,11 @@ Create an organization VPC using a tool of your choice:
    1. Select a cloud region.
    1. Specify an IP range.
 
-      - Use an IP range that does not overlap with any networks to be connected via VPC
-        peering. For example, if your own networks use the range `11.1.1.0/8`, you can set
-        the range for your Aiven organization's VPC to `191.161.1.0/24`.
-      - Use a network prefix that is 20-24 character long.
+      - Use a private IPv4 range from `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`.
+      - Use a network prefix length between `/20` and `/24`.
+      - Use a range that does not overlap with any network you connect over VPC peering.
+        For example, if your own network uses `10.1.0.0/16`, set the range for your Aiven
+        organization VPC to `192.168.1.0/24`.
 
    1. Click **Create VPC**.
 
@@ -82,8 +83,13 @@ curl --request POST \
   --header 'content-type: application/json' \
   --data '
     {
-      "cloud_name": "CLOUD_PROVIDER_REGION",
-      "network_cidr": "NETWORK_CIDR"
+      "clouds": [
+        {
+          "cloud_name": "CLOUD_PROVIDER_REGION",
+          "network_cidr": "NETWORK_CIDR"
+        }
+      ],
+      "peering_connections": []
     }
   '
 ```
@@ -97,18 +103,22 @@ Replace the following placeholders with meaningful data:
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
+
 Use the
 [aiven_organization_vpc](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/organization_vpc)
-resource.
+resource:
+
+<TerraformSample filename='resources/aiven_organization_vpc/resource.tf' />
+
 </TabItem>
 </Tabs>
 
 ## Delete an organization VPC
 
 :::important
-Remove all services from your VCP before you delete it. To remove the services from the VCP,
-either migrate them out of the VCP or delete them. Deleting the VPC terminates its peering
-connections, if any.
+Remove all services from your VPC before you delete it. To remove the services from the
+VPC, either migrate them out of the VPC or delete them. Deleting the VPC terminates its
+peering connections, if any.
 :::
 
 Delete an organization VPC using a tool of your choice:
@@ -149,8 +159,8 @@ endpoint:
 
 ```bash
 curl --request DELETE \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID \
-  --header 'Authorization: Bearer BEARER_TOKEN' \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpc/ORGANIZATION_VPC_ID \
+  --header 'Authorization: Bearer BEARER_TOKEN'
 ```
 
 Replace the following placeholders with meaningful data:

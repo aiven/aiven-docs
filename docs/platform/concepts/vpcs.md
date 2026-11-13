@@ -3,7 +3,6 @@ title: Virtual private clouds (VPCs) in Aiven
 sidebar_label: VPCs overview
 ---
 
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import RelatedPages from "@site/src/components/RelatedPages";
 import CustomDomainNote from "@site/static/includes/vpc/custom-domain-note.md";
 
@@ -65,7 +64,7 @@ project's services.
 Learn how to
 [create and manage projects VPCs in Aiven](/docs/platform/howto/manage-project-vpc).
 
-### Organization VPCs <LimitedBadge/>
+### Organization VPCs
 
 An organization VPC is a VPC that spans multiple Aiven projects within your Aiven
 organization. An organization-wide VPC allows different projects to share a centralized
