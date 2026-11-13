@@ -7,7 +7,8 @@ check the secondary backup status, monitor the replication lag, fork and restore
 cross-region backup, or migrate to another cloud or region.
 
 BTAR is configured with the `additional_backup_regions` option in your service
-configuration.
+configuration. The option takes one region, which holds the secondary backup for your
+service.
 
 ## Prerequisites
 
@@ -158,8 +159,8 @@ backup, go to your service page > <ConsoleLabel name="backups"/> >
 <TabItem value="cli" label="Aiven CLI">
 
 Run [avn service get](/docs/tools/cli/service-cli) and read
-`user_config.additional_backup_regions`. The field lists the region holding the secondary
-backup. If the service has no secondary backup, the field is not set.
+`user_config.additional_backup_regions`. The field contains the region that holds the
+secondary backup. If the service has no secondary backup, the field is not set.
 
 ```bash
 avn service get SERVICE_NAME --project PROJECT_NAME --json
@@ -169,9 +170,9 @@ avn service get SERVICE_NAME --project PROJECT_NAME --json
 <TabItem value="api" label="Aiven API">
 
 Call the [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint
-and read `user_config.additional_backup_regions` in the response. The field lists the
-region holding the secondary backup. If the service has no secondary backup, the field is
-not set.
+and read `user_config.additional_backup_regions` in the response. The field contains the
+region that holds the secondary backup. If the service has no secondary backup, the field
+is not set.
 
 ```bash
 curl --request GET                                                              \
@@ -403,9 +404,9 @@ the **Secondary backup location** column.
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-To remove secondary backups for your service, use the
-[avn service update](/docs/tools/cli/service-cli) command to remove all target region names
-from the `additional_backup_regions` array.
+To remove the secondary backup for your service, use the
+[avn service update](/docs/tools/cli/service-cli) command to remove the target region from
+the `additional_backup_regions` array.
 
 ```bash
 avn service update SERVICE_NAME       \
@@ -416,9 +417,9 @@ avn service update SERVICE_NAME       \
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-To remove secondary backups for your service, update the service configuration. Use the
-[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint
-to remove all target regions names from the `additional_backup_regions` array.
+To remove the secondary backup for your service, update the service configuration. Use
+the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint to remove the target region from the `additional_backup_regions` array.
 
 ```bash
 curl --request PUT                                                              \
