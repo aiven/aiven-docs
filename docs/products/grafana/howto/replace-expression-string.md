@@ -13,7 +13,7 @@ The approach described will work with your own Grafana cluster or with
 an Aiven for Grafana cluster.
 
 :::note
-The tool is tested with Grafana 11 and 12. It is not tested with Grafana 13.
+Aiven tested this tool with Grafana 11 and 12. Run it with `-dry` first to preview the changes before you save them.
 :::
 
 ## Prerequisites
