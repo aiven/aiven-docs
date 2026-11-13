@@ -2816,16 +2816,20 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'products/ai-gateway',
-        'products/ai-gateway/api-keys',
+        {
+          type: 'category',
+          label: 'API keys',
+          items: [
+            'products/ai-gateway/api-keys',
+            'products/ai-gateway/set-spend-limits',
+          ],
+        },
         'products/ai-gateway/model-catalog',
         {
           type: 'category',
           label: 'Use AI gateway',
-          link: {
-            type: 'doc',
-            id: 'products/ai-gateway/use-with-agents',
-          },
           items: [
+            'products/ai-gateway/use-with-agents',
             'products/ai-gateway/rest-api',
             'products/ai-gateway/use-with-agents',
             'products/ai-gateway/use-sdks',
