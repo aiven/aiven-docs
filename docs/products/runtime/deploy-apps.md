@@ -34,7 +34,7 @@ Build and deploy applications using Aiven Runtime from source code in a GitHub r
 
 When you push changes to your GitHub repository, they don't
 automatically trigger deployments in Aiven Runtime.
-To deploy new commits, [redeploy the application](#redeploy-an-application).
+You can manually [deploy the latest or a specific commit](/docs/products/runtime/release-management).
 
 ## Prerequisites
 
@@ -253,12 +253,3 @@ To check the status of your services or applications, run
 
 </TabItem>
 </Tabs>
-
-## Redeploy an application
-
-When you redeploy an application, Aiven deploys the latest commit from
-the selected branch.
-
-1. In your project, click <ConsoleLabel name="runtime"/>.
-1. Open your application.
-1. On the **Overview** page, click <ConsoleLabel name="actions"/> > <ConsoleLabel name="redeployapp"/>.

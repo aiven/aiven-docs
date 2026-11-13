@@ -2708,9 +2708,16 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       items: [
         'products/runtime',
-        'products/runtime/deploy-apps',
-        'products/runtime/templates',
-        'products/runtime/connect-github-account',
+        {
+          type: 'category',
+          label: 'Deploy apps',
+          items: [
+            'products/runtime/deploy-apps',
+            'products/runtime/templates',
+            'products/runtime/release-management',
+            'products/runtime/connect-github-account',
+          ],
+        },
         {
           type: 'category',
           label: 'Manifest files',
