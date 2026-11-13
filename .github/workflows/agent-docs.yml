@@ -14,16 +14,9 @@ jobs:
         with:
           node-version: 23
 
-      - run: yarn install
+      - run: corepack enable
+      - run: yarn install --immutable
 
       - name: Run agent-friendly docs checks
-        run: node scripts/check-agent-docs.mjs
+        run: yarn afdocs check --config tests/agent-docs.config.yml
         timeout-minutes: 5
-
-      - name: Upload AFDocs report and score
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: agent-docs-report
-          path: reports/agent-docs/report.json
-          if-no-files-found: error
