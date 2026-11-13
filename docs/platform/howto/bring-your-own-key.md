@@ -9,8 +9,9 @@ import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import ConsoleLabel from '@site/src/components/ConsoleIcons';
 
-Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
+Register, list, update, or delete your customer managed keys (CMKs), associate CMKs with services, and view CMK usage across services in Aiven projects using the [Aiven Console](https://console.aiven.io), [Aiven Provider for Terraform](/docs/tools/terraform), [Aiven API](/docs/tools/api), or the [Aiven CLI](/docs/tools/cli).
 
 ## Availability
 
@@ -91,6 +92,9 @@ BYOK encrypts the following using your CMKs:
   management service over the public internet to perform wrap and unwrap operations,
   so the key management service must be reachable from the public internet. Key vaults
   that block public internet access aren't currently supported.
+
+- Access to the [Aiven Console](https://console.aiven.io) (for Aiven Console
+  instructions)
 
 - [**Authentication token**](/docs/platform/howto/create_authentication_token) to use
   the [Aiven API](/docs/tools/api)
@@ -720,7 +724,38 @@ For per-service CMK assignment and rotation, see
 Register a customer managed key resource identifier for an Aiven project.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+You register CMKs for your whole organization and then allocate them to the projects
+that are allowed to use them.
+
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Click **Register key**.
+1. In **Cloud**, select the cloud that hosts your key: **AWS**, **Google Cloud**,
+   **Azure**, or **Oracle**.
+1. In **Grant access**, copy the accessor value shown for the selected cloud, such as the
+   access group, principal, or application ID, and grant Aiven access to your key in your
+   cloud provider's KMS. The dialog also shows a ready-to-run CLI command for the
+   selected cloud. Replace `<region>` with your cloud region before you run the command.
+1. In **Key details**, enter the following:
+   - **Key name**: a name that identifies the key in the Aiven Console.
+   - **Key resource path**: the resource identifier of the key in your KMS.
+   - **Projects**: the projects that can use this key.
+1. Optional: Select **Set as default for the selected projects** to encrypt new
+   services in those projects with this key.
+1. In **Billing**, select the **Billing group** to charge for the services that use
+   this key.
+1. Click **Validate and register**.
+
+Aiven checks that it can encrypt and decrypt with your key. When the check succeeds,
+**Key registered successfully** appears. Click **Done**.
+
+If the check fails, **Cannot verify encrypt and decrypt access** appears. Fix the access
+group permissions in your cloud provider, then click **Validate and register** again.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -930,7 +965,24 @@ resource to register a CMK with your Aiven project.
 Update attributes or parameters on an existing customer managed key configuration.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Find the key to update, click <ConsoleLabel name="actions"/>, and select
+   **Edit key**.
+1. Update the key name, key resource path, projects, or default-key setting.
+   You cannot change the cloud that hosts the key. If you change the key resource path,
+   Aiven validates its access to the key again.
+1. Click **Validate and save changes**.
+
+You can also open the key and use the **Default key for the selected projects** toggle
+to turn the default on or off without opening the edit dialog. New services in those
+projects use the default key unless you select a different key when you create the
+service. Services that use Aiven-managed keys are not affected.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1072,7 +1124,18 @@ resource "aiven_cmk" "example" {
 Get the details of a customer managed key configuration.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Click the key name.
+
+The **Overview** tab shows the key ID, cloud and region, key resource path, creation
+time, and whether the key is the default for the projects it is assigned to.
+The **Assigned projects** tab lists the projects and services that use the key.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1262,7 +1325,19 @@ uses it. The key status appears in the API, CLI, and Terraform responses.
 List all customer managed key configurations for a project.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+
+The **Bring your own key (BYOK)** page lists every key registered for the organization
+with its name and key ID, cloud and region, status, projects, and creation time. Keys
+that are the default for their projects are marked **Default**.
+
+If no keys are registered yet, the page shows **Register key** instead of the list.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1381,7 +1456,21 @@ association before deletion.
 :::
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Click <ConsoleLabel name="actions"/> next to the key to delete and select
+   **Delete**.
+
+If services still use the key, **Cannot delete a key in use** appears. Move those
+services to another CMK or to Aiven-managed keys first, then delete the key.
+
+You can also delete a key from its page: click the key name, click the actions menu next
+to **Edit key**, and select **Delete**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1514,7 +1603,18 @@ Create a service with a specific CMK by providing the CMK ID in the service crea
 Set `cloud` to control the cloud region for the new service.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your project.
+1. Click **Create service**.
+1. Select a service type, cloud provider, and plan.
+1. In **Service details**, open **Encryption key** and select the key to encrypt the
+   service with. You can select an Aiven-managed key or any CMK registered on this
+   project. The project default key, if there is one, is preselected.
+1. Click **Create service**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1793,7 +1893,17 @@ showing which CMK is actively protecting that service's data. This allows you to
 encryption key usage and track which services are using which CMKs.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), open your service.
+1. On the <ConsoleLabel name="overview"/> page, go to **Connection information**.
+
+The **Encryption key (BYOK)** row shows the key name and its resource path. If the key
+is the project default, it is marked **Default**. Services that use Aiven-managed keys
+do not show this row.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
@@ -1889,7 +1999,19 @@ Find all services in a project that are using a specific customer managed key. T
 useful for auditing, capacity planning, or managing CMK usage across your infrastructure.
 
 <Tabs groupId="interface">
-<TabItem value="api" label="API" default>
+<TabItem value="console" label="Console" default>
+
+1. In the [Aiven Console](https://console.aiven.io), click **Admin**.
+1. Under **Platform management**, click **Bring your own key**.
+1. Click the key name, then open the **Assigned projects** tab.
+
+The tab lists the projects allocated to the key and the services in each project that
+use it. Use the search box to find a project or service by name. To allocate more
+projects to the key, click **Assign projects**. To stop a project or service from using
+the key, click <ConsoleLabel name="actions"/> and select **Remove**.
+
+</TabItem>
+<TabItem value="api" label="API">
 
 #### API endpoint
 
