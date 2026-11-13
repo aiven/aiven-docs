@@ -12,7 +12,7 @@ Use the OpenAI and Anthropic SDKs with the Aiven AI gateway.
 
 ## Prerequisites
 
-- AI Gateway [enabled for your organization](/docs/products/ai-gateway).
+- AI gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys) in the `AIVEN_AI_GATEWAY_KEY`
   environment variable. To store the key, see
   [Store the API key](/docs/products/ai-gateway/use-with-agents#store-the-api-key).

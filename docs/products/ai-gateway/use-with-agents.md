@@ -9,7 +9,7 @@ import AIGatewayModelInfo from "@site/src/components/AIGatewayModelInfo";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connect Claude Code, Codex, Pi, OpenCode, or OMP to Aiven AI Gateway with your API key.
+Connect Claude Code, Codex, Pi, OpenCode, or OMP to Aiven AI gateway with your API key.
 
 <RequirementsPanel
 items={[
@@ -27,7 +27,7 @@ values: [
 
 ## Prerequisites
 
-- AI Gateway [enabled for your organization](/docs/products/ai-gateway).
+- AI gateway [enabled for your organization](/docs/products/ai-gateway).
 - An [API key](/docs/products/ai-gateway/api-keys).
 
 ## Set up and launch with `aiven-llm`
@@ -140,7 +140,7 @@ environment variable, so the key stays out of tracked dotfiles and agent convers
    set -gx AIVEN_AI_GATEWAY_KEY "API_KEY"
    ```
 
-   Where `API_KEY` is your AI Gateway API key, which starts with `AVNS_`.
+   Where `API_KEY` is your AI gateway API key, which starts with `AVNS_`.
 
 1. Load the credentials file from your shell startup file.
    The commands add the line only if it is not already there.
@@ -183,7 +183,7 @@ environment variable, so the key stays out of tracked dotfiles and agent convers
 The Aiven Console provides a setup prompt for coding agents.
 The prompt does not contain your API key.
 
-1. In your project, click **AI Gateway**.
+1. In your project, click **AI gateway**.
 1. Click **Connect with AI**.
 1. Copy the setup prompt and paste it into your coding agent.
 
@@ -230,7 +230,7 @@ to its Opus, Sonnet, and Haiku aliases. Set `ANTHROPIC_DEFAULT_OPUS_MODEL`,
 `ANTHROPIC_DEFAULT_SONNET_MODEL`, and `ANTHROPIC_DEFAULT_HAIKU_MODEL` to models
 available in your project.
 
-### Test Claude Code with AI Gateway
+### Test Claude Code with AI gateway
 
 1. To start Claude Code, run `claude`.
 1. To confirm the gateway is configured, run `/status`.
@@ -245,7 +245,7 @@ available in your project.
 
    ```toml
    [model_providers.aiven]
-   name = "Aiven AI Gateway"
+   name = "Aiven AI gateway"
    base_url = "https://ai.aiven.io/v1"
    env_key = "AIVEN_AI_GATEWAY_KEY"
    wire_api = "responses"
@@ -260,7 +260,7 @@ available in your project.
    model = "gpt-6.1-sol"
 
    [model_providers.aiven]
-   name = "Aiven AI Gateway"
+   name = "Aiven AI gateway"
    base_url = "https://ai.aiven.io/v1"
    env_key = "AIVEN_AI_GATEWAY_KEY"
    wire_api = "responses"
@@ -269,7 +269,7 @@ available in your project.
 
 <AIGatewayModelInfo variable="model" />
 
-### Test Codex with AI Gateway
+### Test Codex with AI gateway
 
 1. To start Codex with the profile, run `codex -p aiven`.
 1. To confirm the active model is `gpt-6.1-sol`, run `/status`.
@@ -338,7 +338,7 @@ available in your project.
      "provider": {
        "aiven": {
          "npm": "@ai-sdk/openai-compatible",
-         "name": "Aiven AI Gateway",
+         "name": "Aiven AI gateway",
          "options": {
            "baseURL": "https://ai.aiven.io/v1",
            "apiKey": "{env:AIVEN_AI_GATEWAY_KEY}"
@@ -369,7 +369,7 @@ available in your project.
 
 ## Verify requests in the Aiven Console
 
-1. In your project, click **AI Gateway**.
+1. In your project, click **AI gateway**.
 1. To see the request, [view the usage metrics](/docs/products/ai-gateway/metrics)
    on the page for the API key you used.
    A new request can take about 15 minutes to appear.
