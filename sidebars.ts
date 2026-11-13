@@ -1539,7 +1539,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/grafana/backups-migration',
           },
           items: [
-            'products/grafana/howto/backup-to-another-region',
             'products/grafana/howto/track-restore-progress',
           ],
         },
@@ -1753,7 +1752,6 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/concepts/mysql-backups',
                 'products/mysql/howto/use-incremental-backups',
                 'products/mysql/howto/migrate-database-mysqldump',
-                'products/mysql/howto/backup-to-another-region',
                 'products/mysql/howto/track-restore-progress',
               ],
             },
@@ -2474,7 +2472,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/valkey/howto/configure-backups',
-            'products/valkey/howto/backup-to-another-region',
             'products/valkey/howto/track-restore-progress',
             'products/valkey/howto/migrate-redis-aiven-cli',
             'products/valkey/howto/migrate-redis-aiven-via-console',
