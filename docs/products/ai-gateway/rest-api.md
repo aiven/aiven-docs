@@ -21,10 +21,12 @@ Send a request:
 curl -X POST 'https://ai.aiven.io/v1/chat/completions' \
 -H 'Authorization: Bearer API_KEY' \
 -H 'Content-Type: application/json' \
--d '{ "model": "aiven-model", "messages": [{"role": "user", "content": "Say hello"}] }'
+-d '{ "model": "claude-sonnet-5-5", "messages": [{"role": "user", "content": "Say hello"}] }'
 ```
 
-List the available models:
+To use a different model, replace `claude-sonnet-5-5` with a model name from the
+[model list](/docs/products/ai-gateway/model-catalog) in the Aiven Console.
+To list the available models with the API, run:
 
 ```
 curl 'https://ai.aiven.io/v1/models' \
