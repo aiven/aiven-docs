@@ -252,6 +252,8 @@
 /products/grafana/howto/list-manage-dashboards             /docs/products/grafana  301
 /products/grafana/howto/dashboard-previews                 /docs/products/grafana  301
 /products/grafana/howto/dashboard-previews/                /docs/products/grafana  301
+/products/grafana/howto/replace-expression-string          /docs/products/grafana  301
+/products/grafana/howto/replace-expression-string/         /docs/products/grafana  301
 /products/grafana/list-overview                            /docs/products/grafana  301
 /products/grafana/reference                                /docs/products/grafana/reference/advanced-params  301
 /products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing  301
