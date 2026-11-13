@@ -19,7 +19,8 @@ PostgreSQL for Analytics is in
 ## About PostgreSQL for Analytics
 
 PostgreSQL for Analytics adds columnar, Apache Iceberg table storage to an Aiven for
-PostgreSQL service through the `pg_lake` extension. Iceberg tables store their data as
+PostgreSQL service through the [`pg_lake`](https://github.com/Snowflake-Labs/pg_lake)
+extension. Iceberg tables store their data as
 Parquet files in a storage bucket that you provide, while the catalog that tracks
 those tables lives in your PostgreSQL database. You query the Iceberg tables with
 standard SQL from the same connection you already use for your operational database.
@@ -89,11 +90,13 @@ an even share, and when one is idle the other can use the spare capacity.
 
 ### SQL and data types
 
-- Iceberg tables support `INSERT`, `DELETE`, and `SELECT`, but not `MERGE`,
+- Iceberg tables support `INSERT`, `UPDATE`, `DELETE`, and `SELECT`, but not `MERGE`,
   `INSERT ... ON CONFLICT`, `SELECT ... FOR UPDATE`, `SELECT ... FOR SHARE`, or queries
   that use system columns such as `ctid`. For upsert behavior, stage your changes in a
   regular PostgreSQL table and apply them as a `DELETE` followed by an `INSERT` in one
   transaction.
+- Writes to one Iceberg table are serialized. If two `INSERT` statements target the same
+  table at once, the second starts after the first commits.
 - Numeric columns without a declared precision and scale are stored as
   `double precision`, which loses exact decimal semantics. See
   [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
@@ -103,8 +106,8 @@ an even share, and when one is idle the other can use the spare capacity.
 - You load data into Iceberg tables with SQL, and schedule loads yourself with
   [pg_cron](/docs/products/postgresql/howto/use-pg-cron-extension). See
   [Load data into Iceberg tables](/docs/products/postgresql/howto/enable-pg-analytics#load-data-into-iceberg-tables).
-- Iceberg tables accumulate data files and metadata and need regular maintenance,
-  especially if you write to them in small batches. See
+- An autovacuum worker compacts Iceberg tables and expires old snapshots for you. You can
+  also run `VACUUM` yourself. See
   [Maintain Iceberg tables](/docs/products/postgresql/howto/enable-pg-analytics#maintain-iceberg-tables).
 
 ### Performance
@@ -113,8 +116,9 @@ an even share, and when one is idle the other can use the spare capacity.
   plan you choose.
 - Iceberg table data is read from and written to object storage, so analytical queries
   have higher latency than queries against local PostgreSQL tables.
-- After Aiven upgrades the `pg_lake` extension, you might need to update dependent
-  extensions manually.
+- Aiven upgrades the `pg_lake` extension during maintenance updates, to keep it in sync
+  with the analytical query engine. You might need to update dependent extensions
+  manually afterwards.
 - PostgreSQL for Analytics owns the Iceberg tables it creates. Reading or writing them
   from engines outside your PostgreSQL service, such as Trino or Apache Spark™, isn't
   available yet.
