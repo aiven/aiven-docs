@@ -4,6 +4,8 @@ title: Manage project and service notifications
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 To stay up to date with the latest information about services and projects, you can set service and project contacts to receive email notifications.
 
@@ -26,6 +28,15 @@ project or service notifications.
 
 ## Set project contacts
 
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`role:project:admin`','`role:organization:admin`'],
+        },
+    ]}
+/>
+
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
 
@@ -44,6 +55,15 @@ Use the `technical_emails` attribute in
 </Tabs>
 
 ## Set service contacts
+
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`service:configuration:write`', '`role:project:admin`', '`role:project:manager`','`role:organization:admin`'],
+        },
+    ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -72,7 +92,7 @@ email address to the technical contacts for an Aiven project:
 1.  In Slack, [create an email address for a channel or
     DM](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WDZG8RTCTNAMR4KJ7D419V).
 
-    :::note
+    :::note[Note]
     If you don't see the email integrations option, ask the owner or
     admin of the workspace or organization to [allow incoming
     emails](https://slack.com/help/articles/360053335433-Manage-incoming-emails-for-your-workspace-or-organization).
@@ -88,3 +108,7 @@ Alternatively, you can [set up a Slackbot forwarding
 address](https://slack.com/help/articles/206819278-Send-emails-to-Slack#h_01F4WE06MBF06BBHQNZ1G0H2K5)
 and use to automatically forward Aiven's email notifications from
 your email client.
+
+<RelatedPages/>
+
+- [View and export project event logs](/docs/platform/howto/view-project-logs)

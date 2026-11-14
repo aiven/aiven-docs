@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       items: [
+        'platform/reference/security-best-practices',
         {
           type: 'link',
           label: 'Authentication',
@@ -182,7 +183,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'link',
-          label: 'AI Gateway',
+          label: 'AI gateway',
           href: '/docs/products/ai-gateway',
         },
         {
@@ -213,38 +214,20 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
+      link: {
+        type: 'doc',
+        id: 'products/services',
+      },
       items: [
-        'products/services',
-        'platform/howto/search-services',
         {
           type: 'link',
-          label: 'Aiven for Flink®',
-          href: '/docs/products/flink',
+          label: 'Aiven for PostgreSQL®',
+          href: '/docs/products/postgresql',
         },
         {
           type: 'link',
           label: 'Aiven for Kafka®',
           href: '/docs/products/kafka',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for ClickHouse®',
-          href: '/docs/products/clickhouse',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for DataHub',
-          href: '/docs/products/datahub',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for Grafana®',
-          href: '/docs/products/grafana',
-        },
-        {
-          type: 'link',
-          label: 'Aiven for Metrics',
-          href: '/docs/products/metrics',
         },
         {
           type: 'link',
@@ -258,28 +241,39 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'link',
-          label: 'Aiven for PostgreSQL®',
-          href: '/docs/products/postgresql',
+          label: 'Aiven for Valkey™',
+          href: '/docs/products/valkey',
         },
         {
           type: 'link',
-          label: 'Aiven for Valkey™',
-          href: '/docs/products/valkey',
+          label: 'Aiven for ClickHouse®',
+          href: '/docs/products/clickhouse',
+        },
+        {
+          type: 'link',
+          label: 'Aiven for DataHub',
+          href: '/docs/products/datahub',
+        },
+        {
+          type: 'link',
+          label: 'Aiven for Metrics',
+          href: '/docs/products/metrics',
+        },
+        {
+          type: 'link',
+          label: 'Aiven for Grafana®',
+          href: '/docs/products/grafana',
+        },
+        {
+          type: 'link',
+          label: 'Aiven for Flink®',
+          href: '/docs/products/flink',
         },
         {
           type: 'link',
           label: 'Service management',
           href: '/docs/platform/howto/list-service',
         },
-        {
-          type: 'link',
-          label: 'Networking and security',
-          href: '/docs/platform/concepts/cloud-security',
-        },
-        'platform/concepts/service-and-feature-releases',
-        'platform/howto/feature-preview',
-        'platform/reference/eol-for-major-versions',
-        'platform/reference/end-of-life',
       ],
     },
     {
@@ -312,14 +306,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'AI Gateway',
+      label: 'AI gateway',
       collapsed: false,
       collapsible: false,
       className: 'expandedSection',
       items: [
         {
           type: 'link',
-          label: 'AI Gateway',
+          label: 'AI gateway',
           href: '/docs/products/ai-gateway',
         },
       ],
@@ -619,6 +613,17 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Consumers',
+          items: [
+            'products/kafka/concepts/share-groups',
+            'products/kafka/concepts/monitor-consumer-group',
+            'products/kafka/concepts/consumer-lag-predictor',
+            'products/kafka/howto/viewing-resetting-offset',
+            'products/kafka/howto/enabled-consumer-lag-predictor',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Schema registry and REST proxy',
           items: [
             'products/kafka/karapace',
@@ -807,6 +812,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/howto/enable-follower-fetching',
                 'products/kafka/concepts/follower-fetching',
                 'products/kafka/howto/configure-preferred-zones',
+                'products/kafka/howto/configure-az-aware-listeners',
                 'products/kafka/concepts/kafka-quotas',
                 'products/kafka/howto/manage-quotas',
               ],
@@ -840,16 +846,6 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/howto/kafka-prometheus-privatelink',
                 'products/kafka/howto/datadog-customised-metrics',
                 'products/kafka/howto/add-missing-producer-consumer-metrics',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Consumer groups',
-              items: [
-                'products/kafka/concepts/monitor-consumer-group',
-                'products/kafka/howto/viewing-resetting-offset',
-                'products/kafka/concepts/consumer-lag-predictor',
-                'products/kafka/howto/enabled-consumer-lag-predictor',
               ],
             },
             {
@@ -1135,6 +1131,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
                 'products/kafka/kafka-mirrormaker/howto/migrate-cluster',
                 'products/kafka/kafka-mirrormaker/howto/update-integration-configurations',
+                'products/kafka/kafka-mirrormaker/howto/upgrade-version',
                 'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                 'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                 'products/kafka/kafka-mirrormaker/howto/exactly-once-delivery',
@@ -1185,6 +1182,21 @@ const sidebars: SidebarsConfig = {
             'products/clickhouse/concepts/service-architecture',
             'products/clickhouse/concepts/columnar-databases',
             'products/clickhouse/concepts/olap',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Developer tier',
+          link: {
+            type: 'doc',
+            id: 'products/clickhouse/dev-tier/clickhouse-dev-tier',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'products/clickhouse/dev-tier/create-dev-tier-clickhouse-service',
+              label: 'Create a Developer tier service',
+            },
           ],
         },
         {
@@ -1376,6 +1388,7 @@ const sidebars: SidebarsConfig = {
             'products/clickhouse/howto/integrate-kafka',
             'products/clickhouse/reference/supported-input-output-formats',
             'products/clickhouse/howto/integrate-postgresql',
+            'products/clickhouse/howto/replicate-postgresql-cdc',
             'products/clickhouse/howto/connect-with-jdbc',
           ],
         },
@@ -1402,6 +1415,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'products/datahub/get-started',
         'products/datahub/connect-datahub-to-services',
+        'products/datahub/enable-ai-description-and-classification',
         'products/datahub/datahub-lineage',
         'products/datahub/datahub-mcp-server',
         {
@@ -1531,14 +1545,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Manage dashboards',
-          items: [
-            'products/grafana/howto/dashboard-previews',
-            'products/grafana/howto/replace-expression-string',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Security and access',
           items: [
             'products/grafana/howto/rotating-grafana-service-credentials',
@@ -1634,7 +1640,6 @@ const sidebars: SidebarsConfig = {
             id: 'products/mysql/get-started',
           },
           items: [
-            'products/mysql/concepts/mysql-free-tier',
             'products/mysql/reference/resource-capability',
           ],
         },
@@ -1654,7 +1659,6 @@ const sidebars: SidebarsConfig = {
             'products/mysql/howto/connect-from-mysql-workbench',
             'products/mysql/howto/connect-with-dbeaver',
             'products/mysql/howto/connect-with-datagrip',
-            'products/mysql/howto/connect-libredb-studio',
             'products/mysql/concepts/max-number-of-connections',
           ],
         },
@@ -1752,6 +1756,8 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/howto/do-check-service-migration',
                 'products/mysql/howto/migrate-db-to-aiven-via-console',
                 'products/mysql/howto/migrate-from-external-mysql',
+                'products/mysql/howto/mysql-free-tier-migration-options',
+                'products/mysql/howto/migrate-to-postgresql',
               ],
             },
           ],
@@ -1817,9 +1823,6 @@ const sidebars: SidebarsConfig = {
             'products/opensearch/howto/migrate-knn-nmslib-engine',
             'products/opensearch/howto/set_index_retention_patterns',
             'products/opensearch/concepts/index-replication',
-            'products/opensearch/concepts/cross-cluster-replication-opensearch',
-            'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
-            'products/opensearch/howto/ccr-best-practices-opensearch',
             'products/opensearch/howto/resolve-shards-too-large',
             'products/opensearch/howto/handle-low-disk-space',
             'products/opensearch/reference/low-space-watermarks',
@@ -1868,7 +1871,6 @@ const sidebars: SidebarsConfig = {
             'products/opensearch/howto/fork-service',
             'products/opensearch/howto/change-cloud-region',
             'products/opensearch/reference/advanced-params',
-            'products/opensearch/concepts/dedicated-node-roles',
             'products/opensearch/concepts/hot-warm-tiering',
             'products/opensearch/howto/hot-warm-tiering',
             'products/opensearch/concepts/high-availability-for-opensearch',
@@ -1898,6 +1900,19 @@ const sidebars: SidebarsConfig = {
             'products/opensearch/howto/disk-autoscaler',
             'products/opensearch/howto/prepare-for-high-load',
             'products/opensearch/concepts/service-memory',
+            'products/opensearch/concepts/dedicated-node-roles',
+            {
+              type: 'category',
+              label: 'Cross-cluster replication',
+              link: {
+                type: 'doc',
+                id: 'products/opensearch/concepts/cross-cluster-replication-opensearch',
+              },
+              items: [
+                'products/opensearch/howto/setup-cross-cluster-replication-opensearch',
+                'products/opensearch/howto/ccr-best-practices-opensearch',
+              ],
+            },
           ],
         },
         {
@@ -2052,7 +2067,6 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/connect-zapier',
                 'products/postgresql/howto/connect-datagrip',
                 'products/postgresql/howto/connect-dbeaver',
-                'products/postgresql/howto/connect-libredb-studio',
               ],
             },
             {
@@ -2489,14 +2503,24 @@ const sidebars: SidebarsConfig = {
       className: 'expandedSection',
       collapsed: false,
       collapsible: false,
+      link: {
+        type: 'doc',
+        id: 'platform/howto/list-service',
+      },
       items: [
-        'platform/howto/list-service',
-        'platform/howto/create_new_service',
-        'platform/howto/create_new_service_user',
-        'platform/concepts/service-power-cycle',
-        'platform/concepts/rename-services',
-        'platform/howto/tag-resources',
-        'platform/concepts/service-forking',
+        {
+          type: 'category',
+          label: 'Setup and configuration',
+          items: [
+            'platform/howto/create_new_service',
+            'platform/howto/create_new_service_user',
+            'platform/concepts/service-forking',
+            'platform/concepts/rename-services',
+            'platform/howto/tag-resources',
+            'platform/howto/search-services',
+            'platform/concepts/service-power-cycle',
+          ],
+        },
         {
           type: 'category',
           label: 'Scaling and performance',
@@ -2511,7 +2535,16 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Maintenance and lifecycle',
+          label: 'Backups and recovery',
+          items: [
+            'platform/concepts/service_backups',
+            'platform/howto/restore_progress_updates',
+            'platform/concepts/backup-to-another-region',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Maintenance and upgrades',
           items: [
             'platform/concepts/maintenance-window',
             'platform/howto/controlled-upgrade',
@@ -2519,164 +2552,153 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Backups and migration',
+          label: 'Releases and end of life',
           items: [
-            'platform/concepts/service_backups',
-            'platform/howto/restore_progress_updates',
-            'platform/concepts/backup-to-another-region',
+            'platform/concepts/service-and-feature-releases',
+            'platform/howto/feature-preview',
+            'platform/reference/eol-for-major-versions',
+            'platform/reference/end-of-life',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Networking and security',
+          items: [
+            'platform/concepts/cloud-security',
+            'platform/reference/list_of_clouds',
+            'platform/howto/migrate-services-cloud-region',
+            'platform/concepts/availability-zones',
+            'platform/concepts/enhanced-compliance-env',
+            {
+              type: 'category',
+              label: 'Bring your own cloud',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/byoc',
+              },
+              items: [
+                'platform/concepts/byoc-enhanced-compliance',
+                'platform/howto/byoc/networking-security',
+                'platform/howto/byoc/enable-byoc',
+                {
+                  type: 'category',
+                  label: 'Create custom clouds',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
+                  },
+                  items: [
+                    'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
+                    'platform/howto/byoc/create-cloud/create-google-custom-cloud',
+                    'platform/howto/byoc/create-cloud/create-azure-custom-cloud',
+                  ],
+                },
+                'platform/howto/byoc/aws-privatelink-byoc',
+                'platform/howto/byoc/assign-project-custom-cloud',
+                'platform/howto/byoc/add-customer-info-custom-cloud',
+                'platform/howto/byoc/tag-custom-cloud-resources',
+                'platform/howto/byoc/store-data',
+                'platform/howto/byoc/rename-custom-cloud',
+                'platform/howto/byoc/download-infrastructure-template',
+                'platform/howto/byoc/delete-custom-cloud',
+                'platform/howto/byoc/manage-byoc-service',
+                'platform/howto/byoc/view-custom-cloud-status',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'VPCs',
+              link: {
+                type: 'doc',
+                id: 'platform/concepts/vpcs',
+              },
+              items: [
+                {
+                  type: 'category',
+                  label: 'Manage VPCs',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/list-manage-vpc',
+                  },
+                  items: [
+                    'platform/howto/manage-project-vpc',
+                    'platform/howto/manage-organization-vpc',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Peer VPCs',
+                  link: {
+                    type: 'doc',
+                    id: 'platform/howto/list-vpc-peering',
+                  },
+                  items: [
+                    {
+                      type: 'category',
+                      label: 'Project VPC peering',
+                      link: {
+                        type: 'doc',
+                        id: 'platform/howto/list-project-vpc-peering',
+                      },
+                      items: [
+                        'platform/howto/vpc-peering-aws',
+                        'platform/howto/vnet-peering-azure',
+                        'platform/howto/vpc-peering-gcp',
+                        'platform/howto/vpc-peering-upcloud',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'Organization VPC peering',
+                      link: {
+                        type: 'doc',
+                        id: 'platform/howto/list-organization-vpc-peering',
+                      },
+                      items: [
+                        'platform/howto/manage-org-vpc-peering-aws',
+                        'platform/howto/manage-org-vpc-peering-azure',
+                        'platform/howto/manage-org-vpc-peering-google',
+                      ],
+                    },
+                  ],
+                },
+                'platform/howto/vpc-service-management',
+                'platform/howto/google-cloud-functions',
+                'platform/howto/public-access-in-vpc',
+                'platform/howto/attach-vpc-aws-tgw',
+                'platform/howto/attach-vpc-gcp-ncc',
+                'platform/howto/attach-vpc-azure-vwan',
+                {
+                  type: 'category',
+                  label: 'Private link',
+                  items: [
+                    'platform/howto/use-aws-privatelinks',
+                    'platform/howto/use-azure-privatelink',
+                    'platform/howto/use-google-private-service-connect',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'IP addresses',
+              items: [
+                'platform/reference/service-ip-address',
+                'platform/concepts/static-ips',
+                'platform/howto/restrict-access',
+                'platform/howto/private-ip-resolution',
+              ],
+            },
+            'platform/concepts/aiven-node-firewall-configuration',
+            'platform/howto/configure-project-base-port',
+            'platform/concepts/tls-ssl-certificates',
+            'platform/howto/bring-your-own-key',
+            'platform/concepts/disaster-recovery-test-scenarios',
           ],
         },
       ],
     },
   ],
-
-  // Networking and security dedicated sidebar
-  networking: [
-    {
-      type: 'link',
-      label: '← Back to Products',
-      href: '/docs/products/overview',
-    },
-    {
-      type: 'category',
-      label: 'Networking and security',
-      collapsed: false,
-      collapsible: false,
-      items: [
-        'platform/concepts/cloud-security',
-        'platform/reference/list_of_clouds',
-        'platform/howto/migrate-services-cloud-region',
-        'platform/concepts/availability-zones',
-        'platform/concepts/enhanced-compliance-env',
-        {
-          type: 'category',
-          label: 'Bring your own cloud',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/byoc',
-          },
-          items: [
-            'platform/concepts/byoc-enhanced-compliance',
-            'platform/howto/byoc/networking-security',
-            'platform/howto/byoc/enable-byoc',
-            {
-              type: 'category',
-              label: 'Create custom clouds',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/byoc/create-cloud/create-custom-cloud',
-              },
-              items: [
-                'platform/howto/byoc/create-cloud/create-aws-custom-cloud',
-                'platform/howto/byoc/create-cloud/create-google-custom-cloud',
-                'platform/howto/byoc/create-cloud/create-azure-custom-cloud',
-              ],
-            },
-            'platform/howto/byoc/aws-privatelink-byoc',
-            'platform/howto/byoc/assign-project-custom-cloud',
-            'platform/howto/byoc/add-customer-info-custom-cloud',
-            'platform/howto/byoc/tag-custom-cloud-resources',
-            'platform/howto/byoc/store-data',
-            'platform/howto/byoc/rename-custom-cloud',
-            'platform/howto/byoc/download-infrastructure-template',
-            'platform/howto/byoc/delete-custom-cloud',
-            'platform/howto/byoc/manage-byoc-service',
-            'platform/howto/byoc/view-custom-cloud-status',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'VPCs',
-          link: {
-            type: 'doc',
-            id: 'platform/concepts/vpcs',
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Manage VPCs',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/list-manage-vpc',
-              },
-              items: [
-                'platform/howto/manage-project-vpc',
-                'platform/howto/manage-organization-vpc',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Peer VPCs',
-              link: {
-                type: 'doc',
-                id: 'platform/howto/list-vpc-peering',
-              },
-              items: [
-                {
-                  type: 'category',
-                  label: 'Project VPC peering',
-                  link: {
-                    type: 'doc',
-                    id: 'platform/howto/list-project-vpc-peering',
-                  },
-                  items: [
-                    'platform/howto/vpc-peering-aws',
-                    'platform/howto/vnet-peering-azure',
-                    'platform/howto/vpc-peering-gcp',
-                    'platform/howto/vpc-peering-upcloud',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Organization VPC peering',
-                  link: {
-                    type: 'doc',
-                    id: 'platform/howto/list-organization-vpc-peering',
-                  },
-                  items: [
-                    'platform/howto/manage-org-vpc-peering-aws',
-                    'platform/howto/manage-org-vpc-peering-azure',
-                    'platform/howto/manage-org-vpc-peering-google',
-                  ],
-                },
-              ],
-            },
-            'platform/howto/vpc-service-management',
-            'platform/howto/google-cloud-functions',
-            'platform/howto/public-access-in-vpc',
-            'platform/howto/attach-vpc-aws-tgw',
-            'platform/howto/attach-vpc-gcp-ncc',
-            'platform/howto/attach-vpc-azure-vwan',
-            {
-              type: 'category',
-              label: 'Private link',
-              items: [
-                'platform/howto/use-aws-privatelinks',
-                'platform/howto/use-azure-privatelink',
-                'platform/howto/use-google-private-service-connect',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'IP addresses',
-          items: [
-            'platform/reference/service-ip-address',
-            'platform/concepts/static-ips',
-            'platform/howto/restrict-access',
-            'platform/howto/private-ip-resolution',
-          ],
-        },
-        'platform/concepts/aiven-node-firewall-configuration',
-        'platform/howto/configure-project-base-port',
-        'platform/concepts/tls-ssl-certificates',
-        'platform/howto/bring-your-own-key',
-        'platform/concepts/disaster-recovery-test-scenarios',
-      ],
-    },
-  ],
-
   // Runtime
   runtime: [
     {
@@ -2721,6 +2743,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Security and access',
           items: [
+            'products/runtime/permissions',
             {
               type: 'category',
               label: 'Authentication',
@@ -2733,9 +2756,11 @@ const sidebars: SidebarsConfig = {
                   items: [
                     'products/runtime/authentication/add-oidc-identity-providers',
                     'products/runtime/authentication/oidc-auth0',
-                'products/runtime/authentication/oidc-google-cloud',
+                    'products/runtime/authentication/oidc-google-cloud',
+                    'products/runtime/authentication/oidc-jumpcloud',
                     'products/runtime/authentication/oidc-ms-entra-id',
                     'products/runtime/authentication/oidc-okta',
+                    'products/runtime/authentication/oidc-onelogin',
                   ],
                 },
               ],
@@ -2767,6 +2792,7 @@ const sidebars: SidebarsConfig = {
         'tools/agents/create-agent',
         'tools/agents/manage-agent',
         'tools/agents/manage-integrations',
+        'tools/agents/connect-slack-to-agents',
         'tools/agents/permissions',
         'tools/agents/chat-with-agent',
         'tools/agents/schedule-agent',
@@ -2774,7 +2800,7 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  // AI Gateway dedicated sidebar
+  // AI gateway dedicated sidebar
   aigateway: [
     {
       type: 'link',
@@ -2783,7 +2809,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'AI Gateway',
+      label: 'AI gateway',
       collapsed: false,
       collapsible: false,
       link: {
@@ -2796,7 +2822,7 @@ const sidebars: SidebarsConfig = {
         'products/ai-gateway/model-catalog',
         {
           type: 'category',
-          label: 'Use AI Gateway',
+          label: 'Use AI gateway',
           link: {
             type: 'doc',
             id: 'products/ai-gateway/use-with-agents',
@@ -2928,7 +2954,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'platform/howto/manage-project',
         'platform/howto/technical-emails',
-        'platform/howto/view-project-logs',
       ],
     },
   ],
@@ -2947,6 +2972,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'platform/howto/organization-event-logs',
+        'platform/howto/view-project-logs',
         'platform/concepts/carbon-footprint',
       ],
     },
@@ -2957,7 +2983,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -2979,7 +3005,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -2998,7 +3024,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3019,7 +3045,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3038,7 +3064,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',
@@ -3063,7 +3089,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',

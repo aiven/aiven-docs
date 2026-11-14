@@ -25,6 +25,7 @@
 | lo | 1.2 | 1.1, 1.2 |
 | ltree | 1.3 | 1.1, 1.2, 1.3 |
 | pg_buffercache | 1.7 | 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 |
+| pg_partman | 5.5.0 | 5.5.0 |
 | pg_prewarm | 1.2 | 1.1, 1.2 |
 | pg_stat_plans | 2.1 | 2.0, 2.1 |
 | pg_stat_statements | 1.13 | 1.10, 1.11, 1.12, 1.13, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 |
@@ -44,7 +45,7 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 
 ## PostgreSQL 18 extensions
 
@@ -77,7 +78,7 @@
 | ltree | 1.3 | 1.1, 1.2, 1.3 |
 | pg_buffercache | 1.6 | 1.2, 1.3, 1.4, 1.5, 1.6 |
 | pg_cron | 1.6 | 1.0, 1.1, 1.2, 1.3, 1.4, 1.4-1, 1.5, 1.6 |
-| pg_partman | 5.2.4 | 5.2.4 |
+| pg_partman | 5.5.0 | 5.5.0 |
 | pg_prewarm | 1.2 | 1.1, 1.2 |
 | pg_repack | 1.5.2 | 1.5.2 |
 | pg_stat_monitor | 2.3 | 2.0, 2.1, 2.2, 2.3 |
@@ -108,8 +109,8 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
-| vectorscale | 0.9.0 | 0.9.0 |
+| vector | 0.8.7 | 0.8.7 |
+| vectorscale | 0.9.1 | 0.9.1 |
 
 ## PostgreSQL 17 extensions
 
@@ -173,8 +174,8 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
-| vectorscale | 0.9.0 | 0.6.0, 0.9.0 |
+| vector | 0.8.7 | 0.8.7 |
+| vectorscale | 0.9.1 | 0.9.1 |
 
 ## PostgreSQL 16 extensions
 
@@ -238,8 +239,8 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
-| vectorscale | 0.6.0 | 0.6.0 |
+| vector | 0.8.7 | 0.8.7 |
+| vectorscale | 0.9.1 | 0.9.1 |
 
 ## PostgreSQL 15 extensions
 
@@ -304,7 +305,7 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 
 ## PostgreSQL 14 extensions
 
@@ -368,7 +369,7 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 
 ## PostgreSQL 13 extensions
 
@@ -430,5 +431,5 @@
 | unaccent | 1.1 | 1.1 |
 | unit | 7 | 3, 4, 5, 6, 7 |
 | uuid-ossp | 1.1 | 1.1 |
-| vector | 0.8.6 | 0.8.6 |
+| vector | 0.8.7 | 0.8.7 |
 

@@ -6,10 +6,20 @@ sidebar_label: OneLogin
 import IdPStep1 from "@site/static/includes/idp-step1.md";
 import IdPStep3 from "@site/static/includes/idp-step3.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 <!-- vale on -->
 
 Use [OneLogin](https://www.onelogin.com/) to give your organization users single sign-on (SSO) access to Aiven.
+
+<RequirementsPanel
+    items={[
+        {
+            label: 'Permissions',
+            values: ['`role:organization:admin`'],
+        },
+    ]}
+/>
 
 <IdPStep1/>
 

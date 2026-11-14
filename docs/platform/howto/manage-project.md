@@ -7,13 +7,22 @@ import {ConsoleIcon} from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+import RelatedPages from "@site/src/components/RelatedPages";
 
-Projects help you
-[organize your Aiven services](https://aiven.io/docs/platform/concepts/orgs-units-projects#projects)
-and centrally configure settings for all services in the project. You can create
-projects in your organization or its organizational units.
+Projects help you [organize your Aiven services](/docs/platform/concepts/orgs-units-projects#projects) and centrally configure settings for all services in the project.
+You can create projects in your organization or its organizational units.
 
 ## Create a project
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`', '`organization:projects:write`'],
+    },
+  ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -37,6 +46,19 @@ More information on this resource and its configuration options are available in
 </Tabs>
 
 ## Tag a project
+
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: [
+        '`role:organization:admin`',
+        '`role:project:admin`',
+        '`organization:projects:write`',
+      ],
+    },
+  ]}
+/>
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -64,12 +86,21 @@ For billing tags, prefix the `key` with `billing:`. For example:
 
 ## Rename a project
 
-:::important
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`', '`role:project:admin`'],
+    },
+  ]}
+/>
+
+:::important[Important]
 The project name in your DNS records will not be updated.
 :::
 
 1. Power off all services in the project.
-   :::note
+   :::note[Note]
     Except for Aiven for Apache Kafka®, all services have backups that
     are restored when you power them back on.
    :::
@@ -81,11 +112,17 @@ The project name in your DNS records will not be updated.
 ## Move a project
 
 You can move a project to another organization or organizational unit.
-Users with the organization admin or project admin
-[role](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-can move projects within an organization.
 
-:::note
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`', '`role:project:admin`'],
+    },
+  ]}
+/>
+
+:::note[Note]
 You cannot move a project to an Aiven organization on AWS Marketplace, Azure Marketplace,
 or Google Cloud Marketplace using the Aiven Console. To move to a marketplace,
 set up your organization and projects in the marketplace and
@@ -98,7 +135,6 @@ lose the permissions when you move it to a different organization unless they ar
 members of the target organization.
 
 Services in the project continue running during the move.
-
 
 <Tabs groupId="group1">
 <TabItem value="console" label="Console" default>
@@ -121,6 +157,19 @@ You can move a project to another organization or organizational unit by
 
 ## Delete a project
 
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`role:organization:admin`', '`role:project:admin`'],
+    },
+  ]}
+/>
+
 1. Delete all the services in the project.
 1. In the project, click <ConsoleLabel name="projectsettings"/>.
 1. Click **Delete** and **Confirm**.
+
+<RelatedPages/>
+
+- [View and export project event logs](/docs/platform/howto/view-project-logs)

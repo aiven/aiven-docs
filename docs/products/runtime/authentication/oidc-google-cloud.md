@@ -33,7 +33,7 @@ Open the Google Auth Platform in a new tab:
    - Add the `openid`, `profile`, and `email` scopes.
 1. [Create an OAuth 2.0 client ID](https://support.google.com/cloud/answer/15549257).
    - Select **Web application** as the **Application type**.
-   - In **Authorized redirect URIs**, add the **Redirect URL** from the Aiven Console.
+   - In **Authorized redirect URIs**, add the **Redirect URLs** from the Aiven Console.
 1. Copy the **Client ID** and **Client secret**.
 
 ## Step 3: Complete the setup in Aiven

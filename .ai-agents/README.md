@@ -26,7 +26,7 @@ In the `.ai-agents` directory are the following:
 
 | Tool                   | Config directory | Main instructions                          |
 |------------------------|------------------|--------------------------------------------|
-| Claude Code            | `.claude/`       | `CLAUDE.md`, which points to `AGENTS.md`   |
+| Claude Code            | `.claude/`       | `AGENTS.md`   |
 | Cursor                 | `.cursor/`       | `CURSOR.md`, which points to `AGENTS.md`   |
 | OpenCode               | `.opencode/`     | `OPENCODE.md`, which points to `AGENTS.md` |
 | VS Code/GitHub Copilot | `.github/`       | `.github/copilot-instructions.md`          |

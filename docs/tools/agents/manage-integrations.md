@@ -52,6 +52,8 @@ To connect an integration:
 To connect an integration that is not available in the catalog, select
 **Add custom integration**.
 
+To connect Slack, see [Connect Slack to Managed Agents](/docs/tools/agents/connect-slack-to-agents).
+
 ### Credentials for other MCP integrations
 
 Other MCP integrations, such as Slack, GitHub, and Jira, use the credentials you

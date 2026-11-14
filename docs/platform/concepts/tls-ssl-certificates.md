@@ -129,16 +129,29 @@ A rotation works as follows:
    a certificate signed by the new CA. Clients that don't trust the new CA can no
    longer connect.
 
-If you use Kafka client-certificate authentication, reset the credentials of your
-existing service users after step 4. For steps, see
-[Reset credentials after a project CA rotation](/docs/products/kafka/howto/renew-ssl-certs#reset-credentials-after-a-project-ca-rotation).
+1. **Aiven retires the previous CA.** This happens when the previous CA expires, or
+   when both of the following are true:
+   - Every service presents a certificate signed by the new CA.
+   - You acknowledge every renewed Kafka service user certificate.
+
+   After Aiven retires the previous CA, services no longer accept client certificates
+   signed by that CA. Retirement can take effect during a maintenance event after the
+   second update, even if its description doesn't mention TLS certificates.
+
+If you use Kafka client-certificate authentication, Aiven renews the certificates of
+your existing service users with the new CA after step 4 and sends a renewal
+notification. Deploy the renewed certificates, then acknowledge them. Aiven waits for
+these acknowledgments before it retires the previous CA, unless the CA expires first.
+
+For steps, see
+[Renewed certificates after a project CA rotation](/docs/products/kafka/howto/renew-ssl-certs#renewed-certificates-after-a-project-ca-rotation).
 
 Services in the same project have separate maintenance windows, so they can be at
 different steps at the same time.
 
 ## Download CA certificates
 
-During a certificate rotation, the CA certificate that you download contains both the
+During a CA rotation, the CA certificate that you download contains both the
 current and new CA certificates. Use it to update your clients.
 
 If your service needs a CA certificate, download one:

@@ -5,9 +5,7 @@ sidebar_label: Service management
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Manage the security, configuration, and lifecycle of your Aiven for ClickHouse®
-service from the [Aiven Console](https://console.aiven.io/) or the
-[Aiven API](/docs/tools/api).
+Manage the security, configuration, and lifecycle of your Aiven for ClickHouse® service from the [Aiven Console](https://console.aiven.io/) or the [Aiven API](/docs/tools/api).
 
 Use this section to manage service operations, control user access, upgrade
 ClickHouse versions, and review service limits and advanced configuration options.

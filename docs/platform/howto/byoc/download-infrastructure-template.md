@@ -9,8 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Download a Terraform template and a variables file that define the infrastructure of your
-[custom cloud](/docs/platform/concepts/byoc).
+Download a Terraform template and a variables file that define the infrastructure of your [custom cloud](/docs/platform/concepts/byoc).
 
 ## Prerequisites
 

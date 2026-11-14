@@ -14,7 +14,7 @@ To reactivate your account, email the Aiven billing team at
 -   The name of your organization
 -   The email address associated with the account
 
-:::note
+:::note[Note]
 The billing team operates Monday through Friday, 9:00 to 17:00,
 Eastern European Time (EET/EEST).
 :::

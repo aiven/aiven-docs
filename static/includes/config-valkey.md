@@ -140,7 +140,7 @@ import Link from '@docusaurus/Link'
     <tr>
       <td>
         <div className="param"><p className="name"><Link id="valkey_io_threads"/><Link to="#valkey_io_threads"><strong>valkey_io_threads</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>256</code></li></ul></div>
-        <div className="description"><p>Set Valkey IO thread count. Changing this will cause a restart of the Valkey service.</p></div>
+        <div className="description"><p>Set Valkey IO thread count. On Valkey 9.0 and later, changes are applied without a restart. On Valkey 8.1, changing this replaces the service nodes.</p></div>
       </td>
     </tr>
     <tr>

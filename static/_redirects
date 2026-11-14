@@ -29,6 +29,8 @@
 /products/opensearch/howto/connect-service       /docs/products/opensearch/howto/list-connect-to-service  301
 /products/postgresql/howto/connect-service       /docs/products/postgresql/howto/list-code-samples  301
 /products/valkey/howto/connect-service           /docs/products/valkey/howto/connect-services  301
+/products/mysql/howto/connect-libredb-studio     /docs/products/mysql/howto/list-code-samples  301
+/products/postgresql/howto/connect-libredb-studio /docs/products/postgresql/howto/list-code-samples  301
 /products/valkey/howto/scale-disk-storage        /docs/products/valkey/howto/change-service-plan  301
 /category/administrative-tasks                   /docs/get-started  301
 /category/concepts                               /docs/get-started  301
@@ -247,12 +249,18 @@
 /products/grafana/concepts/grafana-features                /docs/products/grafana  301
 /products/grafana/howto                                    /docs/products/grafana/get-started  301
 /products/grafana/howto/log-in                             /docs/products/grafana/get-started  301
-/products/grafana/howto/list-manage-dashboards             /docs/products/grafana/howto/dashboard-previews  301
+/products/grafana/howto/list-manage-dashboards             /docs/products/grafana  301
+/products/grafana/howto/dashboard-previews                 /docs/products/grafana  301
+/products/grafana/howto/dashboard-previews/                /docs/products/grafana  301
+/products/grafana/howto/replace-expression-string          /docs/products/grafana  301
+/products/grafana/howto/replace-expression-string/         /docs/products/grafana  301
 /products/grafana/list-overview                            /docs/products/grafana  301
 /products/grafana/reference                                /docs/products/grafana/reference/advanced-params  301
 /products/grafana/reference/plans-pricing                  /docs/platform/concepts/service-pricing  301
 /products/grafana/user-access                              /docs/products/grafana/get-started  301
 /products/influxdb                                         /docs/products/metrics  301
+/products/kafka/concepts/list-kafka-tiered-storage         /docs/products/kafka/concepts/kafka-tiered-storage  301
+/products/kafka/concepts/list-kafka-tiered-storage/        /docs/products/kafka/concepts/kafka-tiered-storage  301
 /products/kafka/concepts/non-leader-for-partition          /docs/products/kafka/troubleshooting/non-leader-for-partition  301
 /products/kafka/concepts/schema-registry-authorization     /docs/products/kafka/karapace/concepts/schema-registry-authorization  301
 /products/kafka/concepts                                   /docs/products/kafka/terminology  301
@@ -433,3 +441,4 @@
 /products/cassandra/*                                      /docs/products/services  301
 /products/alloydbomni/*                                    /docs/products/postgresql  301
 /products/dragonfly/*                                      /docs/products/valkey  301
+/products/mysql/concepts/mysql-free-tier                   /docs/products/mysql/howto/mysql-free-tier-migration-options  301

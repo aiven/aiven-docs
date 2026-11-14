@@ -1,6 +1,7 @@
 ---
 title: Back up your Aiven for OpenSearch® service to another region
 sidebar_label: Backup to another region
+limited: true
 ---
 
 import BtarConcepts from "@site/static/includes/btar-concepts.md";
@@ -18,3 +19,4 @@ Copy your Aiven for OpenSearch® service backups to a secondary region for disas
 
 - [Backups](/docs/products/opensearch/howto/restore_opensearch_backup)
 - [Track restore progress](/docs/products/opensearch/howto/track-restore-progress)
+- [Backup to another region](/docs/platform/concepts/backup-to-another-region)

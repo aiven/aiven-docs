@@ -259,7 +259,7 @@ Use a full stop at the end of a complete sentence, including in list items that 
 - **[CRITICAL]** Keep sentences under **25 words** where possible; split complex thoughts.
 - **[CRITICAL]** The **first sentence of the document** must be on **one line**. Ignore line-length warnings for that sentence only.
 - **[MEDIUM]** Put the most important information first in a paragraph to support scanning.
-- **[CRITICAL]** Remove redundant words and duplicate ideas.
+- **[CRITICAL]** Remove redundant words and duplicate ideas across the entire document. Do not repeat the same information in different sections—state it once in the most logical place.
 
 ### Headings and titles (@prose)
 

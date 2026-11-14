@@ -2,8 +2,10 @@
 title: Password policy
 ---
 
-Aiven is committed to keeping your data secure. Creating a strong
-password makes it harder for attackers to gain unauthorized access to
+import PasswordPolicy from "@site/static/includes/password-policy.md";
+
+Aiven enforces password requirements for your user account such as minimum length and no common words to help you
+create strong passwords. This makes it harder for attackers to gain unauthorized access to
 your account.
 
 Creating a strong password is a first step in securing your account. You
@@ -12,19 +14,7 @@ can add another layer of security by
 
 ## Password requirements
 
-Aiven enforces the following rules for password strength:
-
--   Minimum length is 8 characters
--   Cannot contain single repeating characters such as `aaaaaaaa`
--   Cannot contain your name or email address
--   Cannot contain common words, phrases, or strings such as password,
-    security, or common names
--   Cannot contain words that are very similar to common words such as
-    `password1`
-
-These rules are also used for service integration passwords. For remote
-services (for example, sending logs to an external OpenSearch® service),
-these rules are not enforced, but they are recommended.
+<PasswordPolicy/>
 
 ## Password tips
 

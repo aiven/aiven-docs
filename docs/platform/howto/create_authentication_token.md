@@ -19,7 +19,7 @@ Create personal token in the Aiven Console to use with the Aiven CLI or API.
 
 1.  Click the **Copy** icon and save your token somewhere safe.
 
-    :::important
+    :::important[Important]
     You cannot view the token after you close this window.
     :::
 

@@ -34,17 +34,24 @@ You can create the service from the Kafka service's integrations page.
 
 1. On the **Create service** page, select a **Cloud** and region.
 1. Select a **Plan**.
-1. In **Service basics**, enter a **service name**.
+1. In **Service basics**:
+   - **Name**: Enter a name for the service.
 
-   :::important
-   You cannot change the service name after creation.
-   :::
+     :::important
+     You cannot change the service name after creation.
+     :::
+
+   - **Version**: Select the Apache Kafka version to use. The default version is
+     preselected and marked **Default**. Other options show their end-of-life dates.
 
 1. Review the **Service summary** for the region, plan, and estimated price.
 1. Click **Create service**.
 
 The service status changes to **Building**.
 When it changes to **Running**, the service is ready.
+
+To upgrade an existing service, see
+[Upgrade the MirrorMaker 2 version](/docs/products/kafka/kafka-mirrormaker/howto/upgrade-version).
 
 ### Connect the Kafka service to MirrorMaker 2
 

@@ -2,6 +2,8 @@
 title: Track your carbon footprint
 ---
 
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
+
 The carbon footprint page shows estimates of the greenhouse gas emissions associated with service usage in your organization to help you  monitor and reduce your emissions.
 
 The estimates are powered by [OxygenIT](https://www.oxygenit.io),
@@ -32,9 +34,14 @@ contractual data protection terms between Aiven and OxygenIT.
 
 ## View carbon emissions data
 
-You have the
-[`organization:sustainability:read` permission](/docs/platform/concepts/permissions#organization-roles-and-permissions)
-to access this feature.
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: ['`organization:sustainability:read`', '`role:organization:admin`'],
+    },
+  ]}
+/>
 
 1. In your organization, click **Admin**.
 1. Click **Carbon footprint**.

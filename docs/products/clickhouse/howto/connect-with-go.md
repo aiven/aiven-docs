@@ -5,9 +5,8 @@ sidebar_label: Go
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-To connect to your Aiven for ClickHouse® service with Go, you can use
-the native protocol or the HTTPS protocol in specific cases. This
-article provides you with instructions for both scenarios.
+To connect to your Aiven for ClickHouse® service with Go, you can use the native protocol or the HTTPS protocol in specific cases.
+This article provides you with instructions for both scenarios.
 
 ## Prerequisites
 
