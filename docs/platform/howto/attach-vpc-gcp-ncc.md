@@ -15,11 +15,14 @@ Attach an Aiven VPC to your [Google Cloud Network Connectivity Center](https://c
 This feature is in <LimitedBadge/>.
 :::
 
-Google Cloud VPC Network Peering is not transitive: peering an Aiven VPC to one of your
-VPCs does not give services in that VPC a route to networks peered with it. Network
-Connectivity Center (NCC) solves this by attaching each VPC to a hub as a spoke. Every
-spoke on the hub exchanges subnet routes with every other spoke, so services in an Aiven
-VPC reach all your spokes, and workloads in any spoke reach your Aiven services.
+Network Connectivity Center (NCC) connects VPCs through a central hub. Each VPC joins the
+hub as a spoke, and every spoke exchanges subnet routes with every other spoke. Services
+in an Aiven VPC then reach all of your spokes, and workloads in any spoke reach your Aiven
+services.
+
+Use NCC when your services need to reach more than one of your networks. VPC Network
+Peering is not transitive, so a peering to a single VPC does not carry routes to the
+networks behind it.
 
 ## How the attachment works
 
@@ -40,7 +43,8 @@ creates a spoke in your project.
 - [Manage project networking](/docs/platform/concepts/permissions#project-permissions)
   permissions in Aiven
 - An [Aiven VPC](/docs/platform/howto/manage-project-vpc) hosted in Google Cloud
-- A Google Cloud project with the Network Connectivity API enabled
+- A Google Cloud project with the Compute Engine API and the Network Connectivity API
+  (`networkconnectivity.googleapis.com`) enabled
 - The `networkconnectivity.hubs.admin` role, or equivalent permissions, on the project
   that holds your hub
 - Tools:
@@ -83,19 +87,37 @@ creates a spoke in your project.
 
 ## Create the hub
 
-Create a hub in your Google Cloud project with a mesh topology:
+1. Set your project and create a hub with a mesh topology:
 
-```bash
-gcloud network-connectivity hubs create USER_HUB_NAME \
-  --project=USER_PROJECT_ID                           \
-  --preset-topology=mesh                              \
-  --global
-```
+   ```bash
+   gcloud config set project USER_PROJECT_ID
+
+   gcloud network-connectivity hubs create USER_HUB_NAME \
+     --description="Hub for Aiven services"              \
+     --policy-mode=preset                                \
+     --preset-topology=mesh
+   ```
+
+1. Attach your own workload VPCs to the hub as spokes, each in the project that holds
+   the VPC:
+
+   ```bash
+   NCC_API="https://www.googleapis.com/networkconnectivity/v1"
+   COMPUTE_API="https://www.googleapis.com/compute/v1"
+
+   HUB="$NCC_API/projects/USER_PROJECT_ID/locations/global/hubs/USER_HUB_NAME"
+   USER_VPC="$COMPUTE_API/projects/USER_PROJECT_ID/global/networks/USER_VPC_NAME"
+
+   gcloud network-connectivity spokes linked-vpc-network create USER_SPOKE_NAME \
+     --hub="$HUB"                                                              \
+     --vpc-network="$USER_VPC"                                                 \
+     --global
+   ```
 
 The hub URI that identifies this hub to Aiven has the following form:
 
 ```text
-projects/USER_PROJECT_ID/locations/global/hubs/USER_HUB_NAME
+https://www.googleapis.com/networkconnectivity/v1/projects/USER_PROJECT_ID/locations/global/hubs/USER_HUB_NAME
 ```
 
 The hub URI is referred to as `USER_HUB_URI`.
@@ -108,11 +130,12 @@ active, so check your address plan before you attach the Aiven VPC.
 
 ## Request the attachment
 
-Send `USER_HUB_URI` and `VPC_ID` to Aiven to request the spoke. Aiven verifies that you
-own the hub and then creates a linked VPC spoke for the Aiven VPC on your hub.
+Send `USER_HUB_URI` and `VPC_ID` to Aiven to request the spoke. Aiven verifies that the
+hub is yours and then creates a linked VPC spoke for the Aiven VPC, in the Google Cloud
+project that holds the Aiven VPC.
 
-Creating the spoke takes a few minutes. When it completes, the spoke appears on your hub
-in the `INACTIVE` state with the `PENDING_REVIEW` reason, waiting for you to accept it.
+When it completes, the spoke appears on your hub in the `INACTIVE` state with the
+`PENDING_REVIEW` reason, waiting for you to accept it.
 
 ## Accept the spoke
 
@@ -120,21 +143,19 @@ in the `INACTIVE` state with the `PENDING_REVIEW` reason, waiting for you to acc
 
    ```bash
    gcloud network-connectivity hubs list-spokes USER_HUB_NAME \
-     --project=USER_PROJECT_ID                               \
-     --filter="state:INACTIVE"                               \
-     --global
+     --filter="reasons:PENDING_REVIEW"                        \
+     --format=yaml
    ```
 
-   Copy the name of the spoke that Aiven created. The spoke name is referred to as
-   `AIVEN_SPOKE_URI`.
+   Copy the `name` of the spoke that Aiven created. It has the form
+   `projects/AIVEN_PROJECT_ID/locations/global/spokes/AIVEN_SPOKE_NAME` and is referred
+   to as `AIVEN_SPOKE_URI`.
 
 1. Accept the spoke:
 
    ```bash
    gcloud network-connectivity hubs accept-spoke USER_HUB_NAME \
-     --project=USER_PROJECT_ID                                \
-     --spoke=AIVEN_SPOKE_URI                                   \
-     --global
+     --spoke="AIVEN_SPOKE_URI"
    ```
 
 Once accepted, the spoke moves to the `ACTIVE` state, and the hub starts exchanging subnet
@@ -142,35 +163,42 @@ routes between the Aiven VPC and your other spokes.
 
 ## Verify the attachment
 
-1. Confirm that the spoke is active:
+1. Confirm that the spoke is active on your hub:
 
    ```bash
-   gcloud network-connectivity spokes describe AIVEN_SPOKE_URI --global
+   gcloud network-connectivity hubs list-spokes USER_HUB_NAME --format=yaml
    ```
 
-   The `state` field reads `ACTIVE`.
+   The Aiven spoke reads `state: ACTIVE`.
 
-1. Confirm that the hub propagates the Aiven VPC subnet ranges to your spokes:
+1. Allow traffic from your spoke subnet ranges to the Aiven VPC subnet range:
 
    ```bash
-   gcloud network-connectivity hubs route-tables routes list default \
-     --hub=USER_HUB_NAME                                            \
-     --project=USER_PROJECT_ID                                     \
-     --global
+   gcloud compute firewall-rules create USER_RULE_NAME \
+     --network=USER_VPC_NAME                           \
+     --allow=tcp,icmp                                  \
+     --source-ranges=AIVEN_VPC_CIDR
    ```
 
 1. Connect to a service in the Aiven VPC from a workload in one of your spokes.
 
 :::note
-Firewall rules in your spokes are not part of the attachment. Allow traffic to the Aiven
-VPC subnet ranges in each spoke that needs to reach your services.
+The spoke resource lives in the Google Cloud project that holds the Aiven VPC, so
+`gcloud network-connectivity spokes describe` against that project fails for you. Check
+the spoke through your own hub with `hubs list-spokes`.
+:::
+
+:::important
+Network Connectivity Center exchanges routes, it does not open firewall rules. To reach a
+service in the Aiven VPC on its service port, add the
+[VPC CIDR of your spokes to the allowed IP addresses](/docs/platform/howto/list-vpc-peering)
+of that service, and allow the Aiven VPC range in your own firewall rules.
 :::
 
 ## Detach the VPC
 
-To remove the attachment, contact Aiven to delete the spoke. Deleting your hub or
-rejecting the spoke on your side stops route exchange, but leaves the spoke resource in
-place.
+To remove the attachment, contact Aiven to delete the spoke. Rejecting the spoke on your
+hub stops route exchange, but leaves the spoke resource in place.
 
 Deleting the Aiven VPC also removes the spoke.
 

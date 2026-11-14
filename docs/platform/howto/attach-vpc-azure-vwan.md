@@ -15,27 +15,33 @@ Attach an Aiven VPC to your [Azure Virtual WAN](https://learn.microsoft.com/en-u
 This feature is in <LimitedBadge/>.
 :::
 
-Azure virtual network peering is not transitive: peering an Aiven VPC to your hub virtual
-network does not give services in that VPC a route to the spokes behind the hub. Reaching
-those spokes requires either user-defined routes on each spoke, which Aiven cannot add to
-an Aiven-managed virtual network, or a hub virtual network connection on an Azure Virtual
-WAN hub.
+An Azure Virtual WAN hub routes traffic between every network connected to it. Attaching
+the Aiven virtual network to the hub lets services in the Aiven VPC reach your spokes, and
+any ExpressRoute or VPN connection that terminates on the hub.
 
-A Virtual WAN hub connection attaches the Aiven virtual network to the hub itself. The hub
-routes between the Aiven virtual network, your spokes, and any ExpressRoute or VPN
-connection terminated on the hub.
+Use a hub connection when your services need to reach more than one of your networks.
+Virtual network peering is not transitive, so a peering to your hub virtual network does
+not carry routes to the spokes behind it.
 
 ## How the attachment works
 
 The Aiven VPC is a virtual network in an Azure subscription owned by Aiven, and your
-Virtual WAN hub is in your own subscription and tenant. Creating a hub connection across
-tenants requires both sides to act:
+Virtual WAN hub is in your own subscription and Microsoft Entra tenant. The hub
+connection is a resource on your hub that points at the Aiven virtual network, so you
+create it, and Aiven authorizes your hub to attach that virtual network:
 
-1. You create the Virtual WAN and the hub, and collect the hub resource ID.
-1. You grant the Aiven application object the permissions needed to connect the Aiven
-   virtual network to your hub.
-1. Aiven creates the hub virtual network connection for the Aiven virtual network.
-1. You confirm route propagation on the hub route table.
+1. You create the Virtual WAN, the hub, and the hub connections for your own spokes.
+1. You send your hub details to Aiven and receive the resource ID of the Aiven virtual
+   network, along with the authorization your hub needs to attach it.
+1. You create the hub connection to the Aiven virtual network.
+1. You confirm the connection and test reachability from one of your spokes.
+
+:::important
+Azure requires the hub administrator to hold the
+`Microsoft.Network/virtualNetworks/peer/action` permission on the remote virtual network.
+That virtual network belongs to Aiven, so Aiven grants this authorization as part of the
+request. Do not expect the connection to succeed before Aiven confirms it is in place.
+:::
 
 ## Prerequisites
 
@@ -43,11 +49,18 @@ tenants requires both sides to act:
   permissions in Aiven
 - An [Aiven VPC](/docs/platform/howto/manage-project-vpc) hosted in Azure, in the same
   Azure region as your Virtual WAN hub
-- An Azure account with at least the application administrator role in your Azure AD
-  tenant
+- Permissions to create Virtual WAN resources in your Azure subscription
 - Tools:
-  - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)
+  - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/) with the `virtual-wan`
+    extension
   - [Aiven Console](https://console.aiven.io/) or [Aiven CLI](/docs/tools/cli)
+
+:::note
+Virtual WAN is not available in every Azure region on every subscription. Before you
+plan the attachment, confirm that your subscription can create a Virtual WAN in the
+region of your Aiven VPC, and create the hub, your spokes, and the Aiven VPC in that same
+region.
+:::
 
 ## Collect the required data
 
@@ -96,17 +109,13 @@ tenants requires both sides to act:
 1. Create the Virtual WAN:
 
    ```bash
+   az group create -n USER_RESOURCE_GROUP -l USER_REGION
+
    az network vwan create                        \
      --resource-group USER_RESOURCE_GROUP        \
      --name USER_VWAN_NAME                       \
-     --location USER_REGION                      \
-     --type Standard
+     --location USER_REGION
    ```
-
-   :::note
-   A Virtual WAN of the `Standard` type is required. The `Basic` type supports only
-   site-to-site VPN connections and cannot carry virtual network connections.
-   :::
 
 1. Create the hub:
 
@@ -122,6 +131,17 @@ tenants requires both sides to act:
    `USER_HUB_CIDR` must not overlap with the address space of the Aiven VPC or with any
    of your spokes.
 
+1. Connect your own spoke virtual networks to the hub:
+
+   ```bash
+   az network vhub connection create             \
+     --resource-group USER_RESOURCE_GROUP        \
+     --vhub-name USER_HUB_NAME                   \
+     --name USER_SPOKE_CONNECTION               \
+     --remote-vnet USER_SPOKE_VNET_ID            \
+     --internet-security false
+   ```
+
 1. Retrieve the hub resource ID:
 
    ```bash
@@ -134,33 +154,39 @@ tenants requires both sides to act:
 
    The hub resource ID is referred to as `USER_HUB_ID`.
 
-## Grant permissions to Aiven
-
-Because the Aiven virtual network and your hub are in different Azure AD tenants, the
-Aiven [application object](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
-needs permission to create the hub connection in your subscription.
-
-Contact Aiven to receive the Aiven application ID for your organization, then assign it
-the **Network Contributor** role on the resource group that holds your hub:
-
-```bash
-az role assignment create                                      \
-  --assignee AIVEN_APP_ID                                      \
-  --role "Network Contributor"                                 \
-  --scope /subscriptions/USER_SUBSCRIPTION_ID/resourceGroups/USER_RESOURCE_GROUP
-```
-
 ## Request the attachment
 
-Send `USER_HUB_ID` and `VPC_ID` to Aiven to request the hub connection. Aiven creates the
-hub virtual network connection between the Aiven virtual network and your hub.
+Send `USER_HUB_ID` and `VPC_ID` to Aiven to request the attachment.
 
-Creating the connection takes a few minutes. Aiven confirms when the connection reports
-the `Succeeded` provisioning state.
+Aiven authorizes your hub to attach the Aiven virtual network and returns the resource ID
+of that virtual network, which has the following form:
+
+```text
+/subscriptions/AIVEN_SUBSCRIPTION_ID/resourceGroups/AIVEN_NETWORK_NAME/providers/Microsoft.Network/virtualNetworks/AIVEN_NETWORK_NAME
+```
+
+The Aiven virtual network resource ID is referred to as `AIVEN_VNET_ID`.
+
+## Create the hub connection
+
+Once Aiven confirms the authorization, create the hub connection to the Aiven virtual
+network:
+
+```bash
+az network vhub connection create             \
+  --resource-group USER_RESOURCE_GROUP        \
+  --vhub-name USER_HUB_NAME                   \
+  --name AIVEN_CONNECTION_NAME                \
+  --remote-vnet AIVEN_VNET_ID                 \
+  --internet-security false
+```
+
+Creating the connection takes a few minutes. It is ready when the provisioning state
+reads `Succeeded`.
 
 ## Verify the attachment
 
-1. Confirm that the connection exists and is provisioned:
+1. Confirm that the connection is provisioned:
 
    ```bash
    az network vhub connection list               \
@@ -168,6 +194,8 @@ the `Succeeded` provisioning state.
      --vhub-name USER_HUB_NAME                   \
      --output table
    ```
+
+   The connection to the Aiven virtual network reads `Succeeded`.
 
 1. Confirm that the hub route table carries the Aiven VPC address space:
 
@@ -178,18 +206,30 @@ the `Succeeded` provisioning state.
      --name defaultRouteTable
    ```
 
-1. Connect to a service in the Aiven VPC from a workload in one of your spokes.
+1. From a workload in one of your spokes, confirm that the Aiven VPC address space is
+   reachable over the hub, then connect to a service in the Aiven VPC.
 
-:::note
-Network security groups in your spokes are not part of the attachment. Allow traffic to
-the Aiven VPC address space in each spoke that needs to reach your services.
+:::important
+A hub connection routes traffic, it does not open service access. To reach a service in
+the Aiven VPC on its service port, add the address space of your spokes to the
+[allowed IP addresses](/docs/platform/howto/list-vpc-peering) of that service. Also allow
+the Aiven VPC address space in the network security groups of your spokes.
 :::
 
 ## Detach the VPC
 
-To remove the attachment, contact Aiven to delete the hub virtual network connection.
-Deleting the hub or the Virtual WAN on your side stops traffic, but leaves the connection
-resource in an inconsistent state.
+To remove the attachment, delete the hub connection to the Aiven virtual network:
+
+```bash
+az network vhub connection delete              \
+  --resource-group USER_RESOURCE_GROUP         \
+  --vhub-name USER_HUB_NAME                    \
+  --name AIVEN_CONNECTION_NAME                 \
+  --yes
+```
+
+Tell Aiven once the connection is removed, so that the authorization on the Aiven virtual
+network can be revoked.
 
 Deleting the Aiven VPC also removes the hub connection.
 
