@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL for Analytics on Aiven for PostgreSQL®
 sidebar_label: PostgreSQL for Analytics
-limited: true
+early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -11,9 +11,9 @@ Run analytical SQL queries directly against an Aiven for PostgreSQL® service by
 Your data stays where it is, with no separate warehouse to copy it to.
 
 :::note
-PostgreSQL for Analytics is in
-[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-[Request access](https://aiven.io/contact) to use it.
+PostgreSQL for Analytics is in early availability.
+[Request access](https://aiven.io/contact) to use it. Some functionality is still being
+added, and your feedback shapes what comes next.
 :::
 
 ## About PostgreSQL for Analytics
@@ -128,4 +128,3 @@ an even share, and when one is idle the other can use the spare capacity.
 - [Enable PostgreSQL for Analytics](/docs/products/postgresql/howto/enable-pg-analytics)
 - [Manage Aiven for PostgreSQL® extensions](/docs/products/postgresql/howto/manage-extensions)
 - [Database management in Aiven for PostgreSQL®](/docs/products/postgresql/database-management)
-- [Limited availability and early access features](/docs/platform/concepts/service-and-feature-releases)
