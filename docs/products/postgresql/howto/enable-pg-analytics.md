@@ -1,7 +1,7 @@
 ---
 title: Enable PostgreSQL for Analytics on Aiven for PostgreSQL®
 sidebar_label: Enable PostgreSQL for Analytics
-limited: true
+early: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -22,9 +22,9 @@ Connect your [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-an
 />
 
 :::note
-PostgreSQL for Analytics is in
-[limited availability (LA)](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-[Request access](https://aiven.io/contact) to use it.
+PostgreSQL for Analytics is in early availability.
+[Request access](https://aiven.io/contact) to use it. Some functionality is still being
+added, and your feedback shapes what comes next.
 :::
 
 ## Prerequisites
@@ -385,4 +385,3 @@ VACUUM orders_analytics;
 - [PostgreSQL for Analytics](/docs/products/postgresql/concepts/pg-analytics)
 - [Manage Aiven for PostgreSQL® extensions](/docs/products/postgresql/howto/manage-extensions)
 - [Use the pg_cron extension](/docs/products/postgresql/howto/use-pg-cron-extension)
-- [Limited availability and early access features](/docs/platform/concepts/service-and-feature-releases)
