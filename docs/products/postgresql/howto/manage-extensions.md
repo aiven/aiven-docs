@@ -76,10 +76,22 @@ ALTER DATABASE DATABASE_NAME SET extwlist.restrict_to_database_owner = off;
 ```
 
 :::note
-Only `avnadmin` and other members of the `avnadmin_group` role can change
+By default, only `avnadmin` and other members of the `avnadmin_group` role can change
 `extwlist.restrict_to_database_owner`. Database owners and other database users cannot
-turn the restriction off, and they cannot grant that privilege to other users.
+turn the restriction on or off.
 :::
+
+### Let another role change the restriction
+
+To let one of your own roles change the restriction, connect as `avnadmin` and grant
+that role the `SET` privilege on the parameter:
+
+```sql
+GRANT SET ON PARAMETER extwlist.restrict_to_database_owner TO ROLE_NAME;
+```
+
+Use this to delegate the setting to a role that manages the databases of one
+application, instead of sharing `avnadmin` credentials.
 
 ## Request an extension
 
