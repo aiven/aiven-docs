@@ -57,6 +57,12 @@ import Link from '@docusaurus/Link'
     </tr>
     <tr>
       <td>
+        <div className="param"><p className="name"><Link id="kafka_mirrormaker_version"/><Link to="#kafka_mirrormaker_version"><strong>kafka_mirrormaker_version</strong></Link></p><p><code className="type">string</code></p></div>
+        <p className="title">Kafka MirrorMaker major version</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <div className="param"><p className="name"><Link id="sasl_oauthbearer_allowed_urls"/><Link to="#sasl_oauthbearer_allowed_urls"><strong>sasl_oauthbearer_allowed_urls</strong></Link></p><p><code className="type">array</code></p></div>
         <div className="description"><p>List of allowed URLs for SASL OAUTHBEARER authentication. Only HTTPS URLs are allowed for security reasons.</p></div>
       </td>
