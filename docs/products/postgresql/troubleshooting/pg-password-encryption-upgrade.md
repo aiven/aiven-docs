@@ -74,7 +74,7 @@ proxies, connecting as another role through a pinned pool fails with a
 `permission denied` error once `scram-sha-256` is enforced.
 
 While your account still allows pinned pools, setting `pg.password_encryption` to
-`scram-sha-256` is rejected with a `403` response and the error
+`scram-sha-256` is rejected with a `403 Forbidden` status code and the error
 `Setting password_encryption to scram-sha-256 is not allowed for this project.`
 Move your pools off the pinned behavior first, then
 [contact Aiven support](mailto:support@aiven.io) to have the restriction lifted for your
@@ -144,6 +144,11 @@ Set the password encryption value in your service configuration:
 New passwords are hashed with `scram-sha-256` from this point on. Existing MD5 hashes
 keep working, so your current connections are not interrupted.
 
+:::important
+This change is one way. Once a service uses `scram-sha-256`, setting
+`pg.password_encryption` back to `md5` returns a `400 Bad Request` status code.
+:::
+
 ### Automatic re-hashing of Aiven-managed passwords
 
 When you change `pg.password_encryption` from `md5` to `scram-sha-256`, Aiven re-hashes
@@ -164,9 +169,8 @@ On a service that qualifies, Aiven skips an individual user in any of these case
 - The password contains characters outside printable ASCII.
 - The role cannot log in.
 
-After re-hashing a user, Aiven closes that user's open connections so that applications
-reconnect and authenticate with `scram-sha-256`. Any user that Aiven does not re-hash
-stays on MD5, and the configuration change still applies.
+Any user that Aiven does not re-hash stays on MD5, and the configuration change still
+applies.
 
 ### Re-hash existing user passwords
 
