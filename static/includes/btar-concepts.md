@@ -40,7 +40,7 @@ the storage and transfer.
 - The cloud provider for your secondary backup region must match the cloud provider for
   your service and its primary backup.
 - You can configure one secondary backup region for each service.
-- BTAR is not available for Free tier or Developer tier services.
+- BTAR is available only on the Professional service tier.
 - You can restore a secondary backup only in the region where it is stored.
 - To fork from a secondary backup, the backup must already be replicated to the
   secondary region.
