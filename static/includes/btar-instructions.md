@@ -29,10 +29,11 @@ service.
 1. On your service page, {props.backupsNav || <>click <ConsoleLabel name="backups"/></>}.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
    **Add secondary backup location**.
-1. In the **Add secondary backup location** window, turn on
+1. In the **Add secondary backup region** window, turn on
    **Secondary backup location enabled**.
 1. Use the **Backup location** menu to select a region for your secondary backup.
-1. Click **Save**.
+1. Review the **Additional costs** card with the rates for the selected region.
+1. Click **Add backup region**.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -126,7 +127,8 @@ secondary backup.
 
 Repeat [Add a secondary backup region](#add-a-secondary-backup-region) and select a
 different region. In the Aiven Console, the action is called **Edit secondary backup
-location** once the service already has a secondary location.
+location** once the service already has a secondary location. To apply the new region,
+click **Save backup region**.
 
 :::important
 Changing the secondary backup region starts a new base backup. You can fork your service
@@ -394,7 +396,7 @@ backup located in the primary, service-hosting region.
 1. On your service's page, {props.backupsNav || <>click <ConsoleLabel name="backups"/></>}.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
    **Edit secondary backup location**.
-1. In the **Edit secondary backup location** window, turn off
+1. In the **Edit secondary backup region** window, turn off
    **Secondary backup location enabled**.
 1. Click **Save**.
 
