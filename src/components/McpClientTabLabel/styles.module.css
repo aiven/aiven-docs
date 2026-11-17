@@ -2,10 +2,18 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .icon {
   flex: none;
   width: 16px;
   height: 16px;
+}
+
+/* Let the client tabs wrap onto a second row on narrow screens instead of
+   scrolling sideways, so every client stays visible. */
+:global(.tabs):has(.tabLabel) {
+  flex-wrap: wrap;
+  overflow-x: visible;
 }

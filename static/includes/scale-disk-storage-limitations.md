@@ -9,7 +9,6 @@
   maintenance updates. If you reach the limit, run a maintenance update
   to optimize performance.
 - You cannot add storage during a maintenance update.
-- Dynamic disk sizing (DDS) is not supported on custom service plans.
 
 :::note[Pricing]
 If you add storage when you create a service, **Additional disk storage**

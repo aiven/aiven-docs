@@ -6,7 +6,7 @@ early: true
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 
-
+Create and manage API keys to access AI gateway models.
 
 <RequirementsPanel
   items={[

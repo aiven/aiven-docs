@@ -5,6 +5,8 @@ sidebar_label: Service users
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import UsersConcepts from "@site/static/includes/service-users-concepts.md";
 import AddUser from "@site/static/includes/service-users-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -20,6 +22,9 @@ its databases and tables.
 <TabItem value="console" label="Aiven Console" default>
 
 <AddUser sectionName="connect"/>
+
+A new user gets admin-level privileges unless you select a narrower set. See
+[Restrict privileges for a new user](#restrict-privileges-for-a-new-user).
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -64,19 +69,54 @@ Use the
 [`aiven_mysql_user` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql_user)
 to create and manage service users.
 
+To restrict the privileges granted to the new user, set the optional `mysql_grants`
+argument. See [Restrict privileges for a new user](#restrict-privileges-for-a-new-user).
+
 </TabItem>
 </Tabs>
 
 ## Restrict privileges for a new user
 
-You can restrict the privileges assigned to a new Aiven for MySQL service user when you
-create it with the Aiven API. By default, a service user gets admin-level privileges,
-including the ability to create other users.
+By default, a new Aiven for MySQL service user gets admin-level privileges, including the
+ability to create other users. To limit what the user can do, select its privileges when
+you create it.
 
-To restrict these privileges, set `mysql_grants` to an array containing only the
-privileges to assign. Set it to an empty array to create a user with no privileges
-beyond connecting to the service. Omit the field to keep the default admin-level
-privileges.
+The Aiven Console, Aiven API, and Terraform assign privileges when the user is created.
+To change the privileges of an existing user, create another user with the privileges
+you need.
+
+### Requirements
+
+Restricting privileges at user creation requires your Aiven for MySQL service to
+support granular grants. If your service doesn't support this capability, creating a user
+with selected privileges fails, and the Aiven API returns an HTTP `400 Bad Request`
+status code. To add support, review and apply pending
+[maintenance updates](/docs/products/mysql/howto/maintenance-updates) on your service.
+
+### Create a user with selected privileges
+
+<Tabs groupId="restrict-privileges">
+<TabItem value="console" label="Aiven Console" default>
+
+1.  In your service, in the <ConsoleLabel name="connect"/> section, click **Users**.
+1.  Click **Add service user**.
+1.  Enter a name for your service user.
+1.  For **Privileges**, select **Custom privileges**.
+1.  For **Privileges to grant**, select the privileges to assign to the user.
+
+    Leave the selection empty to create a user that can connect to the service but
+    can't access any data.
+
+1.  Click **Add service user**.
+
+Selecting **Default privileges** instead keeps the admin-level privileges.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Set `mysql_grants` to an array containing only the privileges to assign. Set it to an
+empty array to create a user with no privileges beyond connecting to the service. Omit
+the field to keep the default admin-level privileges.
 
 ```bash
 curl --request POST                                                          \
@@ -89,12 +129,24 @@ curl --request POST                                                          \
 Replace the placeholders with your project name, service name, bearer token, and the
 username to create.
 
-If `mysql_grants` includes `CREATE USER` or `ROLE_ADMIN`, the created user can also grant
-every privilege in the list to other users, equivalent to MySQL's `WITH GRANT OPTION`.
+</TabItem>
+<TabItem value="terraform" label="Terraform">
+
+Set `mysql_grants` to the privileges to assign. Omit the argument to keep the default
+admin-level privileges. Changing `mysql_grants` replaces the user.
+
+<TerraformSample filename='resources/aiven_mysql_user/resource.tf' />
+
+</TabItem>
+</Tabs>
+
+If the assigned privileges include `CREATE USER` or `ROLE_ADMIN`, the created user can
+also grant every assigned privilege to other users, equivalent to MySQL's
+`WITH GRANT OPTION`.
 
 ### Available privileges
 
-`mysql_grants` accepts the following values:
+You can assign the following privileges:
 
 | Privilege | Applies to |
 | --- | --- |
@@ -128,14 +180,6 @@ every privilege in the list to other users, equivalent to MySQL's `WITH GRANT OP
 For privileges that apply to databases, Aiven revokes the privilege from the service's
 system databases, except `SELECT`. This keeps read access to system information on every
 user without allowing changes to it.
-
-### Requirements
-
-Restricting privileges at user creation requires your Aiven for MySQL service to
-support granular grants. If your service doesn't support this capability, requests
-that include `mysql_grants` fail with an HTTP `400 Bad Request` status code. To add
-support, review and apply pending
-[maintenance updates](/docs/products/mysql/howto/maintenance-updates) on your service.
 
 <RelatedPages/>
 

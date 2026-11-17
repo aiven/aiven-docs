@@ -35,7 +35,7 @@ To create a service user without access control in Aiven for OpenSearch:
 
 1. Open your Aiven for OpenSearch service in the [Aiven Console](https://console.aiven.io).
 1. Click <ConsoleLabel name="serviceusers"/> in the sidebar.
-1. Click **Create users**.
+1. Click **Create user**.
 1. Enter a username, and click **Save**.
 
 By default, newly created users are granted **full access rights**.

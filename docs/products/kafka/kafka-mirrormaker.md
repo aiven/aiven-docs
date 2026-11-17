@@ -18,6 +18,21 @@ recovery or in case of particular geo-distribution requirements.
 Take your first steps with Aiven for Apache Kafka® MirrorMaker 2 by
 following our [Getting started](/docs/products/kafka/kafka-mirrormaker/get-started).
 
+## Version support
+
+Aiven for Apache Kafka® MirrorMaker 2 supports multiple Apache Kafka versions. You can
+select a version when you create a service and upgrade existing services to a later
+supported version.
+
+Existing services retain their current version unless you upgrade them or Aiven upgrades
+them as part of its version lifecycle policy. Downgrading to an earlier version isn't
+supported.
+
+For more information about upgrading and version end-of-life dates, see
+[Upgrade the MirrorMaker 2 version](/docs/products/kafka/kafka-mirrormaker/howto/upgrade-version)
+and
+[Aiven service and tool version lifecycle](/docs/platform/reference/eol-for-major-versions).
+
 ## Apache Kafka® MirrorMaker 2 resources
 
 If you are new to Apache Kafka® MirrorMaker 2, see these resources:
