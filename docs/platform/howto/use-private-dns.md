@@ -33,8 +33,8 @@ to whatever public DNS returns for the same name.
 - A [project VPC](/docs/platform/howto/manage-project-vpc) or
   [organization VPC](/docs/platform/howto/manage-organization-vpc) peered with
   your own network
-- DNS servers in the peered network, reachable from the Aiven VPC over the
-  peering connection
+- DNS servers that the Aiven service nodes can reach, usually in the peered
+  network over the peering connection
 - UDP and TCP port 53 open to the Aiven VPC CIDR on those servers
 
 ## Settings
@@ -59,14 +59,17 @@ with the following details:
 - The IPv4 addresses of your DNS servers, up to four
 - The zones to resolve through those servers
 
-Aiven applies the setting to nodes created after the request. To apply it to a
-running service, request a node replacement for the service at the same time.
-Nodes created earlier continue to resolve through the cloud provider resolver.
+Nodes take the setting when they are created, so a running service keeps
+resolving through the cloud provider resolver until its nodes are replaced. After
+Aiven has configured your DNS servers, request a node replacement for the service
+to roll the setting out to the running nodes. You can do this at any point after
+the configuration is in place.
 
 ## Set up a resolver in your network
 
-Set up a resolver that is reachable from the Aiven VPC over the peering
-connection, and use its addresses as the `servers` value.
+Set up a resolver that the Aiven service nodes can reach, and use its addresses as
+the `servers` value. The examples below put the resolver in the peered network,
+where the nodes reach it over the peering connection.
 
 ### AWS
 
