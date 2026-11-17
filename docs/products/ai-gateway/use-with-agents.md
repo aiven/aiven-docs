@@ -6,8 +6,6 @@ early: true
 
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import AIGatewayModelInfo from "@site/src/components/AIGatewayModelInfo";
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 Connect Claude Code, Codex, Pi, OpenCode, or OMP to Aiven AI gateway with your API key.
 
@@ -34,7 +32,8 @@ values: [
 
 The `aiven-ai-gateway` launcher supports Claude Code, Codex, Pi, OpenCode, and OMP.
 Install the coding agent you want to use and the launcher.
-On macOS or Linux, install the launcher with Homebrew:
+[Install with npm](#install-with-npm) or [install with Go](#install-with-go).
+On macOS, Homebrew installation is coming soon and is not yet available:
 
 ```bash
 brew install aiven/tap/aiven-ai-gateway
@@ -85,14 +84,14 @@ Launcher sessions do not load arbitrary custom fields from that dedicated file.
 
 ### Install with npm
 
-With Node.js 20 or later, install the launcher from npm instead of Homebrew:
+With Node.js 20 or later, install the launcher from npm:
 
 ```bash
-npm install -g @aiven/ai-gateway
+npm install -g @aivenio/ai-gateway
 ```
 
-To run the launcher without installing it, use `npx @aiven/ai-gateway` followed by a
-command, for example `npx @aiven/ai-gateway setup claude`.
+To run the launcher without installing it, use `npx @aivenio/ai-gateway` followed by a
+command, for example `npx @aivenio/ai-gateway setup claude`.
 The package installs a native binary for Linux, macOS, or Windows on x64 or ARM64, or
 for Linux on ARMv7.
 The binary is an optional dependency, so the launcher does not run after an install with
@@ -102,7 +101,7 @@ selection lists.
 
 ### Install with Go
 
-With Go 1.27.3 or later, install the launcher with `go install`:
+With Go 1.27.4 or later, install the launcher with `go install`:
 
 ```bash
 go install github.com/aiven-open/ai-gateway-cli/cmd/aiven-ai-gateway@latest
@@ -125,67 +124,13 @@ It does not revoke the server key or clear environment variables inherited by yo
 
 ## Store the API key
 
-For manual setup or the Console setup prompt, store the key in a private credentials file.
-The coding agent configurations in the following sections reference the `AIVEN_AI_GATEWAY_KEY`
-environment variable, so the key stays out of tracked dotfiles and agent conversations.
+`aiven-ai-gateway setup` and `aiven-ai-gateway login` save the API key with mode `0600`
+in `~/.config/aiven/ai-gateway-key` for the default gateway `https://ai.aiven.io`.
+For custom gateways, the launcher saves the key in
+`~/.config/aiven/ai-gateway-keys/<name>`.
 
-1. Create the credentials files with mode `0600`:
-
-   ```bash
-   mkdir -p ~/.config/aiven
-   touch ~/.config/aiven/ai-gateway-credentials.sh ~/.config/aiven/ai-gateway-credentials.fish
-   chmod 600 ~/.config/aiven/ai-gateway-credentials.sh ~/.config/aiven/ai-gateway-credentials.fish
-   ```
-
-1. In a text editor, add the key to the `~/.config/aiven/ai-gateway-credentials.sh` file:
-
-   ```bash
-   export AIVEN_AI_GATEWAY_KEY="API_KEY"
-   ```
-
-   Add the key to the `~/.config/aiven/ai-gateway-credentials.fish` file:
-
-   ```fish
-   set -gx AIVEN_AI_GATEWAY_KEY "API_KEY"
-   ```
-
-   Where `API_KEY` is your AI gateway API key, which starts with `AVNS_`.
-
-1. Load the credentials file from your shell startup file.
-   The commands add the line only if it is not already there.
-
-   <Tabs groupId="shell">
-   <TabItem value="zsh" label="zsh" default>
-
-   ```bash
-   line='[ -f ~/.config/aiven/ai-gateway-credentials.sh ] && . ~/.config/aiven/ai-gateway-credentials.sh'
-   grep -qxF "$line" ~/.zshrc || printf '%s\n' "$line" >> ~/.zshrc
-   ```
-
-   </TabItem>
-   <TabItem value="bash" label="bash">
-
-   ```bash
-   line='[ -f ~/.config/aiven/ai-gateway-credentials.sh ] && . ~/.config/aiven/ai-gateway-credentials.sh'
-   for rc in ~/.bashrc ~/.bash_profile; do
-     touch "$rc"
-     grep -qxF "$line" "$rc" || printf '%s\n' "$line" >> "$rc"
-   done
-   ```
-
-   </TabItem>
-   <TabItem value="fish" label="fish">
-
-   ```fish
-   set line 'test -f ~/.config/aiven/ai-gateway-credentials.fish; and source ~/.config/aiven/ai-gateway-credentials.fish'
-   mkdir -p ~/.config/fish
-   grep -qxF "$line" ~/.config/fish/config.fish; or printf '%s\n' "$line" >> ~/.config/fish/config.fish
-   ```
-
-   </TabItem>
-   </Tabs>
-
-1. Open a new terminal to load the variable.
+For manual setups or the Console setup prompt, set `AIVEN_AI_GATEWAY_KEY` in your
+environment however you manage secrets.
 
 ## Set up a coding agent with a prompt
 
@@ -211,7 +156,7 @@ gateway across all projects on your machine, add them to `~/.claude/settings.jso
 
 ```json
 {
-  "apiKeyHelper": ". ~/.config/aiven/ai-gateway-credentials.sh && printf '%s' \"$AIVEN_AI_GATEWAY_KEY\"",
+  "apiKeyHelper": "printf '%s' \"$AIVEN_AI_GATEWAY_KEY\"",
   "env": {
     "ANTHROPIC_BASE_URL": "https://ai.aiven.io",
     "ANTHROPIC_AUTH_TOKEN": "",
@@ -226,7 +171,8 @@ gateway across all projects on your machine, add them to `~/.claude/settings.jso
 }
 ```
 
-- `apiKeyHelper` reads the key from the credentials file when Claude Code starts.
+- `apiKeyHelper` reads `AIVEN_AI_GATEWAY_KEY` from the environment when Claude Code
+  starts.
 - The empty values for `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_API_KEY`,
   `CLAUDE_CODE_USE_BEDROCK`, and `AWS_BEARER_TOKEN_BEDROCK` stop other
   credentials in your environment from overriding the gateway settings.
