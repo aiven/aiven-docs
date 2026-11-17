@@ -107,9 +107,9 @@ terraform apply
 ```
 
 :::important
-Remove all three resources in the same change. Destroying either the entity resource or
-the provision resource deletes the entire custom cloud environment, not only the
-provisioning.
+Remove all three resources in the same change. Destroying the entity resource, or the
+provision resource of an active custom cloud, deletes the entire custom cloud
+environment, not only the provisioning.
 :::
 
 :::note

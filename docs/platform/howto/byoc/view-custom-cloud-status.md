@@ -44,6 +44,15 @@ supports AWS and Azure custom clouds only. The possible values are
 `active`, `creating`, `creation_failed`, `deleted`, `deleting`, `deletion_failed`,
 `disconnected`, `draft`, `reconnecting`, and `validating`.
 
+If the state is `creation_failed`, resolve the cause, and then replace the entity
+resource, which also replaces the provision resource:
+
+```bash
+terraform apply -replace=aiven_byoc_aws_entity.example_cloud
+```
+
+Use `aiven_byoc_azure_entity` for Azure custom clouds.
+
 <RelatedPages/>
 
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
