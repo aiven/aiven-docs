@@ -6,17 +6,24 @@ import {
   findFirstSidebarItemLink,
 } from '@docusaurus/plugin-content-docs/client';
 import {usePluralForm} from '@docusaurus/theme-common';
-import isInternalUrl from '@docusaurus/isInternalUrl';
 import {translate} from '@docusaurus/Translate';
 
 import type {Props} from '@theme/DocCard';
 import Heading from '@theme/Heading';
 import type {
+  PropSidebarItem,
   PropSidebarItemCategory,
   PropSidebarItemLink,
 } from '@docusaurus/plugin-content-docs';
 
 import styles from './styles.module.css';
+
+// Markers for the generated .md files, applied by
+// src/plugins/rehype-llms-markers.ts in the llms-txt plugin:
+// - exclude: leave the element out of the .md file
+// - unwrap: keep the element's content in the .md file, without the element
+// - heading-link: link only the card title in the .md file, not the description
+type LlmsMarker = 'exclude' | 'unwrap' | 'heading-link';
 
 function useCategoryItemsPlural() {
   const {selectMessage} = usePluralForm();
@@ -35,17 +42,26 @@ function useCategoryItemsPlural() {
     );
 }
 
+// A category has its own page when it links to a doc or a generated index.
+// Otherwise its link points to its first page, which isn't the category.
+function hasOwnPage(item: PropSidebarItemCategory): boolean {
+  return Boolean(item.href) && !item.linkUnlisted;
+}
+
 function CardContainer({
   href,
+  llms = 'heading-link',
   children,
 }: {
   href: string;
+  llms?: LlmsMarker;
   children: ReactNode;
 }): JSX.Element {
   return (
     <Link
       href={href}
-      className={clsx('card padding--md', styles.cardContainer)}>
+      className={clsx('card padding--md', styles.cardContainer)}
+      data-llms={llms}>
       {children}
     </Link>
   );
@@ -53,32 +69,79 @@ function CardContainer({
 
 function CardLayout({
   href,
-  icon,
   title,
   description,
+  linkLlms,
+  descriptionLlms,
 }: {
   href: string;
-  icon: ReactNode;
   title: string;
   description?: string;
+  linkLlms?: LlmsMarker;
+  descriptionLlms?: LlmsMarker;
 }): JSX.Element {
   return (
-    <CardContainer href={href}>
+    <CardContainer href={href} llms={linkLlms}>
       <Heading
         as="h2"
         className={clsx('text--truncate', styles.cardTitle)}
         title={title}>
-        {icon} {title}
+        {title}
       </Heading>
       {description && (
         <p
           className={styles.cardDescription}
-          title={description}>
+          title={description}
+          data-llms={descriptionLlms}>
           {description}
         </p>
       )}
     </CardContainer>
   );
+}
+
+// Lists every page in a category, nested like the sidebar. It isn't displayed,
+// but it's kept in the HTML so the generated .md files list the pages of each
+// section. Categories without their own page are listed as plain text, so each
+// URL appears once. It uses div elements, so search indexers that read p and li
+// elements skip it. The .md files get a list (see data-llms-tag).
+function CategoryChildLinks({
+  items,
+}: {
+  items: PropSidebarItem[];
+}): JSX.Element | null {
+  const listItems = items.flatMap((child, index) => {
+    const key = `${child.type}-${index}`;
+
+    if (child.type === 'link') {
+      return child.unlisted
+        ? []
+        : [
+            <div key={key} data-llms-tag="li">
+              <Link href={child.href}>{child.label}</Link>
+            </div>,
+          ];
+    }
+
+    if (child.type === 'category' && findFirstSidebarItemLink(child)) {
+      return [
+        <div key={key} data-llms-tag="li">
+          {hasOwnPage(child) ? (
+            <Link href={child.href}>{child.label}</Link>
+          ) : (
+            child.label
+          )}
+          <CategoryChildLinks items={child.items} />
+        </div>,
+      ];
+    }
+
+    return [];
+  });
+
+  return listItems.length > 0 ? (
+    <div data-llms-tag="ul">{listItems}</div>
+  ) : null;
 }
 
 function CardCategory({
@@ -95,22 +158,26 @@ function CardCategory({
   }
 
   return (
-    <CardLayout
-      href={href}
-      icon=""
-      title={item.label}
-      description={item.description ?? categoryItemsPlural(item.items.length)}
-    />
+    <>
+      <CardLayout
+        href={href}
+        title={item.label}
+        description={item.description ?? categoryItemsPlural(item.items.length)}
+        linkLlms={hasOwnPage(item) ? undefined : 'unwrap'}
+        descriptionLlms={item.description ? undefined : 'exclude'}
+      />
+      <nav hidden aria-label={`${item.label} pages`}>
+        <CategoryChildLinks items={item.items} />
+      </nav>
+    </>
   );
 }
 
 function CardLink({item}: {item: PropSidebarItemLink}): JSX.Element {
-  const icon = '';
   const doc = useDocById(item.docId ?? undefined);
   return (
     <CardLayout
       href={item.href}
-      icon={icon}
       title={item.label}
       description={item.description ?? doc?.description}
     />
