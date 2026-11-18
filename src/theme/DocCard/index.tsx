@@ -5,35 +5,16 @@ import {
   useDocById,
   findFirstSidebarItemLink,
 } from '@docusaurus/plugin-content-docs/client';
-import {usePluralForm} from '@docusaurus/theme-common';
-import isInternalUrl from '@docusaurus/isInternalUrl';
-import {translate} from '@docusaurus/Translate';
 
 import type {Props} from '@theme/DocCard';
 import Heading from '@theme/Heading';
 import type {
+  PropSidebarItem,
   PropSidebarItemCategory,
   PropSidebarItemLink,
 } from '@docusaurus/plugin-content-docs';
 
 import styles from './styles.module.css';
-
-function useCategoryItemsPlural() {
-  const {selectMessage} = usePluralForm();
-  return (count: number) =>
-    selectMessage(
-      count,
-      translate(
-        {
-          message: '1 item|{count} items',
-          id: 'theme.docs.DocCard.categoryDescription.plurals',
-          description:
-            'The default description for a category card in the generated index about how many items this category includes',
-        },
-        {count},
-      ),
-    );
-}
 
 function CardContainer({
   href,
@@ -53,12 +34,10 @@ function CardContainer({
 
 function CardLayout({
   href,
-  icon,
   title,
   description,
 }: {
   href: string;
-  icon: ReactNode;
   title: string;
   description?: string;
 }): JSX.Element {
@@ -68,16 +47,45 @@ function CardLayout({
         as="h2"
         className={clsx('text--truncate', styles.cardTitle)}
         title={title}>
-        {icon} {title}
+        {title}
       </Heading>
       {description && (
-        <p
-          className={styles.cardDescription}
-          title={description}>
+        <p className={styles.cardDescription} title={description}>
           {description}
         </p>
       )}
     </CardContainer>
+  );
+}
+
+// Lists every page in a category, nested like the sidebar. It isn't displayed,
+// but it's kept in the HTML so the generated .md files (llms-txt plugin) list
+// the pages of each section instead of only the section card.
+function CategoryChildLinks({
+  items,
+}: {
+  items: PropSidebarItem[];
+}): JSX.Element | null {
+  const children = items.flatMap((child) => {
+    const href = findFirstSidebarItemLink(child);
+    return href && child.type !== 'html' ? [{child, href}] : [];
+  });
+
+  if (children.length === 0) {
+    return null;
+  }
+
+  return (
+    <ul>
+      {children.map(({child, href}) => (
+        <li key={`${child.label}-${href}`}>
+          <Link href={href}>{child.label}</Link>
+          {child.type === 'category' && (
+            <CategoryChildLinks items={child.items} />
+          )}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -87,7 +95,6 @@ function CardCategory({
   item: PropSidebarItemCategory;
 }): JSX.Element | null {
   const href = findFirstSidebarItemLink(item);
-  const categoryItemsPlural = useCategoryItemsPlural();
 
   // Unexpected: categories that don't have a link have been filtered upfront
   if (!href) {
@@ -95,22 +102,24 @@ function CardCategory({
   }
 
   return (
-    <CardLayout
-      href={href}
-      icon=""
-      title={item.label}
-      description={item.description ?? categoryItemsPlural(item.items.length)}
-    />
+    <>
+      <CardLayout
+        href={href}
+        title={item.label}
+        description={item.description}
+      />
+      <nav hidden aria-label={`${item.label} pages`}>
+        <CategoryChildLinks items={item.items} />
+      </nav>
+    </>
   );
 }
 
 function CardLink({item}: {item: PropSidebarItemLink}): JSX.Element {
-  const icon = '';
   const doc = useDocById(item.docId ?? undefined);
   return (
     <CardLayout
       href={item.href}
-      icon={icon}
       title={item.label}
       description={item.description ?? doc?.description}
     />
