@@ -18,8 +18,8 @@ function extractDataFromHtml(filePath, buildDir, urlBasePath) {
   const $ = cheerio.load(html);
   const title = $('h1').text();
   const content = $('article .theme-doc-markdown');
-  // Hidden elements, such as the page lists of category cards, aren't page content
-  content.find('[hidden]').remove();
+  // Page lists of category cards are hidden and only meant for the .md files
+  content.find('[data-card-pages]').remove();
   const body = content.find('p, li').text();
 
   let relativeFilePath = path.relative(buildDir, filePath);

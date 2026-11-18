@@ -163,7 +163,7 @@ function CardCategory({
         linkLlms={hasOwnPage(item) ? undefined : 'unwrap'}
         descriptionLlms={item.description ? undefined : 'exclude'}
       />
-      <nav hidden aria-label={`${item.label} pages`}>
+      <nav hidden data-card-pages aria-label={`${item.label} pages`}>
         <CategoryChildLinks items={item.items} />
       </nav>
     </>
