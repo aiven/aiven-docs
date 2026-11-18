@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       items: [
+        'platform/reference/security-best-practices',
         {
           type: 'link',
           label: 'Authentication',
@@ -1544,14 +1545,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Manage dashboards',
-          items: [
-            'products/grafana/howto/dashboard-previews',
-            'products/grafana/howto/replace-expression-string',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Security and access',
           items: [
             'products/grafana/howto/rotating-grafana-service-credentials',
@@ -2828,10 +2821,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Use AI gateway',
-          link: {
-            type: 'doc',
-            id: 'products/ai-gateway/use-with-agents',
-          },
           items: [
             'products/ai-gateway/rest-api',
             'products/ai-gateway/use-with-agents',
@@ -2988,7 +2977,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -3010,7 +2999,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -3029,7 +3018,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3050,7 +3039,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3069,7 +3058,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',
@@ -3094,7 +3083,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',

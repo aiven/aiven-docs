@@ -30,12 +30,9 @@ only make changes to user details in the IdP.
 ## Security best practices
 
 It’s recommended to verify your domains in Aiven even if you don’t use SSO. When
-configuring an IdP it's best to enable the following SAML security settings:
-
-- **Require assertion to be signed**: Verifies assertions were issued by a trusted party
-  and have not been tampered with.
-- **Sign authorization request sent to IdP**: Ensures authenticity and integrity with a
-  digital signature.
+configuring an IdP it's best to enable the **Sign authorization request sent to IdP**
+security setting. This ensures that the authorization requests sent to the IdP
+are authentic and have not been tampered with.
 
 The [authentication policy](/docs/platform/howto/set-authentication-policies) for the
 organization is also an important component in securing access through an IdP. At a

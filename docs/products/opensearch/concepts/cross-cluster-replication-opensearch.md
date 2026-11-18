@@ -16,8 +16,10 @@ start replication from the follower for selected indices, or use an auto-follow 
 replicate every index that matches a pattern. After replication starts for an index, the
 follower automatically pulls new data, mappings, and metadata changes for that index from
 the leader. Follower services can run in different regions and on different cloud
-providers. Aiven only supports automated backups on the primary leader cluster, which
-means that follower clusters are not backed up independently.
+providers. The leader, the follower, or both can also run in a
+[custom cloud](/docs/platform/concepts/byoc) in your own cloud account. Aiven only
+supports automated backups on the primary leader cluster, which means that follower
+clusters are not backed up independently.
 
 ## Benefits
 

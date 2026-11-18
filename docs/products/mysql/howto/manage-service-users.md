@@ -5,10 +5,11 @@ sidebar_label: Service users
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import UsersConcepts from "@site/static/includes/service-users-concepts.md";
 import AddUser from "@site/static/includes/service-users-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
-import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 
 Create and manage service users in your Aiven for MySQL® service to control access to
 its databases and tables.
@@ -21,6 +22,9 @@ its databases and tables.
 <TabItem value="console" label="Aiven Console" default>
 
 <AddUser sectionName="connect"/>
+
+A new user gets admin-level privileges unless you select a narrower set. See
+[Restrict privileges for a new user](#restrict-privileges-for-a-new-user).
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -65,19 +69,59 @@ Use the
 [`aiven_mysql_user` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql_user)
 to create and manage service users.
 
+To restrict the privileges granted to the new user, set the optional `mysql_grants`
+argument. See [Restrict privileges for a new user](#restrict-privileges-for-a-new-user).
+
 </TabItem>
 </Tabs>
 
 ## Restrict privileges for a new user
 
-You can restrict the privileges assigned to a new Aiven for MySQL service user when you
-create it with the Aiven API. By default, a service user gets admin-level privileges,
-including the ability to create other users.
+By default, a new Aiven for MySQL service user gets admin-level privileges, including the
+ability to create other users. To limit what the user can do, select its privileges when
+you create it.
 
-To restrict these privileges, set `mysql_grants` to an array containing only the
-privileges to assign. Set it to an empty array to create a user with no privileges
-beyond connecting to the service. Omit the field to keep the default admin-level
-privileges.
+The Aiven Console, Aiven API, and Terraform assign privileges when the user is created.
+To change the privileges of an existing user, create another user with the privileges
+you need. See
+[Change privileges for an existing service user](#change-privileges-for-an-existing-service-user).
+
+### Requirements
+
+Restricting privileges at user creation requires your Aiven for MySQL service to
+support granular grants. If your service doesn't support this capability, creating a user
+with selected privileges fails, and the Aiven API returns an HTTP `400 Bad Request`
+status code. To add support, review and apply pending
+[maintenance updates](/docs/products/mysql/howto/maintenance-updates) on your service.
+
+Granular grants depend on this service capability rather than on your service plan, so
+every Aiven for MySQL plan supports them once the service has the required maintenance
+update.
+
+### Create a user with selected privileges
+
+<Tabs groupId="restrict-privileges">
+<TabItem value="console" label="Aiven Console" default>
+
+1.  In your service, in the <ConsoleLabel name="connect"/> section, click **Users**.
+1.  Click **Add service user**.
+1.  Enter a name for your service user.
+1.  For **Privileges**, select **Custom privileges**.
+1.  For **Privileges to grant**, select the privileges to assign to the user.
+
+    Leave the selection empty to create a user that can connect to the service but
+    can't access any data.
+
+1.  Click **Add service user**.
+
+Selecting **Default privileges** instead keeps the admin-level privileges.
+
+</TabItem>
+<TabItem value="api" label="Aiven API">
+
+Set `mysql_grants` to an array containing only the privileges to assign. Set it to an
+empty array to create a user with no privileges beyond connecting to the service. Omit
+the field to keep the default admin-level privileges.
 
 ```bash
 curl --request POST                                                          \
@@ -90,17 +134,24 @@ curl --request POST                                                          \
 Replace the placeholders with your project name, service name, bearer token, and the
 username to create.
 
-If `mysql_grants` includes `CREATE USER` or `ROLE_ADMIN`, the created user can also grant
-every privilege in the list to other users, equivalent to MySQL's `WITH GRANT OPTION`.
+</TabItem>
+<TabItem value="terraform" label="Terraform">
 
-You can set the same field in Terraform with the
-[`aiven_mysql_user` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql_user):
+Set `mysql_grants` to the privileges to assign. Omit the argument to keep the default
+admin-level privileges. Changing `mysql_grants` replaces the user.
 
 <TerraformSample filename='resources/aiven_mysql_user/resource.tf' />
 
+</TabItem>
+</Tabs>
+
+If the assigned privileges include `CREATE USER` or `ROLE_ADMIN`, the created user can
+also grant every assigned privilege to other users, equivalent to MySQL's
+`WITH GRANT OPTION`.
+
 ### Available privileges
 
-`mysql_grants` accepts the following values:
+You can assign the following privileges:
 
 | Privilege | Applies to |
 | --- | --- |
@@ -135,22 +186,10 @@ For privileges that apply to databases, Aiven revokes the privilege from the ser
 system databases, except `SELECT`. This keeps read access to system information on every
 user without allowing changes to it.
 
-### Requirements
-
-Restricting privileges at user creation requires your Aiven for MySQL service to
-support granular grants. If your service doesn't support this capability, requests
-that include `mysql_grants` fail with an HTTP `400 Bad Request` status code. To add
-support, review and apply pending
-[maintenance updates](/docs/products/mysql/howto/maintenance-updates) on your service.
-
-Granular grants depend on this service capability rather than on your service plan, so
-every Aiven for MySQL plan supports them once the service has the required maintenance
-update.
-
 ## Change privileges for an existing service user
 
-You set a service user's privileges with `mysql_grants` when you create the user. To
-change what an existing service user can do, create a service user with the privileges you
+You set a service user's privileges when you create the user. To change what an
+existing service user can do, create a service user with the privileges you
 need, point your application at it, and delete the user you replaced:
 
 1. Create a service user with the privileges you want. See
@@ -194,8 +233,8 @@ users are listed in [Aiven Console](https://console.aiven.io), where you
 [add a service user](#add-a-service-user).
 
 To view another user's privileges, run `SHOW GRANTS FOR 'USERNAME'@'%';`. This requires
-`SELECT` on the service's system databases, which a service user has when its
-`mysql_grants` include `SELECT`. Connect as `avnadmin`, or as a user that has `SELECT`,
+`SELECT` on the service's system databases, which a service user has when its assigned
+privileges include `SELECT`. Connect as `avnadmin`, or as a user that has `SELECT`,
 to read another user's privileges.
 
 ## Use SQL GRANT statements
@@ -208,8 +247,8 @@ MySQL's [GRANT](https://dev.mysql.com/doc/refman/8.4/en/grant.html) and
 `avnadmin` holds the privileges listed in [Available privileges](#available-privileges),
 so those are the privileges it can grant.
 
-Privileges you set this way exist only in MySQL. They are not part of the user's
-`mysql_grants` value, so keep a record of them alongside the rest of your service
+Privileges you set this way exist only in MySQL. They are not part of the privileges Aiven
+assigned when it created the user, so keep a record of them alongside the rest of your service
 configuration, and reapply them if you replace the user.
 
 ## Example: separate application and migration users
@@ -267,8 +306,8 @@ resource "aiven_mysql_user" "migration_user" {
 
 Delete the migration user once the migration is complete.
 
-The Aiven CLI creates service users with the default privileges. To set `mysql_grants`,
-use the Aiven API or Terraform.
+The Aiven CLI creates service users with the default privileges. To select privileges,
+use the Aiven Console, the Aiven API, or Terraform.
 
 <RelatedPages/>
 

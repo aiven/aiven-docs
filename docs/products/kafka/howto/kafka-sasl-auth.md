@@ -32,7 +32,7 @@ on your Aiven for Apache Kafka service.
 The **Connection information** on the <ConsoleLabel name="overview"/> page now
 shows connection details for SASL and client certificate authentication.
 
-:::note
+:::note[Note]
 SASL and client certificate connections use different ports. The host, CA, and user
 credentials remain the same.
 :::
@@ -118,11 +118,12 @@ Aiven for Apache Kafka supports the following SASL mechanisms:
   To allow only OAuth 2.0/OIDC authentication, disable `kafka_sasl_mechanisms.plain`,
   `kafka_sasl_mechanisms.scram_sha_256`, and `kafka_sasl_mechanisms.scram_sha_512`.
 
-  Optional OIDC parameters include `kafka.sasl_oauthbearer_expected_issuer`,
-  `kafka.sasl_oauthbearer_expected_audience`, and
-  `kafka.sasl_oauthbearer_sub_claim_name`.
+  You must also set `kafka.sasl_oauthbearer_expected_issuer` and
+  `kafka.sasl_oauthbearer_expected_audience`. You can optionally set
+  `kafka.sasl_oauthbearer_sub_claim_name`. For details, see
+  [OAuth 2.0/OIDC authentication](/docs/products/kafka/howto/enable-oidc#oidc-parameters).
 
-:::note
+:::note[Note]
 For **SCRAM-SHA-256** and **SCRAM-SHA-512** with Apache Kafka® 4.x, use
 `librdkafka` version 2.6.1 or later. Clients built on earlier `librdkafka`
 versions can fail to connect to Apache Kafka 4.x services using SASL/SCRAM.
@@ -130,7 +131,7 @@ This affects `librdkafka`-based clients, such as `confluent-kafka`,
 `confluent-kafka-go`, `Confluent.Kafka`, and `node-rdkafka`.
 :::
 
-:::note
+:::note[Note]
 When SASL authentication is enabled, at least one SASL mechanism must be available.
 `OAUTHBEARER` satisfies this requirement when
 `kafka.sasl_oauthbearer_jwks_endpoint_url` is set. If you disable PLAIN,
@@ -334,7 +335,7 @@ The complete example is available in the [Aiven Terraform Provider repository](h
 </TabItem>
 </Tabs>
 
-:::note
+:::note[Note]
 
 - The public certificate is issued and validated by [Let's Encrypt](https://letsencrypt.org),
   a widely trusted certification authority. For details, see

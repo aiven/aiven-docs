@@ -35,6 +35,10 @@
 | pgstattuple | 1.5 | 1.4, 1.5 |
 | plperl | 1.0 | 1.0 |
 | plpgsql | 1.0 | 1.0 |
+| postgis | 3.7.0 | 3.6.4, 3.7.0 |
+| postgis_raster | 3.7.0 | 3.6.4, 3.7.0 |
+| postgis_sfcgal | 3.7.0 | 3.6.4, 3.7.0 |
+| postgis_topology | 3.7.0 | 3.6.4, 3.7.0 |
 | postgres_fdw | 1.3 | 1.0, 1.1, 1.2, 1.3 |
 | seg | 1.4 | 1.1, 1.2, 1.3, 1.4 |
 | sslinfo | 1.2 | 1.2 |
