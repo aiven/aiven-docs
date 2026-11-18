@@ -2821,10 +2821,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Use AI gateway',
-          link: {
-            type: 'doc',
-            id: 'products/ai-gateway/use-with-agents',
-          },
           items: [
             'products/ai-gateway/rest-api',
             'products/ai-gateway/use-with-agents',
