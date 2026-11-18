@@ -166,11 +166,18 @@ need, point your application at it, and delete the user you replaced:
 
 In Terraform, changing `mysql_grants` on an
 [`aiven_mysql_user` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql_user)
-replaces the user for you, because the field forces recreation of the resource. Plan the
-change for a window where a short interruption for that user is acceptable.
+replaces the user, because the field forces recreation of the resource. Terraform deletes
+the user and creates it again with the same name:
+
+- Deleting the user closes its open connections, so plan the change for a window where a
+  short interruption for that user is acceptable.
+- The new user gets a new generated password, unless the resource sets `password` or
+  `password_wo`. Without a fixed password, update your application with the new password
+  after the change.
 
 :::note
-Switch your application to the new user before you delete the user you replaced.
+Deleting a service user closes its open connections. Switch your application to the new
+user before you delete the user you replaced.
 :::
 
 ## View the privileges of a service user
@@ -197,6 +204,9 @@ Aiven sets a service user's privileges when it creates the user, and leaves them
 after that. To refine privileges further, connect as `avnadmin` with a SQL client and use
 MySQL's [GRANT](https://dev.mysql.com/doc/refman/8.4/en/grant.html) and
 [REVOKE](https://dev.mysql.com/doc/refman/8.4/en/revoke.html) statements.
+
+`avnadmin` holds the privileges listed in [Available privileges](#available-privileges),
+so those are the privileges it can grant.
 
 Privileges you set this way exist only in MySQL. They are not part of the user's
 `mysql_grants` value, so keep a record of them alongside the rest of your service
