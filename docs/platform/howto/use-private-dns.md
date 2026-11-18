@@ -57,7 +57,11 @@ with the following details:
 
 - The project and service name
 - The IPv4 addresses of your DNS servers, up to four
-- The zones to resolve through those servers
+- The zones to resolve through those servers, for example `corp.internal.example.com`
+
+Aiven support reviews each zone before approving it. Request zones under domains that
+your organization owns. Zones for domains you don't own, such as `aiven.io`, aren't
+approved.
 
 Nodes take the setting when they are created, so a running service keeps
 resolving through the cloud provider resolver until its nodes are replaced. After
