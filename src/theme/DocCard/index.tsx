@@ -103,7 +103,8 @@ function CardLayout({
 // Lists every page in a category, nested like the sidebar. It isn't displayed,
 // but it's kept in the HTML so the generated .md files list the pages of each
 // section. Categories without their own page are listed as plain text, so each
-// URL appears once.
+// URL appears once. It uses div elements, so search indexers that read p and li
+// elements skip it. The .md files get a list (see data-llms-tag).
 function CategoryChildLinks({
   items,
 }: {
@@ -116,29 +117,31 @@ function CategoryChildLinks({
       return child.unlisted
         ? []
         : [
-            <li key={key}>
+            <div key={key} data-llms-tag="li">
               <Link href={child.href}>{child.label}</Link>
-            </li>,
+            </div>,
           ];
     }
 
     if (child.type === 'category' && findFirstSidebarItemLink(child)) {
       return [
-        <li key={key}>
+        <div key={key} data-llms-tag="li">
           {hasOwnPage(child) ? (
             <Link href={child.href}>{child.label}</Link>
           ) : (
             child.label
           )}
           <CategoryChildLinks items={child.items} />
-        </li>,
+        </div>,
       ];
     }
 
     return [];
   });
 
-  return listItems.length > 0 ? <ul>{listItems}</ul> : null;
+  return listItems.length > 0 ? (
+    <div data-llms-tag="ul">{listItems}</div>
+  ) : null;
 }
 
 function CardCategory({
@@ -163,7 +166,7 @@ function CardCategory({
         linkLlms={hasOwnPage(item) ? undefined : 'unwrap'}
         descriptionLlms={item.description ? undefined : 'exclude'}
       />
-      <nav hidden data-card-pages aria-label={`${item.label} pages`}>
+      <nav hidden aria-label={`${item.label} pages`}>
         <CategoryChildLinks items={item.items} />
       </nav>
     </>

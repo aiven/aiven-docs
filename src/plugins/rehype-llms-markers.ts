@@ -5,6 +5,8 @@
 // - data-llms="unwrap": keep the content, remove the element itself
 // - data-llms="heading-link": for a link that wraps a heading and other
 //   content, link only the heading text, so the URL appears once
+// - data-llms-tag="ul" (or another tag): convert the element to that tag, for
+//   example to output a list from div elements that search indexers skip
 // The built HTML pages aren't changed.
 
 type HastNode = {
@@ -47,9 +49,14 @@ function applyMarkers(node: HastNode): void {
     }
 
     const marker = child.properties?.dataLlms;
+    const tag = child.properties?.dataLlmsTag;
 
     if (marker === 'exclude') {
       return [];
+    }
+
+    if (typeof tag === 'string') {
+      child.tagName = tag;
     }
 
     applyMarkers(child);
