@@ -51,6 +51,14 @@ On PostgreSQL 15 and later, you can restrict extension management in a database 
 owner of that database. Use this when your security policy requires that users without
 `CREATE` privilege on a database cannot add or remove extensions in it.
 
+The restriction covers the extensions in the service's extension allowlist. Extensions
+outside the allowlist follow standard PostgreSQL privileges, so the restriction doesn't
+change who can manage them. To see which extensions are in the allowlist, run:
+
+```sql
+SHOW extwlist.extensions;
+```
+
 This restriction is off by default and applies per database, so databases where you
 don't enable it keep their existing behavior.
 
@@ -66,8 +74,8 @@ don't enable it keep their existing behavior.
 1. Reconnect to the database. Database-level settings apply to new sessions only.
 
 While the restriction applies, users other than the database owner cannot create,
-update, delete, or comment on extensions in that database. The database owner can still
-manage them.
+update, delete, or comment on allowlist extensions in that database. The database owner
+can still manage them.
 
 To remove the restriction, run:
 
