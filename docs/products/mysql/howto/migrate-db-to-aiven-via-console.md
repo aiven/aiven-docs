@@ -19,6 +19,11 @@ You can migrate the following:
 -   Cloud-hosted MySQL databases
 -   Managed MySQL database clusters on Aiven
 
+The source must run MySQL 5.7 or later. MariaDB is a separate database engine rather than
+a MySQL version, and it is not a supported migration source. To move data from MariaDB,
+[contact Aiven support](mailto:support@aiven.io) to confirm the options for your version
+and dataset.
+
 The console migration tool provides two migration methods:
 
 -   **(Recommended) Continuous migration:** Used by default in the tool and taken as the
