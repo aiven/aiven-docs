@@ -3,6 +3,7 @@ import type {Config, PluginConfig} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeLlmsMarkers from './src/plugins/rehype-llms-markers';
 
 const currentMonth = new Date().getMonth();
 const isJune = currentMonth === 5;
@@ -222,6 +223,7 @@ const config: Config = {
           enableLlmsFullTxt: true,
           excludeRoutes: ['**/search', '**/search.md'],
           relativePaths: false,
+          beforeDefaultRehypePlugins: [rehypeLlmsMarkers],
         },
       },
     ],

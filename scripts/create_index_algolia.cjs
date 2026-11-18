@@ -17,9 +17,10 @@ function extractDataFromHtml(filePath, buildDir, urlBasePath) {
   const html = fs.readFileSync(filePath, 'utf8');
   const $ = cheerio.load(html);
   const title = $('h1').text();
-  const body = $(
-    'article .theme-doc-markdown p, article .theme-doc-markdown li',
-  ).text();
+  const content = $('article .theme-doc-markdown');
+  // Hidden elements, such as the page lists of category cards, aren't page content
+  content.find('[hidden]').remove();
+  const body = content.find('p, li').text();
 
   let relativeFilePath = path.relative(buildDir, filePath);
   relativeFilePath = relativeFilePath.replace(path.sep, '/'); // Ensure forward slashes
