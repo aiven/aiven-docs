@@ -17,7 +17,7 @@ its [version lifecycle policy](#version-lifecycle).
 
 ## Prerequisites
 
-- An Aiven for Apache Kafka® MirrorMaker 2 service
+- An Aiven for Apache Kafka MirrorMaker 2 service
 - A later supported version that is [compatible](#version-compatibility) with your
   source and target Apache Kafka clusters
 - Optional: A non-production MirrorMaker 2 service to test the upgrade on before you
@@ -35,7 +35,7 @@ flows again.
 <TabItem value="console" label="Aiven Console" default>
 
 1. In the [Aiven Console](https://console.aiven.io/), open your project.
-1. Select your Aiven for Apache Kafka® MirrorMaker 2 service.
+1. Select your Aiven for Apache Kafka MirrorMaker 2 service.
 1. Click <ConsoleLabel name="overview"/>.
 1. In the **Maintenance** section, check the **Version**.
 
@@ -63,7 +63,7 @@ Replace the following:
 <TabItem value="console" label="Aiven Console" default>
 
 1. In the [Aiven Console](https://console.aiven.io/), open your project.
-1. Select your Aiven for Apache Kafka® MirrorMaker 2 service.
+1. Select your Aiven for Apache Kafka MirrorMaker 2 service.
 1. Click <ConsoleLabel name="overview"/>.
 1. In the **Maintenance** section, click <ConsoleLabel name="actions"/> > **Upgrade version**.
 1. Select the version to upgrade to. The list shows the versions available to you.
@@ -187,7 +187,7 @@ After upgrading:
 ## Version compatibility
 
 The MirrorMaker 2 version doesn't need to match the Apache Kafka versions of your source
-and target clusters. The service type of your Aiven for Apache Kafka service, such as
+and target clusters. The service variant of your Aiven for Apache Kafka service, such as
 Classic or Standard, and the use of diskless topics don't limit the MirrorMaker 2
 versions you can use.
 
