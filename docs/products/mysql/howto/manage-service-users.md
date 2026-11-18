@@ -83,7 +83,8 @@ you create it.
 
 The Aiven Console, Aiven API, and Terraform assign privileges when the user is created.
 To change the privileges of an existing user, create another user with the privileges
-you need.
+you need. See
+[Change privileges for an existing service user](#change-privileges-for-an-existing-service-user).
 
 ### Requirements
 
@@ -92,6 +93,10 @@ support granular grants. If your service doesn't support this capability, creati
 with selected privileges fails, and the Aiven API returns an HTTP `400 Bad Request`
 status code. To add support, review and apply pending
 [maintenance updates](/docs/products/mysql/howto/maintenance-updates) on your service.
+
+Granular grants depend on this service capability rather than on your service plan, so
+every Aiven for MySQL plan supports them once the service has the required maintenance
+update.
 
 ### Create a user with selected privileges
 
@@ -181,8 +186,132 @@ For privileges that apply to databases, Aiven revokes the privilege from the ser
 system databases, except `SELECT`. This keeps read access to system information on every
 user without allowing changes to it.
 
+## Change privileges for an existing service user
+
+You set a service user's privileges when you create the user. To change what an
+existing service user can do, create a service user with the privileges you
+need, point your application at it, and delete the user you replaced:
+
+1. Create a service user with the privileges you want. See
+   [Restrict privileges for a new user](#restrict-privileges-for-a-new-user).
+1. Update your application's connection details to use the new username and password. See
+   [Connect to your service](/docs/products/mysql/howto/list-code-samples).
+1. Verify your application works with the new user.
+1. Delete the user you replaced. Run
+   [avn service user-delete](/docs/tools/cli/service/user#avn-service-user-delete), or
+   call the
+   [ServiceUserDelete](https://api.aiven.io/doc/#tag/Service/operation/ServiceUserDelete)
+   endpoint.
+
+In Terraform, changing `mysql_grants` on an
+[`aiven_mysql_user` resource](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/mysql_user)
+replaces the user, because the field forces recreation of the resource. Terraform deletes
+the user and creates it again with the same name:
+
+- Deleting the user closes its open connections, so plan the change for a window where a
+  short interruption for that user is acceptable.
+- The new user gets a new generated password, unless the resource sets `password` or
+  `password_wo`. Without a fixed password, update your application with the new password
+  after the change.
+
+:::note
+Deleting a service user closes its open connections. Switch your application to the new
+user before you delete the user you replaced.
+:::
+
+## View the privileges of a service user
+
+To see a service user's privileges, connect to your service as that user and run:
+
+```sql
+SHOW GRANTS;
+```
+
+To list the service users on your service, run
+[avn service user-list](/docs/tools/cli/service/user#avn-service-user-list). The same
+users are listed in [Aiven Console](https://console.aiven.io), where you
+[add a service user](#add-a-service-user).
+
+To view another user's privileges, run `SHOW GRANTS FOR 'USERNAME'@'%';`. This requires
+`SELECT` on the service's system databases, which a service user has when its assigned
+privileges include `SELECT`. Connect as `avnadmin`, or as a user that has `SELECT`,
+to read another user's privileges.
+
+## Use SQL GRANT statements
+
+Aiven sets a service user's privileges when it creates the user, and leaves them unchanged
+after that. To refine privileges further, connect as `avnadmin` with a SQL client and use
+MySQL's [GRANT](https://dev.mysql.com/doc/refman/8.4/en/grant.html) and
+[REVOKE](https://dev.mysql.com/doc/refman/8.4/en/revoke.html) statements.
+
+`avnadmin` holds the privileges listed in [Available privileges](#available-privileges),
+so those are the privileges it can grant.
+
+Privileges you set this way exist only in MySQL. They are not part of the privileges Aiven
+assigned when it created the user, so keep a record of them alongside the rest of your service
+configuration, and reapply them if you replace the user.
+
+## Example: separate application and migration users
+
+A common setup is one user for everyday application traffic and a second, broader user
+used only while a migration runs.
+
+Create the application user with the privileges your application needs at runtime:
+
+```bash
+curl --request POST                                                            \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user \
+  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                           \
+  --header 'content-type: application/json'                                    \
+  --data '{"username": "app_user", "mysql_grants": ["SELECT", "INSERT", "UPDATE", "DELETE"]}'
+```
+
+Create the migration user with the privileges your migration tooling needs, such as
+schema changes and temporary tables:
+
+```bash
+curl --request POST                                                            \
+  --url https://api.aiven.io/v1/project/PROJECT_NAME/service/SERVICE_NAME/user \
+  --header 'Authorization: Bearer YOUR_BEARER_TOKEN'                           \
+  --header 'content-type: application/json'                                    \
+  --data '{
+      "username": "migration_user",
+      "mysql_grants": [
+          "SELECT", "INSERT", "UPDATE", "DELETE", "CREATE", "ALTER", "INDEX",
+          "DROP", "CREATE TEMPORARY TABLES", "LOCK TABLES"
+      ]
+  }'
+```
+
+In Terraform, declare the two users as separate resources:
+
+```hcl
+resource "aiven_mysql_user" "app_user" {
+  project      = "PROJECT_NAME"
+  service_name = "SERVICE_NAME"
+  username     = "app_user"
+  mysql_grants = ["SELECT", "INSERT", "UPDATE", "DELETE"]
+}
+
+resource "aiven_mysql_user" "migration_user" {
+  project      = "PROJECT_NAME"
+  service_name = "SERVICE_NAME"
+  username     = "migration_user"
+  mysql_grants = [
+    "SELECT", "INSERT", "UPDATE", "DELETE", "CREATE", "ALTER", "INDEX", "DROP",
+    "CREATE TEMPORARY TABLES", "LOCK TABLES",
+  ]
+}
+```
+
+Delete the migration user once the migration is complete.
+
+The Aiven CLI creates service users with the default privileges. To select privileges,
+use the Aiven Console, the Aiven API, or Terraform.
+
 <RelatedPages/>
 
 - [Create a database](/docs/products/mysql/howto/create-database)
 - [Connect to your service](/docs/products/mysql/howto/list-code-samples)
 - [Maintenance updates](/docs/products/mysql/howto/maintenance-updates)
+- [Migrate to Aiven for MySQL® via CLI](/docs/products/mysql/howto/migrate-from-external-mysql)
