@@ -17,9 +17,11 @@ To migrate your database using the Aiven Console, see
 
 ## Supported migration sources
 
-The migration source must run MySQL 5.7 or later. The migration pre-check reads the
-source server version and stops the migration before any data is transferred if the
-version is lower.
+The migration source must run MySQL 5.7 or later. Continuous migration, which uses
+replication, supports sources from MySQL 5.7 to 8.4.
+
+When the migration starts, Aiven reads the source server version and stops before any
+data is transferred if it is lower than 5.7.
 
 To see your source version, run the following on the source server:
 
@@ -75,8 +77,10 @@ replication feature.
   [Aiven CLI](/docs/tools/cli/service-cli#avn-cli-service-create).
 
 - The target service has free disk space of at least 1.3 times the size of the source
-  data. The migration pre-check compares the source data size against the free space on
-  the target and stops the migration if there is not enough.
+  data. The source data size is the table data plus index size of the databases you
+  migrate, without the databases you exclude. When the migration starts, Aiven compares
+  this size against the free space the target has at that moment, and stops the
+  migration if there is not enough.
 
 - If you use `mydumper/myloader` for the
   [initial data transfer](/docs/products/mysql/howto/migrate-from-external-mysql#initial-data-transfer),
