@@ -17,8 +17,9 @@ Aiven for PostgreSQL® instead.
 
 BTAR is charged based on your usage, with no flat fee. Charges cover the following:
 
-- **Secondary backup storage**: Aiven charges for the backup data held in the secondary
-  region, for each GB-month. The rate depends on the secondary backup region.
+- **Secondary backup storage**: Aiven charges for each GB-month of backup data stored in
+  the secondary region, measured as held in object storage. The rate depends on the
+  secondary backup region.
 - **Cross-region backup transfer**: Aiven charges for the backup data copied from the
   primary region to the secondary region, for each GB. The rate depends on whether the
   two regions are on the same continent.
@@ -40,7 +41,10 @@ the storage and transfer.
 - The cloud provider for your secondary backup region must match the cloud provider for
   your service and its primary backup.
 - You can configure one secondary backup region for each service.
-- BTAR is available only on the Professional service tier.
+- BTAR is available only on the Professional service tier. To change your service to a
+  plan outside the Professional service tier, remove the secondary backup region first.
+- For [bring your own cloud](/docs/platform/concepts/byoc) services, the secondary backup
+  region must be one of your custom cloud regions.
 - You can restore a secondary backup only in the region where it is stored.
 - To fork from a secondary backup, the backup must already be replicated to the
   secondary region.
