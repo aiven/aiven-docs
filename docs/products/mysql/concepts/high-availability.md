@@ -9,8 +9,8 @@ Aiven for MySQL® is available on a variety of plans, offering different levels 
 
 | Plan          | Service availability features                                              | Backup history |
 | ------------- | -------------------------------------------------------------------------- | -------------- |
-| **Developer** | Single node (limited availability)                                         | 2 days         |
-| **Hobbyist**  | Single node (limited availability)                                         | 2 days         |
+| **Developer** | Single node (limited availability)                                         | 1 day          |
+| **Hobbyist**  | Single node (limited availability)                                         | 1 day          |
 | **Startup**   | Single node (limited availability)                                         | 2 days         |
 | **Business**  | 1 primary node and 1 standby node (higher availability)                    | 14 days        |
 | **Premium**   | 1 primary node and 2 standby nodes (top high availability characteristics) | 30 days        |
