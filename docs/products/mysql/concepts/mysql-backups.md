@@ -32,21 +32,29 @@ or COPY as needed.
 
 ### Full backups
 
-Aiven takes a full backup of your service every 24 hours. Your service plan defines how
-many full backups Aiven stores, and therefore how far back you can restore. As new full
-backups are taken, the oldest ones are removed. For the backup history of each plan, see
+Aiven takes a backup of your service every 24 hours. It is a full backup unless you
+enable [incremental backups](/docs/products/mysql/howto/use-incremental-backups). Your
+service plan defines how many backups Aiven stores, and therefore how far back you can
+restore. As new backups are taken, the oldest ones are removed. For the backup history of
+each plan, see
 [High availability of Aiven for MySQL®](/docs/products/mysql/concepts/high-availability).
 
 ### Binary logs
 
-Aiven records binary logs continuously and keeps them for at least the period set in the
-`binlog_retention_period` advanced parameter. Combined with full backups, binary logs let
-you restore your service to a specific point in time.
+Aiven uploads binary logs to backup storage continuously and keeps them as long as the
+backup they belong to. Your plan decides how far back you can restore.
 
-The shortest retention you can set is 600 seconds. By default, the longest retention you
-can set is 86400 seconds (24 hours). To keep binary logs for up to 1814400 seconds
-(21 days), [contact Aiven support](mailto:support@aiven.io). If your service has enough
-disk space for the additional binary logs, Aiven raises the limit for the whole project.
+## Binary log retention on the service disk
+
+The `binlog_retention_period` advanced parameter sets how long binary log files stay on
+your service's disk after they are backed up. It exists for tools that read binary logs
+from the server, such as Debezium. It does not change how far back you can restore.
+
+When the parameter is not set, binary logs stay on the disk for 600 seconds. The shortest
+retention you can set is 600 seconds. By default, the longest retention you can set is
+86400 seconds (24 hours). To keep binary logs for up to 1814400 seconds (21 days),
+[contact Aiven support](mailto:support@aiven.io). If your service has enough disk space for
+the additional binary logs, Aiven raises the limit for the whole project.
 
 Longer binary log retention uses more disk space on your service. Review your disk usage
 before you increase the retention period. See

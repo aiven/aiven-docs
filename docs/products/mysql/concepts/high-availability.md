@@ -15,6 +15,11 @@ Aiven for MySQL® is available on a variety of plans, offering different levels 
 | **Business**  | 1 primary node and 1 standby node (higher availability)                    | 14 days        |
 | **Premium**   | 1 primary node and 2 standby nodes (top high availability characteristics) | 30 days        |
 
+:::note
+On the Developer and Hobbyist plans, Aiven uses backups to rebuild the node if it is lost.
+To fork a service or restore it from a backup, use a Startup, Business, or Premium plan.
+:::
+
 ## Primary and standby nodes
 
 Aiven's Business and Premium plans offer a primary node and standby nodes.
