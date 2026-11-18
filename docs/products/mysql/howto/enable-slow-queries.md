@@ -122,12 +122,21 @@ When `mysql.log_output` includes `INSIGHTS`, slow queries are sent to the
 `mysql.slow_log` table. The optimizer works from schema structure and database
 statistics, without credentials or access to the data in your databases.
 
-Aiven replaces literal values in queries with question marks (`?`) before it stores them.
+For each slow query, Aiven stores a normalized query fingerprint, the query duration, and
+the database name. Fingerprints contain no literal values, which Aiven replaces with
+question marks (`?`). Aiven doesn't store the raw query text.
+
+No fixed retention period is currently applied to this data. It is kept from when
+collection starts for your service.
 
 To stop sending slow queries to the optimizer and keep logging to the table, set
 `mysql.log_output` to `TABLE`. To stop slow query logging entirely, set
 `mysql.slow_query_log` to `Off`, which also empties the `mysql.slow_log` table. Either
 way, slow query data that the optimizer already collected is not deleted.
+
+To delete the slow query data that the optimizer collected for your service,
+[open a support ticket](/docs/platform/howto/support#create-a-support-ticket). Deleting
+the service doesn't delete this data.
 
 <RelatedPages/>
 
