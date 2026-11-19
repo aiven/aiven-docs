@@ -53,7 +53,9 @@ owner of that database. Use this when your security policy requires that users w
 
 The restriction covers the extensions in the service's extension allowlist. Extensions
 outside the allowlist follow standard PostgreSQL privileges, so the restriction doesn't
-change who can manage them. To see which extensions are in the allowlist, run:
+change who can manage them. For how the two methods differ, see
+[Installation methods](/docs/products/postgresql/reference/list-of-extensions#installation-methods).
+To see which extensions are in the allowlist, run:
 
 ```sql
 SHOW extwlist.extensions;
