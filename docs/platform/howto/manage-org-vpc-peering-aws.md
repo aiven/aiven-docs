@@ -1,13 +1,14 @@
 ---
 title: Manage an organization VPC peering with AWS
 sidebar_label: AWS peering
-limited: true
 ---
 
 import CollectDataAws from "@site/static/includes/vpc/collect-data-aws.md";
 import AcceptPeeringAws from "@site/static/includes/vpc/accept-peering-aws.md";
 import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -70,11 +71,14 @@ avn organization vpc peering-connection create    \
   --organization-id AIVEN_ORGANIZATION_ID         \
   --organization-vpc-id AIVEN_ORGANIZATION_VPC_ID \
   --peer-cloud-account AWS_ACCOUNT_ID             \
-  --peer-vpc AWS_VPC_ID
+  --peer-vpc AWS_VPC_ID                           \
+  --peer-region AWS_VPC_REGION
 ```
 
 Replace `AIVEN_ORGANIZATION_ID`, `AIVEN_ORGANIZATION_VPC_ID`, `AWS_ACCOUNT_ID`, and
-`AWS_VPC_ID` as needed.
+`AWS_VPC_ID` as needed. Set `AWS_VPC_REGION` to the region of your AWS VPC, for example
+`aws-us-east-2`. You can omit `--peer-region` when your AWS VPC is in the same region as
+your Aiven organization VPC.
 
 </TabItem>
 <TabItem value="api" label="Aiven API">
@@ -85,13 +89,14 @@ endpoint:
 
 ```bash
 curl --request POST \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpc/ORGANIZATION_VPC_ID/peering-connections \
   --header 'Authorization: Bearer BEARER_TOKEN' \
   --header 'content-type: application/json' \
   --data '
     {
       "peer_cloud_account":"AWS_ACCOUNT_ID",
-      "peer_vpc":"AWS_VPC_ID"
+      "peer_vpc":"AWS_VPC_ID",
+      "peer_region":"AWS_VPC_REGION"
     }
   '
 ```
@@ -103,12 +108,18 @@ Replace the following placeholders with meaningful data:
 - `BEARER_TOKEN`
 - `AWS_ACCOUNT_ID`
 - `AWS_VPC_ID`
+- `AWS_VPC_REGION`: the region of your AWS VPC, for example `aws-us-east-2`. Omit
+  `peer_region` when your AWS VPC is in the same region as your Aiven organization VPC.
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
+
 Use the
 [aiven_aws_org_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aws_org_vpc_peering_connection)
-resource.
+resource:
+
+<TerraformSample filename='resources/aiven_aws_org_vpc_peering_connection/resource.tf' />
+
 </TabItem>
 </Tabs>
 
@@ -123,3 +134,10 @@ the [AWS Management Console](https://console.aws.amazon.com).
 ## Delete the peering
 
 <DeleteOrgPeering/>
+
+<RelatedPages/>
+
+- [Manage organization VPCs](/docs/platform/howto/manage-organization-vpc)
+- [Set up an organization VPC peering](/docs/platform/howto/list-organization-vpc-peering)
+- [VPC peering in Aiven](/docs/platform/howto/list-vpc-peering)
+- [Manage project VPCs](/docs/platform/howto/manage-project-vpc)
