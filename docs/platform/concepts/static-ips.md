@@ -4,6 +4,7 @@ sidebar_label: Static IP
 ---
 
 import StaticIp from "@site/static/includes/static-ip-cost-warning.md";
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Aiven services are normally addressed by their hostname, but static IP addresses are also available for an additional charge.
 
@@ -62,6 +63,20 @@ your own services.
 :::note
 Each static IP address will incur a small charge.
 :::
+
+## Static IP addresses in custom clouds
+
+Services hosted in Azure [custom clouds](/docs/platform/concepts/byoc) can use static IP
+addresses, for example to connect over
+[Azure Private Link](/docs/platform/howto/byoc/azure-privatelink-byoc).
+
+Aiven creates the addresses in your Azure subscription. To reserve them, pass your custom
+cloud name in the `--cloud` option of `avn static-ip create`, as described in
+[Reserve static IP addresses](#reserve-static-ip-addresses).
+
+If your Azure custom cloud was created before static IP addresses became available for
+BYOC, [create a support ticket](/docs/platform/howto/support#create-a-support-ticket)
+to enable static IP addresses in it.
 
 ## Calculate the number of IP addresses needed {#platform_howto_setup_static_ip}
 
@@ -176,3 +191,9 @@ avn static-ip delete ip358375b2765
 
 Neither the `dissociate` or `delete` commands return any information on
 success.
+
+<RelatedPages/>
+
+- [Use Azure Private Link with Aiven services](/docs/platform/howto/use-azure-privatelink)
+- [Use Azure Private Link with BYOC services](/docs/platform/howto/byoc/azure-privatelink-byoc)
+- [Bring your own cloud (BYOC)](/docs/platform/concepts/byoc)

@@ -6,6 +6,7 @@ early: true
 import ConsoleLabel from "@site/src/components/ConsoleIcons"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import RelatedPages from "@site/src/components/RelatedPages";
 
 Azure Private Link lets you bring your Aiven services into your virtual network (VNet) over a private endpoint. The endpoint creates a network interface into one of the VNet subnets, and receives a private IP address from its IP range. The private endpoint is routed to your Aiven service.
 
@@ -23,12 +24,13 @@ Azure Private Link is supported for the following services:
 - Aiven for Caching
 
 :::note
-Azure Private Link is not supported for [BYOC](/docs/platform/concepts/byoc)-hosted services.
+For services hosted in a [BYOC](/docs/platform/concepts/byoc) custom cloud, see
+[Use Azure Private Link with BYOC services](/docs/platform/howto/byoc/azure-privatelink-byoc).
 :::
 
 ## Prerequisites
 
-- This feature is in [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
+- This feature is in early availability.
 
 - [Aiven CLI](/docs/tools/cli) is
   installed.
@@ -302,3 +304,9 @@ service:
 ```shell
 avn service privatelink azure delete AIVEN_SERVICE
 ```
+
+<RelatedPages/>
+
+- [Use Azure Private Link with BYOC services](/docs/platform/howto/byoc/azure-privatelink-byoc)
+- [Static IP addresses](/docs/platform/concepts/static-ips)
+- [avn service privatelink](/docs/tools/cli/service/privatelink)
