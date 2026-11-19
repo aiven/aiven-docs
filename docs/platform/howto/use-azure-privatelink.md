@@ -30,7 +30,7 @@ For services hosted in a [BYOC](/docs/platform/concepts/byoc) custom cloud, see
 
 ## Prerequisites
 
-- This feature is in early availability.
+- This feature is in [early availability](/docs/platform/concepts/service-and-feature-releases#early-availability-).
 
 - [Aiven CLI](/docs/tools/cli) is
   installed.
