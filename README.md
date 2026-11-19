@@ -46,7 +46,7 @@ We welcome contributions! To contribute to our docs, see [Contributing](./CONTRI
    yarn
    ```
 
-1. Optional: Install [Vale](https://vale.sh/docs/vale-cli/installation/).
+1. Optional: Install [Vale](https://docs.vale.sh/topics/installation/).
 
 1. Optional: Install [Husky](https://typicode.github.io/husky/):
 
