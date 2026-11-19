@@ -825,7 +825,17 @@ import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
   </tr>
   <tr>
     <td>europe</td>
+    <td>upcloud-se-pit1</td>
+    <td>Europe, Sweden: Piteå</td>
+  </tr>
+  <tr>
+    <td>europe</td>
     <td>upcloud-se-sto</td>
+    <td>Europe, Sweden: Stockholm</td>
+  </tr>
+  <tr>
+    <td>europe</td>
+    <td>upcloud-se-sto2</td>
     <td>Europe, Sweden: Stockholm</td>
   </tr>
   <tr>
