@@ -50,12 +50,17 @@ existing node before it takes over as the primary.
 
 ### How long the interruption lasts
 
-The interruption is usually less than 5 seconds if your clients re-resolve the DNS name
-of the service and reconnect automatically.
+The interruption usually lasts less than 10 seconds. It starts when MySQL stops on the
+old primary and ends when the new primary accepts connections. All open connections are
+closed when the interruption starts, so your clients need to reconnect.
 
-The interruption is longer for clients that cache DNS records longer than the record's
-time to live (TTL), or that keep connecting to the old IP address. These clients can't
-connect after Aiven removes the old nodes, until they resolve the DNS name again.
+The DNS record of your service has a time to live (TTL) of 15 seconds. Clients that
+re-resolve the DNS name connect to the new primary directly. Clients that still use the
+old IP address connect through the old primary until Aiven removes the old nodes.
+
+The interruption is longer for clients that cache DNS records longer than the TTL, or
+that keep connecting to the old IP address. These clients can't connect after Aiven
+removes the old nodes, until they resolve the DNS name again.
 
 ### Issues you might notice
 
