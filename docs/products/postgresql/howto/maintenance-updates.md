@@ -14,6 +14,11 @@ Manage maintenance updates and set the maintenance window for your Aiven for Pos
 
 <MaintenanceUpdates/>
 
+For what happens to your service during a maintenance update, see
+[Controlled switchover during upgrades or migrations](/docs/products/postgresql/concepts/upgrade-failover#controlled-switchover-during-upgrades-or-migrations).
+To choose when the primary switchover happens, see
+[Controlled switchover](/docs/products/postgresql/howto/pg-controlled-switchover).
+
 ## Maintenance window
 
 <MaintenanceWindowConcepts/>
