@@ -80,6 +80,15 @@ Apache Kafka® instead of running manual commands.
 | DataHub MCP server <LimitedBadge/> | Give AI agents natural language search, lineage tracking, and context-aware SQL generation over your data ecosystem | [Use the DataHub MCP server](/docs/products/datahub/datahub-mcp-server) |
 | Kafka Skills | Create and configure a Kafka service, topics, ACLs, and Schema Registry from the command line | [Set up using Skills](/docs/products/kafka/howto/set-up-kafka-with-skills) |
 
+## Use Aiven documentation with an AI assistant
+
+The public documentation doesn't require an Aiven account. To help an AI assistant find
+accurate answers, give it the [Aiven docs index](https://aiven.io/docs/llms.txt). Every
+page is also available as Markdown by adding `.md` to its URL.
+
+If Aiven MCP is already connected, the assistant can also use it to search the
+documentation. You don't need to connect MCP to read the public docs.
+
 ## AI built into Aiven services
 
 These aren't separate products. They're capabilities built into the services you're

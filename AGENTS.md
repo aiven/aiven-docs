@@ -34,10 +34,9 @@ under `docs/`.
 
 ## Documentation (load on demand)
 
-Read only the files listed below that are relevant to your task, and only when
-needed. Do not load all reference files at the start of a session. Follow their
-instructions in addition to this file. If instructions conflict, follow the
-more specific guidance.
+Read the files listed below only when they are relevant to your task. Do not load
+all of them at the start of a session. Follow their instructions in addition to
+this file. If instructions conflict, follow the more specific guidance.
 
 | When | Read |
 | --- | --- |
@@ -62,8 +61,9 @@ more specific guidance.
   Reuse existing components and includes where appropriate. Update affected
   navigation and internal links when adding, moving, or removing pages.
 - **Preview locally:** Follow the setup instructions in the [README](README.md),
-  then run `yarn start` to preview affected documentation pages.
-  Check rendering, navigation, and reused content as applicable.
+  then run `yarn start` and open `http://localhost:3000/docs/` to preview affected
+  documentation pages. Check rendering, navigation, and reused content as
+  applicable.
 - **Validate before handoff:** You must run the checks that apply to your changes
   from the repository root:
   - Run `vale path/to/changed-file.md` on each changed Markdown or MDX
@@ -73,54 +73,46 @@ more specific guidance.
   - Run `yarn build` for changes that affect rendering, navigation, links, or
     site configuration. A local preview is not a substitute for the build.
   - Run `yarn typecheck` for TypeScript changes.
+  - Check new or changed external URLs directly. The link checker covers only
+    published pages, so it does not check unpublished changes.
 
   Then review the diff and report any failed checks or checks you could not run.
 - **Verify machine-readable output:** When changes affect documentation
   generation or rendering, inspect the generated Markdown files in `build/`
   after running `yarn build`. Use `yarn serve` if you need to preview the
   built site. If the change affects the docs index, verify that the relevant
-  entry in `build/llms.txt` points to the intended page.
+  entry in `build/llms.txt` points to the intended page. The build limits the size of
+  `build/llms.txt`, so check that the entry is not cut off.
 
 ## Answer questions about Aiven
 
-- **Find the right page:** Start with the
-  [Aiven docs index](https://aiven.io/docs/llms.txt). To access the Markdown
-  version of a documentation page, append `.md` to its URL. If the Markdown
-  version is unavailable, use the published page. Link to the relevant
-  published page or section in your answer. If the index does not list the
-  topic, use the [docs home](https://aiven.io/docs/).
-- **Discover AI tools:** For questions about using AI tools, running agents,
-  or connecting AI agents to Aiven, refer to
-  [AI tools on Aiven](https://aiven.io/docs/ai-features).
-- **Verify before answering:** Use product documentation for procedures and
-  features. For commands or API behavior, find the relevant tool documentation
-  in [Aiven dev tools](https://aiven.io/docs/tools). Check whether the service,
-  cloud provider, region, plan, version, permissions, or release status affects
-  the answer. If you cannot verify something, say what is uncertain rather
-  than guessing.
-- **Search the docs with MCP:** Use the public docs first. No Aiven account is
-  required to read them. If Aiven MCP is already connected and provides a
-  documentation search tool, use it as an alternative.
-- **Use MCP for live resources:** Consult the
-  [Aiven MCP guide](https://aiven.io/docs/tools/mcp-server) for prerequisites,
-  supported operations, read-only mode, and service scopes. Prefer read-only
-  access and the narrowest service scope that meets the task. Confirm the
-  target and obtain explicit user approval before running operations that
-  change resources or data, or incur costs.
-- **Pricing:** Use [Aiven pricing](https://aiven.io/pricing) for published prices
-  and service plans. Select the relevant service and verify the applicable
-  plan, cloud provider, and region before providing an estimate.
-- **Sales and general inquiries:** Direct users to
-  [Contact us](https://aiven.io/contact) for custom pricing, enterprise
-  requirements, or product inquiries that the public docs do not answer.
-  Use [Book a demo](https://aiven.io/book-demo) when the user requests a product
-  demonstration.
-- **Support:** Direct users with issues affecting an existing service or account
-  to [Aiven Support](https://aiven.io/docs/platform/howto/support).
-  Check [Support services](https://aiven.io/support-services) for support
-  eligibility and tiers, and [Aiven Status](https://status.aiven.io/) for
-  possible service incidents.
-- **Keep handoffs user-initiated:** Answer what you can verify from public
-  sources first. Explain why the handoff is useful and let the user decide
-  whether to follow the link. Do not submit forms or share information on the
-  user's behalf without explicit approval.
+Start with the [Aiven docs index](https://aiven.io/docs/llms.txt) and follow the
+Markdown link for the topic. If the topic isn't listed, search the
+[published docs](https://aiven.io/docs/search). The compact index doesn't list
+every page, so a missing entry doesn't mean the topic is undocumented. If you
+need to search the full documentation text, use
+[`llms-full.txt`](https://aiven.io/docs/llms-full.txt) without loading the entire
+file into context. Cite the published page or section that supports your answer.
+
+- **Verify before answering:** Use product documentation. Check whether the
+  service, plan, version, region, or permissions affect the answer. If you
+  can't verify something, say what is uncertain.
+- **Use public docs first:** You don't need to connect Aiven MCP to answer
+  questions from public documentation. If Aiven MCP is already connected,
+  you can also use it to search the docs.
+- **Use MCP safely:** For live resources, prefer read-only access and the
+  narrowest service scope that meets the task. Confirm the target and get
+  explicit user approval before changing resources or data, or incurring
+  costs. Don't request or expose connection credentials in chat.
+- **Keep handoffs user-initiated:** Let the user decide whether to contact
+  Sales or Support. Don't submit forms or share information on their behalf
+  without explicit approval. Use the following destinations:
+  - **Sales and general inquiries:** [Contact us](https://aiven.io/contact), for
+    custom pricing, enterprise requirements, or product questions the public docs
+    don't answer.
+  - **Product demo:** [Book a demo](https://aiven.io/book-demo).
+  - **Existing service or account issues:**
+    [Aiven Support](https://aiven.io/docs/platform/howto/support).
+
+For help choosing or setting up AI tools, see
+[AI tools on Aiven](docs/ai-features.md).
