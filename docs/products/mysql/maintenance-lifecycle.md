@@ -11,3 +11,5 @@ updates.
 <RelatedPages/>
 
 - [Manage the MySQL version](/docs/products/mysql/howto/manage-mysql-version)
+- [Maintenance and updates](/docs/products/mysql/howto/maintenance-updates)
+- [Version lifecycle](/docs/products/mysql/reference/version-lifecycle)

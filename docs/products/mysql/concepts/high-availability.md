@@ -58,6 +58,9 @@ In the event of database failover, the **Service URI** of your service
 remains the same; only the IP address changes to point to the new primary node.
 :::
 
+For how a planned switchover works during maintenance updates, see
+[What happens during a maintenance update](/docs/products/mysql/howto/maintenance-updates#what-happens-during-a-maintenance-update).
+
 ## Highly available Business and Premium service plans
 
 When a standby node fails, the primary node
@@ -119,3 +122,4 @@ Typically, this time window is limited to either five minutes or one binary log 
 - [Use incremental backups](/docs/products/mysql/howto/use-incremental-backups)
 - [Back up to another region](/docs/products/mysql/howto/backup-to-another-region)
 - [Change your service plan](/docs/products/mysql/howto/change-service-plan)
+- [Maintenance and updates for your Aiven for MySQL® service](/docs/products/mysql/howto/maintenance-updates)
