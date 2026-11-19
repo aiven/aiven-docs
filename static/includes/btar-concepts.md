@@ -18,8 +18,9 @@ Aiven for PostgreSQL® instead.
 BTAR is charged based on your usage, with no flat fee. Charges cover the following:
 
 - **Secondary backup storage**: Aiven charges for each GB-month of backup data stored in
-  the secondary region, measured as held in object storage. The rate depends on the
-  secondary backup region.
+  the secondary region, based on the size of each retained backup. Each retained backup
+  is charged separately, so a longer backup retention increases the stored data you pay
+  for. The rate depends on the secondary backup region.
 - **Cross-region backup transfer**: Aiven charges for the backup data copied from the
   primary region to the secondary region, for each GB. The rate depends on whether the
   two regions are on the same continent.
