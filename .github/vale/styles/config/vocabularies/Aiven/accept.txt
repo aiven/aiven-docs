@@ -498,3 +498,5 @@ knn_vector
 hnsw
 IDEs?
 decompounder
+NCC
+vWAN
