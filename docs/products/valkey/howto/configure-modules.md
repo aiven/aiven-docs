@@ -21,7 +21,7 @@ To disable a module, first remove its data. See
 - A running Aiven for Valkey service.
 - All nodes are running.
 - If not all nodes in your service support module configuration, apply the latest
-  maintenance update. Until you do, the API blocks changes to `valkey_modules_enabled`.
+  maintenance update.
 
 ## Before you disable a module
 
