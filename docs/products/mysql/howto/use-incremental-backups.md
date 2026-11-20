@@ -188,4 +188,4 @@ For the complete restore progress data model, see
 
 - [Understand MySQL backups](/docs/products/mysql/concepts/mysql-backups)
 - [Track restore progress](/docs/products/mysql/howto/track-restore-progress)
-- [Backup to another region](/docs/products/mysql/howto/backup-to-another-region)
+- [Service backups](/docs/platform/concepts/service_backups)

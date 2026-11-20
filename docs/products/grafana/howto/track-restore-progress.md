@@ -13,4 +13,4 @@ Track the restore progress of individual nodes in your Aiven for Grafana® servi
 <RelatedPages/>
 
 - [Fork your service](/docs/products/grafana/howto/fork-service)
-- [Back up to another region](/docs/products/grafana/howto/backup-to-another-region)
+- [Service backups](/docs/platform/concepts/service_backups)
