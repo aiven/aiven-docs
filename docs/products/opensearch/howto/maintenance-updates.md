@@ -18,7 +18,9 @@ Learn what happens to your Aiven for OpenSearch® service during maintenance upd
 
 Aiven applies maintenance updates by replacing the nodes of your service with new ones
 and moving your data from the old nodes to the new nodes. Your service keeps serving
-reads and writes while this happens.
+reads and writes while this happens. Aiven uses the same procedure when you
+[upgrade the OpenSearch version](/docs/products/opensearch/howto/os-version-upgrade) or
+[change the service plan](/docs/products/opensearch/howto/change-service-plan).
 
 During a maintenance update, Aiven follows this procedure:
 
