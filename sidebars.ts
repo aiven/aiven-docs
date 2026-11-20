@@ -756,6 +756,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/kafka/howto/ipv6-client-connectivity',
                 'products/kafka/howto/kafka-custom-serde-encrypt',
+                'products/kafka/concepts/connection-rate-limiting',
               ],
             },
           ],
