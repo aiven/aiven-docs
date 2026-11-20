@@ -3,6 +3,8 @@ title: High availability in Aiven for OpenSearch®
 sidebar_label: High availability
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 Aiven for OpenSearch® is available on a variety of plans, offering
 different levels of high availability. The selected plan defines the
 features available, and a summary is provided in the table below:
@@ -69,6 +71,9 @@ clients will be routed to the promoted shards. All of this is automatic
 and requires no administrator intervention.
 :::
 
+For how Aiven replaces nodes during planned maintenance, see
+[What happens during a maintenance update](/docs/products/opensearch/howto/maintenance-updates#what-happens-during-a-maintenance-update).
+
 ## Single-node Free and Startup service plans
 
 Losing the only node from the service starts the automatic process of
@@ -77,3 +82,9 @@ state from the latest available backup and resumes serving customers.
 Since there was just a single node providing the service, the service
 will be unavailable for the duration of the restore operation. All the
 write operations made since the last backup are lost.
+
+<RelatedPages/>
+
+- [Maintenance and updates for your Aiven for OpenSearch® service](/docs/products/opensearch/howto/maintenance-updates)
+- [Replication factors in Aiven for OpenSearch®](/docs/products/opensearch/concepts/index-replication)
+- [Dedicated node roles](/docs/products/opensearch/concepts/dedicated-node-roles)
