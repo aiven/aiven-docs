@@ -12,8 +12,7 @@ Your data stays where it is, with no separate warehouse to copy it to.
 
 :::note
 PostgreSQL for Analytics is in early availability.
-[Request access](https://aiven.io/contact) to use it. Some functionality is still being
-added, and your feedback shapes what comes next.
+[Request access](https://aiven.io/contact) to use it.
 :::
 
 ## About PostgreSQL for Analytics
