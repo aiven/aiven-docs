@@ -35,7 +35,7 @@ To run Kafka in your own cloud account, see
 1. Click **Apache Kafka®**.
 1. In **Service tier**, click **Professional**.
 1. In **Deployment mode**, click **Aiven cloud**.
-1. If **Select plan type** appears, click **Standard** or **Classic**:
+1. If **Select plan variant** appears, click **Standard** or **Classic**:
 
    - **Standard**: A compute size with usage-based storage and network pricing,
      and classic and diskless topics.
@@ -45,7 +45,7 @@ To run Kafka in your own cloud account, see
 
    :::note[Note]
    Accounts created after August 2026 create Standard Kafka services.
-   **Select plan type** appears only for accounts created before August 2026.
+   **Select plan variant** appears only for accounts created before August 2026.
    :::
 
 1. In **Cloud**, click a cloud provider and region.

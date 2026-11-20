@@ -26,7 +26,7 @@ Free and Developer tier services use Classic Kafka.
 ## Deployment
 
 - **Aiven Cloud**: Default path. New customers create Standard Kafka. If
-  **Select plan type** appears, click **Standard** or **Classic**. You cannot change
+  **Select plan variant** appears, click **Standard** or **Classic**. You cannot change
   the service type after you create the service.
 - **BYOC**: Classic Kafka with fixed plans. You can optionally enable diskless topics
   on supported custom clouds.
