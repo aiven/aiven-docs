@@ -5,6 +5,7 @@ sidebar_label: Backups
 
 import EditBackupSchedule from "@site/static/includes/service-backups-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
+import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 
 Aiven for MySQL databases are automatically backed-up, with full backups daily, and binary logs recorded continuously.
 The number of stored backups and the retention time depend on your service plan. For the
@@ -80,17 +81,63 @@ internally for taking a full
 (or [incremental](/docs/products/mysql/howto/use-incremental-backups))
 snapshot of MySQL.
 
-Since [Percona XtraBackup
-8.0.23](https://jira.percona.com/browse/PXB-1979) the `--lock-ddl`
-option is enabled by default. This ensures that DDL changes cannot be
-performed while a full backup process is ongoing. This is important to
-guarantee that the backup service is consistent and can be reliably used
-for restoration.
+## DDL lock during backups
 
-With this feature enabled, if you try to run `CREATE`, `ALTER`, `DROP`,
-`TRUNCATE` or another command during backup, you may receive the message
-**Waiting for backup lock**. In this case, wait till the backup is
-complete for running such operations.
+To keep each backup consistent and restorable, Percona XtraBackup takes a backup lock. The
+backup lock blocks DDL statements, such as `CREATE`, `ALTER`, `DROP`, and `TRUNCATE`. It
+doesn't block DML statements, such as `INSERT`, `UPDATE`, and `DELETE`.
+
+By default, the backup lock is held for the whole backup. A DDL statement that you run
+during a backup shows the `Waiting for backup lock` state and runs after the backup
+completes. On large databases, a full backup can take hours, and DDL waits for the whole
+time. To keep DDL wait time short, use the
+[reduced DDL lock](#reduced-ddl-lock) or
+[incremental backups](/docs/products/mysql/howto/use-incremental-backups).
+
+### Reduced DDL lock <LimitedBadge/> {#reduced-ddl-lock}
+
+With the reduced DDL lock, a backup blocks DDL statements only for a short final step,
+typically a few seconds, instead of for the whole backup. The lock time stays about the
+same as your database grows, so large databases benefit the most. The reduced DDL lock
+uses the
+[reduced backup lock](https://docs.percona.com/percona-xtrabackup/8.4/reduction-in-locks.html)
+feature of Percona XtraBackup 8.4 (`--lock-ddl=REDUCED`).
+
+A backup with the reduced DDL lock runs as follows:
+
+1. It copies InnoDB data without the backup lock, and tracks the DDL changes that run
+   during the copy.
+1. It takes the backup lock, copies non-InnoDB data, and copies again the tables that DDL
+   changed during the backup.
+1. It records a consistent point for the backup and releases the backup lock.
+
+When Aiven restores the backup, it applies the tracked DDL changes, so the restored data
+is consistent.
+
+#### Requirements
+
+- Aiven for MySQL 8.4 or later
+- A service plan with at least two nodes: Business or Premium
+
+The reduced DDL lock works with both full and
+[incremental backups](/docs/products/mysql/howto/use-incremental-backups).
+
+#### Enable the reduced DDL lock
+
+The reduced DDL lock is in limited availability: it's fully supported, and Aiven enables
+it on request for each service. To enable it for your service,
+[contact Aiven support](mailto:support@aiven.io) with your project and service names. To
+return to the default backup lock, contact Aiven support again.
+
+#### DDL during backups with the reduced DDL lock
+
+If you run DDL during backups, consider the following:
+
+- **Final lock time:** Tables changed by DDL are copied again while the backup lock is
+  held. Heavy DDL on a large table near the end of a backup can make the final lock last
+  minutes. It's still shorter than the default backup lock, which covers the whole backup.
+- **Backup size and duration:** Tables changed by DDL during a backup are copied twice, so
+  backups of services with frequent DDL can be larger and take longer.
 
 ## Configure the backup schedule
 
