@@ -54,10 +54,9 @@ different CPU architectures, for example when pairing services across cloud prov
 Both the leader and the follower must be powered on to create the CCR integration. If
 either service is powered off when you set up replication, the request fails.
 
-## Don't combine CCR with tiered storage
+## Choose between CCR and tiered storage
 
-Cross-cluster replication isn't supported when tiered storage (hot-warm) is enabled on
-either the leader or the follower. If you rely on
+A leader or a follower can't have tiered storage (hot-warm) enabled. If you rely on
 [tiered storage](/docs/products/opensearch/concepts/hot-warm-tiering) for cost-efficient
 retention of infrequently accessed data, plan for it as an alternative to CCR rather than
 alongside it.
@@ -77,12 +76,19 @@ follower service, or promote it to standalone, before deleting or powering off t
 
 ## Plan for replication charges
 
-Replication traffic is charged for each GB sent from the leader to the follower, so the
-cost follows your write volume rather than the size of the indices you replicate. Before
-you add a follower in another region, estimate the volume you expect to replicate each
-month. See
-[Charges](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch#charges)
-in the cross-cluster replication overview.
+Replication traffic is charged for each GB replicated from the leader to the follower, so
+the cost follows your write volume rather than the size of the indices you replicate. To
+keep it predictable:
+
+- **Estimate your write volume** before you add a follower, and replicate only the
+  indices you need on the follower.
+- **Pick a follower region on the leader's continent** when it meets your needs.
+  Replication within one continent costs less than replication between continents.
+
+The **Create follower** dialog in the Aiven Console shows the rate for the region you
+choose. For a follower in a [custom cloud](/docs/platform/concepts/byoc), Aiven charges a
+flat monthly fee instead. See
+[Charges](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch#charges).
 
 ## Monitor replication status
 
