@@ -49,16 +49,15 @@ If your service uses dedicated node roles, see
 for the order in which Aiven replaces each node type.
 
 Services with a single node follow the same procedure: the new node joins the existing
-node, and the data moves to the new node before the existing node is removed. Because a
-single-node service has no replicas, expect a brief interruption when the existing node
-leaves the cluster. If the existing node stops responding during the maintenance update,
-Aiven restores the service on the new node from the latest backup, and changes made
-after that backup are lost.
+node, and the data moves to the new node before the existing node is removed. If the
+existing node stops responding during the maintenance update, Aiven restores the service
+on the new node from the latest backup, and changes made after that backup are lost.
 
 ### Service availability during maintenance
 
-On services with more than one node, the cluster keeps serving reads and writes for the
-whole maintenance update. Your clients see an effect only when an old node is stopped:
+Your service keeps serving reads and writes for the whole maintenance update, on both
+single-node and multi-node services. Your clients see an effect only when an old node is
+stopped:
 
 - Connections to the old node are closed, and requests that are in progress on these
   connections fail. Your clients need to reconnect and retry these requests.
@@ -82,8 +81,8 @@ The duration of a maintenance update depends on:
   for resources.
 
 A maintenance update takes minutes on small services and can take several hours on large
-clusters. The only interruption for your clients is when an old node stops, as described
-in [Service availability during maintenance](#service-availability-during-maintenance).
+clusters. Your service stays available for the whole time. For the effect on your
+clients, see [Service availability during maintenance](#service-availability-during-maintenance).
 
 ### Issues you might notice
 
