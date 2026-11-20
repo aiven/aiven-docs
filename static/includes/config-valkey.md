@@ -57,7 +57,7 @@ import Link from '@docusaurus/Link'
           <tr><td><div className="param"><p className="name"><Link id="migration_dbname"/><Link to="#migration_dbname"><strong>migration.dbname</strong></Link></p><p><code className="type">string</code></p></div><p className="title">Database name for bootstrapping the initial connection</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="migration_ignore_dbs"/><Link to="#migration_ignore_dbs"><strong>migration.ignore_dbs</strong></Link></p><p><code className="type">string</code></p></div><p className="title">Comma-separated list of databases, which should be ignored during migration (supported by MySQL and PostgreSQL only at the moment)</p></td></tr>
           <tr><td><div className="param"><p className="name"><Link id="migration_ignore_roles"/><Link to="#migration_ignore_roles"><strong>migration.ignore_roles</strong></Link></p><p><code className="type">string</code></p></div><p className="title">Comma-separated list of database roles, which should be ignored during migration (supported by PostgreSQL only at the moment)</p></td></tr>
-          <tr><td><div className="param"><p className="name"><Link id="migration_method"/><Link to="#migration_method"><strong>migration.method</strong></Link></p><p><code className="type">string</code></p></div><p className="title">The migration method to be used (currently supported only by Redis, Dragonfly, MySQL and PostgreSQL service types)</p></td></tr>
+          <tr><td><div className="param"><p className="name"><Link id="migration_method"/><Link to="#migration_method"><strong>migration.method</strong></Link></p><p><code className="type">string</code></p></div><p className="title">The migration method to be used (currently supported only by Redis, MySQL and PostgreSQL service types)</p></td></tr>
           </tbody>
         </table>
       </td>
@@ -207,6 +207,24 @@ import Link from '@docusaurus/Link'
       <td>
         <div className="param"><p className="name"><Link id="valkey_active_defrag_threshold_lower"/><Link to="#valkey_active_defrag_threshold_lower"><strong>valkey_active_defrag_threshold_lower</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>100</code></li><li>default: <code>10</code></li></ul></div>
         <div className="description"><p>Minimum percentage of fragmentation before active defragmentation starts. Only takes effect when `valkey_activedefrag` is enabled.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="valkey_hotkeys_top_k"/><Link to="#valkey_hotkeys_top_k"><strong>valkey_hotkeys_top_k</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>max: <code>1000</code></li></ul></div>
+        <p className="title">Hot key detection top-K</p><div className="description"><p>Number of hottest keys to track and report with the HOTKEYS GET command. 0 disables hot key detection. Requires Valkey 9.2 or later.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="valkey_hotkeys_sampling_percentage"/><Link to="#valkey_hotkeys_sampling_percentage"><strong>valkey_hotkeys_sampling_percentage</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>100</code></li></ul></div>
+        <p className="title">Hot key detection sampling percentage</p><div className="description"><p>Percentage of key accesses sampled for hot key detection. Lower values reduce overhead at the cost of accuracy. Only takes effect when `valkey_hotkeys_top_k` is above 0. Defaults to 1. Requires Valkey 9.2 or later.</p></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div className="param"><p className="name"><Link id="valkey_hotkeys_window_seconds"/><Link to="#valkey_hotkeys_window_seconds"><strong>valkey_hotkeys_window_seconds</strong></Link></p><p><code className="type">integer</code></p></div><div className="constraints"><ul><li>min: <code>1</code></li><li>max: <code>300</code></li></ul></div>
+        <p className="title">Hot key detection window</p><div className="description"><p>Length of the hot key reporting window in seconds. HOTKEYS GET reports the last completed window. Only takes effect when `valkey_hotkeys_top_k` is above 0. Defaults to 1. Requires Valkey 9.2 or later.</p></div>
       </td>
     </tr>
     <tr>

@@ -47,7 +47,9 @@ plans.
    1. On the service creation page:
 
       - Enter a name for the follower service.
-      - Select the cloud provider, region, and service plan.
+      - Select the cloud provider, region, and service plan. To run the follower in a
+        [custom cloud](/docs/platform/concepts/byoc), select **Custom clouds** in the
+        region list.
       - Add additional disk storage if required.
 
       :::note
@@ -90,6 +92,9 @@ Parameters:
 - `API_TOKEN`: API authentication token
 - `LEADER_SERVICE_NAME`: Leader service name
 
+To create the follower in a [custom cloud](/docs/platform/concepts/byoc), set `cloud` to
+the name of your custom cloud.
+
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
@@ -131,6 +136,9 @@ resources to create the follower service and configure replication.
      ]
    }
    ```
+
+   To run the follower in a [custom cloud](/docs/platform/concepts/byoc), set
+   `cloud_name` to the name of your custom cloud.
 
    :::note
    The follower service must use the same service plan as the leader during creation

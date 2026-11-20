@@ -135,6 +135,13 @@ The check doesn't cover index templates. Update templates that define a removed 
 as well, or new indices created from them fail on OpenSearch 3.
 :::
 
+### What happens during the upgrade
+
+Aiven upgrades your service by replacing its nodes with nodes that run the new version,
+using the same procedure as for maintenance updates. For the steps, the effect on your
+clients, and how to prepare them, see
+[What happens during a maintenance update](/docs/products/opensearch/howto/maintenance-updates#what-happens-during-a-maintenance-update).
+
 ### Prerequisites for upgrade
 
 To upgrade your service version, check that:
@@ -220,3 +227,4 @@ resource to set
 - [Migrate off the nmslib k-NN engine](/docs/products/opensearch/howto/migrate-knn-nmslib-engine)
 - [Available plugins for Aiven for OpenSearch](/docs/products/opensearch/reference/plugins)
 - [Versions of Aiven-managed services and tools](/docs/platform/reference/eol-for-major-versions)
+- [Maintenance and updates for your Aiven for OpenSearch® service](/docs/products/opensearch/howto/maintenance-updates)

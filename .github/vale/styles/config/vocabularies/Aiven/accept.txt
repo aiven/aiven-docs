@@ -129,6 +129,7 @@ DZone
 ECEs?
 Elasticsearch
 enablement
+enqueued
 Entra
 Epicurious
 etcd
@@ -357,6 +358,8 @@ reindex
 reindexed
 reindexing
 rerank\w*
+Resync
+Resyncing
 remoteSecure
 renewables
 repo
@@ -429,6 +432,7 @@ Telegraf
 Tenant
 Terraform
 Terraforming
+tfvars
 Thanos
 tiered
 tiering

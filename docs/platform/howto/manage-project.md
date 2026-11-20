@@ -10,10 +10,8 @@ import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Projects help you
-[organize your Aiven services](https://aiven.io/docs/platform/concepts/orgs-units-projects#projects)
-and centrally configure settings for all services in the project. You can create
-projects in your organization or its organizational units.
+Projects help you [organize your Aiven services](/docs/platform/concepts/orgs-units-projects#projects) and centrally configure settings for all services in the project.
+You can create projects in your organization or its organizational units.
 
 ## Create a project
 

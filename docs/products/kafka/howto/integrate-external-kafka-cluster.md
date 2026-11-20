@@ -35,9 +35,6 @@ To integrate, define an external Kafka service endpoint in the Aiven Console.
 1. Select the **Security protocol** from the dropdown menu. The available options and
    required fields depend on your selection:
 
-1. Select the **Security protocol** from the dropdown menu. The available options and
-   required fields depend on your selection:
-
    | Security protocol | Description | Required fields |
    |-------------------|--------------|-----------------|
    | PLAINTEXT | No encryption or authentication. | <ul><li>Bootstrap servers</li></ul> |
