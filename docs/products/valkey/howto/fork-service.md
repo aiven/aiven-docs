@@ -15,6 +15,11 @@ debugging, or development without affecting the original service.
 When you fork a service, its configuration, data, and service users are copied to the
 new service.
 
+When you fork a service, the fork inherits the source service's enabled Valkey
+modules by default.
+For module requirements, see
+[Forks, restores, and read replicas](/docs/products/valkey/howto/configure-modules#forks-restores-and-read-replicas).
+
 ## Limitations
 
 - You can only fork services that have at least one backup.

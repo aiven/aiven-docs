@@ -12,7 +12,7 @@ Aiven for Valkey™ supports multiple versions of Valkey running concurrently in
 
 ## Supported Valkey versions
 
-From version 9.0, Aiven for Valkey supports two major upstream Valkey versions at
+From version 9, Aiven for Valkey supports two major upstream Valkey versions at
 a time. These are the two latest major versions that are stable on the Aiven Platform.
 You can select either version when you create a service or upgrade an existing service.
 If you do not select a version, the default is the latest stable version on the Aiven
@@ -22,6 +22,14 @@ See the supported versions in the
 [Aiven for Valkey version reference](/docs/platform/reference/eol-for-major-versions#aiven-for-valkey).
 
 ## Before you upgrade
+
+:::note
+Upgrading your service doesn't change the enabled modules. If you upgrade from
+Valkey 8.1 to 9, Aiven doesn't enable Valkey Bloom and Valkey Search automatically.
+
+To enable them, see
+[Configure Aiven for Valkey™ modules](/docs/products/valkey/howto/configure-modules#version-upgrades).
+:::
 
 ### Available or upcoming upgrades
 
@@ -94,7 +102,7 @@ avn service update SERVICE_NAME -c valkey_version="N.N"
 Parameters:
 
 - `SERVICE_NAME`: Name of your service
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `9.1`
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -119,7 +127,7 @@ Parameters:
 - `PROJECT_NAME`: Name of your project
 - `SERVICE_NAME`: Name of your service
 - `BEARER_TOKEN`: Your API authentication token
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `9.1`
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -148,7 +156,7 @@ Parameters:
 - `CLOUD_NAME`: Cloud region identifier
 - `PLAN_NAME`: Service plan
 - `SERVICE_NAME`: Name of your service
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `9.1`
 
 </TabItem>
 <TabItem value="kubernetes" label="Kubernetes">
@@ -191,7 +199,7 @@ Parameters:
 - `SERVICE_NAME`: Name of your service
 - `CLOUD_NAME`: Cloud region identifier
 - `PLAN_NAME`: Service plan
-- `N.N`: Target service version to upgrade to, for example `9.0`
+- `N.N`: Target service version to upgrade to, for example `9.1`
 
 </TabItem>
 </Tabs>

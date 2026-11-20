@@ -5,7 +5,24 @@ sidebar_label: Modules
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Aiven for Valkey™ includes pre-enabled modules that extend core Valkey functionality with additional data types and commands.
+Aiven for Valkey™ supports modules that extend Valkey with additional data types and commands.
+
+You can enable or disable individual modules based on what your application uses.
+For instructions, see [Configure Aiven for Valkey™ modules](/docs/products/valkey/howto/configure-modules).
+
+## Module availability and defaults
+
+Use the `valkey_modules_enabled` configuration parameter in your service's advanced
+configuration to choose which modules run on your service. The value is a list of module names.
+
+The supported modules and the default list depend on your Valkey version:
+
+| Valkey version | Supported modules         | Default value                 |
+| -------------- | ------------------------- | ----------------------------- |
+| 8.1            | `json`                    | `["json"]`                    |
+| 9              | `json`, `bloom`, `search` | `["json", "bloom", "search"]` |
+
+New services have all modules available for their Valkey version enabled by default.
 
 ## Valkey Bloom
 
@@ -14,17 +31,12 @@ space-efficient data structure that tests set membership: it can tell you that a
 is _possibly in a set_ or _definitely not in a set_, using a fraction of the memory needed
 to store the elements themselves.
 
-Valkey Bloom is available on Aiven for Valkey services running Valkey 9 and later.
-
-### Configuration
-
-- Valkey Bloom is enabled by default.
-- No configuration is required.
-- Valkey Bloom cannot be disabled.
+Valkey Bloom is available on services running Valkey 9, where it's enabled by default.
+If you disable the module, Bloom filter commands (`BF.*`) return an unknown command error.
 
 ### Capabilities
 
-Valkey Bloom allows you to:
+With Valkey Bloom, you can:
 
 - Create Bloom filters with a custom capacity and false positive rate
 - Add single or multiple elements to a filter
@@ -32,10 +44,12 @@ Valkey Bloom allows you to:
 - Scale filters automatically as more elements are added
 - Persist filters alongside the rest of your data
 
-Bloom filters suit high-traffic workloads where you need to prevent cache penetration,
-deduplicate streams, or filter out known items at low memory cost. You interact with them
-through the `BF.*` command family, such as `BF.ADD`, `BF.EXISTS`, `BF.MADD`, `BF.MEXISTS`,
-and `BF.RESERVE`.
+Bloom filters suit high-traffic workloads that need to prevent cache penetration,
+deduplicate streams, or filter out known items at low memory cost.
+
+Valkey Bloom commands start with `BF.`. For example, `BF.RESERVE` creates a filter,
+`BF.ADD` and `BF.MADD` add elements, and `BF.EXISTS` and `BF.MEXISTS` check whether
+elements exist.
 
 For complete documentation on Valkey Bloom commands and usage, see the
 [Valkey Bloom documentation](https://valkey.io/topics/bloomfilters/).
@@ -44,11 +58,8 @@ For complete documentation on Valkey Bloom commands and usage, see the
 
 Valkey JSON provides native JSON document storage and manipulation capabilities within Valkey.
 
-### Configuration
-
-- Valkey JSON is enabled by default.
-- No configuration is required.
-- Valkey JSON cannot be disabled.
+Valkey JSON is enabled by default.
+If you disable the module, JSON commands (`JSON.*`) return an unknown command error.
 
 ### Capabilities
 
@@ -68,13 +79,11 @@ Valkey Search is a high-performance search engine module that supports vector se
 full-text search, numeric filtering, and tag filtering. It enables indexing data stored in
 Valkey Hash or Valkey JSON data types and querying it with low latency.
 
-Valkey Search is available on Aiven for Valkey services running Valkey 9 and later.
+Valkey Search is available on services running Valkey 9, where it's enabled by default.
+If you disable the module, Search commands (`FT.*`) return an unknown command error.
 
-### Configuration
-
-- Valkey Search is enabled by default.
-- No configuration is required.
-- Valkey Search cannot be disabled.
+Valkey Search requires the Valkey JSON module to create indexes on JSON
+documents. You can index and query Valkey Hash data without enabling Valkey JSON.
 
 ### Capabilities
 

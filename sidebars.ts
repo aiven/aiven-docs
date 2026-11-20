@@ -2374,7 +2374,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/valkey/concepts/valkey-free-tier',
-            'products/valkey/reference/valkey-modules',
           ],
         },
         {
@@ -2402,6 +2401,15 @@ const sidebars: SidebarsConfig = {
             'products/valkey/concepts/lua-scripts',
             'products/valkey/howto/benchmark-performance',
           ],
+        },
+        {
+          type: 'category',
+          label: 'Modules',
+          link: {
+            type: 'doc',
+            id: 'products/valkey/reference/valkey-modules',
+          },
+          items: ['products/valkey/howto/configure-modules'],
         },
         {
           type: 'category',
