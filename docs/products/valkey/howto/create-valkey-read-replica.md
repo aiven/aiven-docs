@@ -12,6 +12,14 @@ import CreateReplica from "@site/static/includes/create-replica-console.md";
 
 [Aiven for Valkey™ read replica](/docs/products/valkey/concepts/read-replica) enables data replication from a primary to a replica service, improving performance and increasing redundancy for high availability and disaster recovery.
 
+When you create a read replica, it inherits the enabled modules from its
+primary service by default. Subsequent changes to the module configuration
+aren't automatically synchronized between the services.
+
+A read replica must have at least the modules enabled on its primary service.
+For configuration instructions, see
+[Change modules on services with read replicas](/docs/products/valkey/howto/configure-modules#change-modules-on-a-service-with-read-replicas).
+
 ## Prerequisites
 
 - Aiven for Valkey service
