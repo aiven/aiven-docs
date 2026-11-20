@@ -2817,14 +2817,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'products/ai-gateway',
-        {
-          type: 'category',
-          label: 'API keys',
-          items: [
-            'products/ai-gateway/api-keys',
-            'products/ai-gateway/set-spend-limits',
-          ],
-        },
+        'products/ai-gateway/api-keys',
         'products/ai-gateway/model-catalog',
         {
           type: 'category',
@@ -2836,7 +2829,14 @@ const sidebars: SidebarsConfig = {
             'products/ai-gateway/use-sdks',
           ],
         },
-        'products/ai-gateway/metrics',
+        {
+          type: 'category',
+          label: 'Usage and spend',
+          items: [
+            'products/ai-gateway/set-spend-limits',
+            'products/ai-gateway/metrics',
+          ],
+        },
         'products/ai-gateway/permissions',
       ],
     },
