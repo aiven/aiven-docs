@@ -1,5 +1,6 @@
 ---
-title: API keys
+title: Manage AI gateway API keys
+sidebar_label: Manage API keys
 early: true
 ---
 

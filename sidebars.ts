@@ -2820,12 +2820,20 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Use AI gateway',
           items: [
+            'products/ai-gateway/use-with-agents',
             'products/ai-gateway/rest-api',
             'products/ai-gateway/use-with-agents',
             'products/ai-gateway/use-sdks',
           ],
         },
-        'products/ai-gateway/metrics',
+        {
+          type: 'category',
+          label: 'Usage and spend',
+          items: [
+            'products/ai-gateway/set-spend-limits',
+            'products/ai-gateway/metrics',
+          ],
+        },
         'products/ai-gateway/permissions',
       ],
     },

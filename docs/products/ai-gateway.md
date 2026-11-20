@@ -10,7 +10,11 @@ AI gateway lets you access multiple AI models through one endpoint.
 
 - **Model catalog**: Browse all available AI models and their costs on the model list.
 
-- **Access keys**: Manage API keys to control access and track usage.
+- **API keys**: Create and manage API keys and their owners to control access
+  and track usage.
+
+- **Spend limits**: Set limits at the organization or key level to control spending
+   for a specific period.
 
 - **Metrics**: Monitor AI gateway usage and spend with detailed metrics on which models are used and estimated costs.
 
