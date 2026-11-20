@@ -35,7 +35,7 @@ in Claude Code's configuration file.
 | -------------------------------- | ----------------------- |
 | `ANTHROPIC_BASE_URL`             | `https://ai.aiven.io`   |
 | `ANTHROPIC_AUTH_TOKEN`           | Your AI gateway API key |
-| `ANTHROPIC_MODEL`                | `aiven-model`           |
+| `ANTHROPIC_MODEL`                | `claude-sonnet-5-5`     |
 | `ANTHROPIC_DEFAULT_OPUS_MODEL`   | `claude-opus-5`         |
 | `ANTHROPIC_DEFAULT_SONNET_MODEL` | `claude-sonnet-5`       |
 | `ANTHROPIC_DEFAULT_HAIKU_MODEL`  | `claude-haiku-5-5`      |
@@ -54,7 +54,7 @@ and for programs you start from it.
 ```bash
 export ANTHROPIC_BASE_URL="https://ai.aiven.io"
 export ANTHROPIC_AUTH_TOKEN="API_KEY"
-export ANTHROPIC_MODEL="aiven-model"
+export ANTHROPIC_MODEL="claude-sonnet-5-5"
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
@@ -72,7 +72,7 @@ To use these settings in only one project, add them to the
   "env": {
     "ANTHROPIC_BASE_URL": "https://ai.aiven.io",
     "ANTHROPIC_AUTH_TOKEN": "API_KEY",
-    "ANTHROPIC_MODEL": "aiven-model",
+    "ANTHROPIC_MODEL": "claude-sonnet-5-5",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-5-5"
@@ -117,7 +117,7 @@ To use these settings in only one project, add them to the
 1. Add a provider to the `~/.codex/config.toml` file.
 
    ```toml
-   model = "aiven-model"
+   model = "gpt-6.1-sol"
    model_provider = "aiven"
 
    [model_providers.aiven]
@@ -135,7 +135,7 @@ In the same terminal where you exported the API key:
 
 1. To start Codex, run `codex`.
 
-1. To confirm the active model is `aiven-model`, run `/status`.
+1. To confirm the active model is `gpt-6.1-sol`, run `/status`.
 
 1. Send a test prompt.
 
