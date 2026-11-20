@@ -49,9 +49,12 @@ If your service uses dedicated node roles, see
 for the order in which Aiven replaces each node type.
 
 Services with a single node follow the same procedure: the new node joins the existing
-node, and the data moves to the new node before the existing node is removed. If the
-existing node stops responding during the maintenance update, Aiven restores the service
-on the new node from the latest backup, and changes made after that backup are lost.
+node, and the data moves to the new node before the existing node is removed. A
+single-node service has no replicas, so it has no redundancy if a problem occurs during
+the maintenance update. For example, if the existing node stops responding, Aiven
+restores the service on the new node from the latest backup, and changes made after that
+backup are lost. For production workloads, use a plan with
+[multiple nodes](/docs/products/opensearch/concepts/high-availability-for-opensearch).
 
 ### Service availability during maintenance
 
