@@ -1,18 +1,18 @@
 ---
 title: Attach VPCs to Google Cloud Network Connectivity Center
 sidebar_label: Attach VPCs to GCP NCC
+early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
-import LimitedBadge from "@site/src/components/Badges/LimitedBadge";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Attach an Aiven VPC to your [Google Cloud Network Connectivity Center](https://cloud.google.com/network-connectivity/docs/network-connectivity-center) hub so that services in the VPC reach every spoke in your hub-and-spoke topology.
 
 :::important
-This feature is in <LimitedBadge/>.
+Contact Aiven to request access to this feature. It is not covered by the full Aiven SLA.
 :::
 
 Network Connectivity Center (NCC) connects VPCs through a central hub. Each VPC joins the
@@ -199,8 +199,6 @@ of that service, and allow the Aiven VPC range in your own firewall rules.
 
 To remove the attachment, contact Aiven to delete the spoke. Rejecting the spoke on your
 hub stops route exchange, but leaves the spoke resource in place.
-
-Deleting the Aiven VPC also removes the spoke.
 
 <RelatedPages/>
 
