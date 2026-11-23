@@ -8,6 +8,8 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
+import TerraformApply from "@site/static/includes/terraform-apply-changes.md";
 
 Enable [cross-region disaster recovery (CRDR)](/docs/products/postgresql/crdr/crdr-overview) in Aiven for PostgreSQL® by creating a recovery service, which takes over from a primary service in case of a region outage.
 
@@ -38,7 +40,7 @@ a tool of your choice:
 
 Throughout the process of creating the recovery service, the recovery service is in the
 **Rebuilding** state. As soon as the recovery service is ready, its status changes to
-**Passive**, which means your CRDR setup is up and running.
+**Running**, which means your CRDR setup is up and running.
 
 </TabItem>
 <TabItem value="cli" label="CLI">
@@ -61,6 +63,15 @@ Replace the following:
 - `CLOUD_PROVIDER_REGION` with the cloud region where to host the recovery service, for
   example, `google-europe-west-4`
 - `PRIMARY_SERVICE_NAME` with the name of the primary service, for example, `pg-demo`
+
+To check the CRDR status, run the following command for each service:
+
+```bash
+avn service get SERVICE_NAME --project PROJECT_NAME --json
+```
+
+The `disaster_recovery_role` is `active` for the primary service
+and `passive` for the recovery service.
 
 </TabItem>
 <TabItem value="api" label="API">
@@ -142,53 +153,26 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
 </TabItem>
 <TabItem value="tf" label="Terraform">
 
-1. Use the
-   [`aiven_service_integration`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
-   resource to create the disaster recovery integration between your primary service and
-   the recovery service. Set `integration_type` to `disaster_recovery`.
+Use the [`aiven_pg`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aiven_pg)
+resource to create primary and recovery PostgreSQL services. Configure the
+disaster recovery integration using the `service_integrations` block in the
+recovery service.
 
-   ```hcl
-   # Primary PostgreSQL service
-   resource "aiven_postgresql" "primary" {
-     project      = var.project_name
-     service_name = var.primary_service_name
-     plan         = var.service_plan
-     cloud_name   = var.primary_cloud_region
-   }
+<TerraformSample filename='postgres/postgres_crdr/services.tf' />
 
-   # Recovery PostgreSQL service
-   resource "aiven_postgresql" "recovery" {
-     project      = var.project_name
-     service_name = var.recovery_service_name
-     plan         = var.service_plan
-     cloud_name   = var.recovery_cloud_region
-   }
+To check the status of the recovery service, run:
 
-   # Disaster recovery integration
-   resource "aiven_service_integration" "disaster_recovery" {
-     project                  = var.project_name
-     integration_type         = "disaster_recovery"
-     source_service_name      = aiven_postgresql.primary.service_name
-     destination_service_name = aiven_postgresql.recovery.service_name
+```bash
+terraform show aiven_pg.recovery
+```
 
-     depends_on = [
-       aiven_postgresql.primary,
-       aiven_postgresql.recovery
-     ]
-   }
-   ```
+While the service is being created, its status is `REBUILDING`. It changes
+to `RUNNING` when the service is ready.
+You can check the disaster recovery role of each service using the
+Aiven Console, API, or CLI.
 
-1. Apply the configuration:
-
-   ```bash
-   terraform apply
-   ```
-
-1. Monitor the setup status:
-
-   ```bash
-   terraform show aiven_service_integration.disaster_recovery
-   ```
+More information on these resources and their configuration options are available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aiven_pg).
 
 </TabItem>
 </Tabs>
