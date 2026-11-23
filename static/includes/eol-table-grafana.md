@@ -1,5 +1,6 @@
 | Version | Aiven EOL       | Service creation supported until |
 | ------- | --------------- | -------------------------------- |
-| 11.6.x  | To be announced | To be announced                  |
-| 12.4.x  | To be announced | To be announced                  |
-| 13.2.x  | To be announced | To be announced                  |
+| 11.x    | 2027-03-31      | 2027-01-31                       |
+| 12.x    | 2027-05-24      | 2027-02-24                       |
+| 13.x    | To be announced | To be announced                  |
+
