@@ -13,8 +13,9 @@ Connect Slack to Managed Agents to let your agents read Slack messages, list cha
 You can also allow agents to send messages, add reactions, join and leave channels,
 mark conversations as read, and manage user groups.
 
-Agents can access only the channels and direct messages that the Slack bot is a
-member of.
+A bot token (`xoxb-...`) is limited to conversations the Slack bot is a member
+of. A user token (`xoxp-...`) uses that Slack user's access and the scopes you
+grant.
 
 To get started, create or configure a Slack app and use its bot token to connect
 the integration in the Aiven Console.
@@ -41,18 +42,22 @@ the integration in the Aiven Console.
    | `mpim:read`, `mpim:history` | Access group direct message conversations and read their messages. |
    | `search:read.public` | Search public channel content. |
    | `users:read` | Look up Slack users. |
+   | `usergroups:read` | List user groups. |
    | `canvases:read` | Read Slack canvases. |
 
    For more information, see
    [Slack OAuth scopes](https://docs.slack.dev/reference/scopes/).
 
-1. Optional: To allow your agent to send messages and add reactions, also add
-   the following scopes:
+1. Optional: Add the following **Bot Token Scopes** for the write tools you
+   enable:
 
    | Scope | Purpose |
    |---|---|
    | `chat:write` | Send messages. |
-   | `reactions:write` | Add reactions. |
+   | `reactions:write` | Add and remove reactions. |
+   | `channels:join` | Join public channels. |
+   | `channels:manage` | Leave public channels and mark them as read. |
+   | `usergroups:write` | Create and update user groups and their members. |
 
 1. Install the app to your Slack workspace and authorize the requested
    permissions. If installation requires approval, request it from your Slack
