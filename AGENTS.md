@@ -50,12 +50,11 @@ this file. If instructions conflict, follow the more specific guidance.
 
 - **Keep changes focused:** Preserve unrelated content and changes.
   Edit source files, not generated files in `build/`.
-- **Verify technical accuracy:** Before documenting technical claims, you must
-  verify them against authoritative sources, such as product documentation,
-  source code, or confirmation from the responsible product or engineering
-  team (ask the user if you need it). Check product behavior, configuration
-  parameters, commands, UI labels, and version requirements. Flag anything you
-  cannot verify rather than presenting it as fact.
+- **Verify technical accuracy:** Verify technical claims against authoritative sources
+  before documenting them. Use product documentation, source code, or confirmation from
+  the responsible product or engineering team. Ask the user if you need it.
+  Check product behavior, configuration parameters, commands, UI labels, and version
+  requirements. Flag anything you cannot verify rather than presenting it as fact.
 - **Follow repository conventions:** Follow existing Markdown and Docusaurus
   conventions for front matter, component imports, and admonitions.
   Reuse existing components and includes where appropriate. Update affected
