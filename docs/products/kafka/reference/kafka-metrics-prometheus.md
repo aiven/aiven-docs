@@ -299,6 +299,7 @@ health of network requests made to the Apache Kafka brokers.
 | `kafka_network_RequestMetrics_TotalTimeMs_Count`               | Total number of requests                                                        |
 | `kafka_network_RequestMetrics_TotalTimeMs_Mean`                | Mean total time for requests                                                    |
 | `kafka_network_SocketServer_NetworkProcessorAvgIdlePercent_Value` | Average idle percentage of the network processor                              |
+| `kafka_server_socket_server_metrics_connection_creation_rate` | Rate of new connections established per second, reported per network processor. Sum the values for each broker and listener to get the total connection rate. Available in Apache Kafka 3.9 and later. |
 
 ### Apache Kafka server
 
