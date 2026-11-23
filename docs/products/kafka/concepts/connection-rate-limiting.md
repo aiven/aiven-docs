@@ -5,7 +5,8 @@ sidebar_label: Connection rate limiting
 
 Aiven for Apache Kafka® limits the rate at which brokers accept new client connections.
 This protects brokers from connection bursts, which occur when many clients start or
-reconnect at the same time, such as during consumer group rebalances, or during denial-of-service attacks.
+reconnect at the same time. Bursts can occur during consumer group rebalances or
+denial-of-service attacks.
 
 Connection rate limiting applies to all Aiven for Apache Kafka service variants and
 tiers, including Standard, Classic, Free, and Developer.
@@ -40,8 +41,9 @@ For Apache Kafka 3.9 or later, use the Prometheus metric
 per second.
 
 The metric reports a separate value for each network processor.
-Sum the values across network processors for each broker and listener, then compare the
-total with the default limit to identify when connection rates approach the limit.
+Sum the values across network processors for each broker and listener.
+Compare the total with the default limit to identify when connection rates approach the
+limit.
 
 For more information, see [Aiven for Apache Kafka metrics available via Prometheus](/docs/products/kafka/reference/kafka-metrics-prometheus).
 
