@@ -120,6 +120,5 @@ Typically, this time window is limited to either five minutes or one binary log 
 
 - [Understand Aiven for MySQL® backups](/docs/products/mysql/concepts/mysql-backups)
 - [Use incremental backups](/docs/products/mysql/howto/use-incremental-backups)
-- [Back up to another region](/docs/products/mysql/howto/backup-to-another-region)
 - [Change your service plan](/docs/products/mysql/howto/change-service-plan)
 - [Maintenance and updates for your Aiven for MySQL® service](/docs/products/mysql/howto/maintenance-updates)
