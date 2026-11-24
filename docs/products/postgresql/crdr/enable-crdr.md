@@ -153,7 +153,7 @@ After sending the request, you can check the CRDR status on each of the CRDR pee
 </TabItem>
 <TabItem value="tf" label="Terraform">
 
-Use the [`aiven_pg`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aiven_pg)
+Use the [`aiven_pg`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg)
 resource to create primary and recovery PostgreSQL services. Configure the
 disaster recovery integration using the `service_integrations` block in the
 recovery service.
@@ -171,8 +171,8 @@ to `RUNNING` when the service is ready.
 You can check the disaster recovery role of each service using the
 Aiven Console, API, or CLI.
 
-More information on these resources and their configuration options are available in the
-[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/aiven_pg).
+More information on these resources and their configuration options is available in the
+[Terraform documentation](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/pg).
 
 </TabItem>
 </Tabs>
