@@ -151,9 +151,10 @@ For detailed structure patterns, recurring elements, and before/after examples, 
 
 For real-world examples from Aiven docs and common mistakes to avoid, see [examples.md](examples.md).
 
-## Terraform guidelines
+## Terraform documentation
 
-When including Terraform instructions and code samples, see [terraform-guidelines.md](terraform-guidelines.md) for:
+When including Terraform instructions and code samples, use the [terraform-documentation](../terraform-documentation/SKILL.md) skill for:
+- Decision tree for what Terraform content belongs in docs
 - When to include Terraform content (and when not to)
 - How to use `TerraformSample` and other components
 - Attribute documentation best practices
