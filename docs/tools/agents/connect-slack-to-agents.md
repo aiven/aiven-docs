@@ -9,10 +9,13 @@ keywords: [Managed Agents, Slack, MCP, integration]
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Connect Slack to Managed Agents to let your agents read Slack messages, search public channels, and look up users. You can also allow agents to send messages and add reactions.
+Connect Slack to Managed Agents to let your agents read Slack messages, list channels, and look up users and user groups.
+You can also allow agents to send messages, add reactions, join and leave channels,
+mark conversations as read, and manage user groups.
 
-Agents can access only the channels and direct messages that the Slack bot is a
-member of.
+A bot token (`xoxb-...`) is limited to conversations the Slack bot is a member
+of. A user token (`xoxp-...`) uses that Slack user's access and the scopes you
+grant.
 
 To get started, create or configure a Slack app and use its bot token to connect
 the integration in the Aiven Console.
@@ -39,18 +42,22 @@ the integration in the Aiven Console.
    | `mpim:read`, `mpim:history` | Access group direct message conversations and read their messages. |
    | `search:read.public` | Search public channel content. |
    | `users:read` | Look up Slack users. |
+   | `usergroups:read` | List user groups. |
    | `canvases:read` | Read Slack canvases. |
 
    For more information, see
    [Slack OAuth scopes](https://docs.slack.dev/reference/scopes/).
 
-1. Optional: To allow your agent to send messages and add reactions, also add
-   the following scopes:
+1. Optional: Add the following **Bot Token Scopes** for the write tools you
+   enable:
 
    | Scope | Purpose |
    |---|---|
    | `chat:write` | Send messages. |
-   | `reactions:write` | Add reactions. |
+   | `reactions:write` | Add and remove reactions. |
+   | `channels:join` | Join public channels. |
+   | `channels:manage` | Leave public channels and mark them as read. |
+   | `usergroups:write` | Create and update user groups and their members. |
 
 1. Install the app to your Slack workspace and authorize the requested
    permissions. If installation requires approval, request it from your Slack
@@ -83,17 +90,66 @@ Before you start, have the bot token from your Slack app ready.
    1. In **Integration name**, enter a name for the integration, such as
       `slack`.
    1. In **Slack Bot / User Token**, enter the bot token from your Slack app.
-   1. Optional: To allow the agent to send messages and add reactions, turn off
-      **Read-only access**. This setting is on by default. The Slack app must
-      also have the `chat:write` and `reactions:write` scopes, respectively.
+   1. Optional: To allow the agent to make changes in Slack, turn off
+      **Read-only access**. This setting is on by default. In read-only mode,
+      the agent can use only the read tools listed in
+      [Available Slack tools](#available-slack-tools). The Slack app must also
+      have the scopes that the write tools need.
 1. Select **Connect**.
 1. Close the **Manage agent integrations** dialog.
 1. On the agent's **Integrations** page, enable the Slack integration and select
-   the tools the agent can use.
+   the tools the agent can use. Write tools appear only when **Read-only
+   access** is turned off.
 1. Select **Save changes**.
 
 The agent can now use the selected Slack tools, subject to the permissions
 granted to your Slack app.
+
+## Available Slack tools
+
+The tools that an agent can use depend on the **Read-only access** setting and
+on the type of Slack token.
+
+### Read-only mode
+
+When **Read-only access** is on, the agent can use the following tools:
+
+| Tool | Purpose |
+|---|---|
+| Channels List | List channels. |
+| Channels Me | List the channels that the Slack user or bot is a member of. |
+| Conversations History | Read messages in a channel or direct message. |
+| Conversations Replies | Read the replies in a message thread. |
+| Users Search | Look up Slack users. |
+| Usergroups List | List user groups. |
+| Usergroups Me | List the user groups that the Slack user belongs to. |
+
+### Write mode
+
+When you turn off **Read-only access**, the agent can use the read tools and the
+following write tools:
+
+| Tool | Purpose |
+|---|---|
+| Conversations Add Message | Send a message to a channel or thread. |
+| Reactions Add | Add a reaction to a message. |
+| Reactions Remove | Remove a reaction from a message. |
+| Conversations Join | Join a channel. |
+| Conversations Leave | Leave a channel. |
+| Conversations Mark | Mark a conversation as read. |
+| Usergroups Create | Create a user group. |
+| Usergroups Update | Update a user group. |
+| Usergroups Users Update | Update the members of a user group. |
+
+### Tools that require a user token
+
+If you connect with a user token (`xoxp-...`), the agent can also use the
+following tools in both modes. Bot tokens (`xoxb-...`) can't use these tools.
+
+| Tool | Purpose |
+|---|---|
+| Conversations Search Messages | Search messages. |
+| Conversations Unreads | List conversations with unread messages. |
 
 ## Manage the Slack integration
 
@@ -105,6 +161,9 @@ a valid Slack token to restore access.
 
 To change which Slack tools an agent can use, update the tool selection on the
 **Integrations** page and select **Save changes**.
+
+Slack integrations keep the tool list from when you connected them. To get the
+current tools, disconnect the integration and connect it again.
 
 <RelatedPages/>
 
