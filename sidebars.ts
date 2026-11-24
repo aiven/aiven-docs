@@ -2105,6 +2105,7 @@ const sidebars: SidebarsConfig = {
                 'products/postgresql/howto/pg-studio/use-ai-assistant',
                 'products/postgresql/howto/pg-studio/write-run-queries',
                 'products/postgresql/howto/pg-studio/manage-queries',
+                'products/postgresql/howto/pg-studio/edit-table-data',
                 'products/postgresql/howto/pg-studio/security-connections',
               ],
             },
