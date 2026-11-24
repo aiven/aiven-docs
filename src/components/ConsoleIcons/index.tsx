@@ -173,10 +173,11 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.save} /> <b>Save changes</b>
         </>
       );
-    case 'discard':
+    case 'discardchanges':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.trash} /> <b>Discard</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.cross} />{' '}
+          <b>Discard changes</b>
         </>
       );
     case 'downloadorcopyresults':

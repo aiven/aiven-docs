@@ -42,7 +42,7 @@ Primary key columns are read-only.
 1. Click <ConsoleIcon name="save changes"/>, or press `Cmd+S` on macOS or `Ctrl+S` on
    Windows and Linux.
 
-To discard all unsaved changes instead, click <ConsoleIcon name="discard"/>.
+To discard all unsaved changes instead, click <ConsoleIcon name="discard changes"/>.
 
 ## How changes are saved
 
