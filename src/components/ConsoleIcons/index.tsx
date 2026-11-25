@@ -167,19 +167,6 @@ export default function ConsoleLabel({name}): ReactElement {
           <b>Open schema map</b>
         </>
       );
-    case 'savechanges':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.save} /> <b>Save changes</b>
-        </>
-      );
-    case 'discardchanges':
-      return (
-        <>
-          <ConsoleIconWrapper icon={ConsoleIcons.cross} />{' '}
-          <b>Discard changes</b>
-        </>
-      );
     case 'downloadorcopyresults':
       return (
         <>
