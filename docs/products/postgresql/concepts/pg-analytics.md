@@ -86,6 +86,9 @@ an even share, and when one is idle the other can use the spare capacity.
   connected. See [Create an Iceberg table](/docs/products/postgresql/howto/enable-pg-analytics#create-an-iceberg-table).
 - Aiven backups cover your PostgreSQL data but not the contents of your bucket. Back up
   and retain that data with your cloud provider's tools.
+- PostgreSQL for Analytics owns the Iceberg tables it creates. Reading or writing them
+  from engines outside your PostgreSQL service, such as Trino or Apache Spark™, isn't
+  available yet.
 
 ### SQL and data types
 
@@ -108,6 +111,9 @@ an even share, and when one is idle the other can use the spare capacity.
 - An autovacuum worker compacts Iceberg tables and expires old snapshots for you. You can
   also run `VACUUM` yourself. See
   [Maintain Iceberg tables](/docs/products/postgresql/howto/enable-pg-analytics#maintain-iceberg-tables).
+- Aiven keeps the `pg_lake` extension and the extensions installed with it up to date,
+  upgrading them during maintenance updates to stay in sync with the analytical query
+  engine.
 
 ### Performance
 
@@ -115,12 +121,6 @@ an even share, and when one is idle the other can use the spare capacity.
   plan you choose.
 - Iceberg table data is read from and written to object storage, so analytical queries
   have higher latency than queries against local PostgreSQL tables.
-- Aiven upgrades the `pg_lake` extension during maintenance updates, to keep it in sync
-  with the analytical query engine. You might need to update dependent extensions
-  manually afterwards.
-- PostgreSQL for Analytics owns the Iceberg tables it creates. Reading or writing them
-  from engines outside your PostgreSQL service, such as Trino or Apache Spark™, isn't
-  available yet.
 
 <RelatedPages/>
 
