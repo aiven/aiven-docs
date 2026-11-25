@@ -110,11 +110,6 @@ Use an Aiven Runtime template to explore different use cases and get started cre
         description="A monitoring and observability layer for Valkey and Redis that persists slowlogs, command patterns, client activity and anomaly signals so you can debug what happened."
     />
     <Card
-        to="https://github.com/aiven-labs/runs-on-runtime"
-        title="Runs on Runtime"
-        description="A static site running python/nginx listing repos that run on Aiven Runtime. Live at https://templates.aiven.io."
-    />
-    <Card
         to="https://github.com/aiven-labs/valkey-admin-aiven-apps"
         title="Valkey Admin"
         description="Sample Dockerfile/Compose setup to deploy Valkey Admin on Aiven Runtime, pointed at an Aiven for Valkey service."
