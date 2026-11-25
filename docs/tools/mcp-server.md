@@ -512,11 +512,23 @@ This task requires the `pg` or `all` scope.
 Topic, message, schema, and connector tools act on Aiven for Apache Kafka
 services.
 
+#### List topics
+
+```text
+List the topics in my Aiven for Apache Kafka service SERVICE_NAME.
+Show the partition count and retention for each topic.
+```
+
+Replace `SERVICE_NAME` with the Kafka service name.
+
+The assistant lists topics with `aiven_kafka_topic_list`.
+This task requires the `kafka` or `all` scope.
+
 #### Create a topic
 
 ```text
-Create a topic named TOPIC_NAME in my Aiven for Apache Kafka
-service SERVICE_NAME.
+Create a topic named TOPIC_NAME with 3 partitions and 7 days
+retention in my Aiven for Apache Kafka service SERVICE_NAME.
 ```
 
 Replace `SERVICE_NAME` with the Kafka service name.
@@ -524,6 +536,19 @@ Replace `TOPIC_NAME` with the topic name.
 
 The assistant creates the topic with `aiven_kafka_topic_create`.
 This task requires the `kafka` or `all` scope and write access.
+
+#### Inspect a topic
+
+```text
+Show the configuration and partition offsets of the TOPIC_NAME topic
+in my Aiven for Apache Kafka service SERVICE_NAME.
+```
+
+Replace `SERVICE_NAME` with the Kafka service name.
+Replace `TOPIC_NAME` with an existing topic name.
+
+The assistant inspects the topic with `aiven_kafka_topic_get`.
+This task requires the `kafka` or `all` scope.
 
 #### Read messages
 
@@ -537,20 +562,6 @@ Replace `TOPIC_NAME` with an existing topic name.
 
 The assistant reads messages with `aiven_kafka_topic_message_list`.
 This task requires the `kafka` or `all` scope.
-
-#### Produce messages
-
-```text
-Produce a message to the TOPIC_NAME topic in my Aiven for Apache Kafka
-service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the Kafka service name and
-`TOPIC_NAME` with an existing topic name.
-
-The assistant produces messages with `aiven_kafka_topic_message_produce`.
-Use a development topic. This task requires the `kafka` or `all` scope
-and write access.
 
 #### Inspect schemas
 
@@ -850,7 +861,7 @@ The following tables list the tools in each group.
 | `aiven_kafka_topic_message_list` | Read messages from a Kafka topic |
 | `aiven_kafka_topic_message_produce` | Produce messages to a Kafka topic |
 | `aiven_kafka_connect_available_connectors` | List available connector types |
-| `aiven_kafka_connect_list` | List running connectors |
+| `aiven_kafka_connect_list` | List configured connectors |
 | `aiven_kafka_connect_create_connector` | Create a connector |
 | `aiven_kafka_connect_edit_connector` | Edit a connector |
 | `aiven_kafka_connect_get_connector_status` | Get connector status |
