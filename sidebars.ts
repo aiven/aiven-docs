@@ -2709,6 +2709,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'products/runtime',
         'products/runtime/deploy-apps',
+        'products/runtime/templates',
         'products/runtime/connect-github-account',
         {
           type: 'category',
