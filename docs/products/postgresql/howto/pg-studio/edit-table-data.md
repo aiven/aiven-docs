@@ -37,7 +37,7 @@ Primary key columns are read-only.
 ## Edit values
 
 1. In <ConsoleIcon name="pgtables"/>, open the table.
-1. Double-click a cell and enter the new value. To set a nullable cell to `NULL`, click
+1. Click a cell and enter the new value. To set a nullable cell to `NULL`, click
    **Set to NULL** in the cell.
 1. Click **Save**, or press `Cmd+S` on macOS or `Ctrl+S` on Windows and Linux.
 
