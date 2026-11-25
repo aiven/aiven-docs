@@ -5,8 +5,7 @@ sidebar_label: Java
 
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Learn how to connect to your Aiven for ClickHouse® service with Java
-using the ClickHouse JDBC driver and the HTTPS port.
+Learn how to connect to your Aiven for ClickHouse® service with Java using the ClickHouse JDBC driver and the HTTPS port.
 
 ## Prerequisites
 

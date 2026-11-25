@@ -2,9 +2,7 @@
 title: Log integration with Loggly
 ---
 
-Aiven supports integrating logs with a number of external monitoring
-systems that support rsyslog protocol, including
-[Loggly](https://www.loggly.com/).
+Aiven supports integrating logs with a number of external monitoring systems that support rsyslog protocol, including [Loggly](https://www.loggly.com/).
 
 To integrate your service with Loggly, a new endpoint needs to be added
 into the project that contains the service to integrate. This

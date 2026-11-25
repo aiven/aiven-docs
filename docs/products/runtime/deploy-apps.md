@@ -73,9 +73,12 @@ To deploy new commits, [redeploy the application](#redeploy-an-application).
 1. Click **Next**.
 1. Select your manifest file and click **Scan**. Aiven Runtime automatically detects
    what applications and services are needed.
-1. To change the configuration of an application, click <ConsoleIcon name="edit"/>.
-   To change the configuration of a service integration, click
-   <ConsoleLabel name="editappintegrationconfig"/>.
+1. Optional: To change the configuration of an application, such as the name,
+   [ports](/docs/products/runtime/ports),
+   or [custom](/docs/products/runtime/custom-domain) domains,
+   click <ConsoleIcon name="edit"/>.
+1. Optional: To change the configuration of a service integration,
+   such as cloud and service plan, click <ConsoleLabel name="editappintegrationconfig"/>.
 1. To deploy the application and create the services, click **Deploy**.
 
 </TabItem>

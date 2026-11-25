@@ -11,3 +11,5 @@ maintenance updates.
 <RelatedPages/>
 
 - [Upgrade the OpenSearch version](/docs/products/opensearch/howto/os-version-upgrade)
+- [Maintenance and updates](/docs/products/opensearch/howto/maintenance-updates)
+- [Controlled upgrade pipelines](/docs/products/opensearch/howto/controlled-upgrade-pipelines)

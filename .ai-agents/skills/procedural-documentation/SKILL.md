@@ -7,6 +7,44 @@ description: Write step-by-step procedural documentation following Aiven's patte
 
 This skill guides agents in writing clear, consistent procedural documentation that follows Aiven's patterns and style conventions. It's also used for reviewing documented procedures.
 
+## Before you start: Assess folder structure
+
+**IMPORTANT**: Before creating any new documentation file, assess the **existing folder structure** of the product/area where you're adding content. Do not assume standard structure; follow what exists.
+
+### Folder structure audit
+
+1. **List existing files** in the target product/area directory
+2. **Identify patterns**:
+   - Does the product use subfolders (concepts/, howto/, reference/, troubleshooting/)?
+3. **Place your file accordingly**:
+   - If subfolders exist → place file in the matching subfolder
+   - If no subfolders exist → place file directly in product folder
+   - If mixed structure → follow the dominant pattern for your content type or ask the writer for guidance
+
+### Example
+
+**DataHub structure** (flat, no subfolders):
+```
+docs/products/datahub/
+├── enable-ai-description-and-classification.md
+├── enable-oidc-auth-datahub.md
+├── upgrade-datahub-version.md
+└── [other .md files directly here]
+```
+→ Place new DataHub docs directly in `docs/products/datahub/`
+
+**PostgreSQL structure** (hierarchical):
+```
+docs/products/postgresql/
+├── concepts/
+├── howto/
+├── reference/
+└── troubleshooting/
+```
+→ Place new PostgreSQL docs in appropriate subfolder
+
+---
+
 ## Quick start checklist
 
 Before writing or reviewing procedures, verify:
@@ -26,6 +64,70 @@ Before writing or reviewing procedures, verify:
 - [ ] **Terraform**: Include only for example usage, attributes, or getting started (not deletion)
 - [ ] **Cross-references**: Link to related docs when needed
 - [ ] **Related pages**: Use the `<RelatedPages/>` component only if there are actual related internal docs (never invent or guess)
+- [ ] **Sidebar updated**: New documentation pages must be added to `sidebars.ts` so they're discoverable by users. Place in the appropriate category or section. (See [Adding new docs to sidebar](#adding-new-docs-to-sidebar) below)
+
+## Adding new docs to sidebar
+
+**CRITICAL: New documentation must be added to `sidebars.ts` to be discoverable by users.**
+
+### Steps to add a new doc to sidebar
+
+1. **Identify the correct location** in `sidebars.ts`:
+   - Find the product/area section (e.g., `Aiven for DataHub`)
+   - Find the category where your doc belongs (e.g., `Maintenance and lifecycle`, `Getting started`)
+   - Determine if your doc fits an existing category or needs a new one
+
+2. **Add the doc entry** in the appropriate category's `items` array:
+   ```typescript
+   {
+     type: 'category',
+     label: 'Category name',
+     items: [
+       'products/service/existing-doc',
+       'products/service/your-new-doc',  // Add here
+       'products/service/another-doc',
+     ],
+   }
+   ```
+
+3. **Use the doc path** (not full filename):
+   - Path format: `products/[service]/[filename]` without `.md` extension
+   - Example: For `docs/products/datahub/upgrade-datahub-to-1-9.md`, use `products/datahub/upgrade-datahub-to-1-9`
+
+4. **Follow the product's existing structure**:
+   - If the category doesn't exist, see [verify-service-ia skill](.ai-agents/skills/verify-service-ia/) for creating new categories
+   - Don't create single-item categories unless necessary
+
+### Examples
+
+**DataHub Maintenance and lifecycle**:
+```typescript
+{
+  type: 'category',
+  label: 'Maintenance and lifecycle',
+  items: [
+    'products/datahub/upgrade-datahub-version',
+    'products/datahub/upgrade-datahub-to-1-9',
+    'products/datahub/maintenance-updates',
+    'products/datahub/restore-datahub-indices',
+  ],
+}
+```
+
+**PostgreSQL Concepts**:
+```typescript
+{
+  type: 'category',
+  label: 'Concepts',
+  items: [
+    'products/postgresql/concepts/replication',
+    'products/postgresql/concepts/connection-pooling',
+    'products/postgresql/concepts/backup-restore',
+  ],
+}
+```
+
+---
 
 ## Core rules
 
@@ -151,9 +253,10 @@ For detailed structure patterns, recurring elements, and before/after examples, 
 
 For real-world examples from Aiven docs and common mistakes to avoid, see [examples.md](examples.md).
 
-## Terraform guidelines
+## Terraform documentation
 
-When including Terraform instructions and code samples, see [terraform-guidelines.md](terraform-guidelines.md) for:
+When including Terraform instructions and code samples, use the [terraform-documentation](../terraform-documentation/SKILL.md) skill for:
+- Decision tree for what Terraform content belongs in docs
 - When to include Terraform content (and when not to)
 - How to use `TerraformSample` and other components
 - Attribute documentation best practices

@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       collapsible: false,
       items: [
+        'platform/reference/security-best-practices',
         {
           type: 'link',
           label: 'Authentication',
@@ -612,6 +613,17 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Consumers',
+          items: [
+            'products/kafka/concepts/share-groups',
+            'products/kafka/concepts/monitor-consumer-group',
+            'products/kafka/concepts/consumer-lag-predictor',
+            'products/kafka/howto/viewing-resetting-offset',
+            'products/kafka/howto/enabled-consumer-lag-predictor',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Schema registry and REST proxy',
           items: [
             'products/kafka/karapace',
@@ -744,6 +756,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'products/kafka/howto/ipv6-client-connectivity',
                 'products/kafka/howto/kafka-custom-serde-encrypt',
+                'products/kafka/concepts/connection-rate-limiting',
               ],
             },
           ],
@@ -834,16 +847,6 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/howto/kafka-prometheus-privatelink',
                 'products/kafka/howto/datadog-customised-metrics',
                 'products/kafka/howto/add-missing-producer-consumer-metrics',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Consumer groups',
-              items: [
-                'products/kafka/concepts/monitor-consumer-group',
-                'products/kafka/howto/viewing-resetting-offset',
-                'products/kafka/concepts/consumer-lag-predictor',
-                'products/kafka/howto/enabled-consumer-lag-predictor',
               ],
             },
             {
@@ -1129,6 +1132,7 @@ const sidebars: SidebarsConfig = {
                 'products/kafka/kafka-mirrormaker/howto/setup-replication-flow',
                 'products/kafka/kafka-mirrormaker/howto/migrate-cluster',
                 'products/kafka/kafka-mirrormaker/howto/update-integration-configurations',
+                'products/kafka/kafka-mirrormaker/howto/upgrade-version',
                 'products/kafka/kafka-mirrormaker/howto/monitor-replication-execution',
                 'products/kafka/kafka-mirrormaker/howto/remove-mirrormaker-prefix',
                 'products/kafka/kafka-mirrormaker/howto/exactly-once-delivery',
@@ -1385,6 +1389,7 @@ const sidebars: SidebarsConfig = {
             'products/clickhouse/howto/integrate-kafka',
             'products/clickhouse/reference/supported-input-output-formats',
             'products/clickhouse/howto/integrate-postgresql',
+            'products/clickhouse/howto/replicate-postgresql-cdc',
             'products/clickhouse/howto/connect-with-jdbc',
           ],
         },
@@ -1411,6 +1416,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'products/datahub/get-started',
         'products/datahub/connect-datahub-to-services',
+        'products/datahub/enable-ai-description-and-classification',
         'products/datahub/datahub-lineage',
         'products/datahub/datahub-mcp-server',
         {
@@ -1534,16 +1540,7 @@ const sidebars: SidebarsConfig = {
             id: 'products/grafana/backups-migration',
           },
           items: [
-            'products/grafana/howto/backup-to-another-region',
             'products/grafana/howto/track-restore-progress',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Manage dashboards',
-          items: [
-            'products/grafana/howto/dashboard-previews',
-            'products/grafana/howto/replace-expression-string',
           ],
         },
         {
@@ -1642,10 +1639,7 @@ const sidebars: SidebarsConfig = {
             type: 'doc',
             id: 'products/mysql/get-started',
           },
-          items: [
-            'products/mysql/concepts/mysql-free-tier',
-            'products/mysql/reference/resource-capability',
-          ],
+          items: ['products/mysql/reference/resource-capability'],
         },
         {
           type: 'category',
@@ -1749,7 +1743,6 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/concepts/mysql-backups',
                 'products/mysql/howto/use-incremental-backups',
                 'products/mysql/howto/migrate-database-mysqldump',
-                'products/mysql/howto/backup-to-another-region',
                 'products/mysql/howto/track-restore-progress',
               ],
             },
@@ -1760,6 +1753,8 @@ const sidebars: SidebarsConfig = {
                 'products/mysql/howto/do-check-service-migration',
                 'products/mysql/howto/migrate-db-to-aiven-via-console',
                 'products/mysql/howto/migrate-from-external-mysql',
+                'products/mysql/howto/mysql-free-tier-migration-options',
+                'products/mysql/howto/migrate-to-postgresql',
               ],
             },
           ],
@@ -2468,7 +2463,6 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             'products/valkey/howto/configure-backups',
-            'products/valkey/howto/backup-to-another-region',
             'products/valkey/howto/track-restore-progress',
             'products/valkey/howto/migrate-redis-aiven-cli',
             'products/valkey/howto/migrate-redis-aiven-via-console',
@@ -2792,6 +2786,7 @@ const sidebars: SidebarsConfig = {
         'tools/agents/create-agent',
         'tools/agents/manage-agent',
         'tools/agents/manage-integrations',
+        'tools/agents/connect-slack-to-agents',
         'tools/agents/permissions',
         'tools/agents/chat-with-agent',
         'tools/agents/schedule-agent',
@@ -2822,17 +2817,21 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Use AI gateway',
-          link: {
-            type: 'doc',
-            id: 'products/ai-gateway/use-with-agents',
-          },
           items: [
+            'products/ai-gateway/use-with-agents',
             'products/ai-gateway/rest-api',
             'products/ai-gateway/use-with-agents',
             'products/ai-gateway/use-sdks',
           ],
         },
-        'products/ai-gateway/metrics',
+        {
+          type: 'category',
+          label: 'Usage and spend',
+          items: [
+            'products/ai-gateway/set-spend-limits',
+            'products/ai-gateway/metrics',
+          ],
+        },
         'products/ai-gateway/permissions',
       ],
     },
@@ -2982,7 +2981,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -3004,7 +3003,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/user-access-management',
     },
     {
       type: 'category',
@@ -3023,7 +3022,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3044,7 +3043,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/concepts/billing-and-payment',
     },
     {
       type: 'category',
@@ -3063,7 +3062,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',
@@ -3088,7 +3087,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: '← Back to Admin',
-      href: '/docs/platform/concepts/orgs-units-projects',
+      href: '/docs/platform/reference/security-best-practices',
     },
     {
       type: 'category',

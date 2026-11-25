@@ -2,23 +2,23 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-For a project that has the backup to another region (BTAR) feature enabled, you can add or
-change a secondary backup location, check the secondary backup status, monitor the
-replication lag, fork and restore using the cross-region backup, or migrate to another
-cloud or region.
+With backup to another region (BTAR), you can add or change a secondary backup region,
+check the secondary backup status, monitor the replication lag, fork and restore using the
+cross-region backup, or migrate to another cloud or region.
 
 BTAR is configured with the `additional_backup_regions` option in your service
-configuration.
+configuration. The option takes one region, which holds the secondary backup for your
+service.
 
 ## Prerequisites
 
-- At least one Aiven service in a project with BTAR enabled
+- At least one Aiven service that supports BTAR
 - One of the following: the [Aiven Console](https://console.aiven.io/), the
   [Aiven CLI](/docs/tools/cli), the [Aiven API](/docs/tools/api), the
   [Aiven Provider for Terraform](/docs/tools/terraform), or the
   [Aiven Operator for Kubernetes®](/docs/tools/kubernetes)
 
-## Add a secondary backup location
+## Add a secondary backup region
 
 <Tabs groupId="btar-tools">
 <TabItem value="gui" label="Aiven Console" default>
@@ -29,10 +29,11 @@ configuration.
 1. On your service page, {props.backupsNav || <>click <ConsoleLabel name="backups"/></>}.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
    **Add secondary backup location**.
-1. In the **Add secondary backup location** window, turn on
+1. In the **Add secondary backup region** window, turn on
    **Secondary backup location enabled**.
 1. Use the **Backup location** menu to select a region for your secondary backup.
-1. Click **Save**.
+1. Review the **Additional costs** card with the rates for the selected region.
+1. Click **Add backup region**.
 
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
@@ -79,8 +80,8 @@ Replace the following:
 <TabItem value="terraform" label="Terraform">
 
 Set `additional_backup_regions` in the service's user configuration block. The example
-uses Aiven for PostgreSQL®; for other services, use that service's resource and user
-configuration block.
+uses Aiven for PostgreSQL®; for Aiven for OpenSearch®, use `aiven_opensearch` and
+`opensearch_user_config`.
 
 ```hcl
 resource "aiven_pg" "example" {
@@ -99,7 +100,7 @@ resource "aiven_pg" "example" {
 <TabItem value="kubernetes" label="Kubernetes">
 
 Set `additional_backup_regions` under `spec.userConfig`. The example uses the `PostgreSQL`
-kind; for other services, use that service's kind.
+kind; for Aiven for OpenSearch®, use the `OpenSearch` kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
@@ -122,11 +123,12 @@ Aiven provisions storage in the region you selected and starts replicating backu
 to it. Until the first backup finishes replicating, you cannot fork your service from the
 secondary backup.
 
-## Change a backup region
+## Change a secondary backup region
 
-Repeat [Add a secondary backup location](#add-a-secondary-backup-location) and select a
+Repeat [Add a secondary backup region](#add-a-secondary-backup-region) and select a
 different region. In the Aiven Console, the action is called **Edit secondary backup
-location** once the service already has a secondary location.
+location** once the service already has a secondary location. To apply the new region,
+click **Save backup region**.
 
 :::important
 Changing the secondary backup region starts a new base backup. You can fork your service
@@ -159,8 +161,8 @@ backup, go to your service page > <ConsoleLabel name="backups"/> >
 <TabItem value="cli" label="Aiven CLI">
 
 Run [avn service get](/docs/tools/cli/service-cli) and read
-`user_config.additional_backup_regions`. The field lists the region holding the secondary
-backup. If the service has no secondary backup, the field is not set.
+`user_config.additional_backup_regions`. The field contains the region that holds the
+secondary backup. If the service has no secondary backup, the field is not set.
 
 ```bash
 avn service get SERVICE_NAME --project PROJECT_NAME --json
@@ -170,9 +172,9 @@ avn service get SERVICE_NAME --project PROJECT_NAME --json
 <TabItem value="api" label="Aiven API">
 
 Call the [ServiceGet](https://api.aiven.io/doc/#tag/Service/operation/ServiceGet) endpoint
-and read `user_config.additional_backup_regions` in the response. The field lists the
-region holding the secondary backup. If the service has no secondary backup, the field is
-not set.
+and read `user_config.additional_backup_regions` in the response. The field contains the
+region that holds the secondary backup. If the service has no secondary backup, the field
+is not set.
 
 ```bash
 curl --request GET                                                              \
@@ -328,8 +330,8 @@ Replace the following with meaningful data:
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set in its user configuration block. Set `recovery_target_time` to
 no earlier than the time of taking the oldest replicated base backup. The example uses
-Aiven for PostgreSQL®; for other services, use that service's resource and user
-configuration block.
+Aiven for PostgreSQL®; for Aiven for OpenSearch®, use `aiven_opensearch` and
+`opensearch_user_config`.
 
 ```hcl
 resource "aiven_pg" "fork" {
@@ -351,7 +353,7 @@ resource "aiven_pg" "fork" {
 Create a new service in the secondary backup region, with `service_to_fork_from` and
 `recovery_target_time` set under `spec.userConfig`. Set `recovery_target_time` to no
 earlier than the time of taking the oldest replicated base backup. The example uses the
-`PostgreSQL` kind; for other services, use that service's kind.
+`PostgreSQL` kind; for Aiven for OpenSearch®, use the `OpenSearch` kind.
 
 ```yaml
 apiVersion: aiven.io/v1alpha1
@@ -394,7 +396,7 @@ backup located in the primary, service-hosting region.
 1. On your service's page, {props.backupsNav || <>click <ConsoleLabel name="backups"/></>}.
 1. On the **Backups** page, click <ConsoleLabel name="actions"/> >
    **Edit secondary backup location**.
-1. In the **Edit secondary backup location** window, turn off
+1. In the **Edit secondary backup region** window, turn off
    **Secondary backup location enabled**.
 1. Click **Save**.
 
@@ -404,9 +406,9 @@ the **Secondary backup location** column.
 </TabItem>
 <TabItem value="cli" label="Aiven CLI">
 
-To remove secondary backups for your service, use the
-[avn service update](/docs/tools/cli/service-cli) command to remove all target region names
-from the `additional_backup_regions` array.
+To remove the secondary backup for your service, use the
+[avn service update](/docs/tools/cli/service-cli) command to remove the target region from
+the `additional_backup_regions` array.
 
 ```bash
 avn service update SERVICE_NAME       \
@@ -417,9 +419,9 @@ avn service update SERVICE_NAME       \
 </TabItem>
 <TabItem value="api" label="Aiven API">
 
-To remove secondary backups for your service, update the service configuration. Use the
-[ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate) endpoint
-to remove all target regions names from the `additional_backup_regions` array.
+To remove the secondary backup for your service, update the service configuration. Use
+the [ServiceUpdate](https://api.aiven.io/doc/#tag/Service/operation/ServiceUpdate)
+endpoint to remove the target region from the `additional_backup_regions` array.
 
 ```bash
 curl --request PUT                                                              \

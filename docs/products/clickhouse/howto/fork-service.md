@@ -7,8 +7,7 @@ import ForkConcepts from "@site/static/includes/fork-service-concepts.md";
 import ForkInstructions from "@site/static/includes/fork-service-instructions.md";
 import RelatedPages from "@site/src/components/RelatedPages";
 
-Fork your Aiven for ClickHouse® service to create an independent copy for testing,
-debugging, or development without affecting the original service.
+Fork your Aiven for ClickHouse® service to create an independent copy for testing, debugging, or development without affecting the original service.
 
 <ForkConcepts/>
 

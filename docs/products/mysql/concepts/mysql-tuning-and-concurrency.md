@@ -100,8 +100,9 @@ number of tables, fields and indexes within the database.
 Aiven configures a default value for the `max_connections` parameter for
 all MySQL services.
 
-The [max_connections](max-number-of-connections) parameter is based off the service
-usable memory.
+The default [max_connections](/docs/products/mysql/concepts/max-number-of-connections)
+value is based off the service usable memory. To reserve memory for other work, you can
+[lower it](/docs/products/mysql/concepts/max-number-of-connections#set-connection-limits).
 
 ```sql
 select @@max_connections;

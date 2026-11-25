@@ -1,12 +1,6 @@
 In addition to the primary service backup, you can keep a secondary backup in another
 region.
 
-:::important
-This feature is in
-[limited availability](/docs/platform/concepts/service-and-feature-releases#limited-availability-).
-Contact your account team to enable it for your project.
-:::
-
 Backup to another region (BTAR) is a disaster recovery feature that copies backup files
 from your service's primary backup region to an additional, secondary region. BTAR
 improves data resilience and protects your data against an outage in the primary backup
@@ -19,11 +13,39 @@ running standby. For a live standby with managed failover, use
 [cross-region disaster recovery](/docs/products/postgresql/crdr/crdr-overview) on
 Aiven for PostgreSQL® instead.
 
+## Charges
+
+BTAR is charged based on your usage, with no flat fee. Charges cover the following:
+
+- **Secondary backup storage**: Aiven charges for each GB-month of backup data stored in
+  the secondary region, based on the logical size of each retained backup. Each retained
+  backup is charged separately, so a longer backup retention increases the stored data
+  you pay for. The rate depends on the secondary backup region.
+- **Cross-region backup transfer**: Aiven charges for the backup data copied from the
+  primary region to the secondary region, for each GB. The rate depends on whether the
+  two regions are on the same continent.
+
+Secondary backup storage is charged for as long as the backups are retained in the
+secondary region, including while your service is powered off. Powering off a service
+stops backup transfer charges, because the service creates no new backups, but storage
+charges continue.
+
+Restoring from a secondary backup adds no transfer charge, because the restore runs in
+the region where the backup is stored.
+
+For [bring your own cloud](/docs/platform/concepts/byoc) services, Aiven charges a flat
+monthly fee for each service with BTAR enabled. You pay your cloud provider directly for
+the storage and transfer.
+
 ## Limitations
 
 - The cloud provider for your secondary backup region must match the cloud provider for
   your service and its primary backup.
 - You can configure one secondary backup region for each service.
+- BTAR is available only on the Professional service tier. To change your service to a
+  plan outside the Professional service tier, remove the secondary backup region first.
+- For [bring your own cloud](/docs/platform/concepts/byoc) services, the secondary backup
+  region must be one of your custom cloud regions.
 - You can restore a secondary backup only in the region where it is stored.
 - To fork from a secondary backup, the backup must already be replicated to the
   secondary region.

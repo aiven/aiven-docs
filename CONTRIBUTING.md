@@ -18,7 +18,7 @@ Contributions rely on GitHub's [commit signoff feature](https://docs.github.com/
 - **Style guide:** Apply the [style guide](./.ai-agents/docs/styleguide.md).
 - **Hard line breaks:** To simplify reviews on GitHub, add a hard line break at 90 characters. If you use
   VS Code, you should see the ruler.
-- **Vale:** Install [Vale](https://vale.sh/docs/vale-cli/installation/) and
+- **Vale:** Install [Vale](https://docs.vale.sh/topics/installation/) and
   fix warnings and errors in your content.
 - **Conventional commits:** We enforce [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
   **Examples:**

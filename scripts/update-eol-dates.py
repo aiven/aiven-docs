@@ -30,7 +30,7 @@ include, so updating the include file here keeps both pages in sync
 automatically — there is no separate step for the per-service articles.
 
 Covered services: MySQL, OpenSearch, PostgreSQL, Kafka, ClickHouse, Flink,
-Valkey. For each version returned by the API:
+Valkey, Grafana. For each version returned by the API:
   - Existing rows: the Aiven EOL, "Service creation supported until", and
     "Service creation supported from" cells are overwritten whenever the API
     returns a non-null value. This includes cells that currently hold a
@@ -43,8 +43,6 @@ Valkey. For each version returned by the API:
     the one that changed.
 
 NOT covered (out of scope for this script — update the include manually):
-  - eol-table-grafana.md    (single-versioned; patch version in doc differs
-                              from API major)
   - Aiven CLI, Aiven Provider for Terraform, Aiven Operator for Kubernetes
     (tooling, not a managed service; these tables stay inline in
     eol-for-major-versions.md, not in a shared include)
@@ -152,8 +150,10 @@ TABLE_CONFIG: dict[str, TableConfig] = {
     "valkey": TableConfig(
         "eol-table-valkey.md", "valkey",
         col_eol=1, col_avail_end=2, col_avail_start=3, label_fn=_vx),
-    # Grafana: single-versioned, patch-version mismatch. Skipped.
-}
+    "grafana": TableConfig(
+        "eol-table-grafana.md", "grafana",
+        col_eol=1, col_avail_end=2, col_avail_start=None, label_fn=_vx),
+    }
 
 
 def fetch_versions() -> dict[str, dict[str, dict]]:

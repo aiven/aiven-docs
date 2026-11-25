@@ -32,7 +32,9 @@ Use incremental backups for:
 
 - Restoring from incremental backups might take more time than restoring from a full
   backup.
-- Incremental backups reduce DDL lock duration, but they don't eliminate DDL locks.
+- Incremental backups reduce DDL lock duration, but they don't eliminate DDL locks. To
+  block DDL only for a short final step of each backup, use the
+  [reduced DDL lock](/docs/products/mysql/concepts/mysql-backups#reduced-ddl-lock).
 
 :::
 
@@ -188,4 +190,4 @@ For the complete restore progress data model, see
 
 - [Understand MySQL backups](/docs/products/mysql/concepts/mysql-backups)
 - [Track restore progress](/docs/products/mysql/howto/track-restore-progress)
-- [Backup to another region](/docs/products/mysql/howto/backup-to-another-region)
+- [Service backups](/docs/platform/concepts/service_backups)

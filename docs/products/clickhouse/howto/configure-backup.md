@@ -9,9 +9,7 @@ import EditBackUpSchedule from "@site/static/includes/service-backups-instructio
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Set the time when
-[backups](/docs/products/clickhouse/concepts/disaster-recovery#service-backup) are taken
-for your Aiven for ClickHouse® service.
+Set the time when [backups](/docs/products/clickhouse/concepts/disaster-recovery#service-backup) are taken for your Aiven for ClickHouse® service.
 
 ## Prerequisites
 

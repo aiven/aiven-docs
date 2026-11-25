@@ -38,7 +38,7 @@ in Claude Code's configuration file.
 | `ANTHROPIC_MODEL`                | `aiven-model`           |
 | `ANTHROPIC_DEFAULT_OPUS_MODEL`   | `claude-opus-5`         |
 | `ANTHROPIC_DEFAULT_SONNET_MODEL` | `claude-sonnet-5`       |
-| `ANTHROPIC_DEFAULT_HAIKU_MODEL`  | `claude-haiku-4-5`      |
+| `ANTHROPIC_DEFAULT_HAIKU_MODEL`  | `claude-haiku-5-5`      |
 
 <AIGatewayModelInfo variable="ANTHROPIC_MODEL" />
 
@@ -57,7 +57,7 @@ export ANTHROPIC_AUTH_TOKEN="API_KEY"
 export ANTHROPIC_MODEL="aiven-model"
 export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-5"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-5"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-4-5"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-5-5"
 ```
 
 </TabItem>
@@ -75,7 +75,7 @@ To use these settings in only one project, add them to the
     "ANTHROPIC_MODEL": "aiven-model",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-5-5"
   }
 }
 ```

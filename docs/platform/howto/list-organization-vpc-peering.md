@@ -6,7 +6,6 @@ limited: true
 
 import DocCardList from '@theme/DocCardList';
 
-Establish a peering connection between your Aiven organization VPC and a cloud platform of
-your choice.
+Establish a peering connection between your Aiven organization VPC and a cloud platform of your choice.
 
 <DocCardList />

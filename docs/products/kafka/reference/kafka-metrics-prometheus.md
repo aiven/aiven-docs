@@ -299,6 +299,7 @@ health of network requests made to the Apache Kafka brokers.
 | `kafka_network_RequestMetrics_TotalTimeMs_Count`               | Total number of requests                                                        |
 | `kafka_network_RequestMetrics_TotalTimeMs_Mean`                | Mean total time for requests                                                    |
 | `kafka_network_SocketServer_NetworkProcessorAvgIdlePercent_Value` | Average idle percentage of the network processor                              |
+| `kafka_server_socket_server_metrics_connection_creation_rate` | Rate of new connections established per second, reported per network processor. Sum the values for each broker and listener to get the total connection rate. Available in Apache Kafka 3.9 and later. |
 
 ### Apache Kafka server
 
@@ -373,6 +374,21 @@ for all topics and only list metrics for individual topics, filter with `topic!=
 | `kafka_server_group_coordinator_metrics_streams_group_rebalance_count`           | Total count of rebalances specifically for Kafka Streams groups |
 | `kafka_server_group_coordinator_metrics_streams_group_rebalance_rate`            | Rate of rebalances specifically for Kafka Streams groups |
 | `kafka_server_group_coordinator_metrics_thread_idle_ratio_avg`                   | Average idle time ratio for the group coordinator background threads |
+
+### Share group metrics
+
+Aiven for Apache Kafka® exposes the following share group metrics through Prometheus.
+
+| Metric                                                                          | Description                                          |
+|---------------------------------------------------------------------------------|------------------------------------------------------|
+| `kafka_server_BrokerTopicMetrics_TotalShareFetchRequestsPerSec_Count`           | Total number of share fetch requests.                |
+| `kafka_server_BrokerTopicMetrics_FailedShareFetchRequestsPerSec_Count`          | Total number of failed share fetch requests.         |
+| `kafka_server_BrokerTopicMetrics_TotalShareAcknowledgementRequestsPerSec_Count` | Total number of share acknowledgment requests.       |
+| `kafka_server_BrokerTopicMetrics_FailedShareAcknowledgementRequestsPerSec_Count` | Total number of failed share acknowledgment requests. |
+| `kafka_server_ShareGroupMetrics_RecordAcknowledgementsPerSec_Count`             | Total number of record acknowledgments.              |
+
+For more information about share groups, see
+[Share groups in Aiven for Apache Kafka](/docs/products/kafka/concepts/share-groups).
 
 ### Broker version information
 
