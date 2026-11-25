@@ -250,12 +250,13 @@ Verify the endpoint's **Url**, **Access Key Id**, and **Secret Access Key**.
 
 ## Enable the extension
 
-Connect to the database where you plan to keep Iceberg tables as your primary service
-user, `avnadmin`, and run:
+Connect as the owner of the database where you plan to keep Iceberg tables, and run:
 
 ```sql
 CREATE EXTENSION pg_lake CASCADE;
 ```
+
+Your primary service user, `avnadmin`, owns the databases it creates.
 
 ## Grant access to Iceberg tables
 
