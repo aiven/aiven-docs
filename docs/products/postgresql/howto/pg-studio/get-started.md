@@ -33,7 +33,7 @@ To use PG Studio, you need:
    service.
 1. In the left-hand menu, click one of the following:
    - <ConsoleIcon name="sql editor"/>: Write and run SQL queries.
-   - <ConsoleIcon name="pgtables"/>: Browse tables and open the schema map.
+   - <ConsoleIcon name="pgtables"/>: Browse and edit tables, and open the schema map.
    - <ConsoleIcon name="pgextensions"/>: Enable, update, and disable extensions.
 1. Select the source database.
 
@@ -70,6 +70,9 @@ You can write SQL directly. If AI features are on, you can also use the
    by schema.
 1. Click a table. The table opens in its own tab and shows up to 100 rows.
 
+To change values in the table, see
+[Edit table data](/docs/products/postgresql/howto/pg-studio/edit-table-data).
+
 ## Explore your schema
 
 1. In the left-hand menu, click <ConsoleIcon name="pgtables"/>.
@@ -81,4 +84,5 @@ You can write SQL directly. If AI features are on, you can also use the
 
 - [Use AI Assistant in PG Studio](/docs/products/postgresql/howto/pg-studio/use-ai-assistant)
 - [Write and run queries in PG Studio](/docs/products/postgresql/howto/pg-studio/write-run-queries)
+- [Edit Aiven for PostgreSQL® table data in PG Studio](/docs/products/postgresql/howto/pg-studio/edit-table-data)
 - [PG Studio overview](/docs/products/postgresql/howto/pg-studio/)
