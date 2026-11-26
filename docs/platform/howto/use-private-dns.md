@@ -1,6 +1,7 @@
 ---
 title: Use your private DNS with Aiven services
 sidebar_label: Private DNS
+early: true
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
@@ -67,7 +68,7 @@ your Cloud DNS private zones.
 
 ## Enable private DNS
 
-To enable private DNS for a service,
+Private DNS is in early availability. To enable it for a service,
 [contact Aiven support](/docs/platform/howto/support#create-a-support-ticket)
 with the following details:
 
