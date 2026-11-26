@@ -58,7 +58,7 @@ of the extension:
 | Installation method | Who can manage it by default | With the restriction on |
 | --- | --- | --- |
 | Extension allowlist | Any database user | Only the database owner |
-| Trusted | Install: Users with `CREATE` privilege on the database. Update or drop: The extension owner | Install: Users with `CREATE` privilege on the database. Update or drop: The extension owner |
+| Trusted | <ul><li>Install: Users with `CREATE` privilege on the database</li><li>Update or drop: The extension owner</li></ul> | <ul><li>Install: Users with `CREATE` privilege on the database</li><li>Update or drop: The extension owner</li></ul> |
 
 To see the installation method of each extension, see
 [Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version),
