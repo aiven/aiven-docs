@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Attach an Aiven VPC to your [Google Cloud Network Connectivity Center](https://cloud.google.com/network-connectivity/docs/network-connectivity-center) hub so that services in the VPC reach every spoke in your hub-and-spoke topology.
 
 :::important
-Contact Aiven to request access to this feature. It is not covered by the full Aiven SLA.
+This feature is in early access. [Contact us](https://aiven.io/contact) to request access.
 :::
 
 Network Connectivity Center (NCC) connects VPCs through a central hub. Each VPC joins the
