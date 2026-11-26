@@ -41,8 +41,8 @@ to whatever public DNS returns for the same name.
 ## Set up a resolver in your network
 
 Set up a resolver that the Aiven service nodes can reach. You send its addresses to
-Aiven when you enable private DNS. The examples below put the resolver in the peered
-network, where the nodes reach it over the peering connection.
+Aiven when you enable private DNS. The setup for each cloud provider puts the resolver
+in the peered network, where the nodes reach it over the peering connection.
 
 ### AWS
 
