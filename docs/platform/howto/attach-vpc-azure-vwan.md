@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Attach an Aiven VPC to your [Azure Virtual WAN](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about) hub so that services in the VPC reach every spoke connected to the hub.
 
 :::important
-Contact Aiven to request access to this feature. It is not covered by the full Aiven SLA.
+This feature is in early access. [Contact us](https://aiven.io/contact) to request access.
 :::
 
 An Azure Virtual WAN hub routes traffic between every network connected to it. Attaching
