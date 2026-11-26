@@ -49,6 +49,8 @@ you define and control to deploy and manage resources.
 - Multi-tier architecture: Separating application layers (web, app, database) within
   distinct subnets
 - Hybrid cloud architecture: Connecting on-premises networks to the cloud securely
+- [Private name resolution](/docs/platform/howto/use-private-dns): Resolving hostnames
+  from your own private DNS zones in Aiven services
 
 ## VPC types
 
