@@ -41,8 +41,8 @@ to whatever public DNS returns for the same name.
 ## Set up a resolver in your network
 
 Set up a resolver that the Aiven service nodes can reach. You send its addresses to
-Aiven support when you enable private DNS. The examples below put the resolver in the
-peered network, where the nodes reach it over the peering connection.
+Aiven when you enable private DNS. The examples below put the resolver in the peered
+network, where the nodes reach it over the peering connection.
 
 ### AWS
 
@@ -69,14 +69,13 @@ your Cloud DNS private zones.
 ## Enable private DNS
 
 Private DNS is in early availability. To enable it for a service,
-[contact Aiven support](/docs/platform/howto/support#create-a-support-ticket)
-with the following details:
+[contact Aiven](https://aiven.io/contact) with the following details:
 
 - The project and service name
 - The IPv4 addresses of your DNS servers, up to four
 - The zones to resolve through those servers, for example `corp.internal.example.com`
 
-Aiven support reviews each zone before approving it. Request zones under domains that
+Aiven reviews each zone before approving it. Request zones under domains that
 your organization owns. Zones for domains you don't own, such as `aiven.io`, aren't
 approved.
 
@@ -88,7 +87,7 @@ the configuration is in place.
 
 ## Turn off private DNS
 
-To stop resolving your zones through your DNS servers, contact Aiven support. As with
+To stop resolving your zones through your DNS servers, contact Aiven. As with
 enabling, the change applies to nodes created afterwards, so request a node
 replacement to apply it to a running service.
 
