@@ -475,6 +475,7 @@ vectorizing
 virtualized
 VMs?
 VNets?
+vWAN
 NSGs?
 VPC/MS
 VPCs?
@@ -498,5 +499,3 @@ knn_vector
 hnsw
 IDEs?
 decompounder
-NCC
-vWAN
