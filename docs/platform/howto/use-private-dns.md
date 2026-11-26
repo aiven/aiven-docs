@@ -15,8 +15,8 @@ published only under a private hostname.
 
 ## How it works
 
-When private DNS is enabled for a service, each node runs a local DNS forwarder
-that routes queries by zone:
+When private DNS is enabled for a service, the service nodes send each DNS query to
+a resolver based on its zone:
 
 | Query | Resolver |
 | ----- | -------- |
@@ -37,17 +37,33 @@ to whatever public DNS returns for the same name.
   network over the peering connection
 - UDP and TCP port 53 open to the Aiven VPC CIDR on those servers
 
-## Settings
+## Set up a resolver in your network
 
-| Setting   | Description                                      |
-| --------- | ------------------------------------------------ |
-| `enabled` | Whether new nodes use your DNS servers           |
-| `servers` | Up to four IPv4 addresses of your DNS servers    |
-| `zones`   | Approved zones resolved through your DNS servers |
+Set up a resolver that the Aiven service nodes can reach. You send its addresses to
+Aiven support when you enable private DNS. The examples below put the resolver in the
+peered network, where the nodes reach it over the peering connection.
 
-Turning `enabled` off keeps the servers and zones stored, so you can turn them
-back on without supplying the details again. The `avn.internal` zone always
-resolves through your DNS servers and does not need to be listed in `zones`.
+### AWS
+
+Create a [Route 53 Resolver inbound
+endpoint](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.html)
+in your VPC. The endpoint takes addresses from subnets in that VPC, which are
+reachable from the peered Aiven VPC. Allow UDP and TCP port 53 from the Aiven
+VPC CIDR in the endpoint's security group.
+
+### Azure
+
+Deploy an [Azure DNS Private Resolver inbound
+endpoint](https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview)
+or a DNS forwarder virtual machine in your virtual network. Either takes an
+address from a subnet in that network, which is reachable from the peered Aiven
+virtual network. The resolver answers from your Azure Private DNS zones.
+
+### Google Cloud
+
+Run a DNS forwarder virtual machine in your peered VPC. The Aiven VPC belongs to an
+Aiven Google Cloud project, so a forwarder in your own VPC gives Aiven nodes access to
+your Cloud DNS private zones.
 
 ## Enable private DNS
 
@@ -69,34 +85,11 @@ Aiven has configured your DNS servers, request a node replacement for the servic
 to roll the setting out to the running nodes. You can do this at any point after
 the configuration is in place.
 
-## Set up a resolver in your network
+## Turn off private DNS
 
-Set up a resolver that the Aiven service nodes can reach, and use its addresses as
-the `servers` value. The examples below put the resolver in the peered network,
-where the nodes reach it over the peering connection.
-
-### AWS
-
-Create a [Route 53 Resolver inbound
-endpoint](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.html)
-in your VPC. The endpoint takes addresses from subnets in that VPC, which are
-reachable from the peered Aiven VPC. Allow UDP and TCP port 53 from the Aiven
-VPC CIDR in the endpoint's security group.
-
-### Azure
-
-Deploy an [Azure DNS Private Resolver inbound
-endpoint](https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview)
-or a DNS forwarder virtual machine in your virtual network. Either takes an
-address from a subnet in that network, which is reachable from the peered Aiven
-virtual network. The resolver answers from your Azure Private DNS zones.
-
-### Google Cloud
-
-Run a DNS forwarder virtual machine in your peered VPC and point `servers` at
-its address. The Aiven VPC belongs to an Aiven Google Cloud project, so a
-forwarder in your own VPC gives Aiven nodes access to your Cloud DNS private
-zones.
+To stop resolving your zones through your DNS servers, contact Aiven support. As with
+enabling, the change applies to nodes created afterwards, so request a node
+replacement to apply it to a running service.
 
 <RelatedPages/>
 
