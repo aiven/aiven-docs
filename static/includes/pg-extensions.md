@@ -28,7 +28,7 @@ For what each installation method means, see
 | lo | 1.2 | 1.1, 1.2 | Trusted |
 | ltree | 1.3 | 1.1, 1.2, 1.3 | Trusted |
 | pg_buffercache | 1.7 | 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 | Extension allowlist |
-| pg_partman | 5.5.0 | 5.5.0 | Trusted |
+| pg_partman | 5.5.1 | 5.5.1 | Trusted |
 | pg_prewarm | 1.2 | 1.1, 1.2 | Extension allowlist |
 | pg_stat_plans | 2.1 | 2.0, 2.1 | Trusted |
 | pg_stat_statements | 1.13 | 1.10, 1.11, 1.12, 1.13, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 | Extension allowlist |
@@ -86,7 +86,7 @@ For what each installation method means, see
 | ltree | 1.3 | 1.1, 1.2, 1.3 | Trusted |
 | pg_buffercache | 1.6 | 1.2, 1.3, 1.4, 1.5, 1.6 | Extension allowlist |
 | pg_cron | 1.6 | 1.0, 1.1, 1.2, 1.3, 1.4, 1.4-1, 1.5, 1.6 | Extension allowlist |
-| pg_partman | 5.5.0 | 5.5.0 | Trusted |
+| pg_partman | 5.5.1 | 5.5.1 | Trusted |
 | pg_prewarm | 1.2 | 1.1, 1.2 | Extension allowlist |
 | pg_repack | 1.5.2 | 1.5.2 | Extension allowlist |
 | pg_stat_monitor | 2.3 | 2.0, 2.1, 2.2, 2.3 | Extension allowlist |

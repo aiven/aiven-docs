@@ -51,18 +51,25 @@ On PostgreSQL 15 and later, you can restrict extension management in a database 
 owner of that database. Use this when your security policy requires that users without
 `CREATE` privilege on a database cannot add or remove extensions in it.
 
-The restriction covers the extensions in the service's extension allowlist. Extensions
-outside the allowlist follow standard PostgreSQL privileges, so the restriction doesn't
-change who can manage them. For how the two methods differ, see
-[Installation methods](/docs/products/postgresql/reference/list-of-extensions#installation-methods).
-To see which extensions are in the allowlist, run:
+The restriction is off by default and applies per database. Its effect depends on the
+[installation method](/docs/products/postgresql/reference/list-of-extensions#installation-methods)
+of the extension:
+
+| Installation method | Who can manage it by default | With the restriction on |
+| --- | --- | --- |
+| Extension allowlist | Any database user | Only the database owner |
+| Trusted | Install: Users with `CREATE` privilege on the database. Update or drop: The extension owner | Install: Users with `CREATE` privilege on the database. Update or drop: The extension owner |
+
+To see the installation method of each extension, see
+[Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version),
+or run the following command, which lists the extensions in the extension allowlist of
+your service:
 
 ```sql
 SHOW extwlist.extensions;
 ```
 
-This restriction is off by default and applies per database, so databases where you
-don't enable it keep their existing behavior.
+To enable the restriction:
 
 1. Connect to the service as `avnadmin`. For instructions, see
    [Connect to Aiven for PostgreSQL](/docs/products/postgresql/howto/list-code-samples).
@@ -74,10 +81,6 @@ don't enable it keep their existing behavior.
    ```
 
 1. Reconnect to the database. Database-level settings apply to new sessions only.
-
-While the restriction applies, users other than the database owner cannot create,
-update, delete, or comment on allowlist extensions in that database. The database owner
-can still manage them.
 
 To remove the restriction, run:
 

@@ -9,9 +9,7 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Extension availability and versions in Aiven for PostgreSQL® vary by PostgreSQL major version, with each extension having one default version per PostgreSQL release.
 
 See [Manage Aiven for PostgreSQL extensions](/docs/products/postgresql/howto/manage-extensions)
-for setup and configuration instructions. To check how each extension is installed in
-your service, see
-[Installation methods](/docs/products/postgresql/reference/list-of-extensions#installation-methods).
+for setup and configuration instructions.
 
 <!-- vale off -->
 

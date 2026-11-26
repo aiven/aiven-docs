@@ -64,6 +64,8 @@ extension and the PostgreSQL version:
     [restrict this to the database owner](/docs/products/postgresql/howto/manage-extensions#restrict-extension-management-to-the-database-owner).
 
 An extension can use a different installation method in different PostgreSQL versions.
+For the installation method of each extension per version, see
+[Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version).
 To see which extensions use the extension allowlist in your service, run:
 
 ```sql
