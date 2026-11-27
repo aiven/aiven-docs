@@ -1,71 +1,83 @@
 ---
 title: Set up cross-cluster replication for Aiven for OpenSearch®
-limited: true
 sidebar_label: Set up cross-cluster replication
 ---
 
 import RelatedPages from "@site/src/components/RelatedPages";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RequirementsPanel from "@site/src/components/RequirementsPanel";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Set up cross-cluster replication (CCR) for your Aiven for OpenSearch service to synchronize data across regions and cloud providers efficiently.
+Create a follower for your Aiven for OpenSearch® service, start replicating indices to it, and promote the follower to a standalone service when it needs to take writes.
 
-:::note
-Cross cluster replication is not available for the Free and Startup plans.
-:::
+<RequirementsPanel
+  items={[
+    {
+      label: 'Permissions',
+      values: [
+        '`project:integrations:write`',
+        '`role:project:admin`',
+        '`role:project:manager`',
+      ],
+    },
+    {
+      label: 'Service plans',
+      values: ['Business', 'Premium'],
+    },
+  ]}
+/>
 
-## Steps to set up CCR
+## Prerequisites
+
+- The leader and the follower run the same OpenSearch version, for example 2.19.
+- The follower's total memory is at least 80% of the leader's, and a multi-node leader
+  has a multi-node follower. See
+  [Size the follower](/docs/products/opensearch/howto/ccr-best-practices-opensearch#size-the-follower-to-at-least-match-the-leader).
+- Both services are powered on.
+- Neither service has
+  [tiered storage](/docs/products/opensearch/concepts/hot-warm-tiering) enabled.
+
+Replication traffic is charged for each GB. See
+[Charges](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch#charges).
+
+## Create a follower
+
+Use an existing Aiven for OpenSearch service as the follower, or create a new one.
 
 <Tabs groupId="ccr-setup-method">
 <TabItem value="Console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and select the
-   Aiven for OpenSearch service.
-1. On the service's <ConsoleLabel name="overview"/> page, scroll to the
-   **Cross cluster replication** section.
-1. Click **+ Create follower**.
-1. In the **Create follower** dialog, select how to set up the follower:
+1. In the [Aiven Console](https://console.aiven.io/), open the Aiven for OpenSearch
+   service to use as the leader.
+1. On the service's <ConsoleLabel name="overview"/>, go to the
+   **Cross cluster replication** section and click **Create follower**.
+1. Select the follower:
 
    **To use an existing service:**
 
    1. Select **Existing service**.
-   1. Select the **Project name** and the **Service name**.
-
-      :::note
-      Only services running the same OpenSearch version as the leader can be
-      selected as a follower. For example, a 2.19 leader requires a 2.19 follower.
-      :::
-
-   1. Click **Create follower**.
+   1. Select the **Project** and the **Service**. You can select only services that run
+      the same OpenSearch version as the leader.
+   1. Check the replication traffic rate in the dialog, and click **Create follower**.
 
    **To create a new service:**
 
-   1. Select **New service**.
-   1. Select the **Project name**.
-   1. Click **Create service**. The service creation page opens.
-   1. On the service creation page:
-
-      - Enter a name for the follower service.
-      - Select the cloud provider, region, and service plan. To run the follower in a
-        [custom cloud](/docs/platform/concepts/byoc), select **Custom clouds** in the
-        region list.
-      - Add additional disk storage if required.
-
-      :::note
-      The follower service must use the same service plan as the leader service
-      during creation to ensure sufficient memory. You can change the service plan later.
-      :::
-
+   1. Select **New service**. The dialog shows the replication traffic rates for a
+      follower on the same continent as the leader and on a different continent.
+   1. Click **Create service**.
+   1. On the service creation page, enter a name for the follower, and select its cloud,
+      region, and service plan. To run the follower in a
+      [custom cloud](/docs/platform/concepts/byoc), select **Custom clouds** in the
+      region list.
    1. Click **Create**.
 
 </TabItem>
 <TabItem value="API" label="Aiven API">
 
-To set up cross-cluster replication using the Aiven API, create the follower service
-and include the `opensearch_cross_cluster_replication` integration in the service
-creation request. For more information, see
-[Create service](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate).
+**To create a new service as the follower**, include the
+`opensearch_cross_cluster_replication` integration in the
+[service creation request](https://api.aiven.io/doc/#tag/Service/operation/ServiceCreate):
 
 ```bash
 curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
@@ -74,8 +86,8 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
   -d '{
       "service_type": "opensearch",
       "plan": "business-4",
-      "cloud": "gcp-us-east1",
-      "service_name": "follower-os-cluster",
+      "cloud": "google-us-east1",
+      "service_name": "FOLLOWER_SERVICE_NAME",
       "service_integrations": [
          {
             "integration_type": "opensearch_cross_cluster_replication",
@@ -86,14 +98,32 @@ curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/service \
   }'
 ```
 
-Parameters:
+**To use an existing service as the follower**,
+[create the integration](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationCreate)
+between the two services:
 
-- `PROJECT_NAME`: Aiven project name
-- `API_TOKEN`: API authentication token
-- `LEADER_SERVICE_NAME`: Leader service name
+```bash
+curl -X POST https://api.aiven.io/v1/project/PROJECT_NAME/integration \
+  -H "Authorization: Bearer API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+      "integration_type": "opensearch_cross_cluster_replication",
+      "source_service": "LEADER_SERVICE_NAME",
+      "dest_service": "FOLLOWER_SERVICE_NAME",
+      "user_config": {}
+  }'
+```
+
+Replace the following:
+
+- `PROJECT_NAME`: name of the project.
+- `API_TOKEN`: Aiven API authentication token.
+- `LEADER_SERVICE_NAME`: name of the leader service.
+- `FOLLOWER_SERVICE_NAME`: name of the follower service.
 
 To create the follower in a [custom cloud](/docs/platform/concepts/byoc), set `cloud` to
-the name of your custom cloud.
+the name of your custom cloud. To set a leader alias or a batch size, add them to
+`user_config`. See [Replication settings](#replication-settings).
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
@@ -102,7 +132,7 @@ Use the
 [`aiven_opensearch`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/opensearch)
 and
 [`aiven_service_integration`](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/service_integration)
-resources to create the follower service and configure replication.
+resources to create the follower service and connect it to the leader.
 
 1. Add the following to your Terraform configuration:
 
@@ -140,11 +170,6 @@ resources to create the follower service and configure replication.
    To run the follower in a [custom cloud](/docs/platform/concepts/byoc), set
    `cloud_name` to the name of your custom cloud.
 
-   :::note
-   The follower service must use the same service plan as the leader during creation
-   to ensure sufficient memory. You can change the plan later.
-   :::
-
 1. Apply the configuration:
 
    ```bash
@@ -154,42 +179,54 @@ resources to create the follower service and configure replication.
 </TabItem>
 </Tabs>
 
-:::note
-To learn about the limitations with cross-cluster replications
-for Aiven for OpenSearch, see the
-[Limitations](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch#ccr-limitatons) section.
-:::
+The follower is now connected to the leader. To copy data to it,
+[start replication](#start-replication).
+
+## Replication settings
+
+The `opensearch_cross_cluster_replication` integration takes the following optional
+settings in its `user_config`:
+
+| Setting | Description | When you can set it |
+| --- | --- | --- |
+| `cluster_alias` | Alias under which the follower knows the leader, used as `leader_alias` in replication requests. Up to 128 characters: ASCII letters, digits, `.`, `_`, and `-`. By default, the alias is the leader's project name and service name joined by an underscore, for example `LEADER_PROJECT_LEADER_SERVICE`. | Only when you create the integration |
+| `ops_batch_size` | Maximum number of operations the follower fetches from the leader in one replication request, for all replicated indices. Minimum value: `16`. When not set, the OpenSearch default applies. | At any time |
+
+To change `ops_batch_size` on an existing follower,
+[update the integration](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationUpdate):
+
+```bash
+curl -X PUT https://api.aiven.io/v1/project/PROJECT_NAME/integration/INTEGRATION_ID \
+  -H "Authorization: Bearer API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+      "user_config": {
+         "ops_batch_size": 5000
+      }
+  }'
+```
 
 ## Start replication
 
-The `opensearch_cross_cluster_replication` integration sets up the remote-cluster
-connection between the follower and the leader and maps the replication security roles.
-It does not start replicating any data. After the integration is created, start
-replication from the follower using the
+Start replication from the follower with the
 [OpenSearch replication API](https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/),
-either for a single index or for all indices that match a pattern.
+for a single index or for every index that matches a pattern.
 
-The integration exposes the leader as a remote-cluster alias named
-`LEADER_PROJECT_LEADER_SERVICE`, formed from the leader's project name and service name
-joined by an underscore. Use this value as `leader_alias` in the requests that follow.
+In the requests, use the following values:
 
-:::note
-Aiven maps the replication roles as `ccr_leader_full_access` and
-`ccr_follower_full_access`. The OpenSearch documentation uses the built-in role names
-`cross_cluster_replication_leader_full_access` and
-`cross_cluster_replication_follower_full_access`. Use the Aiven role names on Aiven
-services.
-:::
+- `leader_alias`: the leader's alias, `LEADER_PROJECT_LEADER_SERVICE` by default, or the
+  `cluster_alias` you set.
+- `use_roles`: the Aiven replication roles `ccr_leader_full_access` and
+  `ccr_follower_full_access`. The OpenSearch documentation shows the upstream role names
+  `cross_cluster_replication_leader_full_access` and
+  `cross_cluster_replication_follower_full_access`, which don't apply on Aiven.
 
-:::note
-The replication API requests that send a JSON body require the
-`Content-Type: application/json` header. For example, with `curl`, add
-`-H 'Content-Type: application/json'` to the request.
-:::
+Requests with a JSON body need the `Content-Type: application/json` header, for example
+`-H 'Content-Type: application/json'` with `curl`.
 
 ### Replicate a single index
 
-Run the following request against the follower to start replicating one index:
+Run the following request against the follower:
 
 ```json
 PUT https://FOLLOWER_HOST/_plugins/_replication/FOLLOWER_INDEX/_start
@@ -207,7 +244,7 @@ Replace the following:
 
 - `FOLLOWER_HOST`: connection URI of the follower service.
 - `FOLLOWER_INDEX`: name of the index to create on the follower.
-- `LEADER_PROJECT_LEADER_SERVICE`: remote-cluster alias of the leader service.
+- `LEADER_PROJECT_LEADER_SERVICE`: alias of the leader.
 - `LEADER_INDEX`: name of the index to replicate from the leader.
 
 For more information, see
@@ -217,7 +254,7 @@ in the OpenSearch documentation.
 ### Replicate indices by pattern
 
 An auto-follow rule replicates every existing and future index on the leader that matches
-a wildcard pattern, so you do not start replication for each index separately. Run the
+a wildcard pattern, so you don't start replication for each index separately. Run the
 following request against the follower:
 
 ```json
@@ -244,13 +281,12 @@ example masks and the indices they match:
 | `*` | every user index on the leader |
 
 :::note
-A `*` pattern matches only user indices. Auto-follow skips system and hidden
-dot-prefixed indices such as `.kibana_1`, `.opendistro_security`, and `.tasks`.
-Dot-prefixed indices that match the pattern are listed under `failed_indices` in
-`autofollow_stats` instead of being replicated.
+A `*` pattern matches user indices only. Auto-follow skips system and hidden dot-prefixed
+indices such as `.kibana_1`, `.opendistro_security`, and `.tasks`, and lists any that
+match the pattern under `failed_indices` in `autofollow_stats`.
 :::
 
-To verify that replication is running, query the auto-follow statistics and the status of
+To check that replication is running, query the auto-follow statistics and the status of
 a replicated index:
 
 ```text
@@ -270,8 +306,7 @@ DELETE https://FOLLOWER_HOST/_plugins/_replication/_autofollow
 }
 ```
 
-Deleting the rule stops auto-following new indices. Indices that are already replicating
-continue until you stop each one.
+Indices that are already replicating continue until you stop each one.
 
 For more information, see
 [Auto-follow](https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/auto-follow/)
@@ -281,69 +316,48 @@ in the OpenSearch documentation.
 
 ## View follower services
 
-To view the follower services configured for your Aiven for OpenSearch service:
+1. In the [Aiven Console](https://console.aiven.io/), open the leader service.
+1. On the service's <ConsoleLabel name="overview"/>, go to the
+   **Cross cluster replication** section.
 
-1. Go to your service's <ConsoleLabel name="overview"/>.
-1. Scroll to the **Cross cluster replication** section.
-
-The section lists all follower services with their version, region, project, and
-replication status. The **Follower** badge identifies each follower service.
-Click a follower service name to open it.
+The section lists each follower service with its version, region, project, and
+replication status. Click a follower to open it.
 
 ## Promote a follower service to a standalone service
 
-You can promote a follower service to standalone status to make it work independently,
-without replicating data from a leader service. This is helpful in disaster recovery
-situations where replication needs to stop, and the service must function on its own.
-
-:::note
-Promoting a follower service to standalone stops replication and deletes the
-replication integration.
-:::
+Promote a follower when it needs to work on its own, for example to take writes after the
+leader becomes unavailable. Promotion stops replication and removes the integration.
 
 <Tabs groupId="promote-cluster-method">
 <TabItem value="Console" label="Aiven Console" default>
 
-1. Log in to the [Aiven Console](https://console.aiven.io/), and select the
-   Aiven for OpenSearch service.
-1. On the service's <ConsoleLabel name="overview"/>, scroll to
-   the **Cross-cluster replica status** section.
-1. Click the follower Aiven for OpenSearch service to promote.
-1. On the follower service's <ConsoleLabel name="overview"/>, click
-   **Promote to standalone** in the **Cross-cluster replica status**.
-1. Click **Confirm** to complete the promotion.
-
-The follower service is now a standalone service and can accept writes. You can set up
-replication again if needed.
+1. In the [Aiven Console](https://console.aiven.io/), open the follower service.
+1. On the service's <ConsoleLabel name="overview"/>, go to
+   **Cross cluster replica status** and click **Promote to standalone**.
+1. Click **Confirm**.
 
 </TabItem>
 <TabItem value="API" label="Aiven API">
 
-To promote a follower service to standalone using the Aiven API,
-delete the `opensearch_cross_cluster_replication` integration from the service.
+[Delete the integration](https://api.aiven.io/doc/#tag/Service_Integrations/operation/ServiceIntegrationDelete)
+between the leader and the follower:
 
 ```bash
-curl -X DELETE https://api.aiven.io/v1/project/<PROJECT_NAME>/integration/<INTEGRATION_ID> \
-  -H "Authorization: Bearer <API_TOKEN>"
+curl -X DELETE https://api.aiven.io/v1/project/PROJECT_NAME/integration/INTEGRATION_ID \
+  -H "Authorization: Bearer API_TOKEN"
 ```
 
-Parameters:
+Replace the following:
 
-- `<PROJECT_NAME>`: Aiven project name.
-- `<INTEGRATION_ID>`: ID of the `opensearch_cross_cluster_replication` integration.
-- `<API_TOKEN>`: API authentication token.
-
-Removing the integration transitions the follower service to a standalone service.
+- `PROJECT_NAME`: name of the project.
+- `INTEGRATION_ID`: ID of the `opensearch_cross_cluster_replication` integration.
+- `API_TOKEN`: Aiven API authentication token.
 
 </TabItem>
 <TabItem value="terraform" label="Terraform">
 
-To promote a follower service to standalone, remove the `aiven_service_integration`
-resource for the `opensearch_cross_cluster_replication` integration from your
-Terraform configuration and apply the change.
-
-1. Delete the `aiven_service_integration` block for `opensearch_cross_cluster_replication`
-   from your configuration.
+1. Remove the `aiven_service_integration` resource for the
+   `opensearch_cross_cluster_replication` integration from your configuration.
 
 1. Apply the change:
 
@@ -351,13 +365,14 @@ Terraform configuration and apply the change.
    terraform apply
    ```
 
-Removing the integration transitions the follower service to a standalone service.
-
 </TabItem>
 </Tabs>
+
+The follower is now a standalone service and accepts writes. To replicate again, create a
+new follower.
 
 <RelatedPages/>
 
 - [Cross-cluster replication for Aiven for OpenSearch®](/docs/products/opensearch/concepts/cross-cluster-replication-opensearch)
 - [Best practices for cross-cluster replication in Aiven for OpenSearch®](/docs/products/opensearch/howto/ccr-best-practices-opensearch)
-- [OpenSearch® cross-cluster replication via the OpenSearch API](https://opensearch.org/docs/latest/replication-plugin/get-started/)
+- [Cross-cluster replication in the OpenSearch documentation](https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/getting-started/)
