@@ -33,8 +33,7 @@ Ports configured in Aiven Runtime use the HTTP protocol only. gRPC, HTTP/2, and
 TCP are not supported.
 Contact Aiven support if your use case requires a different protocol.
 
-Adding or changing ports triggers a redeployment of the branch's
-previously deployed commit.
+Adding or changing ports triggers a redeployment of the branch's deployed commit.
 
 <RequirementsPanel
   items={[

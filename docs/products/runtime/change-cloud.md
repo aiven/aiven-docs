@@ -7,7 +7,7 @@ import ConsoleLabel from "@site/src/components/ConsoleIcons";
 import RequirementsPanel from "@site/src/components/RequirementsPanel";
 
 You can change the cloud provider or region of an Aiven Runtime application.
-Changing the cloud triggers a redeployment of the branch's previously deployed commit.
+Changing the cloud triggers a redeployment of the branch's deployed commit.
 
 <RequirementsPanel
   items={[

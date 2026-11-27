@@ -18,6 +18,8 @@ Aiven Runtime offers the following capabilities to streamline your development l
 - **Familiar tools**: Deploy applications directly from your Git repositories
   to decrease time-to-production.
 
+- **Release management**: Choose which commit to deploy.
+
 - **Secure networking**: Applications run within your trusted network boundary.
 
 ## Use cases
