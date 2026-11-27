@@ -475,6 +475,7 @@ vectorizing
 virtualized
 VMs?
 VNets?
+vWAN
 NSGs?
 VPC/MS
 VPCs?
