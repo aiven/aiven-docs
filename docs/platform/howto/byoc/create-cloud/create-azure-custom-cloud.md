@@ -574,13 +574,15 @@ ready to use.
 The following features are not supported for Azure custom clouds:
 
 - **Enhanced compliance (ECE)** deployment models (`pci_dss`, `hipaa`)
-- **Static IPs**
 - **VNet peering** from the Aiven Console: manage peering directly in your Azure
   subscription
-- **PrivateLink**
+
+To connect to services in a **Standard** custom cloud over Azure Private Link, see
+[Use Azure Private Link with BYOC services](/docs/platform/howto/byoc/azure-privatelink-byoc).
 
 <RelatedPages/>
 
 - [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
 - [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 - [Manage services hosted in custom clouds](/docs/platform/howto/byoc/manage-byoc-service)
+- [Use Azure Private Link with BYOC services](/docs/platform/howto/byoc/azure-privatelink-byoc)

@@ -63,6 +63,14 @@ delete all services hosted in it.
 
 :::
 
+### Remove protected static IP addresses
+
+If your custom cloud has [static IP addresses](/docs/platform/concepts/static-ips),
+deleting the cloud also deletes the addresses that aren't associated with a service.
+Static IP addresses with termination protection enabled prevent deleting the cloud. To
+delete the cloud, first disable termination protection on these addresses or delete
+them.
+
 ### Delete the cloud from Aiven
 
 <Tabs groupId="group1">
@@ -108,3 +116,4 @@ Since running `terraform destroy` requires specifying the variables file, add
 
 -   [View the status of a custom cloud](/docs/platform/howto/byoc/view-custom-cloud-status)
 -   [Bring your own cloud networking and security](/docs/platform/howto/byoc/networking-security)
+-   [Static IP addresses](/docs/platform/concepts/static-ips)
