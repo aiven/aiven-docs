@@ -140,7 +140,16 @@ const sidebars: SidebarsConfig = {
           label: 'Aiven API',
           href: '/docs/tools/api',
         },
-        'tools/mcp-server',
+        {
+          type: 'category',
+          label: 'Aiven MCP',
+          link: {type: 'doc', id: 'tools/mcp-server'},
+          items: [
+            'tools/mcp-server/example-prompts',
+            'tools/mcp-server/available-tools',
+            'tools/mcp-server/troubleshooting',
+          ],
+        },
         {
           type: 'link',
           label: 'Aiven CLI',
