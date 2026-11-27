@@ -1,8 +1,7 @@
 ---
 title: Example prompts for Aiven MCP
 sidebar_label: Example prompts
-description: >-
-  Use Aiven MCP to create and manage PostgreSQL and Apache Kafka services,
+description: Use Aiven MCP to create and manage PostgreSQL and Apache Kafka services,
   work with data, deploy applications, manage integrations, and troubleshoot services.
 ---
 
@@ -254,7 +253,10 @@ This task requires write access and the `application` or `all` scope.
 
 Before you begin, [connect your GitHub account](/docs/products/runtime/connect-github-account).
 Connecting is recommended for every repository and required for private
-repositories. The repository needs a Compose file, Containerfile, or Dockerfile.
+repositories. The repository needs a Containerfile or Dockerfile.
+Aiven MCP can also scan a Compose file for application services that have a
+build configuration. Scanning requires a connected GitHub account, including
+for public repositories.
 
 For more information, see
 [Deploy an application](/docs/products/runtime/deploy-apps),

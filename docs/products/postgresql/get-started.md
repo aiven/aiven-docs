@@ -81,8 +81,10 @@ The assistant uses `aiven_service_create`. This task requires write access.
 In read-only mode,
 [allow the `aiven_service_create` tool](/docs/tools/mcp-server#restrict-write-operations).
 
-To connect to the service, ask the assistant to show its connection settings or use the
-**Console** tab in [Connect to the service](#connect-to-the-service).
+To connect to the service, see [Connect to the service](#connect-to-the-service).
+To get the connection settings through your assistant, enable **Allow connection credentials**.
+For more information, see
+[Show connection settings](/docs/tools/mcp-server/example-prompts#show-connection-settings).
 
 For more information, see [Aiven MCP](/docs/tools/mcp-server) and
 [Example prompts for Aiven MCP](/docs/tools/mcp-server/example-prompts#create-a-postgresql-service).
