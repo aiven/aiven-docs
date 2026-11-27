@@ -8,11 +8,12 @@ import RelatedPages from "@site/src/components/RelatedPages";
 Install, update, and remove PostgreSQL® extensions on Aiven for PostgreSQL using SQL commands.
 
 Aiven for PostgreSQL supports a curated set of extensions that you install, update, and
-remove using SQL commands. All database users can manage extensions, including the
-default `avnadmin` user and any other database user created through the Aiven Console,
-Aiven CLI, Aiven API, or Aiven Provider for Terraform. Aiven for PostgreSQL applies an
-extension allowlist at the service level, so managing extensions doesn't require
-elevated database privileges.
+remove using SQL commands. By default, all database users can manage extensions,
+including the default `avnadmin` user and any other database user created through the
+Aiven Console, Aiven CLI, Aiven API, or Aiven Provider for Terraform. Aiven for
+PostgreSQL applies an extension allowlist at the service level, so managing extensions
+doesn't require elevated database privileges. On PostgreSQL 15 and later, you can
+[restrict extension management to the database owner](#restrict-extension-management-to-the-database-owner).
 
 :::tip
 Instead of running SQL commands, you can also manage extensions using an AI assistant
@@ -43,6 +44,67 @@ To delete an extension, run:
 ```sql
 DROP EXTENSION EXTENSION_NAME;
 ```
+
+## Restrict extension management to the database owner
+
+On PostgreSQL 15 and later, you can restrict extension management in a database to the
+owner of that database. Use this when your security policy requires that users without
+`CREATE` privilege on a database cannot add or remove extensions in it.
+
+The restriction is off by default and applies per database. Its effect depends on the
+[installation method](/docs/products/postgresql/reference/list-of-extensions#installation-methods)
+of the extension:
+
+| Installation method | Who can manage it by default | With the restriction on |
+| --- | --- | --- |
+| Extension allowlist | Any database user | Only the database owner |
+| Trusted | <ul><li>Install: Users with `CREATE` privilege on the database</li><li>Update or drop: The extension owner</li></ul> | <ul><li>Install: Users with `CREATE` privilege on the database</li><li>Update or drop: The extension owner</li></ul> |
+
+To see the installation method of each extension, see
+[Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version),
+or run the following command, which lists the extensions in the extension allowlist of
+your service:
+
+```sql
+SHOW extwlist.extensions;
+```
+
+To enable the restriction:
+
+1. Connect to the service as `avnadmin`. For instructions, see
+   [Connect to Aiven for PostgreSQL](/docs/products/postgresql/howto/list-code-samples).
+
+1. Enable the restriction on a database:
+
+   ```sql
+   ALTER DATABASE DATABASE_NAME SET extwlist.restrict_to_database_owner = on;
+   ```
+
+1. Reconnect to the database. Database-level settings apply to new sessions only.
+
+To remove the restriction, run:
+
+```sql
+ALTER DATABASE DATABASE_NAME SET extwlist.restrict_to_database_owner = off;
+```
+
+:::note
+By default, only `avnadmin` and other members of the `avnadmin_group` role can change
+`extwlist.restrict_to_database_owner`. Database owners and other database users cannot
+turn the restriction on or off.
+:::
+
+### Let another role change the restriction
+
+To let one of your own roles change the restriction, connect as `avnadmin` and grant
+that role the `SET` privilege on the parameter:
+
+```sql
+GRANT SET ON PARAMETER extwlist.restrict_to_database_owner TO ROLE_NAME;
+```
+
+Use this to delegate the setting to a role that manages the databases of one
+application, instead of sharing `avnadmin` credentials.
 
 ## Request an extension
 

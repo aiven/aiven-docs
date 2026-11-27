@@ -32,11 +32,35 @@ function fetchData(url) {
   });
 }
 
+// Whether the API response includes the fields that describe how extensions are installed
+function hasInstallationMethod(pgVersions) {
+  return pgVersions.some(
+    (pgVersion) =>
+      Array.isArray(pgVersion.extensions) &&
+      pgVersion.extensions.some(
+        (extension) => typeof extension.extwlist === 'boolean',
+      ),
+  );
+}
+
+// Installation method of an extension, as described in
+// docs/products/postgresql/reference/list-of-extensions.md#installation-methods
+function installationMethod(extension) {
+  return extension.extwlist ? 'Extension allowlist' : 'Trusted';
+}
+
 // Function to generate a Markdown table for a specific PostgreSQL version
-function generateMarkdownTableForVersion(pgVersion) {
+function generateMarkdownTableForVersion(pgVersion, showInstallationMethod) {
   let markdown = `## PostgreSQL ${pgVersion.version} extensions\n\n`;
-  markdown += '| Extension name | Default version | Supported versions |\n';
-  markdown += '|----------------|-----------------|--------------------|\n';
+  if (showInstallationMethod) {
+    markdown +=
+      '| Extension name | Default version | Supported versions | Installation method |\n';
+    markdown +=
+      '|----------------|-----------------|--------------------|---------------------|\n';
+  } else {
+    markdown += '| Extension name | Default version | Supported versions |\n';
+    markdown += '|----------------|-----------------|--------------------|\n';
+  }
 
   if (!pgVersion.extensions || !Array.isArray(pgVersion.extensions)) {
     console.error(
@@ -50,7 +74,11 @@ function generateMarkdownTableForVersion(pgVersion) {
     const versions = extension.versions && Array.isArray(extension.versions)
       ? extension.versions.join(', ')
       : 'N/A';
-    markdown += `| ${extension.name} | ${defaultVersion} | ${versions} |\n`;
+    if (showInstallationMethod) {
+      markdown += `| ${extension.name} | ${defaultVersion} | ${versions} | ${installationMethod(extension)} |\n`;
+    } else {
+      markdown += `| ${extension.name} | ${defaultVersion} | ${versions} |\n`;
+    }
   });
 
   return markdown;
@@ -82,10 +110,21 @@ async function generateMarkdown() {
       (a, b) => parseFloat(b.version) - parseFloat(a.version),
     );
 
+    const showInstallationMethod = hasInstallationMethod(filteredVersions);
+
     let markdownContent = '<!-- vale off -->\n\n';
 
+    if (showInstallationMethod) {
+      markdownContent +=
+        'For what each installation method means, see\n' +
+        '[Installation methods](/docs/products/postgresql/reference/list-of-extensions#installation-methods).\n\n';
+    }
+
     filteredVersions.forEach((pgVersion) => {
-      markdownContent += generateMarkdownTableForVersion(pgVersion);
+      markdownContent += generateMarkdownTableForVersion(
+        pgVersion,
+        showInstallationMethod,
+      );
       markdownContent += '\n'; // Add spacing between tables
     });
 

@@ -3,6 +3,8 @@ title: Extensions on Aiven for PostgreSQL®
 sidebar_label: Supported extensions
 ---
 
+import RelatedPages from "@site/src/components/RelatedPages";
+
 PostgreSQL® extensions allow you to extend the functionality by adding more capabilities to your Aiven for PostgreSQL.
 
 :::important
@@ -46,6 +48,31 @@ installed with a few exceptions.
   ```
 
 :::
+
+### Installation methods
+
+Aiven for PostgreSQL installs each extension in one of two ways, depending on the
+extension and the PostgreSQL version:
+
+-   **Trusted**: The extension is trusted or doesn't need superuser privileges, so
+    standard PostgreSQL privilege checks apply. For example, installing a trusted
+    extension requires `CREATE` privilege on the database. The user who installs the
+    extension owns it and can update or drop it.
+-   **Extension allowlist**: Any database user can install, update, or drop the
+    extension through the Aiven for PostgreSQL extension allowlist, without elevated
+    database privileges. On PostgreSQL 15 and later, you can
+    [restrict this to the database owner](/docs/products/postgresql/howto/manage-extensions#restrict-extension-management-to-the-database-owner).
+
+An extension can use a different installation method in different PostgreSQL versions.
+For the installation method of each extension per version, see
+[Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version).
+To see which extensions use the extension allowlist in your service, run:
+
+```sql
+SHOW extwlist.extensions;
+```
+
+Extensions that aren't in the output use the trusted method.
 
 ### Install and manage extensions
 
@@ -227,3 +254,11 @@ for the instructions.
     TABLESAMPLE method which accepts time in milliseconds as a limit.
 
 <!-- vale off -->
+
+<!-- vale on -->
+
+<RelatedPages/>
+
+-   [Manage Aiven for PostgreSQL® extensions](/docs/products/postgresql/howto/manage-extensions)
+-   [Extension versions per PostgreSQL release](/docs/products/postgresql/reference/list-of-extensions-for-each-version)
+-   [PG Studio for Aiven for PostgreSQL®](/docs/products/postgresql/howto/pg-studio/)
