@@ -241,6 +241,18 @@ Terraform examples apply to Classic Kafka services.
 
 <TerraformApply />
 
+## Create a service with Aiven MCP
+
+Use an AI assistant connected to [Aiven MCP](/docs/tools/mcp-server) to compare
+Aiven for Apache Kafka plans and create a service.
+
+1. [Set up Aiven MCP](/docs/tools/mcp-server#configure-aiven-mcp) in your AI assistant.
+1. Enter a prompt that describes the service you want to create. For example prompts,
+   see [Create a Kafka service](/docs/tools/mcp-server/example-prompts#create-a-kafka-service).
+
+Creating a service requires write access. If your organization or client uses
+read-only mode, see [Read-only mode](/docs/tools/mcp-server#read-only-mode).
+
 ## Next steps
 
 - [Create a Kafka topic](/docs/products/kafka/howto/create-topic)

@@ -5,7 +5,7 @@ description: >-
   Create and manage Aiven for PostgreSQL, Aiven for Apache Kafka,
   and other Aiven services. Work with PostgreSQL and Kafka data,
   and deploy applications to Aiven Runtime.
-keywords: [MCP, Model Context Protocol, MCP server, PostgreSQL MCP server, Postgres MCP server, Kafka MCP server, OpenSearch MCP server, AI assistants, Cursor, Claude Code, Claude Desktop, VS Code, Gemini CLI]
+keywords: [MCP, Model Context Protocol, MCP server, PostgreSQL MCP server, Postgres MCP server, Kafka MCP server, OpenSearch MCP server, AI assistants, Cursor, Claude Code, Claude Desktop, VS Code, Gemini CLI, install Aiven MCP, set up Aiven MCP]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,30 +25,24 @@ import GeminiCliIcon from "@site/static/images/icons/gemini-cli.svg";
 import OtherClientIcon from "@site/static/images/icons/mcp-client-other.svg";
 import LocalInstallIcon from "@site/static/images/icons/local-install.svg";
 
-Aiven MCP is a Model Context Protocol (MCP) server.
+Aiven MCP is a Model Context Protocol (MCP) server that lets AI assistants, such as Claude Code and Cursor, manage your Aiven services and data.
 
-It connects AI assistants to the Aiven Platform.
 Use it to create and manage Aiven for PostgreSQL®, Aiven for Apache Kafka®,
-and other Aiven services.
-Work with your data, troubleshoot services, and deploy applications to
-Aiven Runtime.
+and other Aiven services. You can also troubleshoot services and deploy
+applications to Aiven Runtime.
 
 To start, create an [Aiven account](https://console.aiven.io/signup?campaign=mcp),
-then see [Install Aiven MCP](#configure-aiven-mcp). To control which
+then see [Set up Aiven MCP](#configure-aiven-mcp). To control which
 operations your assistant can perform, use [read-only mode](#read-only-mode) and
 [service scopes](#limit-tool-access).
 
 ## What Aiven MCP can do
 
-After you connect an AI assistant to Aiven MCP, you can perform the following
-tasks.
-
 - **Create and manage services**: Create and configure
   [Aiven for PostgreSQL](/docs/products/postgresql),
   [Aiven for Apache Kafka](/docs/products/kafka),
   [Aiven for OpenSearch®](/docs/products/opensearch), and other Aiven services.
-  Compare plans and pricing. Aiven MCP does not provide
-  OpenSearch-specific query tools.
+  Compare plans and pricing.
 - **View resources**: List projects, services, and integrations, and check the
   status, plan, and cloud region of a service.
 - **Work with PostgreSQL**: Run read-only SQL queries and supported write
@@ -64,32 +58,33 @@ tasks.
 - **Monitor and troubleshoot services**: Review metrics, logs, query activity,
   and configuration.
 - **Discover data assets and lineage**: Search tables, topics, and schemas,
-  and explore lineage with Aiven Context. Updating descriptions and tags
+  and explore lineage with Aiven Context (early availability). Updating descriptions and tags
   requires write access.
 - **Search the Aiven documentation**: Ask a question about Aiven products
-  and features. The hosted MCP server provides this tool.
+  and features. The hosted server provides this tool.
 
-### PostgreSQL data access
+### Supported data operations
 
-Aiven MCP provides the following tools for running SQL statements
-on Aiven for PostgreSQL databases:
+Aiven MCP can read and change data in Aiven for PostgreSQL and
+Aiven for Apache Kafka services. It does not support data operations on
+services hosted outside Aiven.
 
-- `aiven_pg_read`: Runs read-only statements, such as `SELECT`
-  and `EXPLAIN`.
-- `aiven_pg_write`: Runs one supported write statement at a time,
-  such as `INSERT` or `CREATE TABLE`. It rejects `DROP`, `TRUNCATE`,
-  `GRANT`, and `REVOKE`.
+- **PostgreSQL**: `aiven_pg_read` runs read-only SQL statements, such as
+  `SELECT` and `EXPLAIN`. `aiven_pg_write` runs one supported write statement
+  at a time, such as `INSERT` or `CREATE TABLE`. It blocks certain SQL
+  statements, including `DROP`, `TRUNCATE`, `GRANT`, and `REVOKE`.
+- **Apache Kafka**: Read and produce topic messages, and inspect Schema
+  Registry subjects.
+- **OpenSearch**: Aiven MCP does not provide OpenSearch-specific data tools.
 
-These tools work with Aiven for PostgreSQL databases only.
-
-The available operations depend on your permissions,
-[read-only mode](#read-only-mode), and
-[service scopes](#limit-tool-access).
+For more information, see
+[Aiven MCP tools](/docs/tools/mcp-server/available-tools).
 
 ## Prerequisites
 
 - An [Aiven account](https://console.aiven.io/signup?campaign=mcp). Aiven MCP is
-  included with your account at no extra cost.
+  included with your account at no extra cost. Resources you create through
+  Aiven MCP may incur charges based on their plans and usage.
 - An MCP-compatible client, such as Cursor, Claude Code, Claude Desktop,
   VS Code, or Gemini CLI.
 - MCP connections enabled for your organization. If you created your Aiven
@@ -117,7 +112,10 @@ For more information, see
 [Security and responsibility](#security-and-responsibility).
 :::
 
-## Install Aiven MCP {#configure-aiven-mcp}
+## Set up Aiven MCP {#configure-aiven-mcp}
+
+Connect Aiven MCP to Claude Code, Cursor, Claude Desktop, VS Code, Gemini CLI,
+or other MCP clients. You can also install it locally with `npx`.
 
 <Tabs>
 <TabItem value="claude-code" label={<McpClientTabLabel icon={ClaudeCodeIcon} label="Claude Code" />} default>
@@ -247,9 +245,11 @@ fails, see your client documentation.
 Use a local installation if you cannot use OAuth, for example in headless
 environments. The permissions of your API token apply.
 
-Run the Aiven MCP server locally with `npx` instead of using the hosted server.
-You need an [Aiven API token](/docs/platform/howto/create_authentication_token)
-to authenticate requests to Aiven. Set `AIVEN_READ_ONLY="true"` to enable
+Run Aiven MCP locally with `npx` instead of using the hosted server.
+To authenticate requests to Aiven, use an
+[Aiven API token](/docs/platform/howto/create_authentication_token).
+Do not commit configuration files containing API tokens to version control.
+Set `AIVEN_READ_ONLY="true"` to enable
 read-only mode.
 
 Set `AIVEN_ALLOW_SECRETS="true"` to let the AI agent access PostgreSQL and Kafka
@@ -268,7 +268,7 @@ non-production services. For more information, see
    ```
 
 1. Run `claude` to start Claude Code.
-1. Run `/mcp` to verify that the server is registered.
+1. Run `/mcp` to verify that Claude Code lists the server.
 
 </TabItem>
 <TabItem value="cursor" label={<McpClientTabLabel icon={CursorIcon} label="Cursor" />}>
@@ -372,270 +372,24 @@ non-production services. For more information, see
 </TabItem>
 </Tabs>
 
-After you verify the connection, try
-[creating a PostgreSQL service](#create-a-postgresql-service) or
-[creating a Kafka service](#create-a-kafka-service).
-For other tasks, see [Example prompts](#example-prompts).
-
-## Example prompts
-
-After you connect your AI assistant to Aiven MCP, try the following prompts.
-Some prompts require specific service scopes or write access.
-If your assistant cannot identify a service, specify its project name.
-
-PostgreSQL queries use the `defaultdb` database unless you specify
-another database.
-
-### Create and manage services
-
-#### List your projects
+After you restart your client, test the connection with the following prompt:
 
 ```text
 List my Aiven projects.
 ```
 
-This lists the projects you can access and checks that the connection works.
+After you verify the connection, try
+[creating a PostgreSQL service](/docs/tools/mcp-server/example-prompts#create-a-postgresql-service)
+or [creating a Kafka service](/docs/tools/mcp-server/example-prompts#create-a-kafka-service).
 
-#### Inspect a service
+## Example prompts {#example-prompts}
 
-```text
-Show me the status and configuration of my Aiven service SERVICE_NAME.
-```
+Use example prompts to create services, query PostgreSQL data, manage Kafka
+topics and messages, and troubleshoot services. Prompts list the required
+service scope and write access where they apply.
 
-Replace `SERVICE_NAME` with the name of an existing service.
-
-#### Compare plans and pricing
-
-```text
-Compare the available Aiven for PostgreSQL plans in REGION.
-Show the resources and pricing for each plan.
-```
-
-Replace `REGION` with the cloud region.
-
-The assistant uses `aiven_service_type_plans` and `aiven_service_plan_pricing`.
-
-#### Create a PostgreSQL service
-
-```text
-Create an Aiven for PostgreSQL service on the Free plan.
-If the Free plan is unavailable, show the available plans
-and pricing, and ask for confirmation before creating a service.
-```
-
-The assistant creates the service with `aiven_service_create`.
-This task requires write access. In read-only mode, allow
-`aiven_service_create` before the assistant can create the service.
-
-#### Create a Kafka service
-
-```text
-Show the available Aiven for Apache Kafka plans and pricing in REGION.
-Recommend a plan for a development workload and ask for confirmation
-before creating the service.
-```
-
-Replace `REGION` with the cloud region.
-
-The assistant creates the service with `aiven_service_create`.
-This task requires write access.
-
-#### Show connection settings
-
-```text
-Show the connection settings for my Aiven for PostgreSQL
-or Aiven for Apache Kafka service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the name of a running service.
-
-`aiven_service_connection_info` returns `service_uri` and `ca_cert`.
-For Kafka, it also returns user credentials.
-Enable **Allow connection credentials** (`allow_secrets=true`) and turn off
-[read-only mode](#read-only-mode) before you call it.
-Use this option only for a non-production service that does not hold
-sensitive data.
-
-### Work with PostgreSQL
-
-#### List tables
-
-```text
-List the tables in the public schema of my Aiven for PostgreSQL
-service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the PostgreSQL service name.
-
-The assistant runs this with `aiven_pg_read`.
-This task requires the `pg` or `all` scope.
-
-#### Query data
-
-```text
-Show the first 10 rows from TABLE_NAME in my Aiven for PostgreSQL
-service SERVICE_NAME. Use a read-only SQL query.
-```
-
-Replace `SERVICE_NAME` with the PostgreSQL service name.
-Replace `TABLE_NAME` with an existing table name.
-
-The assistant runs this with `aiven_pg_read`.
-This task requires the `pg` or `all` scope.
-
-#### Create a table
-
-```text
-Create a table named orders with an ID, customer name, order date,
-and total amount in my Aiven for PostgreSQL service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the PostgreSQL service name.
-
-The assistant runs this with `aiven_pg_write`.
-Use a development database. This task requires the `pg` or `all` scope
-and write access.
-
-#### Find slow queries
-
-```text
-Inspect my Aiven for PostgreSQL service for the slowest queries using
-pg_stat_statements. Show total time, calls, and mean time, and suggest
-indexes or rewrites for the worst offenders.
-```
-
-This retrieves query statistics and suggests optimizations.
-This task requires the `pg` or `all` scope.
-
-### Work with Apache Kafka
-
-Topic, message, schema, and connector tools act on Aiven for Apache Kafka
-services.
-
-#### List topics
-
-```text
-List the topics in my Aiven for Apache Kafka service SERVICE_NAME.
-Show the partition count and retention for each topic.
-```
-
-Replace `SERVICE_NAME` with the Kafka service name.
-
-The assistant lists topics with `aiven_kafka_topic_list`.
-This task requires the `kafka` or `all` scope.
-
-#### Create a topic
-
-```text
-Create a topic named TOPIC_NAME with 3 partitions and 7 days
-retention in my Aiven for Apache Kafka service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the Kafka service name.
-Replace `TOPIC_NAME` with the topic name.
-
-The assistant creates the topic with `aiven_kafka_topic_create`.
-This task requires the `kafka` or `all` scope and write access.
-
-#### Inspect a topic
-
-```text
-Show the configuration and partition offsets of the TOPIC_NAME topic
-in my Aiven for Apache Kafka service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the Kafka service name.
-Replace `TOPIC_NAME` with an existing topic name.
-
-The assistant inspects the topic with `aiven_kafka_topic_get`.
-This task requires the `kafka` or `all` scope.
-
-#### Read messages
-
-```text
-Show me the latest available messages from the TOPIC_NAME topic
-in my Aiven for Apache Kafka service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the Kafka service name.
-Replace `TOPIC_NAME` with an existing topic name.
-
-The assistant reads messages with `aiven_kafka_topic_message_list`.
-This task requires the `kafka` or `all` scope.
-
-#### Inspect schemas
-
-```text
-List the Schema Registry subjects in my Aiven for Apache Kafka
-service SERVICE_NAME and show the latest schema version for each subject.
-```
-
-Replace `SERVICE_NAME` with the Kafka service name.
-
-The assistant uses `aiven_kafka_schema_registry_subjects` and
-`aiven_kafka_schema_registry_subject_version_get`.
-This task requires the `kafka` or `all` scope.
-
-#### Check connector status
-
-```text
-List the Kafka Connect connectors in my Aiven for Apache Kafka
-service SERVICE_NAME and show the status of each connector.
-```
-
-Replace `SERVICE_NAME` with the Kafka service name.
-
-The assistant uses `aiven_kafka_connect_list` and
-`aiven_kafka_connect_get_connector_status`.
-This task requires the `kafka` or `all` scope.
-
-### Manage service integrations
-
-#### List integrations
-
-```text
-List the integrations for my service SERVICE_NAME.
-```
-
-Replace `SERVICE_NAME` with the service name.
-
-The assistant uses `aiven_service_integration_list`.
-This task requires the `integrations` or `all` scope.
-
-### Discover data assets and lineage
-
-#### Find data assets and lineage
-
-```text
-Search for data assets related to orders in my Aiven organization
-and show their lineage.
-```
-
-This task requires the `context` or `all` scope and access to Aiven Context.
-
-### Monitor and troubleshoot services
-
-#### Review service logs
-
-```text
-Show recent log entries for my service SERVICE_NAME
-and summarize any errors.
-```
-
-Replace `SERVICE_NAME` with the service name.
-
-The assistant uses `aiven_project_get_service_logs`.
-This task requires the `core` scope.
-
-#### Check service health
-
-```text
-Give me a health summary of every service in my Aiven project: state, plan,
-maintenance updates pending, and any nodes that are not running.
-```
-
-This summarizes the state of each service and highlights issues.
-This task requires the `core` scope, which is always included.
+For more information, see
+[Example prompts for Aiven MCP](/docs/tools/mcp-server/example-prompts).
 
 ## Read-only mode
 
@@ -643,9 +397,8 @@ Read-only mode limits the tools that can change resources or data.
 It applies at the organization level and the client level.
 
 In read-only mode, read tools such as `aiven_pg_read` and
-`aiven_kafka_topic_message_list` remain available. Write tools,
-such as `aiven_pg_write` and `aiven_kafka_topic_create`,
-are excluded by default.
+`aiven_kafka_topic_message_list` remain available. Aiven MCP excludes write
+tools, such as `aiven_pg_write` and `aiven_kafka_topic_create`, by default.
 
 At the client level, you can
 [allow specific write operations](#restrict-write-operations).
@@ -673,7 +426,7 @@ For more information, see
 
 ### Client level
 
-In [Install Aiven MCP](#configure-aiven-mcp), use the **Access** options to
+In [Set up Aiven MCP](#configure-aiven-mcp), use the **Access** options to
 configure your client:
 
 - **Full access**: Makes write tools available, subject to your Aiven user
@@ -681,9 +434,6 @@ configure your client:
 - **Read-only**: Excludes tools that modify resources or data.
 - **Read-only, plus specific writes**: Excludes write tools except those you
   select.
-
-These settings apply only to your client and cannot override an organization-level
-restriction.
 
 To configure read-only mode manually, add `read_only=true` to the hosted server
 URL or set `AIVEN_READ_ONLY=true` for a local installation. You can combine
@@ -693,18 +443,39 @@ read-only mode with service scopes:
 https://mcp.aiven.live/mcp?services_scope=pg&read_only=true
 ```
 
+### Allow specific write operations {#restrict-write-operations}
+
+To allow selected write operations while your client is in read-only mode,
+choose **Read-only, plus specific writes** under **Access** in
+[Set up Aiven MCP](#configure-aiven-mcp).
+
+For the hosted server, set `read_only=true` and add the permitted tool names
+to the `write_allowlist` URL parameter, separated by commas. For example, to
+allow Kafka topic creation:
+
+```text
+https://mcp.aiven.live/mcp?services_scope=kafka&read_only=true&write_allowlist=aiven_kafka_topic_create
+```
+
+For a local installation, set the `AIVEN_WRITE_ALLOWLIST` environment variable.
+The write allowlist applies only when you enable read-only mode. For supported
+tool names, see [Aiven MCP tools](/docs/tools/mcp-server/available-tools).
+
+The write allowlist doesn't grant additional Aiven permissions. Your user
+still needs permission to perform each allowed operation. An
+[organization-level read-only policy](#organization-level) takes precedence
+over the write allowlist.
+
 ## Limit tool access
 
 Use service scopes to control which tools are available to your AI assistant.
-Each tool performs a specific action, such as listing services or creating a
-Kafka topic.
 
 Service scopes don't change your Aiven user permissions. The MCP server can
-perform only the actions that your authenticated user is authorized to perform.
+perform only the actions that your authenticated user has permission to perform.
 
 ### Available service scopes
 
-Use the **Services** options in [Install Aiven MCP](#configure-aiven-mcp) to
+Use the **Services** options in [Set up Aiven MCP](#configure-aiven-mcp) to
 select which groups of tools are available to your AI assistant.
 
 | Scope          | Selector option       | Description                                                                                                        |
@@ -714,7 +485,7 @@ select which groups of tools are available to your AI assistant.
 | `kafka`        | Kafka                 | Tools for managing Apache Kafka topics, messages, connectors, and schemas                                          |
 | `application`  | Applications          | Tools for deploying and redeploying applications and managing version control integrations                         |
 | `integrations` | Integrations          | Tools for managing service integrations and listing available integration and endpoint types                       |
-| `opensearch`   | OpenSearch            | Includes only the `core` tools; no OpenSearch-specific tools are currently available                               |
+| `opensearch`   | OpenSearch            | Includes only the `core` tools                                                                                     |
 | `context`      | Context <EarlyBadge/> | Tools for searching data assets, viewing lineage, and updating asset descriptions and tags                         |
 | `all`          | All                   | All available tools (default)                                                                                      |
 
@@ -733,11 +504,12 @@ When configuring service scopes:
 - You can't combine `all` with other scopes. Doing so returns an error.
 - If you don't specify a scope, Aiven MCP loads all available tools.
 
-For the full list of tools, see [Available tools](#available-tools).
+For more information about the tools in each scope, see
+[Aiven MCP tools](/docs/tools/mcp-server/available-tools).
 
 ### Configure service scopes
 
-When you select service scopes in [Install Aiven MCP](#configure-aiven-mcp), the
+When you select service scopes in [Set up Aiven MCP](#configure-aiven-mcp), the
 generated configuration includes the corresponding settings. Selecting **All**
 doesn't add a `services_scope` parameter.
 
@@ -780,148 +552,22 @@ Replace `API_TOKEN` with your Aiven API token. This example uses the
 
 To verify which tools are available, open your MCP client's tool list.
 
-### Allow specific write operations {#restrict-write-operations}
+## Available tools {#available-tools}
 
-To allow selected write operations while your client is in read-only mode,
-choose **Read-only, plus specific writes** under **Access** in
-[Install Aiven MCP](#configure-aiven-mcp).
+Aiven MCP tools are grouped by service scope. The tools available to your AI
+assistant depend on your service scopes and read-only mode. Your Aiven user
+permissions determine which operations you can perform.
 
-To allow specific write operations on the hosted server, enable
-[read-only mode](#read-only-mode) and add the permitted tool names to the
-`write_allowlist` URL parameter, separated by commas. For example, to allow
-Kafka topic creation:
-
-```text
-https://mcp.aiven.live/mcp?services_scope=kafka&read_only=true&write_allowlist=aiven_kafka_topic_create
-```
-
-For a local installation, set the `AIVEN_WRITE_ALLOWLIST` environment variable.
-The write allowlist applies only when you enable read-only mode. For supported
-tool names, see [Available tools](#available-tools).
-
-The write allowlist doesn't grant additional Aiven permissions. Your user must
-still have permission to perform each allowed operation. An
-[organization-level read-only policy](#organization-level) takes precedence
-over the write allowlist.
-
-## Available tools
-
-Aiven MCP adds `aiven_service_connection_info` when you enable
-**Allow connection credentials** (`allow_secrets=true`). It returns `service_uri`
-and `ca_cert` for PostgreSQL and Kafka. It does not run in read-only mode.
-
-`aiven_docs_search` searches the Aiven documentation.
-It is available on the hosted server only.
-
-The following tables list the tools in each group.
-
-### Core
-
-| Tool | Description |
-| --- | --- |
-| `aiven_project_list` | List projects |
-| `aiven_project_get` | Get project details |
-| `aiven_list_project_clouds` | List cloud platforms for a project |
-| `aiven_project_vpc_list` | List VPCs for a project |
-| `aiven_service_list` | List or search services |
-| `aiven_service_type_plans` | List plans and cloud availability |
-| `aiven_service_type_get` | Get engine versions for a service type |
-| `aiven_service_plan_pricing` | Get pricing for a plan in a cloud |
-| `aiven_service_create` | Create a service |
-| `aiven_service_get` | Get service information |
-| `aiven_service_update` | Update a service plan, configuration, or power state |
-| `aiven_service_metrics_fetch` | Fetch metrics for a managed data service |
-| `aiven_service_application_metrics_get` | Fetch metrics for an application service |
-| `aiven_project_get_service_logs` | Get service log entries |
-| `aiven_service_query_activity` | Fetch current queries for a service |
-| `aiven_project_get_event_logs` | Get project event log entries |
-
-### PostgreSQL
-
-| Tool | Description |
-| --- | --- |
-| `aiven_pg_service_available_extensions` | List available extensions |
-| `aiven_pg_service_query_statistics` | Fetch query statistics |
-| `aiven_pg_bouncer_create` | Create a PgBouncer connection pool |
-| `aiven_pg_bouncer_update` | Update a PgBouncer connection pool |
-| `aiven_pg_bouncer_delete` | Delete a PgBouncer connection pool |
-| `aiven_pg_read` | Run a read-only SQL query |
-| `aiven_pg_write` | Run one write SQL statement |
-| `aiven_pg_optimize_query` | Suggest query and index changes |
-
-### Kafka
-
-| Tool | Description |
-| --- | --- |
-| `aiven_kafka_topic_list` | List Kafka topics |
-| `aiven_kafka_topic_create` | Create a Kafka topic |
-| `aiven_kafka_topic_get` | Get Kafka topic information |
-| `aiven_kafka_topic_update` | Update a Kafka topic |
-| `aiven_kafka_topic_delete` | Delete a Kafka topic |
-| `aiven_kafka_topic_message_list` | Read messages from a Kafka topic |
-| `aiven_kafka_topic_message_produce` | Produce messages to a Kafka topic |
-| `aiven_kafka_connect_available_connectors` | List available connector types |
-| `aiven_kafka_connect_list` | List configured connectors |
-| `aiven_kafka_connect_create_connector` | Create a connector |
-| `aiven_kafka_connect_edit_connector` | Edit a connector |
-| `aiven_kafka_connect_get_connector_status` | Get connector status |
-| `aiven_kafka_connect_pause_connector` | Pause a connector |
-| `aiven_kafka_connect_resume_connector` | Resume a connector |
-| `aiven_kafka_connect_restart_connector` | Restart a connector |
-| `aiven_kafka_connect_delete_connector` | Delete a connector |
-| `aiven_kafka_schema_registry_subjects` | List Schema Registry subjects |
-| `aiven_kafka_schema_registry_subject_version_get` | Get a Schema Registry subject version |
-
-### Applications
-
-| Tool | Description |
-| --- | --- |
-| `aiven_application_create` | Create and deploy an application |
-| `aiven_application_redeploy` | Rebuild an application from its repository |
-| `aiven_application_custom_domain_verify` | Check the CNAME record of a custom domain |
-| `aiven_vcs_integration_initialize` | Start connecting a GitHub account |
-| `aiven_vcs_integration_list` | List connected GitHub accounts |
-| `aiven_vcs_integration_repository_list` | List repositories for a GitHub account |
-| `aiven_vcs_integration_repository_branch_list` | List repository branches |
-| `aiven_vcs_integration_repository_container_manifest_files_list` | Find Containerfile, Dockerfile, and Compose files |
-| `aiven_vcs_integration_repository_scan_container_manifest` | Derive service settings from a container manifest |
-
-### Integrations
-
-| Tool | Description |
-| --- | --- |
-| `aiven_service_integration_list` | List integrations for a service |
-| `aiven_service_integration_create` | Create a service integration |
-| `aiven_service_integration_get` | Get a service integration |
-| `aiven_service_integration_update` | Update a service integration |
-| `aiven_service_integration_delete` | Delete a service integration |
-| `aiven_integration_types_list` | List integration types for a project |
-| `aiven_integration_endpoint_types_list` | List external integration endpoint types |
-
-### Context
-
-| Tool | Description |
-| --- | --- |
-| `aiven_context_search_assets` | Search assets in the Aiven Context catalog |
-| `aiven_context_get_lineage` | Trace upstream and downstream relationships |
-| `aiven_context_update_tags` | Add or remove tags on an asset |
-| `aiven_context_update_description` | Set or clear an asset description |
-
-### Documentation
-
-| Tool | Description |
-| --- | --- |
-| `aiven_docs_search` | Search the Aiven documentation |
+For more information, see
+[Aiven MCP tools](/docs/tools/mcp-server/available-tools).
 
 ## Security and responsibility
 
 :::important Important
 MCP tools can create, modify, and delete resources and data.
-Some operations, such as deleting Kafka topics, connectors, or
-service integrations, can result in data loss or service disruption.
-
-AI agents run operations from natural language prompts, which can be
-misinterpreted. Using the Aiven MCP server can result in damage to or loss of data.
+AI agents can misinterpret natural language prompts. Operations such as
+deleting Kafka topics, connectors, or service integrations can result in
+data loss or service disruption.
 
 Aiven secures the MCP server and data in transit. Your selected AI agent
 provider determines how the agent uses your data, including whether it uses
@@ -940,58 +586,24 @@ following:
   rotate them regularly.
 - **Review AI agent actions.** Review actions before they run, especially write
   or delete operations on production resources.
-- **Limit write access.** Use [read-only mode](#read-only-mode) at the
-  organization level for all users, or at the client level for an individual
-  client.
+- **Limit write access.** Use [read-only mode](#read-only-mode).
 - **Restrict access to connection credentials.** The
   **Allow connection credentials** option (`allow_secrets=true`) returns
   PostgreSQL and Kafka connection credentials, including URIs, passwords, and
   certificates, to the AI agent. Use it only for development with
   non-production services that do not hold sensitive data.
 
+Read-only mode does not prevent your AI assistant from accessing or returning
+sensitive data through permitted read operations.
+
 The Aiven MCP server can also connect directly to PostgreSQL services running
 in a private VPC.
 
-## Troubleshoot Aiven MCP
+## Troubleshoot Aiven MCP {#troubleshoot-aiven-mcp}
 
-### Cannot connect to Aiven MCP
-
-Confirm that MCP connections are enabled for your organization.
-If you are not an organization admin, ask your admin to enable them.
-
-For more information, see [Prerequisites](#prerequisites).
-
-### Service plan lookup fails
-
-If `aiven_service_type_plans` does not return a plan, call it again before
-`aiven_service_create`.
-
-### PostgreSQL queries fail
-
-For hosted `aiven_pg_read` and `aiven_pg_write` calls, allow your client IP
-address in the service IP filter.
-
-### MCP tools are unavailable
-
-If your AI assistant cannot find a tool, ensure that your MCP
-configuration includes the required service scope. For example,
-PostgreSQL data tools require the `pg` or `all` scope, and Kafka
-data tools require the `kafka` or `all` scope.
-
-The `aiven_service_connection_info` tool is available only when you enable
-**Allow connection credentials**.
-
-For more information, see [Limit tool access](#limit-tool-access).
-
-### Write operations are unavailable
-
-Confirm whether read-only mode is enabled and whether your Aiven
-user has permission to perform the operation.
-
-An organization-level read-only policy takes precedence over
-client-level settings.
-
-For more information, see [Read-only mode](#read-only-mode).
+Common problems include connection failures, missing tools, failed PostgreSQL
+queries, and write operations that do not run. For more information, see
+[Troubleshoot Aiven MCP](/docs/tools/mcp-server/troubleshooting).
 
 <RelatedPages/>
 
