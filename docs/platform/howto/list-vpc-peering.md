@@ -33,7 +33,7 @@ the public internet.
 
 Aiven allows you to set up peering connections for
 [project VPCs](/docs/platform/concepts/vpcs#project-vpcs)
-and for [organization VPCs](/docs/platform/concepts/vpcs#vpc-types).
+and for [organization VPCs](/docs/platform/concepts/vpcs#organization-vpcs).
 
 <DocCardList />
 

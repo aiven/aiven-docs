@@ -1,10 +1,11 @@
 ---
 title: Manage organization VPC peering with Google Cloud
 sidebar_label: Google Cloud peering
-limited: true
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import CollectDataGoogle from "@site/static/includes/vpc/collect-data-google.md"
 import AcceptPeeringGoogle from "@site/static/includes/vpc/accept-peering-google.md"
 import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
@@ -95,7 +96,7 @@ endpoint:
 
 ```bash
 curl --request POST \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpc/ORGANIZATION_VPC_ID/peering-connections \
   --header 'Authorization: Bearer BEARER_TOKEN' \
   --header 'content-type: application/json' \
   --data '
@@ -116,9 +117,13 @@ Replace the following placeholders with meaningful data:
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
+
 Use the
 [aiven_gcp_org_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/gcp_org_vpc_peering_connection)
-resource.
+resource:
+
+<TerraformSample filename='resources/aiven_gcp_org_vpc_peering_connection/resource.tf' />
+
 </TabItem>
 </Tabs>
 
@@ -133,7 +138,7 @@ to create the VPC peering connection in Google Cloud:
 ## Set up multiple organization VPC peerings
 
 To peer multiple Google Cloud VPC networks to your Aiven-managed organization VPC,
-[add peering connections](/docs/platform/howto/manage-org-vpc-peering-google#create-a-peering-connection)
+[add peering connections](/docs/platform/howto/manage-org-vpc-peering-google#create-the-peering-in-aiven)
 one at a time in the [Aiven Console](https://console.aiven.io).
 
 For the limit on the number of VPC peering connections allowed to a single VPC network,
@@ -142,3 +147,10 @@ see the [Google Cloud documentation](https://cloud.google.com/vpc/docs/quota).
 ## Delete the peering
 
 <DeleteOrgPeering/>
+
+<RelatedPages/>
+
+- [Manage organization VPCs](/docs/platform/howto/manage-organization-vpc)
+- [Set up an organization VPC peering](/docs/platform/howto/list-organization-vpc-peering)
+- [VPC peering in Aiven](/docs/platform/howto/list-vpc-peering)
+- [Manage project VPCs](/docs/platform/howto/manage-project-vpc)

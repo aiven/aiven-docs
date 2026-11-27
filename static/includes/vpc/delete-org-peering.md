@@ -15,7 +15,7 @@ Delete an organization VPC peering using a tool of your choice:
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
    top navigation bar.
-1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. In the sidebar, click <ConsoleLabel name="vpcs"/>.
 1. On the **Virtual private clouds** page, select an organization VPC.
 1. On the **VPC details** page, go to the **VPC peering connections** section,
    find the peering to be deleted, and click <ConsoleLabel name="actions"/> >
@@ -53,7 +53,7 @@ endpoint:
 
 ```bash
 curl --request DELETE \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections/PEERING_CONNECTION_ID \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpc/ORGANIZATION_VPC_ID/peering-connection/PEERING_CONNECTION_ID \
   --header 'Authorization: Bearer BEARER_TOKEN'
 ```
 

@@ -5,6 +5,8 @@ sidebar_label: Azure peering
 
 import DeleteOrgPeering from "@site/static/includes/vpc/delete-org-peering.md";
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import RelatedPages from "@site/src/components/RelatedPages";
+import TerraformSample from '@site/src/components/CodeSamples/TerraformSample';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -188,7 +190,7 @@ Before you start, review the
    The command might fail for the following reasons:
    - `When using this permission, the backing application of the service principal being
      created must in the local tenant`, which means your account doesn't have the required
-     permissions. See [Prerequisites](/docs/platform/howto/vnet-peering-azure#prerequisites).
+     permissions. See [Prerequisites](/docs/platform/howto/manage-org-vpc-peering-azure#prerequisites).
    - `The service principal cannot be created, updated, or restored because the service
      principal name 55f300d4-fc50-4c5e-9222-e90a6e2187fb is already in use`, in which case
      run `az ad sp show --id 55f300d4-fc50-4c5e-9222-e90a6e2187fb` and find `id` in the
@@ -258,7 +260,7 @@ you also create a service principal for the application object
 organization VPC.
 
 The Aiven application object authenticates with your Azure tenant to grant it access to
-[the service principal of the Aiven application object](/docs/platform/howto/vnet-peering-azure#aiven-app-object-permissions)
+[the service principal of the Aiven application object](/docs/platform/howto/manage-org-vpc-peering-azure#aiven-app-object-permissions)
 (`--peer-azure-tenant-id USER_TENANT_ID`).
 
 1. [Find your organization ID in the Aiven Console](/docs/platform/reference/get-resource-IDs#get-an-organization-id)
@@ -332,7 +334,7 @@ The Aiven application object authenticates with your Azure tenant to grant it ac
 
 1. Log in to the [Aiven Console](https://console.aiven.io/), and click **Admin** in the
    top navigation bar.
-1. Click <ConsoleLabel name="vpcs"/> in the sidebar.
+1. In the sidebar, click <ConsoleLabel name="vpcs"/>.
 1. On the **Virtual private clouds** page, select an organization VPC to peer.
 1. On the **VPC details** page, go to the **VPC peering connections** section and
    click **Create peering request**.
@@ -358,7 +360,7 @@ endpoint:
 
 ```bash
 curl --request POST \
-  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpcs/ORGANIZATION_VPC_ID/peering-connections \
+  --url https://api.aiven.io/v1/organization/ORGANIZATION_ID/vpc/ORGANIZATION_VPC_ID/peering-connections \
   --header 'Authorization: Bearer BEARER_TOKEN' \
   --header 'content-type: application/json' \
   --data '
@@ -385,9 +387,14 @@ Replace the following placeholders with meaningful data:
 
 </TabItem>
 <TabItem value="tf" label="Aiven Provider for Terraform">
+
 Use the
 [aiven_azure_org_vpc_peering_connection](https://registry.terraform.io/providers/aiven/aiven/latest/docs/resources/azure_org_vpc_peering_connection)
-resource.
+resource:
+
+<TerraformSample
+  filename='resources/aiven_azure_org_vpc_peering_connection/resource.tf' />
+
 </TabItem>
 </Tabs>
 
@@ -397,14 +404,14 @@ resource.
 from your Azure VNet to the Aiven organization VPC:
 
 1. Log out the Azure user
-   [you logged in with](/docs/platform/howto/vnet-peering-azure#azure-app-object-permissions):
+   [you logged in with](/docs/platform/howto/manage-org-vpc-peering-azure#azure-app-object-permissions):
 
    ```bash
    az account clear
    ```
 
 1. Log in the Azure application object to your AD tenant using the
-   [password](/docs/platform/howto/vnet-peering-azure#azure-app-object-permissions):
+   [password](/docs/platform/howto/manage-org-vpc-peering-azure#azure-app-object-permissions):
 
    ```bash
    az login              \
@@ -451,7 +458,7 @@ from your Azure VNet to the Aiven organization VPC:
    ```
 
    for two reasons related to the
-   [role assignment](/docs/platform/howto/vnet-peering-azure#azure-app-object-permissions):
+   [role assignment](/docs/platform/howto/manage-org-vpc-peering-azure#azure-app-object-permissions):
 
    - Role assignment hasn't taken effect yet, in which case try logging in again and
      recreating the peering.
@@ -476,8 +483,9 @@ from your Azure VNet to the Aiven organization VPC:
 
 <DeleteOrgPeering/>
 
-## Related pages
+<RelatedPages/>
 
 - [Manage organization VPCs](/docs/platform/howto/manage-organization-vpc)
 - [Set up an organization VPC peering](/docs/platform/howto/list-organization-vpc-peering)
+- [VPC peering in Aiven](/docs/platform/howto/list-vpc-peering)
 - [Manage project VPCs](/docs/platform/howto/manage-project-vpc)
