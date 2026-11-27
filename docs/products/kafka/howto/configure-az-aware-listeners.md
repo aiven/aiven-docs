@@ -119,7 +119,7 @@ Aiven account team or [Aiven support](/docs/platform/howto/support#create-a-supp
 Find the AZ where your Kafka producer or consumer runs.
 
 <Tabs groupId="cloud-provider">
-<TabItem value="aws" label="AWS" default>
+<TabItem value="aws" label="Amazon EC2" default>
 
 On an Amazon EC2 instance, use Instance Metadata Service Version 2 (IMDSv2) to get the
 AZ ID:
@@ -145,9 +145,9 @@ same AZ name to different physical AZs in different accounts. For more informati
 [Zone ID formats](/docs/products/kafka/howto/configure-preferred-zones#zone-id-formats).
 
 </TabItem>
-<TabItem value="gcp" label="Google Cloud">
+<TabItem value="gcp" label="Google Compute Engine">
 
-On a Google Compute Engine instance, retrieve the AZ name:
+On a Google Compute Engine instance, get the AZ name:
 
 ```bash
 curl -fsS \
@@ -161,6 +161,54 @@ Example output:
 ```text
 europe-west1-b
 ```
+
+</TabItem>
+<TabItem value="eks" label="Amazon EKS">
+
+On Kubernetes®, a pod runs in the same AZ as its node. On Amazon Elastic
+Kubernetes Service (EKS), the `topology.k8s.aws/zone-id` node label contains the AZ ID.
+
+To list the nodes and their AZ IDs, run:
+
+```bash
+kubectl get nodes -L topology.k8s.aws/zone-id
+```
+
+Example output:
+
+```text
+NAME                          STATUS   ROLES    AGE   VERSION   ZONE-ID
+ip-10-0-1-12.ec2.internal     Ready    <none>   12d   v1.33.4   use1-az1
+ip-10-0-2-34.ec2.internal     Ready    <none>   12d   v1.33.4   use1-az2
+ip-10-0-3-56.ec2.internal     Ready    <none>   12d   v1.33.4   use1-az4
+```
+
+Use the AZ ID from the `ZONE-ID` column when you choose an AZ-specific Kafka endpoint.
+An empty `ZONE-ID` cell means that node has no AZ label.
+
+</TabItem>
+<TabItem value="gke" label="Google Kubernetes Engine">
+
+On Kubernetes, a pod runs in the same AZ as its node. On Google Kubernetes Engine
+(GKE), the `topology.kubernetes.io/zone` node label contains the AZ name.
+
+To list the nodes and their AZ names, run:
+
+```bash
+kubectl get nodes -L topology.kubernetes.io/zone
+```
+
+Example output:
+
+```text
+NAME                               STATUS   ROLES    AGE   VERSION   ZONE
+gke-cluster-pool-1-a1b2c3d4-x1y2   Ready    <none>   12d   v1.33.4   europe-west1-b
+gke-cluster-pool-1-e5f6g7h8-z3w4   Ready    <none>   12d   v1.33.4   europe-west1-c
+gke-cluster-pool-1-i9j0k1l2-v5u6   Ready    <none>   12d   v1.33.4   europe-west1-d
+```
+
+Use the AZ name from the `ZONE` column when you choose an AZ-specific Kafka endpoint.
+An empty `ZONE` cell means that node has no AZ label.
 
 </TabItem>
 </Tabs>
@@ -265,6 +313,70 @@ instance metadata service returns.
 
 1. Connect your client and confirm that it can produce or consume records for a diskless
    topic.
+
+### Configure Kafka clients on Kubernetes
+
+Each AZ has a different endpoint for diskless-topic traffic. Create one Deployment for
+each AZ, schedule its pods only in that AZ with node affinity, and set that AZ's endpoint
+on the pods.
+
+The following example runs a producer in the `use1-az1` AZ on Amazon EKS:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-producer-use1-az1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-producer
+      az: use1-az1
+  template:
+    metadata:
+      labels:
+        app: my-producer
+        az: use1-az1
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  # On GKE, use topology.kubernetes.io/zone and the AZ name
+                  - key: topology.k8s.aws/zone-id
+                    operator: In
+                    values: ["use1-az1"]
+      containers:
+        - name: producer
+          image: APPLICATION_IMAGE
+          env:
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: "AZ_SPECIFIC_HOST:AZ_SPECIFIC_PORT"
+            # Keep your existing authentication settings and client.id
+```
+
+Replace the following:
+
+- `APPLICATION_IMAGE`: container image of your Kafka client application
+- `AZ_SPECIFIC_HOST`: hostname of the AZ-specific endpoint for `use1-az1`
+- `AZ_SPECIFIC_PORT`: port of the AZ-specific endpoint for `use1-az1`
+
+Configure your application to set `bootstrap.servers` from the `KAFKA_BOOTSTRAP_SERVERS`
+environment variable. Repeat the Deployment for each AZ where your clients run. In each
+copy, change the name, the `az` labels, the affinity value, and the endpoint. To avoid
+duplicating the manifest, generate the per-AZ Deployments with a tool such as Helm or
+Kustomize.
+
+The `requiredDuringSchedulingIgnoredDuringExecution` rule ensures that Kubernetes
+schedules the pods only on nodes in the matching AZ, including after rescheduling. If
+the AZ has no node with available capacity, the pods stay pending. Set `replicas` for
+each Deployment to handle the traffic from that AZ.
+
+Avoid setting one AZ-specific endpoint on a Deployment with pods in more than one AZ.
+Every pod gets that same endpoint, so pods outside its AZ send diskless-topic traffic
+across AZ boundaries.
 
 ### Verify AZ-local routing
 
