@@ -159,12 +159,9 @@ More information on this resource and its configuration options are available in
 ## Add an Aiven ACL entry
 
 :::note
-When you authenticate with OAuth 2.0/OIDC, an Aiven ACL entry only takes effect when a
-[matching Aiven service user](/docs/products/kafka/howto/add-manage-service-users)
-also exists. Use the OIDC principal identifier, such as the service principal's
-GUID, as the service user username. Kafka-native ACLs do not have this
-requirement. For more information, see
-[Enable OAuth 2.0/OIDC authentication](/docs/products/kafka/howto/enable-oidc).
+To use an Aiven ACL with an OAuth 2.0/OIDC principal, enter the principal identifier
+as the **Username**, such as the service principal's GUID. A matching Aiven service
+user is not required.
 :::
 
 <Tabs groupId="acl-methods">

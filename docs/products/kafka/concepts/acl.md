@@ -40,7 +40,8 @@ this behavior.
 
 An Aiven ACL entry consists of the following elements:
 
-- **Username**: The Aiven for Apache Kafka service username or a wildcard pattern.
+- **Username**: The username of an Aiven service user, the identifier of a principal
+  defined in an external identity provider, or a wildcard pattern.
 - **Permission**: One of `read`, `write`, `readwrite`, or `admin`.
 - **Associated topics**: Specific Kafka topics or wildcard patterns.
 
